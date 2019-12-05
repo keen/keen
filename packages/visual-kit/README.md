@@ -1,3 +1,3 @@
-# `@keen/visual-kit`
+# `@keen/ui-core`
 
 > TODO: description

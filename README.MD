@@ -9,7 +9,7 @@ This project contains mono-repository for Keen Front-End applications.
 ├── ...
 ├── packages            
 │   ├── dashboard    
-│   ├── visual-kit    
+│   ├── ui-core
 │   ├── charts        
 │   ├── explorer      
 │   └── theme-editor
