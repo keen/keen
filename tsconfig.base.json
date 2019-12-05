@@ -1,18 +1,21 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "noUnusedParameters": false,
     "noUnusedLocals": true,
-    "skipLibCheck": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "removeComments": true,
-    "sourceMap": true,
     "declaration": true,
-    "declarationMap": true,
     "module": "esnext",
     "target": "es5",
     "jsx": "react",
-    "esModuleInterop": true
-  }
+  },
+  "exclude": [
+    "webpack.**.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

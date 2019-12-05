@@ -1,0 +1,31 @@
+{
+  "name": "@keen/visual-kit",
+  "version": "0.0.1",
+  "description": "Keen visual components",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "storybook": "start-storybook",
+    "prebuild": "rimraf dist",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
