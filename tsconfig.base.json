@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "noUnusedParameters": false,
     "noUnusedLocals": true,
     "moduleResolution": "node",

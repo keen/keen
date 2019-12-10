@@ -1,5 +1,5 @@
-import Hello from './hello.component';
+import { Title } from './typhography';
 
 export default {
-  Hello,
+  Title,
 };

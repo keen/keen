@@ -7,11 +7,30 @@
   "scripts": {
     "commit": "npx git-cz",
     "prettier": "prettier --write 'packages/**/*.{js,ts,tsx,json}'",
-    "lint": "eslint --ext .ts --ext .tsx packages/"
+    "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
+    "test": "jest",
+    "storybook": "start-storybook"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.jest.json"
+      }
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "<rootDir>/jestSetup.ts"
+    ]
   },
   "devDependencies": {
     "@storybook/react": "^5.2.8",
     "@storybook/theming": "^5.2.8",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.14",
     "@types/storybook-addon-jsx": "^7.0.1",
     "@types/webpack": "^4.41.0",
@@ -19,16 +38,21 @@
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
     "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "jest": "^24.9.0",
     "lerna": "^3.18.4",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "storybook": "^5.1.11",
     "storybook-addon-jsx": "^7.1.13",
+    "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.2",
