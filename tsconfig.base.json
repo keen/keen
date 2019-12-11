@@ -12,6 +12,11 @@
     "module": "esnext",
     "target": "es5",
     "jsx": "react",
+    "baseUrl": "./packages",
+    "paths": {
+      "@keen/charts": ["packages/charts"],
+      "@keen/ui-core": ["packages/ui-core"],
+    }
   },
   "exclude": [
     "webpack.**.ts",

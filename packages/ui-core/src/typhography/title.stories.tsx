@@ -7,7 +7,7 @@ import { theme } from '../theme';
 
 import Title from './title.component';
 
-storiesOf('Components / Typhography', module).add('Title', () => (
+storiesOf('UI Core / Typhography', module).add('Title', () => (
   <ThemeProvider theme={theme}>
     <Title>Title Level 1</Title>
     <Title level={2}>Title Level 2</Title>

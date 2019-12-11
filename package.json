@@ -8,8 +8,8 @@
     "commit": "npx git-cz",
     "prettier": "prettier --write 'packages/**/*.{js,ts,tsx,json}'",
     "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
-    "test": "jest",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "test": "jest"
   },
   "jest": {
     "preset": "ts-jest",

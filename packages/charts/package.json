@@ -23,5 +23,14 @@
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
+  },
+  "dependencies": {
+    "@keen/ui-core": "^0.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "recharts": "^2.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@types/recharts": "^1.8.3"
   }
 }

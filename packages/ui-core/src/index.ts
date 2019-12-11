@@ -1,5 +1,5 @@
 import { Title } from './typhography';
 
-export default {
-  Title,
-};
+import { Box } from './components';
+
+export { Title, Box };
