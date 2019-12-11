@@ -1,0 +1,42 @@
+version: 2.1
+
+executors:
+  nodejs:
+    docker:
+      - image: circleci/node:latest
+
+jobs:
+  build:
+    executor: nodejs
+    working_directory: ~/tmp
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-deps-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - save_cache:
+          key: npm-deps-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Lint
+          command: yarn lint
+      - run:
+          name: Unit Tests
+          command: yarn test
+      - run:
+          name: Build
+          command: npx lerna run build
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              ignore: /.*/
