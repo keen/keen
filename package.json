@@ -25,6 +25,11 @@
       "<rootDir>/jestSetup.ts"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "@storybook/react": "^5.2.8",
     "@storybook/theming": "^5.2.8",
@@ -38,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
     "babel-loader": "^8.0.6",
+    "commitizen": "^4.0.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
@@ -46,6 +52,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "git-cz": "^3.3.0",
     "jest": "^24.9.0",
     "lerna": "^3.18.4",
     "prettier": "^1.19.1",
