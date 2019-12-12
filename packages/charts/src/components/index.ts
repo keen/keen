@@ -1,3 +1,6 @@
 import Legend from './legend.component';
+import ChartBase from './chart-base.component';
 
-export { Legend };
+import Axes from './axes.component';
+
+export { ChartBase, Legend, Axes };
