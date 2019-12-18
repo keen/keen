@@ -43,8 +43,8 @@ storiesOf('Charts / Components', module)
       },
       axisY: {
         enabled: boolean('enabled', true, 'Axis Y'),
-        tickSize: number('tickSizeY', 10, {}, 'Axis Y'),
-        tickPadding: number('tickPaddingY', 10, {}, 'Axis Y'),
+        tickSize: number('tickSize', 10, {}, 'Axis Y'),
+        tickPadding: number('tickPadding', 10, {}, 'Axis Y'),
       },
     };
 
