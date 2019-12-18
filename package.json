@@ -13,6 +13,19 @@
     "build-storybook": "build-storybook -c .storybook -o .out",
     "publish-storybook": "gh-pages -d dist"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "yarn prettier",
+      "eslint --fix",
+      "git add *"
+    ]
+  },
   "jest": {
     "preset": "ts-jest",
     "globals": {
@@ -33,6 +46,8 @@
     }
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "@storybook/theming": "^5.2.8",
@@ -57,8 +72,10 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "gh-pages": "^2.1.1",
     "git-cz": "^3.3.0",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
     "lerna": "^3.18.4",
+    "lint-staged": "^9.5.0",
     "lorem-ipsum": "^2.0.3",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
