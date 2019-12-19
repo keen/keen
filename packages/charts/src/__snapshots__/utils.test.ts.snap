@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen/charts - utils generateTicks() should create ticks for horizontal band scale 1`] = `
+Array [
+  Object {
+    "size": 10,
+    "text": "Sales",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "Marketing",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "E-commerce",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 14,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 14,
+    "x": 0.5,
+    "y": 0,
+  },
+]
+`;
+
+exports[`@keen/charts - utils generateTicks() should create ticks for horizontal linear scale 1`] = `
+Array [
+  Object {
+    "size": 10,
+    "text": 0,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 10,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 20,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 30,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 40,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 50,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 60,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 70,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 80,
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": 90,
+    "x": 0.5,
+    "y": 0,
+  },
+]
+`;
+
+exports[`@keen/charts - utils generateTicks() should create ticks for vertical band scale 1`] = `
+Array [
+  Object {
+    "size": 10,
+    "text": "Sales",
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": "Marketing",
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": "E-commerce",
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 14,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 14,
+    "x": 0,
+    "y": -0.5,
+  },
+]
+`;
+
+exports[`@keen/charts - utils generateTicks() should create ticks for vertical linear scale 1`] = `
+Array [
+  Object {
+    "size": 10,
+    "text": 0,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 10,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 20,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 30,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 40,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 50,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 60,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 70,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 80,
+    "x": 0,
+    "y": -0.5,
+  },
+  Object {
+    "size": 10,
+    "text": 90,
+    "x": 0,
+    "y": -0.5,
+  },
+]
+`;
+
+exports[`@keen/charts - utils getScaleValues() should return ticks for linear scale 1`] = `
+Array [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+]
+`;

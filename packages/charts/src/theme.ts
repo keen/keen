@@ -11,6 +11,7 @@ export const colors = {
   marine: '#85b4c3',
   pink: '#f4q083',
   gray: '#E1E2E4',
+  darkBlue: '#27566D',
 };
 
 export const chartColors = [
@@ -26,14 +27,34 @@ export const chartColors = [
 export const keenTheme: ChartTheme = {
   colors: chartColors,
   axisX: {
-    enabled: false,
+    enabled: true,
     tickSize: 10,
     tickPadding: 5,
+    color: colors.darkBlue,
+    labels: {
+      enabled: true,
+      typhography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontColor: colors.black,
+      },
+    },
   },
   axisY: {
-    enabled: false,
+    enabled: true,
     tickSize: 0,
     tickPadding: 5,
+    color: colors.darkBlue,
+    labels: {
+      enabled: true,
+      typhography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontColor: colors.black,
+      },
+    },
   },
   gridX: {
     enabled: true,
@@ -42,5 +63,5 @@ export const keenTheme: ChartTheme = {
   gridY: {
     enabled: true,
     color: colors.gray,
-  },
+  }
 };

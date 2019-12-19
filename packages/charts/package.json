@@ -4,7 +4,7 @@
   "description": "Keen charts",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "directories": {
