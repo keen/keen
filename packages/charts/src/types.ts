@@ -10,16 +10,25 @@ export type Margins = {
   right: number;
 };
 
+export type Layout = 'vertical' | 'horizontal';
+
 export type AxisSettins = {
   enabled: boolean;
   tickSize: number;
   tickPadding: number;
 };
 
+export type GridSettings = {
+  enabled: boolean;
+  color: string;
+};
+
 export type ChartTheme = {
   colors: string[];
   axisX: AxisSettins;
   axisY: AxisSettins;
+  gridX: GridSettings;
+  gridY: GridSettings;
 };
 
 export type CommonChartProps = {

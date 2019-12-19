@@ -10,7 +10,7 @@
     "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
     "test": "jest",
     "storybook": "start-storybook -p 3000",
-    "build-storybook": "build-storybook -c .storybook -o .out",
+    "build-storybook": "build-storybook -c .storybook -o dist",
     "publish-storybook": "gh-pages -d dist"
   },
   "husky": {
@@ -20,7 +20,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{ts,tsx}": [
       "yarn prettier",
       "eslint --fix",
       "git add *"

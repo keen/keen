@@ -61,6 +61,27 @@ describe('@keen/charts', () => {
         `);
       });
 
+      it('should increase domain for xScale', () => {
+        const data = [
+          { label: 'Cats', adopted: 12 },
+          { label: 'Dogs', adopted: 17 },
+          { label: 'Horses', adopted: 2 },
+        ];
+
+        const { xScale } = generateHorizontalBars({
+          data,
+          ...verticalBarChart,
+          keys: ['adopted'],
+        });
+
+        expect(xScale.domain()).toMatchInlineSnapshot(`
+          Array [
+            0,
+            18,
+          ]
+        `);
+      });
+
       it('should create proper domain for yScale', () => {
         const { yScale } = generateHorizontalBars(chart);
 
@@ -103,6 +124,27 @@ describe('@keen/charts', () => {
           Array [
             -3,
             30,
+          ]
+        `);
+      });
+
+      it('should increase domain for yScale', () => {
+        const data = [
+          { label: 'January', revenue: 33 },
+          { label: 'February', revenue: 21 },
+          { label: 'March', revenue: 25 },
+        ];
+
+        const { yScale } = generateVerticalBars({
+          data,
+          ...verticalBarChart,
+          keys: ['revenue'],
+        });
+
+        expect(yScale.domain()).toMatchInlineSnapshot(`
+          Array [
+            0,
+            35,
           ]
         `);
       });

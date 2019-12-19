@@ -6,16 +6,18 @@ import {
   number,
   select,
   object,
+  color,
 } from '@storybook/addon-knobs';
 
 import BarChart from './bar-chart.component';
-import { LayoutType } from './bar-chart.utils';
 
-import { keenTheme } from '../theme';
+import { keenTheme, colors } from '../theme';
+
+import { Layout } from '../types';
 
 const chartData = [
-  { name: 'Windows', users: 3, licenses: 12 },
-  { name: 'MacOS', users: 19, licenses: 20 },
+  { name: 'Windows', users: 3, licenses: 52 },
+  { name: 'MacOS', users: 19, licenses: 82 },
   { name: 'Linux', users: 20, licenses: 15 },
 ];
 
@@ -43,8 +45,16 @@ storiesOf('Charts / Components', module)
       },
       axisY: {
         enabled: boolean('enabled', true, 'Axis Y'),
-        tickSize: number('tickSize', 10, {}, 'Axis Y'),
+        tickSize: number('tickSize', 0, {}, 'Axis Y'),
         tickPadding: number('tickPadding', 10, {}, 'Axis Y'),
+      },
+      gridX: {
+        enabled: boolean('enabled', true, 'Grid X'),
+        color: color('color', colors.gray, 'Grid X'),
+      },
+      gridY: {
+        enabled: boolean('enabled', true, 'Grid Y'),
+        color: color('color', colors.gray, 'Grid Y'),
       },
     };
 
@@ -53,9 +63,7 @@ storiesOf('Charts / Components', module)
         labelSelector="name"
         barPadding={number('barPadding', 0.1, {}, 'All')}
         keys={['users', 'licenses']}
-        layout={
-          select('layout', options, options.vertical, 'All') as LayoutType
-        }
+        layout={select('layout', options, options.vertical, 'All') as Layout}
         svgDimensions={object('svg', svgDimensions, 'All')}
         margins={object('margins', margins, 'All')}
         theme={theme}

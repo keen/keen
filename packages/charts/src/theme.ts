@@ -10,6 +10,7 @@ export const colors = {
   yellow: '#e29b1e',
   marine: '#85b4c3',
   pink: '#f4q083',
+  gray: '#E1E2E4',
 };
 
 export const chartColors = [
@@ -31,7 +32,15 @@ export const keenTheme: ChartTheme = {
   },
   axisY: {
     enabled: false,
-    tickSize: 10,
+    tickSize: 0,
     tickPadding: 5,
+  },
+  gridX: {
+    enabled: true,
+    color: colors.gray,
+  },
+  gridY: {
+    enabled: true,
+    color: colors.gray,
   },
 };
