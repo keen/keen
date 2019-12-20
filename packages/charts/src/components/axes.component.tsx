@@ -10,6 +10,8 @@ type Props = {
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
 };
 
+const X_AXIS_PADDING = 5;
+
 const Axes = ({ xScale, yScale }: Props) => {
   const { theme, margins, svgDimensions } = useContext(
     ChartContext
@@ -17,7 +19,7 @@ const Axes = ({ xScale, yScale }: Props) => {
 
   const axisX = theme.axisX.enabled && {
     x: 0,
-    y: svgDimensions.height - margins.bottom,
+    y: svgDimensions.height - margins.bottom + X_AXIS_PADDING,
     orientation: Orientation.BOTTOM,
     scale: xScale,
   };
@@ -27,6 +29,7 @@ const Axes = ({ xScale, yScale }: Props) => {
     y: 0,
     orientation: Orientation.LEFT,
     scale: yScale,
+    lineEnabled: false,
   };
 
   return (

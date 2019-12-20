@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import styled from 'styled-components';
 import { ScaleBand, ScaleLinear } from 'd3-scale';
 import { axisLeft, axisBottom } from 'd3-axis';
 import { select } from 'd3-selection';
@@ -15,6 +16,7 @@ type Props = Omit<AxisSettins, 'enabled'> & {
   scale: ScaleBand<string> | ScaleLinear<number, number>;
   x: number;
   y: number;
+  lineEnabled?: boolean;
 };
 
 const AXIS_MODIFIERS = {
@@ -22,20 +24,37 @@ const AXIS_MODIFIERS = {
   left: axisLeft,
 };
 
-const Axis = ({ orientation, scale, tickSize, tickPadding, x, y }: Props) => {
+const StyledAxis = styled.g<{
+  x: number;
+  y: number;
+  lineEnabled: boolean;
+}>`
+  transform: translate(${props => props.x + 'px'}, ${props => props.y + 'px'});
+  path {
+    display: ${props => (props.lineEnabled ? 'block' : 'none')};
+  }
+`;
+
+const Axis = ({
+  orientation,
+  scale,
+  tickSize,
+  tickPadding,
+  x,
+  y,
+  lineEnabled = true,
+}: Props) => {
   const el = useRef(null);
 
   useEffect(() => {
-    select(el.current)
-      .attr('transform', `translate(${x}, ${y})`)
-      .call(
-        AXIS_MODIFIERS[orientation](scale as any)
-          .tickSize(tickSize)
-          .tickPadding(tickPadding)
-      );
+    select(el.current).call(
+      AXIS_MODIFIERS[orientation](scale as any)
+        .tickSize(tickSize)
+        .tickPadding(tickPadding)
+    );
   });
 
-  return <g ref={el} />;
+  return <StyledAxis lineEnabled={lineEnabled} x={x} y={y} ref={el} />;
 };
 
 export default Axis;

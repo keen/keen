@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { generateBars, LayoutType } from './bar-chart.utils';
+import { generateBars } from './bar-chart.utils';
 
 import Bars from './bars.component';
 
-import { ChartBase, Axes } from '../components';
+import { ChartBase, CartesianGrid, Axes } from '../components';
 
-import { CommonChartProps } from '../types';
+import { CommonChartProps, Layout } from '../types';
 
 type Props = {
   data: object[];
@@ -15,7 +15,7 @@ type Props = {
   maxValue?: number | 'auto';
   barPadding?: number;
   keys?: string[];
-  layout?: LayoutType;
+  layout?: Layout;
 } & CommonChartProps;
 
 const BarChart = ({
@@ -46,6 +46,7 @@ const BarChart = ({
   return (
     <>
       <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
+        <CartesianGrid xScale={xScale} yScale={yScale} />
         <Axes xScale={xScale} yScale={yScale} />
         <Bars bars={bars} />
       </ChartBase>

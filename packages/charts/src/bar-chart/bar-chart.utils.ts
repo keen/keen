@@ -1,9 +1,7 @@
-import { scaleBand, scaleLinear } from 'd3-scale';
+import { scaleBand, scaleLinear, ScaleLinear } from 'd3-scale';
 import { max, min } from 'd3-array';
 
-import { Dimension, Margins } from '../types';
-
-export type LayoutType = 'vertical' | 'horizontal';
+import { Dimension, Margins, Layout } from '../types';
 
 type Options = {
   data: Record<string, any>[];
@@ -11,7 +9,7 @@ type Options = {
   labelSelector: string;
   dimension: Dimension;
   margins: Margins;
-  layout: LayoutType;
+  layout: Layout;
   barPadding: number;
   minValue?: number | 'auto';
   maxValue?: number | 'auto';
@@ -54,6 +52,20 @@ export const calculateRange = (
   };
 };
 
+export const calculateScaleDomain = (
+  scale: ScaleLinear<number, number>,
+  minimum: number,
+  maximum: number
+) => {
+  const ticks = scale.ticks();
+  const ticksLength = ticks.length;
+
+  if (maximum > ticks[ticksLength - 1]) {
+    const difference = Math.floor(maximum / (ticksLength - 1));
+    scale.domain([minimum, ticksLength * difference]);
+  }
+};
+
 export const generateHorizontalBars = ({
   data,
   keys,
@@ -70,6 +82,8 @@ export const generateHorizontalBars = ({
   const xScale = scaleLinear()
     .range([margins.left, dimension.width - margins.right])
     .domain([minimum, maximum]);
+
+  calculateScaleDomain(xScale, minimum, maximum);
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
@@ -134,6 +148,8 @@ export const generateVerticalBars = ({
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])
     .domain([minimum, maximum]);
+
+  calculateScaleDomain(yScale, minimum, maximum);
 
   const xGroupScale = scaleBand()
     .rangeRound([0, xScale.bandwidth()])
