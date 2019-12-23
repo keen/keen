@@ -4,11 +4,11 @@ import { generateBars } from './bar-chart.utils';
 
 import Bars from './bars.component';
 
-import { ChartBase, Grid, Axes } from '../components';
+import { ChartBase, Grid, Axes } from '../../components';
 
-import { CommonChartProps, Layout } from '../types';
+import { CommonChartProps, Layout } from '../../types';
 
-type Props = {
+export type Props = {
   data: object[];
   labelSelector: string;
   minValue?: number | 'auto';
@@ -44,13 +44,11 @@ const BarChart = ({
   });
 
   return (
-    <>
-      <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
-        <Grid xScale={xScale} yScale={yScale} />
-        <Axes xScale={xScale} yScale={yScale} />
-        <Bars bars={bars} />
-      </ChartBase>
-    </>
+    <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
+      <Grid xScale={xScale} yScale={yScale} />
+      <Axes xScale={xScale} yScale={yScale} />
+      <Bars bars={bars} />
+    </ChartBase>
   );
 };
 

@@ -2,12 +2,12 @@ import React from 'react';
 
 import { ChartContext } from '../contexts';
 
-import { Margins, Dimension, ChartTheme } from '../types';
+import { Margins, Dimension, Theme } from '../types';
 
 type Props = {
   svgDimensions: Dimension;
   margins: Margins;
-  theme: ChartTheme;
+  theme: Theme;
   children: React.ReactNode;
 };
 

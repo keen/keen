@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { colors } from '../theme';
-
 type Props = {
   backgroundColor?: string;
   border?: string;
@@ -9,7 +7,10 @@ type Props = {
 };
 
 const Card = styled.div<Props>`
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
   background: ${props => props.backgroundColor};
   border: ${props => props.border}
   box-shadow: ${props =>
@@ -18,7 +19,7 @@ const Card = styled.div<Props>`
 
 Card.defaultProps = {
   border: 'none',
-  backgroundColor: colors.white,
+  backgroundColor: '#fff',
   hasShadow: true,
 };
 

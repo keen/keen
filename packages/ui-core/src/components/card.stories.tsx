@@ -4,8 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, color, boolean } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 
-import { colors } from '../theme';
-
 import Card from './card.component';
 
 const Wrapper = styled.div`
@@ -19,7 +17,7 @@ storiesOf('Charts / Components', module)
       <Card
         hasShadow={boolean('hasShadow', true)}
         border={text('border', 'none')}
-        backgroundColor={color('backgroundColor', colors.white)}
+        backgroundColor={color('backgroundColor', 'white')}
       >
         {loremIpsum()}
       </Card>
