@@ -1,6 +1,9 @@
 {
   "name": "keen",
   "private": true,
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
@@ -9,6 +12,7 @@
     "prettier": "prettier --write 'packages/**/*.{js,ts,tsx,json}'",
     "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
     "test": "jest",
+    "test:cov": "jest --coverage",
     "storybook": "start-storybook -p 3000",
     "build-storybook": "build-storybook -c .storybook -o dist",
     "publish-storybook": "gh-pages -d dist"
@@ -31,6 +35,14 @@
     "globals": {
       "ts-jest": {
         "tsConfig": "<rootDir>/tsconfig.jest.json"
+      }
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
       }
     },
     "snapshotSerializers": [

@@ -22,8 +22,19 @@ const chartData = [
 ];
 
 const svgDimensions = {
-  width: 500,
-  height: 300,
+  width: 700,
+  height: 500,
+};
+
+const typhographyOptions = {
+  fontStyle: {
+    normal: 'normal',
+    italic: 'italic',
+  },
+  fontWeight: {
+    normal: 'normal',
+    bold: 'bold',
+  },
 };
 
 const options = {
@@ -39,33 +50,73 @@ storiesOf('Charts / Components', module)
     const theme = {
       ...keenTheme,
       axisX: {
-        enabled: boolean('enabled', true, 'Axis X'),
-        tickSize: number('tickSize', 10, {}, 'Axis X'),
-        tickPadding: number('tickPadding', 10, {}, 'Axis X'),
+        enabled: boolean('Enabled', true, 'Axis X'),
+        tickSize: number('Tick Size', 10, {}, 'Axis X'),
+        tickPadding: number('Tick Padding', 10, {}, 'Axis X'),
+        color: color('Line Color', colors.darkBlue, 'Axis X'),
+        labels: {
+          enabled: boolean('Show Labels', true, 'Axis X'),
+          typhography: {
+            fontSize: number('Font Size', 10, {}, 'Axis X'),
+            fontStyle: select(
+              'Font Style',
+              typhographyOptions.fontStyle,
+              typhographyOptions.fontStyle.normal,
+              'Axis X'
+            ) as any,
+            fontWeight: select(
+              'Font Weight',
+              typhographyOptions.fontWeight,
+              typhographyOptions.fontWeight.normal,
+              'Axis X'
+            ) as any,
+            fontColor: color('Color', colors.black, 'Axis X'),
+          },
+        },
       },
       axisY: {
-        enabled: boolean('enabled', true, 'Axis Y'),
-        tickSize: number('tickSize', 0, {}, 'Axis Y'),
-        tickPadding: number('tickPadding', 10, {}, 'Axis Y'),
+        enabled: boolean('Enabled', true, 'Axis Y'),
+        tickSize: number('Tick Size', 10, {}, 'Axis Y'),
+        tickPadding: number('Tick Padding', 10, {}, 'Axis Y'),
+        color: color('Line Color', colors.darkBlue, 'Axis Y'),
+        labels: {
+          enabled: boolean('Show Labels', true, 'Axis Y'),
+          typhography: {
+            fontSize: number('Font Size', 10, {}, 'Axis Y'),
+            fontStyle: select(
+              'Font Style',
+              typhographyOptions.fontStyle,
+              typhographyOptions.fontStyle.normal,
+              'Axis Y'
+            ) as any,
+            fontWeight: select(
+              'Font Weight',
+              typhographyOptions.fontWeight,
+              typhographyOptions.fontWeight.normal,
+              'Axis Y'
+            ) as any,
+            fontColor: color('Color', colors.black, 'Axis Y'),
+          },
+        },
       },
       gridX: {
-        enabled: boolean('enabled', true, 'Grid X'),
-        color: color('color', colors.gray, 'Grid X'),
+        enabled: boolean('Enabled', true, 'Grid X'),
+        color: color('Color', colors.gray, 'Grid X'),
       },
       gridY: {
-        enabled: boolean('enabled', true, 'Grid Y'),
-        color: color('color', colors.gray, 'Grid Y'),
+        enabled: boolean('Enabled', true, 'Grid Y'),
+        color: color('Color', colors.gray, 'Grid Y'),
       },
     };
 
     return (
       <BarChart
         labelSelector="name"
-        barPadding={number('barPadding', 0.1, {}, 'All')}
+        barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
         keys={['users', 'licenses']}
-        layout={select('layout', options, options.vertical, 'All') as Layout}
-        svgDimensions={object('svg', svgDimensions, 'All')}
-        margins={object('margins', margins, 'All')}
+        layout={select('Layout', options, options.vertical, 'Chart') as Layout}
+        svgDimensions={object('svg', svgDimensions, 'Chart')}
+        margins={object('Margins', margins, 'Chart')}
         theme={theme}
         data={chartData}
       />

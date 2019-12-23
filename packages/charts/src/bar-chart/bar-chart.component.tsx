@@ -4,7 +4,7 @@ import { generateBars } from './bar-chart.utils';
 
 import Bars from './bars.component';
 
-import { ChartBase, CartesianGrid, Axes } from '../components';
+import { ChartBase, Grid, Axes } from '../components';
 
 import { CommonChartProps, Layout } from '../types';
 
@@ -46,7 +46,7 @@ const BarChart = ({
   return (
     <>
       <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
-        <CartesianGrid xScale={xScale} yScale={yScale} />
+        <Grid xScale={xScale} yScale={yScale} />
         <Axes xScale={xScale} yScale={yScale} />
         <Bars bars={bars} />
       </ChartBase>

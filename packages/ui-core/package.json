@@ -4,7 +4,7 @@
   "description": "Keen visual components",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "directories": {
@@ -25,14 +25,12 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "d3-array": "^2.4.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "styled-components": "^4.4.1",
     "styled-system": "^5.1.4"
   },
   "devDependencies": {
-    "@types/d3-array": "^2.0.0",
     "@types/styled-components": "^4.4.1",
     "@types/styled-system": "^5.1.4"
   }
