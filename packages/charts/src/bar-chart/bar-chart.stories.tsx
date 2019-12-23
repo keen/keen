@@ -107,14 +107,6 @@ storiesOf('Charts / Components', module)
         enabled: boolean('Enabled', true, 'Grid Y'),
         color: color('Color', colors.gray, 'Grid Y'),
       },
-      gridX: {
-        enabled: boolean('enabled', true, 'Grid X'),
-        color: color('color', colors.gray, 'Grid X'),
-      },
-      gridY: {
-        enabled: boolean('enabled', true, 'Grid Y'),
-        color: color('color', colors.gray, 'Grid Y'),
-      },
     };
 
     return (

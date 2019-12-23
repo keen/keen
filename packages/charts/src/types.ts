@@ -56,11 +56,6 @@ export type Grid = {
   color: string;
 };
 
-export type GridSettings = {
-  enabled: boolean;
-  color: string;
-};
-
 export type ChartTheme = {
   colors: string[];
   axisX: Axis;

@@ -63,5 +63,5 @@ export const keenTheme: ChartTheme = {
   gridY: {
     enabled: true,
     color: colors.gray,
-  }
+  },
 };
