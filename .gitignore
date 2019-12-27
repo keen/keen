@@ -1,5 +1,5 @@
 node_modules
-yarn_error.log
+yarn-error.log
 tsconfig.tsbuildinfo
 lerna-debug.log
 packages/**/dist

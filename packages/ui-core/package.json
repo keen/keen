@@ -19,6 +19,7 @@
     "url": "git+https://github.com/keen/keen.git"
   },
   "scripts": {
+    "test": "jest",
     "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "build": "tsc"
   },
