@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Dimension, Margins, ChartTheme } from '../types';
+import { Dimension, Margins, Theme } from '../types';
 
 export type ChartContextType = {
-  theme: ChartTheme;
+  theme: Theme;
   svgDimensions: Dimension;
   margins: Margins;
   data: object[];

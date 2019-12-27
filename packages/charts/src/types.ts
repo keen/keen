@@ -56,7 +56,7 @@ export type Grid = {
   color: string;
 };
 
-export type ChartTheme = {
+export type Theme = {
   colors: string[];
   axisX: Axis;
   axisY: Axis;
@@ -65,7 +65,7 @@ export type ChartTheme = {
 };
 
 export type CommonChartProps = {
-  theme: ChartTheme;
-  svgDimensions: Dimension;
+  theme: Theme;
+  svgDimensions?: Dimension;
   margins: Margins;
 };

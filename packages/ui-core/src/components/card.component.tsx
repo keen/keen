@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import { colors } from '../theme';
+import { colors } from '@keen/colors';
 
 type Props = {
   backgroundColor?: string;
@@ -9,7 +8,10 @@ type Props = {
 };
 
 const Card = styled.div<Props>`
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
   background: ${props => props.backgroundColor};
   border: ${props => props.border}
   box-shadow: ${props =>

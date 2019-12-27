@@ -1,3 +1,4 @@
 import Box from './box.component';
+import Card from './card.component';
 
-export { Box };
+export { Card, Box };

@@ -1,7 +1,7 @@
 import { scaleBand, scaleLinear, ScaleLinear } from 'd3-scale';
 import { max, min } from 'd3-array';
 
-import { Dimension, Margins, Layout } from '../types';
+import { Dimension, Margins, Layout } from '../../types';
 
 type Options = {
   data: Record<string, any>[];

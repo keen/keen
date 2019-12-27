@@ -1,5 +1,5 @@
 import { Title } from './typhography';
 
-import { Box } from './components';
+import { Box, Card } from './components';
 
-export { Title, Box };
+export { Title, Box, Card };

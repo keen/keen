@@ -4,6 +4,6 @@
     "rootDir": "./src",
     "outDir": "./dist"
   },
-  "references": [{ "path": "../colors" }],
-  "include": ["./src/**/*"]
+  "references": [{ "path": "../charts" }, { "path": "../ui-core" }],
+  "include": ["src/**/*"]
 }

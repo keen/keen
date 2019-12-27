@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, color, boolean } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 
-import { colors } from '../theme';
+import { colors } from '@keen/colors';
 
 import Card from './card.component';
 
