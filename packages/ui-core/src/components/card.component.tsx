@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '@keen/colors';
 
 type Props = {
   backgroundColor?: string;
@@ -19,7 +20,7 @@ const Card = styled.div<Props>`
 
 Card.defaultProps = {
   border: 'none',
-  backgroundColor: '#fff',
+  backgroundColor: colors.white,
   hasShadow: true,
 };
 

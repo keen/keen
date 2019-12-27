@@ -1,3 +1,3 @@
-# `@keen/charts`
+# `@keen/widgets`
 
 > TODO: description
