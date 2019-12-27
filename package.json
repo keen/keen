@@ -32,6 +32,9 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "moduleNameMapper": {
+      "^@keen/(.*)$": "<rootDir>/packages/$1/src"
+    },
     "globals": {
       "ts-jest": {
         "tsConfig": "<rootDir>/tsconfig.jest.json"
