@@ -1,7 +1,7 @@
 import { BarChart, BarChartSettings } from './charts';
 
-import { ResponsiveWrapper } from './components';
+import { ResponsiveWrapper, Legend } from './components';
 
 import { theme } from './theme';
 
-export { BarChart, BarChartSettings, ResponsiveWrapper, theme };
+export { BarChart, BarChartSettings, ResponsiveWrapper, Legend, theme };

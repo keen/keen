@@ -1,3 +1,18 @@
-import { createThemeKnobs } from './storybook.utils';
+import {
+  createCardKnobs,
+  createThemeKnobs,
+  createLayoutKnobs,
+  createTyphographyKnobs,
+  createLegendKnobs,
+} from './storybook.utils';
 
-export { createThemeKnobs };
+import StoryWrapper from './story-wrapper.component';
+
+export {
+  StoryWrapper,
+  createCardKnobs,
+  createLayoutKnobs,
+  createThemeKnobs,
+  createLegendKnobs,
+  createTyphographyKnobs,
+};

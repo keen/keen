@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
+
+import { Layout } from '@keen/ui-core';
 
 import { generateBars } from './bar-chart.utils';
 
@@ -6,19 +8,26 @@ import Bars from './bars.component';
 
 import { ChartBase, Grid, Axes } from '../../components';
 
-import { CommonChartProps, Layout } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 export type Props = {
+  /** chart data */
   data: object[];
+  /** Name of data object property used to create labels on axis */
   labelSelector: string;
+  /** Minimum value for axis */
   minValue?: number | 'auto';
+  /** Maximum value for axis */
   maxValue?: number | 'auto';
+  /** Padding between bar groups */
   barPadding?: number;
+  /** Keys picked from data object used to genrate bars */
   keys?: string[];
+  /** Layout applied on chart bars */
   layout?: Layout;
-} & CommonChartProps;
+} & CommonChartSettings;
 
-const BarChart = ({
+export const BarChart: FC<Props> = ({
   data,
   margins,
   svgDimensions,
@@ -29,7 +38,7 @@ const BarChart = ({
   maxValue = 'auto',
   keys = ['value'],
   barPadding = 0.1,
-}: Props) => {
+}) => {
   const { bars, xScale, yScale } = generateBars({
     data,
     margins,
@@ -47,7 +56,7 @@ const BarChart = ({
     <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
       <Grid xScale={xScale} yScale={yScale} />
       <Axes xScale={xScale} yScale={yScale} />
-      <Bars bars={bars} />
+      <Bars bars={bars} layout={layout} />
     </ChartBase>
   );
 };

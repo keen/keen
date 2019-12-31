@@ -1,5 +1,11 @@
 module.exports = ({ config }: { config: any }) => {
-  config.module.rules.push({ test: /\.tsx?$/, use: ['ts-loader'] });
+  config.module.rules.push({
+    test: /\.tsx?$/,
+    use: [
+      require.resolve('ts-loader'),
+      require.resolve('react-docgen-typescript-loader'),
+    ],
+  });
 
   config.module.rules.push({
     test: /\.stories\.tsx?$/,

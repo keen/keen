@@ -1,41 +1,31 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, object, number, select } from '@storybook/addon-knobs';
+import { object, number } from '@storybook/addon-knobs';
 
-import { createThemeKnobs } from '@keen/storybook-utils';
+import { createThemeKnobs, createLayoutKnobs } from '@keen/storybook-utils';
 
-import BarChart from './bar-chart.component';
+import { BarChart } from './bar-chart.component';
+import { chartData } from './bar-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
-import { Layout } from '../../types';
 
-const data = [
-  { name: 'Windows', users: 3, licenses: 52, shops: 12 },
-  { name: 'MacOS', users: 19, licenses: 82, shops: 15 },
-  { name: 'Linux', users: 20, licenses: 15, shops: 23 },
-];
+export default {
+  title: 'Charts / Bar Chart',
+  parameters: {
+    component: BarChart,
+    componentSubtitle: 'Bar Chart plot',
+  },
+};
 
-storiesOf('Charts', module)
-  .addDecorator(withKnobs)
-  .add('Bar Chart', () => {
-    const theme = { ...keenTheme, ...createThemeKnobs() };
+export const withKnobs = () => {
+  const theme = { ...keenTheme, ...createThemeKnobs() };
 
-    return (
+  return (
+    <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
       <BarChart
         labelSelector="name"
         barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
         keys={['users', 'licenses', 'shops']}
-        layout={
-          select(
-            'Layout',
-            {
-              vertical: 'vertical',
-              horizontal: 'horizontal',
-            },
-            'vertical',
-            'Chart'
-          ) as Layout
-        }
+        layout={createLayoutKnobs('Chart', 'vertical') as any}
         svgDimensions={object(
           'svg',
           {
@@ -50,7 +40,8 @@ storiesOf('Charts', module)
           'Chart'
         )}
         theme={theme}
-        data={data}
+        data={chartData}
       />
-    );
-  });
+    </div>
+  );
+};

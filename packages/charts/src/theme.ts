@@ -3,14 +3,11 @@ import { colors } from '@keen/colors';
 import { Theme } from './types';
 
 export const chartColors = [
-  colors.yellow,
-  colors.green,
-  colors.blue,
-  colors.green,
-  colors.orange,
-  colors.violet,
-  colors.marine,
-  colors.pink,
+  colors.lightBlue[500],
+  colors.orange[500],
+  colors.yellow[500],
+  colors.green[500],
+  colors.pink[500],
 ];
 
 export const theme: Theme = {
@@ -19,14 +16,14 @@ export const theme: Theme = {
     enabled: true,
     tickSize: 10,
     tickPadding: 5,
-    color: colors.darkBlue,
+    color: colors.blue['100'],
     labels: {
       enabled: true,
       typhography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 14,
-        fontColor: colors.black,
+        fontColor: colors.black['500'],
       },
     },
   },
@@ -34,23 +31,23 @@ export const theme: Theme = {
     enabled: true,
     tickSize: 0,
     tickPadding: 5,
-    color: colors.darkBlue,
+    color: colors.blue['100'],
     labels: {
       enabled: true,
       typhography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 14,
-        fontColor: colors.black,
+        fontColor: colors.black['500'],
       },
     },
   },
   gridX: {
     enabled: true,
-    color: colors.gray,
+    color: colors.gray['500'],
   },
   gridY: {
     enabled: true,
-    color: colors.gray,
+    color: colors.gray['500'],
   },
 };

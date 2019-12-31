@@ -1,16 +1,50 @@
-import React from 'react';
-import { BarChart, BarChartSettings, ResponsiveWrapper } from '@keen/charts';
+import React, { FC } from 'react';
+import {
+  BarChart,
+  BarChartSettings,
+  ResponsiveWrapper,
+  Legend,
+} from '@keen/charts';
 
 import ChartWidget from './chart-widget.component';
-import { ContentSocket, LegendSocket } from './widget-sockets.component';
+import {
+  ContentSocket,
+  LegendSocket,
+  TitleSocket,
+} from './widget-sockets.component';
+
+import { LegendSettings } from '../types';
 
 type Props = {
-  showLegend?: boolean;
+  /** Legend component settings */
+  legend?: LegendSettings;
 } & BarChartSettings;
 
-const BarChartWidget = ({ showLegend = true, ...props }: Props) => (
-  <ChartWidget>
-    {showLegend && <LegendSocket>Legend</LegendSocket>}
+/** Bar Chart widget integrated with other components */
+export const BarChartWidget: FC<Props> = ({ legend, ...props }) => (
+  <ChartWidget
+    legendSettings={{
+      position: legend.position,
+      alignment: legend.alignment,
+      layout: legend.layout,
+    }}
+  >
+    <TitleSocket>
+      <div>Widget Title</div>
+      <div>Widget Sub-Title</div>
+    </TitleSocket>
+    {legend.enabled && (
+      <LegendSocket>
+        <Legend
+          {...legend}
+          onClick={() => {}}
+          labels={props.keys.map((key, idx) => ({
+            name: key,
+            color: props.theme.colors[idx],
+          }))}
+        />
+      </LegendSocket>
+    )}
     <ContentSocket>
       <ResponsiveWrapper>
         {(width: number, height: number) => (

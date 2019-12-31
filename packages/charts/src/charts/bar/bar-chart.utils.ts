@@ -1,7 +1,9 @@
 import { scaleBand, scaleLinear, ScaleLinear } from 'd3-scale';
 import { max, min } from 'd3-array';
 
-import { Dimension, Margins, Layout } from '../../types';
+import { Layout } from '@keen/ui-core';
+
+import { Dimension, Margins } from '../../types';
 
 type Options = {
   data: Record<string, any>[];
@@ -23,6 +25,32 @@ export type Bar = {
   height: number;
   width: number;
   color: string;
+};
+
+export const calculateMarkPosition = ({
+  layout,
+  x,
+  y,
+  width,
+  height,
+}: {
+  layout: Layout;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}) => {
+  if (layout === 'vertical') {
+    return {
+      x: x + width * 0.5,
+      y,
+    };
+  }
+
+  return {
+    x: x + width,
+    y: y + height * 0.5,
+  };
 };
 
 export const calculateRange = (

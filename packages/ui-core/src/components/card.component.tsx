@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { colors } from '@keen/colors';
 
-type Props = {
+export type Props = {
   backgroundColor?: string;
   border?: string;
   borderRadius?: string;
   hasShadow?: boolean;
 };
 
-const Card = styled.div<Props>`
+export const Card = styled.div<Props>`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -23,7 +23,7 @@ const Card = styled.div<Props>`
 Card.defaultProps = {
   border: 'none',
   borderRadius: '0px',
-  backgroundColor: colors.white,
+  backgroundColor: colors.white['500'],
   hasShadow: true,
 };
 

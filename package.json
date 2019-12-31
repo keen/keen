@@ -38,7 +38,11 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-docs": "^5.2.8",
+    "@storybook/addon-info": "^5.2.8",
     "@storybook/addon-knobs": "^5.2.8",
+    "@storybook/addon-notes": "^5.2.8",
     "@storybook/addon-storysource": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "@storybook/theming": "^5.2.8",
@@ -65,19 +69,23 @@
     "git-cz": "^3.3.0",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
+    "jest-styled-components": "^6.3.4",
     "lerna": "^3.18.4",
     "lint-staged": "^9.5.0",
     "lorem-ipsum": "^2.0.3",
     "prettier": "^1.19.1",
+    "react-docgen-typescript-loader": "^3.6.0",
     "rimraf": "^3.0.0",
     "storybook": "^5.1.11",
     "storybook-addon-jsx": "^7.1.13",
+    "to-string-loader": "^1.1.6",
     "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "yarn": "^1.21.1"
   }
 }

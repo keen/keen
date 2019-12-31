@@ -1,57 +1,46 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, number, select, object } from '@storybook/addon-knobs';
+import { number, object } from '@storybook/addon-knobs';
 
-import BarChartWidget from './bar-chart.widget';
+import { BarChartWidget } from './bar-chart.widget';
+import { chartData } from './bar-chart.widget.fixtures';
 
-import { createThemeKnobs } from '@keen/storybook-utils';
+import {
+  createThemeKnobs,
+  createLayoutKnobs,
+  createLegendKnobs,
+} from '@keen/storybook-utils';
 import { theme as keenTheme } from '@keen/charts';
 
-const data = [
-  { name: 'Marketing', users: 3, licenses: 52 },
-  { name: 'IT', users: 19, licenses: 82 },
-  { name: 'Sales', users: 20, licenses: 15 },
-];
+export default {
+  title: 'Widgets / Bar Chart Widget',
+  parameters: {
+    component: BarChartWidget,
+    componentSubtitle: 'Widget to be directly integrated on website',
+  },
+};
 
-const Wrapper = styled.div`
-  width: 400px;
-  height: 400px;
-`;
+export const withKnobs = () => {
+  const theme = {
+    ...keenTheme,
+    ...createThemeKnobs(),
+  };
 
-storiesOf('Widgets', module)
-  .addDecorator(withKnobs)
-  .add('Bar Chart', () => {
-    const theme = {
-      ...keenTheme,
-      ...createThemeKnobs(),
-    };
-
-    return (
-      <Wrapper>
-        <BarChartWidget
-          labelSelector="name"
-          barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
-          keys={['users', 'licenses']}
-          layout={
-            select(
-              'Layout',
-              {
-                vertical: 'vertical',
-                horizontal: 'horizontal',
-              },
-              'vertical',
-              'Chart'
-            ) as any
-          }
-          margins={object(
-            'Margins',
-            { top: 50, right: 20, bottom: 50, left: 40 },
-            'Chart'
-          )}
-          theme={theme}
-          data={data}
-        />
-      </Wrapper>
-    );
-  });
+  return (
+    <div style={{ width: '700px', height: '400px' }}>
+      <BarChartWidget
+        legend={createLegendKnobs('Legend') as any}
+        labelSelector="name"
+        barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
+        keys={['people', 'licenses', 'cars', 'documents']}
+        layout={createLayoutKnobs('Chart') as any}
+        margins={object(
+          'Margins',
+          { top: 30, right: 20, bottom: 50, left: 40 },
+          'Chart'
+        )}
+        theme={theme}
+        data={chartData}
+      />
+    </div>
+  );
+};
