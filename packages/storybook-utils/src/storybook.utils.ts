@@ -11,6 +11,14 @@ const typographyOptions = {
     normal: 'normal',
     bold: 'bold',
   },
+  fontFamily: {
+    GangsterGroteskBold: 'Gangster Grotesk Bold',
+    GangsterGroteskLight: 'Gangster Grotesk Light',
+    GangsterGroteskRegular: 'Gangster Grotesk Regular',
+    LatoBold: 'Lato Bold',
+    LatoLight: 'Lato Light',
+    LatoRegular: 'Lato Regular',
+  },
 };
 
 const layoutOptions = {
@@ -43,22 +51,39 @@ export const createLayoutKnobs = (
   defaultValue: string = layoutOptions.vertical
 ) => select('Layout', layoutOptions, defaultValue, namespace);
 
-export const createTypographyKnobs = (namespace: string) => ({
-  fontSize: number('Font Size', 10, {}, namespace),
-  fontStyle: select(
-    'Font Style',
-    typographyOptions.fontStyle,
-    typographyOptions.fontStyle.normal,
-    namespace
-  ) as any,
-  fontWeight: select(
-    'Font Weight',
-    typographyOptions.fontWeight,
-    typographyOptions.fontWeight.normal,
-    namespace
-  ) as any,
-  fontColor: color('Font Color', colors.black['500'], namespace),
-});
+export const createTypographyKnobs = (
+  namespace: string,
+  fonts: string[] = []
+) => {
+  let fontsList: Record<string, string> | string[] =
+    typographyOptions.fontFamily;
+  if (fonts && fonts.length) {
+    fontsList = [...Object.values(typographyOptions.fontFamily), ...fonts];
+  }
+
+  return {
+    fontSize: number('Font Size', 10, {}, namespace),
+    fontStyle: select(
+      'Font Style',
+      typographyOptions.fontStyle,
+      typographyOptions.fontStyle.normal,
+      namespace
+    ) as any,
+    fontWeight: select(
+      'Font Weight',
+      typographyOptions.fontWeight,
+      typographyOptions.fontWeight.normal,
+      namespace
+    ) as any,
+    fontColor: color('Font Color', colors.black['500'], namespace),
+    fontFamily: select(
+      'Font Family',
+      fontsList,
+      typographyOptions.fontFamily.GangsterGroteskRegular,
+      namespace
+    ),
+  };
+};
 
 export const createLegendKnobs = (namespace: string) => ({
   enabled: boolean('Enabled', true, namespace),
@@ -147,4 +172,26 @@ export const createThemeKnobs = (
     ...(options.includes('gridY') ? gridY() : {}),
     ...(options.includes('labels') ? labels() : {}),
   };
+};
+
+export const getGoogleFonts = async () => {
+  const GOOGLE_FONTS_API =
+    'https://www.googleapis.com/webfonts/v1/webfonts/?key=AIzaSyC529qus-Wu8LEftuMjSSBOt7mKu5lMm2E';
+
+  const fonts = await fetch(GOOGLE_FONTS_API)
+    .then(data => data.json())
+    .then(res => {
+      const { items } = res;
+      const filteredItems = items
+        .filter(
+          (item: { category: string; family: string }) =>
+            item.category !== 'handwriting' && item.family !== 'Lato'
+        )
+        .map((item: { family: string }) => item.family);
+
+      return filteredItems;
+    })
+    .catch(err => console.error(err));
+
+  return fonts;
 };

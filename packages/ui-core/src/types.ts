@@ -3,6 +3,8 @@ export type Typography = {
   fontWeight: 'normal' | 'bold';
   fontSize: number;
   fontColor: string;
+  fontFamily?: string;
+  lineHeight?: string;
 };
 
 export type Position = 'top' | 'bottom' | 'left' | 'right';

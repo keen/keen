@@ -1,3 +1,4 @@
 import Title from './title.component';
+import Text from './text.component';
 
-export { Title };
+export { Title, Text };
