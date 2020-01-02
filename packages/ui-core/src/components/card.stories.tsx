@@ -19,6 +19,7 @@ storiesOf('Charts / Components', module)
       <Card
         hasShadow={boolean('hasShadow', true)}
         border={text('border', 'none')}
+        borderRadius={text('borderRadius', '0px')}
         backgroundColor={color('backgroundColor', colors.white)}
       >
         {loremIpsum()}
