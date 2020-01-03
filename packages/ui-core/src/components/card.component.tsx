@@ -17,7 +17,7 @@ const Card = styled.div<Props>`
   border: ${props => props.border};
   border-radius: ${props => props.borderRadius};
   box-shadow: ${props =>
-    props.hasShadow ? '0 2px 5px 0 rgba(112,120,135,0.14)' : 'none'};
+    props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
 `;
 
 Card.defaultProps = {
