@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { typography } from '@keen/ui-core';
+import { Typography } from '@keen/ui-core';
 
 import LegendLabel from './legend-label.component';
 import { Text } from './legend-label.styles';
@@ -14,7 +14,7 @@ describe('@keen/charts - <LegendLabel />', () => {
       fontColor: 'black',
       fontStyle: 'normal',
       fontWeight: 'normal',
-    } as typography,
+    } as Typography,
     markColor: 'green',
   };
 
