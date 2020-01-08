@@ -55,8 +55,8 @@ type Props = {
   layout: Layout;
   /** Array of legend items */
   labels: Item[];
-  /** Typhography styles */
-  typhography: Typography;
+  /** typography styles */
+  typography: Typography;
   /** Legend card styles */
   card: CardProps;
   /** Handler for item click event */
@@ -77,7 +77,7 @@ export const Legend: FC<Props> = ({
   layout,
   labels,
   card,
-  typhography,
+  typography,
   onClick,
   alignment = 'left',
   position = 'top',
@@ -88,7 +88,7 @@ export const Legend: FC<Props> = ({
   const items = labels.map(({ name, color }: Item) => (
     <LegendItem key={name}>
       <LegendLabel
-        typhography={typhography}
+        typography={typography}
         markColor={color}
         onClick={(disabled: boolean) => onClick(name, disabled)}
         text={name}

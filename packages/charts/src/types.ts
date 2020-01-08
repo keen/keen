@@ -33,7 +33,7 @@ export enum Orientation {
 
 export type Labels = {
   enabled: boolean;
-  typhography: Typography;
+  typography: Typography;
 };
 
 export type Axis = {

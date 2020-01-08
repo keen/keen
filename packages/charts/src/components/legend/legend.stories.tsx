@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { createTyphographyKnobs, createCardKnobs } from '@keen/storybook-utils';
+import { createTypographyKnobs, createCardKnobs } from '@keen/storybook-utils';
 
 import { Legend } from './legend.component';
 import { labels } from './legend.fixtures';
@@ -19,7 +19,7 @@ export const Row = () => (
     <Legend
       card={createCardKnobs('Card')}
       onClick={action('Legend element click')}
-      typhography={createTyphographyKnobs('Typhography')}
+      typography={createTypographyKnobs('typography')}
       layout="horizontal"
       labels={labels}
     />
@@ -31,7 +31,7 @@ export const Group = () => (
     <Legend
       card={createCardKnobs('Card')}
       onClick={action('Legend element click')}
-      typhography={createTyphographyKnobs('Typhography')}
+      typography={createTypographyKnobs('typography')}
       layout="horizontal"
       labels={labels}
     />
@@ -51,7 +51,7 @@ export const GroupSlider = () => (
     <Legend
       card={createCardKnobs('Card')}
       onClick={action('Legend element click')}
-      typhography={createTyphographyKnobs('Typhography')}
+      typography={createTypographyKnobs('typography')}
       layout="horizontal"
       labels={labels}
     />
@@ -72,7 +72,7 @@ export const Column = () => (
     <Legend
       card={createCardKnobs('Card')}
       onClick={action('Legend element click')}
-      typhography={createTyphographyKnobs('Typhography')}
+      typography={createTypographyKnobs('typography')}
       layout="vertical"
       labels={labels}
     />
@@ -93,7 +93,7 @@ export const ColumnSlider = () => (
     <Legend
       card={createCardKnobs('Card')}
       onClick={action('Legend element click')}
-      typhography={createTyphographyKnobs('Typhography')}
+      typography={createTypographyKnobs('typography')}
       layout="vertical"
       labels={labels}
     />

@@ -1,4 +1,4 @@
-import { Title } from './typhography';
+import { Title } from './typography';
 
 import { Typography, Position, Alignment, Layout } from './types';
 

@@ -27,7 +27,7 @@ const Ruler = ({
   labels,
   color,
 }: Props) => {
-  const { enabled, typhography } = labels;
+  const { enabled, typography } = labels;
   const { line, ticks } = createRuler({ x, y, scale, orientation, tickSize });
 
   const textProps = useMemo(
@@ -48,7 +48,7 @@ const Ruler = ({
     <Group
       color={color}
       textAnchor={orientation === Orientation.VERTICAL ? 'middle' : 'end'}
-      style={typhography}
+      style={typography}
     >
       <Line {...line} />
       {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (

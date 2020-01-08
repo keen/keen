@@ -2,7 +2,7 @@ import { boolean, number, select, color, text } from '@storybook/addon-knobs';
 
 import { colors } from '@keen/colors';
 
-const typhographyOptions = {
+const typographyOptions = {
   fontStyle: {
     normal: 'normal',
     italic: 'italic',
@@ -43,18 +43,18 @@ export const createLayoutKnobs = (
   defaultValue: string = layoutOptions.vertical
 ) => select('Layout', layoutOptions, defaultValue, namespace);
 
-export const createTyphographyKnobs = (namespace: string) => ({
+export const createTypographyKnobs = (namespace: string) => ({
   fontSize: number('Font Size', 10, {}, namespace),
   fontStyle: select(
     'Font Style',
-    typhographyOptions.fontStyle,
-    typhographyOptions.fontStyle.normal,
+    typographyOptions.fontStyle,
+    typographyOptions.fontStyle.normal,
     namespace
   ) as any,
   fontWeight: select(
     'Font Weight',
-    typhographyOptions.fontWeight,
-    typhographyOptions.fontWeight.normal,
+    typographyOptions.fontWeight,
+    typographyOptions.fontWeight.normal,
     namespace
   ) as any,
   fontColor: color('Font Color', colors.black['500'], namespace),
@@ -75,7 +75,7 @@ export const createLegendKnobs = (namespace: string) => ({
     namespace
   ),
   layout: createLayoutKnobs(namespace, layoutOptions.horizontal),
-  typhography: createTyphographyKnobs(namespace),
+  typography: createTypographyKnobs(namespace),
   card: createCardKnobs(namespace),
 });
 
@@ -87,7 +87,7 @@ export const createThemeKnobs = () => ({
     color: color('Line Color', colors.blue['100'], 'Axis X'),
     labels: {
       enabled: boolean('Show Labels', true, 'Axis X'),
-      typhography: createTyphographyKnobs('Axis X'),
+      typography: createTypographyKnobs('Axis X'),
     },
   },
   axisY: {
@@ -97,7 +97,7 @@ export const createThemeKnobs = () => ({
     color: color('Line Color', colors.blue['100'], 'Axis Y'),
     labels: {
       enabled: boolean('Show Labels', true, 'Axis Y'),
-      typhography: createTyphographyKnobs('Axis Y'),
+      typography: createTypographyKnobs('Axis Y'),
     },
   },
   gridX: {

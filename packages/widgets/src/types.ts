@@ -5,7 +5,7 @@ export type LegendSettings = {
   position: Position;
   alignment: Alignment;
   layout: Layout;
-  typhography: Typography;
+  typography: Typography;
   card: {
     backgroundColor?: string;
     border?: string;

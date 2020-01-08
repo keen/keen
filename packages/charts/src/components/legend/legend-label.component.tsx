@@ -7,7 +7,7 @@ import { StyledLabel, Text, Circle } from './legend-label.styles';
 
 type Props = {
   text: string;
-  typhography: Typography;
+  typography: Typography;
   markColor: string;
   onClick: (disabled: boolean) => void;
   truncate?: number;

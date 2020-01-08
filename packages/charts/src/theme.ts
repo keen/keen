@@ -19,7 +19,7 @@ export const theme: Theme = {
     color: colors.blue['100'],
     labels: {
       enabled: true,
-      typhography: {
+      typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 14,
@@ -34,7 +34,7 @@ export const theme: Theme = {
     color: colors.blue['100'],
     labels: {
       enabled: true,
-      typhography: {
+      typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 14,

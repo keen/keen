@@ -2,7 +2,7 @@ import {
   createCardKnobs,
   createThemeKnobs,
   createLayoutKnobs,
-  createTyphographyKnobs,
+  createTypographyKnobs,
   createLegendKnobs,
 } from './storybook.utils';
 
@@ -14,5 +14,5 @@ export {
   createLayoutKnobs,
   createThemeKnobs,
   createLegendKnobs,
-  createTyphographyKnobs,
+  createTypographyKnobs,
 };
