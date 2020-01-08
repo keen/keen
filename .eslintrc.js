@@ -20,6 +20,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/prop-types': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',

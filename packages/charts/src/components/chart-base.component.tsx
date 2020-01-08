@@ -19,7 +19,13 @@ const ChartBase = ({ children, svgDimensions, margins, theme }: Props) => (
       margins,
     }}
   >
-    <svg width={svgDimensions.width} height={svgDimensions.height}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      preserveAspectRatio="xMinYMin"
+      width="100%"
+      height="100%"
+    >
       {children}
     </svg>
   </ChartContext.Provider>

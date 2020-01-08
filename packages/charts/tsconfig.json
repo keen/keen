@@ -4,6 +4,11 @@
     "rootDir": "./src",
     "outDir": "./dist"
   },
-  "references": [{ "path": "../colors" }, { "path": "../storybook-utils" }],
+  "references": [
+    { "path": "../colors" },
+    { "path": "../icons" },
+    { "path": "../ui-core" },
+    { "path": "../storybook-utils" }
+  ],
   "include": ["src/**/*"]
 }

@@ -1,3 +1,5 @@
+import { Typography } from '@keen/ui-core';
+
 export type Dimension = {
   width: number;
   height: number;
@@ -24,8 +26,6 @@ export type Tick = {
   y: number;
 };
 
-export type Layout = 'vertical' | 'horizontal';
-
 export enum Orientation {
   VERTICAL = 'vertical',
   HORIZONTAL = 'horizontal',
@@ -33,14 +33,7 @@ export enum Orientation {
 
 export type Labels = {
   enabled: boolean;
-  typhography: Typography;
-};
-
-export type Typography = {
-  fontStyle: 'normal' | 'italic';
-  fontWeight: 'normal' | 'bold';
-  fontSize: number;
-  fontColor: string;
+  typography: Typography;
 };
 
 export type Axis = {
@@ -64,8 +57,11 @@ export type Theme = {
   gridY: Grid;
 };
 
-export type CommonChartProps = {
+export type CommonChartSettings = {
+  /** Theme using for chart styling */
   theme: Theme;
+  /** SVG height and width */
   svgDimensions?: Dimension;
+  /** SVG margins */
   margins: Margins;
 };

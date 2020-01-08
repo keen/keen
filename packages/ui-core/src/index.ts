@@ -1,5 +1,17 @@
-import { Title } from './typhography';
+import { Title } from './typography';
 
-import { Box, Card } from './components';
+import { Typography, Position, Alignment, Layout } from './types';
 
-export { Title, Box, Card };
+import { Arrow, Group, Card, CardProps } from './components';
+
+export {
+  Arrow,
+  Title,
+  Group,
+  Card,
+  CardProps,
+  Typography,
+  Position,
+  Alignment,
+  Layout,
+};

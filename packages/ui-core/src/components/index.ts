@@ -1,4 +1,6 @@
-import Box from './box.component';
-import Card from './card.component';
+import Group from './group.component';
+import Arrow from './arrow.component';
 
-export { Card, Box };
+import Card, { Props as CardProps } from './card.component';
+
+export { Arrow, Card, CardProps, Group };

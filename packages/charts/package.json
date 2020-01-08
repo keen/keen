@@ -24,17 +24,21 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "@keen/ui-core": "^0.0.1",
     "@keen/colors": "^0.0.1",
+    "@keen/ui-core": "^0.0.1",
     "d3-axis": "^1.0.12",
     "d3-interpolate": "^1.4.0",
     "d3-scale": "^3.2.1",
     "d3-selection": "^1.4.1",
     "d3-shape": "^1.3.7",
+    "framer-motion": "^1.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-measure": "^2.3.0",
-    "styled-components": "^4.4.1"
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^4.4.1",
+    "use-debounce": "^3.3.0"
   },
   "devDependencies": {
     "@keen/storybook-utils": "^0.0.1",
@@ -44,7 +48,7 @@
     "@types/d3-scale": "^2.1.1",
     "@types/d3-selection": "^1.4.1",
     "@types/react-measure": "^2.0.5",
-    "@types/recharts": "^1.8.3",
+    "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^4.4.1"
   }
 }

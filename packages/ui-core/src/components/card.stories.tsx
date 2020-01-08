@@ -1,10 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, color, boolean } from '@storybook/addon-knobs';
-import { loremIpsum } from 'lorem-ipsum';
 
-import { colors } from '@keen/colors';
+import { createCardKnobs } from '@keen/storybook-utils';
+
+import { loremIpsum } from 'lorem-ipsum';
 
 import Card from './card.component';
 
@@ -12,17 +11,16 @@ const Wrapper = styled.div`
   width: 400px;
 `;
 
-storiesOf('Charts / Components', module)
-  .addDecorator(withKnobs)
-  .add('Card', () => (
-    <Wrapper>
-      <Card
-        hasShadow={boolean('hasShadow', true)}
-        border={text('border', 'none')}
-        borderRadius={text('borderRadius', '0px')}
-        backgroundColor={color('backgroundColor', colors.white)}
-      >
-        {loremIpsum()}
-      </Card>
-    </Wrapper>
-  ));
+export default {
+  title: 'Components / Card',
+  parameters: {
+    component: Card,
+    componentSubtitle: 'Displays customized card wrapper',
+  },
+};
+
+export const withKnobs = () => (
+  <Wrapper>
+    <Card {...createCardKnobs('Card')}>{loremIpsum()}</Card>
+  </Wrapper>
+);
