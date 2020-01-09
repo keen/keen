@@ -40,6 +40,7 @@ export type Axis = {
   enabled: boolean;
   tickSize: number;
   tickPadding: number;
+  stroke?: number;
   color?: string;
   labels?: Labels;
 };
@@ -51,10 +52,10 @@ export type Grid = {
 
 export type Theme = {
   colors: string[];
-  axisX: Axis;
-  axisY: Axis;
-  gridX: Grid;
-  gridY: Grid;
+  axisX?: Axis;
+  axisY?: Axis;
+  gridX?: Grid;
+  gridY?: Grid;
 };
 
 export type CommonChartSettings = {

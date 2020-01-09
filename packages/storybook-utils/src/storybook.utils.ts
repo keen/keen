@@ -79,33 +79,64 @@ export const createLegendKnobs = (namespace: string) => ({
   card: createCardKnobs(namespace),
 });
 
-export const createThemeKnobs = () => ({
-  axisX: {
-    enabled: boolean('Enabled', true, 'Axis X'),
-    tickSize: number('Tick Size', 10, {}, 'Axis X'),
-    tickPadding: number('Tick Padding', 10, {}, 'Axis X'),
-    color: color('Line Color', colors.blue['100'], 'Axis X'),
-    labels: {
-      enabled: boolean('Show Labels', true, 'Axis X'),
-      typography: createTypographyKnobs('Axis X'),
+type ThemeProperties = 'axisX' | 'axisY' | 'gridX' | 'gridY';
+
+const defaultThemeOptions: ThemeProperties[] = [
+  'axisX',
+  'axisY',
+  'gridX',
+  'gridY',
+];
+
+export const createThemeKnobs = (
+  options: ThemeProperties[] = defaultThemeOptions
+) => {
+  const axisX = () => ({
+    axisX: {
+      enabled: boolean('Enabled', true, 'Axis X'),
+      tickSize: number('Tick Size', 10, {}, 'Axis X'),
+      tickPadding: number('Tick Padding', 10, {}, 'Axis X'),
+      stroke: number('Stroke', 1, {}, 'Axis X'),
+      color: color('Line Color', colors.blue['100'], 'Axis X'),
+      labels: {
+        enabled: boolean('Show Labels', true, 'Axis X'),
+        typography: createTypographyKnobs('Axis X'),
+      },
     },
-  },
-  axisY: {
-    enabled: boolean('Enabled', true, 'Axis Y'),
-    tickSize: number('Tick Size', 10, {}, 'Axis Y'),
-    tickPadding: number('Tick Padding', 10, {}, 'Axis Y'),
-    color: color('Line Color', colors.blue['100'], 'Axis Y'),
-    labels: {
-      enabled: boolean('Show Labels', true, 'Axis Y'),
-      typography: createTypographyKnobs('Axis Y'),
+  });
+
+  const axisY = () => ({
+    axisY: {
+      enabled: boolean('Enabled', true, 'Axis Y'),
+      tickSize: number('Tick Size', 0, {}, 'Axis Y'),
+      tickPadding: number('Tick Padding', 10, {}, 'Axis Y'),
+      stroke: number('Stroke', 0, {}, 'Axis Y'),
+      color: color('Line Color', colors.blue['100'], 'Axis Y'),
+      labels: {
+        enabled: boolean('Show Labels', true, 'Axis Y'),
+        typography: createTypographyKnobs('Axis Y'),
+      },
     },
-  },
-  gridX: {
-    enabled: boolean('Enabled', true, 'Grid X'),
-    color: color('Color', colors.gray['500'], 'Grid X'),
-  },
-  gridY: {
-    enabled: boolean('Enabled', true, 'Grid Y'),
-    color: color('Color', colors.gray['500'], 'Grid Y'),
-  },
-});
+  });
+
+  const gridX = () => ({
+    gridX: {
+      enabled: boolean('Enabled', true, 'Grid X'),
+      color: color('Color', colors.gray['500'], 'Grid X'),
+    },
+  });
+
+  const gridY = () => ({
+    gridY: {
+      enabled: boolean('Enabled', true, 'Grid Y'),
+      color: color('Color', colors.gray['500'], 'Grid Y'),
+    },
+  });
+
+  return {
+    ...(options.includes('axisX') ? axisX() : {}),
+    ...(options.includes('axisY') ? axisY() : {}),
+    ...(options.includes('gridX') ? gridX() : {}),
+    ...(options.includes('gridY') ? gridY() : {}),
+  };
+};

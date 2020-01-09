@@ -15,14 +15,15 @@ export const theme: Theme = {
   axisX: {
     enabled: true,
     tickSize: 10,
-    tickPadding: 5,
+    tickPadding: 10,
+    stroke: 1,
     color: colors.blue['100'],
     labels: {
       enabled: true,
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 14,
+        fontSize: 12,
         fontColor: colors.black['500'],
       },
     },
@@ -31,13 +32,14 @@ export const theme: Theme = {
     enabled: true,
     tickSize: 0,
     tickPadding: 5,
+    stroke: 0,
     color: colors.blue['100'],
     labels: {
       enabled: true,
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 14,
+        fontSize: 12,
         fontColor: colors.black['500'],
       },
     },
