@@ -56,6 +56,7 @@ export type Theme = {
   axisY?: Axis;
   gridX?: Grid;
   gridY?: Grid;
+  labels?: Labels;
 };
 
 export type CommonChartSettings = {

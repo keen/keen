@@ -52,4 +52,13 @@ export const theme: Theme = {
     enabled: true,
     color: colors.gray['500'],
   },
+  labels: {
+    enabled: true,
+    typography: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 14,
+      fontColor: colors.black['500'],
+    },
+  },
 };

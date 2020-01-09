@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { generatePieChart } from './pie-chart.utils';
+import { generatePieChart, LabelsPosition } from './pie-chart.utils';
 
 import PieSlice from './pie-slice.component';
 import ShadowFilter from './shadow-filter.component';
@@ -20,6 +20,10 @@ type Props = {
   padAngle?: number;
   /** Radius of inner circle */
   innerRadius?: number;
+  /** Show labels inside our outside pie slices */
+  labelsPosition?: LabelsPosition;
+  /** Automatically adjust labels color */
+  labelsAutocolor?: boolean;
 } & CommonChartSettings;
 
 export const PieChart: FC<Props> = ({
@@ -31,20 +35,17 @@ export const PieChart: FC<Props> = ({
   valueSelector = 'value',
   padAngle = 0.01,
   innerRadius = 30,
+  labelsPosition = 'inside',
+  labelsAutocolor = true,
 }) => {
-  const {
-    arcs,
-    getColor,
-    drawArc,
-    drawActiveArc,
-    calculateLabelPosition,
-  } = generatePieChart({
+  const { arcs, getColor } = generatePieChart({
     data,
     margins,
     padAngle,
     innerRadius,
     labelSelector,
     valueSelector,
+    labelsPosition,
     dimension: svgDimensions,
     colors: theme.colors,
   });
@@ -58,16 +59,15 @@ export const PieChart: FC<Props> = ({
         }}
       >
         <ShadowFilter />
-        {arcs.map(({ startAngle, endAngle, index, label }) => (
+        {arcs.map(({ index, path, pathActive, label, labelPosition }) => (
           <PieSlice
             key={index}
-            draw={drawArc}
+            path={path}
+            pathActive={pathActive}
             label={label}
-            getLabelPosition={calculateLabelPosition}
-            drawActive={drawActiveArc}
-            startAngle={startAngle}
-            endAngle={endAngle}
-            color={getColor(index)}
+            autocolor={labelsAutocolor}
+            labelPosition={labelPosition}
+            background={getColor(index)}
           />
         ))}
       </g>

@@ -1,81 +1,53 @@
-import React, { FC, memo, useState } from 'react';
-import { Arc } from 'd3-shape';
+import React, { FC, useState, useContext } from 'react';
 
-import { ColorAdjuster } from '@keen/ui-core';
-
+import PieLabel from './pie-label.component';
 import { StyledPath } from './pie-slice.styles';
 
+import { ChartContext, ChartContextType } from '../../contexts';
+
 type Props = {
-  startAngle: number;
-  endAngle: number;
-  draw: Arc<any, any>;
-  drawActive: Arc<any, any>;
-  getLabelPosition: (start: number, end: number) => [number, number];
+  path: string;
+  pathActive: string;
+  autocolor: boolean;
+  labelPosition: [number, number];
   label: string;
-  color: string;
+  background: string;
 };
 
-const PieSlice: FC<Props> = memo(
-  ({
-    startAngle,
-    endAngle,
-    draw,
-    drawActive,
-    color,
-    getLabelPosition,
-    label,
-  }) => {
-    const [active, setActive] = useState(false);
-    const [path, setPath] = useState(
-      draw({
-        startAngle,
-        endAngle,
-      })
-    );
+const PieSlice: FC<Props> = ({
+  path,
+  pathActive,
+  background,
+  autocolor,
+  label,
+  labelPosition,
+}) => {
+  const [active, setActive] = useState(false);
+  const { theme } = useContext(ChartContext) as ChartContextType;
+  const { labels } = theme;
 
-    return (
-      <g
-        onMouseEnter={() => {
-          setPath(
-            drawActive({
-              startAngle,
-              endAngle,
-            })
-          );
-          setActive(true);
-        }}
-        onMouseLeave={() => {
-          setPath(
-            draw({
-              startAngle,
-              endAngle,
-            })
-          );
-          setActive(false);
-        }}
-      >
-        <StyledPath fill={color} d={path} dropShadow={active} />
-        <ColorAdjuster baseColor={color}>
-          {adjustedColor => {
-            return (
-              <text
-                fill={adjustedColor}
-                transform={`translate(${getLabelPosition(
-                  startAngle,
-                  endAngle
-                )})`}
-                style={{ textAnchor: 'middle' }}
-              >
-                {label}
-              </text>
-            );
-          }}
-        </ColorAdjuster>
-      </g>
-    );
-  }
-);
-
-PieSlice.displayName = 'PieSlice';
+  return (
+    <g
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+    >
+      <StyledPath
+        fill={background}
+        d={active ? pathActive : path}
+        dropShadow={active}
+      />
+      {labels.enabled && (
+        <PieLabel
+          sliceBackground={background}
+          autocolor={autocolor}
+          position={labelPosition}
+          {...labels.typography}
+        >
+          {label}
+        </PieLabel>
+      )}
+    </g>
+  );
+};
 
 export default PieSlice;

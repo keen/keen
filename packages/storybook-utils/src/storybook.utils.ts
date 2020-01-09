@@ -79,7 +79,7 @@ export const createLegendKnobs = (namespace: string) => ({
   card: createCardKnobs(namespace),
 });
 
-type ThemeProperties = 'axisX' | 'axisY' | 'gridX' | 'gridY';
+type ThemeProperties = 'axisX' | 'axisY' | 'gridX' | 'gridY' | 'labels';
 
 const defaultThemeOptions: ThemeProperties[] = [
   'axisX',
@@ -133,10 +133,18 @@ export const createThemeKnobs = (
     },
   });
 
+  const labels = () => ({
+    labels: {
+      enabled: boolean('Enabled', true, 'Labels'),
+      typography: createTypographyKnobs('Labels'),
+    },
+  });
+
   return {
     ...(options.includes('axisX') ? axisX() : {}),
     ...(options.includes('axisY') ? axisY() : {}),
     ...(options.includes('gridX') ? gridX() : {}),
     ...(options.includes('gridY') ? gridY() : {}),
+    ...(options.includes('labels') ? labels() : {}),
   };
 };

@@ -28,5 +28,8 @@
   "dependencies": {
     "react": "^16.12.0",
     "@keen/colors": "^0.0.1"
+  },
+  "devDependencies": {
+    "@keen/ui-core": "^0.0.1"
   }
 }

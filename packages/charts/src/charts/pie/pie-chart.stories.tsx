@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { object } from '@storybook/addon-knobs';
+import { object, select, boolean } from '@storybook/addon-knobs';
+
+import { typographyKnobs } from '@keen/storybook-utils';
 
 import { chartColors } from '../../theme';
 
@@ -16,12 +18,26 @@ export default {
 };
 
 export const withKnobs = () => {
-  const theme = { colors: chartColors };
+  const theme = {
+    colors: chartColors,
+    labels: {
+      enabled: boolean('Enabled', true, 'Labels') as boolean,
+      typography: typographyKnobs('Labels'),
+    },
+  };
+
   return (
-    <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
+    <div style={{ width: '700px', height: '500px' }}>
       <PieChart
         data={chartData}
         theme={theme}
+        labelsAutocolor={boolean('Autocolor', true, 'Chart')}
+        labelsPosition={select(
+          'Labels Position',
+          { inside: 'inside', outside: 'outside' },
+          'inside',
+          'Chart'
+        )}
         svgDimensions={object(
           'svg',
           {

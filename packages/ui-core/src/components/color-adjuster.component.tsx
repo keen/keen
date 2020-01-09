@@ -9,13 +9,16 @@ type Props = {
 export const ColorAdjuster: FC<Props> = ({ children, baseColor }) => {
   const adjustedColor = useMemo(() => {
     const color = Color(baseColor);
+    const [hue, saturation, lightness] = color.hsl().array();
+    let lightnessModifier = 0;
 
     if (color.isLight()) {
-      return color.darken(0.5).string();
+      lightnessModifier = lightness > 75 ? 20 : 15;
     } else {
-      const [h, s] = color.hsl().array();
-      return Color.hsl([h, s, 85]).toString();
+      lightnessModifier = lightness > 25 ? 85 : 80;
     }
+
+    return Color.hsl([hue, saturation, lightnessModifier]).toString();
   }, [baseColor]);
 
   return <>{children(adjustedColor)}</>;

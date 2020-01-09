@@ -4,7 +4,9 @@ import { arc, pie } from 'd3-shape';
 
 import { Dimension, Margins } from '../../types';
 
-type Options = {
+export type LabelsPosition = 'inside' | 'outside';
+
+export type Options = {
   data: Record<string, any>[];
   labelSelector: string;
   valueSelector: string;
@@ -13,16 +15,18 @@ type Options = {
   colors: string[];
   padAngle: number;
   innerRadius: number;
+  labelsPosition: LabelsPosition;
 };
 
 type PieSlice = {
   index: string;
   label: string;
-  startAngle: number;
-  endAngle: number;
+  labelPosition: [number, number];
+  path: string;
+  pathActive: string;
 };
 
-const HOVER_RADIUS = 30;
+const HOVER_RADIUS = 20;
 
 export const generatePieChart = ({
   data,
@@ -32,6 +36,7 @@ export const generatePieChart = ({
   innerRadius,
   labelSelector,
   valueSelector,
+  labelsPosition,
   margins,
 }: Options) => {
   const labels: string[] = [];
@@ -52,20 +57,15 @@ export const generatePieChart = ({
   const total = sum(values);
   const createPie = pie();
 
-  const drawArc = arc()
-    .padAngle(padAngle)
-    .innerRadius(innerRadius)
-    .outerRadius(radius);
+  const createArc = arc().padAngle(padAngle);
 
-  const drawActiveArc = arc()
-    .padAngle(padAngle)
-    .innerRadius(innerRadius)
-    .outerRadius(radius + HOVER_RADIUS);
+  const labelRadiusModifier =
+    labelsPosition === 'inside' ? (2 * radius) / 3 : radius + 4 * HOVER_RADIUS;
 
   const calculateLabelPosition = (startAngle: number, endAngle: number) => {
-    return drawArc.centroid({
-      innerRadius,
-      outerRadius: radius,
+    return createArc.centroid({
+      innerRadius: radius,
+      outerRadius: labelRadiusModifier,
       startAngle,
       endAngle,
     });
@@ -75,9 +75,20 @@ export const generatePieChart = ({
     ({ startAngle, endAngle, value, index }) => {
       return {
         label: String(`${(Math.round(value * 100) / total).toFixed(1)}%`),
+        labelPosition: calculateLabelPosition(startAngle, endAngle),
         index: String(index),
-        startAngle,
-        endAngle,
+        path: createArc({
+          startAngle,
+          endAngle,
+          innerRadius,
+          outerRadius: radius,
+        }),
+        pathActive: createArc({
+          startAngle,
+          endAngle,
+          innerRadius,
+          outerRadius: radius + HOVER_RADIUS,
+        }),
       };
     }
   );
@@ -85,8 +96,5 @@ export const generatePieChart = ({
   return {
     arcs,
     getColor: scaleOrdinal(colors),
-    calculateLabelPosition,
-    drawArc,
-    drawActiveArc,
   };
 };

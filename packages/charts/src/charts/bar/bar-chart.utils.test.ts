@@ -1,5 +1,6 @@
 import {
   calculateRange,
+  calculateMarkPosition,
   generateVerticalBars,
   generateHorizontalBars,
 } from './bar-chart.utils';
@@ -12,6 +13,43 @@ describe('@keen/charts', () => {
       { label: 'January', sale: -3, buy: 11, revenue: 30 },
       { label: 'February', sale: 12, buy: 3, revenue: 21 },
     ];
+
+    describe('calculateMarkPosition()', () => {
+      const barProperties = {
+        x: 10,
+        y: 10,
+        width: 100,
+        height: 100,
+      };
+
+      it('should calculate position for "vertical" layout', () => {
+        const result = calculateMarkPosition({
+          layout: 'vertical',
+          ...barProperties,
+        });
+
+        expect(result).toMatchInlineSnapshot(`
+          Object {
+            "x": 60,
+            "y": 10,
+          }
+        `);
+      });
+
+      it('should calculate position for "horizontal" layout', () => {
+        const result = calculateMarkPosition({
+          layout: 'horizontal',
+          ...barProperties,
+        });
+
+        expect(result).toMatchInlineSnapshot(`
+          Object {
+            "x": 110,
+            "y": 60,
+          }
+        `);
+      });
+    });
 
     describe('calculateRange()', () => {
       it('should calculate minimum and maximum values for provided keys', () => {
