@@ -6,6 +6,8 @@ import {
   createLegendKnobs,
 } from './storybook.utils';
 
+import typographyKnobs from './typography.knobs';
+
 import StoryWrapper from './story-wrapper.component';
 
 export {
@@ -15,4 +17,5 @@ export {
   createThemeKnobs,
   createLegendKnobs,
   createTypographyKnobs,
+  typographyKnobs,
 };

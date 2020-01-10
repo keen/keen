@@ -24,8 +24,5 @@
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
-  },
-  "devDependencies": {
-    "react": "^16.12.0"
   }
 }

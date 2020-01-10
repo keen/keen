@@ -11,7 +11,7 @@ import { ChartBase, Grid, Axes } from '../../components';
 import { CommonChartSettings } from '../../types';
 
 export type Props = {
-  /** chart data */
+  /** Chart data */
   data: object[];
   /** Name of data object property used to create labels on axis */
   labelSelector: string;

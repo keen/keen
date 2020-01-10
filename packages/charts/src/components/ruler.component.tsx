@@ -24,6 +24,7 @@ const Ruler = ({
   tickPadding,
   orientation,
   tickSize,
+  stroke,
   labels,
   color,
 }: Props) => {
@@ -50,7 +51,7 @@ const Ruler = ({
       textAnchor={orientation === Orientation.VERTICAL ? 'middle' : 'end'}
       style={typography}
     >
-      <Line {...line} />
+      <Line {...line} stroke={stroke} />
       {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (
         <Tick key={idx} x={x} y={y} size={size} orientation={orientation}>
           {enabled && <Text {...textProps}>{text}</Text>}
