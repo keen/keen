@@ -1,8 +1,9 @@
 # Keen
 
 [![written in typescript](https://img.shields.io/badge/written%20in-typescript-blue.svg)](https://www.typescriptlang.org) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-yellow.svg)](https://github.com/prettier/prettier) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://facebook.github.io/jest/) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![yarn](https://img.shields.io/badge/maintained%20with-yarn-cc00ff.svg)](https://yarnpkg.com/en/) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-green.svg)](https://lerna.js.org/)
+[![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg)](https://snyk.io/test/github/keen/keen)
 
-This project contains mono-repository for Keen Front-End projects and applications.
+This project contains mono-repository for Keen.io Front-End projects and applications.
 
 ## Project structure
 
@@ -38,3 +39,15 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org) to
 | Command      | Description                        |
 | ------------ | ---------------------------------- |
 | `npx git-cz` | run commit command line interface. |
+
+## build packages
+
+| Command      | Description                        |
+| ------------ | ---------------------------------- |
+| `npx lerna run build` | run build script from `package.json` for each package |
+
+## add dependency to package
+
+| Command      | Description                        |
+| ------------ | ---------------------------------- |
+| `npx lerna add <name>[@ver] packages/<name> [--dev]` | Add dependency to specific package in mono-repository. |
