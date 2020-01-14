@@ -41,6 +41,7 @@
     "@types/color": "^3.0.1",
     "@types/styled-components": "^4.4.1",
     "@types/styled-system": "^5.1.4",
+    "@types/styled-theming": "^2.2.2",
     "@types/webfontloader": "^1.6.29"
   },
   "publishConfig": {

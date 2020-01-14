@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tooltip /> should not render box shadow 1`] = `
+<Tooltip
+  arrowDirection="bottom"
+  backgroundColor="#FFFFFF"
+  borderRadius="0px"
+  fontColor="#3A494D"
+  hasShadow={false}
+  mode="light"
+>
+  <ThemeProvider
+    theme={
+      Object {
+        "arrowDirection": "bottom",
+        "mode": "light",
+      }
+    }
+  >
+    <styled.div
+      backgroundColor="#FFFFFF"
+      borderRadius="0px"
+      fontColor="#3A494D"
+      hasShadow={false}
+    >
+      <StyledComponent
+        backgroundColor="#FFFFFF"
+        borderRadius="0px"
+        fontColor="#3A494D"
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bdVaJa",
+              "isStatic": false,
+              "lastClassName": "dLanEm",
+              "rules": Array [
+                "
+  padding: 10px 15px;
+  background-color: ",
+                [Function],
+                ";
+  border-radius: ",
+                [Function],
+                ";
+  font-family: ",
+                [Function],
+                ";
+  font-size: ",
+                [Function],
+                ";
+  color: ",
+                [Function],
+                ";
+  box-shadow: ",
+                [Function],
+                ";
+  position: relative;
+  ",
+                [Function],
+                "
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: 4px solid ",
+                [Function],
+                ";
+    transform-origin: 0 0;
+    box-shadow: ",
+                [Function],
+                ";
+    ",
+                [Function],
+                "
+  }
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bdVaJa",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        hasShadow={false}
+      >
+        <div
+          className="sc-bdVaJa dLanEm"
+        >
+          tooltip
+        </div>
+      </StyledComponent>
+    </styled.div>
+  </ThemeProvider>
+</Tooltip>
+`;
+
+exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
+<Tooltip
+  arrowDirection="bottom"
+  backgroundColor="#FFFFFF"
+  borderRadius="0px"
+  fontColor="#3A494D"
+  hasShadow={true}
+  mode="dark"
+>
+  <ThemeProvider
+    theme={
+      Object {
+        "arrowDirection": "bottom",
+        "mode": "dark",
+      }
+    }
+  >
+    <styled.div
+      backgroundColor="#FFFFFF"
+      borderRadius="0px"
+      fontColor="#3A494D"
+      hasShadow={true}
+    >
+      <StyledComponent
+        backgroundColor="#FFFFFF"
+        borderRadius="0px"
+        fontColor="#3A494D"
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bdVaJa",
+              "isStatic": false,
+              "lastClassName": "iBCLQI",
+              "rules": Array [
+                "
+  padding: 10px 15px;
+  background-color: ",
+                [Function],
+                ";
+  border-radius: ",
+                [Function],
+                ";
+  font-family: ",
+                [Function],
+                ";
+  font-size: ",
+                [Function],
+                ";
+  color: ",
+                [Function],
+                ";
+  box-shadow: ",
+                [Function],
+                ";
+  position: relative;
+  ",
+                [Function],
+                "
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: 4px solid ",
+                [Function],
+                ";
+    transform-origin: 0 0;
+    box-shadow: ",
+                [Function],
+                ";
+    ",
+                [Function],
+                "
+  }
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bdVaJa",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        hasShadow={true}
+      >
+        <div
+          className="sc-bdVaJa iBCLQI"
+        >
+          tooltip
+        </div>
+      </StyledComponent>
+    </styled.div>
+  </ThemeProvider>
+</Tooltip>
+`;
