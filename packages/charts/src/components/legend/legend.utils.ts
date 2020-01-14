@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Position, Layout } from '@keen/ui-core';
+import { Position, Layout } from '@keen.io/ui-core';
 
 export type RenderMode = 'list' | 'group' | 'slider';
 

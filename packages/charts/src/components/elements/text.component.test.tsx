@@ -23,7 +23,7 @@ const setup = (overProps: object = {}) => {
   };
 };
 
-describe('@keen/charts - <Text />', () => {
+describe('@keen.io/charts - <Text />', () => {
   it('should render children', () => {
     const { wrapper, props } = setup();
 

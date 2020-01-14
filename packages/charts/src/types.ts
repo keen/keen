@@ -1,4 +1,4 @@
-import { Typography } from '@keen/ui-core';
+import { Typography } from '@keen.io/ui-core';
 
 export type Dimension = {
   width: number;

@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 
-import { Typography } from '@keen/ui-core';
-import { colors } from '@keen/colors';
+import { Typography } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
 
 import { StyledLabel, Text, Circle } from './legend-label.styles';
 

@@ -4,7 +4,7 @@ import 'jest-styled-components';
 
 import Group from './group.component';
 
-describe('@keen/charts - <Group />', () => {
+describe('@keen.io/charts - <Group />', () => {
   it('should wrap groupped children', () => {
     const wrapper = render(
       <Group>

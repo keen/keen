@@ -5,7 +5,7 @@ import Tick from './tick.component';
 
 import { Orientation } from '../../types';
 
-describe('@keen/charts - <Tick />', () => {
+describe('@keen.io/charts - <Tick />', () => {
   it('should set svg group coordinates', () => {
     const wrapper = mount(
       <svg>

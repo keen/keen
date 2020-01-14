@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Slick from 'react-slick';
 
-import { Arrow, Position } from '@keen/ui-core';
+import { Arrow, Position } from '@keen.io/ui-core';
 
 import {
   Layout,

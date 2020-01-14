@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { createTypographyKnobs, createCardKnobs } from '@keen/storybook-utils';
+import {
+  createTypographyKnobs,
+  createCardKnobs,
+} from '@keen.io/storybook-utils';
 
 import { Legend } from './legend.component';
 import { labels } from './legend.fixtures';

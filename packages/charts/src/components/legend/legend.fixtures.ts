@@ -1,4 +1,4 @@
-import { colors } from '@keen/colors';
+import { colors } from '@keen.io/colors';
 
 export const labels = [
   { name: 'Marketing', color: colors.blue['500'] },

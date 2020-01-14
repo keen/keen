@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Layout } from '@keen/ui-core';
+import { Layout } from '@keen.io/ui-core';
 
 import { Bar } from './bar-chart.utils';
 

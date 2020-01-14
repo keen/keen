@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { object, number } from '@storybook/addon-knobs';
 
-import { createThemeKnobs, createLayoutKnobs } from '@keen/storybook-utils';
+import { createThemeKnobs, createLayoutKnobs } from '@keen.io/storybook-utils';
 
 import { BarChart } from './bar-chart.component';
 import { chartData } from './bar-chart.fixtures';

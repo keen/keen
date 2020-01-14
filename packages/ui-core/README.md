@@ -1,3 +1,3 @@
-# `@keen/ui-core`
+# `@keen.io/ui-core`
 
 > TODO: description

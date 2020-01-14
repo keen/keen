@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale x 1`] = `
+exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale x 1`] = `
 Array [
   Object {
     "x1": 25,
@@ -29,7 +29,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale y 1`] = `
+exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale y 1`] = `
 Array [
   Object {
     "x1": 10,
@@ -70,7 +70,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale x 1`] = `
+exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale x 1`] = `
 Array [
   Object {
     "x1": 0,
@@ -129,7 +129,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale y 1`] = `
+exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale y 1`] = `
 Array [
   Object {
     "x1": 10,

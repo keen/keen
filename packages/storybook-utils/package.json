@@ -1,5 +1,5 @@
 {
-  "name": "@keen/storybook-utils",
+  "name": "@keen.io/storybook-utils",
   "version": "0.0.1",
   "description": "Keen utils",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
@@ -27,9 +27,6 @@
   },
   "dependencies": {
     "react": "^16.12.0",
-    "@keen/colors": "^0.0.1"
-  },
-  "devDependencies": {
-    "@keen/ui-core": "^0.0.1"
+    "@keen.io/colors": "^0.0.1"
   }
 }

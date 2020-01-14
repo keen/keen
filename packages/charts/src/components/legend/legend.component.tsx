@@ -7,7 +7,7 @@ import {
   Typography,
   Group,
   CardProps,
-} from '@keen/ui-core';
+} from '@keen.io/ui-core';
 
 import LegendLabel from './legend-label.component';
 import Slider from './legend-slider.component';

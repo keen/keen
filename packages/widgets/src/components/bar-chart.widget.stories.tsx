@@ -8,8 +8,8 @@ import {
   createThemeKnobs,
   createLayoutKnobs,
   createLegendKnobs,
-} from '@keen/storybook-utils';
-import { theme as keenTheme } from '@keen/charts';
+} from '@keen.io/storybook-utils';
+import { theme as keenTheme } from '@keen.io/charts';
 
 export default {
   title: 'Widgets / Bar Chart Widget',

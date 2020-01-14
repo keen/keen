@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card } from '@keen/ui-core';
+import { Card } from '@keen.io/ui-core';
 
 import {
   LayoutMain,

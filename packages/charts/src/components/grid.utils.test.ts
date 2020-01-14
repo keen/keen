@@ -2,7 +2,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 
 import { generateGridLines, AxisType } from './grid.utils';
 
-describe('@keen/charts', () => {
+describe('@keen.io/charts', () => {
   describe('<Grid /> - utils', () => {
     describe('generateGridLines()', () => {
       const margins = { top: 10, right: 10, bottom: 10, left: 10 };

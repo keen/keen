@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Position, Alignment } from '@keen/ui-core';
+import { Position, Alignment } from '@keen.io/ui-core';
 
 const flexDirection: Record<Position, string> = {
   top: 'column',

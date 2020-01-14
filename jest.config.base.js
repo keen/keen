@@ -12,7 +12,7 @@ module.exports = {
   },
 
   moduleNameMapper: {
-   '^@keen/(.*)$': '<rootDir>/../$1/src',
+   '^@keen.io/(.*)$': '<rootDir>/../$1/src',
   },
 
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
@@ -25,7 +25,7 @@ module.exports = {
       statements: 85
     }
   },
-  
+
   snapshotSerializers: [
     'enzyme-to-json/serializer'
   ],

@@ -1,4 +1,4 @@
-import { colors } from '@keen/colors';
+import { colors } from '@keen.io/colors';
 
 import { Theme } from './types';
 

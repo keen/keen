@@ -1,7 +1,7 @@
 import { scaleBand, scaleLinear, ScaleLinear } from 'd3-scale';
 import { max, min } from 'd3-array';
 
-import { Layout } from '@keen/ui-core';
+import { Layout } from '@keen.io/ui-core';
 
 import { Dimension, Margins } from '../../types';
 

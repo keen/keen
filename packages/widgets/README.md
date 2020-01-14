@@ -1,3 +1,3 @@
-# `@keen/widgets`
+# `@keen.io/widgets`
 
 > TODO: description

@@ -1,3 +1,3 @@
-# `@keen/storybook-utils`
+# `@keen.io/storybook-utils`
 
 > TODO: description
