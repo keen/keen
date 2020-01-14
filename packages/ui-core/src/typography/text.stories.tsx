@@ -5,7 +5,10 @@ import { loremIpsum } from 'lorem-ipsum';
 import { theme } from '../theme';
 import Text from './text.component';
 import { useFontLoader } from './text.utils';
-import { createTypographyKnobs, getGoogleFonts } from '@keen/storybook-utils';
+import {
+  createTypographyKnobs,
+  getGoogleFonts,
+} from '@keen.io/storybook-utils';
 
 const Wrapper = styled.div`
   width: 100%;
