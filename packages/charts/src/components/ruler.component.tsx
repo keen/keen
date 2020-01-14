@@ -45,11 +45,13 @@ const Ruler = ({
     [orientation, tickPadding, tickSize]
   );
 
+  const { fontColor, ...rest } = typography;
+
   return (
     <Group
       color={color}
       textAnchor={orientation === Orientation.VERTICAL ? 'middle' : 'end'}
-      style={typography}
+      style={{ ...rest, color: fontColor }}
     >
       <Line {...line} stroke={stroke} />
       {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (

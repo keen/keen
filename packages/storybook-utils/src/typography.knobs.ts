@@ -12,12 +12,26 @@ const options = {
     normal: 'normal',
     bold: 'bold',
   },
+  fontFamily: {
+    GangsterGroteskBold: 'Gangster Grotesk Bold',
+    GangsterGroteskLight: 'Gangster Grotesk Light',
+    GangsterGroteskRegular: 'Gangster Grotesk Regular',
+    LatoBold: 'Lato Bold',
+    LatoLight: 'Lato Light',
+    LatoRegular: 'Lato Regular',
+  },
 };
 
 const typographyKnobs = (
   namespace: string,
   defaultOptions: Partial<Typography> = {}
 ) => ({
+  fontFamily: select(
+    'Font Family',
+    options.fontFamily,
+    defaultOptions.fontFamily || options.fontFamily.GangsterGroteskRegular,
+    namespace
+  ),
   fontSize: number('Font Size', defaultOptions.fontSize || 14, {}, namespace),
   fontStyle: select(
     'Font Style',

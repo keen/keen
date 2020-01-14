@@ -3,9 +3,6 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.json'],
   },
   module: {
-    rules: [
-      { test: /\.tsx?$/, use: ['ts-loader'] },
-    ],
+    rules: [{ test: /\.tsx?$/, use: ['ts-loader'] }],
   },
-
 };

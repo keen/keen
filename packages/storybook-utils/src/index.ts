@@ -4,6 +4,7 @@ import {
   createLayoutKnobs,
   createTypographyKnobs,
   createLegendKnobs,
+  getGoogleFonts,
 } from './storybook.utils';
 
 import typographyKnobs from './typography.knobs';
@@ -18,4 +19,5 @@ export {
   createLegendKnobs,
   createTypographyKnobs,
   typographyKnobs,
+  getGoogleFonts,
 };

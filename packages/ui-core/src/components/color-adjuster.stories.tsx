@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '@keen/colors';
+import { colors } from '@keen.io/colors';
 
 import ColorAdjuster from './color-adjuster.component';
 

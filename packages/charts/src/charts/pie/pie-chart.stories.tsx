@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { object, select, boolean } from '@storybook/addon-knobs';
 
-import { typographyKnobs } from '@keen/storybook-utils';
+import { typographyKnobs } from '@keen.io/storybook-utils';
 
 import { chartColors } from '../../theme';
 
