@@ -1,3 +1,3 @@
 # `@keen.io/charts`
 
-> TODO: description
+Basic color palette for keen.io projects.
