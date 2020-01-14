@@ -1,6 +1,6 @@
 import { boolean, number, select, color, text } from '@storybook/addon-knobs';
 
-import { colors } from '@keen/colors';
+import { colors } from '@keen.io/colors';
 
 const typographyOptions = {
   fontStyle: {

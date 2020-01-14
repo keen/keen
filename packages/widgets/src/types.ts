@@ -1,4 +1,4 @@
-import { Typography, Position, Alignment, Layout } from '@keen/ui-core';
+import { Typography, Position, Alignment, Layout } from '@keen.io/ui-core';
 
 export type LegendSettings = {
   enabled: boolean;

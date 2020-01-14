@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { colors } from '@keen/colors';
+import { colors } from '@keen.io/colors';
 
 type Props = {
   x: number;

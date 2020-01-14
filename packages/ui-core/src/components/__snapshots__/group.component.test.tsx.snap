@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen/charts - <Group /> should wrap children with provided node 1`] = `
+exports[`@keen.io/charts - <Group /> should wrap children with provided node 1`] = `
 Array [
   <span>
     <div>
@@ -21,7 +21,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts - <Group /> should wrap groupped children 1`] = `
+exports[`@keen.io/charts - <Group /> should wrap groupped children 1`] = `
 Array [
   <div
     class=""
@@ -46,7 +46,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts - <Group /> should wrap groupped children based on chunks property 1`] = `
+exports[`@keen.io/charts - <Group /> should wrap groupped children based on chunks property 1`] = `
 Array [
   <div
     class=""

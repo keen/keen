@@ -3,4 +3,5 @@ yarn-error.log
 tsconfig.tsbuildinfo
 lerna-debug.log
 packages/**/dist
+package-lock.json
 coverage

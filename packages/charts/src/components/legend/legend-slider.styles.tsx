@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { Position } from '@keen/ui-core';
-import { colors } from '@keen/colors';
+import { Position } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
 
 export type Variant = 'vertical' | 'horizontal';
 

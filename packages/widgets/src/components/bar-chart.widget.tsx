@@ -4,7 +4,7 @@ import {
   BarChartSettings,
   ResponsiveWrapper,
   Legend,
-} from '@keen/charts';
+} from '@keen.io/charts';
 
 import ChartWidget from './chart-widget.component';
 import {

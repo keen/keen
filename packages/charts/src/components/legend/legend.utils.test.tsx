@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 
 import { useRenderMode, hasContentOverflow } from './legend.utils';
 
-describe('@keen/charts - <Legend /> utils', () => {
+describe('@keen.io/charts - <Legend /> utils', () => {
   describe('useRenderMode()', () => {
     const testHook = (runHook: Function) => {
       const HookWrapper = () => <div hook-result={runHook()} />;

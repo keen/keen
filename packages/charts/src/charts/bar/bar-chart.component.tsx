@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Layout } from '@keen/ui-core';
+import { Layout } from '@keen.io/ui-core';
 
 import { generateBars } from './bar-chart.utils';
 

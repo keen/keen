@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen/charts <BarChart /> - utils generateHorizontalBars() should calculate bars and apply colors 1`] = `
+exports[`@keen.io/charts <BarChart /> - utils generateHorizontalBars() should calculate bars and apply colors 1`] = `
 Array [
   Object {
     "color": "red",
@@ -37,7 +37,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts <BarChart /> - utils generateVerticalBars() should calculate bars and apply colors 1`] = `
+exports[`@keen.io/charts <BarChart /> - utils generateVerticalBars() should calculate bars and apply colors 1`] = `
 Array [
   Object {
     "color": "red",

@@ -7,7 +7,7 @@ import {
 
 import { verticalBarChart, horizontalBarChart } from './bar-chart.fixtures';
 
-describe('@keen/charts', () => {
+describe('@keen.io/charts', () => {
   describe('<BarChart /> - utils', () => {
     const data = [
       { label: 'January', sale: -3, buy: 11, revenue: 30 },

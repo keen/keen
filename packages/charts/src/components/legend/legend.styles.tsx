@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { Layout, Alignment, Position, CardProps } from '@keen/ui-core';
-import { colors } from '@keen/colors';
+import { Layout, Alignment, Position, CardProps } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
 
 import { RenderMode } from './legend.utils';
 

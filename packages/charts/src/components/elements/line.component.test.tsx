@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import Line from './line.component';
 
-describe('@keen/charts - <Line />', () => {
+describe('@keen.io/charts - <Line />', () => {
   const props = {
     x1: 10,
     x2: 15,

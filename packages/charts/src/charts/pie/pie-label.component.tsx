@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 
-import { ColorAdjuster, Typography } from '@keen/ui-core';
+import { ColorAdjuster, Typography } from '@keen.io/ui-core';
 
 type Props = {
   position: [number, number];

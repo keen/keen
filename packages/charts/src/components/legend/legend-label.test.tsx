@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { Typography } from '@keen/ui-core';
+import { Typography } from '@keen.io/ui-core';
 
 import LegendLabel from './legend-label.component';
 import { Text } from './legend-label.styles';
 
-describe('@keen/charts - <LegendLabel />', () => {
+describe('@keen.io/charts - <LegendLabel />', () => {
   let mockFn: any;
   const props = {
     typography: {

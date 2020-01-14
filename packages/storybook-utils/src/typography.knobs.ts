@@ -1,7 +1,7 @@
 import { number, select, color } from '@storybook/addon-knobs';
 
-import { colors } from '@keen/colors';
-import { Typography } from '@keen/ui-core';
+import { colors } from '@keen.io/colors';
+import { Typography } from '@keen.io/ui-core';
 
 const options = {
   fontStyle: {

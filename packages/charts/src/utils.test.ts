@@ -9,7 +9,7 @@ import {
 
 import { Orientation } from './types';
 
-describe('@keen/charts - utils', () => {
+describe('@keen.io/charts - utils', () => {
   const domain = ['Sales', 'Marketing', 'E-commerce'];
 
   describe('generateTicks()', () => {

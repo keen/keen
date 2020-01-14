@@ -1,3 +1,3 @@
-# `@keen/icons`
+# `@keen.io/icons`
 
 > TODO: description

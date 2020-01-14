@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '@keen/colors';
+import { colors } from '@keen.io/colors';
 
 export type Props = {
   backgroundColor?: string;

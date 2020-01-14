@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ArrowUp, ArrowDown, ArrowRight, ArrowLeft } from '@keen/icons';
+import { ArrowUp, ArrowDown, ArrowRight, ArrowLeft } from '@keen.io/icons';
 
 import { Position } from '../types';
 
