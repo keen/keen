@@ -24,5 +24,8 @@
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

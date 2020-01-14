@@ -34,5 +34,8 @@
   },
   "devDependencies": {
     "@keen.io/storybook-utils": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
