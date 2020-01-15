@@ -13,6 +13,7 @@
     "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
     "test": "jest",
     "test:cov": "jest --coverage",
+    "test:ci": "jest --coverage -w 1",
     "storybook": "start-storybook -p 3000 -s .storybook",
     "build-storybook": "build-storybook -c .storybook -s .storybook -o dist",
     "publish-storybook": "gh-pages -d dist"

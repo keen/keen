@@ -25,7 +25,7 @@ jobs:
           command: yarn lint
       - run:
           name: Unit Tests
-          command: yarn test:cov
+          command: yarn test:ci
       - run:
           name: Build
           command: npx lerna run build
