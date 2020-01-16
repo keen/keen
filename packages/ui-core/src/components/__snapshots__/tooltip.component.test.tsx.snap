@@ -34,7 +34,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
             "componentStyle": ComponentStyle {
               "componentId": "sc-bdVaJa",
               "isStatic": false,
-              "lastClassName": "dLanEm",
+              "lastClassName": "bmwhaX",
               "rules": Array [
                 "
   padding: 10px 15px;
@@ -94,7 +94,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
         hasShadow={false}
       >
         <div
-          className="sc-bdVaJa dLanEm"
+          className="sc-bdVaJa bmwhaX"
         >
           tooltip
         </div>
@@ -138,7 +138,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
             "componentStyle": ComponentStyle {
               "componentId": "sc-bdVaJa",
               "isStatic": false,
-              "lastClassName": "iBCLQI",
+              "lastClassName": "hfYHmZ",
               "rules": Array [
                 "
   padding: 10px 15px;
@@ -198,7 +198,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
         hasShadow={true}
       >
         <div
-          className="sc-bdVaJa iBCLQI"
+          className="sc-bdVaJa hfYHmZ"
         >
           tooltip
         </div>

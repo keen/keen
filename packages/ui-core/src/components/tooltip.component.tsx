@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
 import theme from 'styled-theming';
 import { colors } from '@keen.io/colors';
+import Color from 'color';
 import { Position } from '../types';
 
 export type TooltipMode = 'light' | 'dark';
@@ -23,8 +24,14 @@ type Props = {
   bulletList?: BulletPoint[];
 };
 
-const LIGHT_MODE_BACKGROUND = colors.white['500'];
-const DARK_MODE_BACKGROUND = colors.black['200'];
+const LIGHT_MODE_BACKGROUND = Color(colors.white['500'])
+  .fade(0.05)
+  .rgb()
+  .toString();
+const DARK_MODE_BACKGROUND = Color(colors.black['200'])
+  .fade(0.05)
+  .rgb()
+  .toString();
 
 const modeStyles = theme('mode', {
   light: css`
