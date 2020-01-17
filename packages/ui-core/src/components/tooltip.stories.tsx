@@ -4,6 +4,7 @@ import { boolean, select, color, text } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 
 import Tooltip, { TooltipMode } from './tooltip.component';
+import BulletList from './bulletlist.component';
 import { typographyKnobs } from '@keen.io/storybook-utils';
 import { colors } from '@keen.io/colors';
 import { Position } from '../types';
@@ -56,7 +57,6 @@ const bulletList = [
 export const withKnobs = () => (
   <Wrapper>
     <Tooltip
-      bulletList={bulletList}
       mode={
         select('Mode', options.mode, options.mode.light, 'Mode') as TooltipMode
       }
@@ -112,7 +112,9 @@ DarkMode.story = {
 
 export const BulletPoints = () => (
   <Wrapper>
-    <Tooltip bulletList={bulletList} />
+    <Tooltip>
+      <BulletList list={bulletList} />
+    </Tooltip>
   </Wrapper>
 );
 

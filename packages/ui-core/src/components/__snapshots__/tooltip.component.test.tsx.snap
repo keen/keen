@@ -9,57 +9,52 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
   hasShadow={false}
   mode="light"
 >
-  <ThemeProvider
-    theme={
-      Object {
-        "arrowDirection": "bottom",
-        "mode": "light",
-      }
-    }
+  <styled.div
+    arrowDirection="bottom"
+    backgroundColor="#FFFFFF"
+    borderRadius="0px"
+    fontColor="#3A494D"
+    hasShadow={false}
+    mode="light"
   >
-    <styled.div
+    <StyledComponent
+      arrowDirection="bottom"
       backgroundColor="#FFFFFF"
       borderRadius="0px"
       fontColor="#3A494D"
-      hasShadow={false}
-    >
-      <StyledComponent
-        backgroundColor="#FFFFFF"
-        borderRadius="0px"
-        fontColor="#3A494D"
-        forwardedComponent={
-          Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "attrs": Array [],
-            "componentStyle": ComponentStyle {
-              "componentId": "sc-bdVaJa",
-              "isStatic": false,
-              "lastClassName": "bmwhaX",
-              "rules": Array [
-                "
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "dUAQES",
+            "rules": Array [
+              "
   padding: 10px 15px;
   background-color: ",
-                [Function],
-                ";
+              [Function],
+              ";
   border-radius: ",
-                [Function],
-                ";
+              [Function],
+              ";
   font-family: ",
-                [Function],
-                ";
+              [Function],
+              ";
   font-size: ",
-                [Function],
-                ";
+              [Function],
+              ";
   color: ",
-                [Function],
-                ";
+              [Function],
+              ";
   box-shadow: ",
-                [Function],
-                ";
+              [Function],
+              ";
   position: relative;
   ",
-                [Function],
-                "
+              [Function],
+              "
   &::after {
     content: '';
     position: absolute;
@@ -67,40 +62,41 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
     height: 0;
     box-sizing: border-box;
     border: 4px solid ",
-                [Function],
-                ";
+              [Function],
+              ";
     transform-origin: 0 0;
     box-shadow: ",
-                [Function],
-                ";
+              [Function],
+              ";
     ",
-                [Function],
-                "
+              [Function],
+              "
   }
 ",
-              ],
-            },
-            "displayName": "styled.div",
-            "foldedComponentIds": Array [],
-            "render": [Function],
-            "styledComponentId": "sc-bdVaJa",
-            "target": "div",
-            "toString": [Function],
-            "warnTooManyClasses": [Function],
-            "withComponent": [Function],
-          }
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
         }
-        forwardedRef={null}
-        hasShadow={false}
+      }
+      forwardedRef={null}
+      hasShadow={false}
+      mode="light"
+    >
+      <div
+        className="sc-bdVaJa dUAQES"
+        mode="light"
       >
-        <div
-          className="sc-bdVaJa bmwhaX"
-        >
-          tooltip
-        </div>
-      </StyledComponent>
-    </styled.div>
-  </ThemeProvider>
+        tooltip
+      </div>
+    </StyledComponent>
+  </styled.div>
 </Tooltip>
 `;
 
@@ -113,57 +109,52 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
   hasShadow={true}
   mode="dark"
 >
-  <ThemeProvider
-    theme={
-      Object {
-        "arrowDirection": "bottom",
-        "mode": "dark",
-      }
-    }
+  <styled.div
+    arrowDirection="bottom"
+    backgroundColor="#FFFFFF"
+    borderRadius="0px"
+    fontColor="#3A494D"
+    hasShadow={true}
+    mode="dark"
   >
-    <styled.div
+    <StyledComponent
+      arrowDirection="bottom"
       backgroundColor="#FFFFFF"
       borderRadius="0px"
       fontColor="#3A494D"
-      hasShadow={true}
-    >
-      <StyledComponent
-        backgroundColor="#FFFFFF"
-        borderRadius="0px"
-        fontColor="#3A494D"
-        forwardedComponent={
-          Object {
-            "$$typeof": Symbol(react.forward_ref),
-            "attrs": Array [],
-            "componentStyle": ComponentStyle {
-              "componentId": "sc-bdVaJa",
-              "isStatic": false,
-              "lastClassName": "hfYHmZ",
-              "rules": Array [
-                "
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "jJImog",
+            "rules": Array [
+              "
   padding: 10px 15px;
   background-color: ",
-                [Function],
-                ";
+              [Function],
+              ";
   border-radius: ",
-                [Function],
-                ";
+              [Function],
+              ";
   font-family: ",
-                [Function],
-                ";
+              [Function],
+              ";
   font-size: ",
-                [Function],
-                ";
+              [Function],
+              ";
   color: ",
-                [Function],
-                ";
+              [Function],
+              ";
   box-shadow: ",
-                [Function],
-                ";
+              [Function],
+              ";
   position: relative;
   ",
-                [Function],
-                "
+              [Function],
+              "
   &::after {
     content: '';
     position: absolute;
@@ -171,39 +162,40 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
     height: 0;
     box-sizing: border-box;
     border: 4px solid ",
-                [Function],
-                ";
+              [Function],
+              ";
     transform-origin: 0 0;
     box-shadow: ",
-                [Function],
-                ";
+              [Function],
+              ";
     ",
-                [Function],
-                "
+              [Function],
+              "
   }
 ",
-              ],
-            },
-            "displayName": "styled.div",
-            "foldedComponentIds": Array [],
-            "render": [Function],
-            "styledComponentId": "sc-bdVaJa",
-            "target": "div",
-            "toString": [Function],
-            "warnTooManyClasses": [Function],
-            "withComponent": [Function],
-          }
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
         }
-        forwardedRef={null}
-        hasShadow={true}
+      }
+      forwardedRef={null}
+      hasShadow={true}
+      mode="dark"
+    >
+      <div
+        className="sc-bdVaJa jJImog"
+        mode="dark"
       >
-        <div
-          className="sc-bdVaJa hfYHmZ"
-        >
-          tooltip
-        </div>
-      </StyledComponent>
-    </styled.div>
-  </ThemeProvider>
+        tooltip
+      </div>
+    </StyledComponent>
+  </styled.div>
 </Tooltip>
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from './tooltip.component';
+import BulletList from './bulletlist.component';
 
 const setup = (overProps: any = {}) => {
   const props = {
@@ -47,7 +48,7 @@ describe('<Tooltip />', () => {
     ];
 
     const { wrapper } = setup({
-      bulletList,
+      children: <BulletList list={bulletList} />,
     });
 
     expect(wrapper.find('li').length).toEqual(bulletList.length);
