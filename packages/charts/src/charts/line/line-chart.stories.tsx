@@ -34,7 +34,7 @@ export const withKnobs = () => {
         keys={['users', 'licenses', 'shops', 'books']}
         markRadius={number('Marks radius', 4, {}, 'Chart')}
         strokeWidth={number('Line thickness', 2, {}, 'Chart')}
-        formatLabelHorizontal={createLabelFormatter(formatKnob)}
+        formatLabel={createLabelFormatter(formatKnob)}
         svgDimensions={object(
           'svg',
           {

@@ -36,8 +36,8 @@ export type Mark = {
   y: number;
 };
 
-// @todo handle empty data
 export const sortDates = (data: any[], labelSelector: string) =>
+  data.length &&
   data.sort(
     (a, b) =>
       (new Date(a[labelSelector]) as any) - (new Date(b[labelSelector]) as any)

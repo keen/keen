@@ -51,6 +51,30 @@ describe('@keen.io/charts - utils', () => {
   });
 
   describe('generateTicks()', () => {
+    global.Date.UTC = jest
+      .fn()
+      .mockImplementationOnce(
+        () =>
+          'Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
+      )
+      .mockImplementationOnce(
+        () =>
+          'Sat Feb 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
+      )
+      .mockImplementationOnce(
+        () =>
+          'Sun Mar 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
+      )
+      .mockImplementationOnce(
+        () => 'Wed Apr 01 2020 02:00:00 GMT+0200 (Central European Summer Time)'
+      )
+      .mockImplementationOnce(
+        () => 'Fri May 01 2020 02:00:00 GMT+0200 (Central European Summer Time)'
+      )
+      .mockImplementationOnce(
+        () => 'Mon Jun 01 2020 02:00:00 GMT+0200 (Central European Summer Time)'
+      );
+
     const rangeStart = 0;
     const rangeEnd = 0;
     const tickSize = 10;
@@ -170,6 +194,15 @@ describe('@keen.io/charts - utils', () => {
   });
 
   describe('getScaleValues()', () => {
+    global.Date.UTC = jest
+      .fn()
+      .mockImplementationOnce(
+        () =>
+          'Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
+      )
+      .mockImplementationOnce(
+        () => 'Mon Jun 01 2020 02:00:00 GMT+0200 (Central European Summer Time)'
+      );
     const firstDate = new Date('2020-01-01T00:00:00.000Z');
     const lastDate = new Date('2020-06-01T00:00:00.000Z');
     it('should return domain for band scale', () => {
@@ -210,16 +243,15 @@ describe('@keen.io/charts - utils', () => {
   });
 
   describe('textFormat()', () => {
-    const orientation = Orientation.VERTICAL;
     it('return value without formating', () => {
       const value = 50;
-      const returnValue = textFormat(orientation, value);
+      const returnValue = textFormat(value);
 
       expect(returnValue).toEqual(50);
     });
     it('return string when value is Date', () => {
       const value = new Date('2020-01-01T00:00:00.000Z');
-      const returnValue = textFormat(orientation, value);
+      const returnValue = textFormat(value);
 
       expect(returnValue).toEqual(
         'Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
@@ -227,8 +259,8 @@ describe('@keen.io/charts - utils', () => {
     });
     it('return formatted value', () => {
       const value = 123;
-      const formatLabelHorizontal = label => `$${label}`;
-      const returnValue = textFormat(orientation, value, formatLabelHorizontal);
+      const formatLabel = label => `$${label}`;
+      const returnValue = textFormat(value, formatLabel);
 
       expect(returnValue).toEqual('$123');
     });

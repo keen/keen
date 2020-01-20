@@ -13,12 +13,12 @@ type Props = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
-  formatLabelHorizontal?: (label: any) => string | number;
+  formatLabel?: (label: any) => string | number;
 };
 
 const X_AXIS_PADDING = 5;
 
-const Axes = ({ xScale, yScale, formatLabelHorizontal }: Props) => {
+const Axes = ({ xScale, yScale, formatLabel }: Props) => {
   const { theme, margins, svgDimensions } = useContext(
     ChartContext
   ) as ChartContextType;
@@ -39,13 +39,7 @@ const Axes = ({ xScale, yScale, formatLabelHorizontal }: Props) => {
 
   return (
     <>
-      {axisX && (
-        <Ruler
-          {...axisX}
-          {...theme.axisX}
-          formatLabelHorizontal={formatLabelHorizontal}
-        />
-      )}
+      {axisX && <Ruler {...axisX} {...theme.axisX} formatLabel={formatLabel} />}
       {axisY && <Ruler {...axisY} {...theme.axisY} />}
     </>
   );

@@ -13,7 +13,7 @@ type Options = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   orientation: Orientation;
-  formatLabelHorizontal?: (label: any) => string | number;
+  formatLabel?: (label: any) => string | number;
 };
 
 export const createRuler = ({
@@ -22,7 +22,7 @@ export const createRuler = ({
   tickSize,
   scale,
   orientation,
-  formatLabelHorizontal,
+  formatLabel,
 }: Options) => {
   const [scaleStart, scaleEnd] = scale.range();
   const ticks = generateTicks({
@@ -31,7 +31,7 @@ export const createRuler = ({
     tickSize,
     scale,
     orientation,
-    formatLabelHorizontal,
+    formatLabel,
   });
   let line;
 

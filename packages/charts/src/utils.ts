@@ -61,13 +61,11 @@ export const getScaleValues = (
 ) => ('bandwidth' in scale ? scale.domain() : scale.ticks());
 
 export const textFormat = (
-  orientation: Orientation,
   value: any,
-  formatLabelHorizontal?: (label: any) => string | number
+  formatLabel?: (label: any) => string | number
 ): string | number => {
-  if (formatLabelHorizontal && orientation === Orientation.VERTICAL)
-    return formatLabelHorizontal(value);
-  if (typeof value === 'object') return value.toString();
+  if (formatLabel) return formatLabel(value);
+  if (value instanceof Date) return value.toString();
   return value;
 };
 
@@ -77,7 +75,7 @@ export const generateTicks = ({
   orientation = Orientation.VERTICAL,
   x,
   y,
-  formatLabelHorizontal,
+  formatLabel,
 }: {
   x: number;
   y: number;
@@ -87,7 +85,7 @@ export const generateTicks = ({
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   orientation?: Orientation;
-  formatLabelHorizontal?: (label: any) => string | number;
+  formatLabel?: (label: any) => string | number;
 }): Tick[] => {
   const values = getScaleValues(scale);
   const ticks: Tick[] = [];
@@ -102,7 +100,7 @@ export const generateTicks = ({
   values.forEach((value: any) => {
     ticks.push({
       size: tickSize,
-      text: textFormat(orientation, value, formatLabelHorizontal),
+      text: textFormat(value, formatLabel),
       x: getX(value),
       y: getY(value),
     });

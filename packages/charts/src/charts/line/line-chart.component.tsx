@@ -20,11 +20,11 @@ export type Props = {
   /** Keys picked from data object used to generate lines */
   keys?: string[];
   /** Marks radius */
-  markRadius?: number | 4;
+  markRadius?: number;
   /** Line thickness */
   strokeWidth?: number | 2;
   /** Function for date format */
-  formatLabelHorizontal?: (label: any) => string | number;
+  formatLabel?: (label: any) => string | number;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -38,7 +38,7 @@ export const LineChart: FC<Props> = ({
   keys = ['value'],
   markRadius = 4,
   strokeWidth = 1,
-  formatLabelHorizontal,
+  formatLabel,
 }) => {
   const { lines, xScale, yScale } = generateLines({
     data,
@@ -55,11 +55,7 @@ export const LineChart: FC<Props> = ({
   return (
     <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
       <Grid xScale={xScale} yScale={yScale} />
-      <Axes
-        xScale={xScale}
-        yScale={yScale}
-        formatLabelHorizontal={formatLabelHorizontal}
-      />
+      <Axes xScale={xScale} yScale={yScale} formatLabel={formatLabel} />
       <Lines lines={lines} />
     </ChartBase>
   );

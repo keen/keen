@@ -18,7 +18,7 @@ type Props = {
   orientation: Orientation;
   x: number;
   y: number;
-  formatLabelHorizontal?: (label: any) => string | number;
+  formatLabel?: (label: any) => string | number;
 } & Axis;
 
 const Ruler = ({
@@ -31,7 +31,7 @@ const Ruler = ({
   stroke,
   labels,
   color,
-  formatLabelHorizontal,
+  formatLabel,
 }: Props) => {
   const { enabled, typography } = labels;
   const { line, ticks } = createRuler({
@@ -40,7 +40,7 @@ const Ruler = ({
     scale,
     orientation,
     tickSize,
-    formatLabelHorizontal,
+    formatLabel,
   });
 
   const textProps = useMemo(
