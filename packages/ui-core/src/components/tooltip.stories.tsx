@@ -4,7 +4,7 @@ import { boolean, select, color, text } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 
 import Tooltip, { TooltipMode } from './tooltip.component';
-import BulletList from './bulletlist.component';
+import BulletList from './bullet-list.component';
 import { typographyKnobs } from '@keen.io/storybook-utils';
 import { colors } from '@keen.io/colors';
 import { Position } from '../types';

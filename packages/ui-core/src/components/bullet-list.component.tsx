@@ -6,6 +6,21 @@ type BulletPoint = {
   value: string;
 };
 
+const StyledBulletList = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+const StyledBulletItem = styled.li`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  & ~ & {
+    margin-top: 11px;
+  }
+`;
+
 const BulletPoint = (props: { color: string }) => {
   const Bullet = styled.div`
     width: 8px;
@@ -18,20 +33,6 @@ const BulletPoint = (props: { color: string }) => {
 };
 
 const BulletList = (props: { list: BulletPoint[] }) => {
-  const StyledBulletList = styled.ul`
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  `;
-  const StyledBulletItem = styled.li`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    & ~ & {
-      margin-top: 11px;
-    }
-  `;
-
   const { list } = props;
   const listItems = list.map(item => {
     return (

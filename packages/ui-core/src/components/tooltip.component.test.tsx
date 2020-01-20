@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from './tooltip.component';
-import BulletList from './bulletlist.component';
+import BulletList from './bullet-list.component';
 
 const setup = (overProps: any = {}) => {
   const props = {
