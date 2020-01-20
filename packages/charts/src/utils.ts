@@ -1,4 +1,5 @@
-import { ScaleBand, ScaleLinear } from 'd3-scale';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
+import { max, min } from 'd3-array';
 
 import { Tick, Orientation } from './types';
 
@@ -11,9 +12,64 @@ export const getCenterPosition = (scale: ScaleBand<string>) => {
   return (value: string) => scale(value) + offset;
 };
 
+export const calculateRange = (
+  data: object[],
+  minValue: number | 'auto',
+  maxValue: number | 'auto',
+  keys: string[]
+) => {
+  const values = data.reduce(
+    (acc: number[], item: any) => [
+      ...acc,
+      ...keys.map((key: string) => item[key]).filter(v => v !== undefined),
+    ],
+    []
+  ) as number[];
+
+  let minimum = minValue === 'auto' ? min(values) : minValue;
+  if (minimum > 0) {
+    minimum = 0;
+  }
+
+  const maximum = maxValue === 'auto' ? max(values) : maxValue;
+
+  return {
+    minimum,
+    maximum,
+  };
+};
+
+export const calculateScaleDomain = (
+  scale: ScaleLinear<number, number>,
+  minimum: number,
+  maximum: number
+) => {
+  const ticks = scale.ticks();
+  const ticksLength = ticks.length;
+
+  if (maximum > ticks[ticksLength - 1]) {
+    const difference = Math.ceil(maximum / ticksLength);
+    scale.domain([minimum, ticksLength * difference]);
+  }
+};
+
 export const getScaleValues = (
-  scale: ScaleBand<string> | ScaleLinear<number, number>
+  scale:
+    | ScaleBand<string>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>
 ) => ('bandwidth' in scale ? scale.domain() : scale.ticks());
+
+export const textFormat = (
+  orientation: Orientation,
+  value: any,
+  formatLabelHorizontal?: (label: any) => string | number
+): string | number => {
+  if (formatLabelHorizontal && orientation === Orientation.VERTICAL)
+    return formatLabelHorizontal(value);
+  if (typeof value === 'object') return value.toString();
+  return value;
+};
 
 export const generateTicks = ({
   scale,
@@ -21,12 +77,17 @@ export const generateTicks = ({
   orientation = Orientation.VERTICAL,
   x,
   y,
+  formatLabelHorizontal,
 }: {
   x: number;
   y: number;
   tickSize: number;
-  scale: ScaleBand<string> | ScaleLinear<number, number>;
+  scale:
+    | ScaleBand<string>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>;
   orientation?: Orientation;
+  formatLabelHorizontal?: (label: any) => string | number;
 }): Tick[] => {
   const values = getScaleValues(scale);
   const ticks: Tick[] = [];
@@ -38,14 +99,14 @@ export const generateTicks = ({
   const getY = (value: string & { valueOf(): number }) =>
     orientation === Orientation.VERTICAL ? y - TICK_ALIGN : position(value);
 
-  values.forEach((value: any) =>
+  values.forEach((value: any) => {
     ticks.push({
       size: tickSize,
-      text: value,
+      text: textFormat(orientation, value, formatLabelHorizontal),
       x: getX(value),
       y: getY(value),
-    })
-  );
+    });
+  });
 
   if ('bandwidth' in scale) {
     const [scaleStart, scaleEnd] = scale.range();

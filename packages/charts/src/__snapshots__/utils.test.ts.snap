@@ -1,6 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen.io/charts - utils generateTicks() should create ticks for horizontal band scale 1`] = `
+exports[`@keen/charts - utils generateTicks() should create ticks for horizontal Utc scale 1`] = `
+Array [
+  Object {
+    "size": 10,
+    "text": "Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "Sat Feb 01 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "Sun Mar 01 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "Wed Apr 01 2020 02:00:00 GMT+0200 (Central European Summer Time)",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "Fri May 01 2020 02:00:00 GMT+0200 (Central European Summer Time)",
+    "x": 0.5,
+    "y": 0,
+  },
+  Object {
+    "size": 10,
+    "text": "Mon Jun 01 2020 02:00:00 GMT+0200 (Central European Summer Time)",
+    "x": 0.5,
+    "y": 0,
+  },
+]
+`;
+
+exports[`@keen/charts - utils generateTicks() should create ticks for horizontal band scale 1`] = `
 Array [
   Object {
     "size": 10,
@@ -196,7 +237,18 @@ Array [
 ]
 `;
 
-exports[`@keen.io/charts - utils getScaleValues() should return ticks for linear scale 1`] = `
+exports[`@keen/charts - utils getScaleValues() should return ticks for Utc scale 1`] = `
+Array [
+  2020-01-01T00:00:00.000Z,
+  2020-02-01T00:00:00.000Z,
+  2020-03-01T00:00:00.000Z,
+  2020-04-01T00:00:00.000Z,
+  2020-05-01T00:00:00.000Z,
+  2020-06-01T00:00:00.000Z,
+]
+`;
+
+exports[`@keen/charts - utils getScaleValues() should return ticks for linear scale 1`] = `
 Array [
   0,
   1,
