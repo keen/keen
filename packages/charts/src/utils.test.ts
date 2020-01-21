@@ -13,6 +13,18 @@ import { Orientation } from './types';
 
 describe('@keen.io/charts - utils', () => {
   const domain = ['Sales', 'Marketing', 'E-commerce'];
+  const RealDate = Date;
+
+  beforeAll(() => {
+    global.Date = jest.fn().mockImplementation(date => new RealDate(date));
+    global.Date.UTC = jest
+      .fn()
+      .mockImplementation(date => new RealDate(date).getUTCDate());
+  });
+
+  afterAll(() => {
+    global.Date = RealDate;
+  });
 
   describe('calculateRange()', () => {
     const data = [
@@ -51,27 +63,6 @@ describe('@keen.io/charts - utils', () => {
   });
 
   describe('generateTicks()', () => {
-    global.Date.UTC = jest
-      .fn()
-      .mockImplementationOnce(
-        () => 'Wed Jan 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      )
-      .mockImplementationOnce(
-        () => 'Sat Feb 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      )
-      .mockImplementationOnce(
-        () => 'Sun Mar 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      )
-      .mockImplementationOnce(
-        () => 'Wed Apr 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      )
-      .mockImplementationOnce(
-        () => 'Fri May 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      )
-      .mockImplementationOnce(
-        () => 'Mon Jun 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      );
-
     const rangeStart = 0;
     const rangeEnd = 0;
     const tickSize = 10;
@@ -191,14 +182,6 @@ describe('@keen.io/charts - utils', () => {
   });
 
   describe('getScaleValues()', () => {
-    global.Date.UTC = jest
-      .fn()
-      .mockImplementationOnce(
-        () => 'Wed Jan 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      )
-      .mockImplementationOnce(
-        () => 'Mon Jun 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      );
     const firstDate = new Date('2020-01-01T00:00:00.000Z');
     const lastDate = new Date('2020-06-01T00:00:00.000Z');
     it('should return domain for band scale', () => {
@@ -239,12 +222,6 @@ describe('@keen.io/charts - utils', () => {
   });
 
   describe('textFormat()', () => {
-    global.Date.UTC = jest
-      .fn()
-      .mockImplementationOnce(
-        () => 'Wed Jan 01 2020 00:00:00 GMT+0000 (Coordinated Universal Time)'
-      );
-
     it('return value without formating', () => {
       const value = 50;
       const returnValue = textFormat(value);
@@ -255,7 +232,7 @@ describe('@keen.io/charts - utils', () => {
       const value = new Date('2020-01-01T00:00:00.000Z');
       const returnValue = textFormat(value);
 
-      expect(returnValue).toEqual(
+      expect(returnValue.toString()).toEqual(
         'Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
       );
     });

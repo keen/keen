@@ -4,37 +4,37 @@ exports[`@keen.io/charts - utils generateTicks() should create ticks for horizon
 Array [
   Object {
     "size": 10,
-    "text": "Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "text": 2020-01-01T00:00:00.000Z,
     "x": 0.5,
     "y": 0,
   },
   Object {
     "size": 10,
-    "text": "Sat Feb 01 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "text": 2020-02-01T00:00:00.000Z,
     "x": 0.5,
     "y": 0,
   },
   Object {
     "size": 10,
-    "text": "Sun Mar 01 2020 01:00:00 GMT+0100 (Central European Standard Time)",
+    "text": 2020-03-01T00:00:00.000Z,
     "x": 0.5,
     "y": 0,
   },
   Object {
     "size": 10,
-    "text": "Wed Apr 01 2020 02:00:00 GMT+0200 (Central European Summer Time)",
+    "text": 2020-04-01T00:00:00.000Z,
     "x": 0.5,
     "y": 0,
   },
   Object {
     "size": 10,
-    "text": "Fri May 01 2020 02:00:00 GMT+0200 (Central European Summer Time)",
+    "text": 2020-05-01T00:00:00.000Z,
     "x": 0.5,
     "y": 0,
   },
   Object {
     "size": 10,
-    "text": "Mon Jun 01 2020 02:00:00 GMT+0200 (Central European Summer Time)",
+    "text": 2020-06-01T00:00:00.000Z,
     "x": 0.5,
     "y": 0,
   },
