@@ -228,14 +228,7 @@ describe('@keen.io/charts - utils', () => {
 
       expect(returnValue).toEqual(50);
     });
-    it('return string when value is Date', () => {
-      const value = new Date('2020-01-01T00:00:00.000Z');
-      const returnValue = textFormat(value);
 
-      expect(returnValue.toString()).toEqual(
-        'Wed Jan 01 2020 01:00:00 GMT+0100 (Central European Standard Time)'
-      );
-    });
     it('return formatted value', () => {
       const value = 123;
       const formatLabel = label => `$${label}`;
