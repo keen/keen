@@ -21,16 +21,15 @@ const StyledBulletItem = styled.li`
   }
 `;
 
-const BulletPoint = (props: { color: string }) => {
-  const Bullet = styled.div`
-    width: 8px;
-    height: 8px;
-    margin-right: 6px;
-    border-radius: 50%;
-    background-color: ${props.color};
-  `;
-  return <Bullet />;
-};
+const BulletPoint = styled.div<{
+  color: string;
+}>`
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background-color: ${props => props.color};
+`;
 
 const BulletList = (props: { list: BulletPoint[] }) => {
   const { list } = props;
