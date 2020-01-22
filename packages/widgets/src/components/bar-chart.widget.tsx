@@ -1,3 +1,4 @@
+/*eslint @typescript-eslint/no-empty-function: 0*/
 import React, { FC } from 'react';
 import {
   BarChart,
