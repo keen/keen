@@ -1,4 +1,4 @@
-import { ScaleBand, ScaleLinear } from 'd3-scale';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { getScaleValues, getCenterPosition } from '../utils';
 
@@ -10,7 +10,10 @@ export enum AxisType {
 }
 
 type Options = {
-  scale: ScaleBand<string> | ScaleLinear<number, number>;
+  scale:
+    | ScaleBand<string>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>;
   dimension: Dimension;
   margins: Margins;
   axisType: AxisType;
@@ -74,7 +77,7 @@ export const generateGridLines = ({
   const lines: Line[] = [];
 
   if (axisType === AxisType.X) {
-    values.forEach((value: string | number) => {
+    values.forEach((value: string | number | Date) => {
       const y1 = 0 + margins.top;
       const y2 = dimension.height - margins.bottom;
       const x = calculatePosition(value);
@@ -89,7 +92,7 @@ export const generateGridLines = ({
 
     closeLines && lines.push(...calculateVerticalLines(dimension, margins));
   } else {
-    values.forEach((value: string | number) => {
+    values.forEach((value: string | number | Date) => {
       const y = calculatePosition(value);
       lines.push({
         x1: margins.left,

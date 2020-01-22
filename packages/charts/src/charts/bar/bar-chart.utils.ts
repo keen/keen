@@ -1,8 +1,8 @@
-import { scaleBand, scaleLinear, ScaleLinear } from 'd3-scale';
-import { max, min } from 'd3-array';
+import { scaleBand, scaleLinear } from 'd3-scale';
 
 import { Layout } from '@keen.io/ui-core';
 
+import { calculateRange, calculateScaleDomain } from '../../utils';
 import { Dimension, Margins } from '../../types';
 
 type Options = {
@@ -51,47 +51,6 @@ export const calculateMarkPosition = ({
     x: x + width,
     y: y + height * 0.5,
   };
-};
-
-export const calculateRange = (
-  data: object[],
-  minValue: number | 'auto',
-  maxValue: number | 'auto',
-  keys: string[]
-) => {
-  const values = data.reduce(
-    (acc: number[], item: any) => [
-      ...acc,
-      ...keys.map((key: string) => item[key]).filter(v => v !== undefined),
-    ],
-    []
-  ) as number[];
-
-  let minimum = minValue === 'auto' ? min(values) : minValue;
-  if (minimum > 0) {
-    minimum = 0;
-  }
-
-  const maximum = maxValue === 'auto' ? max(values) : maxValue;
-
-  return {
-    minimum,
-    maximum,
-  };
-};
-
-export const calculateScaleDomain = (
-  scale: ScaleLinear<number, number>,
-  minimum: number,
-  maximum: number
-) => {
-  const ticks = scale.ticks();
-  const ticksLength = ticks.length;
-
-  if (maximum > ticks[ticksLength - 1]) {
-    const difference = Math.floor(maximum / (ticksLength - 1));
-    scale.domain([minimum, ticksLength * difference]);
-  }
 };
 
 export const generateHorizontalBars = ({

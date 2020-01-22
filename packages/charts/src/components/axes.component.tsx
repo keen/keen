@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ScaleBand, ScaleLinear } from 'd3-scale';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import Ruler from './ruler.component';
 
@@ -8,13 +8,17 @@ import { ChartContext, ChartContextType } from '../contexts';
 import { Orientation } from '../types';
 
 type Props = {
-  xScale: ScaleBand<string> | ScaleLinear<number, number>;
+  xScale:
+    | ScaleBand<string>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>;
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
+  formatLabel?: (label: string | number) => string | number;
 };
 
 const X_AXIS_PADDING = 5;
 
-const Axes = ({ xScale, yScale }: Props) => {
+const Axes = ({ xScale, yScale, formatLabel }: Props) => {
   const { theme, margins, svgDimensions } = useContext(
     ChartContext
   ) as ChartContextType;
@@ -35,7 +39,7 @@ const Axes = ({ xScale, yScale }: Props) => {
 
   return (
     <>
-      {axisX && <Ruler {...axisX} {...theme.axisX} />}
+      {axisX && <Ruler {...axisX} {...theme.axisX} formatLabel={formatLabel} />}
       {axisY && <Ruler {...axisY} {...theme.axisY} />}
     </>
   );

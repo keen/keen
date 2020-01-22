@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ScaleBand, ScaleLinear } from 'd3-scale';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { Line } from './elements';
 import { generateGridLines, AxisType } from './grid.utils';
@@ -7,7 +7,10 @@ import { generateGridLines, AxisType } from './grid.utils';
 import { ChartContext, ChartContextType } from '../contexts';
 
 type Props = {
-  xScale: ScaleBand<string> | ScaleLinear<number, number>;
+  xScale:
+    | ScaleBand<string>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>;
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
 };
 

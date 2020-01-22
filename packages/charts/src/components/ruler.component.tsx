@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ScaleBand, ScaleLinear } from 'd3-scale';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { Text, Tick, Line } from './elements';
 import { Group } from './ruler.styles';
@@ -11,10 +11,14 @@ import { Axis, Tick as RulerTick, Orientation } from '../types';
 const TEXT_CENTER = '0.32em';
 
 type Props = {
-  scale: ScaleBand<string> | ScaleLinear<number, number>;
+  scale:
+    | ScaleBand<string>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>;
   orientation: Orientation;
   x: number;
   y: number;
+  formatLabel?: (label: string | number) => string | number;
 } & Axis;
 
 const Ruler = ({
@@ -27,9 +31,17 @@ const Ruler = ({
   stroke,
   labels,
   color,
+  formatLabel,
 }: Props) => {
   const { enabled, typography } = labels;
-  const { line, ticks } = createRuler({ x, y, scale, orientation, tickSize });
+  const { line, ticks } = createRuler({
+    x,
+    y,
+    scale,
+    orientation,
+    tickSize,
+    formatLabel,
+  });
 
   const textProps = useMemo(
     () =>
