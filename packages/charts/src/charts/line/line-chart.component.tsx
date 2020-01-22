@@ -24,7 +24,7 @@ export type Props = {
   /** Line thickness */
   strokeWidth?: number | 2;
   /** Function for date format */
-  formatLabel?: (label: any) => string | number;
+  formatLabel?: (label: string | number) => string | number;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({

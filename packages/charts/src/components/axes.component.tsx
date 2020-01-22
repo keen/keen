@@ -13,7 +13,7 @@ type Props = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
-  formatLabel?: (label: any) => string | number;
+  formatLabel?: (label: string | number) => string | number;
 };
 
 const X_AXIS_PADDING = 5;

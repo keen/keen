@@ -13,7 +13,7 @@ type Options = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   orientation: Orientation;
-  formatLabel?: (label: any) => string | number;
+  formatLabel?: (label: string | number) => string | number;
 };
 
 export const createRuler = ({

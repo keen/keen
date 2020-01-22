@@ -18,7 +18,7 @@ type Props = {
   orientation: Orientation;
   x: number;
   y: number;
-  formatLabel?: (label: any) => string | number;
+  formatLabel?: (label: string | number) => string | number;
 } & Axis;
 
 const Ruler = ({

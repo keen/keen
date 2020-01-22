@@ -62,7 +62,7 @@ export const getScaleValues = (
 
 export const textFormat = (
   value: any,
-  formatLabel?: (label: any) => string | number
+  formatLabel?: (label: string | number) => string | number
 ): string | number => {
   if (formatLabel) return formatLabel(value);
   if (value instanceof Date) return value.toString();
@@ -85,7 +85,7 @@ export const generateTicks = ({
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   orientation?: Orientation;
-  formatLabel?: (label: any) => string | number;
+  formatLabel?: (label: string | number) => string | number;
 }): Tick[] => {
   const values = getScaleValues(scale);
   const ticks: Tick[] = [];

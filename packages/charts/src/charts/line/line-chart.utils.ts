@@ -36,7 +36,7 @@ export type Mark = {
   y: number;
 };
 
-export const sortDates = (data: any[], labelSelector: string) =>
+export const sortDates = (data: Record<string, any>[], labelSelector: string) =>
   data.length &&
   data.sort(
     (a, b) =>
@@ -91,10 +91,10 @@ export const generateLines = ({
 
   const lines = keys.map((keyName: string, idx: number) => {
     const calculateLine = lineShape()
-      .x(function(d: any) {
+      .x(function(d: Record<string, any>) {
         return xScale(new Date(d[labelSelector]));
       })
-      .y(function(d: any) {
+      .y(function(d: Record<string, any>) {
         return yScale(d[keyName]);
       });
 
