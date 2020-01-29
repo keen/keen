@@ -42,6 +42,7 @@ export const colors = {
   gray: {
     500: '#E1E2E4',
     400: '#D8D8D8',
+    300: '#F2F2F2',
   },
   pink: {
     500: '#F4A083',
