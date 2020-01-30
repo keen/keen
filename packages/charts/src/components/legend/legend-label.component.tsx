@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 
-import { Typography } from '@keen.io/ui-core';
+import { Typography, Text } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
-import { StyledLabel, Text, Circle } from './legend-label.styles';
+import { StyledLabel, Wrapper, Circle } from './legend-label.styles';
 
 type Props = {
   text: string;
@@ -17,6 +17,7 @@ const LegendLabel: FC<Props> = ({
   text,
   markColor,
   onClick,
+  typography,
   truncate = 20,
 }) => {
   const [disabled, setDisable] = useState(false);
@@ -28,10 +29,16 @@ const LegendLabel: FC<Props> = ({
         setDisable(!disabled);
       }}
     >
-      <Text role="button" title={text} style={{ opacity: disabled ? 0.6 : 1 }}>
+      <Wrapper
+        role="button"
+        title={text}
+        style={{ opacity: disabled ? 0.6 : 1 }}
+      >
         <Circle background={disabled ? colors.gray[400] : markColor} />
-        {text.length > truncate ? `${text.slice(0, truncate)}...` : text}
-      </Text>
+        <Text {...typography}>
+          {text.length > truncate ? `${text.slice(0, truncate)}...` : text}
+        </Text>
+      </Wrapper>
     </StyledLabel>
   );
 };

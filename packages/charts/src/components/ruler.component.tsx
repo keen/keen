@@ -43,7 +43,8 @@ const Ruler = ({
     formatLabel,
   });
 
-  const textProps = useMemo(
+  const { fontColor, ...rest } = typography;
+  const textPosition = useMemo(
     () =>
       orientation === Orientation.VERTICAL
         ? {
@@ -57,18 +58,23 @@ const Ruler = ({
     [orientation, tickPadding, tickSize]
   );
 
-  const { fontColor, ...rest } = typography;
-
   return (
     <Group
-      color={color}
+      color={fontColor}
       textAnchor={orientation === Orientation.VERTICAL ? 'middle' : 'end'}
-      style={{ ...rest, color: fontColor }}
+      style={{ ...rest }}
     >
-      <Line {...line} stroke={stroke} />
+      <Line {...line} color={color} stroke={stroke} />
       {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (
-        <Tick key={idx} x={x} y={y} size={size} orientation={orientation}>
-          {enabled && <Text {...textProps}>{text}</Text>}
+        <Tick
+          key={idx}
+          x={x}
+          y={y}
+          size={size}
+          color={color}
+          orientation={orientation}
+        >
+          {enabled && <Text {...textPosition}>{text}</Text>}
         </Tick>
       ))}
     </Group>

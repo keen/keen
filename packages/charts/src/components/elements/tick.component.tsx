@@ -7,10 +7,18 @@ type Props = {
   y: number;
   size: number;
   orientation: Orientation;
+  color?: string;
   children?: React.ReactNode;
 };
 
-const Tick = ({ x, y, orientation, size, children }: Props) => {
+const Tick = ({
+  x,
+  y,
+  orientation,
+  size,
+  color = 'currentColor',
+  children,
+}: Props) => {
   const linePosition =
     orientation === Orientation.VERTICAL ? size : -Math.abs(size);
 
@@ -20,7 +28,7 @@ const Tick = ({ x, y, orientation, size, children }: Props) => {
 
   return (
     <g transform={`translate(${x}, ${y})`}>
-      <line stroke="currentColor" {...position}></line>
+      <line stroke={color} {...position}></line>
       {children}
     </g>
   );
