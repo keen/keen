@@ -4,7 +4,6 @@ import { mount } from 'enzyme';
 import { Typography } from '@keen.io/ui-core';
 
 import LegendLabel from './legend-label.component';
-import { Text } from './legend-label.styles';
 
 describe('@keen.io/charts - <LegendLabel />', () => {
   let mockFn: any;
@@ -28,7 +27,7 @@ describe('@keen.io/charts - <LegendLabel />', () => {
       <LegendLabel {...props} truncate={10} text={text} onClick={mockFn} />
     );
 
-    expect(wrapper.find(Text).text()).toEqual('Lorem ipsu...');
+    expect(wrapper.find('Text').text()).toEqual('Lorem ipsu...');
   });
 
   it('should provide disable state in "onClick" handler', () => {

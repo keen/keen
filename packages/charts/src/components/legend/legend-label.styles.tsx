@@ -9,7 +9,7 @@ export const Circle = styled.div<{ background: string }>`
   flex-shrink: 0;
 `;
 
-export const Text = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;

@@ -4,7 +4,7 @@ import { typography } from 'styled-system';
 import { Typography } from '../types';
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
 } & Typography;
 
 const BaseText = styled.div<Props>`
