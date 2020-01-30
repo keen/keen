@@ -23,8 +23,6 @@ const Axes = ({ xScale, yScale, formatLabel }: Props) => {
     ChartContext
   ) as ChartContextType;
 
-  console.log(theme, 'sasa');
-
   const axisX = theme.axisX.enabled && {
     x: 0,
     y: svgDimensions.height - margins.bottom + X_AXIS_PADDING,
