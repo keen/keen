@@ -24,32 +24,56 @@ const options = {
 
 const typographyKnobs = (
   namespace: string,
-  defaultOptions: Partial<Typography> = {}
-) => ({
-  fontFamily: select(
-    'Font Family',
-    options.fontFamily,
-    defaultOptions.fontFamily || options.fontFamily.GangsterGroteskRegular,
-    namespace
-  ),
-  fontSize: number('Font Size', defaultOptions.fontSize || 14, {}, namespace),
-  fontStyle: select(
-    'Font Style',
-    options.fontStyle,
-    defaultOptions.fontStyle || options.fontStyle.normal,
-    namespace
-  ) as 'normal' | 'italic',
-  fontWeight: select(
-    'Font Weight',
-    options.fontWeight,
-    defaultOptions.fontWeight || options.fontWeight.normal,
-    namespace
-  ) as 'normal' | 'bold',
-  fontColor: color(
-    'Font Color',
-    defaultOptions.fontColor || colors.black['500'],
-    namespace
-  ),
-});
+  defaultOptions: Partial<Typography> = {},
+  excludedItems: string[] = []
+) => {
+  const knob = {} as Typography;
+
+  if (!excludedItems.includes('fontFamily')) {
+    knob.fontFamily = select(
+      'Font Family',
+      options.fontFamily,
+      defaultOptions.fontFamily || options.fontFamily.GangsterGroteskRegular,
+      namespace
+    );
+  }
+
+  if (!excludedItems.includes('fontSize')) {
+    knob.fontSize = number(
+      'Font Size',
+      defaultOptions.fontSize || 14,
+      {},
+      namespace
+    );
+  }
+
+  if (!excludedItems.includes('fontStyle')) {
+    knob.fontStyle = select(
+      'Font Style',
+      options.fontStyle,
+      defaultOptions.fontStyle || options.fontStyle.normal,
+      namespace
+    ) as 'normal' | 'italic';
+  }
+
+  if (!excludedItems.includes('fontWeight')) {
+    knob.fontWeight = select(
+      'Font Weight',
+      options.fontWeight,
+      defaultOptions.fontWeight || options.fontWeight.normal,
+      namespace
+    ) as 'normal' | 'bold';
+  }
+
+  if (!excludedItems.includes('fontColor')) {
+    knob.fontColor = color(
+      'Font Color',
+      defaultOptions.fontColor || colors.black['500'],
+      namespace
+    );
+  }
+
+  return knob;
+};
 
 export default typographyKnobs;
