@@ -23,7 +23,7 @@ export type Props = {
   markRadius?: number;
   /** Line thickness */
   strokeWidth?: number | 2;
-  /** Function for date format */
+  /** Function for label format */
   formatLabel?: (label: string | number) => string | number;
 } & CommonChartSettings;
 

@@ -1,6 +1,6 @@
 import { colors } from '@keen.io/colors';
 
-import { Theme } from './types';
+import { Theme, Margins } from './types';
 
 export const chartColors = [
   colors.lightBlue[500],
@@ -9,6 +9,8 @@ export const chartColors = [
   colors.green[500],
   colors.pink[500],
 ];
+
+export const margins: Margins = { top: 50, right: 20, bottom: 50, left: 40 };
 
 export const theme: Theme = {
   colors: chartColors,

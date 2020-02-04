@@ -61,9 +61,9 @@ export type Theme = {
 
 export type CommonChartSettings = {
   /** Theme using for chart styling */
-  theme: Theme;
+  theme?: Theme;
   /** SVG height and width */
   svgDimensions?: Dimension;
   /** SVG margins */
-  margins: Margins;
+  margins?: Margins;
 };

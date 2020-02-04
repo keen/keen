@@ -5,8 +5,9 @@ import { Layout } from '@keen.io/ui-core';
 import { generateBars } from './bar-chart.utils';
 
 import Bars from './bars.component';
-
 import { ChartBase, Grid, Axes } from '../../components';
+
+import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';
 
@@ -25,14 +26,17 @@ export type Props = {
   keys?: string[];
   /** Layout applied on chart bars */
   layout?: Layout;
+  /** Function for label format */
+  formatLabel?: (label: string | number) => string | number;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
   data,
-  margins,
   svgDimensions,
   labelSelector,
-  theme,
+  formatLabel,
+  theme = defaultTheme,
+  margins = defaultMargins,
   layout = 'vertical',
   minValue = 'auto',
   maxValue = 'auto',
@@ -55,7 +59,7 @@ export const BarChart: FC<Props> = ({
   return (
     <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
       <Grid xScale={xScale} yScale={yScale} />
-      <Axes xScale={xScale} yScale={yScale} />
+      <Axes xScale={xScale} yScale={yScale} formatLabel={formatLabel} />
       <Bars bars={bars} layout={layout} />
     </ChartBase>
   );
