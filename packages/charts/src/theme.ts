@@ -46,11 +46,11 @@ export const theme: Theme = {
   },
   gridX: {
     enabled: true,
-    color: colors.gray['500'],
+    color: colors.gray['400'],
   },
   gridY: {
     enabled: true,
-    color: colors.gray['500'],
+    color: colors.gray['400'],
   },
   labels: {
     enabled: true,
