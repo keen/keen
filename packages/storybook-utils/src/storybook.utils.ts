@@ -147,14 +147,14 @@ export const createThemeKnobs = (
   const gridX = () => ({
     gridX: {
       enabled: boolean('Enabled', true, 'Grid X'),
-      color: color('Color', colors.gray['500'], 'Grid X'),
+      color: color('Color', colors.gray['400'], 'Grid X'),
     },
   });
 
   const gridY = () => ({
     gridY: {
       enabled: boolean('Enabled', true, 'Grid Y'),
-      color: color('Color', colors.gray['500'], 'Grid Y'),
+      color: color('Color', colors.gray['400'], 'Grid Y'),
     },
   });
 
