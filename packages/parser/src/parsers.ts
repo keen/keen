@@ -1,25 +1,13 @@
 import { createDateFormatter } from './format-date';
+import { transformFromArray, transformFromNumber } from './transform.utils';
 
-import { AnalysisResult, Query, Value } from './types';
+import { AnalysisResult, Query } from './types';
 
-const transformValueArray = (values: Value[]) => {
-  const keys: Set<string> = new Set();
-  const data: Record<string, any> = {};
+import { DEFAULT_VALUE_KEY } from './constants';
 
-  values.forEach(({ result, ...properties }) => {
-    Object.values(properties).forEach(name => {
-      keys.add(name);
-      data[name] = result;
-    });
-  });
+type Results = { name: string } & Record<string, string | number>;
 
-  return {
-    data,
-    keys,
-  };
-};
-
-export const parseResults = ({
+export const parseQuery = ({
   query,
   result,
 }: {
@@ -27,15 +15,11 @@ export const parseResults = ({
   result: AnalysisResult;
 }) => {
   const keys: Set<string> = new Set();
-  const results: any[] = [];
+  const results: Results[] = [];
   let formatLabel = null;
 
   if (typeof result === 'number') {
-    return {
-      results: [{ name: 'Result', value: result }],
-      keys: ['value'],
-      formatLabel: undefined,
-    };
+    return transformFromNumber(result);
   }
 
   if (Array.isArray(result)) {
@@ -43,10 +27,18 @@ export const parseResults = ({
     formatLabel = createDateFormatter(query, timeframe);
 
     result.forEach(({ value, timeframe }) => {
-      if (value !== null && Array.isArray(value)) {
-        const { data, keys: dataSetKeys } = transformValueArray(value);
+      if (Array.isArray(value)) {
+        const { data, keys: dataSetKeys } = transformFromArray(value);
         results.push({ name: timeframe.start, ...data });
         dataSetKeys.forEach(key => keys.add(key));
+      }
+
+      if (typeof value === 'number') {
+        keys.add(DEFAULT_VALUE_KEY);
+        results.push({
+          name: timeframe.start,
+          [DEFAULT_VALUE_KEY]: value,
+        });
       }
     });
   }
@@ -56,14 +48,4 @@ export const parseResults = ({
     formatLabel,
     results,
   };
-};
-
-export const parseQuery = ({
-  query,
-  result,
-}: {
-  query: Query;
-  result: AnalysisResult;
-}) => {
-  return parseResults({ query, result });
 };

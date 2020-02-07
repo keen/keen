@@ -1,3 +1,3 @@
 # `@keen.io/charts`
 
-> TODO: description
+> This package contains pure React chart plots.

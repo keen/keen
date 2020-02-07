@@ -28,7 +28,7 @@ export type Query = {
   analysis_type: Analysis;
 };
 
-export type Value = { [key: string]: string } & { result: number };
+export type Value = { [key: string]: string | number };
 
 export type SingleResult = {
   value: number | Value[];

@@ -7,15 +7,17 @@ import ShadowFilter from './shadow-filter.component';
 
 import { ChartBase } from '../../components';
 
+import { theme as defaultTheme } from '../../theme';
+
 import { CommonChartSettings } from '../../types';
 
-type Props = {
+export type Props = {
   /** Chart data */
   data: object[];
   /** Name of data object property used to create series */
   labelSelector?: string;
-  /** Name of data object property used to create values */
-  valueSelector?: string;
+  /** Keys picked from data object used to genrate slices */
+  keys?: string[];
   /** Spacing between pie slices */
   padAngle?: number;
   /** Radius of inner circle */
@@ -28,13 +30,13 @@ type Props = {
 
 export const PieChart: FC<Props> = ({
   data,
-  margins,
   svgDimensions,
-  theme,
+  theme = defaultTheme,
+  margins = { top: 30, right: 20, bottom: 30, left: 40 },
   labelSelector = 'name',
-  valueSelector = 'value',
+  keys = ['value'],
   padAngle = 0.01,
-  innerRadius = 30,
+  innerRadius = 20,
   labelsPosition = 'inside',
   labelsAutocolor = true,
 }) => {
@@ -44,7 +46,7 @@ export const PieChart: FC<Props> = ({
     padAngle,
     innerRadius,
     labelSelector,
-    valueSelector,
+    keys,
     labelsPosition,
     dimension: svgDimensions,
     colors: theme.colors,

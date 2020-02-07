@@ -1,34 +1,46 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { parseQuery } from '@keen.io/parser';
 
-import { BarChartWidget } from '@keen.io/widgets';
+import { renderWidget, Widgets } from './render-widget';
+import { validateOptions } from './visualizer.utils';
 
-type Options = {
-  container: HTMLElement | string;
-};
+import { Options, WidgetSettings } from './types';
 
 class Visualizer {
+  /** Type of widget that should be rendered */
+  private type: Widgets;
+
+  /** Container used to mount widget */
   private container: HTMLElement | string;
 
-  constructor({ container }: Options) {
+  /** General widget settings */
+  private widgetSettings?: WidgetSettings;
+
+  constructor(options: Options) {
+    validateOptions(options);
+    const { container, type, widget } = options;
+
+    this.widgetSettings = widget;
     this.container = container;
+    this.type = type;
   }
 
   render({ query, result }: any) {
+    const container =
+      this.container instanceof HTMLElement
+        ? this.container
+        : document.querySelector(this.container);
     const { keys, results, formatLabel } = parseQuery({ query, result } as any);
 
     ReactDOM.render(
-      (
-        <BarChartWidget
-          keys={keys}
-          formatLabel={formatLabel}
-          labelSelector="name"
-          data={results as any}
-        />
-      ) as any,
-      this.container as any
+      renderWidget({
+        type: this.type,
+        widgetSettings: this.widgetSettings,
+        data: results,
+        formatLabel,
+        keys,
+      }),
+      container
     );
   }
 }

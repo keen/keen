@@ -1,3 +1,3 @@
-import { BarChartWidget } from './components';
+import { BarChartWidget, LineChartWidget, PieChartWidget } from './components';
 
-export { BarChartWidget };
+export { BarChartWidget, LineChartWidget, PieChartWidget };

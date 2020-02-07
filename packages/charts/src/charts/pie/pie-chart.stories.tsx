@@ -31,6 +31,7 @@ export const withKnobs = () => {
       <PieChart
         data={chartData}
         theme={theme}
+        keys={['buy', 'sold']}
         labelsAutocolor={boolean('Autocolor', true, 'Chart')}
         labelsPosition={select(
           'Labels Position',

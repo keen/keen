@@ -1,3 +1,3 @@
-# `@keen.io/parser`
+# `@keen.io/charts`
 
-Keen.io parser
+> This package contains set of parsers that are used internally to transform Keen API responses into `@keen.io/charts` friendly format.

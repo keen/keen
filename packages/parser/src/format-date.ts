@@ -5,8 +5,8 @@ import { Query, Intervals } from './types';
 const DATE_FORMATS: Record<Intervals, string> = {
   minutely: '%I:%M:%S %p',
   hourly: '%I:%M %p',
-  daily: '%a %b, %Y',
-  weekly: '%A %b, %Y',
+  daily: '%b %a %y',
+  weekly: '%e %a',
   monthly: '%b, %Y',
   yearly: '%b, %Y',
 };

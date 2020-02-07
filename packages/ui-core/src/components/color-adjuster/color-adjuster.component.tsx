@@ -6,6 +6,11 @@ type Props = {
   baseColor: string;
 };
 
+const THRESHOLD = {
+  LIGHT: 75,
+  DARK: 25,
+};
+
 export const ColorAdjuster: FC<Props> = ({ children, baseColor }) => {
   const adjustedColor = useMemo(() => {
     const color = Color(baseColor);
@@ -13,9 +18,9 @@ export const ColorAdjuster: FC<Props> = ({ children, baseColor }) => {
     let lightnessModifier = 0;
 
     if (color.isLight()) {
-      lightnessModifier = lightness > 75 ? 20 : 15;
+      lightnessModifier = lightness > THRESHOLD.LIGHT ? 20 : 15;
     } else {
-      lightnessModifier = lightness > 25 ? 85 : 80;
+      lightnessModifier = lightness > THRESHOLD.DARK ? 85 : 80;
     }
 
     return Color.hsl([hue, saturation, lightnessModifier]).toString();
