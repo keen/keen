@@ -6,6 +6,7 @@ type Props = {
   x: number;
   y: number;
   color: string;
+  onMount?: (x: number, y: number) => void;
 };
 
 const Mark = ({ color, x, y }: Props) => (

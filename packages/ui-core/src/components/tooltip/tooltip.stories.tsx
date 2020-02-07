@@ -4,10 +4,10 @@ import { boolean, select, color, text } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 
 import Tooltip, { TooltipMode } from './tooltip.component';
-import BulletList from './bullet-list.component';
+import BulletList from '../bullet-list.component';
 import { typographyKnobs } from '@keen.io/storybook-utils';
 import { colors } from '@keen.io/colors';
-import { Position } from '../types';
+import { Position } from '../../types';
 
 const Wrapper = styled.div`
   width: 400px;

@@ -20,7 +20,15 @@ export const withKnobs = () => {
   const theme = { ...keenTheme, ...createThemeKnobs() };
 
   return (
-    <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
+    <div
+      style={{
+        padding: '0 40px',
+        width: '700px',
+        height: '500px',
+        position: 'relative',
+        transform: 'scale(1)',
+      }}
+    >
       <BarChart
         labelSelector="name"
         barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
