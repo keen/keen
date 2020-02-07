@@ -9,7 +9,7 @@ export type LabelsPosition = 'inside' | 'outside';
 export type Options = {
   data: Record<string, any>[];
   labelSelector: string;
-  valueSelector: string;
+  keys: string[];
   dimension: Dimension;
   margins: Margins;
   colors: string[];
@@ -35,7 +35,7 @@ export const generatePieChart = ({
   padAngle,
   innerRadius,
   labelSelector,
-  valueSelector,
+  keys,
   labelsPosition,
   margins,
 }: Options) => {
@@ -50,8 +50,15 @@ export const generatePieChart = ({
     ) / 2;
 
   data.forEach(item => {
-    labels.push(item[labelSelector]);
-    values.push(item[valueSelector]);
+    const label = item[labelSelector];
+    labels.push(label);
+
+    const result = keys.reduce((acc, currentKey) => {
+      if (currentKey !== label) return acc + item[currentKey];
+      return acc;
+    }, 0);
+
+    values.push(result);
   });
 
   const total = sum(values);

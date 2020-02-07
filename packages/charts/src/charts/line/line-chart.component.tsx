@@ -5,6 +5,7 @@ import { generateLines } from './line-chart.utils';
 import Lines from './lines.component';
 
 import { ChartBase, Axes, Grid } from '../../components';
+import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';
 
@@ -23,16 +24,16 @@ export type Props = {
   markRadius?: number;
   /** Line thickness */
   strokeWidth?: number | 2;
-  /** Function for date format */
+  /** Function for label format */
   formatLabel?: (label: string | number) => string | number;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
   data,
-  margins,
   svgDimensions,
   labelSelector,
-  theme,
+  theme = defaultTheme,
+  margins = defaultMargins,
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],

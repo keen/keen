@@ -1,7 +1,28 @@
-import { BarChart, BarChartSettings } from './charts';
+import {
+  BarChart,
+  BarChartSettings,
+  LineChart,
+  LineChartSettings,
+  PieChart,
+  PieChartSettings,
+} from './charts';
 
 import { ResponsiveWrapper, Legend } from './components';
 
-import { theme } from './theme';
+import { theme, margins } from './theme';
 
-export { BarChart, BarChartSettings, ResponsiveWrapper, Legend, theme };
+import { Theme } from './types';
+
+export {
+  Theme,
+  BarChart,
+  BarChartSettings,
+  LineChart,
+  LineChartSettings,
+  PieChart,
+  PieChartSettings,
+  ResponsiveWrapper,
+  Legend,
+  theme,
+  margins,
+};

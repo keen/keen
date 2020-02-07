@@ -5,6 +5,7 @@ import {
   BarChartSettings,
   ResponsiveWrapper,
   Legend,
+  theme as defaultTheme,
 } from '@keen.io/charts';
 
 import ChartWidget from './chart-widget.component';
@@ -14,6 +15,7 @@ import {
   TitleSocket,
 } from './widget-sockets.component';
 
+import { legendSettings } from '../widget-settings';
 import { LegendSettings } from '../types';
 
 type Props = {
@@ -22,7 +24,11 @@ type Props = {
 } & BarChartSettings;
 
 /** Bar Chart widget integrated with other components */
-export const BarChartWidget: FC<Props> = ({ legend, ...props }) => (
+export const BarChartWidget: FC<Props> = ({
+  legend = legendSettings,
+  theme = defaultTheme,
+  ...props
+}) => (
   <ChartWidget
     legendSettings={{
       position: legend.position,
@@ -41,7 +47,7 @@ export const BarChartWidget: FC<Props> = ({ legend, ...props }) => (
           onClick={() => {}}
           labels={props.keys.map((key, idx) => ({
             name: key,
-            color: props.theme.colors[idx],
+            color: theme.colors[idx],
           }))}
         />
       </LegendSocket>
@@ -49,7 +55,11 @@ export const BarChartWidget: FC<Props> = ({ legend, ...props }) => (
     <ContentSocket>
       <ResponsiveWrapper>
         {(width: number, height: number) => (
-          <BarChart {...props} svgDimensions={{ width, height }} />
+          <BarChart
+            {...props}
+            theme={theme}
+            svgDimensions={{ width, height }}
+          />
         )}
       </ResponsiveWrapper>
     </ContentSocket>

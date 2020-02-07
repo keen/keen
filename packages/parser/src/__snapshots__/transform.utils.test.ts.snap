@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/parser - transform transformFromNumber() should create structure for multiple "collections" value 1`] = `
+Object {
+  "data": Object {
+    "Africa": 1,
+    "Cracow": 3,
+    "Daegu": 12,
+  },
+  "keys": Set {
+    "Africa",
+    "Cracow",
+    "Daegu",
+  },
+}
+`;
+
+exports[`@keen.io/parser - transform transformFromNumber() should create structure for single "numeric" value 1`] = `
+Object {
+  "formatLabel": undefined,
+  "keys": Array [
+    "value",
+  ],
+  "results": Array [
+    Object {
+      "name": "Result",
+      "value": 12,
+    },
+  ],
+}
+`;
