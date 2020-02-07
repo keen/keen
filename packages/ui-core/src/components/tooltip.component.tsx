@@ -27,6 +27,7 @@ const DARK_MODE_BACKGROUND = Color(colors.black['200'])
 
 const Wrapper = styled.div<Props>`
   padding: 10px 15px;
+  box-sizing: border-box;
   background-color: ${props => props.backgroundColor};
   border-radius: ${props => props.borderRadius};
   font-family: ${props => props.fontFamily};
@@ -55,7 +56,6 @@ const Wrapper = styled.div<Props>`
     height: 0;
     box-sizing: border-box;
     border: 4px solid ${props => props.backgroundColor};
-    transform-origin: 0 0;
     box-shadow: ${props =>
       props.hasShadow ? '-3px 3px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
     ${props => {
@@ -75,7 +75,7 @@ const Wrapper = styled.div<Props>`
             borderColor: `${arrowColor} transparent transparent ${arrowColor}`,
             top: '50%',
             bottom: 'auto',
-            left: '-2px',
+            left: '0',
             right: 'auto',
             transform: 'rotate(-45deg) translateY(-50%)',
           },
@@ -83,12 +83,12 @@ const Wrapper = styled.div<Props>`
             borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
             top: '50%',
             bottom: 'auto',
-            right: '-5px',
+            right: '-6px',
             transform: 'rotate(-45deg) translateY(-50%)',
           },
           top: {
             borderColor: `${arrowColor} ${arrowColor} transparent transparent`,
-            top: '-2px',
+            top: '-6px',
             bottom: 'auto',
             left: '50%',
             right: 'auto',
@@ -97,7 +97,7 @@ const Wrapper = styled.div<Props>`
           bottom: {
             borderColor: `transparent transparent ${arrowColor} ${arrowColor}`,
             top: 'auto',
-            bottom: '-5px',
+            bottom: '-1px',
             left: '50%',
             right: 'auto',
             transform: 'rotate(-45deg) translateX(-50%)',
