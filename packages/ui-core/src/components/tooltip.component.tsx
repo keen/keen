@@ -55,9 +55,7 @@ const Wrapper = styled.div<Props>`
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: 4px solid ${props => props.backgroundColor};
-    box-shadow: ${props =>
-      props.hasShadow ? '-3px 3px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
+    border-style: solid;
     ${props => {
       let arrowColor = props.backgroundColor;
       switch (props.mode) {
@@ -72,35 +70,39 @@ const Wrapper = styled.div<Props>`
         prop: 'arrowDirection',
         variants: {
           left: {
-            borderColor: `${arrowColor} transparent transparent ${arrowColor}`,
+            borderWidth: '3px 6px 3px 0',
+            borderColor: `transparent ${arrowColor} transparent transparent`,
             top: '50%',
             bottom: 'auto',
-            left: '0',
+            left: '-6px',
             right: 'auto',
-            transform: 'rotate(-45deg) translateY(-50%)',
+            transform: 'translateY(-50%)',
           },
           right: {
-            borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
+            borderWidth: '3px 0 3px 6px',
+            borderColor: `transparent transparent transparent ${arrowColor}`,
             top: '50%',
             bottom: 'auto',
             right: '-6px',
-            transform: 'rotate(-45deg) translateY(-50%)',
+            transform: 'translateY(-50%)',
           },
           top: {
-            borderColor: `${arrowColor} ${arrowColor} transparent transparent`,
+            borderWidth: '0 3px 6px 3px',
+            borderColor: `transparent transparent ${arrowColor} transparent`,
             top: '-6px',
             bottom: 'auto',
             left: '50%',
             right: 'auto',
-            transform: 'rotate(-45deg) translateX(-50%)',
+            transform: 'translateX(-50%)',
           },
           bottom: {
-            borderColor: `transparent transparent ${arrowColor} ${arrowColor}`,
+            borderWidth: '6px 3px 0 3px',
+            borderColor: `${arrowColor} transparent transparent transparent`,
             top: 'auto',
-            bottom: '-1px',
+            bottom: '-6px',
             left: '50%',
             right: 'auto',
-            transform: 'rotate(-45deg) translateX(-50%)',
+            transform: 'translateX(-50%)',
           },
         },
       });
