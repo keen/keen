@@ -29,7 +29,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bdVaJa",
             "isStatic": false,
-            "lastClassName": "hrjYZM",
+            "lastClassName": "bOCvvV",
             "rules": Array [
               "
   padding: 10px 15px;
@@ -62,12 +62,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: 4px solid ",
-              [Function],
-              ";
-    box-shadow: ",
-              [Function],
-              ";
+    border-style: solid;
     ",
               [Function],
               "
@@ -90,7 +85,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
       mode="light"
     >
       <div
-        className="sc-bdVaJa hrjYZM"
+        className="sc-bdVaJa bOCvvV"
         mode="light"
       >
         tooltip
@@ -129,7 +124,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bdVaJa",
             "isStatic": false,
-            "lastClassName": "eVnmhV",
+            "lastClassName": "hTVfmS",
             "rules": Array [
               "
   padding: 10px 15px;
@@ -162,12 +157,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: 4px solid ",
-              [Function],
-              ";
-    box-shadow: ",
-              [Function],
-              ";
+    border-style: solid;
     ",
               [Function],
               "
@@ -190,7 +180,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
       mode="dark"
     >
       <div
-        className="sc-bdVaJa eVnmhV"
+        className="sc-bdVaJa hTVfmS"
         mode="dark"
       >
         tooltip
