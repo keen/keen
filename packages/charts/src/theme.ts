@@ -14,6 +14,9 @@ export const margins: Margins = { top: 50, right: 20, bottom: 50, left: 40 };
 
 export const theme: Theme = {
   colors: chartColors,
+  tooltip: {
+    enabled: true,
+  },
   axisX: {
     enabled: true,
     tickSize: 10,

@@ -60,6 +60,13 @@ export const getScaleValues = (
     | ScaleTime<number, number>
 ) => ('bandwidth' in scale ? scale.domain() : scale.ticks());
 
+export const getFromPath = (object: any, path: string) =>
+  path
+    .replace(/\[/g, '.')
+    .replace(/\]/g, '')
+    .split('.')
+    .reduce((o, k) => (o || {})[k], object);
+
 export const textFormat = (
   value: any,
   formatLabel?: (label: string | number) => string | number

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { variant } from 'styled-system';
 import { colors } from '@keen.io/colors';
 import Color from 'color';
-import { Position, Typography } from '../types';
+import { Position, Typography } from '../../types';
 
 export type TooltipMode = 'light' | 'dark';
 
@@ -55,7 +55,9 @@ const Wrapper = styled.div<Props>`
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border-style: solid;
+    border: 4px solid ${props => props.backgroundColor};
+    box-shadow: ${props =>
+      props.hasShadow ? '-3px 3px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
     ${props => {
       let arrowColor = props.backgroundColor;
       switch (props.mode) {
@@ -70,39 +72,35 @@ const Wrapper = styled.div<Props>`
         prop: 'arrowDirection',
         variants: {
           left: {
-            borderWidth: '3px 6px 3px 0',
-            borderColor: `transparent ${arrowColor} transparent transparent`,
+            borderColor: `${arrowColor} transparent transparent ${arrowColor}`,
             top: '50%',
             bottom: 'auto',
-            left: '-6px',
+            left: '0',
             right: 'auto',
-            transform: 'translateY(-50%)',
+            transform: 'rotate(-45deg) translateY(-50%)',
           },
           right: {
-            borderWidth: '3px 0 3px 6px',
-            borderColor: `transparent transparent transparent ${arrowColor}`,
+            borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
             top: '50%',
             bottom: 'auto',
             right: '-6px',
-            transform: 'translateY(-50%)',
+            transform: 'rotate(-45deg) translateY(-50%)',
           },
           top: {
-            borderWidth: '0 3px 6px 3px',
-            borderColor: `transparent transparent ${arrowColor} transparent`,
+            borderColor: `${arrowColor} ${arrowColor} transparent transparent`,
             top: '-6px',
             bottom: 'auto',
             left: '50%',
             right: 'auto',
-            transform: 'translateX(-50%)',
+            transform: 'rotate(-45deg) translateX(-50%)',
           },
           bottom: {
-            borderWidth: '6px 3px 0 3px',
-            borderColor: `${arrowColor} transparent transparent transparent`,
+            borderColor: `transparent transparent ${arrowColor} ${arrowColor}`,
             top: 'auto',
-            bottom: '-6px',
+            bottom: '-1px',
             left: '50%',
             right: 'auto',
-            transform: 'translateX(-50%)',
+            transform: 'rotate(-45deg) translateX(-50%)',
           },
         },
       });

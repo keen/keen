@@ -36,6 +36,10 @@ export type Labels = {
   typography: Typography;
 };
 
+export type Tooltip = {
+  enabled: boolean;
+};
+
 export type Axis = {
   enabled: boolean;
   tickSize: number;
@@ -52,6 +56,7 @@ export type Grid = {
 
 export type Theme = {
   colors: string[];
+  tooltip?: Tooltip;
   axisX?: Axis;
   axisY?: Axis;
   gridX?: Grid;
@@ -66,4 +71,11 @@ export type CommonChartSettings = {
   svgDimensions?: Dimension;
   /** SVG margins */
   margins?: Margins;
+};
+
+export type TooltipState = {
+  visible: boolean;
+  key: string;
+  x: number;
+  y: number;
 };

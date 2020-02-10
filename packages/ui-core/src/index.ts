@@ -2,7 +2,14 @@ import { Title, Text } from './typography';
 
 import { Typography, Position, Alignment, Layout } from './types';
 
-import { Arrow, Group, Card, CardProps, ColorAdjuster } from './components';
+import {
+  Arrow,
+  Group,
+  Card,
+  CardProps,
+  ColorAdjuster,
+  Tooltip,
+} from './components';
 
 export {
   Arrow,
@@ -14,6 +21,7 @@ export {
   Text,
   Group,
   Typography,
+  Tooltip,
   Position,
   Layout,
 };
