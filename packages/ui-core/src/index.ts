@@ -4,6 +4,7 @@ import { Typography, Position, Alignment, Layout } from './types';
 
 import {
   Arrow,
+  BulletList,
   Group,
   Card,
   CardProps,
@@ -14,6 +15,7 @@ import {
 export {
   Arrow,
   Alignment,
+  BulletList,
   ColorAdjuster,
   Card,
   CardProps,

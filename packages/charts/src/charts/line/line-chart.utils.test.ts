@@ -1,4 +1,4 @@
-import { sortDates, generateLines } from './line-chart.utils';
+import { generateLines } from './line-chart.utils';
 
 import { lineChart } from './line-chart.fixtures';
 
@@ -9,14 +9,6 @@ describe('@keen/charts', () => {
       { label: '2020-03-01T00:00:00.000Z', sale: 12, buy: 3, revenue: 21 },
       { label: '2020-02-01T00:00:00.000Z', sale: -3, buy: 11, revenue: 30 },
     ];
-
-    describe('sortDates()', () => {
-      it('should sort dates correctly', () => {
-        const sortedDates = sortDates(data, lineChart.labelSelector);
-
-        expect(sortedDates).toMatchSnapshot();
-      });
-    });
 
     describe('generateLines()', () => {
       const chart: any = {
@@ -30,7 +22,7 @@ describe('@keen/charts', () => {
         expect(xScale.domain()).toMatchInlineSnapshot(`
           Array [
             2020-01-01T00:00:00.000Z,
-            2020-03-01T00:00:00.000Z,
+            2020-02-01T00:00:00.000Z,
           ]
         `);
       });

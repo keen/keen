@@ -20,9 +20,9 @@ export default {
 export const withKnobs = () => {
   const theme = { ...keenTheme, ...createThemeKnobs() };
 
-  const formatKnob = text('Date label format', '%b, %Y', 'Chart');
+  const formatKnob = text('Date label format', '%d %b', 'Chart');
 
-  const createLabelFormatter = (dateFormat = '%b, %Y') => date => {
+  const createLabelFormatter = (dateFormat = '%D %b') => date => {
     const format = timeFormat(dateFormat);
     return format(date);
   };
@@ -31,10 +31,14 @@ export const withKnobs = () => {
     <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
       <LineChart
         labelSelector="name"
-        keys={['users', 'licenses', 'shops', 'books']}
+        keys={['users', 'books', 'licenses', 'shops']}
+        xScaleSettings={{
+          type: 'time',
+          precision: 'month',
+          formatLabel: createLabelFormatter(formatKnob),
+        }}
         markRadius={number('Marks radius', 4, {}, 'Chart')}
         strokeWidth={number('Line thickness', 2, {}, 'Chart')}
-        formatLabel={createLabelFormatter(formatKnob)}
         svgDimensions={object(
           'svg',
           {

@@ -35,6 +35,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@keen.io/charts": "^0.0.1",
     "@types/react-dom": "^16.9.5",
     "keen-analysis": "3.4.7-rc.0"
   }

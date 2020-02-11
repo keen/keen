@@ -4,107 +4,33 @@ exports[`@keen/charts <LineChart /> - utils generateLines() should calculate lin
 Array [
   Object {
     "color": "red",
+    "d": "M10,380L939.0322580645161,211.81818181818178L490,380",
     "key": "sale",
-    "line": Object {
-      "d": "M10,380L258,380L490,211.81818181818178",
-      "key": "0.sale.line",
-    },
-    "markRadius": undefined,
-    "marks": Array [
-      Object {
-        "key": "0.sale.mark",
-        "x": 10,
-        "y": 380,
-      },
-      Object {
-        "key": "1.sale.mark",
-        "x": 258,
-        "y": 380,
-      },
-      Object {
-        "key": "2.sale.mark",
-        "x": 490,
-        "y": 211.81818181818178,
-      },
+    "selector": Array [
+      0,
+      "sale",
     ],
     "strokeWidth": undefined,
   },
   Object {
     "color": "blue",
+    "d": "M10,223.030303030303L939.0322580645161,312.7272727272727L490,223.030303030303",
     "key": "buy",
-    "line": Object {
-      "d": "M10,223.030303030303L258,223.030303030303L490,312.7272727272727",
-      "key": "1.buy.line",
-    },
-    "markRadius": undefined,
-    "marks": Array [
-      Object {
-        "key": "0.buy.mark",
-        "x": 10,
-        "y": 223.030303030303,
-      },
-      Object {
-        "key": "1.buy.mark",
-        "x": 258,
-        "y": 223.030303030303,
-      },
-      Object {
-        "key": "2.buy.mark",
-        "x": 490,
-        "y": 312.7272727272727,
-      },
+    "selector": Array [
+      1,
+      "buy",
     ],
     "strokeWidth": undefined,
   },
   Object {
     "color": "green",
+    "d": "M10,10L939.0322580645161,110.9090909090909L490,10",
     "key": "revenue",
-    "line": Object {
-      "d": "M10,10L258,10L490,110.9090909090909",
-      "key": "2.revenue.line",
-    },
-    "markRadius": undefined,
-    "marks": Array [
-      Object {
-        "key": "0.revenue.mark",
-        "x": 10,
-        "y": 10,
-      },
-      Object {
-        "key": "1.revenue.mark",
-        "x": 258,
-        "y": 10,
-      },
-      Object {
-        "key": "2.revenue.mark",
-        "x": 490,
-        "y": 110.9090909090909,
-      },
+    "selector": Array [
+      2,
+      "revenue",
     ],
     "strokeWidth": undefined,
-  },
-]
-`;
-
-exports[`@keen/charts <LineChart /> - utils sortDates() should sort dates correctly 1`] = `
-Array [
-  Object {
-    "buy": 11,
-    "label": "2020-01-01T00:00:00.000Z",
-    "revenue": 30,
-    "sale": -3,
-  },
-  Object {
-    "buy": 11,
-    "label": "2020-02-01T00:00:00.000Z",
-    "revenue": 30,
-    "sale": -3,
-  },
-  Object {
-    "buy": 3,
-    "label": "2020-03-01T00:00:00.000Z",
-    "revenue": 21,
-    "sale": 12,
   },
 ]
 `;

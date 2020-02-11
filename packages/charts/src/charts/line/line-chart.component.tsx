@@ -1,13 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useRef } from 'react';
 
 import { generateLines } from './line-chart.utils';
 
 import Lines from './lines.component';
+import Tooltip from './tooltip.component';
 
-import { ChartBase, Axes, Grid } from '../../components';
+import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings } from '../../types';
+import { ScaleSettings, TooltipState, CommonChartSettings } from '../../types';
+
+import { TOOLTIP_HIDE_TIME } from '../../constants';
 
 export type Props = {
   /** chart data */
@@ -24,8 +27,8 @@ export type Props = {
   markRadius?: number;
   /** Line thickness */
   strokeWidth?: number | 2;
-  /** Function for label format */
-  formatLabel?: (label: string | number) => string | number;
+  /** X scale settings */
+  xScaleSettings?: ScaleSettings;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -39,9 +42,9 @@ export const LineChart: FC<Props> = ({
   keys = ['value'],
   markRadius = 4,
   strokeWidth = 1,
-  formatLabel,
+  xScaleSettings = { precision: 'month', type: 'time' },
 }) => {
-  const { lines, xScale, yScale } = generateLines({
+  const { lines, marks, xScale, yScale } = generateLines({
     data,
     margins,
     dimension: svgDimensions,
@@ -53,11 +56,52 @@ export const LineChart: FC<Props> = ({
     markRadius,
     strokeWidth,
   });
+
+  const { tooltip: tooltipSettings } = theme;
+
+  const clearTooltip = useRef(null);
+  const [tooltip, setTooltip] = useState<TooltipState>({
+    selectors: null,
+    visible: false,
+    x: 0,
+    y: 0,
+  });
+
   return (
-    <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
+    <ChartBase
+      theme={theme}
+      xScaleSettings={xScaleSettings}
+      svgDimensions={svgDimensions}
+      margins={margins}
+    >
       <Grid xScale={xScale} yScale={yScale} />
-      <Axes xScale={xScale} yScale={yScale} formatLabel={formatLabel} />
-      <Lines lines={lines} />
+      <Axes xScale={xScale} yScale={yScale} />
+      <Lines
+        lines={lines}
+        marks={marks}
+        onMarkMouseEnter={(_e, { x, y }, selectors) => {
+          if (clearTooltip.current) clearTimeout(clearTooltip.current);
+          tooltipSettings.enabled &&
+            setTooltip({ visible: true, x, y, selectors });
+        }}
+        onMarkMouseLeave={() => {
+          if (tooltipSettings.enabled) {
+            clearTooltip.current = setTimeout(() => {
+              setTooltip({
+                selectors: null,
+                visible: false,
+                x: 0,
+                y: 0,
+              });
+            }, TOOLTIP_HIDE_TIME);
+          }
+        }}
+      />
+      <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
+        {tooltip.selectors && (
+          <Tooltip data={data} selectors={tooltip.selectors} />
+        )}
+      </ChartTooltip>
     </ChartBase>
   );
 };

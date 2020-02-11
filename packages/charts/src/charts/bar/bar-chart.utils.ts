@@ -20,6 +20,7 @@ type Options = {
 
 export type Bar = {
   key: string;
+  selector: (string | number)[];
   x: number;
   y: number;
   height: number;
@@ -93,6 +94,7 @@ export const generateHorizontalBars = ({
       if (keyName !== labelSelector && value) {
         const bar = {
           key: `${index}.${keyName}`,
+          selector: [index, keyName],
           x: 0 + margins.left,
           y: yScale(data[index][labelSelector]) + barHeight * idx,
           width: xScale(value) - margins.left,
@@ -154,6 +156,7 @@ export const generateVerticalBars = ({
       if (keyName !== labelSelector && value) {
         const bar = {
           key: `${index}.${keyName}`,
+          selector: [index, keyName],
           x: xScale(data[index][labelSelector]) + barWidth * idx,
           y: yScale(value),
           width: barWidth,

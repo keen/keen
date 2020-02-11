@@ -8,6 +8,13 @@ type Props = {
   color: string;
 };
 
+export const markMotion = {
+  initial: { opacity: 0.3, scale: 0.2 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.3 },
+  exit: { opacity: 0, scale: 0.3 },
+};
+
 const Mark = ({ color, x, y }: Props) => (
   <g>
     <circle

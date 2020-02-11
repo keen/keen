@@ -28,11 +28,13 @@ export type Query = {
   analysis_type: Analysis;
 };
 
-export type Value = { [key: string]: string | number };
-
-export type SingleResult = {
-  value: number | Value[];
-  timeframe?: { start: string; end: string };
+export type AtomicResult = { [key: string]: string | number } & {
+  result: number;
 };
 
-export type AnalysisResult = number | SingleResult[];
+export type IntervalResult = {
+  timeframe: { start: string; end: string };
+  value: number | AtomicResult[];
+};
+
+export type AnalysisResult = number | IntervalResult[] | AtomicResult[];

@@ -6,7 +6,7 @@ import { Group } from './ruler.styles';
 
 import { createRuler } from './ruler.utils';
 
-import { Axis, Tick as RulerTick, Orientation } from '../types';
+import { Axis, Tick as RulerTick, Orientation, ScaleSettings } from '../types';
 
 const TEXT_CENTER = '0.32em';
 
@@ -18,7 +18,7 @@ type Props = {
   orientation: Orientation;
   x: number;
   y: number;
-  formatLabel?: (label: string | number) => string | number;
+  scaleSettings?: ScaleSettings;
 } & Axis;
 
 const Ruler = ({
@@ -31,16 +31,16 @@ const Ruler = ({
   stroke,
   labels,
   color,
-  formatLabel,
+  scaleSettings,
 }: Props) => {
   const { enabled, typography } = labels;
   const { line, ticks } = createRuler({
     x,
     y,
     scale,
+    scaleSettings,
     orientation,
     tickSize,
-    formatLabel,
   });
 
   const { fontColor, ...rest } = typography;

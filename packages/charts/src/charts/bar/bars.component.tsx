@@ -5,22 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 
 import { Bar } from './bar-chart.utils';
-import { Mark } from '../../components';
+import { Mark, markMotion } from '../../components';
 
 import { calculateMarkPosition } from './bar-chart.utils';
 
-const markMotion = {
-  initial: { opacity: 0.3, scale: 0.2 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.3 },
-  exit: { opacity: 0, scale: 0.3 },
-};
+import { DataSelector } from '../../types';
 
 type Props = {
   bars: Bar[];
   onBarMouseEnter: (
     e: React.MouseEvent<SVGGElement, MouseEvent>,
     key: string,
+    dataSelector: { selector: DataSelector; color: string },
     markPosition: { x: number; y: number }
   ) => void;
   onBarMouseLeave: (
@@ -34,7 +30,7 @@ const Bars = ({ bars, layout, onBarMouseEnter, onBarMouseLeave }: Props) => {
   const [activeBar, setActiveBar] = useState(null);
   return (
     <>
-      {bars.map(({ key, x, y, width, height, color }: Bar) => (
+      {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (
         <g
           key={key}
           onMouseEnter={e => {
@@ -46,7 +42,7 @@ const Bars = ({ bars, layout, onBarMouseEnter, onBarMouseLeave }: Props) => {
               height,
             });
             setActiveBar(key);
-            onBarMouseEnter(e, key, markPosition);
+            onBarMouseEnter(e, key, { selector, color }, markPosition);
           }}
           onMouseLeave={e => {
             setActiveBar(null);

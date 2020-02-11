@@ -7,11 +7,11 @@ export const chartData = [
     books: 34,
   },
   {
-    name: '2020-04-01T00:00:00.000Z',
-    users: 19,
-    licenses: 82,
-    shops: 15,
-    books: 23,
+    name: '2020-02-01T00:00:00.000Z',
+    users: 6,
+    licenses: 54,
+    shops: 34,
+    books: 89,
   },
   {
     name: '2020-03-01T00:00:00.000Z',
@@ -21,18 +21,11 @@ export const chartData = [
     books: 41,
   },
   {
-    name: '2020-02-01T00:00:00.000Z',
-    users: 6,
-    licenses: 54,
-    shops: 34,
-    books: 89,
-  },
-  {
-    name: '2020-06-01T00:00:00.000Z',
-    users: 4,
-    licenses: 34,
-    shops: 25,
-    books: 74,
+    name: '2020-04-15T00:00:00.000Z',
+    users: 19,
+    licenses: 82,
+    shops: 15,
+    books: 23,
   },
   {
     name: '2020-05-01T00:00:00.000Z',
@@ -40,6 +33,13 @@ export const chartData = [
     licenses: 26,
     shops: 34,
     books: 26,
+  },
+  {
+    name: '2020-06-01T00:00:00.000Z',
+    users: 4,
+    licenses: 34,
+    shops: 25,
+    books: 74,
   },
 ];
 

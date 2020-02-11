@@ -2,7 +2,7 @@ import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { getScaleValues, getCenterPosition } from '../utils';
 
-import { Dimension, Margins, Line } from '../types';
+import { Dimension, Margins, Line, ScaleSettings } from '../types';
 
 export enum AxisType {
   X = 'x',
@@ -17,6 +17,7 @@ type Options = {
   dimension: Dimension;
   margins: Margins;
   axisType: AxisType;
+  scaleSettings?: ScaleSettings;
 };
 
 const LINE_ADJUSTMENT = 0.5;
@@ -59,13 +60,14 @@ export const calculateHorizontalLines = (
 
 export const generateGridLines = ({
   scale,
+  scaleSettings,
   dimension,
   margins,
   axisType,
 }: Options) => {
   let closeLines = false;
   let calculatePosition: Function;
-  const values = getScaleValues(scale);
+  const values = getScaleValues(scale, scaleSettings);
 
   if ('bandwidth' in scale) {
     calculatePosition = getCenterPosition(scale);

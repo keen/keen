@@ -1,5 +1,10 @@
 import ReactDOM from 'react-dom';
-import { parseQuery } from '@keen.io/parser';
+import {
+  parseQuery,
+  createScaleSettings,
+  Query,
+  AnalysisResult,
+} from '@keen.io/parser';
 
 import { renderWidget, Widgets } from './render-widget';
 import { validateOptions } from './visualizer.utils';
@@ -25,19 +30,20 @@ class Visualizer {
     this.type = type;
   }
 
-  render({ query, result }: any) {
+  render({ query, result }: { query: Query; result: AnalysisResult }) {
     const container =
       this.container instanceof HTMLElement
         ? this.container
         : document.querySelector(this.container);
-    const { keys, results, formatLabel } = parseQuery({ query, result } as any);
+    const { keys, results } = parseQuery({ query, result });
 
     ReactDOM.render(
       renderWidget({
         type: this.type,
         widgetSettings: this.widgetSettings,
         data: results,
-        formatLabel,
+        scaleSettings: createScaleSettings(query),
+        query,
         keys,
       }),
       container

@@ -75,7 +75,23 @@ export type CommonChartSettings = {
 
 export type TooltipState = {
   visible: boolean;
-  key: string;
+  selectors: { selector: DataSelector; color: string }[];
   x: number;
   y: number;
 };
+
+export type TimePrecision =
+  | 'minute'
+  | 'hour'
+  | 'day'
+  | 'week'
+  | 'month'
+  | 'year';
+
+export type ScaleSettings = {
+  type: 'time' | 'band';
+  formatLabel?: (label: string | number) => string | number;
+  precision?: TimePrecision;
+};
+
+export type DataSelector = (number | string)[];

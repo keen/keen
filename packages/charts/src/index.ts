@@ -11,10 +11,12 @@ import { ResponsiveWrapper, Legend } from './components';
 
 import { theme, margins } from './theme';
 
-import { Theme } from './types';
+import { Theme, TimePrecision, ScaleSettings } from './types';
 
 export {
   Theme,
+  TimePrecision,
+  ScaleSettings,
   BarChart,
   BarChartSettings,
   LineChart,

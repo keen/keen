@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis grouped by two properties 1`] = `
+Object {
+  "keys": Array [
+    "value",
+  ],
+  "results": Array [
+    Object {
+      "name": "Love, Anger, Madness Edwidge Danticat",
+      "value": 97,
+    },
+    Object {
+      "name": "Game of Thrones George R. R. Martin",
+      "value": 730,
+    },
+    Object {
+      "name": "Harry Potter J.K. Rowling",
+      "value": 113,
+    },
+    Object {
+      "name": "It Stephen King",
+      "value": 2104,
+    },
+    Object {
+      "name": "The Shining Stephen King",
+      "value": 6,
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval 1`] = `
+Object {
+  "keys": Array [
+    "value",
+  ],
+  "results": Array [
+    Object {
+      "name": "2019-11-01T00:00:00.000Z",
+      "value": 436,
+    },
+    Object {
+      "name": "2019-12-01T00:00:00.000Z",
+      "value": 333,
+    },
+    Object {
+      "name": "2020-01-01T00:00:00.000Z",
+      "value": 2991,
+    },
+    Object {
+      "name": "2020-02-01T00:00:00.000Z",
+      "value": 59,
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by single property 1`] = `
+Object {
+  "keys": Array [
+    "value",
+  ],
+  "results": Array [
+    Object {
+      "name": "Game of Thrones",
+      "value": 730,
+    },
+    Object {
+      "name": "Harry Potter",
+      "value": 113,
+    },
+    Object {
+      "name": "It",
+      "value": 2104,
+    },
+    Object {
+      "name": "Love, Anger, Madness",
+      "value": 97,
+    },
+    Object {
+      "name": "The Shining",
+      "value": 6,
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by two properties 1`] = `
+Object {
+  "keys": Array [
+    "Edwidge Danticat Love, Anger, Madness",
+    "George R. R. Martin Game of Thrones",
+    "J.K. Rowling Harry Potter",
+    "Stephen King It",
+    "Stephen King The Shining",
+  ],
+  "results": Array [
+    Object {
+      "Edwidge Danticat Love, Anger, Madness": 95,
+      "George R. R. Martin Game of Thrones": 719,
+      "J.K. Rowling Harry Potter": 112,
+      "Stephen King It": 2059,
+      "Stephen King The Shining": 6,
+      "name": "2020-01-01T00:00:00.000Z",
+    },
+    Object {
+      "Edwidge Danticat Love, Anger, Madness": 2,
+      "George R. R. Martin Game of Thrones": 11,
+      "J.K. Rowling Harry Potter": 1,
+      "Stephen King It": 45,
+      "Stephen King The Shining": 0,
+      "name": "2020-02-01T00:00:00.000Z",
+    },
+  ],
+}
+`;
