@@ -1,7 +1,16 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { max, min } from 'd3-array';
+import {
+  timeDay,
+  timeMinute,
+  timeMonth,
+  timeWeek,
+  timeHour,
+  timeYear,
+  CountableTimeInterval,
+} from 'd3-time';
 
-import { Tick, Orientation } from './types';
+import { Tick, Orientation, ScaleSettings, TimePrecision } from './types';
 
 const TICK_ALIGN = 0.5;
 
@@ -53,25 +62,54 @@ export const calculateScaleDomain = (
   }
 };
 
+const timeModifier: Record<TimePrecision, CountableTimeInterval> = {
+  day: timeDay,
+  minute: timeMinute,
+  hour: timeHour,
+  week: timeWeek,
+  month: timeMonth,
+  year: timeYear,
+};
+
+export const getTimeScaleValues = (
+  scale: ScaleTime<number, number>,
+  { precision }: ScaleSettings
+) => {
+  const [startDate, endDate] = scale.domain() as Date[];
+  const ticks = timeModifier[precision].count(startDate, endDate);
+  return scale.ticks(ticks);
+};
+
 export const getScaleValues = (
   scale:
     | ScaleBand<string>
     | ScaleLinear<number, number>
-    | ScaleTime<number, number>
-) => ('bandwidth' in scale ? scale.domain() : scale.ticks());
+    | ScaleTime<number, number>,
+  scaleSettings?: ScaleSettings
+) => {
+  if ('bandwidth' in scale) return scale.domain();
+  if (scaleSettings?.type === 'time') {
+    return getTimeScaleValues(
+      scale as ScaleTime<number, number>,
+      scaleSettings
+    );
+  }
 
-export const getFromPath = (object: any, path: string) =>
-  path
-    .replace(/\[/g, '.')
-    .replace(/\]/g, '')
-    .split('.')
-    .reduce((o, k) => (o || {})[k], object);
+  return scale.ticks();
+};
+
+export const getFromPath = (object: any, selector: (string | number)[]) =>
+  selector.reduce((acc, key) => {
+    if (acc === null) return object[key];
+    if (typeof acc === 'object' && acc !== null) return acc[key];
+    return acc;
+  }, null);
 
 export const textFormat = (
   value: any,
-  formatLabel?: (label: string | number) => string | number
+  scaleSettings?: ScaleSettings
 ): string | number => {
-  if (formatLabel) return formatLabel(value);
+  if (scaleSettings?.formatLabel) return scaleSettings.formatLabel(value);
   if (value instanceof Date) return value.toString();
   return value;
 };
@@ -80,9 +118,9 @@ export const generateTicks = ({
   scale,
   tickSize,
   orientation = Orientation.VERTICAL,
+  scaleSettings,
   x,
   y,
-  formatLabel,
 }: {
   x: number;
   y: number;
@@ -92,9 +130,11 @@ export const generateTicks = ({
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   orientation?: Orientation;
+  scaleSettings?: ScaleSettings;
   formatLabel?: (label: string | number) => string | number;
 }): Tick[] => {
-  const values = getScaleValues(scale);
+  const values = getScaleValues(scale, scaleSettings);
+
   const ticks: Tick[] = [];
   const position = 'bandwidth' in scale ? getCenterPosition(scale) : scale;
 
@@ -107,7 +147,7 @@ export const generateTicks = ({
   values.forEach((value: any) => {
     ticks.push({
       size: tickSize,
-      text: textFormat(value, formatLabel),
+      text: textFormat(value, scaleSettings),
       x: getX(value),
       y: getY(value),
     });

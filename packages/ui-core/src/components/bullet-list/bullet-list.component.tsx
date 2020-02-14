@@ -14,7 +14,7 @@ const StyledBulletList = styled.ul`
 
 const StyledBulletItem = styled.li`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   & ~ & {
     margin-top: 11px;

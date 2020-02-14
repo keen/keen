@@ -4,16 +4,15 @@ import { Layout } from '@keen.io/ui-core';
 import { generateBars } from './bar-chart.utils';
 
 import Bars from './bars.component';
-import BarTooltip from './bar-tooltip.component';
 
-import { ChartBase, Grid, Axes } from '../../components';
+import { ChartBase, ChartTooltip, Grid, Axes } from '../../components';
 
 import { getFromPath } from '../../utils';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { TOOLTIP_HIDE_TIME } from '../../constants';
 
-import { CommonChartSettings, TooltipState } from '../../types';
+import { CommonChartSettings, TooltipState, ScaleSettings } from '../../types';
 
 export type Props = {
   /** Chart data */
@@ -30,21 +29,21 @@ export type Props = {
   keys?: string[];
   /** Layout applied on chart bars */
   layout?: Layout;
-  /** Function for label format */
-  formatLabel?: (label: string | number) => string | number;
+  /** X Scale settings */
+  xScaleSettings?: ScaleSettings;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
   data,
   svgDimensions,
   labelSelector,
-  formatLabel,
   theme = defaultTheme,
   margins = defaultMargins,
   layout = 'vertical',
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
+  xScaleSettings = { type: 'band' },
   barPadding = 0.1,
 }) => {
   const { bars, xScale, yScale } = generateBars({
@@ -64,7 +63,7 @@ export const BarChart: FC<Props> = ({
 
   const clearTooltip = useRef(null);
   const [tooltip, setTooltip] = useState<TooltipState>({
-    key: null,
+    selectors: null,
     visible: false,
     x: 0,
     y: 0,
@@ -72,32 +71,41 @@ export const BarChart: FC<Props> = ({
 
   return (
     <>
-      <ChartBase theme={theme} svgDimensions={svgDimensions} margins={margins}>
+      <ChartBase
+        theme={theme}
+        svgDimensions={svgDimensions}
+        margins={margins}
+        xScaleSettings={xScaleSettings}
+      >
         <Grid xScale={xScale} yScale={yScale} />
-        <Axes xScale={xScale} yScale={yScale} formatLabel={formatLabel} />
+        <Axes xScale={xScale} yScale={yScale} />
         <Bars
           bars={bars}
           layout={layout}
-          onBarMouseEnter={(_e, key, { x, y }) => {
+          onBarMouseEnter={(_e, _key, selector, { x, y }) => {
             if (clearTooltip.current) clearTimeout(clearTooltip.current);
-            tooltipSettings.enabled && setTooltip({ visible: true, x, y, key });
+            tooltipSettings.enabled &&
+              setTooltip({ visible: true, x, y, selectors: [selector] });
           }}
           onBarMouseLeave={() => {
             if (tooltipSettings.enabled) {
               clearTooltip.current = setTimeout(() => {
-                setTooltip(prevState => ({
-                  ...prevState,
+                setTooltip({
+                  selectors: null,
                   visible: false,
                   x: 0,
                   y: 0,
-                }));
+                });
               }, TOOLTIP_HIDE_TIME);
             }
           }}
         />
-        <BarTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
-          {tooltip.key && getFromPath(data, tooltip.key)}
-        </BarTooltip>
+        <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
+          {tooltip.selectors &&
+            tooltip.selectors.map(({ selector, color }) => (
+              <div key={color}>{getFromPath(data, selector)}</div>
+            ))}
+        </ChartTooltip>
       </ChartBase>
     </>
   );

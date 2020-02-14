@@ -2,7 +2,7 @@ import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { generateTicks } from '../utils';
 
-import { Orientation } from '../types';
+import { Orientation, ScaleSettings } from '../types';
 
 type Options = {
   x: number;
@@ -13,6 +13,7 @@ type Options = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   orientation: Orientation;
+  scaleSettings?: ScaleSettings;
   formatLabel?: (label: string | number) => string | number;
 };
 
@@ -22,7 +23,7 @@ export const createRuler = ({
   tickSize,
   scale,
   orientation,
-  formatLabel,
+  scaleSettings,
 }: Options) => {
   const [scaleStart, scaleEnd] = scale.range();
   const ticks = generateTicks({
@@ -30,8 +31,8 @@ export const createRuler = ({
     y,
     tickSize,
     scale,
+    scaleSettings,
     orientation,
-    formatLabel,
   });
   let line;
 

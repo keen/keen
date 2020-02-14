@@ -17,6 +17,7 @@ type Props = {
 export const Grid = ({ xScale, yScale }: Props) => {
   const {
     svgDimensions,
+    xScaleSettings,
     margins,
     theme: { gridX, gridY },
   } = useContext(ChartContext) as ChartContextType;
@@ -26,6 +27,7 @@ export const Grid = ({ xScale, yScale }: Props) => {
     generateGridLines({
       axisType: AxisType.X,
       scale: xScale,
+      scaleSettings: xScaleSettings,
       dimension: svgDimensions,
       margins,
     });

@@ -1,6 +1,8 @@
 import { scaleLinear, scaleUtc } from 'd3-scale';
 import { line as lineShape } from 'd3-shape';
+
 import { calculateRange, calculateScaleDomain } from '../../utils';
+
 import { Dimension, Margins } from '../../types';
 
 type Options = {
@@ -16,32 +18,42 @@ type Options = {
   strokeWidth: number;
 };
 
-export type Lines = {
-  key: string;
-  line: Line;
-  marks: Mark[];
-  color: string;
-  markRadius: number;
-  strokeWidth: number;
-};
-
 export type Line = {
   key: string;
   d: string;
+  selector: (string | number)[];
+  color: string;
+  strokeWidth: number;
 };
 
 export type Mark = {
   key: string;
+  radius: number;
+  color: string;
+  selector: (number | string)[];
   x: number;
   y: number;
 };
 
-export const sortDates = (data: Record<string, any>[], labelSelector: string) =>
-  data.length &&
-  data.sort(
-    (a, b) =>
-      (new Date(a[labelSelector]) as any) - (new Date(b[labelSelector]) as any)
-  );
+export const groupMarksByPosition = (marks: Mark[]): Record<number, Mark[]> => {
+  const groups: Record<number, Mark[]> = {};
+  marks.forEach((mark: Mark) => {
+    const { x } = mark;
+    if (!groups[x]) groups[x] = [];
+    groups[x].push(mark);
+  });
+  return groups;
+};
+
+export const findMarksInCluster = (
+  mark: Mark,
+  marks: Record<number, Mark[]>,
+  range = 10
+) => {
+  const { x, y } = mark;
+  const group = marks[x];
+  return group.filter(mark => Math.abs(y - mark.y) < range);
+};
 
 export const generateLines = ({
   data,
@@ -56,8 +68,9 @@ export const generateLines = ({
   strokeWidth,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
+  const marks: Mark[] = [];
 
-  const [first] = sortDates(data, labelSelector);
+  const [first] = data;
 
   const xScale = scaleUtc()
     .range([margins.left, dimension.width - margins.right])
@@ -72,7 +85,7 @@ export const generateLines = ({
 
   calculateScaleDomain(yScale, minimum, maximum);
 
-  const generateLineMarks = (keyName: string) => {
+  const generateLineMarks = (keyName: string, lineIndex: number) => {
     const marks = [] as Mark[];
     data.forEach((_d: any, index: number) => {
       const value = data[index]?.[keyName];
@@ -80,9 +93,13 @@ export const generateLines = ({
       if (keyName !== labelSelector && value) {
         const mark = {
           key: `${index}.${keyName}.mark`,
+          color: colors[lineIndex],
+          selector: [index, keyName],
           x: xScale(new Date(data[index][labelSelector])),
           y: yScale(value),
+          radius: markRadius,
         };
+
         marks.push(mark);
       }
     });
@@ -98,20 +115,19 @@ export const generateLines = ({
         return yScale(d[keyName]);
       });
 
+    marks.push(...generateLineMarks(keyName, idx));
+
     return {
       key: keyName,
-      line: {
-        key: `${idx}.${keyName}.line`,
-        d: calculateLine(data),
-      },
-      marks: generateLineMarks(keyName),
+      selector: [idx, keyName],
+      d: calculateLine(data),
       color: colors[idx],
-      markRadius,
       strokeWidth,
     };
   });
 
   return {
+    marks,
     lines,
     xScale,
     yScale,

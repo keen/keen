@@ -1,5 +1,14 @@
 import { visualizeQuery } from './visualize-query';
 
-import { parseQuery } from './parsers';
+import { parseQuery } from './parser';
+import { createScaleSettings } from './utils';
 
-export { visualizeQuery, parseQuery };
+import { Query, AnalysisResult } from './types';
+
+export {
+  visualizeQuery,
+  parseQuery,
+  createScaleSettings,
+  Query,
+  AnalysisResult,
+};

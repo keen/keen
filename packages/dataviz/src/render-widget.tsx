@@ -4,6 +4,8 @@ import {
   LineChartWidget,
   PieChartWidget,
 } from '@keen.io/widgets';
+import { ScaleSettings } from '@keen.io/charts';
+import { Query } from '@keen.io/parser';
 
 import { WidgetSettings } from './types';
 
@@ -12,16 +14,17 @@ export type Widgets = 'bar' | 'line' | 'pie';
 type Options = {
   type: Widgets;
   keys: string[];
-  formatLabel: (label: string | number) => string | number;
   data: any[];
+  query: Query;
+  scaleSettings: Partial<ScaleSettings>;
   widgetSettings?: WidgetSettings;
 };
 
 export const renderWidget = ({
   type,
-  formatLabel,
   keys,
   data,
+  scaleSettings,
   widgetSettings,
 }: Options) => {
   switch (type) {
@@ -31,7 +34,7 @@ export const renderWidget = ({
       return (
         <BarChartWidget
           keys={keys}
-          formatLabel={formatLabel}
+          xScaleSettings={{ type: 'band', ...scaleSettings }}
           labelSelector="name"
           data={data}
         />
@@ -39,8 +42,11 @@ export const renderWidget = ({
     case 'line':
       return (
         <LineChartWidget
+          xScaleSettings={{
+            type: 'time',
+            ...scaleSettings,
+          }}
           keys={keys}
-          formatLabel={formatLabel}
           labelSelector="name"
           data={data}
           {...widgetSettings}

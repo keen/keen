@@ -5,6 +5,7 @@ import {
   getScaleValues,
   generateTicks,
   textFormat,
+  getFromPath,
   calculateRange,
   EDGE_TICK_ALIGN,
 } from './utils';
@@ -184,6 +185,7 @@ describe('@keen.io/charts - utils', () => {
   describe('getScaleValues()', () => {
     const firstDate = new Date('2020-01-01T00:00:00.000Z');
     const lastDate = new Date('2020-06-01T00:00:00.000Z');
+
     it('should return domain for band scale', () => {
       const scale = scaleBand().domain(domain);
 
@@ -198,7 +200,56 @@ describe('@keen.io/charts - utils', () => {
       expect(getScaleValues(scale)).toMatchSnapshot();
     });
 
-    it('should return ticks for Utc scale', () => {
+    it('should apply "timeModifier" for month precision', () => {
+      const scale = scaleUtc()
+        .range([0, 10])
+        .domain([firstDate, lastDate]);
+
+      expect(
+        getScaleValues(scale, { type: 'time', precision: 'month' })
+      ).toMatchSnapshot();
+    });
+
+    it('should apply "timeModifier" for minute precision', () => {
+      const scale = scaleUtc()
+        .range([0, 10])
+        .domain([
+          new Date('2020-01-06T15:00:00.000Z'),
+          new Date('2020-01-06T15:10:00.000Z'),
+        ]);
+
+      expect(
+        getScaleValues(scale, { type: 'time', precision: 'minute' })
+      ).toMatchSnapshot();
+    });
+
+    it('should apply "timeModifier" for week precision', () => {
+      const scale = scaleUtc()
+        .range([0, 10])
+        .domain([
+          new Date('2020-01-01T15:00:00.000Z'),
+          new Date('2020-01-30T15:00:00.000Z'),
+        ]);
+
+      expect(
+        getScaleValues(scale, { type: 'time', precision: 'week' })
+      ).toMatchSnapshot();
+    });
+
+    it('should apply "timeModifier" for year precision', () => {
+      const scale = scaleUtc()
+        .range([0, 10])
+        .domain([
+          new Date('2015-01-01T00:00:00.000Z'),
+          new Date('2020-06-01T00:00:00.000Z'),
+        ]);
+
+      expect(
+        getScaleValues(scale, { type: 'time', precision: 'year' })
+      ).toMatchSnapshot();
+    });
+
+    it('should return ticks for UTC scale without applying time precision', () => {
       const scale = scaleUtc()
         .range([0, 10])
         .domain([firstDate, lastDate]);
@@ -221,6 +272,24 @@ describe('@keen.io/charts - utils', () => {
     });
   });
 
+  describe('getFromPath()', () => {
+    it('should extract value based on provided selector', () => {
+      const person = {
+        address: {
+          city: 'New York',
+        },
+      };
+
+      expect(getFromPath(person, ['address', 'city'])).toEqual('New York');
+    });
+
+    it('should extract value from collections based on provided selector', () => {
+      const countries = [{ name: 'United States' }];
+
+      expect(getFromPath(countries, [0, 'name'])).toEqual('United States');
+    });
+  });
+
   describe('textFormat()', () => {
     it('return value without formating', () => {
       const value = 50;
@@ -229,12 +298,20 @@ describe('@keen.io/charts - utils', () => {
       expect(returnValue).toEqual(50);
     });
 
-    it('return formatted value', () => {
-      const value = 123;
-      const formatLabel = label => `$${label}`;
-      const returnValue = textFormat(value, formatLabel);
+    it('should convert "Date" instance to string format', () => {
+      const value = new Date('2020-01-04');
 
-      expect(returnValue).toEqual('$123');
+      expect(textFormat(value)).toMatchInlineSnapshot(
+        `2020-01-04T00:00:00.000Z`
+      );
+    });
+
+    it('should apply "formatLabel" function', () => {
+      const value = 'keen.io';
+      const formatLabel = (label: string | number) => `@${label}`;
+      const returnValue = textFormat(value, { type: 'band', formatLabel });
+
+      expect(returnValue).toEqual('@keen.io');
     });
   });
 });

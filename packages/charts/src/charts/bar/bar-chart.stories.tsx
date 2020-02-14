@@ -25,8 +25,6 @@ export const withKnobs = () => {
         padding: '0 40px',
         width: '700px',
         height: '500px',
-        position: 'relative',
-        transform: 'scale(1)',
       }}
     >
       <BarChart
