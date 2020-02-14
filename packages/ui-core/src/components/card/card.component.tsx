@@ -13,6 +13,7 @@ export const Card = styled.div<Props>`
   flex-direction: column;
   height: 100%;
   padding: 10px;
+  box-sizing: border-box;
   background: ${props => props.backgroundColor};
   border: ${props => props.border};
   border-radius: ${props => props.borderRadius};

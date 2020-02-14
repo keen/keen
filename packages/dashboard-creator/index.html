@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      .react-grid-layout { background: yellow; }
+      .react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: blue;
+  cursor: se-resize;
+}
+    </style>
+
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <script type="text/javascript">
+      DashboardCreator({
+        container: '#root',
+        projectId: 'F3BC52F83A0FF361B441505739966A40FA6DF0A62D2912B005ACD6FDAB3B186C',
+        masterKey: '5de6365c46e0fb00016563bc',
+      });
+  </script>
+</html>
