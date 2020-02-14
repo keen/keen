@@ -10,12 +10,6 @@ describe('@keen.io/parser - date', () => {
       expect(format(date)).toMatchInlineSnapshot(`"Jan 19"`);
     });
 
-    it('should create formatter for "minute" precision', () => {
-      const format = createLabelFormatter('minute');
-
-      expect(format(date)).toMatchInlineSnapshot(`"01:00:00 AM"`);
-    });
-
     it('should create formatter for "day" precision', () => {
       const format = createLabelFormatter('day');
 
