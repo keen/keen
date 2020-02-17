@@ -9,6 +9,8 @@ import { createRootReducer } from './reducer';
 import { appStart } from './actions';
 import { rootSaga } from './saga';
 
+import API from './api';
+
 import App from './app.component';
 
 type Options = {
@@ -25,8 +27,11 @@ export const DashboardCreator = ({
   const reducer = createRootReducer();
   const sagaMiddleware = createSagaMiddleware({
     context: {
-      projectId,
-      masterKey,
+      api: new API({
+        url: 'https://blob-service.us-west-2.test.aws.keen.io',
+        projectId,
+        key: masterKey,
+      }),
     },
   });
 

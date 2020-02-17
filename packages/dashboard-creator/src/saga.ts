@@ -1,20 +1,141 @@
-import 'isomorphic-fetch';
-import { all, put, takeLatest } from 'redux-saga/effects';
+import {
+  all,
+  put,
+  call,
+  select,
+  getContext,
+  takeLatest,
+} from 'redux-saga/effects';
 
-import { getDashboards } from './actions';
+import API from './api';
+import {
+  setWidgets,
+  getDashboards,
+  getDashboardsSuccess,
+  getDashboardsFailure,
+  getDashboardByIdSuccess,
+  getDashboardByIdFailure,
+  deleteDashboardSuccess,
+  deleteDashboardFailure,
+  createDashboardSuccess,
+  createDashboardFailure,
+  saveDashboardSuccess,
+  saveDashboardFailure,
+} from './actions';
 
-import { APP_START, GET_DASHBOARDS } from './constants';
+import { getDashboard, getWidget } from './selectors';
+import { generateId } from './utils';
+
+import {
+  APP_START,
+  CREATE_DASHBOARD,
+  CREATE_DASHBOARD_SUCCESS,
+  DELETE_DASHBOARD,
+  GET_DASHBOARDS,
+  GET_DASHBOARD_BY_ID,
+  SAVE_DASHBOARD,
+  DASHBOARD_VERSION,
+} from './constants';
+
+import {
+  GetDashboardByIdAction,
+  SaveDashboardAction,
+  DeleteDashboardAction,
+  Widget,
+  Dashboard,
+} from './types';
+
+function* createDashboard() {
+  const api: API = yield getContext('api');
+  const dashboardId = generateId();
+
+  const dashboard: Dashboard = {
+    id: dashboardId,
+    version: DASHBOARD_VERSION,
+    widgets: [],
+  };
+
+  try {
+    yield call(api.saveDashboard, dashboardId, dashboard);
+    yield put(createDashboardSuccess(dashboardId, dashboard));
+  } catch (err) {
+    yield put(createDashboardFailure());
+  }
+}
+
+function* saveDashboard(action: SaveDashboardAction) {
+  const {
+    payload: { id },
+  } = action;
+
+  const api: API = yield getContext('api');
+
+  const state = yield select();
+  const { dashboard } = yield getDashboard(state, id);
+
+  const dashboardModel = {
+    ...dashboard,
+    widgets: dashboard.widgets.map((id: string) => getWidget(state, id)),
+  };
+
+  try {
+    yield call(api.saveDashboard, id, dashboardModel);
+    yield put(saveDashboardSuccess(id));
+  } catch (err) {
+    yield put(saveDashboardFailure());
+  }
+}
+
+function* deleteDashboard(action: DeleteDashboardAction) {
+  const {
+    payload: { id },
+  } = action;
+  const api: API = yield getContext('api');
+  try {
+    yield call(api.deleteDashboard, id);
+    yield put(deleteDashboardSuccess(id));
+  } catch (err) {
+    yield put(deleteDashboardFailure());
+  }
+}
 
 function* fetchDashboards() {
-  fetch(
-    'https://blob-service.us-west-2.test.aws.keen.io/projects/5de6365c46e0fb00016563bc/metadata/dashboard',
-    {
-      headers: {
-        Authorization:
-          'F3BC52F83A0FF361B441505739966A40FA6DF0A62D2912B005ACD6FDAB3B186C',
-      },
-    }
-  );
+  const api: API = yield getContext('api');
+  try {
+    const dashboards = yield call(api.getDashboards);
+    yield put(getDashboardsSuccess(dashboards));
+  } catch (err) {
+    yield put(getDashboardsFailure());
+  }
+}
+
+function* fetchDashboardById(action: GetDashboardByIdAction) {
+  const {
+    payload: { id },
+  } = action;
+  const api: API = yield getContext('api');
+
+  try {
+    const { widgets, ...rest }: Dashboard & { widgets: Widget[] } = yield call(
+      api.getDashboardById,
+      id
+    );
+    const dashboardWidgets: Record<string, Widget> = {};
+
+    widgets.forEach((widget: Widget) => {
+      dashboardWidgets[widget.id] = widget;
+    });
+
+    yield put(setWidgets(dashboardWidgets));
+
+    const dashboardModel = {
+      ...rest,
+      widgets: widgets.map(({ id }: Widget) => id),
+    };
+    yield put(getDashboardByIdSuccess(id, dashboardModel));
+  } catch (err) {
+    yield put(getDashboardByIdFailure());
+  }
 }
 
 function* appStart() {
@@ -24,6 +145,11 @@ function* appStart() {
 export function* rootSaga() {
   yield all([
     takeLatest(APP_START, appStart),
+    takeLatest(CREATE_DASHBOARD_SUCCESS, fetchDashboards),
+    takeLatest(CREATE_DASHBOARD, createDashboard),
+    takeLatest(SAVE_DASHBOARD, saveDashboard),
+    takeLatest(DELETE_DASHBOARD, deleteDashboard),
     takeLatest(GET_DASHBOARDS, fetchDashboards),
+    takeLatest(GET_DASHBOARD_BY_ID, fetchDashboardById),
   ]);
 }

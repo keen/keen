@@ -1,23 +1,21 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
-import Grid from './components/grid/grid.component';
+import { DashboardList, EditDashboard, Dashboard } from './pages';
+
+import { ROUTES } from './constants';
 
 const App = () => (
   <>
     <HashRouter>
       <Switch>
-        <Route exact path="/" render={() => <div>home</div>} />
-        <Route exact path="/dashboards" render={() => <div>List</div>} />
+        <Route exact path="/" component={DashboardList} />
         <Route
           exact
-          path="/dashboard/:id"
-          render={() => (
-            <div>
-              <Grid />
-            </div>
-          )}
+          path={`${ROUTES.EDIT_DASHBOARD}/:id`}
+          component={EditDashboard}
         />
+        <Route exact path={`${ROUTES.DASHBOARD}/:id`} component={Dashboard} />
       </Switch>
     </HashRouter>
   </>
