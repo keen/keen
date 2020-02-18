@@ -21,19 +21,44 @@ export const getCenterPosition = (scale: ScaleBand<string>) => {
   return (value: string) => scale(value) + offset;
 };
 
-export const calculateRange = (
-  data: object[],
-  minValue: number | 'auto',
-  maxValue: number | 'auto',
-  keys: string[]
-) => {
-  const values = data.reduce(
+export const getValues = (data: object[], keys: string[]) =>
+  data.reduce(
     (acc: number[], item: any) => [
       ...acc,
       ...keys.map((key: string) => item[key]).filter(v => v !== undefined),
     ],
     []
   ) as number[];
+
+export const calculateStackedRange = (
+  data: object[],
+  minValue: number | 'auto',
+  maxValue: number | 'auto',
+  keys: string[]
+) => {
+  const values: number[] = data.map((item: Record<string, number>) =>
+    keys.reduce((acc: number, keyName: string) => {
+      const value = item[keyName];
+      return acc + value;
+    }, 0)
+  );
+
+  const minimum = minValue === 'auto' ? 0 : minValue;
+  const maximum = maxValue === 'auto' ? max(values) : maxValue;
+
+  return {
+    minimum,
+    maximum,
+  };
+};
+
+export const calculateRange = (
+  data: object[],
+  minValue: number | 'auto',
+  maxValue: number | 'auto',
+  keys: string[]
+) => {
+  const values = getValues(data, keys);
 
   let minimum = minValue === 'auto' ? min(values) : minValue;
   if (minimum > 0) {

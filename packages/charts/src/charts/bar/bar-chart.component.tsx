@@ -31,6 +31,10 @@ export type Props = {
   layout?: Layout;
   /** X Scale settings */
   xScaleSettings?: ScaleSettings;
+  /** Group mode */
+  groupMode?: 'grouped' | 'stacked';
+  /** Stack mode */
+  stackMode?: 'normal' | 'percent';
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -43,6 +47,8 @@ export const BarChart: FC<Props> = ({
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
+  stackMode = 'normal',
+  groupMode = 'grouped',
   xScaleSettings = { type: 'band' },
   barPadding = 0.1,
 }) => {
@@ -57,6 +63,8 @@ export const BarChart: FC<Props> = ({
     minValue,
     maxValue,
     colors: theme.colors,
+    stackMode,
+    groupMode,
   });
 
   const { tooltip: tooltipSettings } = theme;

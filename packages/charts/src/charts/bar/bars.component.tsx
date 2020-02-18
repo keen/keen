@@ -57,17 +57,19 @@ const Bars = ({ bars, layout, onBarMouseEnter, onBarMouseLeave }: Props) => {
             width={width}
             fill={activeBar === key ? transparentize(0.05, color) : color}
           />
-          <AnimatePresence>
-            {activeBar === key && (
-              <motion.g {...markMotion} pointerEvents="all">
-                <Mark
-                  {...calculateMarkPosition({ layout, x, y, width, height })}
-                  color={color}
-                />
-              </motion.g>
-            )}
-          </AnimatePresence>
         </g>
+      ))}
+      {bars.map(({ key, x, y, width, height, color }: Bar) => (
+        <AnimatePresence key={key}>
+          {activeBar === key && (
+            <motion.g {...markMotion} pointerEvents="all">
+              <Mark
+                {...calculateMarkPosition({ layout, x, y, width, height })}
+                color={color}
+              />
+            </motion.g>
+          )}
+        </AnimatePresence>
       ))}
     </>
   );

@@ -37,6 +37,8 @@ const Axes = ({ xScale, yScale }: Props) => {
     orientation: Orientation.HORIZONTAL,
   };
 
+  console.log(theme.axisY);
+
   return (
     <>
       {axisX && <Ruler {...axisX} {...theme.axisX} />}

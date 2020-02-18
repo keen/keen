@@ -1,8 +1,13 @@
 import { scaleBand, scaleLinear } from 'd3-scale';
+import { stack, stackOffsetDiverging } from 'd3-shape';
 
 import { Layout } from '@keen.io/ui-core';
 
-import { calculateRange, calculateScaleDomain } from '../../utils';
+import {
+  calculateRange,
+  calculateStackedRange,
+  calculateScaleDomain,
+} from '../../utils';
 import { Dimension, Margins } from '../../types';
 
 type Options = {
@@ -13,6 +18,8 @@ type Options = {
   margins: Margins;
   layout: Layout;
   barPadding: number;
+  groupMode: 'stacked' | 'grouped';
+  stackMode: 'normal' | 'percent';
   minValue?: number | 'auto';
   maxValue?: number | 'auto';
   colors: string[];
@@ -54,7 +61,7 @@ export const calculateMarkPosition = ({
   };
 };
 
-export const generateHorizontalBars = ({
+export const generateHorizontalGroupedBars = ({
   data,
   keys,
   dimension,
@@ -116,7 +123,7 @@ export const generateHorizontalBars = ({
   };
 };
 
-export const generateVerticalBars = ({
+export const generateVerticalGroupedBars = ({
   data,
   dimension,
   margins,
@@ -178,7 +185,146 @@ export const generateVerticalBars = ({
   };
 };
 
-export const generateBars = (options: Options) =>
-  options.layout === 'vertical'
-    ? generateVerticalBars(options)
-    : generateHorizontalBars(options);
+export const generateHorizontalStackedBars = ({
+  data,
+  dimension,
+  margins,
+  minValue,
+  maxValue,
+  barPadding,
+  keys,
+  colors,
+  labelSelector,
+}: Options) => {
+  const bars = [] as Bar[];
+  const stackedData = stack()
+    .keys(keys)
+    .offset(stackOffsetDiverging)(data);
+
+  const { minimum, maximum } = calculateStackedRange(
+    data,
+    minValue,
+    maxValue,
+    keys
+  );
+
+  const xScale = scaleLinear()
+    .range([margins.left, dimension.width - margins.right])
+    .domain([minimum, maximum]);
+
+  const yScale = scaleBand()
+    .range([dimension.height - margins.bottom, margins.top])
+    .domain(data.map((item: any) => item[labelSelector]))
+    .padding(barPadding);
+
+  calculateScaleDomain(xScale, minimum, maximum);
+
+  const barHeight = yScale.bandwidth();
+  const range = new Array(yScale.domain().length).fill(true);
+
+  stackedData.forEach((item: any, idx: number) => {
+    const keyName = item.key;
+
+    range.forEach((_d, index: number) => {
+      const [rangeMin, rangeMax] = item[index];
+
+      const bar = {
+        key: `${index}.${keyName}`,
+        selector: [index, keyName],
+        x: xScale(rangeMin),
+        y: yScale(data[index][labelSelector]),
+        width: xScale(rangeMax) - xScale(rangeMin),
+        height: barHeight,
+        color: colors[idx],
+      };
+
+      bars.push(bar);
+    });
+  });
+
+  return {
+    bars,
+    xScale,
+    yScale,
+  };
+};
+
+export const generateVerticalStackedBars = ({
+  data,
+  dimension,
+  margins,
+  minValue,
+  maxValue,
+  barPadding,
+  keys,
+  colors,
+  labelSelector,
+}: Options) => {
+  const bars = [] as Bar[];
+  const stackedData = stack()
+    .keys(keys)
+    .offset(stackOffsetDiverging)(data);
+
+  const { minimum, maximum } = calculateStackedRange(
+    data,
+    minValue,
+    maxValue,
+    keys
+  );
+
+  const xScale = scaleBand()
+    .range([margins.left, dimension.width - margins.right])
+    .domain(data.map((item: any) => item[labelSelector]))
+    .padding(barPadding);
+
+  const yScale = scaleLinear()
+    .range([dimension.height - margins.bottom, margins.top])
+    .domain([minimum, maximum]);
+
+  calculateScaleDomain(yScale, minimum, maximum);
+
+  const barWidth = xScale.bandwidth();
+  const range = new Array(xScale.domain().length).fill(true);
+
+  stackedData.forEach((item: any, idx: number) => {
+    const keyName = item.key;
+
+    range.forEach((_d, index: number) => {
+      const [rangeMin, rangeMax] = item[index];
+
+      const bar = {
+        key: `${index}.${keyName}`,
+        selector: [index, keyName],
+        x: xScale(data[index][labelSelector]),
+        y: yScale(rangeMax),
+        width: barWidth,
+        height: yScale(rangeMin) - yScale(rangeMax),
+        color: colors[idx],
+      };
+
+      bars.push(bar);
+    });
+  });
+
+  return {
+    bars,
+    xScale,
+    yScale,
+  };
+};
+
+const BAR_RENDER_MAP: Record<string, any> = {
+  grouped: {
+    vertical: generateVerticalGroupedBars,
+    horizontal: generateHorizontalGroupedBars,
+  },
+  stacked: {
+    vertical: generateVerticalStackedBars,
+    horizontal: generateHorizontalStackedBars,
+  },
+};
+
+export const generateBars = (options: Options) => {
+  const { layout, groupMode } = options;
+  return BAR_RENDER_MAP[groupMode][layout].call(null, options);
+};
