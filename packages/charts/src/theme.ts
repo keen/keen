@@ -14,6 +14,37 @@ export const margins: Margins = { top: 50, right: 20, bottom: 50, left: 40 };
 
 export const theme: Theme = {
   colors: chartColors,
+  metric: {
+    label: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 60,
+        fontFamily: 'Lato Light, sans-serif',
+        fontColor: colors.blue['500'],
+      },
+    },
+    excerpt: {
+      icons: {
+        increase: {
+          color: colors.green['500'],
+          type: 'arrow-up',
+        },
+        decrease: {
+          color: colors.orange['500'],
+          type: 'arrow-down',
+        },
+      },
+      backgroundColor: colors.white['400'],
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 16,
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.black['500'],
+      },
+    },
+  },
   tooltip: {
     enabled: true,
     mode: 'dark',

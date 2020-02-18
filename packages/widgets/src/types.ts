@@ -1,4 +1,10 @@
-import { Typography, Position, Alignment, Layout } from '@keen.io/ui-core';
+import {
+  Typography,
+  Position,
+  Alignment,
+  Layout,
+  CardSettings,
+} from '@keen.io/ui-core';
 
 export type LegendSettings = {
   enabled: boolean;
@@ -14,11 +20,15 @@ export type LegendSettings = {
   };
 };
 
+export type TextSettings = { content: string; typography: Typography };
+
 export type WidgetSettings = {
   /** Widget title */
-  title?: string;
+  title: TextSettings;
   /** Widget subtitle */
-  subtitle?: string;
+  subtitle: TextSettings;
   /** Legend component settings */
-  legend?: LegendSettings;
+  legend: LegendSettings;
+  /** Widget card settings */
+  card: CardSettings;
 };

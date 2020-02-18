@@ -3,23 +3,23 @@ import { Title, Text } from './typography';
 import { Typography, Position, Alignment, Layout } from './types';
 
 import {
-  Arrow,
+  Caret,
   BulletList,
   Group,
   Card,
-  CardProps,
+  CardSettings,
   ColorAdjuster,
   Tooltip,
   TooltipMode,
 } from './components';
 
 export {
-  Arrow,
+  Caret,
   Alignment,
   BulletList,
   ColorAdjuster,
   Card,
-  CardProps,
+  CardSettings,
   Title,
   Text,
   Group,

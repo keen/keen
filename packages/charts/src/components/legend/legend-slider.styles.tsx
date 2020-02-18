@@ -44,7 +44,7 @@ export const Button = styled.div<{
   ${props => dimensionMixin(props.variant)}
 
   svg {
-    fill: ${props => (props.disabled ? colors.white[300] : colors.blue[100])}
+    color: ${props => (props.disabled ? colors.white[300] : colors.blue[100])}
   }
 
   ${props =>

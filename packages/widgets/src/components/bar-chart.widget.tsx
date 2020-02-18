@@ -30,8 +30,6 @@ export const BarChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateChartKeys } = useLegend();
 
-  console.log('leg', legend);
-
   return (
     <ChartWidget
       legendSettings={{

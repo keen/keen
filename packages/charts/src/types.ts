@@ -1,4 +1,5 @@
 import { Typography, TooltipMode } from '@keen.io/ui-core';
+import { IconType } from '@keen.io/icons';
 
 export type Dimension = {
   width: number;
@@ -55,8 +56,28 @@ export type Grid = {
   color: string;
 };
 
+export type Icon = {
+  color: string;
+  type: IconType;
+};
+
+export type Metric = {
+  label: {
+    typography: Typography;
+  };
+  excerpt: {
+    icons: {
+      increase: Icon;
+      decrease: Icon;
+    };
+    backgroundColor: string;
+    typography: Typography;
+  };
+};
+
 export type Theme = {
   colors: string[];
+  metric?: Metric;
   tooltip?: Tooltip;
   axisX?: Axis;
   axisY?: Axis;

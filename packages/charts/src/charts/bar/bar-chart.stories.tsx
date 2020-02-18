@@ -12,6 +12,8 @@ import { chartData } from './bar-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
 
+import { GroupMode, StackMode } from './types';
+
 export default {
   title: 'Charts / Bar Chart',
   parameters: {
@@ -33,8 +35,8 @@ export const withKnobs = () => {
     >
       <BarChart
         labelSelector="name"
-        groupMode={groupModeKnobs('Chart')}
-        stackMode={stackModeKnobs('Chart')}
+        groupMode={groupModeKnobs('Chart') as GroupMode}
+        stackMode={stackModeKnobs('Chart') as StackMode}
         barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
         keys={['users', 'licenses', 'shops']}
         layout={createLayoutKnobs('Chart', 'vertical') as any}
