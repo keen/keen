@@ -4,6 +4,7 @@ import { stack, stackOffsetDiverging } from 'd3-shape';
 import { Layout } from '@keen.io/ui-core';
 
 import {
+  normalizeToPercent,
   calculateRange,
   calculateStackedRange,
   calculateScaleDomain,
@@ -194,19 +195,22 @@ export const generateHorizontalStackedBars = ({
   barPadding,
   keys,
   colors,
+  stackMode,
   labelSelector,
 }: Options) => {
   const bars = [] as Bar[];
+
+  const normalizedData =
+    stackMode === 'normal' ? data : normalizeToPercent(data, keys);
+
   const stackedData = stack()
     .keys(keys)
-    .offset(stackOffsetDiverging)(data);
+    .offset(stackOffsetDiverging)(normalizedData);
 
-  const { minimum, maximum } = calculateStackedRange(
-    data,
-    minValue,
-    maxValue,
-    keys
-  );
+  const { minimum, maximum } =
+    stackMode === 'normal'
+      ? calculateStackedRange(normalizedData, minValue, maxValue, keys)
+      : { minimum: 0, maximum: 100 };
 
   const xScale = scaleLinear()
     .range([margins.left, dimension.width - margins.right])
@@ -214,7 +218,7 @@ export const generateHorizontalStackedBars = ({
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain(data.map((item: any) => item[labelSelector]))
+    .domain(normalizedData.map((item: any) => item[labelSelector]))
     .padding(barPadding);
 
   calculateScaleDomain(xScale, minimum, maximum);
@@ -232,7 +236,7 @@ export const generateHorizontalStackedBars = ({
         key: `${index}.${keyName}`,
         selector: [index, keyName],
         x: xScale(rangeMin),
-        y: yScale(data[index][labelSelector]),
+        y: yScale(normalizedData[index][labelSelector]),
         width: xScale(rangeMax) - xScale(rangeMin),
         height: barHeight,
         color: colors[idx],
@@ -258,23 +262,26 @@ export const generateVerticalStackedBars = ({
   barPadding,
   keys,
   colors,
+  stackMode,
   labelSelector,
 }: Options) => {
   const bars = [] as Bar[];
+
+  const normalizedData =
+    stackMode === 'normal' ? data : normalizeToPercent(data, keys);
+
   const stackedData = stack()
     .keys(keys)
-    .offset(stackOffsetDiverging)(data);
+    .offset(stackOffsetDiverging)(normalizedData);
 
-  const { minimum, maximum } = calculateStackedRange(
-    data,
-    minValue,
-    maxValue,
-    keys
-  );
+  const { minimum, maximum } =
+    stackMode === 'normal'
+      ? calculateStackedRange(normalizedData, minValue, maxValue, keys)
+      : { minimum: 0, maximum: 100 };
 
   const xScale = scaleBand()
     .range([margins.left, dimension.width - margins.right])
-    .domain(data.map((item: any) => item[labelSelector]))
+    .domain(normalizedData.map((item: any) => item[labelSelector]))
     .padding(barPadding);
 
   const yScale = scaleLinear()
@@ -295,7 +302,7 @@ export const generateVerticalStackedBars = ({
       const bar = {
         key: `${index}.${keyName}`,
         selector: [index, keyName],
-        x: xScale(data[index][labelSelector]),
+        x: xScale(normalizedData[index][labelSelector]),
         y: yScale(rangeMax),
         width: barWidth,
         height: yScale(rangeMin) - yScale(rangeMax),

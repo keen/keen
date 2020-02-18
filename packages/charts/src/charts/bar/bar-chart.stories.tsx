@@ -30,6 +30,7 @@ export const withKnobs = () => {
       <BarChart
         labelSelector="name"
         groupMode="stacked"
+        stackMode="normal"
         barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
         keys={['users', 'licenses', 'shops']}
         layout={createLayoutKnobs('Chart', 'vertical') as any}

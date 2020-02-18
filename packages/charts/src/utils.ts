@@ -16,6 +16,28 @@ const TICK_ALIGN = 0.5;
 
 export const EDGE_TICK_ALIGN = 4;
 
+export const normalizeToPercent = (data: object[], keys: string[]) => {
+  const maximumValues: number[] = data.map((item: Record<string, number>) =>
+    keys.reduce((acc: number, keyName: string) => {
+      const value = item[keyName];
+      return acc + value;
+    }, 0)
+  );
+
+  const normalized = data.map((item: Record<string, any>, idx: number) => ({
+    ...item,
+    ...keys.reduce(
+      (acc: Record<string, any>, key: string) => ({
+        ...acc,
+        [key]: (item[key] / maximumValues[idx]) * 100,
+      }),
+      {}
+    ),
+  }));
+
+  return normalized;
+};
+
 export const getCenterPosition = (scale: ScaleBand<string>) => {
   const offset = scale.bandwidth() / 2;
   return (value: string) => scale(value) + offset;
