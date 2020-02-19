@@ -15,6 +15,8 @@ import {
   TitleSocket,
 } from './widget-sockets.component';
 
+import { useLegend } from '../hooks';
+
 import { legendSettings } from '../widget-settings';
 import { LegendSettings } from '../types';
 
@@ -28,42 +30,46 @@ export const BarChartWidget: FC<Props> = ({
   legend = legendSettings,
   theme = defaultTheme,
   ...props
-}) => (
-  <ChartWidget
-    legendSettings={{
-      position: legend.position,
-      alignment: legend.alignment,
-      layout: legend.layout,
-    }}
-  >
-    <TitleSocket>
-      <div>Widget Title</div>
-      <div>Widget Sub-Title</div>
-    </TitleSocket>
-    {legend.enabled && (
-      <LegendSocket>
-        <Legend
-          {...legend}
-          onClick={() => {}}
-          labels={props.keys.map((key, idx) => ({
-            name: key,
-            color: theme.colors[idx],
-          }))}
-        />
-      </LegendSocket>
-    )}
-    <ContentSocket>
-      <ResponsiveWrapper>
-        {(width: number, height: number) => (
-          <BarChart
-            {...props}
-            theme={theme}
-            svgDimensions={{ width, height }}
-          />
-        )}
-      </ResponsiveWrapper>
-    </ContentSocket>
-  </ChartWidget>
-);
+}) => {
+  const { disabledKeys, updateChartKeys } = useLegend();
 
+  return (
+    <ChartWidget
+      legendSettings={{
+        position: legend.position,
+        alignment: legend.alignment,
+        layout: legend.layout,
+      }}
+    >
+      <TitleSocket>
+        <div>Widget Title</div>
+        <div>Widget Sub-Title</div>
+      </TitleSocket>
+      {legend.enabled && (
+        <LegendSocket>
+          <Legend
+            {...legend}
+            onClick={updateChartKeys}
+            labels={props.keys.map((key, idx) => ({
+              name: key,
+              color: theme.colors[idx],
+            }))}
+          />
+        </LegendSocket>
+      )}
+      <ContentSocket>
+        <ResponsiveWrapper>
+          {(width: number, height: number) => (
+            <BarChart
+              theme={theme}
+              disabledKeys={disabledKeys}
+              svgDimensions={{ width, height }}
+              {...props}
+            />
+          )}
+        </ResponsiveWrapper>
+      </ContentSocket>
+    </ChartWidget>
+  );
+};
 export default BarChartWidget;

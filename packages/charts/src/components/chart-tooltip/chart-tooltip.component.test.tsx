@@ -3,6 +3,8 @@ import { mount } from 'enzyme';
 
 import ChartTooltip from './chart-tooltip.component';
 
+import { ChartContext } from '../../contexts';
+
 const setup = (overProps: any = {}) => {
   const props = {
     x: 0,
@@ -11,9 +13,14 @@ const setup = (overProps: any = {}) => {
     ...overProps,
   };
 
+  const svgDimensions = { width: 100, height: 100 };
+  const margins = { top: 10, left: 10, bottom: 10, right: 10 };
+
   const wrapper = mount(
     <svg>
-      <ChartTooltip {...props} />
+      <ChartContext.Provider value={{ svgDimensions, margins }}>
+        <ChartTooltip {...props} />
+      </ChartContext.Provider>
     </svg>
   );
 

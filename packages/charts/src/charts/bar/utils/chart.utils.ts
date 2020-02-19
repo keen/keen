@@ -4,67 +4,38 @@ import { stack, stackOffsetDiverging } from 'd3-shape';
 import { Layout } from '@keen.io/ui-core';
 
 import {
+  getKeysDifference,
   normalizeToPercent,
   calculateRange,
   calculateStackedRange,
   calculateScaleDomain,
-} from '../../utils';
-import { Dimension, Margins } from '../../types';
+} from '../../../utils';
+
+import { GroupMode, StackMode, Bar } from '../types';
+import { Dimension, Margins, ScaleSettings } from '../../../types';
 
 type Options = {
   data: Record<string, any>[];
   keys: string[];
+  disabledKeys: string[];
   labelSelector: string;
   dimension: Dimension;
   margins: Margins;
   layout: Layout;
   barPadding: number;
-  groupMode: 'stacked' | 'grouped';
-  stackMode: 'normal' | 'percent';
+  groupMode: GroupMode;
+  stackMode: StackMode;
   minValue?: number | 'auto';
   maxValue?: number | 'auto';
   colors: string[];
-};
-
-export type Bar = {
-  key: string;
-  selector: (string | number)[];
-  x: number;
-  y: number;
-  height: number;
-  width: number;
-  color: string;
-};
-
-export const calculateMarkPosition = ({
-  layout,
-  x,
-  y,
-  width,
-  height,
-}: {
-  layout: Layout;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}) => {
-  if (layout === 'vertical') {
-    return {
-      x: x + width * 0.5,
-      y,
-    };
-  }
-
-  return {
-    x: x + width,
-    y: y + height * 0.5,
-  };
+  xScaleSettings: ScaleSettings;
+  yScaleSettings: ScaleSettings;
 };
 
 export const generateHorizontalGroupedBars = ({
   data,
   keys,
+  disabledKeys,
   dimension,
   margins,
   minValue,
@@ -99,7 +70,11 @@ export const generateHorizontalGroupedBars = ({
     range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
 
-      if (keyName !== labelSelector && value) {
+      if (
+        keyName !== labelSelector &&
+        value &&
+        !disabledKeys.includes(keyName)
+      ) {
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
@@ -132,6 +107,7 @@ export const generateVerticalGroupedBars = ({
   maxValue,
   barPadding,
   keys,
+  disabledKeys,
   colors,
   labelSelector,
 }: Options) => {
@@ -161,7 +137,11 @@ export const generateVerticalGroupedBars = ({
     range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
 
-      if (keyName !== labelSelector && value) {
+      if (
+        keyName !== labelSelector &&
+        value &&
+        !disabledKeys.includes(keyName)
+      ) {
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
@@ -194,22 +174,24 @@ export const generateHorizontalStackedBars = ({
   maxValue,
   barPadding,
   keys,
+  disabledKeys,
   colors,
   stackMode,
   labelSelector,
 }: Options) => {
   const bars = [] as Bar[];
+  const filteredKeys = getKeysDifference(keys, disabledKeys);
 
   const normalizedData =
-    stackMode === 'normal' ? data : normalizeToPercent(data, keys);
+    stackMode === 'normal' ? data : normalizeToPercent(data, filteredKeys);
 
   const stackedData = stack()
-    .keys(keys)
+    .keys(filteredKeys)
     .offset(stackOffsetDiverging)(normalizedData);
 
   const { minimum, maximum } =
     stackMode === 'normal'
-      ? calculateStackedRange(normalizedData, minValue, maxValue, keys)
+      ? calculateStackedRange(normalizedData, minValue, maxValue, filteredKeys)
       : { minimum: 0, maximum: 100 };
 
   const xScale = scaleLinear()
@@ -226,20 +208,21 @@ export const generateHorizontalStackedBars = ({
   const barHeight = yScale.bandwidth();
   const range = new Array(yScale.domain().length).fill(true);
 
-  stackedData.forEach((item: any, idx: number) => {
+  stackedData.forEach((item: any) => {
     const keyName = item.key;
 
     range.forEach((_d, index: number) => {
       const [rangeMin, rangeMax] = item[index];
+      const width = xScale(rangeMax) - xScale(rangeMin) || 0;
 
       const bar = {
         key: `${index}.${keyName}`,
         selector: [index, keyName],
         x: xScale(rangeMin),
         y: yScale(normalizedData[index][labelSelector]),
-        width: xScale(rangeMax) - xScale(rangeMin),
+        width,
         height: barHeight,
-        color: colors[idx],
+        color: colors[keys.indexOf(keyName)],
       };
 
       bars.push(bar);
@@ -261,22 +244,24 @@ export const generateVerticalStackedBars = ({
   maxValue,
   barPadding,
   keys,
+  disabledKeys,
   colors,
   stackMode,
   labelSelector,
 }: Options) => {
   const bars = [] as Bar[];
+  const filteredKeys = getKeysDifference(keys, disabledKeys);
 
   const normalizedData =
-    stackMode === 'normal' ? data : normalizeToPercent(data, keys);
+    stackMode === 'normal' ? data : normalizeToPercent(data, filteredKeys);
 
   const stackedData = stack()
-    .keys(keys)
+    .keys(filteredKeys)
     .offset(stackOffsetDiverging)(normalizedData);
 
   const { minimum, maximum } =
     stackMode === 'normal'
-      ? calculateStackedRange(normalizedData, minValue, maxValue, keys)
+      ? calculateStackedRange(normalizedData, minValue, maxValue, filteredKeys)
       : { minimum: 0, maximum: 100 };
 
   const xScale = scaleBand()
@@ -293,11 +278,12 @@ export const generateVerticalStackedBars = ({
   const barWidth = xScale.bandwidth();
   const range = new Array(xScale.domain().length).fill(true);
 
-  stackedData.forEach((item: any, idx: number) => {
+  stackedData.forEach((item: any) => {
     const keyName = item.key;
 
     range.forEach((_d, index: number) => {
       const [rangeMin, rangeMax] = item[index];
+      const height = yScale(rangeMin) - yScale(rangeMax) || 0;
 
       const bar = {
         key: `${index}.${keyName}`,
@@ -305,8 +291,8 @@ export const generateVerticalStackedBars = ({
         x: xScale(normalizedData[index][labelSelector]),
         y: yScale(rangeMax),
         width: barWidth,
-        height: yScale(rangeMin) - yScale(rangeMax),
-        color: colors[idx],
+        height,
+        color: colors[keys.indexOf(keyName)],
       };
 
       bars.push(bar);
@@ -332,6 +318,21 @@ const BAR_RENDER_MAP: Record<string, any> = {
 };
 
 export const generateBars = (options: Options) => {
-  const { layout, groupMode } = options;
-  return BAR_RENDER_MAP[groupMode][layout].call(null, options);
+  const { layout, groupMode, xScaleSettings, yScaleSettings } = options;
+
+  const scaleSettings =
+    layout === 'vertical'
+      ? {
+          xScaleSettings,
+          yScaleSettings,
+        }
+      : {
+          xScaleSettings: yScaleSettings,
+          yScaleSettings: xScaleSettings,
+        };
+
+  return {
+    scaleSettings,
+    ...BAR_RENDER_MAP[groupMode][layout].call(null, options),
+  };
 };

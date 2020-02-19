@@ -1,17 +1,19 @@
 import React, { useState, useRef, FC } from 'react';
 import { Layout } from '@keen.io/ui-core';
 
-import { generateBars } from './bar-chart.utils';
+import { generateBars } from './utils/chart.utils';
+import { getSelectors } from './utils/tooltip.utils';
 
 import Bars from './bars.component';
+import BarTooltipContent from './bar-tooltip-content.component';
 
 import { ChartBase, ChartTooltip, Grid, Axes } from '../../components';
 
-import { getFromPath } from '../../utils';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { TOOLTIP_HIDE_TIME } from '../../constants';
 
+import { GroupMode, StackMode } from './types';
 import { CommonChartSettings, TooltipState, ScaleSettings } from '../../types';
 
 export type Props = {
@@ -27,14 +29,18 @@ export type Props = {
   barPadding?: number;
   /** Keys picked from data object used to genrate bars */
   keys?: string[];
+  /** Keys that are disabled for rendering data series */
+  disabledKeys?: string[];
   /** Layout applied on chart bars */
   layout?: Layout;
   /** X Scale settings */
   xScaleSettings?: ScaleSettings;
+  /** Y Scale settings */
+  yScaleSettings?: ScaleSettings;
   /** Group mode */
-  groupMode?: 'grouped' | 'stacked';
+  groupMode?: GroupMode;
   /** Stack mode */
-  stackMode?: 'normal' | 'percent';
+  stackMode?: StackMode;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -47,12 +53,14 @@ export const BarChart: FC<Props> = ({
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
+  disabledKeys = [],
   stackMode = 'normal',
   groupMode = 'grouped',
   xScaleSettings = { type: 'band' },
+  yScaleSettings = { type: 'linear' },
   barPadding = 0.1,
 }) => {
-  const { bars, xScale, yScale } = generateBars({
+  const { bars, xScale, yScale, scaleSettings } = generateBars({
     data,
     margins,
     dimension: svgDimensions,
@@ -60,11 +68,14 @@ export const BarChart: FC<Props> = ({
     barPadding,
     layout,
     keys,
+    disabledKeys,
     minValue,
     maxValue,
     colors: theme.colors,
     stackMode,
     groupMode,
+    xScaleSettings,
+    yScaleSettings,
   });
 
   const { tooltip: tooltipSettings } = theme;
@@ -83,7 +94,7 @@ export const BarChart: FC<Props> = ({
         theme={theme}
         svgDimensions={svgDimensions}
         margins={margins}
-        xScaleSettings={xScaleSettings}
+        {...scaleSettings}
       >
         <Grid xScale={xScale} yScale={yScale} />
         <Axes xScale={xScale} yScale={yScale} />
@@ -92,8 +103,17 @@ export const BarChart: FC<Props> = ({
           layout={layout}
           onBarMouseEnter={(_e, _key, selector, { x, y }) => {
             if (clearTooltip.current) clearTimeout(clearTooltip.current);
-            tooltipSettings.enabled &&
-              setTooltip({ visible: true, x, y, selectors: [selector] });
+            if (tooltipSettings.enabled) {
+              const selectors = getSelectors({
+                stackMode,
+                groupMode,
+                keys,
+                disabledKeys,
+                colors: theme.colors,
+                selector,
+              });
+              setTooltip({ visible: true, x, y, selectors });
+            }
           }}
           onBarMouseLeave={() => {
             if (tooltipSettings.enabled) {
@@ -109,10 +129,13 @@ export const BarChart: FC<Props> = ({
           }}
         />
         <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
-          {tooltip.selectors &&
-            tooltip.selectors.map(({ selector, color }) => (
-              <div key={color}>{getFromPath(data, selector)}</div>
-            ))}
+          {tooltip.selectors && (
+            <BarTooltipContent
+              data={data}
+              selectors={tooltip.selectors}
+              isList={tooltip.selectors.length > 1}
+            />
+          )}
         </ChartTooltip>
       </ChartBase>
     </>

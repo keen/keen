@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { transparentize } from 'polished';
 import { motion, AnimatePresence } from 'framer-motion';
-
 import { Layout } from '@keen.io/ui-core';
 
-import { Bar } from './bar-chart.utils';
 import { Mark, markMotion } from '../../components';
 
-import { calculateMarkPosition } from './bar-chart.utils';
+import { calculateMarkPosition } from './utils/mark.utils';
 
+import { Bar } from './types';
 import { DataSelector } from '../../types';
 
 type Props = {
@@ -23,11 +22,12 @@ type Props = {
     e: React.MouseEvent<SVGGElement, MouseEvent>,
     key: string
   ) => void;
-  layout?: Layout;
+  layout: Layout;
 };
 
 const Bars = ({ bars, layout, onBarMouseEnter, onBarMouseLeave }: Props) => {
   const [activeBar, setActiveBar] = useState(null);
+
   return (
     <>
       {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (

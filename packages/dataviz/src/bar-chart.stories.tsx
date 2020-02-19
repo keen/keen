@@ -38,7 +38,7 @@ export const singleResult = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-export const simpleResults = () => {
+export const SimpleResults = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -46,6 +46,10 @@ export const simpleResults = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
+      settings: {
+        margins: { top: 30, left: 50, bottom: 40, right: 10 },
+        layout: 'horizontal',
+      },
     });
 
     client
@@ -54,7 +58,7 @@ export const simpleResults = () => {
         event_collection: 'book_purchase',
         timeframe: {
           start: '2019-01-01T00:00:00.000-00:00',
-          end: '2020-02-01T16:00:00.000-00:00',
+          end: '2019-05-01T16:00:00.000-00:00',
         },
         interval: 'monthly',
       })
@@ -64,7 +68,15 @@ export const simpleResults = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-export const multipleResultsMonthly = () => {
+SimpleResults.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Results displayed "horizontally"',
+    },
+  },
+};
+
+export const MultipleResults = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -72,6 +84,10 @@ export const multipleResultsMonthly = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
+      widget: {
+        title: 'Books',
+        subtitle: 'Monthly',
+      },
     });
 
     client
@@ -79,7 +95,95 @@ export const multipleResultsMonthly = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-01-01T00:00:00.000-00:00',
+          start: '2019-05-01T00:00:00.000-00:00',
+          end: '2019-08-01T16:00:00.000-00:00',
+        },
+        interval: 'monthly',
+        group_by: ['author'],
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+};
+
+MultipleResults.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Multiple results displayed in bar groups',
+    },
+  },
+};
+
+export const StackedNormal = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new Visualizer({
+      type: 'bar',
+      container: container.current,
+      widget: {
+        title: 'Books',
+        subtitle: 'Monthly',
+      },
+      settings: {
+        groupMode: 'stacked',
+        stackMode: 'normal',
+        barPadding: 0.3,
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2019-02-01T00:00:00.000-00:00',
+          end: '2019-06-01T00:00:00.000-00:00',
+        },
+        interval: 'monthly',
+        group_by: ['author'],
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+};
+
+StackedNormal.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Results stacked normal',
+    },
+  },
+};
+
+export const StackedPercentage = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new Visualizer({
+      type: 'bar',
+      container: container.current,
+      widget: {
+        title: 'Books',
+        subtitle: 'Monthly',
+      },
+      settings: {
+        groupMode: 'stacked',
+        stackMode: 'percent',
+        barPadding: 0.3,
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2019-12-01T00:00:00.000-00:00',
           end: '2020-02-01T16:00:00.000-00:00',
         },
         interval: 'monthly',
@@ -91,7 +195,15 @@ export const multipleResultsMonthly = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-export const multipleGroupResults = () => {
+StackedPercentage.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Results stacked percentage',
+    },
+  },
+};
+
+export const Grouped = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -117,7 +229,15 @@ export const multipleGroupResults = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-export const multipleResults = () => {
+Grouped.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Results grouped by specific property',
+    },
+  },
+};
+
+export const DoubleGrouped = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -141,4 +261,12 @@ export const multipleResults = () => {
   }, []);
 
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+};
+
+DoubleGrouped.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Results grouped by two properties',
+    },
+  },
 };

@@ -18,9 +18,13 @@ type Props = {
 const X_AXIS_PADDING = 5;
 
 const Axes = ({ xScale, yScale }: Props) => {
-  const { theme, margins, svgDimensions, xScaleSettings } = useContext(
-    ChartContext
-  ) as ChartContextType;
+  const {
+    theme,
+    margins,
+    svgDimensions,
+    xScaleSettings,
+    yScaleSettings,
+  } = useContext(ChartContext) as ChartContextType;
 
   const axisX = theme.axisX.enabled && {
     x: 0,
@@ -34,10 +38,9 @@ const Axes = ({ xScale, yScale }: Props) => {
     x: margins.left - X_AXIS_PADDING,
     y: 0,
     scale: yScale,
+    scaleSettings: yScaleSettings,
     orientation: Orientation.HORIZONTAL,
   };
-
-  console.log(theme.axisY);
 
   return (
     <>

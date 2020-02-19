@@ -16,6 +16,9 @@ const TICK_ALIGN = 0.5;
 
 export const EDGE_TICK_ALIGN = 4;
 
+export const getKeysDifference = (keys: string[], disabledKeys: string[]) =>
+  keys.filter((keyName: string) => !disabledKeys.includes(keyName));
+
 export const normalizeToPercent = (data: object[], keys: string[]) => {
   const maximumValues: number[] = data.map((item: Record<string, number>) =>
     keys.reduce((acc: number, keyName: string) => {
@@ -157,7 +160,7 @@ export const textFormat = (
   scaleSettings?: ScaleSettings
 ): string | number => {
   if (scaleSettings?.formatLabel) return scaleSettings.formatLabel(value);
-  if (value instanceof Date) return value.toString();
+  if (value instanceof Date) value.toString();
   return value;
 };
 
@@ -178,7 +181,6 @@ export const generateTicks = ({
     | ScaleTime<number, number>;
   orientation?: Orientation;
   scaleSettings?: ScaleSettings;
-  formatLabel?: (label: string | number) => string | number;
 }): Tick[] => {
   const values = getScaleValues(scale, scaleSettings);
 

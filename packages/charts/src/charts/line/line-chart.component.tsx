@@ -29,6 +29,8 @@ export type Props = {
   strokeWidth?: number | 2;
   /** X scale settings */
   xScaleSettings?: ScaleSettings;
+  /** Y scale settings */
+  yScaleSettings?: ScaleSettings;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -43,6 +45,7 @@ export const LineChart: FC<Props> = ({
   markRadius = 4,
   strokeWidth = 1,
   xScaleSettings = { precision: 'month', type: 'time' },
+  yScaleSettings = { type: 'linear' },
 }) => {
   const { lines, marks, xScale, yScale } = generateLines({
     data,
@@ -71,6 +74,7 @@ export const LineChart: FC<Props> = ({
     <ChartBase
       theme={theme}
       xScaleSettings={xScaleSettings}
+      yScaleSettings={yScaleSettings}
       svgDimensions={svgDimensions}
       margins={margins}
     >

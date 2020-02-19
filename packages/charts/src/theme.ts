@@ -28,7 +28,8 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 12,
+        fontSize: 10,
+        fontFamily: 'Gangster Grotesk Regular',
         fontColor: colors.black['500'],
       },
     },
@@ -44,7 +45,8 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 12,
+        fontSize: 10,
+        fontFamily: 'Gangster Grotesk Regular',
         fontColor: colors.black['500'],
       },
     },
@@ -62,7 +64,8 @@ export const theme: Theme = {
     typography: {
       fontStyle: 'normal',
       fontWeight: 'normal',
-      fontSize: 14,
+      fontSize: 10,
+      fontFamily: 'Gangster Grotesk Regular',
       fontColor: colors.black['500'],
     },
   },

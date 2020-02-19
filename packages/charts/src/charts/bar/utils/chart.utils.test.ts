@@ -1,9 +1,9 @@
 import {
   generateHorizontalGroupedBars,
   generateVerticalGroupedBars,
-} from './bar-chart.utils';
+} from './chart.utils';
 
-import { verticalBarChart, horizontalBarChart } from './bar-chart.fixtures';
+import { verticalBarChart, horizontalBarChart } from '../bar-chart.fixtures';
 
 describe('@keen.io/charts', () => {
   describe('<BarChart /> - utils', () => {
@@ -61,6 +61,27 @@ describe('@keen.io/charts', () => {
         `);
       });
 
+      it('should not create bars for disabled keys', () => {
+        const data = [
+          { label: 'Marketing', people: 10, rooms: 3 },
+          { label: 'Customer Success', people: 16, rooms: 10 },
+        ];
+
+        const { bars } = generateHorizontalGroupedBars({
+          data,
+          ...horizontalBarChart,
+          keys: ['people', 'rooms'],
+          disabledKeys: ['rooms'],
+        });
+
+        const result = [
+          { key: '0.people', selector: [0, 'people'] },
+          { key: '1.people', selector: [1, 'people'] },
+        ];
+
+        expect(bars).toMatchObject(result);
+      });
+
       it('should calculate bars and apply colors', () => {
         const { bars } = generateHorizontalGroupedBars(chart);
 
@@ -94,6 +115,29 @@ describe('@keen.io/charts', () => {
             30,
           ]
         `);
+      });
+
+      it('should not create bars for disabled keys', () => {
+        const data = [
+          { label: 'Marketing', people: 10, rooms: 3, cars: 10 },
+          { label: 'Customer Success', people: 16, rooms: 10, cars: 12 },
+        ];
+
+        const { bars } = generateHorizontalGroupedBars({
+          data,
+          ...verticalBarChart,
+          keys: ['people', 'rooms', 'cars'],
+          disabledKeys: ['rooms'],
+        });
+
+        const result = [
+          { key: '0.people', selector: [0, 'people'] },
+          { key: '1.people', selector: [1, 'people'] },
+          { key: '0.cars', selector: [0, 'cars'] },
+          { key: '1.cars', selector: [1, 'cars'] },
+        ];
+
+        expect(bars).toMatchObject(result);
       });
 
       it('should increase domain for yScale', () => {

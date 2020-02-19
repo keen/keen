@@ -60,7 +60,7 @@ type Props = {
   /** Legend card styles */
   card: CardProps;
   /** Handler for item click event */
-  onClick: (key: string, disabled: boolean) => void;
+  onClick: (key: string, disabled: boolean, index: number) => void;
   /** Position in widget */
   position?: Position;
   /** Legend alignment */
@@ -85,12 +85,12 @@ export const Legend: FC<Props> = ({
   const wrapper = useRef(null);
   const overflowMask = useRef(null);
 
-  const items = labels.map(({ name, color }: Item) => (
+  const items = labels.map(({ name, color }: Item, idx: number) => (
     <LegendItem key={name}>
       <LegendLabel
         typography={typography}
         markColor={color}
-        onClick={(disabled: boolean) => onClick(name, disabled)}
+        onClick={(disabled: boolean) => onClick(name, disabled, idx)}
         text={name}
       />
     </LegendItem>

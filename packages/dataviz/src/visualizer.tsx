@@ -9,7 +9,7 @@ import {
 import { renderWidget, Widgets } from './render-widget';
 import { validateOptions } from './visualizer.utils';
 
-import { Options, WidgetSettings } from './types';
+import { Options, ComponentSettings, WidgetSettings } from './types';
 
 class Visualizer {
   /** Type of widget that should be rendered */
@@ -21,10 +21,14 @@ class Visualizer {
   /** General widget settings */
   private widgetSettings?: WidgetSettings;
 
+  /** Specific visualization settings */
+  private componentSettings?: ComponentSettings;
+
   constructor(options: Options) {
     validateOptions(options);
-    const { container, type, widget } = options;
+    const { container, type, widget, settings } = options;
 
+    this.componentSettings = settings || {};
     this.widgetSettings = widget;
     this.container = container;
     this.type = type;
@@ -41,6 +45,7 @@ class Visualizer {
       renderWidget({
         type: this.type,
         widgetSettings: this.widgetSettings,
+        componentSettings: this.componentSettings,
         data: results,
         scaleSettings: createScaleSettings(query),
         query,

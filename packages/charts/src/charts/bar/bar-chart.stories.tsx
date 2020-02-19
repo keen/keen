@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { object, number } from '@storybook/addon-knobs';
 
-import { createThemeKnobs, createLayoutKnobs } from '@keen.io/storybook-utils';
-
+import {
+  createThemeKnobs,
+  createLayoutKnobs,
+  stackModeKnobs,
+  groupModeKnobs,
+} from '@keen.io/storybook-utils';
 import { BarChart } from './bar-chart.component';
 import { chartData } from './bar-chart.fixtures';
 
@@ -29,8 +33,8 @@ export const withKnobs = () => {
     >
       <BarChart
         labelSelector="name"
-        groupMode="stacked"
-        stackMode="normal"
+        groupMode={groupModeKnobs('Chart')}
+        stackMode={stackModeKnobs('Chart')}
         barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
         keys={['users', 'licenses', 'shops']}
         layout={createLayoutKnobs('Chart', 'vertical') as any}

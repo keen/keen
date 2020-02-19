@@ -89,7 +89,7 @@ export type TimePrecision =
   | 'year';
 
 export type ScaleSettings = {
-  type: 'time' | 'band';
+  type: 'time' | 'band' | 'linear';
   formatLabel?: (label: string | number) => string | number;
   precision?: TimePrecision;
 };

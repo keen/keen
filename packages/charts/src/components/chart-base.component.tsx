@@ -9,6 +9,7 @@ type Props = {
   margins: Margins;
   theme: Theme;
   children: React.ReactNode;
+  yScaleSettings?: ScaleSettings;
   xScaleSettings?: ScaleSettings;
 };
 
@@ -16,6 +17,7 @@ const ChartBase = ({
   children,
   svgDimensions,
   xScaleSettings,
+  yScaleSettings,
   margins,
   theme,
 }: Props) => (
@@ -23,6 +25,7 @@ const ChartBase = ({
     value={{
       theme,
       xScaleSettings,
+      yScaleSettings,
       svgDimensions,
       margins,
     }}
