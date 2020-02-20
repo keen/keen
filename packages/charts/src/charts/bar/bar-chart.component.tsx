@@ -100,6 +100,8 @@ export const BarChart: FC<Props> = ({
         <Axes xScale={xScale} yScale={yScale} />
         <Bars
           bars={bars}
+          stackMode={stackMode}
+          groupMode={groupMode}
           layout={layout}
           onBarMouseEnter={(_e, _key, selector, { x, y }) => {
             if (clearTooltip.current) clearTimeout(clearTooltip.current);
@@ -132,6 +134,8 @@ export const BarChart: FC<Props> = ({
           {tooltip.selectors && (
             <BarTooltipContent
               data={data}
+              stackMode={stackMode}
+              groupMode={groupMode}
               selectors={tooltip.selectors}
               isList={tooltip.selectors.length > 1}
             />

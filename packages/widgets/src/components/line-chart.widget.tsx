@@ -16,16 +16,9 @@ import {
 } from './widget-sockets.component';
 
 import { legendSettings } from '../widget-settings';
-import { LegendSettings } from '../types';
+import { WidgetSettings } from '../types';
 
-type Props = {
-  /** Widget title */
-  title?: string;
-  /** Widget subtitle */
-  subtitle?: string;
-  /** Legend component settings */
-  legend?: LegendSettings;
-} & LineChartSettings;
+type Props = WidgetSettings & LineChartSettings;
 
 /** Line Chart widget integrated with other components */
 export const LineChartWidget: FC<Props> = ({

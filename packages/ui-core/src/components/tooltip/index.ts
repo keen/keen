@@ -1,3 +1,4 @@
-import Tooltip from './tooltip.component';
+import Tooltip, { TooltipMode } from './tooltip.component';
 
 export default Tooltip;
+export { TooltipMode };

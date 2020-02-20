@@ -1,4 +1,4 @@
-import { Typography } from '@keen.io/ui-core';
+import { Typography, TooltipMode } from '@keen.io/ui-core';
 
 export type Dimension = {
   width: number;
@@ -38,6 +38,7 @@ export type Labels = {
 
 export type Tooltip = {
   enabled: boolean;
+  mode: TooltipMode;
 };
 
 export type Axis = {

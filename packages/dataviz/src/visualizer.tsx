@@ -5,11 +5,15 @@ import {
   Query,
   AnalysisResult,
 } from '@keen.io/parser';
+import { WidgetSettings } from '@keen.io/widgets';
 
 import { renderWidget, Widgets } from './render-widget';
+
+import { extendTheme } from './utils/theme.utils';
+import { extendWidgetSettings } from './utils/widget.utils';
 import { validateOptions } from './visualizer.utils';
 
-import { Options, ComponentSettings, WidgetSettings } from './types';
+import { Options, ComponentSettings } from './types';
 
 class Visualizer {
   /** Type of widget that should be rendered */
@@ -29,9 +33,25 @@ class Visualizer {
     const { container, type, widget, settings } = options;
 
     this.componentSettings = settings || {};
-    this.widgetSettings = widget;
+    this.widgetSettings = widget || {};
     this.container = container;
     this.type = type;
+  }
+
+  private setComponentSettings(): ComponentSettings {
+    if ('theme' in this.componentSettings) {
+      const { theme } = this.componentSettings;
+      return {
+        ...this.componentSettings,
+        theme: extendTheme(theme),
+      };
+    }
+
+    return this.componentSettings;
+  }
+
+  private setWidgetSettings(): WidgetSettings {
+    return extendWidgetSettings(this.widgetSettings);
   }
 
   render({ query, result }: { query: Query; result: AnalysisResult }) {
@@ -44,8 +64,8 @@ class Visualizer {
     ReactDOM.render(
       renderWidget({
         type: this.type,
-        widgetSettings: this.widgetSettings,
-        componentSettings: this.componentSettings,
+        widgetSettings: this.setWidgetSettings(),
+        componentSettings: this.setComponentSettings(),
         data: results,
         scaleSettings: createScaleSettings(query),
         query,

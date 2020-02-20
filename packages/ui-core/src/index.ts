@@ -10,6 +10,7 @@ import {
   CardProps,
   ColorAdjuster,
   Tooltip,
+  TooltipMode,
 } from './components';
 
 export {
@@ -24,6 +25,7 @@ export {
   Group,
   Typography,
   Tooltip,
+  TooltipMode,
   Position,
   Layout,
 };

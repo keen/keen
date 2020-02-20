@@ -18,12 +18,9 @@ import {
 import { useLegend } from '../hooks';
 
 import { legendSettings } from '../widget-settings';
-import { LegendSettings } from '../types';
+import { WidgetSettings } from '../types';
 
-type Props = {
-  /** Legend component settings */
-  legend?: LegendSettings;
-} & BarChartSettings;
+type Props = WidgetSettings & BarChartSettings;
 
 /** Bar Chart widget integrated with other components */
 export const BarChartWidget: FC<Props> = ({
@@ -32,6 +29,8 @@ export const BarChartWidget: FC<Props> = ({
   ...props
 }) => {
   const { disabledKeys, updateChartKeys } = useLegend();
+
+  console.log('leg', legend);
 
   return (
     <ChartWidget

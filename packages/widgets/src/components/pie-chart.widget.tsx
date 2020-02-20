@@ -16,12 +16,9 @@ import {
 } from './widget-sockets.component';
 
 import { legendSettings } from '../widget-settings';
-import { LegendSettings } from '../types';
+import { WidgetSettings } from '../types';
 
-type Props = {
-  /** Legend component settings */
-  legend?: LegendSettings;
-} & PieChartSettings;
+type Props = WidgetSettings & PieChartSettings;
 
 /** Pie Chart widget integrated with other components */
 export const PieChartWidget: FC<Props> = ({

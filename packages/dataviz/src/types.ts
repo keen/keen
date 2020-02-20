@@ -3,6 +3,7 @@ import {
   LineChartSettings,
   PieChartSettings,
 } from '@keen.io/charts';
+import { WidgetSettings } from '@keen.io/widgets';
 
 import { Widgets } from './render-widget';
 
@@ -11,11 +12,6 @@ export type ComponentSettings =
   | LineChartSettings
   | PieChartSettings
   | {};
-
-export type WidgetSettings = {
-  title?: string;
-  subtitle?: string;
-};
 
 export type Options = {
   container: HTMLElement | string;

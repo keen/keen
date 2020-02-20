@@ -1,3 +1,14 @@
+import { legendSettings, widgetSettings } from './widget-settings';
 import { BarChartWidget, LineChartWidget, PieChartWidget } from './components';
 
-export { BarChartWidget, LineChartWidget, PieChartWidget };
+import { LegendSettings, WidgetSettings } from './types';
+
+export {
+  BarChartWidget,
+  LineChartWidget,
+  PieChartWidget,
+  WidgetSettings,
+  LegendSettings,
+  widgetSettings,
+  legendSettings,
+};

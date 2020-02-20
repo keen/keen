@@ -3,11 +3,14 @@ import { BulletList } from '@keen.io/ui-core';
 
 import { getFromPath } from '../../utils';
 
+import { GroupMode, StackMode } from './types';
 import { DataSelector } from '../../types';
 
 type Props = {
   data: object[];
   selectors: { selector: DataSelector; color: string }[];
+  groupMode: GroupMode;
+  stackMode: StackMode;
   isList: boolean;
 };
 

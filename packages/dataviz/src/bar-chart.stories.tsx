@@ -46,6 +46,11 @@ export const SimpleResults = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
+      widget: {
+        legend: {
+          enabled: false,
+        },
+      },
       settings: {
         margins: { top: 30, left: 50, bottom: 40, right: 10 },
         layout: 'horizontal',
@@ -71,7 +76,59 @@ export const SimpleResults = () => {
 SimpleResults.story = {
   parameters: {
     docs: {
-      storyDescription: 'Results displayed "horizontally"',
+      storyDescription:
+        'Results displayed "horizontally" with disabled legend component',
+    },
+  },
+};
+
+export const MultipleResultsPlot = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new Visualizer({
+      type: 'bar',
+      container: container.current,
+      widget: {
+        title: 'Books',
+        subtitle: 'Monthly',
+      },
+      settings: {
+        barPadding: 0,
+        margins: { top: 15, left: 0, right: 0, bottom: 30 },
+        theme: {
+          colors: ['#DBD56E', '#88AB75', '#2D93AD', '#2D93AD', '#DE8F6E'],
+          axisX: { enabled: false },
+          axisY: { enabled: false },
+          gridY: { color: '#B2D7E1' },
+          gridX: { color: '#B2D7E1' },
+          tooltip: { mode: 'light' },
+        },
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2019-05-01T00:00:00.000-00:00',
+          end: '2019-05-30T16:00:00.000-00:00',
+        },
+        interval: 'daily',
+        group_by: ['author'],
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '800px', height: '400px' }} ref={container} />;
+};
+
+MultipleResultsPlot.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Multiple results displayed as customized widget',
     },
   },
 };
@@ -87,6 +144,14 @@ export const MultipleResults = () => {
       widget: {
         title: 'Books',
         subtitle: 'Monthly',
+        legend: {
+          position: 'left',
+          layout: 'vertical',
+        },
+      },
+      settings: {
+        barPadding: 0.1,
+        margins: { top: 10, bottom: 30, left: 30, right: 0 },
       },
     });
 
@@ -104,13 +169,14 @@ export const MultipleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '200px' }} ref={container} />;
 };
 
 MultipleResults.story = {
   parameters: {
     docs: {
-      storyDescription: 'Multiple results displayed in bar groups',
+      storyDescription:
+        'Multiple results displayed in bar groups with custom padding and X scale label formatter',
     },
   },
 };
@@ -131,6 +197,12 @@ export const StackedNormal = () => {
         groupMode: 'stacked',
         stackMode: 'normal',
         barPadding: 0.3,
+        theme: {
+          colors: ['#84DCC6', '#D6EDFF', '#ACD7EC', '#8B95C9', '#478978'],
+          tooltip: {
+            mode: 'light',
+          },
+        },
       },
     });
 
@@ -154,7 +226,8 @@ export const StackedNormal = () => {
 StackedNormal.story = {
   parameters: {
     docs: {
-      storyDescription: 'Results stacked normal',
+      storyDescription:
+        'Stacked results with custom colors and tooltip in "light" mode.',
     },
   },
 };
@@ -175,6 +248,9 @@ export const StackedPercentage = () => {
         groupMode: 'stacked',
         stackMode: 'percent',
         barPadding: 0.3,
+        yScaleSettings: {
+          formatLabel: (value: number) => `${value}%`,
+        },
       },
     });
 
@@ -198,7 +274,8 @@ export const StackedPercentage = () => {
 StackedPercentage.story = {
   parameters: {
     docs: {
-      storyDescription: 'Results stacked percentage',
+      storyDescription:
+        'Results stacked percentage with custom Y scale label formatter',
     },
   },
 };
