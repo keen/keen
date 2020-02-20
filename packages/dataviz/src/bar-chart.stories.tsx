@@ -101,8 +101,8 @@ export const MultipleResultsPlot = () => {
           colors: ['#DBD56E', '#88AB75', '#2D93AD', '#2D93AD', '#DE8F6E'],
           axisX: { enabled: false },
           axisY: { enabled: false },
-          gridY: { color: '#B2D7E1' },
-          gridX: { color: '#B2D7E1' },
+          gridY: { color: '#ddd' },
+          gridX: { color: '#ddd' },
           tooltip: { mode: 'light' },
         },
       },
@@ -197,6 +197,7 @@ export const StackedNormal = () => {
         groupMode: 'stacked',
         stackMode: 'normal',
         barPadding: 0.3,
+        margins: { top: 20, bottom: 30, left: 45, right: 10 },
         theme: {
           colors: ['#84DCC6', '#D6EDFF', '#ACD7EC', '#8B95C9', '#478978'],
           tooltip: {
@@ -248,6 +249,7 @@ export const StackedPercentage = () => {
         groupMode: 'stacked',
         stackMode: 'percent',
         barPadding: 0.3,
+        margins: { top: 20, bottom: 30, left: 45, right: 10 },
         yScaleSettings: {
           formatLabel: (value: number) => `${value}%`,
         },

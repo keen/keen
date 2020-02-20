@@ -1,26 +1,46 @@
 import React, { FC } from 'react';
 import { BulletList } from '@keen.io/ui-core';
 
-import { getFromPath } from '../../utils';
+import { getLabel } from './utils/tooltip.utils';
+import {
+  getFromPath,
+  getKeysDifference,
+  normalizeToPercent,
+} from '../../utils';
 
 import { GroupMode, StackMode } from './types';
 import { DataSelector } from '../../types';
 
 type Props = {
   data: object[];
+  keys: string[];
+  disabledKeys: string[];
   selectors: { selector: DataSelector; color: string }[];
   groupMode: GroupMode;
   stackMode: StackMode;
   isList: boolean;
 };
 
-const BarTooltip: FC<Props> = ({ data, isList, selectors }) => {
+const BarTooltip: FC<Props> = ({
+  data,
+  keys,
+  disabledKeys,
+  selectors,
+  stackMode,
+  groupMode,
+  isList,
+}) => {
+  const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
+  const percentageData = isPercentage
+    ? normalizeToPercent(data, getKeysDifference(keys, disabledKeys))
+    : [];
+
   return (
     <>
       {isList ? (
         <BulletList
           list={selectors.map(({ color, selector }) => ({
-            value: getFromPath(data, selector),
+            value: getLabel({ data, selector, percentageData, isPercentage }),
             color,
           }))}
         />

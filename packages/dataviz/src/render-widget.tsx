@@ -3,11 +3,12 @@ import {
   BarChartWidget,
   LineChartWidget,
   PieChartWidget,
+  WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
 import { Query } from '@keen.io/parser';
 
-import { WidgetSettings, ComponentSettings } from './types';
+import { ComponentSettings } from './types';
 
 export type Widgets = 'bar' | 'line' | 'pie';
 

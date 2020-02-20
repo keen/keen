@@ -15,10 +15,15 @@ const setup = (overProps: any = {}) => {
 
   const svgDimensions = { width: 100, height: 100 };
   const margins = { top: 10, left: 10, bottom: 10, right: 10 };
+  const theme = {
+    tooltip: {
+      mode: 'light',
+    },
+  };
 
   const wrapper = mount(
     <svg>
-      <ChartContext.Provider value={{ svgDimensions, margins }}>
+      <ChartContext.Provider value={{ svgDimensions, margins, theme }}>
         <ChartTooltip {...props} />
       </ChartContext.Provider>
     </svg>

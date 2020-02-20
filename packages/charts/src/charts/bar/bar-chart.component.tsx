@@ -134,6 +134,8 @@ export const BarChart: FC<Props> = ({
           {tooltip.selectors && (
             <BarTooltipContent
               data={data}
+              keys={keys}
+              disabledKeys={disabledKeys}
               stackMode={stackMode}
               groupMode={groupMode}
               selectors={tooltip.selectors}

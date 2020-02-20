@@ -1,6 +1,29 @@
 import { GroupMode, StackMode } from '../types';
 import { DataSelector } from '../../../types';
 
+import { getFromPath } from '../../../utils';
+
+export const getLabel = ({
+  isPercentage,
+  selector,
+  data,
+  percentageData,
+}: {
+  selector: DataSelector;
+  isPercentage: boolean;
+  data: Record<string, any>[];
+  percentageData: Record<string, any>[];
+}) => {
+  if (isPercentage) {
+    return `${getFromPath(data, selector)} (${getFromPath(
+      percentageData,
+      selector
+    ).toFixed(2)}%)`;
+  }
+
+  return getFromPath(data, selector);
+};
+
 export const getSelectors = ({
   groupMode,
   stackMode,
