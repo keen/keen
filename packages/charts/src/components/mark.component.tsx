@@ -16,7 +16,7 @@ export const markMotion = {
 };
 
 const Mark = ({ color, x, y }: Props) => (
-  <g>
+  <g pointerEvents="none">
     <circle
       cx={x}
       cy={y}

@@ -33,9 +33,9 @@ const BulletPoint = styled.div<{
 
 const BulletList = (props: { list: BulletPoint[] }) => {
   const { list } = props;
-  const listItems = list.map(item => {
+  const listItems = list.map((item, idx: number) => {
     return (
-      <StyledBulletItem key={item.value}>
+      <StyledBulletItem key={`${item.value}.${idx}`}>
         <BulletPoint color={item.color} />
         {item.value}
       </StyledBulletItem>

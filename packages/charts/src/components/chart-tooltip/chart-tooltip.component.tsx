@@ -1,7 +1,10 @@
-import React, { FC, useRef, useState, useEffect } from 'react';
+import React, { FC, useRef, useState, useContext, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Tooltip, Position } from '@keen.io/ui-core';
 
-import { Tooltip } from '@keen.io/ui-core';
+import { ChartContext, ChartContextType } from '../../contexts';
+
+import { calculateTooltipPosition } from './chart-tooltip.utils';
 
 const tooltipMotion = {
   initial: { opacity: 0.5, x: 10 },
@@ -21,6 +24,10 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
   const [foreignObject, setForeignObject] = useState({ width: 0, height: 0 });
   const wrapper = useRef(null);
 
+  const { svgDimensions, margins, theme } = useContext(
+    ChartContext
+  ) as ChartContextType;
+
   useEffect(() => {
     if (wrapper.current) {
       const { width, height } = wrapper.current.getBoundingClientRect();
@@ -28,13 +35,21 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
     }
   }, [visible]);
 
+  const { tooltipX, transform, arrowDirection } = calculateTooltipPosition({
+    svgDimensions,
+    margins,
+    x,
+    y,
+    ...foreignObject,
+  });
+
   return (
     <AnimatePresence>
       {visible && (
         <motion.foreignObject
           pointerEvents="none"
           style={{ overflow: 'visible' }}
-          x={x}
+          x={tooltipX}
           y={y}
           width={foreignObject.width}
           height={foreignObject.height}
@@ -43,11 +58,14 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
           <div
             ref={wrapper}
             style={{
-              transform: 'translateY(-50%) translateX(20px)',
+              transform,
               display: 'inline-block',
             }}
           >
-            <Tooltip mode="dark" arrowDirection="left">
+            <Tooltip
+              mode={theme.tooltip.mode}
+              arrowDirection={arrowDirection as Position}
+            >
               {children}
             </Tooltip>
           </div>

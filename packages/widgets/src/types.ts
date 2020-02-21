@@ -13,3 +13,12 @@ export type LegendSettings = {
     hasShadow?: boolean;
   };
 };
+
+export type WidgetSettings = {
+  /** Widget title */
+  title?: string;
+  /** Widget subtitle */
+  subtitle?: string;
+  /** Legend component settings */
+  legend?: LegendSettings;
+};

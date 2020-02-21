@@ -1,9 +1,9 @@
 import {
-  generateVerticalBars,
-  generateHorizontalBars,
-} from './bar-chart.utils';
+  generateHorizontalGroupedBars,
+  generateVerticalGroupedBars,
+} from './chart.utils';
 
-import { verticalBarChart, horizontalBarChart } from './bar-chart.fixtures';
+import { verticalBarChart, horizontalBarChart } from '../bar-chart.fixtures';
 
 describe('@keen.io/charts', () => {
   describe('<BarChart /> - utils', () => {
@@ -12,14 +12,14 @@ describe('@keen.io/charts', () => {
       { label: 'February', sale: 12, buy: 3, revenue: 21 },
     ];
 
-    describe('generateHorizontalBars()', () => {
+    describe('generateHorizontalGroupedBars()', () => {
       const chart: any = {
         data,
         ...horizontalBarChart,
       };
 
       it('should create proper domain for xScale', () => {
-        const { xScale } = generateHorizontalBars(chart);
+        const { xScale } = generateHorizontalGroupedBars(chart);
 
         expect(xScale.domain()).toMatchInlineSnapshot(`
           Array [
@@ -36,7 +36,7 @@ describe('@keen.io/charts', () => {
           { label: 'Horses', adopted: 2 },
         ];
 
-        const { xScale } = generateHorizontalBars({
+        const { xScale } = generateHorizontalGroupedBars({
           data,
           ...verticalBarChart,
           keys: ['adopted'],
@@ -51,7 +51,7 @@ describe('@keen.io/charts', () => {
       });
 
       it('should create proper domain for yScale', () => {
-        const { yScale } = generateHorizontalBars(chart);
+        const { yScale } = generateHorizontalGroupedBars(chart);
 
         expect(yScale.domain()).toMatchInlineSnapshot(`
           Array [
@@ -61,21 +61,42 @@ describe('@keen.io/charts', () => {
         `);
       });
 
+      it('should not create bars for disabled keys', () => {
+        const data = [
+          { label: 'Marketing', people: 10, rooms: 3 },
+          { label: 'Customer Success', people: 16, rooms: 10 },
+        ];
+
+        const { bars } = generateHorizontalGroupedBars({
+          data,
+          ...horizontalBarChart,
+          keys: ['people', 'rooms'],
+          disabledKeys: ['rooms'],
+        });
+
+        const result = [
+          { key: '0.people', selector: [0, 'people'] },
+          { key: '1.people', selector: [1, 'people'] },
+        ];
+
+        expect(bars).toMatchObject(result);
+      });
+
       it('should calculate bars and apply colors', () => {
-        const { bars } = generateHorizontalBars(chart);
+        const { bars } = generateHorizontalGroupedBars(chart);
 
         expect(bars).toMatchSnapshot();
       });
     });
 
-    describe('generateVerticalBars()', () => {
+    describe('generateVerticalGroupedBars()', () => {
       const chart: any = {
         data,
         ...verticalBarChart,
       };
 
       it('should create proper domain for xScale', () => {
-        const { xScale } = generateVerticalBars(chart);
+        const { xScale } = generateVerticalGroupedBars(chart);
 
         expect(xScale.domain()).toMatchInlineSnapshot(`
           Array [
@@ -86,7 +107,7 @@ describe('@keen.io/charts', () => {
       });
 
       it('should create proper domain for yScale', () => {
-        const { yScale } = generateVerticalBars(chart);
+        const { yScale } = generateVerticalGroupedBars(chart);
 
         expect(yScale.domain()).toMatchInlineSnapshot(`
           Array [
@@ -96,6 +117,29 @@ describe('@keen.io/charts', () => {
         `);
       });
 
+      it('should not create bars for disabled keys', () => {
+        const data = [
+          { label: 'Marketing', people: 10, rooms: 3, cars: 10 },
+          { label: 'Customer Success', people: 16, rooms: 10, cars: 12 },
+        ];
+
+        const { bars } = generateHorizontalGroupedBars({
+          data,
+          ...verticalBarChart,
+          keys: ['people', 'rooms', 'cars'],
+          disabledKeys: ['rooms'],
+        });
+
+        const result = [
+          { key: '0.people', selector: [0, 'people'] },
+          { key: '1.people', selector: [1, 'people'] },
+          { key: '0.cars', selector: [0, 'cars'] },
+          { key: '1.cars', selector: [1, 'cars'] },
+        ];
+
+        expect(bars).toMatchObject(result);
+      });
+
       it('should increase domain for yScale', () => {
         const data = [
           { label: 'January', revenue: 33 },
@@ -103,7 +147,7 @@ describe('@keen.io/charts', () => {
           { label: 'March', revenue: 25 },
         ];
 
-        const { yScale } = generateVerticalBars({
+        const { yScale } = generateVerticalGroupedBars({
           data,
           ...verticalBarChart,
           keys: ['revenue'],
@@ -118,7 +162,7 @@ describe('@keen.io/charts', () => {
       });
 
       it('should calculate bars and apply colors', () => {
-        const { bars } = generateVerticalBars(chart);
+        const { bars } = generateVerticalGroupedBars(chart);
 
         expect(bars).toMatchSnapshot();
       });

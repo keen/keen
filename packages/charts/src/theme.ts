@@ -16,6 +16,7 @@ export const theme: Theme = {
   colors: chartColors,
   tooltip: {
     enabled: true,
+    mode: 'dark',
   },
   axisX: {
     enabled: true,
@@ -28,7 +29,8 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 12,
+        fontSize: 10,
+        fontFamily: 'Gangster Grotesk Regular, sans-serif',
         fontColor: colors.black['500'],
       },
     },
@@ -44,7 +46,8 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 12,
+        fontSize: 10,
+        fontFamily: 'Gangster Grotesk Regular, sans-serif',
         fontColor: colors.black['500'],
       },
     },
@@ -62,7 +65,8 @@ export const theme: Theme = {
     typography: {
       fontStyle: 'normal',
       fontWeight: 'normal',
-      fontSize: 14,
+      fontSize: 10,
+      fontFamily: 'Gangster Grotesk Regular, sans-serif',
       fontColor: colors.black['500'],
     },
   },

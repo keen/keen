@@ -7,6 +7,7 @@ export type ChartContextType = {
   svgDimensions: Dimension;
   margins: Margins;
   xScaleSettings: ScaleSettings;
+  yScaleSettings: ScaleSettings;
   data: object[];
 };
 

@@ -8,6 +8,7 @@ import {
 } from './storybook.utils';
 
 import typographyKnobs from './typography.knobs';
+import { stackModeKnobs, groupModeKnobs } from './select.knobs';
 
 import StoryWrapper from './story-wrapper.component';
 
@@ -19,5 +20,7 @@ export {
   createLegendKnobs,
   createTypographyKnobs,
   typographyKnobs,
+  stackModeKnobs,
+  groupModeKnobs,
   getGoogleFonts,
 };

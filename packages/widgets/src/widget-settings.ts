@@ -7,11 +7,15 @@ export const legendSettings: LegendSettings = {
   alignment: 'left',
   layout: 'horizontal',
   typography: {
-    fontSize: 12,
-    fontFamily: 'Lato, sans-serif',
+    fontSize: 11,
+    fontFamily: 'Gangster Grotesk Regular, sans-serif',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontColor: colors.black['500'],
   },
   card: undefined,
+};
+
+export const widgetSettings = {
+  legend: legendSettings,
 };
