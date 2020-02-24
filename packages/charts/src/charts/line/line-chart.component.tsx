@@ -1,16 +1,23 @@
-import React, { FC, useState, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 
 import { generateLines } from './line-chart.utils';
 
 import Lines from './lines.component';
 import Tooltip from './tooltip.component';
 
+import { useTooltip } from '../../hooks';
+
 import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
-import { ScaleSettings, TooltipState, CommonChartSettings } from '../../types';
+import {
+  ScaleSettings,
+  CommonChartSettings,
+  GroupMode,
+  StackMode,
+} from '../../types';
 
-import { TOOLTIP_HIDE_TIME } from '../../constants';
+import { CurveType } from './types';
 
 export type Props = {
   /** chart data */
@@ -23,6 +30,8 @@ export type Props = {
   maxValue?: number | 'auto';
   /** Keys picked from data object used to generate lines */
   keys?: string[];
+  /** Keys that are disabled for rendering data series */
+  disabledKeys?: string[];
   /** Marks radius */
   markRadius?: number;
   /** Line thickness */
@@ -31,6 +40,12 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y scale settings */
   yScaleSettings?: ScaleSettings;
+  /** Curve type */
+  curve?: CurveType;
+  /** Group mode */
+  groupMode?: GroupMode;
+  /** Stack mode */
+  stackMode?: StackMode;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -42,36 +57,47 @@ export const LineChart: FC<Props> = ({
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
+  disabledKeys = [],
   markRadius = 4,
   strokeWidth = 1,
+  curve = 'linear',
+  stackMode = 'normal',
+  groupMode = 'grouped',
   xScaleSettings = { precision: 'month', type: 'time' },
   yScaleSettings = { type: 'linear' },
 }) => {
-  const { lines, marks, xScale, yScale } = generateLines({
+  const { lines, marks, xScale, yScale, steps, stepChart } = generateLines({
     data,
     margins,
     dimension: svgDimensions,
     labelSelector,
     keys,
+    disabledKeys,
     minValue,
     maxValue,
     colors: theme.colors,
     markRadius,
     strokeWidth,
+    curve,
+    stackMode,
+    groupMode,
   });
+
+  const svgElement = useRef(null);
+
+  const {
+    tooltipVisible,
+    tooltipPosition,
+    tooltipSelectors,
+    updateTooltipPosition,
+    hideTooltip,
+  } = useTooltip(svgElement, 0);
 
   const { tooltip: tooltipSettings } = theme;
 
-  const clearTooltip = useRef(null);
-  const [tooltip, setTooltip] = useState<TooltipState>({
-    selectors: null,
-    visible: false,
-    x: 0,
-    y: 0,
-  });
-
   return (
     <ChartBase
+      ref={svgElement}
       theme={theme}
       xScaleSettings={xScaleSettings}
       yScaleSettings={yScaleSettings}
@@ -83,27 +109,27 @@ export const LineChart: FC<Props> = ({
       <Lines
         lines={lines}
         marks={marks}
-        onMarkMouseEnter={(_e, { x, y }, selectors) => {
-          if (clearTooltip.current) clearTimeout(clearTooltip.current);
-          tooltipSettings.enabled &&
-            setTooltip({ visible: true, x, y, selectors });
-        }}
-        onMarkMouseLeave={() => {
+        steps={steps}
+        curve={curve}
+        groupMode={groupMode}
+        stackMode={stackMode}
+        stepChart={stepChart}
+        onMarkMouseEnter={(e, selectors) => {
           if (tooltipSettings.enabled) {
-            clearTooltip.current = setTimeout(() => {
-              setTooltip({
-                selectors: null,
-                visible: false,
-                x: 0,
-                y: 0,
-              });
-            }, TOOLTIP_HIDE_TIME);
+            updateTooltipPosition(e, selectors);
           }
         }}
+        onMarkMouseLeave={() => {
+          hideTooltip();
+        }}
       />
-      <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
-        {tooltip.selectors && (
-          <Tooltip data={data} selectors={tooltip.selectors} />
+      <ChartTooltip
+        visible={tooltipVisible}
+        x={tooltipPosition.x}
+        y={tooltipPosition.y}
+      >
+        {tooltipSelectors && (
+          <Tooltip data={data} selectors={tooltipSelectors} />
         )}
       </ChartTooltip>
     </ChartBase>

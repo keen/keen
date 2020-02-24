@@ -1,36 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen/charts <LineChart /> - utils generateLines() should calculate lines and apply colors 1`] = `
-Array [
-  Object {
-    "color": "red",
-    "d": "M10,380L939.0322580645161,211.81818181818178L490,380",
-    "key": "sale",
-    "selector": Array [
-      0,
-      "sale",
-    ],
-    "strokeWidth": undefined,
-  },
-  Object {
-    "color": "blue",
-    "d": "M10,223.030303030303L939.0322580645161,312.7272727272727L490,223.030303030303",
-    "key": "buy",
-    "selector": Array [
-      1,
-      "buy",
-    ],
-    "strokeWidth": undefined,
-  },
-  Object {
-    "color": "green",
-    "d": "M10,10L939.0322580645161,110.9090909090909L490,10",
-    "key": "revenue",
-    "selector": Array [
-      2,
-      "revenue",
-    ],
-    "strokeWidth": undefined,
-  },
-]
-`;
+exports[`@keen/charts <LineChart /> - utils generateGroupedLines() should calculate lines and apply colors 1`] = `Array []`;
+
+exports[`@keen/charts <LineChart /> - utils generateStackLines() should calculate lines and apply colors 1`] = `Array []`;

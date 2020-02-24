@@ -4,7 +4,7 @@ import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { Text, Tick, Line } from './elements';
 import { Group } from './ruler.styles';
 
-import { createRuler } from './ruler.utils';
+import { createRuler, rotateLabel } from './ruler.utils';
 
 import { Axis, Tick as RulerTick, Orientation, ScaleSettings } from '../types';
 
@@ -33,7 +33,7 @@ const Ruler = ({
   color,
   scaleSettings,
 }: Props) => {
-  const { enabled, typography } = labels;
+  const { enabled, typography, radiusAngle } = labels;
   const { line, ticks } = createRuler({
     x,
     y,
@@ -58,6 +58,13 @@ const Ruler = ({
     [orientation, tickPadding, tickSize]
   );
 
+  const { anchor, radius, translateX, translateY } = rotateLabel(
+    orientation,
+    radiusAngle,
+    tickPadding,
+    tickSize
+  );
+
   return (
     <Group
       color={fontColor}
@@ -74,7 +81,14 @@ const Ruler = ({
           color={color}
           orientation={orientation}
         >
-          {enabled && <Text {...textPosition}>{text}</Text>}
+          {enabled && (
+            <g
+              textAnchor={anchor}
+              transform={`translate(${translateX}, ${translateY}) rotate(${radius})`}
+            >
+              <Text {...textPosition}>{text}</Text>
+            </g>
+          )}
         </Tick>
       ))}
     </Group>

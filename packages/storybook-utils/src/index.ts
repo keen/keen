@@ -12,6 +12,8 @@ import {
   stackModeKnobs,
   groupModeKnobs,
   metricTypeKnobs,
+  lineStackModeKnobs,
+  curveKnobs,
 } from './select.knobs';
 
 import StoryWrapper from './story-wrapper.component';
@@ -28,4 +30,6 @@ export {
   groupModeKnobs,
   metricTypeKnobs,
   getGoogleFonts,
+  lineStackModeKnobs,
+  curveKnobs,
 };

@@ -8,8 +8,7 @@ import {
   normalizeToPercent,
 } from '../../utils';
 
-import { GroupMode, StackMode } from './types';
-import { DataSelector } from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
   data: object[];

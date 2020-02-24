@@ -13,8 +13,13 @@ import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { TOOLTIP_HIDE_TIME } from '../../constants';
 
-import { GroupMode, StackMode } from './types';
-import { CommonChartSettings, TooltipState, ScaleSettings } from '../../types';
+import {
+  CommonChartSettings,
+  TooltipState,
+  ScaleSettings,
+  GroupMode,
+  StackMode,
+} from '../../types';
 
 export type Props = {
   /** Chart data */

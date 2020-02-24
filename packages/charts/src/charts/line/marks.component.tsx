@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Mark } from './line-chart.utils';
+import { Mark } from './types';
 
 import { Mark as PointMark, markMotion } from '../../components';
 
@@ -14,8 +14,8 @@ const pointMotion = {
 
 type Props = {
   marks: Mark[];
-  onMouseEnter: (e: React.MouseEvent, mark: Mark) => void;
-  onMouseLeave: (e: React.MouseEvent) => void;
+  onMouseEnter?: (e: React.MouseEvent, mark: Mark) => void;
+  onMouseLeave?: (e: React.MouseEvent) => void;
 };
 
 const Marks = ({ marks, onMouseEnter, onMouseLeave }: Props) => {

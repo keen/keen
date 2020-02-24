@@ -1,39 +1,14 @@
-import { scaleLinear, scaleUtc } from 'd3-scale';
-import { line as lineShape } from 'd3-shape';
+import { scaleLinear, scaleUtc, ScaleLinear, ScaleTime } from 'd3-scale';
+import { line as lineShape, curveStep, curveMonotoneX, stack } from 'd3-shape';
 
-import { calculateRange, calculateScaleDomain } from '../../utils';
+import {
+  calculateRange,
+  calculateScaleDomain,
+  getKeysDifference,
+  calculateStackedRange,
+} from '../../utils';
 
-import { Dimension, Margins } from '../../types';
-
-type Options = {
-  data: any[];
-  keys: string[];
-  labelSelector: string;
-  dimension: Dimension;
-  margins: Margins;
-  minValue?: number | 'auto';
-  maxValue?: number | 'auto';
-  colors: string[];
-  markRadius: number;
-  strokeWidth: number;
-};
-
-export type Line = {
-  key: string;
-  d: string;
-  selector: (string | number)[];
-  color: string;
-  strokeWidth: number;
-};
-
-export type Mark = {
-  key: string;
-  radius: number;
-  color: string;
-  selector: (number | string)[];
-  x: number;
-  y: number;
-};
+import { Options, Mark, Line, StepType } from './types';
 
 export const groupMarksByPosition = (marks: Mark[]): Record<number, Mark[]> => {
   const groups: Record<number, Mark[]> = {};
@@ -46,7 +21,7 @@ export const groupMarksByPosition = (marks: Mark[]): Record<number, Mark[]> => {
 };
 
 export const findMarksInCluster = (
-  mark: Mark,
+  mark: Mark | StepType,
   marks: Record<number, Mark[]>,
   range = 10
 ) => {
@@ -55,9 +30,125 @@ export const findMarksInCluster = (
   return group.filter(mark => Math.abs(y - mark.y) < range);
 };
 
-export const generateLines = ({
+export const calculateStackData = (data: any[], keys: string[]): any[] => {
+  const stackedData = stack().keys(keys)(data);
+
+  const newData = stackedData.reduce((acc, value) => {
+    const stackValues = value.map((el, idx) => {
+      return {
+        ...acc[idx],
+        name: el.data.name,
+        [value.key]: el[1],
+      };
+    });
+    return [...stackValues];
+  }, []);
+
+  if (!keys.length) {
+    return data.map(el => ({ name: el.name }));
+  }
+
+  return newData;
+};
+
+const generateLineMarks = (
+  data: any[],
+  xScale: ScaleTime<number, number>,
+  yScale: ScaleLinear<number, number>,
+  labelSelector: string,
+  colors: string[],
+  keyName: string,
+  lineIndex: number,
+  markRadius: number
+) => {
+  const marks = [] as Mark[];
+  data.forEach((_d: any, index: number) => {
+    const value = data[index]?.[keyName];
+
+    if (keyName !== labelSelector && value) {
+      const mark = {
+        key: `${index}.${keyName}.mark`,
+        color: colors[lineIndex],
+        selector: [index, keyName],
+        x: xScale(new Date(data[index][labelSelector])),
+        y: yScale(value),
+        radius: markRadius,
+      };
+
+      marks.push(mark);
+    }
+  });
+  return marks;
+};
+
+const generateSteps = (
+  data: any[],
+  xScale: ScaleTime<number, number>,
+  yScale: ScaleLinear<number, number>,
+  labelSelector: string,
+  keyName: string
+) => {
+  const steps: StepType[] = [];
+  data.forEach((_d: any, index: number) => {
+    const value = data[index]?.[keyName];
+    const range = yScale.range();
+    const width = 20;
+    const lastTick = yScale.ticks()[yScale.ticks().length - 1];
+    const x = xScale(new Date(data[index][labelSelector])) - width / 2;
+
+    if (keyName !== labelSelector && value) {
+      const step = {
+        key: `${index}.${keyName}.step`,
+        selector: [index, keyName],
+        x,
+        y: yScale(lastTick),
+        height: range[0] - range[1],
+        width,
+        middle: x + width / x,
+      };
+
+      steps.push(step);
+    }
+  });
+
+  return steps;
+};
+
+const calculateLine = (
+  curve: string,
+  xScale: ScaleTime<number, number>,
+  yScale: ScaleLinear<number, number>,
+  labelSelector: string,
+  keyName: string
+) => {
+  let lineShapeType;
+  switch (curve) {
+    case 'spline':
+      lineShapeType = lineShape().curve(curveMonotoneX);
+      break;
+
+    case 'step':
+      lineShapeType = lineShape().curve(curveStep);
+      break;
+
+    default:
+      lineShapeType = lineShape();
+      break;
+  }
+
+  return lineShapeType
+    .x(function(d: Record<string, any>) {
+      return xScale(new Date(d[labelSelector]));
+    })
+    .y(function(d: Record<string, any>) {
+      return yScale(d[keyName]);
+    });
+};
+
+export const generateGroupedLines = ({
   data,
   keys,
+  disabledKeys,
   dimension,
   margins,
   minValue,
@@ -66,9 +157,22 @@ export const generateLines = ({
   colors,
   markRadius,
   strokeWidth,
+  curve,
 }: Options) => {
-  const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
+  const stepChart = curve === 'step';
+  const filteredKeys = disabledKeys
+    ? getKeysDifference(keys, disabledKeys)
+    : keys;
+
+  const { minimum, maximum } = calculateRange(
+    data,
+    minValue,
+    maxValue,
+    filteredKeys
+  );
+
   const marks: Mark[] = [];
+  let steps: StepType[] = [];
 
   const [first] = data;
 
@@ -81,55 +185,154 @@ export const generateLines = ({
 
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain([minimum, maximum]);
+    .domain([minimum, maximum])
+    .nice();
 
   calculateScaleDomain(yScale, minimum, maximum);
 
-  const generateLineMarks = (keyName: string, lineIndex: number) => {
-    const marks = [] as Mark[];
-    data.forEach((_d: any, index: number) => {
-      const value = data[index]?.[keyName];
+  const lines = [] as Line[];
+  keys.forEach((keyName: string, idx: number) => {
+    const generateLine = calculateLine(
+      curve,
+      xScale,
+      yScale,
+      labelSelector,
+      keyName
+    );
 
-      if (keyName !== labelSelector && value) {
-        const mark = {
-          key: `${index}.${keyName}.mark`,
-          color: colors[lineIndex],
-          selector: [index, keyName],
-          x: xScale(new Date(data[index][labelSelector])),
-          y: yScale(value),
-          radius: markRadius,
-        };
-
-        marks.push(mark);
-      }
-    });
-    return marks;
-  };
-
-  const lines = keys.map((keyName: string, idx: number) => {
-    const calculateLine = lineShape()
-      .x(function(d: Record<string, any>) {
-        return xScale(new Date(d[labelSelector]));
-      })
-      .y(function(d: Record<string, any>) {
-        return yScale(d[keyName]);
+    if (disabledKeys && !disabledKeys.includes(keyName)) {
+      if (stepChart && idx === 0)
+        steps = generateSteps(data, xScale, yScale, labelSelector, keys[0]);
+      marks.push(
+        ...generateLineMarks(
+          data,
+          xScale,
+          yScale,
+          labelSelector,
+          colors,
+          keyName,
+          idx,
+          markRadius
+        )
+      );
+      lines.push({
+        key: keyName,
+        selector: [idx, keyName],
+        d: generateLine(data),
+        color: colors[idx],
+        strokeWidth,
       });
-
-    marks.push(...generateLineMarks(keyName, idx));
-
-    return {
-      key: keyName,
-      selector: [idx, keyName],
-      d: calculateLine(data),
-      color: colors[idx],
-      strokeWidth,
-    };
+    }
   });
 
   return {
+    stepChart,
+    steps,
     marks,
     lines,
     xScale,
     yScale,
   };
+};
+
+export const generateStackLines = ({
+  data,
+  keys,
+  disabledKeys,
+  dimension,
+  margins,
+  minValue,
+  maxValue,
+  labelSelector,
+  colors,
+  markRadius,
+  strokeWidth,
+  curve,
+}: Options) => {
+  const stepChart = curve === 'step';
+  const filteredKeys = disabledKeys
+    ? getKeysDifference(keys, disabledKeys)
+    : keys;
+
+  const newData = calculateStackData(data, filteredKeys);
+
+  const { minimum, maximum } = calculateStackedRange(
+    data,
+    minValue,
+    maxValue,
+    filteredKeys
+  );
+
+  const marks: Mark[] = [];
+  const steps: StepType[] = [];
+
+  const [first] = newData;
+
+  const xScale = scaleUtc()
+    .range([margins.left, dimension.width - margins.right])
+    .domain([
+      new Date(first[labelSelector]),
+      new Date(newData[newData.length - 1][labelSelector]),
+    ]);
+
+  const yScale = scaleLinear()
+    .range([dimension.height - margins.bottom, margins.top])
+    .domain([minimum, maximum])
+    .nice();
+
+  calculateScaleDomain(yScale, minimum, maximum);
+
+  const lines = [] as Line[];
+  keys.forEach((keyName: string, idx: number) => {
+    const generateLine = calculateLine(
+      curve,
+      xScale,
+      yScale,
+      labelSelector,
+      keyName
+    );
+
+    if (disabledKeys && !disabledKeys.includes(keyName)) {
+      if (idx === 0)
+        steps.push(
+          ...generateSteps(newData, xScale, yScale, labelSelector, keys[0])
+        );
+      marks.push(
+        ...generateLineMarks(
+          newData,
+          xScale,
+          yScale,
+          labelSelector,
+          colors,
+          keyName,
+          idx,
+          markRadius
+        )
+      );
+      lines.push({
+        key: keyName,
+        selector: [idx, keyName],
+        d: generateLine(newData),
+        color: colors[idx],
+        strokeWidth,
+      });
+    }
+  });
+
+  return {
+    stepChart,
+    steps,
+    marks,
+    lines,
+    xScale,
+    yScale,
+  };
+};
+
+export const generateLines = (options: Options) => {
+  const { groupMode, stackMode } = options;
+
+  return groupMode === 'grouped' && stackMode === 'normal'
+    ? generateGroupedLines(options)
+    : generateStackLines(options);
 };

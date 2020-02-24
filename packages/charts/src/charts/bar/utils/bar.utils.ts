@@ -1,6 +1,6 @@
 import { transparentize } from 'polished';
 
-import { GroupMode, StackMode } from '../types';
+import { GroupMode, StackMode } from '../../../types';
 import { DataSelector } from '../../../types';
 
 export const getBarColor = ({
