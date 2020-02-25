@@ -1,14 +1,14 @@
 import {
-  generateMetic,
+  generateMetric,
   calculatePercentDifference,
   setStatus,
 } from './metric.utils';
 
 describe('@keen.io/charts - <MetricChart /> utils', () => {
-  describe('generateMetic()', () => {
+  describe('generateMetric()', () => {
     it('should create metric for single data series', () => {
       const data = [{ name: 'Unique visitors', value: 100 }];
-      const result = generateMetic({
+      const result = generateMetric({
         type: 'compare',
         keys: ['value'],
         labelSelector: 'name',
@@ -27,7 +27,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         { name: 'January', value: 100 },
         { name: 'Febuary', value: 120 },
       ];
-      const result = generateMetic({
+      const result = generateMetric({
         type: 'compare',
         keys: ['value'],
         labelSelector: 'name',
@@ -50,7 +50,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         { name: 'January', value: 100 },
         { name: 'Febuary', value: 20 },
       ];
-      const result = generateMetic({
+      const result = generateMetric({
         type: 'percent',
         keys: ['value'],
         labelSelector: 'name',
@@ -73,7 +73,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         { name: 'January', value: 100 },
         { name: 'Febuary', value: 190 },
       ];
-      const result = generateMetic({
+      const result = generateMetric({
         type: 'difference',
         keys: ['value'],
         labelSelector: 'name',

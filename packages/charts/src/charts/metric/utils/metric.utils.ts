@@ -41,7 +41,7 @@ export const setStatus = (previousValue: number, currentValue: number) => {
   return 'decrease';
 };
 
-export const generateMetic = ({
+export const generateMetric = ({
   type,
   keys,
   data,

@@ -5,7 +5,7 @@ import { Text } from '@keen.io/ui-core';
 
 import { Excerpt, Wrapper, IconWrapper, Layout } from './metric-chart.styles';
 
-import { generateMetic, formatNumber } from './utils';
+import { generateMetric, formatNumber } from './utils';
 import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';
@@ -55,7 +55,7 @@ export const MetricChart: FC<Props> = ({
   keys = ['value'],
   type = 'compare',
 }) => {
-  const { value, difference } = generateMetic({
+  const { value, difference } = generateMetric({
     labelSelector,
     keys,
     data,

@@ -1,4 +1,4 @@
-import { generateMetic } from './metric.utils';
+import { generateMetric } from './metric.utils';
 import { formatNumber } from './format.utils';
 
-export { generateMetic, formatNumber };
+export { generateMetric, formatNumber };
