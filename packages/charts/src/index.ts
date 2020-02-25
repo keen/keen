@@ -5,6 +5,8 @@ import {
   LineChartSettings,
   PieChart,
   PieChartSettings,
+  MetricChart,
+  MetricChartSettings,
 } from './charts';
 
 import { ResponsiveWrapper, Legend } from './components';
@@ -23,6 +25,8 @@ export {
   LineChartSettings,
   PieChart,
   PieChartSettings,
+  MetricChart,
+  MetricChartSettings,
   ResponsiveWrapper,
   Legend,
   theme,

@@ -1,6 +1,4 @@
-import ArrowLeft from './components/arrow-left.component';
-import ArrowRight from './components/arrow-right.component';
-import ArrowUp from './components/arrow-up.component';
-import ArrowDown from './components/arrow-down.component';
+import Icon from './components/icon.component';
+import { IconType } from './types';
 
-export { ArrowLeft, ArrowRight, ArrowUp, ArrowDown };
+export { Icon, IconType };

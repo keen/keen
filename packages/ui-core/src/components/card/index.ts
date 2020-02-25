@@ -1,4 +1,4 @@
-import Card, { Props as CardProps } from './card.component';
+import Card, { Props as CardSettings } from './card.component';
 
 export default Card;
-export { CardProps };
+export { CardSettings };

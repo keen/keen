@@ -7,4 +7,6 @@ export const labels = [
   { name: 'IT', color: colors.yellow['500'] },
   { name: 'Office Management', color: colors.lightBlue['500'] },
   { name: 'Product', color: colors.pink['500'] },
+  { name: 'Support', color: colors.black['500'] },
+  { name: 'HR', color: colors.orange['500'] },
 ];

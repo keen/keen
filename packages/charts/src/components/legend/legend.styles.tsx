@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Layout, Alignment, Position, CardProps } from '@keen.io/ui-core';
+import { Layout, Alignment, Position, CardSettings } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
 import { RenderMode } from './legend.utils';
@@ -17,7 +17,7 @@ export const LegendCard = styled.div<
     renderMode: RenderMode;
     alignment: Alignment;
     position: Position;
-  } & CardProps
+  } & CardSettings
 >`
 ${props =>
   (props.renderMode === 'list' || props.renderMode === 'group') &&

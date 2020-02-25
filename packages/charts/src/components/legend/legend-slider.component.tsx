@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Slick from 'react-slick';
 
-import { Arrow, Position } from '@keen.io/ui-core';
+import { Caret, Position } from '@keen.io/ui-core';
 
 import {
   Layout,
@@ -80,7 +80,7 @@ const LegendSlider = ({ children, mode, contentDimension }: Props) => {
         onClick={() => slickRef.current.slickPrev()}
         disabled={currentSlide === 0}
       >
-        <Arrow type={prevButtonModifier} />
+        <Caret fill="currentcolor" type={prevButtonModifier} />
       </Button>
       <Wrapper sliderMode={mode}>
         <Slick ref={slickRef} {...settings}>
@@ -93,7 +93,7 @@ const LegendSlider = ({ children, mode, contentDimension }: Props) => {
         onClick={() => slickRef.current.slickNext()}
         disabled={currentSlide === slidesCount - slidesToShow}
       >
-        <Arrow type={nextButtonModifier} />
+        <Caret fill="currentcolor" type={nextButtonModifier} />
       </Button>
     </Layout>
   );

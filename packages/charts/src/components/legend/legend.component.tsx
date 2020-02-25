@@ -6,7 +6,7 @@ import {
   Alignment,
   Typography,
   Group,
-  CardProps,
+  CardSettings,
 } from '@keen.io/ui-core';
 
 import LegendLabel from './legend-label.component';
@@ -58,7 +58,7 @@ type Props = {
   /** typography styles */
   typography: Typography;
   /** Legend card styles */
-  card: CardProps;
+  card: CardSettings;
   /** Handler for item click event */
   onClick: (key: string, disabled: boolean, index: number) => void;
   /** Position in widget */

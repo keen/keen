@@ -13,7 +13,7 @@ import { extendTheme } from './utils/theme.utils';
 import { extendWidgetSettings } from './utils/widget.utils';
 import { validateOptions } from './visualizer.utils';
 
-import { Options, ComponentSettings } from './types';
+import { Options, VisualizerWidgetSettings, ComponentSettings } from './types';
 
 class Visualizer {
   /** Type of widget that should be rendered */
@@ -23,7 +23,7 @@ class Visualizer {
   private container: HTMLElement | string;
 
   /** General widget settings */
-  private widgetSettings?: WidgetSettings;
+  private widgetSettings?: Partial<VisualizerWidgetSettings>;
 
   /** Specific visualization settings */
   private componentSettings?: ComponentSettings;
@@ -51,7 +51,7 @@ class Visualizer {
   }
 
   private setWidgetSettings(): WidgetSettings {
-    return extendWidgetSettings(this.widgetSettings);
+    return extendWidgetSettings(this.widgetSettings, this.type);
   }
 
   render({ query, result }: { query: Query; result: AnalysisResult }) {
@@ -68,7 +68,6 @@ class Visualizer {
         componentSettings: this.setComponentSettings(),
         data: results,
         scaleSettings: createScaleSettings(query),
-        query,
         keys,
       }),
       container
