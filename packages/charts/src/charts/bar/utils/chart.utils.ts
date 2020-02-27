@@ -44,6 +44,7 @@ export const generateHorizontalGroupedBars = ({
   labelSelector,
   colors,
 }: Options) => {
+  const filteredKeys = getKeysDifference(keys, disabledKeys);
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
   const xScale = scaleLinear()
@@ -59,27 +60,26 @@ export const generateHorizontalGroupedBars = ({
 
   const yGroupScale = scaleBand()
     .rangeRound([0, yScale.bandwidth()])
-    .domain(keys);
+    .domain(filteredKeys);
 
   const barHeight = yGroupScale.bandwidth();
   const range = new Array(yScale.domain().length).fill(true);
+  let yCounter = 0;
 
   const bars = keys.reduce((acc, keyName: string, idx: number) => {
     const barsGroup = [] as Bar[];
+    const isDisabled =
+      keyName !== labelSelector && !disabledKeys.includes(keyName);
 
     range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
 
-      if (
-        keyName !== labelSelector &&
-        value &&
-        !disabledKeys.includes(keyName)
-      ) {
+      if (value && isDisabled) {
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
           x: 0 + margins.left,
-          y: yScale(data[index][labelSelector]) + barHeight * idx,
+          y: yScale(data[index][labelSelector]) + barHeight * yCounter,
           width: xScale(value) - margins.left,
           height: barHeight,
           color: colors[idx],
@@ -88,6 +88,8 @@ export const generateHorizontalGroupedBars = ({
         barsGroup.push(bar);
       }
     });
+
+    if (!disabledKeys.includes(keyName)) yCounter++;
 
     return [...acc, ...barsGroup];
   }, []);
@@ -111,6 +113,7 @@ export const generateVerticalGroupedBars = ({
   colors,
   labelSelector,
 }: Options) => {
+  const filteredKeys = getKeysDifference(keys, disabledKeys);
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
   const xScale = scaleBand()
@@ -126,26 +129,25 @@ export const generateVerticalGroupedBars = ({
 
   const xGroupScale = scaleBand()
     .rangeRound([0, xScale.bandwidth()])
-    .domain(keys);
+    .domain(filteredKeys);
 
   const barWidth = xGroupScale.bandwidth();
   const range = new Array(xScale.domain().length).fill(true);
+  let xCounter = 0;
 
   const bars = keys.reduce((acc, keyName: string, idx: number) => {
     const barsGroup = [] as Bar[];
+    const isDisabled =
+      keyName !== labelSelector && !disabledKeys.includes(keyName);
 
     range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
 
-      if (
-        keyName !== labelSelector &&
-        value &&
-        !disabledKeys.includes(keyName)
-      ) {
+      if (value && isDisabled) {
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          x: xScale(data[index][labelSelector]) + barWidth * idx,
+          x: xScale(data[index][labelSelector]) + barWidth * xCounter,
           y: yScale(value),
           width: barWidth,
           height: dimension.height - margins.bottom - yScale(value),
@@ -155,6 +157,8 @@ export const generateVerticalGroupedBars = ({
         barsGroup.push(bar);
       }
     });
+
+    if (!disabledKeys.includes(keyName)) xCounter++;
 
     return [...acc, ...barsGroup];
   }, []);

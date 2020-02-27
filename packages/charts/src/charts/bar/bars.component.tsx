@@ -4,14 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 
 import { Mark, markMotion } from '../../components';
+import BarComponent from './bar.component';
 
 import { getBarColor } from './utils/bar.utils';
 import { calculateMarkPosition } from './utils/mark.utils';
 
 import { Bar, GroupMode, StackMode } from './types';
 import { DataSelector } from '../../types';
-
-const transitionStyle = { transition: 'fill .2s ease-in' };
 
 type Props = {
   bars: Bar[];
@@ -64,14 +63,13 @@ const Bars = ({
             onBarMouseLeave(e, key);
           }}
         >
-          <rect
+          <BarComponent
             key={key}
             x={x}
             y={y}
             height={height}
             width={width}
-            style={transitionStyle}
-            fill={getBarColor({
+            color={getBarColor({
               activeBar,
               stackMode,
               barKey: key,
