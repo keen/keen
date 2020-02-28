@@ -1,4 +1,4 @@
-import { Options } from './pie-chart.utils';
+import { PieChartOptions } from './utils';
 import { chartColors } from '../../theme';
 
 export const chartData = [
@@ -9,14 +9,16 @@ export const chartData = [
   { name: 'Cars', buy: 12, sold: 25 },
 ];
 
-export const pieChart: Options = {
+export const pieChart: PieChartOptions = {
   data: chartData,
   labelSelector: 'name',
   keys: ['buy', 'sold'],
+  disabledLabels: [],
   dimension: { width: 100, height: 100 },
   margins: { top: 10, bottom: 10, left: 10, right: 10 },
   colors: chartColors,
   padAngle: 0.01,
   innerRadius: 20,
+  labelsRadius: 30,
   labelsPosition: 'inside',
 };

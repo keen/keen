@@ -3,7 +3,7 @@ import { object, select, boolean } from '@storybook/addon-knobs';
 
 import { typographyKnobs } from '@keen.io/storybook-utils';
 
-import { chartColors } from '../../theme';
+import { theme as defaultTheme } from '../../theme';
 
 import { PieChart } from './pie-chart.component';
 
@@ -19,7 +19,7 @@ export default {
 
 export const withKnobs = () => {
   const theme = {
-    colors: chartColors,
+    ...defaultTheme,
     labels: {
       enabled: boolean('Enabled', true, 'Labels') as boolean,
       typography: typographyKnobs('Labels'),

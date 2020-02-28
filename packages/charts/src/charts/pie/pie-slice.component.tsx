@@ -1,41 +1,86 @@
-import React, { FC, useState, useContext } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { FC, useRef, useState, useContext, useEffect } from 'react';
+import { Arc, DefaultArcObject } from 'd3-shape';
 
 import PieLabel from './pie-label.component';
-import { StyledPath } from './pie-slice.styles';
+
+import { createArcTween, animateArcPath, ArcProperties } from './utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
 type Props = {
-  path: string;
-  pathActive: string;
+  draw: Arc<any, DefaultArcObject>;
+  drawActive: Arc<any, DefaultArcObject>;
+  startAngle: number;
+  endAngle: number;
   autocolor: boolean;
   labelPosition: [number, number];
   label: string;
   background: string;
+  onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
+  onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
 
 const PieSlice: FC<Props> = ({
-  path,
-  pathActive,
   background,
+  draw,
+  drawActive,
   autocolor,
   label,
+  startAngle,
+  endAngle,
   labelPosition,
+  onMouseLeave,
+  onMouseMove,
 }) => {
-  const [active, setActive] = useState(false);
+  const [arcProperties, setArcProperties] = useState<ArcProperties>({
+    startAngle: 0,
+    endAngle: 0,
+  });
+  const element = useRef(null);
+
+  const [isActive, setActive] = useState(false);
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme;
 
+  const pathDraw = isActive
+    ? drawActive(arcProperties as DefaultArcObject)
+    : draw(arcProperties as DefaultArcObject);
+
+  useEffect(() => {
+    const shouldAnimate =
+      arcProperties.startAngle !== 0 && arcProperties.endAngle !== 0;
+
+    if (shouldAnimate) {
+      const motion = createArcTween(
+        arcProperties,
+        { startAngle, endAngle },
+        draw
+      );
+      animateArcPath(element, motion, () => {
+        setArcProperties({
+          startAngle,
+          endAngle,
+        });
+      });
+    } else {
+      setArcProperties({
+        startAngle,
+        endAngle,
+      });
+    }
+  }, [startAngle, endAngle]);
+
   return (
     <g
+      onMouseMove={onMouseMove}
       onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
+      onMouseLeave={e => {
+        onMouseLeave(e);
+        setActive(false);
+      }}
     >
-      <StyledPath
-        fill={background}
-        d={active ? pathActive : path}
-        dropShadow={active}
-      />
+      <path ref={element} d={pathDraw} key={background} fill={background} />
       {labels.enabled && (
         <PieLabel
           sliceBackground={background}

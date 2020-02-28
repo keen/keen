@@ -1,31 +1,31 @@
-/*eslint @typescript-eslint/no-empty-function: 0*/
 import React, { FC } from 'react';
 import {
-  BarChart,
-  BarChartSettings,
+  PieChart,
+  PieChartSettings,
   ResponsiveWrapper,
   Legend,
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import ChartWidget from './chart-widget.component';
-import WidgetHeading from './widget-heading.component';
-
+import WidgetHeading from '../widget-heading.component';
+import ChartWidget from '../chart-widget.component';
 import {
   ContentSocket,
   LegendSocket,
   TitleSocket,
-} from './widget-sockets.component';
+} from '../widget-sockets.component';
 
-import { useLegend } from '../hooks';
+import { createLegendLabels } from './pie-chart.utils';
 
-import { legendSettings } from '../widget-settings';
-import { WidgetSettings } from '../types';
+import { legendSettings } from '../../widget-settings';
+import { useLegend } from '../../hooks';
 
-type Props = WidgetSettings & BarChartSettings;
+import { WidgetSettings } from '../../types';
 
-/** Bar Chart widget integrated with other components */
-export const BarChartWidget: FC<Props> = ({
+type Props = WidgetSettings & PieChartSettings;
+
+/** Pie Chart widget integrated with other components */
+export const PieChartWidget: FC<Props> = ({
   legend = legendSettings,
   theme = defaultTheme,
   title,
@@ -50,21 +50,22 @@ export const BarChartWidget: FC<Props> = ({
           <Legend
             {...legend}
             onClick={updateKeys}
-            labels={props.keys.map((key, idx) => ({
-              name: key,
-              color: theme.colors[idx],
-            }))}
+            labels={createLegendLabels(
+              props.data,
+              theme.colors,
+              props.labelSelector
+            )}
           />
         </LegendSocket>
       )}
       <ContentSocket>
         <ResponsiveWrapper>
           {(width: number, height: number) => (
-            <BarChart
-              theme={theme}
-              disabledKeys={disabledKeys}
-              svgDimensions={{ width, height }}
+            <PieChart
               {...props}
+              disabledLabels={disabledKeys}
+              svgDimensions={{ width, height }}
+              theme={theme}
             />
           )}
         </ResponsiveWrapper>
@@ -72,4 +73,4 @@ export const BarChartWidget: FC<Props> = ({
     </ChartWidget>
   );
 };
-export default BarChartWidget;
+export default PieChartWidget;

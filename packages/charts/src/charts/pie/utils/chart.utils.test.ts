@@ -1,6 +1,6 @@
-import { generatePieChart } from './pie-chart.utils';
+import { generatePieChart } from './chart.utils';
 
-import { pieChart } from './pie-chart.fixtures';
+import { pieChart } from '../pie-chart.fixtures';
 
 describe('@keen/charts', () => {
   describe('<PieChart /> - utils', () => {
