@@ -17,7 +17,6 @@ export const extendWidgetSettings = (
     case 'metric':
       return deepMerge(defaultMetricWidgetSettings, customSettings) as any;
     default:
-      console.log(deepMerge(defaultWidgetSettings, customSettings), 'sa');
       return deepMerge(defaultWidgetSettings, customSettings) as any;
   }
 };
