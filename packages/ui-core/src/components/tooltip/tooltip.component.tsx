@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 import { colors } from '@keen.io/colors';
 import Color from 'color';
@@ -13,6 +13,7 @@ type Props = Partial<Typography> & {
   backgroundColor?: string;
   borderRadius?: string;
   hasShadow?: boolean;
+  hasArrow?: boolean;
   arrowDirection?: Position;
 };
 
@@ -50,6 +51,11 @@ const Wrapper = styled.div<Props>`
     },
   })}
   &::after {
+    ${props =>
+      !props.hasArrow &&
+      css`
+        display: none;
+      `}
     content: '';
     position: absolute;
     width: 0;
@@ -122,6 +128,7 @@ Tooltip.defaultProps = {
   mode: 'light',
   borderRadius: '0px',
   hasShadow: true,
+  hasArrow: true,
   arrowDirection: 'bottom',
 };
 

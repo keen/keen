@@ -3,7 +3,7 @@ import { useState } from 'react';
 export const useLegend = () => {
   const [keys, setKeys] = useState<string[]>([]);
 
-  const updateChartKeys = (key: string, disabled: boolean) => {
+  const updateKeys = (key: string, disabled: boolean) => {
     if (disabled) {
       setKeys([...keys, key]);
     } else {
@@ -13,6 +13,6 @@ export const useLegend = () => {
 
   return {
     disabledKeys: keys,
-    updateChartKeys,
+    updateKeys,
   };
 };

@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen/charts <PieChart /> - utils should calculate position for labels placed "outer" of slice 1`] = `
+Array [
+  Object {
+    "color": "#85B4C3",
+    "endAngle": 6.283185307179586,
+    "index": "4",
+    "label": "14.2%",
+    "labelPosition": Array [
+      -30.1891232471181,
+      -63.15549728701622,
+    ],
+    "selector": Array [
+      0,
+    ],
+    "startAngle": 5.391378360354096,
+  },
+  Object {
+    "color": "#CB5623",
+    "endAngle": 4.377961375325131,
+    "index": "2",
+    "label": "20.6%",
+    "labelPosition": Array [
+      -38.816155402670475,
+      58.252090775831675,
+    ],
+    "selector": Array [
+      1,
+    ],
+    "startAngle": 3.080787634488055,
+  },
+  Object {
+    "color": "#E29B1E",
+    "endAngle": 1.5809304966451863,
+    "index": "0",
+    "label": "25.2%",
+    "labelPosition": Array [
+      49.74764608647074,
+      -49.246032417396364,
+    ],
+    "selector": Array [
+      2,
+    ],
+    "startAngle": 0,
+  },
+  Object {
+    "color": "#487650",
+    "endAngle": 5.391378360354096,
+    "index": "3",
+    "label": "16.1%",
+    "labelPosition": Array [
+      -68.9637422334797,
+      -12.000094047721769,
+    ],
+    "selector": Array [
+      3,
+    ],
+    "startAngle": 4.377961375325131,
+  },
+  Object {
+    "color": "#F4A083",
+    "endAngle": 3.080787634488055,
+    "index": "1",
+    "label": "23.9%",
+    "labelPosition": Array [
+      50.73549510603839,
+      48.227684335298065,
+    ],
+    "selector": Array [
+      4,
+    ],
+    "startAngle": 1.5809304966451863,
+  },
+]
+`;
+
+exports[`@keen/charts <PieChart /> - utils should calculate properties for each arc 1`] = `
+Array [
+  Object {
+    "color": "#85B4C3",
+    "endAngle": 6.283185307179586,
+    "index": "4",
+    "label": "14.2%",
+    "labelPosition": Array [
+      -19.407293516004493,
+      -40.599962541653284,
+    ],
+    "selector": Array [
+      0,
+    ],
+    "startAngle": 5.391378360354096,
+  },
+  Object {
+    "color": "#CB5623",
+    "endAngle": 4.377961375325131,
+    "index": "2",
+    "label": "20.6%",
+    "labelPosition": Array [
+      -24.9532427588596,
+      37.447772641606086,
+    ],
+    "selector": Array [
+      1,
+    ],
+    "startAngle": 3.080787634488055,
+  },
+  Object {
+    "color": "#E29B1E",
+    "endAngle": 1.5809304966451863,
+    "index": "0",
+    "label": "25.2%",
+    "labelPosition": Array [
+      31.980629627016903,
+      -31.65816369689766,
+    ],
+    "selector": Array [
+      2,
+    ],
+    "startAngle": 0,
+  },
+  Object {
+    "color": "#487650",
+    "endAngle": 5.391378360354096,
+    "index": "3",
+    "label": "16.1%",
+    "labelPosition": Array [
+      -44.33383429295124,
+      -7.714346173535422,
+    ],
+    "selector": Array [
+      3,
+    ],
+    "startAngle": 4.377961375325131,
+  },
+  Object {
+    "color": "#F4A083",
+    "endAngle": 3.080787634488055,
+    "index": "1",
+    "label": "23.9%",
+    "labelPosition": Array [
+      32.61567542531039,
+      31.0035113584059,
+    ],
+    "selector": Array [
+      4,
+    ],
+    "startAngle": 1.5809304966451863,
+  },
+]
+`;

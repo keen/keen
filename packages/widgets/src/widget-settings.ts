@@ -18,4 +18,28 @@ export const legendSettings: LegendSettings = {
 
 export const widgetSettings = {
   legend: legendSettings,
+  card: {
+    backgroundColor: colors.white['500'],
+    borderRadius: '0px',
+    border: 'none',
+    hasShadow: true,
+  },
+  title: {
+    typography: {
+      fontSize: 19,
+      fontFamily: 'Gangster Grotesk Regular, sans-serif',
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontColor: colors.blue['500'],
+    },
+  },
+  subtitle: {
+    typography: {
+      fontSize: 13,
+      fontFamily: 'Gangster Grotesk Regular, sans-serif',
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontColor: colors.black['500'],
+    },
+  },
 };

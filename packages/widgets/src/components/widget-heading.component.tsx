@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Text, Typography } from '@keen.io/ui-core';
 
+import { Container } from './widget-heading.styles';
+
 import { TextSettings } from '../types';
 
 type Props = {
@@ -17,10 +19,10 @@ const Title = ({
 }) => <Text {...typography}>{content}</Text>;
 
 export const WidgetHeading: FC<Props> = ({ title, subtitle }) => (
-  <div>
+  <Container>
     {title.content && <Title {...title} />}
     {subtitle.content && <Title {...subtitle} />}
-  </div>
+  </Container>
 );
 
 export default WidgetHeading;
