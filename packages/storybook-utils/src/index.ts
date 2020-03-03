@@ -11,6 +11,7 @@ import typographyKnobs from './typography.knobs';
 import {
   stackModeKnobs,
   groupModeKnobs,
+  layoutKnobs,
   metricTypeKnobs,
 } from './select.knobs';
 
@@ -27,5 +28,6 @@ export {
   stackModeKnobs,
   groupModeKnobs,
   metricTypeKnobs,
+  layoutKnobs,
   getGoogleFonts,
 };

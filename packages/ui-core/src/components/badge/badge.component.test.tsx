@@ -1,14 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Card from './card.component';
+import Badge from './badge.component';
 
 const setup = (overProps: any = {}) => {
   const props = {
+    type: 'dark',
     ...overProps,
   };
 
-  const wrapper = mount(<Card {...props} />);
+  const wrapper = mount(<Badge {...props} />);
 
   return {
     wrapper,
@@ -16,7 +17,7 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/ui-core - <Card />', () => {
+describe('@keen.io/ui-core - <Badge />', () => {
   it('should render render children', () => {
     const children = 'text';
     const { wrapper } = setup({

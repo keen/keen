@@ -75,8 +75,28 @@ export type Metric = {
   };
 };
 
+export type Funnel = {
+  header: {
+    value: {
+      typography: Typography;
+    };
+    title: {
+      typography: Typography;
+    };
+    badge: {
+      enabled: boolean;
+      typography: Typography;
+    };
+    backgroundColor: string;
+  };
+  step: {
+    backgroundColor: string;
+  };
+};
+
 export type Theme = {
   colors: string[];
+  funnel: Funnel;
   metric?: Metric;
   tooltip?: Tooltip;
   axisX?: Axis;

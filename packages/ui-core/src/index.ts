@@ -4,6 +4,7 @@ import { Typography, Position, Alignment, Layout } from './types';
 
 import {
   Caret,
+  Badge,
   BulletList,
   Group,
   Card,
@@ -14,6 +15,7 @@ import {
 } from './components';
 
 export {
+  Badge,
   Caret,
   Alignment,
   BulletList,
