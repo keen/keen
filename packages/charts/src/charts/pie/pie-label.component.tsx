@@ -25,6 +25,7 @@ const PieLabel: FC<Props> = memo(
             {adjustedColor => (
               <text
                 fill={adjustedColor}
+                pointerEvents="none"
                 transform={`translate(${position})`}
                 style={{ textAnchor: 'middle', ...typography }}
               >
@@ -35,6 +36,7 @@ const PieLabel: FC<Props> = memo(
         ) : (
           <text
             fill={fontColor}
+            pointerEvents="none"
             transform={`translate(${position})`}
             style={{ textAnchor: 'middle', ...typography }}
           >

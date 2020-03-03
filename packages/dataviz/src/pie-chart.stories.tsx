@@ -21,6 +21,11 @@ export const singleResult = () => {
     const dataviz = new Visualizer({
       type: 'pie',
       container: container.current,
+      widget: {
+        title: {
+          content: 'Book purchases',
+        },
+      },
     });
 
     client
@@ -46,6 +51,11 @@ export const simpleResults = () => {
     const dataviz = new Visualizer({
       type: 'pie',
       container: container.current,
+      widget: {
+        title: {
+          content: 'Book purchases',
+        },
+      },
     });
 
     client
@@ -72,6 +82,11 @@ export const multipleResults = () => {
     const dataviz = new Visualizer({
       type: 'pie',
       container: container.current,
+      widget: {
+        title: {
+          content: 'Book purchases',
+        },
+      },
     });
 
     client

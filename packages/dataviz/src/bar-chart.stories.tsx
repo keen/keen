@@ -21,6 +21,11 @@ export const singleResult = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
+      widget: {
+        title: {
+          content: 'Total purchases',
+        },
+      },
     });
 
     client
@@ -50,9 +55,15 @@ export const SimpleResults = () => {
         legend: {
           enabled: false,
         },
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Monthly',
+        },
       },
       settings: {
-        margins: { top: 30, left: 50, bottom: 40, right: 10 },
+        margins: { top: 10, left: 50, bottom: 40, right: 10 },
         layout: 'horizontal',
       },
     });
@@ -91,8 +102,12 @@ export const MultipleResultsPlot = () => {
       type: 'bar',
       container: container.current,
       widget: {
-        title: 'Books',
-        subtitle: 'Monthly',
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Different authors',
+        },
       },
       settings: {
         barPadding: 0,
@@ -142,8 +157,9 @@ export const MultipleResults = () => {
       type: 'bar',
       container: container.current,
       widget: {
-        title: 'Books',
-        subtitle: 'Monthly',
+        title: {
+          content: 'Book purchases',
+        },
         legend: {
           position: 'left',
           layout: 'vertical',
@@ -189,10 +205,6 @@ export const StackedNormal = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
-      widget: {
-        title: 'Books',
-        subtitle: 'Monthly',
-      },
       settings: {
         groupMode: 'stacked',
         stackMode: 'normal',
@@ -241,10 +253,6 @@ export const StackedPercentage = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
-      widget: {
-        title: 'Books',
-        subtitle: 'Monthly',
-      },
       settings: {
         groupMode: 'stacked',
         stackMode: 'percent',

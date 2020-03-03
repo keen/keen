@@ -6,6 +6,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
   backgroundColor="#FFFFFF"
   borderRadius="0px"
   fontColor="#3A494D"
+  hasArrow={true}
   hasShadow={false}
   mode="light"
 >
@@ -14,6 +15,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
     backgroundColor="#FFFFFF"
     borderRadius="0px"
     fontColor="#3A494D"
+    hasArrow={true}
     hasShadow={false}
     mode="light"
   >
@@ -29,7 +31,7 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bdVaJa",
             "isStatic": false,
-            "lastClassName": "hrjYZM",
+            "lastClassName": "jVkxfE",
             "rules": Array [
               "
   padding: 10px 15px;
@@ -57,6 +59,9 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
               [Function],
               "
   &::after {
+    ",
+              [Function],
+              "
     content: '';
     position: absolute;
     width: 0;
@@ -86,11 +91,12 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
         }
       }
       forwardedRef={null}
+      hasArrow={true}
       hasShadow={false}
       mode="light"
     >
       <div
-        className="sc-bdVaJa hrjYZM"
+        className="sc-bdVaJa jVkxfE"
         mode="light"
       >
         tooltip
@@ -106,6 +112,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
   backgroundColor="#FFFFFF"
   borderRadius="0px"
   fontColor="#3A494D"
+  hasArrow={true}
   hasShadow={true}
   mode="dark"
 >
@@ -114,6 +121,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
     backgroundColor="#FFFFFF"
     borderRadius="0px"
     fontColor="#3A494D"
+    hasArrow={true}
     hasShadow={true}
     mode="dark"
   >
@@ -129,7 +137,7 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "sc-bdVaJa",
             "isStatic": false,
-            "lastClassName": "eVnmhV",
+            "lastClassName": "bewiYL",
             "rules": Array [
               "
   padding: 10px 15px;
@@ -157,6 +165,9 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
               [Function],
               "
   &::after {
+    ",
+              [Function],
+              "
     content: '';
     position: absolute;
     width: 0;
@@ -186,11 +197,12 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
         }
       }
       forwardedRef={null}
+      hasArrow={true}
       hasShadow={true}
       mode="dark"
     >
       <div
-        className="sc-bdVaJa eVnmhV"
+        className="sc-bdVaJa bewiYL"
         mode="dark"
       >
         tooltip
