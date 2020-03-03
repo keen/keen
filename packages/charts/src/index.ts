@@ -7,6 +7,8 @@ import {
   PieChartSettings,
   MetricChart,
   MetricChartSettings,
+  FunnelChart,
+  FunnelChartSettings,
 } from './charts';
 
 import { ResponsiveWrapper, Legend } from './components';
@@ -27,6 +29,8 @@ export {
   PieChartSettings,
   MetricChart,
   MetricChartSettings,
+  FunnelChart,
+  FunnelChartSettings,
   ResponsiveWrapper,
   Legend,
   theme,

@@ -78,6 +78,7 @@ export type Metric = {
 export type Funnel = {
   header: {
     value: {
+      enabled: boolean;
       typography: Typography;
     };
     title: {
@@ -132,8 +133,12 @@ export type TimePrecision =
 
 export type ScaleSettings = {
   type: 'time' | 'band' | 'linear';
-  formatLabel?: (label: string | number) => string | number;
+  formatLabel?: (label: string | number | Date) => string | number;
   precision?: TimePrecision;
+};
+
+export type Motion = {
+  enabled: boolean;
 };
 
 export type DataSelector = (number | string)[];

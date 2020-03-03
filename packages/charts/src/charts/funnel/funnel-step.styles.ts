@@ -3,15 +3,21 @@ import { Layout } from '@keen.io/ui-core';
 
 export const Header = styled.div<{
   backgroundColor: string;
+  fixedWidth: boolean;
   centerItems: boolean;
 }>`
   padding: 10px;
-  background: ${props => props.backgroundColor}
-    ${props =>
-      props.centerItems &&
-      css`
-        text-align: center;
-      `};
+  background: ${props => props.backgroundColor};
+  ${props =>
+    props.fixedWidth &&
+    css`
+      width: 30%;
+    `};
+  ${props =>
+    props.centerItems &&
+    css`
+      text-align: center;
+    `};
 `;
 
 export const Container = styled.div<{
@@ -22,15 +28,15 @@ export const Container = styled.div<{
   height: 100%;
   width: 100%;
   flex-grow: 1;
-  background: ${props => props.backgroundColor}
-    ${props =>
-      props.layout === 'vertical' &&
-      css`
-        flex-direction: column;
-      `}
-    ${props =>
-      props.layout === 'horizontal' &&
-      css`
-        flex-direction: row;
-      `};
+  background: ${props => props.backgroundColor};
+  ${props =>
+    props.layout === 'horizontal' &&
+    css`
+      flex-direction: column;
+    `}
+  ${props =>
+    props.layout === 'vertical' &&
+    css`
+      flex-direction: row;
+    `};
 `;

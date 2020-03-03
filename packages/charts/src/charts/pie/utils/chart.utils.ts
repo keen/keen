@@ -1,6 +1,8 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
 
+import { calculateHypotenuse } from '../../../utils/math.utils';
+
 import { Dimension, Margins, DataSelector } from '../../../types';
 
 export type LabelsPosition = 'inside' | 'outside';
@@ -32,15 +34,6 @@ type PieSlice = {
 type PieValue = { color: string; value: number; selector: DataSelector };
 
 export const HOVER_RADIUS = 10;
-
-export const calculateHypotenuse = (
-  x: number,
-  y: number,
-  radius: number
-): [number, number] => {
-  const height = Math.sqrt(x * x + y * y);
-  return [(x / height) * radius, (y / height) * radius];
-};
 
 export const generatePieChart = ({
   data,

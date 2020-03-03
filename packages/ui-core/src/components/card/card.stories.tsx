@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { createCardKnobs } from '@keen.io/storybook-utils';
+import { cardKnobs } from '@keen.io/storybook-utils';
 
 import { loremIpsum } from 'lorem-ipsum';
 
@@ -21,6 +21,6 @@ export default {
 
 export const withKnobs = () => (
   <Wrapper>
-    <Card {...createCardKnobs('Card')}>{loremIpsum()}</Card>
+    <Card {...cardKnobs('Card')}>{loremIpsum()}</Card>
   </Wrapper>
 );

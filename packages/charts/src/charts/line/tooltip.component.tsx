@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { BulletList } from '@keen.io/ui-core';
 
-import { getFromPath } from '../../utils';
+import { getFromPath } from '../../utils/selectors.utils';
 
 import { DataSelector } from '../../types';
 

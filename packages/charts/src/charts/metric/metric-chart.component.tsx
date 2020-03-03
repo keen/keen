@@ -5,7 +5,8 @@ import { Text } from '@keen.io/ui-core';
 
 import { Excerpt, Wrapper, IconWrapper, Layout } from './metric-chart.styles';
 
-import { generateMetric, formatNumber } from './utils';
+import { generateMetric } from './utils';
+import { formatNumber } from '../../utils/format.utils';
 import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';

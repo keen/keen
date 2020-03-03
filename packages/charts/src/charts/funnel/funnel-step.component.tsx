@@ -13,7 +13,7 @@ import { calculateStepPoints } from './utils';
 import { Margins, Theme } from '../../types';
 
 const createStepMotion = (layout: Layout) => {
-  const motionProperty = layout === 'vertical' ? 'x' : 'y';
+  const motionProperty = layout === 'horizontal' ? 'x' : 'y';
   return {
     hidden: {
       opacity: 0,
@@ -29,9 +29,9 @@ const createStepMotion = (layout: Layout) => {
 const createMotionStyle = (layout: Layout, stepsCount: number) => ({
   display: 'flex',
   flexGrow: 1,
-  margin: `${layout === 'vertical' ? '0 3px' : '3px 0'}`,
-  height: `${layout === 'vertical' ? 100 : 100 / stepsCount}%`,
-  width: `${layout === 'vertical' ? 100 / stepsCount : 100}%`,
+  margin: `${layout === 'horizontal' ? '0 3px' : '3px 0'}`,
+  height: `${layout === 'horizontal' ? 100 : 100 / stepsCount}%`,
+  width: `${layout === 'horizontal' ? 100 / stepsCount : 100}%`,
 });
 
 const createStepTransition = (idx: number) => ({
@@ -45,7 +45,7 @@ type Props = {
   index: number;
   label: string;
   layout: Layout;
-  value: number;
+  value: number | string;
   nextPercentageValue: number;
   percentageValue: number;
   color: string;
@@ -78,7 +78,8 @@ export const FunnelStep: FC<Props> = ({
     >
       <Container layout={layout} backgroundColor={step.backgroundColor}>
         <Header
-          centerItems={layout === 'vertical'}
+          centerItems={layout === 'horizontal'}
+          fixedWidth={layout === 'vertical'}
           backgroundColor={header.backgroundColor}
         >
           <FunnelHeader

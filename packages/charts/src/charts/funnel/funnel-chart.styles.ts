@@ -5,7 +5,8 @@ export const FunnelContainer = styled.div<{
   layout: Layout;
 }>`
   display: flex;
-  flex-direction: ${props => (props.layout === 'vertical' ? 'row' : 'column')};
+  flex-direction: ${props =>
+    props.layout === 'horizontal' ? 'row' : 'column'};
   height: 100%;
   width: 100%;
 `;

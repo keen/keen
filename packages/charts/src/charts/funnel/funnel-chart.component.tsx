@@ -7,6 +7,7 @@ import FunnelStep from './funnel-step.component';
 import { FunnelContainer } from './funnel-chart.styles';
 
 import { generateFunnel } from './utils';
+import { formatNumber } from '../../utils/format.utils';
 
 import { CommonChartSettings } from '../../types';
 
@@ -19,14 +20,17 @@ export type Props = {
   layout?: Layout;
   /** Key used to pick value property from data */
   key?: string;
+  /** Function used to format step values */
+  formatValues?: (value: number) => string | number;
 } & CommonChartSettings;
 
 export const FunnelChart: FC<Props> = ({
   data,
   labelSelector,
   key = 'value',
-  layout = 'vertical',
+  layout = 'horizontal',
   theme = defaultTheme,
+  formatValues = formatNumber,
   margins = { top: 0, left: 0, right: 0, bottom: 0 },
 }) => {
   const { steps, scale } = generateFunnel({
@@ -49,7 +53,7 @@ export const FunnelChart: FC<Props> = ({
             theme={theme}
             stepsCount={steps.length}
             index={idx}
-            value={value}
+            value={formatValues(value)}
             percentageValue={percentageValue}
             nextPercentageValue={nextPercentageValue}
             color={color}

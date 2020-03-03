@@ -26,9 +26,11 @@ export const LineChartWidget: FC<Props> = ({
   subtitle,
   legend = legendSettings,
   theme = defaultTheme,
+  card,
   ...props
 }) => (
   <ChartWidget
+    cardSettings={card}
     legendSettings={{
       position: legend.position,
       alignment: legend.alignment,
@@ -36,8 +38,8 @@ export const LineChartWidget: FC<Props> = ({
     }}
   >
     <TitleSocket>
-      {title && <div>{title}</div>}
-      {subtitle && <div>{subtitle}</div>}
+      {title && <div>{title.content}</div>}
+      {subtitle && <div>{subtitle.content}</div>}
     </TitleSocket>
     {legend.enabled && (
       <LegendSocket>

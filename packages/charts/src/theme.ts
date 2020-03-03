@@ -27,6 +27,7 @@ export const theme: Theme = {
         },
       },
       value: {
+        enabled: true,
         typography: {
           fontStyle: 'normal',
           fontWeight: 'normal',

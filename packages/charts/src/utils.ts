@@ -10,6 +10,8 @@ import {
   CountableTimeInterval,
 } from 'd3-time';
 
+import { formatText } from './utils/format.utils';
+
 import { Tick, Orientation, ScaleSettings, TimePrecision } from './types';
 
 const TICK_ALIGN = 0.5;
@@ -148,22 +150,6 @@ export const getScaleValues = (
   return scale.ticks();
 };
 
-export const getFromPath = (object: any, selector: (string | number)[]) =>
-  selector.reduce((acc, key) => {
-    if (acc === null) return object[key];
-    if (typeof acc === 'object' && acc !== null) return acc[key];
-    return acc;
-  }, null);
-
-export const textFormat = (
-  value: any,
-  scaleSettings?: ScaleSettings
-): string | number => {
-  if (scaleSettings?.formatLabel) return scaleSettings.formatLabel(value);
-  if (value instanceof Date) value.toString();
-  return value;
-};
-
 export const generateTicks = ({
   scale,
   tickSize,
@@ -196,7 +182,7 @@ export const generateTicks = ({
   values.forEach((value: any) => {
     ticks.push({
       size: tickSize,
-      text: textFormat(value, scaleSettings),
+      text: formatText(value, scaleSettings),
       x: getX(value),
       y: getY(value),
     });

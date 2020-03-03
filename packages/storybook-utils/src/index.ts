@@ -14,6 +14,7 @@ import {
   layoutKnobs,
   metricTypeKnobs,
 } from './select.knobs';
+import { cardKnobs } from './card.knobs';
 
 import StoryWrapper from './story-wrapper.component';
 
@@ -28,6 +29,7 @@ export {
   stackModeKnobs,
   groupModeKnobs,
   metricTypeKnobs,
+  cardKnobs,
   layoutKnobs,
   getGoogleFonts,
 };

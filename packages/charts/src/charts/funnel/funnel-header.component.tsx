@@ -8,7 +8,7 @@ import { Theme } from '../../types';
 type Props = {
   theme: Pick<Theme, 'funnel'>;
   percentageValue: number;
-  value: number;
+  value: number | string;
   label: string;
 };
 
@@ -24,17 +24,21 @@ export const FunnelHeader: FC<Props> = ({
 
   return (
     <>
-      <TextContainer>
-        <Text {...header.value.typography}>{value}</Text>
-      </TextContainer>
-      <LabelContainer>
-        <Text truncate {...header.title.typography}>
+      {header.value.enabled && (
+        <TextContainer>
+          <Text data-test="step-value" {...header.value.typography}>
+            {value}
+          </Text>
+        </TextContainer>
+      )}
+      <LabelContainer title={label}>
+        <Text data-test="step-label" truncate {...header.title.typography}>
           {label}
         </Text>
       </LabelContainer>
       {header.badge.enabled && (
-        <Badge type="dark">
-          <Text {...header.badge.typography}>
+        <Badge data-test="step-badge" type="dark">
+          <Text data-test="badge-text" {...header.badge.typography}>
             {percentageValue.toFixed(0)}%
           </Text>
         </Badge>

@@ -41,7 +41,7 @@ export const calculateStepPoints = ({
 }) => {
   const { height, width } = dimension;
 
-  if (layout === 'vertical') {
+  if (layout === 'horizontal') {
     scale.range([margins.top, height - margins.bottom]);
   } else {
     scale.range([margins.left, width - margins.right]);
@@ -52,7 +52,7 @@ export const calculateStepPoints = ({
   const endMax = scale(nextPercentageValue) / 2;
 
   const points =
-    layout === 'vertical'
+    layout === 'horizontal'
       ? [
           {
             x: width,

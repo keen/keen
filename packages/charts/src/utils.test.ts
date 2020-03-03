@@ -4,8 +4,6 @@ import {
   getCenterPosition,
   getScaleValues,
   generateTicks,
-  textFormat,
-  getFromPath,
   normalizeToPercent,
   calculateRange,
   EDGE_TICK_ALIGN,
@@ -295,49 +293,6 @@ describe('@keen.io/charts - utils', () => {
       expect(positionCalculator('Sales')).toEqual(20);
       expect(positionCalculator('Marketing')).toEqual(60);
       expect(positionCalculator('E-commerce')).toEqual(100);
-    });
-  });
-
-  describe('getFromPath()', () => {
-    it('should extract value based on provided selector', () => {
-      const person = {
-        address: {
-          city: 'New York',
-        },
-      };
-
-      expect(getFromPath(person, ['address', 'city'])).toEqual('New York');
-    });
-
-    it('should extract value from collections based on provided selector', () => {
-      const countries = [{ name: 'United States' }];
-
-      expect(getFromPath(countries, [0, 'name'])).toEqual('United States');
-    });
-  });
-
-  describe('textFormat()', () => {
-    it('return value without formating', () => {
-      const value = 50;
-      const returnValue = textFormat(value);
-
-      expect(returnValue).toEqual(50);
-    });
-
-    it('should convert "Date" instance to string format', () => {
-      const value = new Date('2020-01-04');
-
-      expect(textFormat(value)).toMatchInlineSnapshot(
-        `2020-01-04T00:00:00.000Z`
-      );
-    });
-
-    it('should apply "formatLabel" function', () => {
-      const value = 'keen.io';
-      const formatLabel = (label: string | number) => `@${label}`;
-      const returnValue = textFormat(value, { type: 'band', formatLabel });
-
-      expect(returnValue).toEqual('@keen.io');
     });
   });
 });

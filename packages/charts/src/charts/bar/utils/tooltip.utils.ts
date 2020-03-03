@@ -1,7 +1,7 @@
 import { GroupMode, StackMode } from '../types';
 import { DataSelector } from '../../../types';
 
-import { getFromPath } from '../../../utils';
+import { getFromPath } from '../../../utils/selectors.utils';
 
 export const getLabel = ({
   isPercentage,
