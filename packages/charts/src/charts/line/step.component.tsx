@@ -47,22 +47,22 @@ const Step = ({
             </g>
           );
         })}
-      {steps !== undefined &&
+      {steps &&
         steps.map((item: StepType) => {
-          const itemTransfomed = {
+          const transformedItem = {
             ...item,
             x: item.x + item.width / 2,
           };
-          const { key, middle: x, y, width, height } = itemTransfomed;
+          const { key, middle: x, y, width, height } = transformedItem;
           return (
             <g
               key={key}
               onMouseEnter={e => {
-                onMouseEnter(e, itemTransfomed);
-                setActiveStep(itemTransfomed);
+                onMouseEnter(e, transformedItem);
+                setActiveStep(transformedItem);
               }}
               onMouseMove={e => {
-                onMouseMove(e, itemTransfomed);
+                onMouseMove(e, transformedItem);
               }}
               onMouseLeave={e => {
                 onMouseLeave(e);

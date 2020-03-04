@@ -66,7 +66,7 @@ export const LineChart: FC<Props> = ({
   xScaleSettings = { precision: 'month', type: 'time' },
   yScaleSettings = { type: 'linear' },
 }) => {
-  const { lines, marks, xScale, yScale, steps, stepChart } = generateLines({
+  const { lines, marks, xScale, yScale, steps, stepMode } = generateLines({
     data,
     margins,
     dimension: svgDimensions,
@@ -113,7 +113,7 @@ export const LineChart: FC<Props> = ({
         curve={curve}
         groupMode={groupMode}
         stackMode={stackMode}
-        stepChart={stepChart}
+        stepMode={stepMode}
         onMarkMouseEnter={(e, selectors) => {
           if (tooltipSettings.enabled) {
             updateTooltipPosition(e, selectors);

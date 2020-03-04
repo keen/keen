@@ -48,5 +48,5 @@ const curveOptions = {
 
 export const curveKnobs = (
   namespace: string,
-  defaultValue: string = curveOptions.step
+  defaultValue: string = curveOptions.linear
 ) => select('Curve', curveOptions, defaultValue, namespace);

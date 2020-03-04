@@ -8,7 +8,7 @@ import {
   calculateStackedRange,
 } from '../../utils';
 
-import { Options, Mark, Line, StepType } from './types';
+import { Options, Mark, Line, StepType, CurveType } from './types';
 
 export const groupMarksByPosition = (marks: Mark[]): Record<number, Mark[]> => {
   const groups: Record<number, Mark[]> = {};
@@ -30,14 +30,18 @@ export const findMarksInCluster = (
   return group.filter(mark => Math.abs(y - mark.y) < range);
 };
 
-export const calculateStackData = (data: any[], keys: string[]): any[] => {
+export const calculateStackData = (
+  data: any[],
+  labelSelector: string,
+  keys: string[]
+): any[] => {
   const stackedData = stack().keys(keys)(data);
 
   const newData = stackedData.reduce((acc, value) => {
     const stackValues = value.map((el, idx) => {
       return {
         ...acc[idx],
-        name: el.data.name,
+        [labelSelector]: el.data[labelSelector],
         [value.key]: el[1],
       };
     });
@@ -45,7 +49,7 @@ export const calculateStackData = (data: any[], keys: string[]): any[] => {
   }, []);
 
   if (!keys.length) {
-    return data.map(el => ({ name: el.name }));
+    return data.map(el => ({ labelSelector: el[labelSelector] }));
   }
 
   return newData;
@@ -82,7 +86,7 @@ const generateLineMarks = (
 };
 
 const generateSteps = (
-  data: any[],
+  data: Record<string, any>[],
   xScale: ScaleTime<number, number>,
   yScale: ScaleLinear<number, number>,
   labelSelector: string,
@@ -115,7 +119,7 @@ const generateSteps = (
 };
 
 const calculateLine = (
-  curve: string,
+  curve: CurveType,
   xScale: ScaleTime<number, number>,
   yScale: ScaleLinear<number, number>,
   labelSelector: string,
@@ -159,7 +163,7 @@ export const generateGroupedLines = ({
   strokeWidth,
   curve,
 }: Options) => {
-  const stepChart = curve === 'step';
+  const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
     ? getKeysDifference(keys, disabledKeys)
     : keys;
@@ -201,7 +205,7 @@ export const generateGroupedLines = ({
     );
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
-      if (stepChart && idx === 0)
+      if (stepMode && idx === 0)
         steps = generateSteps(data, xScale, yScale, labelSelector, keys[0]);
       marks.push(
         ...generateLineMarks(
@@ -226,7 +230,7 @@ export const generateGroupedLines = ({
   });
 
   return {
-    stepChart,
+    stepMode,
     steps,
     marks,
     lines,
@@ -249,12 +253,12 @@ export const generateStackLines = ({
   strokeWidth,
   curve,
 }: Options) => {
-  const stepChart = curve === 'step';
+  const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
     ? getKeysDifference(keys, disabledKeys)
     : keys;
 
-  const newData = calculateStackData(data, filteredKeys);
+  const newData = calculateStackData(data, labelSelector, filteredKeys);
 
   const { minimum, maximum } = calculateStackedRange(
     data,
@@ -320,7 +324,7 @@ export const generateStackLines = ({
   });
 
   return {
-    stepChart,
+    stepMode,
     steps,
     marks,
     lines,

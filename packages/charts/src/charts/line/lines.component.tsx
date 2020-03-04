@@ -33,7 +33,7 @@ type Props = {
   curve: CurveType;
   groupMode?: GroupMode;
   stackMode?: StackMode;
-  stepChart: boolean;
+  stepMode: boolean;
   onMarkMouseEnter: (
     e: React.MouseEvent,
     selectors: { selector: DataSelector; color: string }[]
@@ -48,7 +48,7 @@ const Lines = ({
   curve,
   stackMode,
   groupMode,
-  stepChart,
+  stepMode,
   onMarkMouseEnter,
   onMarkMouseLeave,
 }: Props) => {
@@ -68,7 +68,7 @@ const Lines = ({
       {lines.map(({ key, d, color, strokeWidth }: Line) => (
         <g key={key}>
           <motion.path
-            key={key + curve + stackMode + groupMode}
+            key={`${key}-${curve}-${stackMode}-${groupMode}`}
             d={d}
             variants={createLineMotion(color)}
             transition={lineTransition}
@@ -100,33 +100,7 @@ const Lines = ({
           </motion.g>
         )}
       </AnimatePresence>
-      {!stepChart ? (
-        <Marks
-          marks={marks}
-          onMouseEnter={(e, mark) => {
-            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
-            onMarkMouseEnter(
-              e,
-              findMarksInCluster(mark, groupedMarks).map(
-                ({ selector, color }) => ({
-                  selector,
-                  color,
-                })
-              )
-            );
-            setHoverBar({ x: mark.x, visible: true });
-          }}
-          onMouseLeave={e => {
-            onMarkMouseLeave(e);
-            hideHoverBar.current = setTimeout(() => {
-              setHoverBar({
-                visible: false,
-                x: 0,
-              });
-            }, HOVER_BAR_HIDE_TIME);
-          }}
-        />
-      ) : (
+      {stepMode ? (
         <Step
           steps={steps}
           marks={groupedMarks}
@@ -145,6 +119,32 @@ const Lines = ({
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
             setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+          }}
+          onMouseLeave={e => {
+            onMarkMouseLeave(e);
+            hideHoverBar.current = setTimeout(() => {
+              setHoverBar({
+                visible: false,
+                x: 0,
+              });
+            }, HOVER_BAR_HIDE_TIME);
+          }}
+        />
+      ) : (
+        <Marks
+          marks={marks}
+          onMouseEnter={(e, mark) => {
+            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+            onMarkMouseEnter(
+              e,
+              findMarksInCluster(mark, groupedMarks).map(
+                ({ selector, color }) => ({
+                  selector,
+                  color,
+                })
+              )
+            );
+            setHoverBar({ x: mark.x, visible: true });
           }}
           onMouseLeave={e => {
             onMarkMouseLeave(e);
