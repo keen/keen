@@ -4,7 +4,7 @@ import { ScaleLinear } from 'd3-scale';
 import { Layout } from '@keen.io/ui-core';
 
 import FunnelHeader from './funnel-header.component';
-import { Container, Header } from './funnel-step.styles';
+import { Container, Header, Step } from './funnel-step.styles';
 
 import { ResponsiveWrapper, ChartBase } from '../../components';
 
@@ -26,18 +26,12 @@ const createStepMotion = (layout: Layout) => {
   };
 };
 
-const createMotionStyle = (layout: Layout, stepsCount: number) => ({
-  display: 'flex',
-  flexGrow: 1,
-  margin: `${layout === 'horizontal' ? '0 3px' : '3px 0'}`,
-  height: `${layout === 'horizontal' ? 100 : 100 / stepsCount}%`,
-  width: `${layout === 'horizontal' ? 100 / stepsCount : 100}%`,
-});
-
 const createStepTransition = (idx: number) => ({
   delay: idx * 0.2,
   duration: 0.7,
 });
+
+const stepShadow = '10px 20px 24px 8px rgba(29,39,41, .1)';
 
 type Props = {
   scale: ScaleLinear<number, number>;
@@ -72,54 +66,60 @@ export const FunnelStep: FC<Props> = ({
   } = theme;
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.1 }}
-      style={createMotionStyle(layout, stepsCount)}
-    >
-      <Container layout={layout} backgroundColor={step.backgroundColor}>
-        <Header
-          centerItems={layout === 'horizontal'}
-          fixedWidth={layout === 'vertical'}
-          backgroundColor={header.backgroundColor}
-        >
-          <FunnelHeader
-            label={label}
-            value={value}
-            percentageValue={percentageValue}
-            theme={theme}
-          />
-        </Header>
-        <ResponsiveWrapper>
-          {(width: number, height: number) => {
-            const path = calculateStepPoints({
-              layout,
-              scale,
-              percentageValue,
-              nextPercentageValue,
-              dimension: { height, width },
-              margins,
-            });
+    <Step layout={layout} stepsCount={stepsCount}>
+      <motion.div
+        style={{ width: '100%', height: '100%' }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: stepShadow,
+        }}
+      >
+        <Container layout={layout} backgroundColor={step.backgroundColor}>
+          <Header
+            centerItems={layout === 'horizontal'}
+            fixedWidth={layout === 'vertical'}
+            backgroundColor={header.backgroundColor}
+          >
+            <FunnelHeader
+              label={label}
+              value={value}
+              percentageValue={percentageValue}
+              theme={theme}
+            />
+          </Header>
+          <ResponsiveWrapper>
+            {(width: number, height: number) => {
+              const path = calculateStepPoints({
+                layout,
+                scale,
+                percentageValue,
+                nextPercentageValue,
+                dimension: { height, width },
+                margins,
+              });
 
-            return (
-              <ChartBase
-                svgDimensions={{ width, height }}
-                margins={margins}
-                theme={theme as Theme}
-              >
-                <motion.path
-                  fill={color}
-                  d={path}
-                  transition={createStepTransition(index)}
-                  initial="hidden"
-                  animate="visible"
-                  variants={stepMotion}
-                />
-              </ChartBase>
-            );
-          }}
-        </ResponsiveWrapper>
-      </Container>
-    </motion.div>
+              return (
+                <ChartBase
+                  svgDimensions={{ width, height }}
+                  margins={margins}
+                  theme={theme as Theme}
+                >
+                  <motion.path
+                    fill={color}
+                    d={path}
+                    transition={createStepTransition(index)}
+                    initial="hidden"
+                    animate="visible"
+                    variants={stepMotion}
+                  />
+                </ChartBase>
+              );
+            }}
+          </ResponsiveWrapper>
+        </Container>
+      </motion.div>
+    </Step>
   );
 };
 

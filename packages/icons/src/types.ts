@@ -10,4 +10,5 @@ export type IconType =
   | 'caret-down'
   | 'caret-up'
   | 'caret-left'
-  | 'caret-right';
+  | 'caret-right'
+  | 'brand';

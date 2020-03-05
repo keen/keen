@@ -37,7 +37,6 @@ export const FunnelChart: FC<Props> = ({
     data,
     key,
     colors: theme.colors,
-    labelSelector,
   });
 
   return (

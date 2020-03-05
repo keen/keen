@@ -8,7 +8,6 @@ type Options = {
   data: Record<string, any>[];
   key: string;
   colors: string[];
-  labelSelector: string;
 };
 
 type Step = {

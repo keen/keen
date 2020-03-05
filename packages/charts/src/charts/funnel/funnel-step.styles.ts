@@ -18,6 +18,36 @@ export const Header = styled.div<{
     css`
       text-align: center;
     `};
+
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const Step = styled.div<{
+  layout: Layout;
+  stepsCount: number;
+}>`
+  display: flex;
+  flex-grow: 1;
+  flex-basis: content;
+  box-sizing: border-box;
+
+  ${props => {
+    if (props.layout === 'vertical') {
+      return css`
+        padding: 3px 0;
+        width: 100%;
+        height: ${100 / props.stepsCount}%;
+      `;
+    }
+
+    if (props.layout === 'horizontal') {
+      return css`
+        padding: 0 3px;
+        width: ${100 / props.stepsCount}%;
+        height: 100%;
+      `;
+    }
+  }}
 `;
 
 export const Container = styled.div<{

@@ -87,7 +87,7 @@ export const withKnobs = () => {
         card={cardKnobs('Card')}
         labelSelector="name"
         key="value"
-        layout={layoutKnobs('Chart', 'vertical') as Layout}
+        layout={layoutKnobs('Chart', 'horizontal') as Layout}
         margins={object(
           'Margins',
           { top: 30, right: 20, bottom: 50, left: 40 },
