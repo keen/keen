@@ -68,7 +68,7 @@ export const withKnobs = () => {
   };
 
   return (
-    <div style={{ width: '700px', height: '400px' }}>
+    <div style={{ width: '700px', height: '500px' }}>
       <FunnelChartWidget
         title={{
           content: text('Title', 'Widget Title', 'Title Settings'),

@@ -24,25 +24,24 @@ export const FunnelChartWidget: FC<Props> = ({
   subtitle,
   card,
   ...props
-}) => {
-  return (
-    <ChartWidget
-      cardSettings={card}
-      legendSettings={{
-        position: legend.position,
-        alignment: legend.alignment,
-        layout: legend.layout,
-      }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      <ContentSocket>
-        <Content>
-          <FunnelChart theme={theme} {...props} />
-        </Content>
-      </ContentSocket>
-    </ChartWidget>
-  );
-};
+}) => (
+  <ChartWidget
+    cardSettings={card}
+    legendSettings={{
+      position: legend.position,
+      alignment: legend.alignment,
+      layout: legend.layout,
+    }}
+  >
+    <TitleSocket>
+      <WidgetHeading title={title} subtitle={subtitle} />
+    </TitleSocket>
+    <ContentSocket>
+      <Content>
+        <FunnelChart theme={theme} {...props} />
+      </Content>
+    </ContentSocket>
+  </ChartWidget>
+);
+
 export default FunnelChartWidget;

@@ -84,6 +84,7 @@ export const FunnelStep: FC<Props> = ({
             <FunnelHeader
               label={label}
               value={value}
+              flipBadge={layout === 'horizontal'}
               percentageValue={percentageValue}
               theme={theme}
             />

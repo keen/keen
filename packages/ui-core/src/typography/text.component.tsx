@@ -10,7 +10,7 @@ type Props = {
 
 const BaseText = styled.div<Props>`
   ${typography}
-  color: ${props => props.fontColor}
+  color: ${props => props.fontColor};
 
   ${props =>
     props.truncate &&
