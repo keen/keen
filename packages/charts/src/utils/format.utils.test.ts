@@ -2,13 +2,6 @@ import { formatNumber, formatText } from './format.utils';
 
 describe('@keen.io/charts - format utils', () => {
   describe('formatText()', () => {
-    it('should format "Date" instance to string format', () => {
-      const value = new Date('December 17, 2019 05:24:00');
-      expect(formatText(value)).toMatchInlineSnapshot(
-        `"Tue Dec 17 2019 05:24:00 GMT+0100 (GMT+01:00)"`
-      );
-    });
-
     it('should apply "formatLabel" function from scale settings', () => {
       const value = 'lorem ipsum';
       const scaleSettings = {
