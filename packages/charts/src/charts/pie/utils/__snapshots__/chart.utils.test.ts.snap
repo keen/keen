@@ -3,6 +3,10 @@
 exports[`@keen/charts <PieChart /> - utils should calculate position for labels placed "outer" of slice 1`] = `
 Array [
   Object {
+    "activePosition": Array [
+      -4.312731892445443,
+      -9.022213898145175,
+    ],
     "color": "#85B4C3",
     "endAngle": 6.283185307179586,
     "index": "4",
@@ -17,6 +21,10 @@ Array [
     "startAngle": 5.391378360354096,
   },
   Object {
+    "activePosition": Array [
+      -5.545165057524355,
+      8.321727253690241,
+    ],
     "color": "#CB5623",
     "endAngle": 4.377961375325131,
     "index": "2",
@@ -31,6 +39,10 @@ Array [
     "startAngle": 3.080787634488055,
   },
   Object {
+    "activePosition": Array [
+      7.106806583781534,
+      -7.03514748819948,
+    ],
     "color": "#E29B1E",
     "endAngle": 1.5809304966451863,
     "index": "0",
@@ -45,6 +57,10 @@ Array [
     "startAngle": 0,
   },
   Object {
+    "activePosition": Array [
+      -9.851963176211386,
+      -1.7142991496745383,
+    ],
     "color": "#487650",
     "endAngle": 5.391378360354096,
     "index": "3",
@@ -59,6 +75,10 @@ Array [
     "startAngle": 4.377961375325131,
   },
   Object {
+    "activePosition": Array [
+      7.247927872291199,
+      6.889669190756866,
+    ],
     "color": "#F4A083",
     "endAngle": 3.080787634488055,
     "index": "1",
@@ -78,6 +98,10 @@ Array [
 exports[`@keen/charts <PieChart /> - utils should calculate properties for each arc 1`] = `
 Array [
   Object {
+    "activePosition": Array [
+      -4.312731892445443,
+      -9.022213898145175,
+    ],
     "color": "#85B4C3",
     "endAngle": 6.283185307179586,
     "index": "4",
@@ -92,6 +116,10 @@ Array [
     "startAngle": 5.391378360354096,
   },
   Object {
+    "activePosition": Array [
+      -5.545165057524355,
+      8.321727253690241,
+    ],
     "color": "#CB5623",
     "endAngle": 4.377961375325131,
     "index": "2",
@@ -106,6 +134,10 @@ Array [
     "startAngle": 3.080787634488055,
   },
   Object {
+    "activePosition": Array [
+      7.106806583781534,
+      -7.03514748819948,
+    ],
     "color": "#E29B1E",
     "endAngle": 1.5809304966451863,
     "index": "0",
@@ -120,6 +152,10 @@ Array [
     "startAngle": 0,
   },
   Object {
+    "activePosition": Array [
+      -9.851963176211386,
+      -1.7142991496745383,
+    ],
     "color": "#487650",
     "endAngle": 5.391378360354096,
     "index": "3",
@@ -134,6 +170,10 @@ Array [
     "startAngle": 4.377961375325131,
   },
   Object {
+    "activePosition": Array [
+      7.247927872291199,
+      6.889669190756866,
+    ],
     "color": "#F4A083",
     "endAngle": 3.080787634488055,
     "index": "1",
