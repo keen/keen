@@ -6,9 +6,16 @@ import {
   countAnalysisDoubleGroupByWithInterval,
   countAnalysisGroupByWithInterval,
   countAnalysisDoubleGroupBy,
+  funnelAnalysis,
 } from './api.fixtures';
 
 describe('@keen.io/parser - parseQuery()', () => {
+  it('should create structure for "funnel" analysis', () => {
+    const result = parseQuery(funnelAnalysis);
+
+    expect(result).toMatchSnapshot();
+  });
+
   it('should create structure for "count" analysis', () => {
     const result = parseQuery(countAnalysis);
 

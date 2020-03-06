@@ -26,6 +26,10 @@ export type Props = {
   disabledLabels?: string[];
   /** Spacing between pie slices */
   padAngle?: number;
+  /** Radius between pie slices */
+  padRadius?: number;
+  /** Arc corner radius */
+  cornerRadius?: number;
   /** Radius of inner circle */
   innerRadius?: number;
   /** The radius for slice labels */
@@ -49,7 +53,9 @@ export const PieChart: FC<Props> = ({
   labelSelector = 'name',
   keys = ['value'],
   disabledLabels = [],
-  padAngle = 0.01,
+  padAngle = 0.02,
+  padRadius = 100,
+  cornerRadius = 2,
   innerRadius = 20,
   labelsRadius = 30,
   labelsPosition = 'inside',
@@ -59,6 +65,8 @@ export const PieChart: FC<Props> = ({
     data,
     margins,
     padAngle,
+    padRadius,
+    cornerRadius,
     innerRadius,
     labelSelector,
     labelsRadius,
@@ -128,6 +136,7 @@ export const PieChart: FC<Props> = ({
               index,
               label,
               labelPosition,
+              activePosition,
               startAngle,
               endAngle,
               color,
@@ -141,6 +150,7 @@ export const PieChart: FC<Props> = ({
                 endAngle={endAngle}
                 label={label}
                 autocolor={labelsAutocolor}
+                activePosition={activePosition}
                 labelPosition={labelPosition}
                 background={color}
                 onMouseMove={e => {

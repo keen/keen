@@ -1,9 +1,24 @@
-import { AtomicResult } from '../types';
+/* eslint-disable @typescript-eslint/camelcase */
+import { AtomicResult, Step } from '../types';
 
 import { DEFAULT_NAME, DEFAULT_VALUE_KEY } from '../constants';
 
 export const transformFromNumber = (value: number) => ({
   results: [{ name: DEFAULT_NAME, value }],
+  keys: [DEFAULT_VALUE_KEY],
+});
+
+export const transformFunnel = ({
+  steps,
+  result,
+}: {
+  steps: Step[];
+  result: number[];
+}) => ({
+  results: steps.map(({ event_collection }: Step, idx: number) => ({
+    name: event_collection,
+    value: result[idx],
+  })),
   keys: [DEFAULT_VALUE_KEY],
 });
 

@@ -7,16 +7,21 @@ type Props = {
 };
 
 const ShadowFilter: FC<Props> = ({ filterId = SHADOW_FILTER_ID }) => (
-  <filter id={filterId} height="130%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="15" />
-    <feOffset dx="6" dy="6" result="offsetblur" />
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.11" />
-    </feComponentTransfer>
-    <feMerge>
-      <feMergeNode />
-      <feMergeNode in="SourceGraphic" />
-    </feMerge>
+  <filter
+    id={filterId}
+    filterUnits="objectBoundingBox"
+    x="-50%"
+    y="-50%"
+    width="200%"
+    height="200%"
+  >
+    <feDropShadow
+      dx="4"
+      dy="10"
+      stdDeviation="10"
+      floodColor="#1D2729"
+      floodOpacity="0.3"
+    />
   </filter>
 );
 

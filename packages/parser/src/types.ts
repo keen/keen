@@ -20,7 +20,7 @@ export type Intervals =
   | 'monthly'
   | 'yearly';
 
-export type Charts = 'pie' | 'bar' | 'line';
+export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
 
 export type Query = {
   interval?: string;
@@ -32,9 +32,22 @@ export type AtomicResult = { [key: string]: string | number } & {
   result: number;
 };
 
+export type Step = {
+  with_actors: boolean;
+  actor_property: string;
+  event_collection: string;
+  timeframe: { start: string; end: string };
+  optional: boolean;
+  inverted: boolean;
+};
+
 export type IntervalResult = {
   timeframe: { start: string; end: string };
   value: number | AtomicResult[];
 };
 
-export type AnalysisResult = number | IntervalResult[] | AtomicResult[];
+export type AnalysisResult =
+  | number
+  | number[]
+  | IntervalResult[]
+  | AtomicResult[];
