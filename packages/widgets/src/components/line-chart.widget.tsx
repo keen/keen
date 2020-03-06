@@ -35,6 +35,7 @@ export const LineChartWidget: FC<Props> = ({
 
   return (
     <ChartWidget
+      cardSettings={card}
       legendSettings={{
         position: legend.position,
         alignment: legend.alignment,
@@ -42,8 +43,8 @@ export const LineChartWidget: FC<Props> = ({
       }}
     >
       <TitleSocket>
-        {title && <div>{title}</div>}
-        {subtitle && <div>{subtitle}</div>}
+        {title && <div>{title.content}</div>}
+        {subtitle && <div>{subtitle.content}</div>}
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
@@ -54,16 +55,6 @@ export const LineChartWidget: FC<Props> = ({
               name: key,
               color: theme.colors[idx],
             }))}
-        />
-      </LegendSocket>
-    )}
-    <ContentSocket>
-      <ResponsiveWrapper>
-        {(width: number, height: number) => (
-          <LineChart
-            {...props}
-            theme={theme}
-            svgDimensions={{ width, height }}
           />
         </LegendSocket>
       )}
