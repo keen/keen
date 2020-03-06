@@ -1,4 +1,4 @@
-import { getFromPath } from '../../../utils';
+import { getFromPath } from '../../../utils/selectors.utils';
 
 export type MetricType = 'percent' | 'difference' | 'compare';
 

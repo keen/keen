@@ -12,7 +12,7 @@ type Props = {
   type: IconType;
 };
 
-const Icon: FC<Props> = ({
+export const Icon: FC<Props> = ({
   width = 15,
   height = 15,
   fill = colors.white['500'],

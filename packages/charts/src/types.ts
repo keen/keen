@@ -75,8 +75,29 @@ export type Metric = {
   };
 };
 
+export type Funnel = {
+  header: {
+    value: {
+      enabled: boolean;
+      typography: Typography;
+    };
+    title: {
+      typography: Typography;
+    };
+    badge: {
+      enabled: boolean;
+      typography: Typography;
+    };
+    backgroundColor: string;
+  };
+  step: {
+    backgroundColor: string;
+  };
+};
+
 export type Theme = {
   colors: string[];
+  funnel: Funnel;
   metric?: Metric;
   tooltip?: Tooltip;
   axisX?: Axis;
@@ -112,8 +133,12 @@ export type TimePrecision =
 
 export type ScaleSettings = {
   type: 'time' | 'band' | 'linear';
-  formatLabel?: (label: string | number) => string | number;
+  formatLabel?: (label: string | number | Date) => string | number;
   precision?: TimePrecision;
+};
+
+export type Motion = {
+  enabled: boolean;
 };
 
 export type DataSelector = (number | string)[];

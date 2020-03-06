@@ -30,3 +30,13 @@ export const metricTypeKnobs = (
   namespace: string,
   defaultValue: string = metricTypeOptions.compare
 ) => select('Metric type', metricTypeOptions, defaultValue, namespace);
+
+const layoutOptions = {
+  vertical: 'vertical',
+  horizontal: 'horizontal',
+};
+
+export const layoutKnobs = (
+  namespace: string,
+  defaultValue: string = layoutOptions.vertical
+) => select('Layout', layoutOptions, defaultValue, namespace);

@@ -16,7 +16,7 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/charts - <Card />', () => {
+describe('@keen.io/ui-core - <Card />', () => {
   it('should render render children', () => {
     const children = 'text';
     const { wrapper } = setup({
