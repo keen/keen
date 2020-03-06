@@ -1,12 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useRef, useState, useContext, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
 import PieLabel from './pie-label.component';
+import { StyledPath } from './pie-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from './utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
+
+const transition = { duration: 0.2, ease: 'easeInOut' };
 
 type Props = {
   draw: Arc<any, DefaultArcObject>;
@@ -15,6 +19,7 @@ type Props = {
   endAngle: number;
   autocolor: boolean;
   labelPosition: [number, number];
+  activePosition: [number, number];
   label: string;
   background: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
@@ -24,7 +29,7 @@ type Props = {
 const PieSlice: FC<Props> = ({
   background,
   draw,
-  drawActive,
+  activePosition,
   autocolor,
   label,
   startAngle,
@@ -43,9 +48,7 @@ const PieSlice: FC<Props> = ({
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme;
 
-  const pathDraw = isActive
-    ? drawActive(arcProperties as DefaultArcObject)
-    : draw(arcProperties as DefaultArcObject);
+  const [x, y] = activePosition;
 
   useEffect(() => {
     const shouldAnimate =
@@ -72,15 +75,26 @@ const PieSlice: FC<Props> = ({
   }, [startAngle, endAngle]);
 
   return (
-    <g
+    <motion.g
       onMouseMove={onMouseMove}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={e => {
         onMouseLeave(e);
         setActive(false);
       }}
+      transition={transition}
+      whileHover={{
+        x,
+        y,
+      }}
     >
-      <path ref={element} d={pathDraw} key={background} fill={background} />
+      <StyledPath
+        dropShadow={isActive}
+        ref={element}
+        d={draw(arcProperties as DefaultArcObject)}
+        key={background}
+        fill={background}
+      />
       {labels.enabled && (
         <PieLabel
           sliceBackground={background}
@@ -91,7 +105,7 @@ const PieSlice: FC<Props> = ({
           {label}
         </PieLabel>
       )}
-    </g>
+    </motion.g>
   );
 };
 

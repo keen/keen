@@ -16,6 +16,8 @@ export type Options = {
   margins: Margins;
   colors: string[];
   padAngle: number;
+  padRadius: number;
+  cornerRadius: number;
   innerRadius: number;
   labelsRadius: number;
   labelsPosition: LabelsPosition;
@@ -24,6 +26,7 @@ export type Options = {
 type PieSlice = {
   index: string;
   label: string;
+  activePosition: [number, number];
   labelPosition: [number, number];
   color: string;
   selector: DataSelector;
@@ -33,13 +36,15 @@ type PieSlice = {
 
 type PieValue = { color: string; value: number; selector: DataSelector };
 
-export const HOVER_RADIUS = 10;
+export const HOVER_RADIUS = 5;
 
 export const generatePieChart = ({
   data,
   colors,
   dimension,
   padAngle,
+  padRadius,
+  cornerRadius,
   innerRadius,
   labelSelector,
   keys,
@@ -99,10 +104,17 @@ export const generatePieChart = ({
   const arcs: PieSlice[] = createPie(values as any).map(
     ({ startAngle, endAngle, value, index, data }) => {
       const { color, selector } = data as any;
+      const [x, y] = createArc.centroid({
+        innerRadius: innerRadius,
+        outerRadius: 0,
+        startAngle,
+        endAngle,
+      });
 
       return {
         label: String(`${(Math.round(value * 100) / total).toFixed(1)}%`),
         labelPosition: calculateLabelPosition(startAngle, endAngle),
+        activePosition: [x, y],
         index: String(index),
         selector,
         color,
@@ -116,11 +128,15 @@ export const generatePieChart = ({
     arcs,
     drawActiveArc: arc()
       .padAngle(padAngle)
-      .innerRadius(innerRadius)
-      .outerRadius(radius + HOVER_RADIUS),
+      .innerRadius(innerRadius + HOVER_RADIUS)
+      .outerRadius(radius + HOVER_RADIUS)
+      .padRadius(padRadius)
+      .cornerRadius(cornerRadius),
     drawArc: arc()
       .padAngle(padAngle)
       .innerRadius(innerRadius)
-      .outerRadius(radius),
+      .outerRadius(radius)
+      .padRadius(padRadius)
+      .cornerRadius(cornerRadius),
   };
 };

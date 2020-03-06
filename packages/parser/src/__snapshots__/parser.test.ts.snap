@@ -115,3 +115,25 @@ Object {
   ],
 }
 `;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "funnel" analysis 1`] = `
+Object {
+  "keys": Array [
+    "value",
+  ],
+  "results": Array [
+    Object {
+      "name": "pageviews",
+      "value": 1128,
+    },
+    Object {
+      "name": "signups",
+      "value": 317,
+    },
+    Object {
+      "name": "purchases",
+      "value": 89,
+    },
+  ],
+}
+`;

@@ -4,13 +4,14 @@ import {
   LineChartWidget,
   PieChartWidget,
   MetricChartWidget,
+  FunnelChartWidget,
   WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
 
 import { ComponentSettings } from './types';
 
-export type Widgets = 'bar' | 'line' | 'pie' | 'metric';
+export type Widgets = 'bar' | 'line' | 'pie' | 'metric' | 'funnel';
 
 type Options = {
   type: Widgets;
@@ -38,6 +39,10 @@ export const renderWidget = ({
   };
 
   switch (type) {
+    case 'funnel':
+      const [key] = keys;
+      console.log(config, 'ssaas');
+      return <FunnelChartWidget key={key} {...config} />;
     case 'metric':
       return <MetricChartWidget {...config} />;
     case 'pie':

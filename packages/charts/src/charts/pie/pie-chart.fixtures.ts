@@ -18,6 +18,8 @@ export const pieChart: PieChartOptions = {
   margins: { top: 10, bottom: 10, left: 10, right: 10 },
   colors: chartColors,
   padAngle: 0.01,
+  padRadius: 100,
+  cornerRadius: 4,
   innerRadius: 20,
   labelsRadius: 30,
   labelsPosition: 'inside',

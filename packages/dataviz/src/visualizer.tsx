@@ -3,6 +3,7 @@ import {
   parseQuery,
   createScaleSettings,
   Query,
+  Step,
   AnalysisResult,
 } from '@keen.io/parser';
 import { WidgetSettings } from '@keen.io/widgets';
@@ -54,12 +55,20 @@ class Visualizer {
     return extendWidgetSettings(this.widgetSettings, this.type);
   }
 
-  render({ query, result }: { query: Query; result: AnalysisResult }) {
+  render({
+    query,
+    steps,
+    result,
+  }: {
+    query: Query;
+    steps: Step[];
+    result: AnalysisResult;
+  }) {
     const container =
       this.container instanceof HTMLElement
         ? this.container
         : document.querySelector(this.container);
-    const { keys, results } = parseQuery({ query, result });
+    const { keys, results } = parseQuery({ query, steps, result });
 
     ReactDOM.render(
       renderWidget({
@@ -67,7 +76,7 @@ class Visualizer {
         widgetSettings: this.setWidgetSettings(),
         componentSettings: this.setComponentSettings(),
         data: results,
-        scaleSettings: createScaleSettings(query),
+        scaleSettings: query ? createScaleSettings(query) : {},
         keys,
       }),
       container

@@ -2,28 +2,46 @@ import {
   transformIntervalsFromArray,
   transformAtomicResult,
   transformFromNumber,
+  transformFunnel,
 } from './utils/transform.utils';
 
-import { AnalysisResult, IntervalResult, AtomicResult, Query } from './types';
+import {
+  AnalysisResult,
+  Step,
+  IntervalResult,
+  AtomicResult,
+  Query,
+} from './types';
 
 import { DEFAULT_VALUE_KEY } from './constants';
 
 export const parseQuery = ({
   result,
+  steps,
 }: {
-  query: Query;
+  query?: Query;
+  steps?: Step[];
   result: AnalysisResult;
 }) => {
   const keys: Set<string> = new Set();
   const results: Record<string, any>[] = [];
+
+  if (steps && Array.isArray(result)) {
+    const funnelResults = result as number[];
+    return transformFunnel({ result: funnelResults, steps });
+  }
 
   if (typeof result === 'number') {
     return transformFromNumber(result);
   }
 
   Array.isArray(result) &&
-    result.forEach((partialResult: IntervalResult | AtomicResult) => {
-      if ('value' in partialResult && 'timeframe' in partialResult) {
+    result.forEach((partialResult: number | IntervalResult | AtomicResult) => {
+      if (
+        typeof partialResult !== 'number' &&
+        'value' in partialResult &&
+        'timeframe' in partialResult
+      ) {
         const { value, timeframe } = partialResult as IntervalResult;
 
         if (Array.isArray(value)) {
@@ -43,7 +61,7 @@ export const parseQuery = ({
         }
       }
 
-      if ('result' in partialResult) {
+      if (typeof partialResult !== 'number' && 'result' in partialResult) {
         const { result, ...properties } = transformAtomicResult(partialResult);
         keys.add(DEFAULT_VALUE_KEY);
 

@@ -1,5 +1,44 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { Query, IntervalResult } from './types';
+import { Query, IntervalResult, Step } from './types';
+
+export const funnelAnalysis = {
+  steps: [
+    {
+      with_actors: false,
+      actor_property: 'user.uuid',
+      timeframe: {
+        start: '2019-03-13T00:00:00+00:00',
+        end: '2019-08-14T00:00:00+00:00',
+      },
+      event_collection: 'pageviews',
+      optional: false,
+      inverted: false,
+    },
+    {
+      with_actors: false,
+      actor_property: 'user.uuid',
+      timeframe: {
+        start: '2019-03-13T00:00:00+00:00',
+        end: '2019-08-14T00:00:00+00:00',
+      },
+      event_collection: 'signups',
+      optional: false,
+      inverted: false,
+    },
+    {
+      with_actors: false,
+      actor_property: 'user.uuid',
+      timeframe: {
+        start: '2019-03-13T00:00:00+00:00',
+        end: '2019-08-14T00:00:00+00:00',
+      },
+      event_collection: 'purchases',
+      optional: false,
+      inverted: false,
+    },
+  ] as Step[],
+  result: [1128, 317, 89],
+};
 
 export const countAnalysis = {
   query: {

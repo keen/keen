@@ -3,6 +3,7 @@ import {
   LineChartSettings,
   PieChartSettings,
   MetricChartSettings,
+  FunnelChartSettings,
 } from '@keen.io/charts';
 import { CardSettings } from '@keen.io/ui-core';
 import { TextSettings, LegendSettings } from '@keen.io/widgets';
@@ -21,6 +22,7 @@ export type ComponentSettings =
   | LineChartSettings
   | PieChartSettings
   | MetricChartSettings
+  | FunnelChartSettings
   | {};
 
 export type Options = {
