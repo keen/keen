@@ -154,3 +154,5 @@ export type LabelRotation = {
 export type GroupMode = 'grouped' | 'stacked';
 
 export type StackMode = 'normal' | 'percent';
+
+export type ColorModeType = 'steps' | 'shades';

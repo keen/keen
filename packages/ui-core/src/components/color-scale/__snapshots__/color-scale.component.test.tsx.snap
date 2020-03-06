@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ColorScale /> should render ColorScale with gradient 1`] = `
+<Fragment>
+  <styled.div
+    colors={
+      Array [
+        "white",
+        "#85B4C3",
+      ]
+    }
+    key="white-#85B4C3"
+  />
+</Fragment>
+`;
+
+exports[`<ColorScale /> should render ColorScale with steps 1`] = `
+<Fragment>
+  <styled.div
+    background="yellow"
+    key="yellow"
+  />
+  <styled.div
+    background="green"
+    key="green"
+  />
+  <styled.div
+    background="red"
+    key="red"
+  />
+</Fragment>
+`;

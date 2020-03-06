@@ -7,6 +7,7 @@ import {
   normalizeToPercent,
   calculateRange,
   EDGE_TICK_ALIGN,
+  calculateColorScale,
 } from './utils';
 
 import { Orientation } from './types';
@@ -293,6 +294,78 @@ describe('@keen.io/charts - utils', () => {
       expect(positionCalculator('Sales')).toEqual(20);
       expect(positionCalculator('Marketing')).toEqual(60);
       expect(positionCalculator('E-commerce')).toEqual(100);
+    });
+  });
+
+  describe('calculateColorScale()', () => {
+    describe('colorMode === shades', () => {
+      it('should return specific colors for 3 provided colors', () => {
+        const color = calculateColorScale(0, 20, ['yellow', 'green', 'red']);
+
+        expect(color(0)).toEqual('rgb(255, 255, 0)');
+        expect(color(20)).toEqual('rgb(255, 0, 0)');
+        expect(color(10)).toEqual('rgb(0, 128, 0)');
+      });
+      it('should return specific colors for 2 provided colors', () => {
+        const color = calculateColorScale(0, 20, ['white', 'black']);
+
+        expect(color(0)).toEqual('rgb(255, 255, 255)');
+        expect(color(20)).toEqual('rgb(0, 0, 0)');
+        expect(color(10)).toEqual('rgb(128, 128, 128)');
+      });
+
+      it('should return specific colors for 1 provided colors', () => {
+        const color = calculateColorScale(0, 20, ['green']);
+
+        expect(color(0)).toEqual('rgb(255, 255, 255)');
+        expect(color(20)).toEqual('rgb(0, 128, 0)');
+        expect(color(10)).toEqual('rgb(128, 192, 128)');
+      });
+
+      it('should return specific colors for 0 provided colors', () => {
+        const color = calculateColorScale(0, 20);
+
+        expect(color(0)).toEqual('rgb(255, 255, 255)');
+        expect(color(20)).toEqual('rgb(133, 180, 195)');
+        expect(color(10)).toEqual('rgb(194, 218, 225)');
+      });
+    });
+    describe('colorMode === steps', () => {
+      it('should return specific colors for 3 provided colors', () => {
+        const color = calculateColorScale(
+          0,
+          20,
+          ['yellow', 'green', 'red'],
+          'steps'
+        );
+
+        expect(color(0)).toEqual('yellow');
+        expect(color(20)).toEqual('red');
+        expect(color(10)).toEqual('green');
+      });
+      it('should return specific colors for 2 provided colors', () => {
+        const color = calculateColorScale(0, 20, ['white', 'black'], 'steps');
+
+        expect(color(0)).toEqual('white');
+        expect(color(20)).toEqual('black');
+        expect(color(10)).toEqual('white');
+      });
+
+      it('should return specific colors for 1 provided colors', () => {
+        const color = calculateColorScale(0, 20, ['green'], 'steps');
+
+        expect(color(0)).toEqual('rgb(255, 255, 255)');
+        expect(color(20)).toEqual('rgb(0, 128, 0)');
+        expect(color(10)).toEqual('rgb(128, 192, 128)');
+      });
+
+      it('should return specific colors for 0 provided colors', () => {
+        const color = calculateColorScale(0, 20, [], 'steps');
+
+        expect(color(0)).toEqual('rgb(255, 255, 255)');
+        expect(color(20)).toEqual('rgb(133, 180, 195)');
+        expect(color(10)).toEqual('rgb(194, 218, 225)');
+      });
     });
   });
 });
