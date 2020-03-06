@@ -11,10 +11,12 @@ import typographyKnobs from './typography.knobs';
 import {
   stackModeKnobs,
   groupModeKnobs,
+  layoutKnobs,
   metricTypeKnobs,
   lineStackModeKnobs,
   curveKnobs,
 } from './select.knobs';
+import { cardKnobs } from './card.knobs';
 
 import StoryWrapper from './story-wrapper.component';
 
@@ -29,6 +31,8 @@ export {
   stackModeKnobs,
   groupModeKnobs,
   metricTypeKnobs,
+  cardKnobs,
+  layoutKnobs,
   getGoogleFonts,
   lineStackModeKnobs,
   curveKnobs,

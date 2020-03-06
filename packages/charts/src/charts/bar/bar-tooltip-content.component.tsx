@@ -2,11 +2,8 @@ import React, { FC } from 'react';
 import { BulletList } from '@keen.io/ui-core';
 
 import { getLabel } from './utils/tooltip.utils';
-import {
-  getFromPath,
-  getKeysDifference,
-  normalizeToPercent,
-} from '../../utils';
+import { getKeysDifference, normalizeToPercent } from '../../utils';
+import { getFromPath } from '../../utils/selectors.utils';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 

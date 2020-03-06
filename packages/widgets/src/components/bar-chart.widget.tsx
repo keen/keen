@@ -30,12 +30,14 @@ export const BarChartWidget: FC<Props> = ({
   theme = defaultTheme,
   title,
   subtitle,
+  card,
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
   return (
     <ChartWidget
+      cardSettings={card}
       legendSettings={{
         position: legend.position,
         alignment: legend.alignment,

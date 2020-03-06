@@ -50,3 +50,13 @@ export const curveKnobs = (
   namespace: string,
   defaultValue: string = curveOptions.linear
 ) => select('Curve', curveOptions, defaultValue, namespace);
+
+const layoutOptions = {
+  vertical: 'vertical',
+  horizontal: 'horizontal',
+};
+
+export const layoutKnobs = (
+  namespace: string,
+  defaultValue: string = layoutOptions.vertical
+) => select('Layout', layoutOptions, defaultValue, namespace);

@@ -28,6 +28,7 @@ export const LineChartWidget: FC<Props> = ({
   subtitle,
   legend = legendSettings,
   theme = defaultTheme,
+  card,
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
@@ -53,6 +54,16 @@ export const LineChartWidget: FC<Props> = ({
               name: key,
               color: theme.colors[idx],
             }))}
+        />
+      </LegendSocket>
+    )}
+    <ContentSocket>
+      <ResponsiveWrapper>
+        {(width: number, height: number) => (
+          <LineChart
+            {...props}
+            theme={theme}
+            svgDimensions={{ width, height }}
           />
         </LegendSocket>
       )}
