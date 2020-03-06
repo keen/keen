@@ -41,7 +41,6 @@ export const renderWidget = ({
   switch (type) {
     case 'funnel':
       const [key] = keys;
-      console.log(config, 'ssaas');
       return <FunnelChartWidget key={key} {...config} />;
     case 'metric':
       return <MetricChartWidget {...config} />;
