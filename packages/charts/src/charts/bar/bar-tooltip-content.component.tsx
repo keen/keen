@@ -5,8 +5,7 @@ import { getLabel } from './utils/tooltip.utils';
 import { getKeysDifference, normalizeToPercent } from '../../utils';
 import { getFromPath } from '../../utils/selectors.utils';
 
-import { GroupMode, StackMode } from './types';
-import { DataSelector } from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
   data: object[];

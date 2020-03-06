@@ -9,8 +9,8 @@ import BarComponent from './bar.component';
 import { getBarColor } from './utils/bar.utils';
 import { calculateMarkPosition } from './utils/mark.utils';
 
-import { Bar, GroupMode, StackMode } from './types';
-import { DataSelector } from '../../types';
+import { Bar } from './types';
+import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
   bars: Bar[];

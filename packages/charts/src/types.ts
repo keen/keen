@@ -35,6 +35,7 @@ export enum Orientation {
 export type Labels = {
   enabled: boolean;
   typography: Typography;
+  radiusAngle?: number;
 };
 
 export type Tooltip = {
@@ -142,3 +143,14 @@ export type Motion = {
 };
 
 export type DataSelector = (number | string)[];
+
+export type LabelRotation = {
+  anchor: string;
+  radius: number;
+  translateX: number;
+  translateY: number;
+};
+
+export type GroupMode = 'grouped' | 'stacked';
+
+export type StackMode = 'normal' | 'percent';

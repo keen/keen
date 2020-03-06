@@ -11,8 +11,14 @@ import {
   calculateScaleDomain,
 } from '../../../utils';
 
-import { GroupMode, StackMode, Bar } from '../types';
-import { Dimension, Margins, ScaleSettings } from '../../../types';
+import { Bar } from '../types';
+import {
+  Dimension,
+  Margins,
+  ScaleSettings,
+  GroupMode,
+  StackMode,
+} from '../../../types';
 
 type Options = {
   data: Record<string, any>[];

@@ -20,19 +20,26 @@ export const calculateBarProperties = ({
   svgDimensions,
 }: Options) => {
   const height = svgDimensions.height - margins.top - margins.bottom;
-  const overflowLeft = xMin > x - BAR_WIDTH / 2;
-  const overflowRight = x + BAR_WIDTH / 2 > xMax;
-
+  let width = BAR_WIDTH;
   let barX = x - BAR_WIDTH / 2;
 
-  if (overflowLeft) barX = xMin;
-  if (overflowRight) barX = xMax - BAR_WIDTH;
+  if (xMax === x || xMin === x) width = BAR_WIDTH / 2;
+  if (xMin === x) barX = xMin;
+
+  const rightEdge = x + BAR_WIDTH / 2;
+  const leftEdge = barX - xMin;
+
+  if (rightEdge > xMax) width = BAR_WIDTH - (rightEdge - xMax);
+  if (leftEdge < 0) {
+    width = BAR_WIDTH + leftEdge;
+    barX = barX - leftEdge;
+  }
 
   const barY = y || margins.top;
 
   return {
     height,
-    width: BAR_WIDTH,
+    width,
     barX,
     barY,
   };

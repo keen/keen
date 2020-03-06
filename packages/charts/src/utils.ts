@@ -107,10 +107,13 @@ export const calculateScaleDomain = (
 ) => {
   const ticks = scale.ticks();
   const ticksLength = ticks.length;
+  const tickSize = ticks[1] - ticks[0];
 
   if (maximum > ticks[ticksLength - 1]) {
     const difference = Math.ceil(maximum / ticksLength);
-    scale.domain([minimum, ticksLength * difference]);
+    const newMaximum =
+      difference > tickSize ? ticksLength * difference : ticksLength * tickSize;
+    scale.domain([minimum, newMaximum]);
   }
 };
 

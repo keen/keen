@@ -113,6 +113,18 @@ const defaultThemeOptions: ThemeProperties[] = [
   'gridY',
 ];
 
+const radiusAngleOptions = {
+  '-90': -90,
+  '-60': -60,
+  '-45': -45,
+  '-25': -25,
+  '0': 0,
+  '25': 25,
+  '45': 45,
+  '60': 60,
+  '90': 90,
+};
+
 export const createThemeKnobs = (
   options: ThemeProperties[] = defaultThemeOptions
 ) => {
@@ -126,6 +138,7 @@ export const createThemeKnobs = (
       labels: {
         enabled: boolean('Show Labels', true, 'Axis X'),
         typography: createTypographyKnobs('Axis X'),
+        radiusAngle: select('Radius angle', radiusAngleOptions, 0, 'Axis X'),
       },
     },
   });
@@ -140,6 +153,7 @@ export const createThemeKnobs = (
       labels: {
         enabled: boolean('Show Labels', true, 'Axis Y'),
         typography: createTypographyKnobs('Axis Y'),
+        radiusAngle: select('Radius angle', radiusAngleOptions, 0, 'Axis Y'),
       },
     },
   });

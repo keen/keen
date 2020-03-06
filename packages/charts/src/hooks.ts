@@ -18,7 +18,7 @@ export const useTooltip = (
   const updateTooltipPosition = useCallback(
     (
       e: React.MouseEvent,
-      { selector, color }: { selector: DataSelector; color: string }
+      selectors: { selector: DataSelector; color: string }[]
     ) => {
       if (tooltipUpdate.current) clearTimeout(tooltipUpdate.current);
       e.persist();
@@ -30,7 +30,7 @@ export const useTooltip = (
       tooltipUpdate.current = setTimeout(() => {
         setTooltip({
           visible: true,
-          selectors: [{ selector, color }],
+          selectors,
           x: e.pageX - left - window.scrollX,
           y: e.pageY - top - window.scrollY,
         });

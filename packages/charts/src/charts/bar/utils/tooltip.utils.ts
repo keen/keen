@@ -1,5 +1,4 @@
-import { GroupMode, StackMode } from '../types';
-import { DataSelector } from '../../../types';
+import { DataSelector, GroupMode, StackMode } from '../../../types';
 
 import { getFromPath } from '../../../utils/selectors.utils';
 

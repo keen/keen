@@ -2,7 +2,7 @@ import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { generateTicks } from '../utils';
 
-import { Orientation, ScaleSettings } from '../types';
+import { Orientation, ScaleSettings, LabelRotation } from '../types';
 
 type Options = {
   x: number;
@@ -55,5 +55,98 @@ export const createRuler = ({
   return {
     line,
     ticks,
+  };
+};
+
+export const rotateLabel = (
+  orientation: string,
+  radiusAngle: number,
+  tickPadding: number,
+  tickSize: number
+): LabelRotation => {
+  const labelTransform = {
+    anchor: radiusAngle > 0 ? 'start' : 'end',
+    radius: radiusAngle,
+  };
+  if (radiusAngle) {
+    if (orientation === Orientation.HORIZONTAL) {
+      switch (radiusAngle) {
+        case 90:
+          return {
+            ...labelTransform,
+            translateX: -tickPadding + 5,
+            translateY: tickPadding / 2,
+          };
+
+        case -90:
+          return {
+            ...labelTransform,
+            translateX: -tickPadding / 2,
+            translateY: -tickPadding - 5,
+          };
+
+        case -60:
+          return {
+            ...labelTransform,
+            translateX: tickPadding / 2 - 2,
+            translateY: -tickPadding,
+          };
+
+        default:
+          return radiusAngle < 0
+            ? {
+                ...labelTransform,
+                translateX: tickPadding / 2,
+                translateY: -tickPadding / 2 - 2,
+              }
+            : {
+                ...labelTransform,
+                translateX: -tickPadding + 5,
+                translateY: 0,
+              };
+      }
+    } else {
+      switch (radiusAngle) {
+        case 90:
+          return {
+            ...labelTransform,
+            translateX: tickPadding + tickSize - 4,
+            translateY: tickPadding + tickSize - 2,
+          };
+
+        case -90:
+          return {
+            ...labelTransform,
+            translateX: -(tickPadding + tickSize) + 2,
+            translateY: tickPadding + tickSize - 5,
+          };
+
+        case -25:
+          return {
+            ...labelTransform,
+            translateX: -tickPadding + 5,
+            translateY: tickPadding - 5,
+          };
+
+        default:
+          return radiusAngle < 0
+            ? {
+                ...labelTransform,
+                translateX: -tickPadding,
+                translateY: tickPadding - 5,
+              }
+            : {
+                ...labelTransform,
+                translateX: tickPadding - 5,
+                translateY: tickPadding - 5,
+              };
+      }
+    }
+  }
+  return {
+    anchor: 'middle',
+    radius: 0,
+    translateX: 0,
+    translateY: 0,
   };
 };

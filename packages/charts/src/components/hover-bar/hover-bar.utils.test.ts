@@ -41,7 +41,7 @@ describe('@keen.io/charts', () => {
         x: 90,
       });
 
-      expect(barX).toEqual(40);
+      expect(barX).toEqual(65);
     });
 
     it('should set "barY" property based on top margin', () => {

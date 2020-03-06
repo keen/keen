@@ -13,6 +13,8 @@ import {
   groupModeKnobs,
   layoutKnobs,
   metricTypeKnobs,
+  lineStackModeKnobs,
+  curveKnobs,
 } from './select.knobs';
 import { cardKnobs } from './card.knobs';
 
@@ -32,4 +34,6 @@ export {
   cardKnobs,
   layoutKnobs,
   getGoogleFonts,
+  lineStackModeKnobs,
+  curveKnobs,
 };

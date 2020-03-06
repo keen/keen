@@ -145,7 +145,7 @@ export const PieChart: FC<Props> = ({
                 background={color}
                 onMouseMove={e => {
                   if (tooltipSettings.enabled) {
-                    updateTooltipPosition(e, { color, selector });
+                    updateTooltipPosition(e, [{ color, selector }]);
                   }
                 }}
                 onMouseLeave={() => hideTooltip()}

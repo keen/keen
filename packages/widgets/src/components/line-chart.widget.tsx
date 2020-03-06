@@ -15,6 +15,8 @@ import {
   TitleSocket,
 } from './widget-sockets.component';
 
+import { useLegend } from '../hooks';
+
 import { legendSettings } from '../widget-settings';
 import { WidgetSettings } from '../types';
 
@@ -28,43 +30,48 @@ export const LineChartWidget: FC<Props> = ({
   theme = defaultTheme,
   card,
   ...props
-}) => (
-  <ChartWidget
-    cardSettings={card}
-    legendSettings={{
-      position: legend.position,
-      alignment: legend.alignment,
-      layout: legend.layout,
-    }}
-  >
-    <TitleSocket>
-      {title && <div>{title.content}</div>}
-      {subtitle && <div>{subtitle.content}</div>}
-    </TitleSocket>
-    {legend.enabled && (
-      <LegendSocket>
-        <Legend
-          {...legend}
-          onClick={() => {}}
-          labels={props.keys.map((key, idx) => ({
-            name: key,
-            color: theme.colors[idx],
-          }))}
-        />
-      </LegendSocket>
-    )}
-    <ContentSocket>
-      <ResponsiveWrapper>
-        {(width: number, height: number) => (
-          <LineChart
-            {...props}
-            theme={theme}
-            svgDimensions={{ width, height }}
+}) => {
+  const { disabledKeys, updateKeys } = useLegend();
+
+  return (
+    <ChartWidget
+      cardSettings={card}
+      legendSettings={{
+        position: legend.position,
+        alignment: legend.alignment,
+        layout: legend.layout,
+      }}
+    >
+      <TitleSocket>
+        {title && <div>{title.content}</div>}
+        {subtitle && <div>{subtitle.content}</div>}
+      </TitleSocket>
+      {legend.enabled && (
+        <LegendSocket>
+          <Legend
+            {...legend}
+            onClick={updateKeys}
+            labels={props.keys.map((key, idx) => ({
+              name: key,
+              color: theme.colors[idx],
+            }))}
           />
-        )}
-      </ResponsiveWrapper>
-    </ContentSocket>
-  </ChartWidget>
-);
+        </LegendSocket>
+      )}
+      <ContentSocket>
+        <ResponsiveWrapper>
+          {(width: number, height: number) => (
+            <LineChart
+              {...props}
+              theme={theme}
+              disabledKeys={disabledKeys}
+              svgDimensions={{ width, height }}
+            />
+          )}
+        </ResponsiveWrapper>
+      </ContentSocket>
+    </ChartWidget>
+  );
+};
 
 export default LineChartWidget;

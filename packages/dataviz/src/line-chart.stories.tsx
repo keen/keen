@@ -25,6 +25,16 @@ export const simpleResults = () => {
         title: 'Book purchases',
         subtitle: 'hourly',
       },
+      settings: {
+        margins: { top: 30, left: 30, right: 30, bottom: 60 },
+        theme: {
+          axisX: {
+            labels: {
+              radiusAngle: 60,
+            },
+          },
+        },
+      },
     });
 
     client
@@ -40,10 +50,10 @@ export const simpleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
 
-export const multipleResults = () => {
+export const multipleResultsSpline = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -51,6 +61,19 @@ export const multipleResults = () => {
     const dataviz = new Visualizer({
       type: 'line',
       container: container.current,
+      widget: {
+        title: 'Book purchases',
+        subtitle: 'Multiple results',
+      },
+      settings: {
+        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        curve: 'spline',
+        theme: {
+          axisY: {
+            tickPadding: 13,
+          },
+        },
+      },
     });
 
     client
@@ -58,8 +81,8 @@ export const multipleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2019-08-20T00:00:00.000-00:00',
-          end: '2020-02-10T00:00:00.000-00:00',
+          start: '2019-08-01T00:00:00.000-00:00',
+          end: '2020-02-01T00:00:00.000-00:00',
         },
         group_by: ['author'],
         interval: 'monthly',
@@ -67,10 +90,10 @@ export const multipleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
 
-export const multipleResultsByYear = () => {
+export const multipleResultsStep = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -78,6 +101,103 @@ export const multipleResultsByYear = () => {
     const dataviz = new Visualizer({
       type: 'line',
       container: container.current,
+      widget: {
+        title: 'Book purchases',
+        subtitle: 'Multiple results',
+      },
+      settings: {
+        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        curve: 'step',
+        theme: {
+          axisY: {
+            tickPadding: 13,
+          },
+        },
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2019-08-01T00:00:00.000-00:00',
+          end: '2020-02-01T00:00:00.000-00:00',
+        },
+        group_by: ['author'],
+        interval: 'monthly',
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const StackedNormalSpline = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new Visualizer({
+      type: 'line',
+      container: container.current,
+      widget: {
+        title: 'Book purchases',
+        subtitle: 'Stacked normal',
+      },
+      settings: {
+        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        curve: 'spline',
+        groupMode: 'stacked',
+        stackMode: 'normal',
+        theme: {
+          axisY: {
+            tickPadding: 13,
+          },
+        },
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2018-01-01T00:00:00.000-00:00',
+          end: '2020-02-01T00:00:00.000-00:00',
+        },
+        group_by: ['author', 'name'],
+        interval: 'yearly',
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const StackedNormalStep = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new Visualizer({
+      type: 'line',
+      container: container.current,
+      widget: {
+        title: 'Book purchases',
+        subtitle: 'Stacked normal',
+      },
+      settings: {
+        curve: 'step',
+        groupMode: 'stacked',
+        stackMode: 'normal',
+        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        theme: {
+          axisY: {
+            tickPadding: 13,
+          },
+        },
+      },
     });
 
     client
@@ -94,5 +214,5 @@ export const multipleResultsByYear = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };

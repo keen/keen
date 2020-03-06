@@ -101,6 +101,7 @@ export const theme: Theme = {
         fontFamily: 'Gangster Grotesk Regular, sans-serif',
         fontColor: colors.black['500'],
       },
+      radiusAngle: 0,
     },
   },
   axisY: {
@@ -118,6 +119,7 @@ export const theme: Theme = {
         fontFamily: 'Gangster Grotesk Regular, sans-serif',
         fontColor: colors.black['500'],
       },
+      radiusAngle: 0,
     },
   },
   gridX: {

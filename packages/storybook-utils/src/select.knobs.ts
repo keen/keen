@@ -31,6 +31,26 @@ export const metricTypeKnobs = (
   defaultValue: string = metricTypeOptions.compare
 ) => select('Metric type', metricTypeOptions, defaultValue, namespace);
 
+const lineStackModeOptions = {
+  normal: 'normal',
+};
+
+export const lineStackModeKnobs = (
+  namespace: string,
+  defaultValue: string = lineStackModeOptions.normal
+) => select('Stack mode', lineStackModeOptions, defaultValue, namespace);
+
+const curveOptions = {
+  linear: 'linear',
+  spline: 'spline',
+  step: 'step',
+};
+
+export const curveKnobs = (
+  namespace: string,
+  defaultValue: string = curveOptions.linear
+) => select('Curve', curveOptions, defaultValue, namespace);
+
 const layoutOptions = {
   vertical: 'vertical',
   horizontal: 'horizontal',
