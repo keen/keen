@@ -3,7 +3,9 @@ import { object, number, text } from '@storybook/addon-knobs';
 import { timeFormat } from 'd3-time-format';
 
 import {
-  createThemeKnobs,
+  axisXKnobs,
+  axisYKnobs,
+  gridKnobs,
   curveKnobs,
   lineStackModeKnobs,
   groupModeKnobs,
@@ -24,9 +26,15 @@ export default {
   },
 };
 
-export const withKnobs = () => {
-  const theme = { ...keenTheme, ...createThemeKnobs() };
+const createThemeKnobs = () => ({
+  ...keenTheme,
+  axisX: axisXKnobs('Axis X'),
+  axisY: axisYKnobs('Axis Y'),
+  gridX: gridKnobs('Grid X'),
+  gridY: gridKnobs('Grid Y'),
+});
 
+export const withKnobs = () => {
   const formatKnob = text('Date label format', '%d %b', 'Chart');
 
   const createLabelFormatter = (dateFormat = '%D %b') => date => {
@@ -62,7 +70,7 @@ export const withKnobs = () => {
           { top: 50, right: 30, bottom: 50, left: 40 },
           'Chart'
         )}
-        theme={theme}
+        theme={createThemeKnobs()}
         data={chartData}
       />
     </div>

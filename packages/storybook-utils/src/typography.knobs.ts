@@ -22,7 +22,7 @@ const options = {
   },
 };
 
-const typographyKnobs = (
+export const typographyKnobs = (
   namespace: string,
   defaultOptions: Partial<Typography> = {},
   excludedItems: string[] = []
