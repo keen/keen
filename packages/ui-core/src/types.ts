@@ -13,4 +13,4 @@ export type Alignment = 'left' | 'center' | 'right';
 
 export type Layout = 'vertical' | 'horizontal';
 
-export type ColorModeType = 'steps' | 'shades';
+export type ColorMode = 'discrete' | 'continuous';

@@ -1,32 +1,22 @@
 import React from 'react';
-import { colors as themeColors } from '@keen.io/colors';
+import { theme } from '@keen.io/charts';
 
-import { ColorModeType } from '../../types';
+import { ColorMode } from '../../types';
 
 import { ColorCard, ColorGradient } from './color-scale.styles';
 
 type Props = {
   colors?: string[];
-  colorMode?: ColorModeType;
+  mode?: ColorMode;
 };
 
-const ColorScale = ({ colors, colorMode = 'shades' }: Props) => {
-  const colorsArray =
-    colors && colors.length
-      ? colors.length > 1
-        ? colors
-        : ['white', colors[0]]
-      : ['white', themeColors.lightBlue[500]];
-
+const ColorScale = ({ colors = theme.colors, mode = 'continuous' }: Props) => {
   return (
     <>
-      {colorMode === 'shades' || !colorsArray ? (
-        <ColorGradient
-          key={`${colorsArray[0]}-${colorsArray[1]}`}
-          colors={colorsArray}
-        />
+      {mode === 'continuous' ? (
+        <ColorGradient startColor={colors[0]} endColor={colors[1]} />
       ) : (
-        colorsArray.map(el => <ColorCard key={el} background={el} />)
+        colors.map(el => <ColorCard key={el} background={el} />)
       )}
     </>
   );

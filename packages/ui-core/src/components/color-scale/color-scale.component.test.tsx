@@ -8,9 +8,9 @@ describe('<ColorScale />', () => {
     const wrapper = shallow(<ColorScale />);
     expect(wrapper).toMatchSnapshot();
   });
-  it('should render ColorScale with steps', () => {
+  it('should render ColorScale with discrete mode', () => {
     const wrapper = shallow(
-      <ColorScale colors={['yellow', 'green', 'red']} colorMode="steps" />
+      <ColorScale colors={['yellow', 'green', 'red']} mode="discrete" />
     );
     expect(wrapper).toMatchSnapshot();
   });

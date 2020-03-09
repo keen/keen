@@ -1,4 +1,4 @@
-import { ScaleBand, ScaleLinear, ScaleTime, scaleLinear } from 'd3-scale';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { max, min } from 'd3-array';
 import {
   timeDay,
@@ -10,17 +10,9 @@ import {
   CountableTimeInterval,
 } from 'd3-time';
 
-import { theme } from './theme';
-
 import { formatText } from './utils/format.utils';
 
-import {
-  Tick,
-  Orientation,
-  ScaleSettings,
-  TimePrecision,
-  ColorModeType,
-} from './types';
+import { Tick, Orientation, ScaleSettings, TimePrecision } from './types';
 
 const TICK_ALIGN = 0.5;
 
@@ -217,43 +209,4 @@ export const generateTicks = ({
   }
 
   return ticks;
-};
-
-export const calculateColorScale = (
-  minValue: number,
-  maxValue: number,
-  colorsArray?: string[],
-  colorMode: ColorModeType = 'shades'
-) => {
-  const colors =
-    colorsArray && colorsArray.length
-      ? colorsArray.length > 1
-        ? colorsArray
-        : ['white', colorsArray[0]]
-      : ['white', theme.colors[0]];
-  // steps
-  if (colorMode === 'steps' && colorsArray.length > 1) {
-    const step = (maxValue - minValue) / colors.length;
-    const domainValues = colors.map((el: string, idx: number) => {
-      return Math.floor(step * idx);
-    });
-    domainValues.push(maxValue);
-    return (value: number) => {
-      const asd = [...domainValues];
-      asd.push(value);
-      asd.sort((a, b) => a - b);
-      const position = asd.indexOf(value);
-      const index = position ? position - 1 : position;
-      return colors[index];
-    };
-  }
-  // shades
-  const step = (maxValue - minValue) / (colors.length - 1);
-  const domainValues = colors.map((el: string, idx: number) => {
-    return step * idx;
-  });
-
-  return scaleLinear<string>()
-    .domain(domainValues)
-    .range(colors);
 };

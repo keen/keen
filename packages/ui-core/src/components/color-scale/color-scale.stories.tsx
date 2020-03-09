@@ -34,7 +34,7 @@ export const step = () => {
           colors.green[500],
           colors.pink[500],
         ]}
-        colorMode="steps"
+        mode="discrete"
       />
     </Grid>
   );

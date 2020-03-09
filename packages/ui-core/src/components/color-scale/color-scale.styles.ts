@@ -11,12 +11,13 @@ export const ColorCard = styled.div<{ background: string }>`
 `;
 
 export const ColorGradient = styled.div<{
-  colors: string[];
+  startColor: string;
+  endColor: string;
 }>`
   width: 100%;
   height: 6px;
   background: ${props =>
-    `linear-gradient(45deg, ${props.colors[0]}, ${props.colors[1]})`};
+    `linear-gradient(45deg, ${props.startColor}, ${props.endColor})`};
   display: flex;
   justify-content: center;
   align-items: center;
