@@ -1,6 +1,6 @@
 import { Title, Text } from './typography';
 
-import { Typography, Position, Alignment, Layout } from './types';
+import { Typography, Position, Alignment, Layout, ColorMode } from './types';
 
 import {
   Caret,
@@ -30,4 +30,5 @@ export {
   TooltipMode,
   Position,
   Layout,
+  ColorMode,
 };

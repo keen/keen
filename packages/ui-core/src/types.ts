@@ -12,3 +12,5 @@ export type Position = 'top' | 'bottom' | 'left' | 'right';
 export type Alignment = 'left' | 'center' | 'right';
 
 export type Layout = 'vertical' | 'horizontal';
+
+export type ColorMode = 'discrete' | 'continuous';
