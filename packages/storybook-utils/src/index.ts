@@ -1,11 +1,4 @@
-import {
-  createCardKnobs,
-  createThemeKnobs,
-  createLayoutKnobs,
-  createTypographyKnobs,
-  createLegendKnobs,
-  getGoogleFonts,
-} from './storybook.utils';
+import { getGoogleFonts } from './storybook.utils';
 
 import typographyKnobs from './typography.knobs';
 import {
@@ -16,17 +9,14 @@ import {
   lineStackModeKnobs,
   curveKnobs,
 } from './select.knobs';
+import { axisXKnobs, axisYKnobs, gridKnobs } from './theme.knobs';
+import { legendKnobs } from './legend.knobs';
 import { cardKnobs } from './card.knobs';
 
 import StoryWrapper from './story-wrapper.component';
 
 export {
   StoryWrapper,
-  createCardKnobs,
-  createLayoutKnobs,
-  createThemeKnobs,
-  createLegendKnobs,
-  createTypographyKnobs,
   typographyKnobs,
   stackModeKnobs,
   groupModeKnobs,
@@ -35,5 +25,9 @@ export {
   layoutKnobs,
   getGoogleFonts,
   lineStackModeKnobs,
+  legendKnobs,
+  axisXKnobs,
+  axisYKnobs,
+  gridKnobs,
   curveKnobs,
 };

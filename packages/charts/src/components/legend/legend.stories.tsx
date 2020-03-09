@@ -1,13 +1,20 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
+import { colors } from '@keen.io/colors';
+import { Typography } from '@keen.io/ui-core';
 
-import {
-  createTypographyKnobs,
-  createCardKnobs,
-} from '@keen.io/storybook-utils';
+import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
 import { Legend } from './legend.component';
 import { labels } from './legend.fixtures';
+
+const legendTypography = {
+  fontSize: 11,
+  fontFamily: 'Gangster Grotesk Regular, sans-serif',
+  fontStyle: 'normal',
+  fontWeight: 'normal',
+  fontColor: colors.black['500'],
+};
 
 export default {
   title: 'Components / Legend',
@@ -20,9 +27,9 @@ export default {
 export const Row = () => (
   <div style={{ width: '650px' }}>
     <Legend
-      card={createCardKnobs('Card')}
+      card={cardKnobs('Card')}
       onClick={action('Legend element click')}
-      typography={createTypographyKnobs('typography')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="horizontal"
       labels={labels}
     />
@@ -32,9 +39,9 @@ export const Row = () => (
 export const Group = () => (
   <div style={{ width: '500px' }}>
     <Legend
-      card={createCardKnobs('Card')}
+      card={cardKnobs('Card')}
       onClick={action('Legend element click')}
-      typography={createTypographyKnobs('typography')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="horizontal"
       labels={labels}
     />
@@ -52,9 +59,9 @@ Group.story = {
 export const GroupSlider = () => (
   <div style={{ width: '400px' }}>
     <Legend
-      card={createCardKnobs('Card')}
+      card={cardKnobs('Card')}
       onClick={action('Legend element click')}
-      typography={createTypographyKnobs('typography')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="horizontal"
       labels={labels}
     />
@@ -73,9 +80,9 @@ GroupSlider.story = {
 export const Column = () => (
   <div style={{ width: '280px' }}>
     <Legend
-      card={createCardKnobs('Card')}
+      card={cardKnobs('Card')}
       onClick={action('Legend element click')}
-      typography={createTypographyKnobs('typography')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
       labels={labels}
     />
@@ -94,9 +101,9 @@ Column.story = {
 export const ColumnSlider = () => (
   <div style={{ width: '260px', height: '130px' }}>
     <Legend
-      card={createCardKnobs('Card')}
+      card={cardKnobs('Card')}
       onClick={action('Legend element click')}
-      typography={createTypographyKnobs('typography')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
       labels={labels}
     />
