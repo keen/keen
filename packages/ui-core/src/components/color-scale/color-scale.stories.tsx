@@ -18,7 +18,7 @@ const Grid = styled.div`
 export const gradient = () => {
   return (
     <Grid>
-      <ColorScale />
+      <ColorScale colors={['white', colors.lightBlue[500]]} />
     </Grid>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from '@keen.io/charts';
+import { colors as theme } from '@keen.io/colors';
 
 import { ColorMode } from '../../types';
 
@@ -10,7 +10,16 @@ type Props = {
   mode?: ColorMode;
 };
 
-const ColorScale = ({ colors = theme.colors, mode = 'continuous' }: Props) => {
+const ColorScale = ({
+  colors = [
+    theme.lightBlue[500],
+    theme.orange[500],
+    theme.yellow[500],
+    theme.green[500],
+    theme.pink[500],
+  ],
+  mode = 'continuous',
+}: Props) => {
   return (
     <>
       {mode === 'continuous' ? (
