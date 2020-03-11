@@ -25,14 +25,15 @@ const options = {
 export const typographyKnobs = (
   namespace: string,
   defaultOptions: Partial<Typography> = {},
-  excludedItems: string[] = []
+  excludedItems: string[] = [],
+  fontFamilyOptions?: string[]
 ) => {
   const knob = {} as Typography;
 
   if (!excludedItems.includes('fontFamily')) {
     knob.fontFamily = select(
       'Font Family',
-      options.fontFamily,
+      fontFamilyOptions ? fontFamilyOptions : options.fontFamily,
       defaultOptions.fontFamily || options.fontFamily.GangsterGroteskRegular,
       namespace
     );

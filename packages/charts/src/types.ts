@@ -41,6 +41,9 @@ export type Labels = {
 export type Tooltip = {
   enabled: boolean;
   mode: TooltipMode;
+  labels: {
+    typography: Typography;
+  };
 };
 
 export type Axis = {

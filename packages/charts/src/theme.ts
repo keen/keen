@@ -85,6 +85,15 @@ export const theme: Theme = {
   tooltip: {
     enabled: true,
     mode: 'dark',
+    labels: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 11,
+        fontFamily: 'Lato Light, sans-serif',
+        fontColor: colors.white['500'],
+      },
+    },
   },
   axisX: {
     enabled: true,

@@ -9,6 +9,7 @@ import {
 } from '@keen.io/charts';
 
 import ChartWidget from './chart-widget.component';
+import WidgetHeading from './widget-heading.component';
 import {
   ContentSocket,
   LegendSocket,
@@ -43,8 +44,7 @@ export const LineChartWidget: FC<Props> = ({
       }}
     >
       <TitleSocket>
-        {title && <div>{title.content}</div>}
-        {subtitle && <div>{subtitle.content}</div>}
+        <WidgetHeading title={title} subtitle={subtitle} />
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
