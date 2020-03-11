@@ -20,7 +20,9 @@
   },
   "scripts": {
     "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
-    "build": "tsc"
+    "build:umd": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack --config webpack.config.ts",
+    "build:es": "tsc",
+    "build": "yarn build:es && yarn build:umd"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"

@@ -1,6 +1,7 @@
 node_modules
 yarn-error.log
 tsconfig.tsbuildinfo
+tsconfig.*.tsbuildinfo
 lerna-debug.log
 packages/**/dist
 package-lock.json
