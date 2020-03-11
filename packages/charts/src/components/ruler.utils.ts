@@ -144,7 +144,7 @@ export const rotateLabel = (
     }
   }
   return {
-    anchor: 'middle',
+    anchor: orientation === Orientation.VERTICAL ? 'middle' : 'end',
     radius: 0,
     translateX: 0,
     translateY: 0,

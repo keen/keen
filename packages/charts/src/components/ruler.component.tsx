@@ -66,11 +66,7 @@ const Ruler = ({
   );
 
   return (
-    <Group
-      color={fontColor}
-      textAnchor={orientation === Orientation.VERTICAL ? 'middle' : 'end'}
-      style={{ ...rest }}
-    >
+    <Group color={fontColor} style={{ ...rest }}>
       <Line {...line} color={color} stroke={stroke} />
       {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (
         <Tick
