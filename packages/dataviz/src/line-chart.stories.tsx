@@ -22,11 +22,15 @@ export const simpleResults = () => {
       type: 'line',
       container: container.current,
       widget: {
-        title: 'Book purchases',
-        subtitle: 'hourly',
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'hourly',
+        },
       },
       settings: {
-        margins: { top: 30, left: 30, right: 30, bottom: 60 },
+        margins: { top: 30, left: 45, right: 30, bottom: 60 },
         theme: {
           axisX: {
             labels: {
@@ -62,11 +66,15 @@ export const multipleResultsSpline = () => {
       type: 'line',
       container: container.current,
       widget: {
-        title: 'Book purchases',
-        subtitle: 'Multiple results',
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Multiple results',
+        },
       },
       settings: {
-        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        margins: { top: 20, left: 45, right: 15, bottom: 30 },
         curve: 'spline',
         theme: {
           axisY: {
@@ -102,11 +110,15 @@ export const multipleResultsStep = () => {
       type: 'line',
       container: container.current,
       widget: {
-        title: 'Book purchases',
-        subtitle: 'Multiple results',
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Multiple results',
+        },
       },
       settings: {
-        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        margins: { top: 20, left: 45, right: 15, bottom: 30 },
         curve: 'step',
         theme: {
           axisY: {
@@ -142,11 +154,15 @@ export const StackedNormalSpline = () => {
       type: 'line',
       container: container.current,
       widget: {
-        title: 'Book purchases',
-        subtitle: 'Stacked normal',
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Spline',
+        },
       },
       settings: {
-        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        margins: { top: 20, left: 45, right: 25, bottom: 30 },
         curve: 'spline',
         groupMode: 'stacked',
         stackMode: 'normal',
@@ -184,14 +200,18 @@ export const StackedNormalStep = () => {
       type: 'line',
       container: container.current,
       widget: {
-        title: 'Book purchases',
-        subtitle: 'Stacked normal',
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Stacked results',
+        },
       },
       settings: {
         curve: 'step',
         groupMode: 'stacked',
         stackMode: 'normal',
-        margins: { top: 20, left: 30, right: 15, bottom: 30 },
+        margins: { top: 20, left: 45, right: 15, bottom: 30 },
         theme: {
           axisY: {
             tickPadding: 13,

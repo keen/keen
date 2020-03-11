@@ -1,9 +1,12 @@
-import React, { FC } from 'react';
-import { BulletList } from '@keen.io/ui-core';
+import React, { FC, useContext } from 'react';
+import { Text, BulletList } from '@keen.io/ui-core';
 
 import { getLabel } from './utils/tooltip.utils';
-import { getKeysDifference, normalizeToPercent } from '../../utils';
 import { getFromPath } from '../../utils/selectors.utils';
+import { getKeysDifference } from '../../utils/data.utils';
+import { normalizeToPercent } from '../../utils';
+
+import { ChartContext, ChartContextType } from '../../contexts';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
@@ -26,6 +29,10 @@ const BarTooltip: FC<Props> = ({
   groupMode,
   isList,
 }) => {
+  const {
+    theme: { tooltip },
+  } = useContext(ChartContext) as ChartContextType;
+
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
     ? normalizeToPercent(data, getKeysDifference(keys, disabledKeys))
@@ -35,6 +42,7 @@ const BarTooltip: FC<Props> = ({
     <>
       {isList ? (
         <BulletList
+          typography={tooltip.labels.typography}
           list={selectors.map(({ color, selector }) => ({
             value: getLabel({ data, selector, percentageData, isPercentage }),
             color,
@@ -43,7 +51,9 @@ const BarTooltip: FC<Props> = ({
       ) : (
         <>
           {selectors.map(({ selector, color }) => (
-            <div key={color}>{getFromPath(data, selector)}</div>
+            <Text {...tooltip.labels.typography} key={color}>
+              {getFromPath(data, selector)}
+            </Text>
           ))}
         </>
       )}

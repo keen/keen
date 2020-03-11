@@ -1,46 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { FC } from 'react';
 
-type BulletPoint = {
+import {
+  StyledBulletList,
+  StyledBulletItem,
+  BulletPoint,
+} from './bullet-list.styles';
+
+import { Text } from '../../typography';
+
+import { Typography } from '../../types';
+
+type Point = {
   color: string;
   value: string;
 };
 
-const StyledBulletList = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
-`;
+type Props = {
+  list: Point[];
+  typography?: Typography;
+};
 
-const StyledBulletItem = styled.li`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  & ~ & {
-    margin-top: 11px;
-  }
-`;
+const BulletList: FC<Props> = ({ list, typography }) => {
+  const listItems = list.map((item, idx: number) => (
+    <StyledBulletItem key={`${item.value}.${idx}`}>
+      <BulletPoint color={item.color} />
+      <Text {...typography}>{item.value}</Text>
+    </StyledBulletItem>
+  ));
 
-const BulletPoint = styled.div<{
-  color: string;
-}>`
-  width: 8px;
-  height: 8px;
-  margin-right: 6px;
-  border-radius: 50%;
-  background-color: ${props => props.color};
-`;
-
-const BulletList = (props: { list: BulletPoint[] }) => {
-  const { list } = props;
-  const listItems = list.map((item, idx: number) => {
-    return (
-      <StyledBulletItem key={`${item.value}.${idx}`}>
-        <BulletPoint color={item.color} />
-        {item.value}
-      </StyledBulletItem>
-    );
-  });
   return <StyledBulletList>{listItems}</StyledBulletList>;
 };
 

@@ -106,9 +106,10 @@ export const PieChart: FC<Props> = ({
               pointerEvents: 'none',
             }}
           >
-            <Tooltip hasArrow={false}>
+            <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
                 <TooltipContent
+                  typography={tooltipSettings.labels.typography}
                   data={data}
                   selectors={tooltipSelectors}
                   keys={keys}

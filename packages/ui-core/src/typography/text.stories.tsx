@@ -5,10 +5,7 @@ import { loremIpsum } from 'lorem-ipsum';
 import { theme } from '../theme';
 import Text from './text.component';
 import { useFontLoader } from './text.utils';
-import {
-  createTypographyKnobs,
-  getGoogleFonts,
-} from '@keen.io/storybook-utils';
+import { typographyKnobs, getGoogleFonts } from '@keen.io/storybook-utils';
 import { colors } from '@keen.io/colors';
 
 const Wrapper = styled.div`
@@ -16,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'UI Core / Typography',
+  title: 'Components / Typography',
   decorators: [withKnobs],
 };
 
@@ -33,13 +30,14 @@ export const TextKnobs = () => {
     theme.textOption,
     theme.textOption[0]
   ) as any;
-  const typographyKnobs = createTypographyKnobs('typography', fonts);
 
-  useFontLoader(typographyKnobs.fontFamily);
+  const knobs = typographyKnobs('typography', {}, [], fonts);
+
+  useFontLoader(knobs.fontFamily);
 
   return (
     <Wrapper>
-      <Text {...typographyKnobs} {...predefinedOptions}>
+      <Text {...knobs} {...predefinedOptions}>
         {loremIpsum()}
       </Text>
     </Wrapper>

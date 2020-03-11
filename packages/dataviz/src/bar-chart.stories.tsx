@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks, @typescript-eslint/camelcase */
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
+import { colors } from '@keen.io/colors';
 
 import Visualizer from './visualizer';
 
@@ -118,7 +119,10 @@ export const MultipleResultsPlot = () => {
           axisY: { enabled: false },
           gridY: { color: '#ddd' },
           gridX: { color: '#ddd' },
-          tooltip: { mode: 'light' },
+          tooltip: {
+            mode: 'light',
+            labels: { typography: { fontColor: colors.black['500'] } },
+          },
         },
       },
     });
@@ -214,6 +218,7 @@ export const StackedNormal = () => {
           colors: ['#84DCC6', '#D6EDFF', '#ACD7EC', '#8B95C9', '#478978'],
           tooltip: {
             mode: 'light',
+            labels: { typography: { fontColor: colors.black['500'] } },
           },
         },
       },
@@ -332,6 +337,27 @@ export const DoubleGrouped = () => {
     const dataviz = new Visualizer({
       type: 'bar',
       container: container.current,
+      widget: {
+        legend: {
+          enabled: false,
+        },
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Most popular authors',
+        },
+      },
+      settings: {
+        margins: { bottom: 110, top: 20, left: 120, right: 20 },
+        theme: {
+          axisX: {
+            labels: {
+              radiusAngle: -25,
+            },
+          },
+        },
+      },
     });
 
     client
@@ -347,7 +373,7 @@ export const DoubleGrouped = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '650px', height: '400px' }} ref={container} />;
 };
 
 DoubleGrouped.story = {
