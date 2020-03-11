@@ -1,6 +1,7 @@
-module.exports = {
+export default {
   resolve: {
-    extensions: ['.ts', '.tsx', '.json'],
+    mainFields: ['module', 'main'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
     rules: [{ test: /\.tsx?$/, use: ['ts-loader'] }],
