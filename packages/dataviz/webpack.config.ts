@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import path from 'path';
 
 import TerserPlugin from 'terser-webpack-plugin';
