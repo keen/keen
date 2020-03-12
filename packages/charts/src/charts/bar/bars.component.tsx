@@ -53,8 +53,6 @@ const Bars = ({
     key: string;
   }>({ selector: [], key: null });
 
-  console.log('show', showValues);
-
   return (
     <>
       <AnimatePresence>
