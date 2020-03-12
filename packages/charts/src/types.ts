@@ -116,6 +116,7 @@ export type Theme = {
   gridX?: Grid;
   gridY?: Grid;
   labels?: Labels;
+  total?: Labels;
 };
 
 export type CommonChartSettings = {

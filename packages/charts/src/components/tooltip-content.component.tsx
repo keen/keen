@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { Text, Typography } from '@keen.io/ui-core';
 
 import { StyledItem } from './tooltip-content.styles';
-import { getTooltipContent } from './utils';
+import { getTooltipContent } from '../utils/';
 
-import { DataSelector } from '../../types';
+import { DataSelector } from '../types';
 
 type Props = {
   data: Record<string, any>[];

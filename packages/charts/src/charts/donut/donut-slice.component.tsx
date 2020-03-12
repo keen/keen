@@ -3,8 +3,8 @@ import React, { FC, useRef, useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
-import PieLabel from './pie-label.component';
-import { StyledPath } from './pie-slice.styles';
+import DonutLabel from './donut-label.component';
+import { StyledPath } from './donut-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
 
@@ -26,10 +26,9 @@ type Props = {
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
 
-const PieSlice: FC<Props> = ({
+const DonutSlice: FC<Props> = ({
   background,
   draw,
-  activePosition,
   autocolor,
   label,
   startAngle,
@@ -43,12 +42,11 @@ const PieSlice: FC<Props> = ({
     endAngle: 0,
   });
   const element = useRef(null);
+  const path = useRef(null);
 
   const [isActive, setActive] = useState(false);
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme;
-
-  const [x, y] = activePosition;
 
   useEffect(() => {
     const shouldAnimate =
@@ -83,10 +81,9 @@ const PieSlice: FC<Props> = ({
         setActive(false);
       }}
       transition={transition}
-      whileHover={{
-        x,
-        y,
-      }}
+      whileHover={{ scale: 1.05 }}
+      style={{ originX: '0', originY: '0' }}
+      ref={path}
     >
       <StyledPath
         dropShadow={isActive}
@@ -96,17 +93,17 @@ const PieSlice: FC<Props> = ({
         fill={background}
       />
       {labels.enabled && (
-        <PieLabel
+        <DonutLabel
           sliceBackground={background}
           autocolor={autocolor}
           position={labelPosition}
           {...labels.typography}
         >
           {label}
-        </PieLabel>
+        </DonutLabel>
       )}
     </motion.g>
   );
 };
 
-export default PieSlice;
+export default DonutSlice;

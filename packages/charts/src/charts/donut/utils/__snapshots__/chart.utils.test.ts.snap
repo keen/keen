@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen/charts <DonutChart /> - utils should calculate position for labels placed "outer" of slice 1`] = `
+Array [
+  Object {
+    "activePosition": Array [
+      -4.312731892445443,
+      -9.022213898145175,
+    ],
+    "color": "#85B4C3",
+    "endAngle": 6.283185307179586,
+    "index": "4",
+    "label": "14.2%",
+    "labelPosition": Array [
+      -30.1891232471181,
+      -63.155497287016225,
+    ],
+    "selector": Array [
+      0,
+    ],
+    "startAngle": 5.391378360354096,
+  },
+  Object {
+    "activePosition": Array [
+      -5.545165057524355,
+      8.321727253690241,
+    ],
+    "color": "#CB5623",
+    "endAngle": 4.377961375325131,
+    "index": "2",
+    "label": "20.6%",
+    "labelPosition": Array [
+      -38.81615540267048,
+      58.25209077583169,
+    ],
+    "selector": Array [
+      1,
+    ],
+    "startAngle": 3.080787634488055,
+  },
+  Object {
+    "activePosition": Array [
+      7.106806583781534,
+      -7.03514748819948,
+    ],
+    "color": "#E29B1E",
+    "endAngle": 1.5809304966451863,
+    "index": "0",
+    "label": "25.2%",
+    "labelPosition": Array [
+      49.74764608647073,
+      -49.24603241739636,
+    ],
+    "selector": Array [
+      2,
+    ],
+    "startAngle": 0,
+  },
+  Object {
+    "activePosition": Array [
+      -9.851963176211386,
+      -1.7142991496745383,
+    ],
+    "color": "#487650",
+    "endAngle": 5.391378360354096,
+    "index": "3",
+    "label": "16.1%",
+    "labelPosition": Array [
+      -68.9637422334797,
+      -12.000094047721769,
+    ],
+    "selector": Array [
+      3,
+    ],
+    "startAngle": 4.377961375325131,
+  },
+  Object {
+    "activePosition": Array [
+      7.247927872291199,
+      6.889669190756866,
+    ],
+    "color": "#F4A083",
+    "endAngle": 3.080787634488055,
+    "index": "1",
+    "label": "23.9%",
+    "labelPosition": Array [
+      50.7354951060384,
+      48.227684335298065,
+    ],
+    "selector": Array [
+      4,
+    ],
+    "startAngle": 1.5809304966451863,
+  },
+]
+`;
+
+exports[`@keen/charts <DonutChart /> - utils should calculate properties for each arc 1`] = `
+Array [
+  Object {
+    "activePosition": Array [
+      -4.312731892445443,
+      -9.022213898145175,
+    ],
+    "color": "#85B4C3",
+    "endAngle": 6.283185307179586,
+    "index": "4",
+    "label": "14.2%",
+    "labelPosition": Array [
+      -12.938195677336328,
+      -27.066641694435525,
+    ],
+    "selector": Array [
+      0,
+    ],
+    "startAngle": 5.391378360354096,
+  },
+  Object {
+    "activePosition": Array [
+      -5.545165057524355,
+      8.321727253690241,
+    ],
+    "color": "#CB5623",
+    "endAngle": 4.377961375325131,
+    "index": "2",
+    "label": "20.6%",
+    "labelPosition": Array [
+      -16.635495172573066,
+      24.965181761070724,
+    ],
+    "selector": Array [
+      1,
+    ],
+    "startAngle": 3.080787634488055,
+  },
+  Object {
+    "activePosition": Array [
+      7.106806583781534,
+      -7.03514748819948,
+    ],
+    "color": "#E29B1E",
+    "endAngle": 1.5809304966451863,
+    "index": "0",
+    "label": "25.2%",
+    "labelPosition": Array [
+      21.320419751344602,
+      -21.10544246459844,
+    ],
+    "selector": Array [
+      2,
+    ],
+    "startAngle": 0,
+  },
+  Object {
+    "activePosition": Array [
+      -9.851963176211386,
+      -1.7142991496745383,
+    ],
+    "color": "#487650",
+    "endAngle": 5.391378360354096,
+    "index": "3",
+    "label": "16.1%",
+    "labelPosition": Array [
+      -29.55588952863416,
+      -5.142897449023615,
+    ],
+    "selector": Array [
+      3,
+    ],
+    "startAngle": 4.377961375325131,
+  },
+  Object {
+    "activePosition": Array [
+      7.247927872291199,
+      6.889669190756866,
+    ],
+    "color": "#F4A083",
+    "endAngle": 3.080787634488055,
+    "index": "1",
+    "label": "23.9%",
+    "labelPosition": Array [
+      21.743783616873596,
+      20.669007572270598,
+    ],
+    "selector": Array [
+      4,
+    ],
+    "startAngle": 1.5809304966451863,
+  },
+]
+`;

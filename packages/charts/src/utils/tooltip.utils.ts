@@ -1,6 +1,6 @@
-import { getFromPath } from '../../../utils/selectors.utils';
+import { getFromPath } from './selectors.utils';
 
-import { DataSelector } from '../../../types';
+import { DataSelector } from '../types';
 
 type Options = {
   data: Record<string, any>[];

@@ -160,4 +160,14 @@ export const theme: Theme = {
       fontColor: colors.black['500'],
     },
   },
+  total: {
+    enabled: true,
+    typography: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 24,
+      fontFamily: 'Lato Regular, sans-serif',
+      fontColor: colors.blue['400'],
+    },
+  },
 };

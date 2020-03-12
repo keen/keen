@@ -2,16 +2,18 @@ import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
 
-import { generatePieChart, LabelsPosition } from './utils';
+import { generateDonutChart, LabelsPosition } from './utils';
 
-import PieSlice from './pie-slice.component';
+import DonutSlice from './donut-slice.component';
 import TooltipContent from '../../components/tooltip-content.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase } from '../../components';
+import DonutTotal from './donut-total.component';
 
 import { useTooltip } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
+console.log('defaultTheme', defaultTheme);
 
 import { CommonChartSettings } from '../../types';
 
@@ -24,9 +26,9 @@ export type Props = {
   keys?: string[];
   /** Labels that are disabled for rendering data series */
   disabledLabels?: string[];
-  /** Spacing between pie slices */
+  /** Spacing between donut slices */
   padAngle?: number;
-  /** Radius between pie slices */
+  /** Radius between donut slices */
   padRadius?: number;
   /** Arc corner radius */
   cornerRadius?: number;
@@ -34,7 +36,7 @@ export type Props = {
   innerRadius?: number;
   /** The radius for slice labels */
   labelsRadius?: number;
-  /** Show labels inside our outside pie slices */
+  /** Show labels inside our outside donut slices */
   labelsPosition?: LabelsPosition;
   /** Automatically adjust labels color */
   labelsAutocolor?: boolean;
@@ -45,7 +47,7 @@ export const tooltipMotion = {
   exit: { opacity: 0 },
 };
 
-export const PieChart: FC<Props> = ({
+export const DonutChart: FC<Props> = ({
   data,
   svgDimensions,
   theme = defaultTheme,
@@ -56,12 +58,12 @@ export const PieChart: FC<Props> = ({
   padAngle = 0.02,
   padRadius = 100,
   cornerRadius = 2,
-  innerRadius = 20,
+  innerRadius = 150,
   labelsRadius = 30,
   labelsPosition = 'inside',
   labelsAutocolor = true,
 }) => {
-  const { arcs, drawArc, drawActiveArc } = generatePieChart({
+  const { total, arcs, drawArc, drawActiveArc } = generateDonutChart({
     data,
     margins,
     padAngle,
@@ -87,8 +89,9 @@ export const PieChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings } = theme;
-
+  const { tooltip: tooltipSettings, total: totalSettings } = theme;
+  console.log('total settings: ', totalSettings, theme, defaultTheme);
+  console.log(margins);
   return (
     <>
       <AnimatePresence>
@@ -106,10 +109,9 @@ export const PieChart: FC<Props> = ({
               pointerEvents: 'none',
             }}
           >
-            <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
+            <Tooltip hasArrow={false}>
               {tooltipSelectors && (
                 <TooltipContent
-                  typography={tooltipSettings.labels.typography}
                   data={data}
                   selectors={tooltipSelectors}
                   keys={keys}
@@ -129,6 +131,9 @@ export const PieChart: FC<Props> = ({
           style={{
             transform: `translate(${svgDimensions.width /
               2}px, ${svgDimensions.height / 2}px)`,
+            // transform: `translate: ${margins.left}px ${margins.right}`,
+            // width: `${svgDimensions.width}px`,
+            // height: `${svgDimensions.height}px`,
           }}
         >
           <ShadowFilter />
@@ -143,7 +148,7 @@ export const PieChart: FC<Props> = ({
               color,
               selector,
             }) => (
-              <PieSlice
+              <DonutSlice
                 key={index}
                 draw={drawArc}
                 drawActive={drawActiveArc}
@@ -163,10 +168,13 @@ export const PieChart: FC<Props> = ({
               />
             )
           )}
+          {totalSettings.enabled && (
+            <DonutTotal {...totalSettings.typography}>{total}</DonutTotal>
+          )}
         </g>
       </ChartBase>
     </>
   );
 };
 
-export default PieChart;
+export default DonutChart;

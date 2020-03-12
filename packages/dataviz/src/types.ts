@@ -2,6 +2,7 @@ import {
   BarChartSettings,
   LineChartSettings,
   PieChartSettings,
+  DonutChartSettings,
   MetricChartSettings,
   FunnelChartSettings,
 } from '@keen.io/charts';
@@ -21,6 +22,7 @@ export type ComponentSettings =
   | BarChartSettings
   | LineChartSettings
   | PieChartSettings
+  | DonutChartSettings
   | MetricChartSettings
   | FunnelChartSettings
   | {};
