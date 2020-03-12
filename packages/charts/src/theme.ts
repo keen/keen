@@ -14,6 +14,17 @@ export const margins: Margins = { top: 50, right: 20, bottom: 50, left: 40 };
 
 export const theme: Theme = {
   colors: chartColors,
+  bar: {
+    values: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 10,
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.white['500'],
+      },
+    },
+  },
   funnel: {
     header: {
       badge: {

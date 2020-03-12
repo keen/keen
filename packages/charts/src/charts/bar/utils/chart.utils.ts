@@ -89,6 +89,7 @@ export const generateHorizontalGroupedBars = ({
           width: xScale(value) - margins.left,
           height: barHeight,
           color: colors[idx],
+          value,
         };
 
         barsGroup.push(bar);
@@ -158,6 +159,7 @@ export const generateVerticalGroupedBars = ({
           width: barWidth,
           height: dimension.height - margins.bottom - yScale(value),
           color: colors[idx],
+          value,
         };
 
         barsGroup.push(bar);
@@ -233,6 +235,7 @@ export const generateHorizontalStackedBars = ({
         width,
         height: barHeight,
         color: colors[keys.indexOf(keyName)],
+        value: data[index][keyName],
       };
 
       bars.push(bar);
@@ -303,6 +306,7 @@ export const generateVerticalStackedBars = ({
         width: barWidth,
         height,
         color: colors[keys.indexOf(keyName)],
+        value: data[index][keyName],
       };
 
       bars.push(bar);

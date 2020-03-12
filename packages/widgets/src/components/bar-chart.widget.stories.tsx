@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { number, text, object } from '@storybook/addon-knobs';
+import { number, text, object, boolean } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   axisXKnobs,
@@ -54,6 +54,8 @@ export const withKnobs = () => (
       legend={legendKnobs('Legend') as any}
       labelSelector="name"
       barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
+      showValues={boolean('Show Values', false, 'Chart')}
+      valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['people', 'licenses', 'cars', 'documents']}
       layout={layoutKnobs('Chart') as any}
       margins={object(

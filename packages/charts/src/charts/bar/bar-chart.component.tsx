@@ -32,6 +32,10 @@ export type Props = {
   maxValue?: number | 'auto';
   /** Padding between bar groups */
   barPadding?: number;
+  /** Show values on bars */
+  showValues?: boolean;
+  /** Automatically adjust values color */
+  valuesAutocolor?: boolean;
   /** Keys picked from data object used to genrate bars */
   keys?: string[];
   /** Keys that are disabled for rendering data series */
@@ -64,6 +68,8 @@ export const BarChart: FC<Props> = ({
   xScaleSettings = { type: 'band' },
   yScaleSettings = { type: 'linear' },
   barPadding = 0.1,
+  showValues = false,
+  valuesAutocolor = true,
 }) => {
   const { bars, xScale, yScale, scaleSettings } = generateBars({
     data,
@@ -108,6 +114,8 @@ export const BarChart: FC<Props> = ({
           stackMode={stackMode}
           groupMode={groupMode}
           layout={layout}
+          showValues={showValues}
+          valuesAutocolor={valuesAutocolor}
           onBarMouseEnter={(_e, _key, selector, { x, y }) => {
             if (clearTooltip.current) clearTimeout(clearTooltip.current);
             if (tooltipSettings.enabled) {

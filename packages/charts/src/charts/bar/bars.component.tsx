@@ -5,6 +5,7 @@ import { Layout } from '@keen.io/ui-core';
 
 import { Mark, markMotion } from '../../components';
 import BarComponent from './bar.component';
+import BarValues from './bar-values.component';
 
 import { getBarColor } from './utils/bar.utils';
 import { calculateMarkPosition } from './utils/mark.utils';
@@ -33,12 +34,16 @@ type Props = {
   layout: Layout;
   stackMode: StackMode;
   groupMode: GroupMode;
+  showValues: boolean;
+  valuesAutocolor: boolean;
 };
 
 const Bars = ({
   bars,
   groupMode,
   stackMode,
+  showValues,
+  valuesAutocolor,
   layout,
   onBarMouseEnter,
   onBarMouseLeave,
@@ -47,6 +52,8 @@ const Bars = ({
     selector: DataSelector;
     key: string;
   }>({ selector: [], key: null });
+
+  console.log('show', showValues);
 
   return (
     <>
@@ -89,6 +96,7 @@ const Bars = ({
           </motion.g>
         ))}
       </AnimatePresence>
+      {showValues && <BarValues bars={bars} autocolor={valuesAutocolor} />}
       {bars.map(({ key, x, y, width, height, color }: Bar) => (
         <AnimatePresence key={key}>
           {activeBar.key === key && (

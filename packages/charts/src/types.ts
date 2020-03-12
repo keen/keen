@@ -79,6 +79,12 @@ export type Metric = {
   };
 };
 
+export type Bar = {
+  values: {
+    typography: Typography;
+  };
+};
+
 export type Funnel = {
   header: {
     value: {
@@ -102,6 +108,7 @@ export type Funnel = {
 export type Theme = {
   colors: string[];
   funnel: Funnel;
+  bar: Bar;
   metric?: Metric;
   tooltip?: Tooltip;
   axisX?: Axis;
