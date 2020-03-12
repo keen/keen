@@ -37,6 +37,8 @@ export const Bar: FC<Props> = ({
       {...commonProps}
       {...rectMotion}
       animate={{
+        width,
+        height,
         x,
         y,
       }}

@@ -12,6 +12,12 @@ import { calculateMarkPosition } from './utils/mark.utils';
 import { Bar } from './types';
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
+const barMotion = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
 type Props = {
   bars: Bar[];
   onBarMouseEnter: (
@@ -44,42 +50,45 @@ const Bars = ({
 
   return (
     <>
-      {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (
-        <g
-          key={key}
-          onMouseEnter={e => {
-            const markPosition = calculateMarkPosition({
-              layout,
-              x,
-              y,
-              width,
-              height,
-            });
-            setActiveBar({ key, selector });
-            onBarMouseEnter(e, key, { selector, color }, markPosition);
-          }}
-          onMouseLeave={e => {
-            setActiveBar({ selector: [], key: null });
-            onBarMouseLeave(e, key);
-          }}
-        >
-          <BarComponent
+      <AnimatePresence>
+        {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (
+          <motion.g
             key={key}
-            x={x}
-            y={y}
-            height={height}
-            width={width}
-            color={getBarColor({
-              activeBar,
-              stackMode,
-              barKey: key,
-              barSelector: selector,
-              color,
-              groupMode,
-            })}
-          />
-        </g>
-      ))}
+            {...barMotion}
+            onMouseEnter={e => {
+              const markPosition = calculateMarkPosition({
+                layout,
+                x,
+                y,
+                width,
+                height,
+              });
+              setActiveBar({ key, selector });
+              onBarMouseEnter(e, key, { selector, color }, markPosition);
+            }}
+            onMouseLeave={e => {
+              setActiveBar({ selector: [], key: null });
+              onBarMouseLeave(e, key);
+            }}
+          >
+            <BarComponent
+              key={key}
+              x={x}
+              y={y}
+              height={height}
+              width={width}
+              color={getBarColor({
+                activeBar,
+                stackMode,
+                barKey: key,
+                barSelector: selector,
+                color,
+                groupMode,
+              })}
+            />
+          </motion.g>
+        ))}
+      </AnimatePresence>
       {bars.map(({ key, x, y, width, height, color }: Bar) => (
         <AnimatePresence key={key}>
           {activeBar.key === key && (
