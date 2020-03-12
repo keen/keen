@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, number } from '@storybook/addon-knobs';
+import { object, number, boolean } from '@storybook/addon-knobs';
 
 import {
   axisXKnobs,
@@ -45,6 +45,8 @@ export const withKnobs = () => (
       groupMode={groupModeKnobs('Chart') as GroupMode}
       stackMode={stackModeKnobs('Chart') as StackMode}
       barPadding={number('Bar Padding', 0.1, {}, 'Chart')}
+      showValues={boolean('Show Values', false, 'Chart')}
+      valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['users', 'licenses', 'shops']}
       layout={layoutKnobs('Chart', 'vertical') as any}
       svgDimensions={object(
