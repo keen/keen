@@ -8,13 +8,14 @@ import {
   stackModeKnobs,
   groupModeKnobs,
   layoutKnobs,
+  typographyKnobs,
 } from '@keen.io/storybook-utils';
 import { BarChart } from './bar-chart.component';
 import { chartData } from './bar-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
 
-import { GroupMode, StackMode } from './types';
+import { GroupMode, StackMode } from '../../types';
 
 export default {
   title: 'Charts / Bar Chart',
@@ -30,6 +31,11 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  bar: {
+    values: {
+      typography: typographyKnobs('Values', keenTheme.bar.values.typography),
+    },
+  },
 });
 
 export const withKnobs = () => (

@@ -36,6 +36,12 @@ describe('@keen.io/charts - <HoverBar />', () => {
     expect(wrapper.find('linearGradient').length).toBeTruthy();
   });
 
+  it('should not render a "line" element', () => {
+    const { wrapper } = setup({ showLine: false });
+
+    expect(wrapper.find('line').length).toBeFalsy();
+  });
+
   it('should call "onMouseEnter" handler', () => {
     const { wrapper, props } = setup();
     wrapper.find('rect').simulate('mouseenter');

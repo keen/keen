@@ -82,6 +82,7 @@ const PieSlice: FC<Props> = ({
         onMouseLeave(e);
         setActive(false);
       }}
+      style={{ originX: '0', originY: '0' }}
       transition={transition}
       whileHover={{
         x,
