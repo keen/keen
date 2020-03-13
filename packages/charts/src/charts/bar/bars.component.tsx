@@ -8,7 +8,7 @@ import BarComponent from './bar.component';
 import BarValues from './bar-values.component';
 
 import { getBarColor } from './utils/bar.utils';
-import { calculateMarkPosition } from './utils/mark.utils';
+import { calculateMarkPosition, setMarkSize } from './utils/mark.utils';
 
 import { Bar } from './types';
 import { DataSelector, GroupMode, StackMode } from '../../types';
@@ -101,6 +101,7 @@ const Bars = ({
             <motion.g {...markMotion} pointerEvents="all">
               <Mark
                 {...calculateMarkPosition({ layout, x, y, width, height })}
+                {...setMarkSize({ layout, width, height })}
                 color={color}
               />
             </motion.g>
