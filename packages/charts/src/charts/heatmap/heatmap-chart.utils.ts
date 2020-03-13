@@ -1,5 +1,4 @@
 import { scaleBand } from 'd3-scale';
-import { select } from 'd3-selection';
 import { Options, BlockType } from './types';
 
 import { calculateColorScale } from '../../utils/colors.utils';
@@ -25,7 +24,7 @@ export const generateVerticalBlocks = ({
     .range([dimension.height - margins.bottom, margins.top])
     .domain(data.map((item: any) => item[labelSelector]));
 
-  const color = calculateColorScale(minimum, maximum, ['white', 'green']);
+  const color = calculateColorScale(minimum, maximum);
 
   const blocks: BlockType[] = [];
   keys.forEach((keyName: string) => {
@@ -52,7 +51,6 @@ export const generateVerticalBlocks = ({
     blocks,
     xScale,
     yScale,
-    select,
   };
 };
 
@@ -75,7 +73,7 @@ export const generateHorizontalBlocks = ({
     .range([dimension.height - margins.bottom, margins.top])
     .domain(keys.map((item: any) => item));
 
-  const color = calculateColorScale(minimum, maximum, ['white', 'green']);
+  const color = calculateColorScale(minimum, maximum);
 
   const blocks: BlockType[] = [];
   keys.forEach((keyName: string) => {
@@ -102,7 +100,6 @@ export const generateHorizontalBlocks = ({
     blocks,
     xScale,
     yScale,
-    select,
   };
 };
 

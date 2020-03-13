@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { select } from 'd3-selection';
+
 import { StyledRect } from './block.styles';
 
 import { BlockType } from './types';
@@ -18,18 +20,11 @@ const rectHoverMotion = {
 type Props = {
   block: BlockType;
   padding: number;
-  select: any;
   onMouseEnter?: (e: React.MouseEvent, block: BlockType) => void;
   onMouseLeave?: (e: React.MouseEvent) => void;
 };
 
-const Block = ({
-  block,
-  padding,
-  select,
-  onMouseEnter,
-  onMouseLeave,
-}: Props) => {
+const Block = ({ block, padding, onMouseEnter, onMouseLeave }: Props) => {
   const [activeBlock, setActiveBlock] = useState(null);
   const element = useRef(null);
   const { key, width, height, x, y, color } = block;

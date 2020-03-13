@@ -9,7 +9,6 @@ type Props = {
   blocks: BlockType[];
   padding: number;
   layout: Layout;
-  select: any;
   onMouseEnter?: (e: React.MouseEvent, block: BlockType) => void;
   onMouseLeave?: (e: React.MouseEvent) => void;
 };

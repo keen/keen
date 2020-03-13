@@ -5,14 +5,13 @@ import { Layout } from '@keen.io/ui-core';
 import { generateBlocks } from './heatmap-chart.utils';
 
 import Heatmap from './heatmap.component';
-// import Tooltip from './tooltip.component';
 
 import { Tooltip } from '@keen.io/ui-core';
 import TooltipContent from './tooltip-content.component';
 import { useTooltip } from '../../hooks';
 
 import ShadowFilter from './shadow-filter.component';
-import { ChartBase, /*ChartTooltip,*/ Axes } from '../../components';
+import { ChartBase, Axes } from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { ScaleSettings, CommonChartSettings } from '../../types';
@@ -40,7 +39,7 @@ export type Props = {
   padding?: number;
 } & CommonChartSettings;
 
-export const LineChart: FC<Props> = ({
+export const HeatmapChart: FC<Props> = ({
   data,
   svgDimensions,
   labelSelector,
@@ -55,7 +54,7 @@ export const LineChart: FC<Props> = ({
   yScaleSettings = { type: 'band' },
   padding = 2,
 }) => {
-  const { blocks, xScale, yScale, select } = generateBlocks({
+  const { blocks, xScale, yScale } = generateBlocks({
     data,
     margins,
     dimension: svgDimensions,
@@ -101,9 +100,13 @@ export const LineChart: FC<Props> = ({
               pointerEvents: 'none',
             }}
           >
-            <Tooltip hasArrow={false}>
+            <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
-                <TooltipContent data={data} selectors={tooltipSelectors} />
+                <TooltipContent
+                  typography={tooltipSettings.labels.typography}
+                  data={data}
+                  selectors={tooltipSelectors}
+                />
               )}
             </Tooltip>
           </motion.div>
@@ -123,7 +126,6 @@ export const LineChart: FC<Props> = ({
           blocks={blocks}
           padding={padding}
           layout={layout}
-          select={select}
           onMouseEnter={(e, selectors) => {
             if (tooltipSettings.enabled) {
               updateTooltipPosition(e, [selectors]);
@@ -138,4 +140,4 @@ export const LineChart: FC<Props> = ({
   );
 };
 
-export default LineChart;
+export default HeatmapChart;
