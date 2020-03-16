@@ -19,7 +19,19 @@ addParameters({
     theme,
     showPanel: true,
     panelPosition: 'right',
+    storySort: (a, b) => {
+      if (a[0].includes('docs-')) {
+        if (a[0].includes('intro-')) {
+          return -1;
+        }
+
+        return 0;
+      }
+
+      return 1;
+    }
   },
 });
 
-configure(require.context('../packages', true, /\.stories\.tsx$/), module);
+configure(require.context('../packages', true, /\.stories\.(tsx$|mdx)/), module);
+configure(require.context('../docs', true, /\.mdx/), module);

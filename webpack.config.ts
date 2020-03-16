@@ -1,3 +1,5 @@
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+
 module.exports = ({ config }: { config: any }) => {
   config.module.rules.push({
     test: /\.tsx?$/,
@@ -6,6 +8,7 @@ module.exports = ({ config }: { config: any }) => {
       require.resolve('react-docgen-typescript-loader'),
     ],
   });
+
 
   config.module.rules.push({
     test: /\.stories\.tsx?$/,
@@ -18,6 +21,24 @@ module.exports = ({ config }: { config: any }) => {
     enforce: 'pre',
   });
 
-  config.resolve.extensions.push('.ts', '.tsx');
+  config.module.rules.push({
+          test: /\.mdx?$/,
+          use: [
+            {
+                    loader: require.resolve('babel-loader'),
+                    options: {
+        plugins: ['@babel/plugin-transform-react-jsx'],
+      },
+                  },
+            {
+            loader: '@mdx-js/loader',
+            options: {
+       compilers: [createCompiler({})],
+     },
+            }
+          ],
+        });
+
+  config.resolve.extensions.push('.ts', '.tsx', '.mdx');
   return config;
 };
