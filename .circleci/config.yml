@@ -10,6 +10,9 @@ jobs:
     executor: nodejs
     working_directory: ~/tmp
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "79:d9:37:f7:b9:63:5a:f4:35:d4:ad:b2:72:5d:34:a9"
       - run:
           name: Setup GIT email
           command: git config --global user.email "developer@keen.io"
@@ -26,9 +29,6 @@ jobs:
       - run:
           name: Build packages
           command: npx lerna run build
-      - add_ssh_keys:
-          fingerprints:
-            - "79:d9:37:f7:b9:63:5a:f4:35:d4:ad:b2:72:5d:34:a9"
       - run:
           name: Publish
           command: npx lerna publish --conventional-commits --yes
@@ -63,7 +63,7 @@ workflows:
       - publish:
           filters:
             branches:
-              only: chore/publish-ci
+              only: master
             tags:
               ignore: /.*/
   ci:
