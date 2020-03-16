@@ -5,13 +5,14 @@ import {
   PieChartWidget,
   MetricChartWidget,
   FunnelChartWidget,
+  HeatmapChartWidget,
   WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
 
 import { ComponentSettings } from './types';
 
-export type Widgets = 'bar' | 'line' | 'pie' | 'metric' | 'funnel';
+export type Widgets = 'bar' | 'line' | 'pie' | 'metric' | 'funnel' | 'heatmap';
 
 type Options = {
   type: Widgets;
@@ -50,6 +51,16 @@ export const renderWidget = ({
       return (
         <BarChartWidget
           xScaleSettings={{ type: 'band', ...scaleSettings }}
+          {...config}
+        />
+      );
+    case 'heatmap':
+      return (
+        <HeatmapChartWidget
+          yScaleSettings={{
+            type: 'band',
+            ...scaleSettings,
+          }}
           {...config}
         />
       );

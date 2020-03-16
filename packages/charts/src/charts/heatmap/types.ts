@@ -1,5 +1,5 @@
 import { Dimension, Margins } from '../../types';
-import { Layout } from '@keen.io/ui-core';
+import { Layout, ColorMode } from '@keen.io/ui-core';
 
 import { ScaleSettings } from '../../types';
 
@@ -9,6 +9,8 @@ export type Options = {
   disabledKeys?: string[];
   labelSelector: string;
   layout: Layout;
+  colorMode: ColorMode;
+  steps: number;
   dimension: Dimension;
   margins: Margins;
   minValue?: number | 'auto';

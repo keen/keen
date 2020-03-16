@@ -75,3 +75,13 @@ export const layoutKnobs = (
   namespace: string,
   defaultValue: string = layoutOptions.vertical
 ) => select('Layout', layoutOptions, defaultValue, namespace);
+
+const colorModeOptions = {
+  continuous: 'continuous',
+  discrete: 'discrete',
+};
+
+export const colorModeKnobs = (
+  namespace: string,
+  defaultValue: string = colorModeOptions.continuous
+) => select('Color mode', colorModeOptions, defaultValue, namespace);

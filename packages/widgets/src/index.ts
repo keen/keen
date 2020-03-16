@@ -5,6 +5,7 @@ import {
   PieChartWidget,
   FunnelChartWidget,
   MetricChartWidget,
+  HeatmapChartWidget,
   metricWidgetSettings,
 } from './components';
 
@@ -22,4 +23,5 @@ export {
   metricWidgetSettings,
   widgetSettings,
   legendSettings,
+  HeatmapChartWidget,
 };
