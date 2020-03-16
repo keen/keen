@@ -18,7 +18,7 @@ import { chartData } from './heatmap-chart.widget.fixtures';
 import { widgetSettings } from '../widget-settings';
 
 export default {
-  title: 'Widgets / Heatmap Widget',
+  title: 'Visualizations|Heatmap Chart|Widget',
   parameters: {
     component: HeatmapChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',
@@ -33,7 +33,7 @@ const createThemeKnobs = () => ({
   gridY: gridKnobs('Grid Y'),
 });
 
-export const withKnobs = () => (
+export const widget = () => (
   <div style={{ width: '700px', height: '400px' }}>
     <HeatmapChartWidget
       title={{
