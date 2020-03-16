@@ -10,14 +10,14 @@ import { PieChart } from './pie-chart.component';
 import { chartData } from './pie-chart.fixtures';
 
 export default {
-  title: 'Charts / Pie Chart',
+  title: 'Visualizations|Pie Chart|Plot',
   parameters: {
     component: PieChart,
     componentSubtitle: 'Pie Chart plot',
   },
 };
 
-export const withKnobs = () => {
+export const plot = () => {
   const theme = {
     ...defaultTheme,
     labels: {

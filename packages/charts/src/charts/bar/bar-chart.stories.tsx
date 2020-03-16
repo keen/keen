@@ -18,7 +18,7 @@ import { theme as keenTheme } from '../../theme';
 import { GroupMode, StackMode } from '../../types';
 
 export default {
-  title: 'Charts / Bar Chart',
+  title: 'Visualizations|Bar Chart|Plot',
   parameters: {
     component: BarChart,
     componentSubtitle: 'Bar Chart plot',
@@ -38,12 +38,12 @@ const createThemeKnobs = () => ({
   },
 });
 
-export const withKnobs = () => (
+export const plot = () => (
   <div
     style={{
       padding: '0 40px',
-      width: '700px',
-      height: '500px',
+      width: '500px',
+      height: '300px',
     }}
   >
     <BarChart
@@ -58,8 +58,8 @@ export const withKnobs = () => (
       svgDimensions={object(
         'svg',
         {
-          width: 700,
-          height: 500,
+          width: 500,
+          height: 300,
         },
         'Chart'
       )}

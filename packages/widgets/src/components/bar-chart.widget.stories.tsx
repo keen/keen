@@ -18,7 +18,7 @@ import { chartData } from './bar-chart.widget.fixtures';
 import { widgetSettings } from '../widget-settings';
 
 export default {
-  title: 'Widgets / Bar Chart Widget',
+  title: 'Visualizations|Bar Chart|Widget',
   parameters: {
     component: BarChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',
@@ -33,7 +33,7 @@ const createThemeKnobs = () => ({
   gridY: gridKnobs('Grid Y'),
 });
 
-export const withKnobs = () => (
+export const widget = () => (
   <div style={{ width: '700px', height: '400px' }}>
     <BarChartWidget
       title={{

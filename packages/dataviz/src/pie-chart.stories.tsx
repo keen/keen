@@ -7,7 +7,7 @@ import Visualizer from './visualizer';
 import { analysisConfig } from './fixture';
 
 export default {
-  title: 'DataViz / Pie Charts',
+  title: 'Visualizations|Pie Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Pie charts created with @keen.io/dataviz library',
   },

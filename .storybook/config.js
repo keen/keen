@@ -19,7 +19,26 @@ addParameters({
     theme,
     showPanel: true,
     panelPosition: 'right',
+    storySort: (a, b) => {
+      if (a[0].includes('docs-')) {
+        if (a[0].includes('intro-')) return -1;
+        return 0;
+      }
+      return 1;
+    }
   },
 });
 
-configure(require.context('../packages', true, /\.stories\.tsx$/), module);
+const setStories = () => {
+  return [
+    require.context('../docs', true, /readme-intro.mdx/),
+    require.context('../docs', true, /charts-intro.mdx/),
+    require.context('../docs', true, /widgets-intro.mdx/),
+    require.context('../docs', true, /dataviz-intro.mdx/),
+    require.context('../docs', true, /theme-intro.mdx/),
+    require.context('../docs/charts', true, /\.mdx/),
+    require.context('../packages', true, /\.stories\.(tsx$|mdx)/)
+  ];
+}
+
+configure(setStories(), module);

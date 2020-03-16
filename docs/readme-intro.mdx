@@ -1,0 +1,26 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs|Introduction" />
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+## Why
+
+> *Why we decided to create a charts library from scratch ?*
+
+We tried another solutions for data visualization, however each of them were missing things which was important from our perspective.
+When we started a project - our main assumptions were:
+
+- Deliver re-usable and customizable build blocks.
+- Provide best experience for `developers` and metrics `users`.
+- Leverage the `Keen API` in the best way.
+- Make data visualization fast, fun and easy.
+
+## Architecture
+
+In current implementation there are three main packages:
+- [@keen.io/charts](?path=/docs/docs-charts--page) - set of re-usable charts plots builded a top of [React](https://reactjs.org/) and [D3](https://d3js.org/).
+- [@keen.io/widgets](?path=/docs/docs-widgets--page) - set of re-usable components that connects plots with visualization helpers like for eg. *legend*, *filters*.
+- [@keen.io/dataviz](?path=/docs/docs-datviz--page) - abstraction layer that connects Keen API with visualization components.

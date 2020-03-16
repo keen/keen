@@ -5,7 +5,7 @@ import { colors } from '@keen.io/colors';
 import Loader from './loader.component';
 
 export default {
-  title: 'Components / Loader',
+  title: 'Components|Loader',
   parameters: {
     component: Loader,
     componentSubtitle: 'Displays animated brand loader',

@@ -8,7 +8,7 @@ import Visualizer from './visualizer';
 import { analysisConfig } from './fixture';
 
 export default {
-  title: 'DataViz / Bar Charts',
+  title: 'Visualizations|Bar Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Bar charts created with @keen.io/dataviz library',
   },

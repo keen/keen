@@ -7,7 +7,7 @@ import { Icon } from './icon.component';
 import { IconType } from '../types';
 
 export default {
-  title: 'Components / Icons',
+  title: 'Components|Icons',
   parameters: {
     component: Icon,
     componentSubtitle: 'Displays icon based on provided type',

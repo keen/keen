@@ -10,5 +10,5 @@
     { "path": "../ui-core" },
     { "path": "../storybook-utils" }
   ],
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "typings/*.d.ts"]
 }
