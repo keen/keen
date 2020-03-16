@@ -4,7 +4,6 @@ import {
   cardKnobs,
   axisXKnobs,
   axisYKnobs,
-  gridKnobs,
   layoutKnobs,
   typographyKnobs,
   colorModeKnobs,
@@ -29,8 +28,6 @@ const createThemeKnobs = () => ({
   ...keenTheme,
   axisX: axisXKnobs('Axis X'),
   axisY: axisYKnobs('Axis Y'),
-  gridX: gridKnobs('Grid X'),
-  gridY: gridKnobs('Grid Y'),
 });
 
 export const widget = () => (

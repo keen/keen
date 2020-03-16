@@ -16,7 +16,7 @@ import { WidgetSettings } from '../types';
 
 type Props = WidgetSettings & HeatmapChartSettings;
 
-/** Line Chart widget integrated with other components */
+/** Heatmap Chart widget integrated with other components */
 export const HeatmapChartWidget: FC<Props> = ({
   title,
   subtitle,
