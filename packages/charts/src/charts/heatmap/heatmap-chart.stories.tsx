@@ -24,7 +24,7 @@ const createThemeKnobs = () => ({
 
 export const plot = () => {
   return (
-    <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
+    <div style={{ width: '600px', height: '300px' }}>
       <Heatmap
         padding={number('padding', 2, {}, 'Chart')}
         layout={layoutKnobs('Chart', 'vertical') as any}
@@ -33,14 +33,14 @@ export const plot = () => {
         svgDimensions={object(
           'svg',
           {
-            width: 700,
-            height: 500,
+            width: 600,
+            height: 300,
           },
           'Chart'
         )}
         margins={object(
           'Margins',
-          { top: 50, right: 30, bottom: 50, left: 80 },
+          { top: 20, right: 30, bottom: 50, left: 80 },
           'Chart'
         )}
         theme={createThemeKnobs()}

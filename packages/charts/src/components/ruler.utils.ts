@@ -1,6 +1,6 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
-import { generateTicks } from '../utils';
+import { generateTicks } from '../utils/scale.utils';
 
 import { Orientation, ScaleSettings, LabelRotation } from '../types';
 

@@ -1,12 +1,10 @@
 import { scaleLinear, scaleUtc, ScaleLinear, ScaleTime } from 'd3-scale';
 import { line as lineShape, curveStep, curveMonotoneX, stack } from 'd3-shape';
 
-import {
-  calculateRange,
-  calculateScaleDomain,
-  getKeysDifference,
-  calculateStackedRange,
-} from '../../utils';
+import { getKeysDifference } from '../../utils/data.utils';
+import { calculateScaleDomain } from '../../utils/scale.utils';
+
+import { calculateRange, calculateStackedRange } from '../../utils/data.utils';
 
 import { Options, Mark, Line, StepType, CurveType } from './types';
 

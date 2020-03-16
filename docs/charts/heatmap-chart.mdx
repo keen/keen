@@ -1,4 +1,4 @@
-import { Meta, Story, Props,Preview } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 
 import { HeatmapChart } from '@keen.io/charts';
@@ -7,24 +7,24 @@ import { HeatmapChart } from '@keen.io/charts';
 
 # Heatmap Chart
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+A heat map displays quantitative values for two or more sets of categories. It is commonly used to visualize hot spots within data sets. It helps to discover patterns and correlations. Due to its compact nature, it is often used with large sets of data. Heat maps are used to present the order of magnitude.
 
 #### Category
-- Lorem ipsum
-- Dolor sit amet
-- Consectetur adipiscing
+- Comparison
+- Correlation patterns
+- Distribution
 
 #### Composition
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Categories can be mapped onto the x and y axes and amount can be shown by color. Both axes present discrete scales. Logical sorting and/or event grouping of the categorical values along each axis will aid readability and may help to surface key relationships.
 
 #### Color
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Decisions need to be made about whether to use continuous gradient color range or employ discrete classifications for different value intervals. Colour lightness attribute is most often used to represent data on heat map charts. There can be just one colour used to create a monochromatic scale or multiple colours that will create the gradient effect.
 
 #### Annotations
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Direct value labeling is possible. However, a clear legend to indicate colour association should be just enough to estimate the values and understand the data. Colour slider allows limiting results to the range that might be exceptionally interesting. Adding value labels directly on the heat map with multiple categories may create redundant visual noise.
 
 #### Applications
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Use the heat map chart to visualize complex data like performance comparison of different companies etc.
 
 ## Plot
 
@@ -34,6 +34,6 @@ The plot is a part of `keen.io/charts` package and can be used in `React` enviro
   <Story id="visualizations-heatmap-chart-plot--plot" />
 </Preview>
 
-## Chart API
+## API
 
 <Props of={HeatmapChart} />
