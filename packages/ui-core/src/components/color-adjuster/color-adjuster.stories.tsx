@@ -6,7 +6,7 @@ import { colors } from '@keen.io/colors';
 import ColorAdjuster from './color-adjuster.component';
 
 export default {
-  title: 'Components / Color Adjuster',
+  title: 'Components|Color Adjuster',
   parameters: {
     component: ColorAdjuster,
     componentSubtitle: 'Adjust color based on HSL lightness property',

@@ -14,7 +14,7 @@ import { chartData } from './funnel-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Widgets / Funnel Chart Widget',
+  title: 'Visualizations|Funnel Chart|Widget',
   parameters: {
     component: FunnelChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',
@@ -61,7 +61,7 @@ const createThemeKnobs = () => ({
   },
 });
 
-export const withKnobs = () => {
+export const widget = () => {
   const theme = {
     ...keenTheme,
     ...createThemeKnobs(),

@@ -14,14 +14,14 @@ import { chartData } from './metric-chart.fixtures';
 import { theme as keenTheme } from '../../theme';
 
 export default {
-  title: 'Charts / Metric Chart',
+  title: 'Visualizations|Metric Chart|Plot',
   parameters: {
     component: MetricChart,
     componentSubtitle: 'Metric Chart plot',
   },
 };
 
-export const withKnobs = () => {
+export const plot = () => {
   const theme = {
     ...keenTheme,
     metric: {
