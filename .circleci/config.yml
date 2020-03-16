@@ -31,7 +31,7 @@ jobs:
           command: npx lerna run build
       - run:
           name: Publish
-          command: npx lerna publish --conventional-commits --yes
+          command: npx lerna version --conventional-commits
   build:
     executor: nodejs
     working_directory: ~/tmp
@@ -58,7 +58,7 @@ jobs:
 
 workflows:
   version: 2
-  ci:
+  release:
     jobs:
       - publish:
           filters:
@@ -66,6 +66,8 @@ workflows:
               only: chore/publish-ci
             tags:
               ignore: /.*/
+  ci:
+    jobs:
       - build:
           filters:
             branches:
