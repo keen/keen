@@ -12,6 +12,8 @@ export const generateVerticalBlocks = ({
   minValue,
   maxValue,
   labelSelector,
+  colorMode,
+  steps,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
@@ -23,7 +25,7 @@ export const generateVerticalBlocks = ({
     .range([dimension.height - margins.bottom, margins.top])
     .domain(data.map((item: any) => item[labelSelector]));
 
-  const color = calculateColorScale(minimum, maximum);
+  const color = calculateColorScale(minimum, maximum, colorMode, steps);
 
   const blocks: BlockType[] = [];
   keys.forEach((keyName: string) => {
@@ -61,6 +63,8 @@ export const generateHorizontalBlocks = ({
   minValue,
   maxValue,
   labelSelector,
+  colorMode,
+  steps,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
@@ -72,7 +76,7 @@ export const generateHorizontalBlocks = ({
     .range([dimension.height - margins.bottom, margins.top])
     .domain(keys.map((item: any) => item));
 
-  const color = calculateColorScale(minimum, maximum);
+  const color = calculateColorScale(minimum, maximum, colorMode, steps);
 
   const blocks: BlockType[] = [];
   keys.forEach((keyName: string) => {

@@ -9,6 +9,7 @@ import {
   lineStackModeKnobs,
   curveKnobs,
   iconKnobs,
+  colorModeKnobs,
 } from './select.knobs';
 import { axisXKnobs, axisYKnobs, gridKnobs } from './theme.knobs';
 import { legendKnobs } from './legend.knobs';
@@ -32,4 +33,5 @@ export {
   axisYKnobs,
   gridKnobs,
   curveKnobs,
+  colorModeKnobs,
 };

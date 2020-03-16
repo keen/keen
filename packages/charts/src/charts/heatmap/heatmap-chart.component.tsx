@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layout } from '@keen.io/ui-core';
+import { Layout, ColorMode } from '@keen.io/ui-core';
 
 import { generateBlocks } from './heatmap-chart.utils';
 
@@ -31,6 +31,10 @@ export type Props = {
   disabledKeys?: string[];
   /** Layout applied on chart bars */
   layout?: Layout;
+  /** Color mode */
+  colorMode?: ColorMode;
+  /** Amount of step for color calculation */
+  steps?: number;
   /** X scale settings */
   xScaleSettings?: ScaleSettings;
   /** Y scale settings */
@@ -50,6 +54,8 @@ export const HeatmapChart: FC<Props> = ({
   keys = ['value'],
   disabledKeys = [],
   layout = 'vertical',
+  colorMode = 'continuous',
+  steps = 2,
   xScaleSettings = { type: 'band' },
   yScaleSettings = { type: 'band' },
   padding = 2,
@@ -64,6 +70,8 @@ export const HeatmapChart: FC<Props> = ({
     minValue,
     maxValue,
     layout,
+    colorMode,
+    steps,
   });
 
   const svgElement = useRef(null);

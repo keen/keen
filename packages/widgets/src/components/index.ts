@@ -7,6 +7,8 @@ import PieChartWidget from './pie';
 import FunnelChartWidget from './funnel';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
 
+import HeatmapChartWidget from './heatmap-chart.widget';
+
 import { LegendSocket, ContentSocket } from './widget-sockets.component';
 
 export {
@@ -19,4 +21,5 @@ export {
   FunnelChartWidget,
   MetricChartWidget,
   metricWidgetSettings,
+  HeatmapChartWidget,
 };

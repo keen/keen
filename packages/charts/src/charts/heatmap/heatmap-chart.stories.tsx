@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { object, number } from '@storybook/addon-knobs';
 
-import { axisXKnobs, axisYKnobs, layoutKnobs } from '@keen.io/storybook-utils';
+import {
+  axisXKnobs,
+  axisYKnobs,
+  layoutKnobs,
+  colorModeKnobs,
+} from '@keen.io/storybook-utils';
 
 import Heatmap from './heatmap-chart.component';
 import { chartData } from './heatmap-chart.fixtures';
@@ -28,6 +33,8 @@ export const plot = () => {
       <Heatmap
         padding={number('padding', 2, {}, 'Chart')}
         layout={layoutKnobs('Chart', 'vertical') as any}
+        colorMode={colorModeKnobs('Chart', 'continuous') as any}
+        steps={number('steps', 2, {}, 'Chart')}
         labelSelector="name"
         keys={['users', 'licenses', 'shops']}
         svgDimensions={object(
