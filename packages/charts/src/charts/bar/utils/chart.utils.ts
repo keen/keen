@@ -3,13 +3,13 @@ import { stack, stackOffsetDiverging } from 'd3-shape';
 
 import { Layout } from '@keen.io/ui-core';
 
+import { getKeysDifference } from '../../../utils/data.utils';
+import { calculateScaleDomain } from '../../../utils/scale.utils';
 import {
-  getKeysDifference,
   normalizeToPercent,
   calculateRange,
   calculateStackedRange,
-  calculateScaleDomain,
-} from '../../../utils';
+} from '../../../utils/data.utils';
 
 import { Bar } from '../types';
 import {

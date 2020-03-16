@@ -1,6 +1,6 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
-import { getScaleValues, getCenterPosition } from '../utils';
+import { getScaleValues, getCenterPosition } from '../utils/scale.utils';
 
 import { Dimension, Margins, Line, ScaleSettings } from '../types';
 
