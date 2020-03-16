@@ -9,7 +9,6 @@ module.exports = ({ config }: { config: any }) => {
     ],
   });
 
-
   config.module.rules.push({
     test: /\.stories\.tsx?$/,
     loaders: [
@@ -22,22 +21,22 @@ module.exports = ({ config }: { config: any }) => {
   });
 
   config.module.rules.push({
-          test: /\.mdx?$/,
-          use: [
-            {
-                    loader: require.resolve('babel-loader'),
-                    options: {
-        plugins: ['@babel/plugin-transform-react-jsx'],
+    test: /\.mdx?$/,
+    use: [
+      {
+        loader: require.resolve('babel-loader'),
+        options: {
+          plugins: ['@babel/plugin-transform-react-jsx'],
+        },
       },
-                  },
-            {
-            loader: '@mdx-js/loader',
-            options: {
-       compilers: [createCompiler({})],
-     },
-            }
-          ],
-        });
+      {
+        loader: '@mdx-js/loader',
+        options: {
+          compilers: [createCompiler({})],
+        },
+      },
+    ],
+  });
 
   config.resolve.extensions.push('.ts', '.tsx', '.mdx');
   return config;

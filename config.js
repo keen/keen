@@ -20,14 +20,11 @@ addParameters({
     showPanel: true,
     panelPosition: 'right',
     storySort: (a, b) => {
-      if (a[0].includes('docs-')) {
-        if (a[0].includes('intro-')) {
-          return -1;
-        }
-
-        return 0;
-      }
-
+      if (a[0].includes('description-')) return -1;
+      if (a[0].includes('introduction-')) return -5;
+      if (a[0].includes('docs-charts-')) return -4;
+      if (a[0].includes('docs-widgets-')) return -3;
+      if (a[0].includes('dataviz-')) return 0;
       return 1;
     }
   },
