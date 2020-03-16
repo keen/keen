@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/icons",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Keen icons",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -26,7 +26,7 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "@keen.io/colors": "^0.0.1",
+    "@keen.io/colors": "^0.1.0",
     "react": "^16.12.0"
   },
   "publishConfig": {
