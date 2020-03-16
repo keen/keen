@@ -60,7 +60,7 @@ workflows:
   version: 2
   ci:
     jobs:
-      - build:
+      - publish:
           filters:
             branches:
               only: chore/publish-ci
