@@ -11,6 +11,7 @@
     "commit": "npx git-cz",
     "prettier": "prettier --write 'packages/**/*.{js,ts,tsx,json}'",
     "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
+    "create-version": "lerna version --conventional-commits",
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:ci": "jest --coverage -w 1",
