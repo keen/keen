@@ -1,32 +1,31 @@
 
 <!DOCTYPE html>
 <html>
-
+<head>
+  <title>Bar Chart</title>
+</head>
 <body>
   <div id="container" style="width: 500px; height: 500px"></div>
 </body>
-<script crossorigin src="https://cdn.jsdelivr.net/npm/keen-analysis@3/dist/keen-analysis.min.js"></script>
-<script type="text/javascript" src="./dist/umd/main.js"></script>
+
+
+<script crossorigin src="https://cdn.jsdelivr.net/npm/keen-analysis@latest/dist/keen-analysis.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@keen.io/dataviz@latest/dist/dataviz.min.js"></script>
 
 <script type="text/javascript">
-
-
-  const client = new window.KeenAnalysis({
+  const client = new KeenAnalysis({
     projectId: '5e429d77c9e77c0001a35cf1',
     readKey:
       '86900A71F1825A2C3F07C639B00B37A57CDCCBB446BBA7D207CF107D466AA0EC9212C08DA6E377995FFBC6E56AD0AB073D74C8B1BB366BD8D9BE802133561CAC55F6E96A845D6939A5DB7D08D2A49C668EAC7AFE4AAEA4BE7BD1572A655DCA8A',
   });
 
-  const dataviz = new KeenVisualizer({
+  const dataviz = new KeenDataviz({
     type: 'bar',
     container: '#container',
     widget: {
       title: {
         content: 'Total purchases',
       },
-      subtitle: {
-        content: 'Test'
-      }
     },
   });
 
@@ -39,10 +38,9 @@
       end: '2019-05-01T16:00:00.000-00:00',
     },
     interval: 'monthly',
-  })
-    .then(function(res) {
-      dataviz.render(res);
-    });
+  }).then((res) => {
+    dataviz.render(res);
+  });
 
 
   </script>
