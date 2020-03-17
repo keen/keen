@@ -1,25 +1,25 @@
-import { generateDonutChart } from './chart.utils';
+import { generatePieChart } from './chart.utils';
 
-import { donutChart } from '../donut-chart.fixtures';
+import { pieChart } from '../charts/pie/pie-chart.fixtures';
 
 describe('@keen/charts', () => {
-  describe('<DonutChart /> - utils', () => {
+  describe('<PieChart /> - utils', () => {
     it('should create arcs based on provided data', () => {
-      const { arcs } = generateDonutChart(donutChart);
-      const { data } = donutChart;
+      const { arcs } = generatePieChart(pieChart);
+      const { data } = pieChart;
 
       expect(arcs.length).toEqual(data.length);
     });
 
     it('should calculate properties for each arc', () => {
-      const { arcs } = generateDonutChart(donutChart);
+      const { arcs } = generatePieChart(pieChart);
 
       expect(arcs).toMatchSnapshot();
     });
 
     it('should calculate position for labels placed "outer" of slice', () => {
-      const { arcs } = generateDonutChart({
-        ...donutChart,
+      const { arcs } = generatePieChart({
+        ...pieChart,
         labelsPosition: 'outside',
       });
 

@@ -3,7 +3,7 @@ import React, { FC, useRef, useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
-import DonutLabel from './donut-label.component';
+import DonutLabel from '../../components/pie-label.component';
 import { StyledPath } from './donut-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
@@ -46,7 +46,7 @@ const DonutSlice: FC<Props> = ({
 
   const [isActive, setActive] = useState(false);
   const { theme } = useContext(ChartContext) as ChartContextType;
-  const { labels } = theme;
+  const { labels } = theme.donut;
 
   useEffect(() => {
     const shouldAnimate =

@@ -1,4 +1,4 @@
-import { DonutChartOptions } from './utils';
+import { PieChartOptions as DonutChartOptions } from '../../utils/';
 import { chartColors } from '../../theme';
 
 export const chartData = [

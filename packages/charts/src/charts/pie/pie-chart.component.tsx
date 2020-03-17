@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
 
-import { generatePieChart, LabelsPosition } from './utils';
+import { generatePieChart, LabelsPosition } from '../../utils/';
 
 import PieSlice from './pie-slice.component';
 import TooltipContent from '../../components/tooltip-content.component';
@@ -34,7 +34,7 @@ export type Props = {
   innerRadius?: number;
   /** The radius for slice labels */
   labelsRadius?: number;
-  /** Show labels inside our outside pie slices */
+  /** Show labels inside or outside pie slices */
   labelsPosition?: LabelsPosition;
   /** Automatically adjust labels color */
   labelsAutocolor?: boolean;

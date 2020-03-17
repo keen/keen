@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
 
-import { generateDonutChart, LabelsPosition } from './utils';
+import { generatePieChart, LabelsPosition } from '../../utils/';
 
 import DonutSlice from './donut-slice.component';
 import TooltipContent from '../../components/tooltip-content.component';
@@ -35,7 +35,7 @@ export type Props = {
   innerRadius?: number;
   /** The radius for slice labels */
   labelsRadius?: number;
-  /** Show labels inside our outside donut slices */
+  /** Show labels inside or outside donut slices */
   labelsPosition?: LabelsPosition;
   /** Automatically adjust labels color */
   labelsAutocolor?: boolean;
@@ -62,7 +62,7 @@ export const DonutChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
 }) => {
-  const { total, arcs, drawArc, drawActiveArc } = generateDonutChart({
+  const { total: totalValue, arcs, drawArc, drawActiveArc } = generatePieChart({
     data,
     margins,
     padAngle,
@@ -76,6 +76,7 @@ export const DonutChart: FC<Props> = ({
     labelsPosition,
     dimension: svgDimensions,
     colors: theme.colors,
+    type: 'donut',
   });
 
   const svgElement = useRef(null);
@@ -88,7 +89,7 @@ export const DonutChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings, total: totalSettings } = theme;
+  const { tooltip: tooltipSettings, donut: donutSettings } = theme;
   return (
     <>
       <AnimatePresence>
@@ -129,9 +130,6 @@ export const DonutChart: FC<Props> = ({
           style={{
             transform: `translate(${svgDimensions.width /
               2}px, ${svgDimensions.height / 2}px)`,
-            // transform: `translate: ${margins.left}px ${margins.right}`,
-            // width: `${svgDimensions.width}px`,
-            // height: `${svgDimensions.height}px`,
           }}
         >
           <ShadowFilter />
@@ -166,8 +164,10 @@ export const DonutChart: FC<Props> = ({
               />
             )
           )}
-          {totalSettings.enabled && (
-            <DonutTotal {...totalSettings.typography}>{total}</DonutTotal>
+          {donutSettings.total?.enabled && (
+            <DonutTotal {...donutSettings.total.typography}>
+              {totalValue}
+            </DonutTotal>
           )}
         </g>
       </ChartBase>

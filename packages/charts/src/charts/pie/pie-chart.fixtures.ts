@@ -1,4 +1,4 @@
-import { PieChartOptions } from './utils';
+import { PieChartOptions } from '../../utils/';
 import { chartColors } from '../../theme';
 
 export const chartData = [

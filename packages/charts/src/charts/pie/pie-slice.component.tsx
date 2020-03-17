@@ -3,7 +3,7 @@ import React, { FC, useRef, useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
-import PieLabel from './pie-label.component';
+import PieLabel from '../../components/pie-label.component';
 import { StyledPath } from './pie-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';

@@ -20,13 +20,15 @@ export default {
 export const withKnobs = () => {
   const theme = {
     ...defaultTheme,
-    labels: {
-      enabled: boolean('Enabled', true, 'Labels') as boolean,
-      typography: typographyKnobs('Labels'),
-    },
-    total: {
-      enabled: boolean('Enabled', true, 'Total') as boolean,
-      typography: typographyKnobs('Total'),
+    donut: {
+      total: {
+        enabled: boolean('Enabled', true, 'Total') as boolean,
+        typography: typographyKnobs('Total'),
+      },
+      labels: {
+        enabled: boolean('Enabled', true, 'Labels') as boolean,
+        typography: typographyKnobs('Labels'),
+      },
     },
   };
 

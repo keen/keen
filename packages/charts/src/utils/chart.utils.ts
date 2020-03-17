@@ -1,11 +1,13 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
 
-import { calculateHypotenuse } from '../../../utils/math.utils';
+import { calculateHypotenuse } from './math.utils';
 
-import { Dimension, Margins, DataSelector } from '../../../types';
+import { Dimension, Margins, DataSelector } from '../types';
 
 export type LabelsPosition = 'inside' | 'outside';
+
+type PieType = 'pie' | 'donut';
 
 export type Options = {
   data: Record<string, any>[];
@@ -21,9 +23,10 @@ export type Options = {
   innerRadius: number;
   labelsRadius: number;
   labelsPosition: LabelsPosition;
+  type?: PieType;
 };
 
-type DonutSlice = {
+type PieSlice = {
   index: string;
   label: string;
   activePosition: [number, number];
@@ -34,11 +37,11 @@ type DonutSlice = {
   endAngle: number;
 };
 
-type DonutValue = { color: string; value: number; selector: DataSelector };
+type PieValue = { color: string; value: number; selector: DataSelector };
 
 export const HOVER_RADIUS = 5;
 
-export const generateDonutChart = ({
+export const generatePieChart = ({
   data,
   colors,
   dimension,
@@ -52,8 +55,9 @@ export const generateDonutChart = ({
   labelsPosition,
   labelsRadius,
   margins,
+  type = 'pie',
 }: Options) => {
-  const values: DonutValue[] = [];
+  const values: PieValue[] = [];
 
   const { width, height } = dimension;
   const radius =
@@ -79,7 +83,7 @@ export const generateDonutChart = ({
   });
 
   const total = sum(values, d => d.value);
-  const createDonut = pie().value((d: any) => d.value);
+  const createPie = pie().value((d: any) => d.value);
 
   const createArc = arc().padAngle(padAngle);
 
@@ -89,7 +93,7 @@ export const generateDonutChart = ({
   ): [number, number] => {
     const [x, y] = createArc.centroid({
       innerRadius: innerRadius,
-      outerRadius: radius,
+      outerRadius: type === 'donut' ? radius : radius + labelsRadius,
       startAngle,
       endAngle,
     });
@@ -101,7 +105,7 @@ export const generateDonutChart = ({
     return [x, y];
   };
 
-  const arcs: DonutSlice[] = createDonut(values as any).map(
+  const arcs: PieSlice[] = createPie(values as any).map(
     ({ startAngle, endAngle, value, index, data }) => {
       const { color, selector } = data as any;
       const [x, y] = createArc.centroid({
