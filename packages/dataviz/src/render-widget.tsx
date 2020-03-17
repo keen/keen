@@ -79,6 +79,7 @@ export const renderWidget = ({
         <LineChartWidget
           xScaleSettings={{
             type: 'time',
+            precision: 'month',
             ...scaleSettings,
           }}
           {...config}

@@ -6,7 +6,7 @@ import { Arc, DefaultArcObject } from 'd3-shape';
 import PieLabel from '../../components/pie-label.component';
 import { StyledPath } from './pie-slice.styles';
 
-import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
+import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
@@ -14,7 +14,6 @@ const transition = { duration: 0.2, ease: 'easeInOut' };
 
 type Props = {
   draw: Arc<any, DefaultArcObject>;
-  drawActive: Arc<any, DefaultArcObject>;
   startAngle: number;
   endAngle: number;
   autocolor: boolean;

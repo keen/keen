@@ -5,18 +5,25 @@ import { DataSelector } from '../types';
 type Options = {
   data: Record<string, any>[];
   keys: string[];
+  labelSelector: string;
   selectors: { selector: DataSelector; color: string }[];
 };
 
-export const getTooltipContent = ({ data, keys, selectors }: Options) => {
-  const content: { name: string; value: number }[] = [];
+export const getTooltipContent = ({
+  data,
+  keys,
+  labelSelector,
+  selectors,
+}: Options) => {
+  const content: { color: string; value: string }[] = [];
 
-  selectors.forEach(({ selector }) => {
+  selectors.forEach(({ selector, color }) => {
     const item = getFromPath(data, selector);
-    keys.forEach((keyName: string) => {
-      const value = item[keyName];
-      content.push({ name: keyName, value });
-    });
+    const total = keys.reduce((acc, keyName) => {
+      return acc + item[keyName];
+    }, 0);
+
+    content.push({ color, value: `${item[labelSelector]} - ${total}` });
   });
 
   return content;

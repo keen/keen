@@ -1,5 +1,6 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
+import { colors } from '@keen.io/colors';
 
 import { calculateHypotenuse } from './math.utils';
 
@@ -7,7 +8,7 @@ import { Dimension, Margins, DataSelector } from '../types';
 
 export type LabelsPosition = 'inside' | 'outside';
 
-type PieType = 'pie' | 'donut';
+type SliceType = 'pie' | 'donut';
 
 export type Options = {
   data: Record<string, any>[];
@@ -23,10 +24,11 @@ export type Options = {
   innerRadius: number;
   labelsRadius: number;
   labelsPosition: LabelsPosition;
-  type?: PieType;
+  type?: SliceType;
+  stackTreshold?: number;
 };
 
-type PieSlice = {
+type Arc = {
   index: string;
   label: string;
   activePosition: [number, number];
@@ -35,13 +37,60 @@ type PieSlice = {
   selector: DataSelector;
   startAngle: number;
   endAngle: number;
+  stacked: boolean;
+  stack: { selector: DataSelector; color: string }[];
 };
 
-type PieValue = { color: string; value: number; selector: DataSelector };
+type Slice = {
+  color: string;
+  value: number;
+  selector: DataSelector;
+  stacked?: boolean;
+  stack?: { selector: DataSelector; color: string }[];
+};
 
 export const HOVER_RADIUS = 5;
 
-export const generatePieChart = ({
+export const createStackedSlice = ({
+  slices,
+  total,
+  treshold,
+}: {
+  slices: Slice[];
+  total: number;
+  treshold: number;
+}) => {
+  const stack: { selector: DataSelector; color: string }[] = [];
+  let filteredSlices: Slice[] = slices;
+  let stackValue = 0;
+
+  slices.forEach(({ value, selector, color }) => {
+    if ((value * 100) / total <= treshold) {
+      stackValue = stackValue + value;
+      stack.push({ selector, color });
+    }
+  });
+
+  const shouldComputeSlices = stack.length >= 2 && slices.length > 3;
+
+  if (shouldComputeSlices) {
+    filteredSlices = slices.filter(
+      ({ value }) => (value * 100) / total > treshold
+    );
+
+    filteredSlices.push({
+      color: colors.gray['500'],
+      value: stackValue,
+      selector: [],
+      stacked: true,
+      stack,
+    });
+  }
+
+  return filteredSlices;
+};
+
+export const generateCircularChart = ({
   data,
   colors,
   dimension,
@@ -56,8 +105,9 @@ export const generatePieChart = ({
   labelsRadius,
   margins,
   type = 'pie',
+  stackTreshold = 0,
 }: Options) => {
-  const values: PieValue[] = [];
+  let slices: Slice[] = [];
 
   const { width, height } = dimension;
   const radius =
@@ -74,7 +124,7 @@ export const generatePieChart = ({
         return acc;
       }, 0) as number;
 
-      values.push({
+      slices.push({
         value: result,
         selector: [idx],
         color: colors[idx],
@@ -82,10 +132,18 @@ export const generatePieChart = ({
     }
   });
 
-  const total = sum(values, d => d.value);
+  const total = sum(slices, d => d.value);
   const createPie = pie().value((d: any) => d.value);
 
   const createArc = arc().padAngle(padAngle);
+
+  if (stackTreshold > 0 && stackTreshold < 100) {
+    slices = createStackedSlice({
+      slices,
+      treshold: stackTreshold,
+      total,
+    });
+  }
 
   const calculateLabelPosition = (
     startAngle: number,
@@ -105,9 +163,9 @@ export const generatePieChart = ({
     return [x, y];
   };
 
-  const arcs: PieSlice[] = createPie(values as any).map(
+  const arcs: Arc[] = createPie(slices as any).map(
     ({ startAngle, endAngle, value, index, data }) => {
-      const { color, selector } = data as any;
+      const { color, selector, stacked, stack } = data as any;
       const [x, y] = createArc.centroid({
         innerRadius: innerRadius,
         outerRadius: 0,
@@ -124,6 +182,8 @@ export const generatePieChart = ({
         color,
         startAngle,
         endAngle,
+        stacked,
+        stack,
       };
     }
   );
@@ -131,12 +191,6 @@ export const generatePieChart = ({
   return {
     total,
     arcs,
-    drawActiveArc: arc()
-      .padAngle(padAngle)
-      .innerRadius(innerRadius + HOVER_RADIUS)
-      .outerRadius(radius + HOVER_RADIUS)
-      .padRadius(padRadius)
-      .cornerRadius(cornerRadius),
     drawArc: arc()
       .padAngle(padAngle)
       .innerRadius(innerRadius)

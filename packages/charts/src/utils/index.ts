@@ -3,11 +3,12 @@ import { formatNumber } from './format.utils';
 import { getFromPath } from './selectors.utils';
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
 import { getTooltipContent } from './tooltip.utils';
+
 import {
-  generatePieChart,
+  generateCircularChart,
   LabelsPosition,
-  Options as PieChartOptions,
-} from './chart.utils';
+  Options as CircularChart,
+} from './circular-chart.utils';
 
 export {
   calculateHypotenuse,
@@ -15,9 +16,9 @@ export {
   getFromPath,
   createArcTween,
   animateArcPath,
-  ArcProperties,
   getTooltipContent,
-  generatePieChart,
+  ArcProperties,
   LabelsPosition,
-  PieChartOptions,
+  CircularChart,
+  generateCircularChart,
 };

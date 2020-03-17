@@ -1,11 +1,11 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Tooltip } from '@keen.io/ui-core';
+import { Tooltip, BulletList } from '@keen.io/ui-core';
 
-import { generatePieChart, LabelsPosition } from '../../utils/';
+import { generateCircularChart, LabelsPosition } from '../../utils';
+import { getTooltipContent } from '../../utils/tooltip.utils';
 
 import PieSlice from './pie-slice.component';
-import TooltipContent from '../../components/tooltip-content.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase } from '../../components';
@@ -38,13 +38,14 @@ export type Props = {
   labelsPosition?: LabelsPosition;
   /** Automatically adjust labels color */
   labelsAutocolor?: boolean;
+  /** Stack the arcs if percent value is lower than provided treshold */
+  stackTreshold?: number;
 } & CommonChartSettings;
 
 export const tooltipMotion = {
   transition: { duration: 0.3 },
   exit: { opacity: 0 },
 };
-
 export const PieChart: FC<Props> = ({
   data,
   svgDimensions,
@@ -60,8 +61,9 @@ export const PieChart: FC<Props> = ({
   labelsRadius = 30,
   labelsPosition = 'inside',
   labelsAutocolor = true,
+  stackTreshold = 4,
 }) => {
-  const { arcs, drawArc, drawActiveArc } = generatePieChart({
+  const { arcs, drawArc } = generateCircularChart({
     data,
     margins,
     padAngle,
@@ -73,6 +75,7 @@ export const PieChart: FC<Props> = ({
     keys,
     disabledLabels,
     labelsPosition,
+    stackTreshold,
     dimension: svgDimensions,
     colors: theme.colors,
   });
@@ -108,11 +111,14 @@ export const PieChart: FC<Props> = ({
           >
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
-                <TooltipContent
+                <BulletList
+                  list={getTooltipContent({
+                    data,
+                    keys,
+                    labelSelector,
+                    selectors: tooltipSelectors,
+                  })}
                   typography={tooltipSettings.labels.typography}
-                  data={data}
-                  selectors={tooltipSelectors}
-                  keys={keys}
                 />
               )}
             </Tooltip>
@@ -142,11 +148,12 @@ export const PieChart: FC<Props> = ({
               endAngle,
               color,
               selector,
+              stacked,
+              stack,
             }) => (
               <PieSlice
                 key={index}
                 draw={drawArc}
-                drawActive={drawActiveArc}
                 startAngle={startAngle}
                 endAngle={endAngle}
                 label={label}
@@ -156,7 +163,8 @@ export const PieChart: FC<Props> = ({
                 background={color}
                 onMouseMove={e => {
                   if (tooltipSettings.enabled) {
-                    updateTooltipPosition(e, [{ color, selector }]);
+                    if (stacked) updateTooltipPosition(e, stack);
+                    else updateTooltipPosition(e, [{ color, selector }]);
                   }
                 }}
                 onMouseLeave={() => hideTooltip()}

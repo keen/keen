@@ -23,11 +23,14 @@ export const plot = () => {
     donut: {
       total: {
         enabled: boolean('Enabled', true, 'Total') as boolean,
-        typography: typographyKnobs('Total'),
+        typography: typographyKnobs(
+          'Total',
+          defaultTheme.donut.total.typography
+        ),
       },
       labels: {
         enabled: boolean('Enabled', true, 'Labels') as boolean,
-        typography: typographyKnobs('Labels'),
+        typography: typographyKnobs('Labels', defaultTheme.labels.typography),
       },
     },
   };

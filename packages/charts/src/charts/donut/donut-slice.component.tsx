@@ -14,7 +14,6 @@ const transition = { duration: 0.2, ease: 'easeInOut' };
 
 type Props = {
   draw: Arc<any, DefaultArcObject>;
-  drawActive: Arc<any, DefaultArcObject>;
   startAngle: number;
   endAngle: number;
   autocolor: boolean;
