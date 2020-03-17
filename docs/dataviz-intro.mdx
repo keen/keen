@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/addon-docs/blocks";
 
-<Meta title="Docs|DataViz" />
+<Meta title="Docs|DataViz" /  >
 
 # DataViz
 
@@ -24,16 +24,10 @@ yarn install @keen.io/dataviz
 For website integration embed a script with `@keen.io/dataviz` that is hosted on CDN.
 
 ```js
-<script type="text/javascript" src="https://static.keen.io/dataviz@latest" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@keen.io/dataviz@latest/dist/dataviz.min.js"></script>
 ```
 
 ## Example
-Query `Keen API` and create line chart with minimal effort.
+Query `Keen API` by using `keen-analysis` package and create line chart with minimal effort.
 
-<Story id="dataviz-line-charts--stacked-normal-spline" />
-
-<br />
-
-```js
-TBD
-```
+<iframe width="100%" height="400" src="//jsfiddle.net/maciejrybaniec/f7uqs5oa/9/embedded/result,js,html/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>

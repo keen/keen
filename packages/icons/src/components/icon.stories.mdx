@@ -1,0 +1,32 @@
+import { Meta, Props, IconGallery, IconItem } from "@storybook/addon-docs/blocks";
+import { colors } from '@keen.io/colors';
+
+import { Icon } from './icon.component';
+
+<Meta title="Components|Icons" component={Icon} />
+
+# Icon
+Reusable icon component that renders a `svg` object.
+
+<br />
+<IconGallery>
+  {[
+    'arrow-down',
+    'arrow-up',
+    'caret-down',
+    'caret-up',
+    'caret-left',
+    'caret-right',
+    'brand',
+  ].map((name, idx) => (
+    <IconItem
+      key={idx}
+      name={name}>
+        <Icon height={30} width={30} fill={colors.blue['500']} type={name} />
+    </IconItem>
+  ))}
+</IconGallery>
+
+# Props
+
+<Props of={Icon} />
