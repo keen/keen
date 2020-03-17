@@ -10,14 +10,14 @@ import { DonutChart } from './donut-chart.component';
 import { chartData } from './donut-chart.fixtures';
 
 export default {
-  title: 'Charts / Donut Chart',
+  title: 'Visualizations|Donut Chart|Plot',
   parameters: {
     component: DonutChart,
     componentSubtitle: 'Donut Chart plot',
   },
 };
 
-export const withKnobs = () => {
+export const plot = () => {
   const theme = {
     ...defaultTheme,
     donut: {
