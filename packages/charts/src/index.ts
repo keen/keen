@@ -11,6 +11,8 @@ import {
   MetricChartSettings,
   FunnelChart,
   FunnelChartSettings,
+  HeatmapChart,
+  HeatmapChartSettings,
 } from './charts';
 
 import { ResponsiveWrapper, Legend } from './components';
@@ -35,6 +37,8 @@ export {
   MetricChartSettings,
   FunnelChart,
   FunnelChartSettings,
+  HeatmapChart,
+  HeatmapChartSettings,
   ResponsiveWrapper,
   Legend,
   theme,

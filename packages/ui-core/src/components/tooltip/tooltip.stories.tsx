@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components / Tooltip',
+  title: 'Components|Tooltip',
   parameters: {
     component: Tooltip,
     componentSubtitle: 'Displays customized tooltip',

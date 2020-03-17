@@ -6,6 +6,9 @@ type Props = {
   x: number;
   y: number;
   color: string;
+  outerRadius?: number;
+  innerRadius?: number;
+  strokeWidth?: number;
 };
 
 export const markMotion = {
@@ -15,17 +18,24 @@ export const markMotion = {
   exit: { opacity: 0, scale: 0.3 },
 };
 
-const Mark = ({ color, x, y }: Props) => (
+const Mark = ({
+  color,
+  x,
+  y,
+  outerRadius = 10,
+  innerRadius = 4,
+  strokeWidth = 4,
+}: Props) => (
   <g pointerEvents="none">
     <circle
       cx={x}
       cy={y}
-      r="10"
+      r={outerRadius}
       stroke={colors.white['500']}
-      strokeWidth="4"
+      strokeWidth={strokeWidth}
       fill={color}
     />
-    <circle cx={x} cy={y} r="4" fill={colors.white['500']} />
+    <circle cx={x} cy={y} r={innerRadius} fill={colors.white['500']} />
   </g>
 );
 

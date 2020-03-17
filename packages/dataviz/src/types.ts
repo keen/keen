@@ -5,6 +5,7 @@ import {
   DonutChartSettings,
   MetricChartSettings,
   FunnelChartSettings,
+  HeatmapChartSettings,
 } from '@keen.io/charts';
 import { CardSettings } from '@keen.io/ui-core';
 import { TextSettings, LegendSettings } from '@keen.io/widgets';
@@ -25,6 +26,7 @@ export type ComponentSettings =
   | DonutChartSettings
   | MetricChartSettings
   | FunnelChartSettings
+  | HeatmapChartSettings
   | {};
 
 export type Options = {

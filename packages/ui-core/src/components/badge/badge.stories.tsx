@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Badge } from './badge.component';
 
 export default {
-  title: 'Components / Badge',
+  title: 'Components|Badge',
   parameters: {
     component: Badge,
     componentSubtitle: 'Displays simple badge with multiple variants support',

@@ -3,8 +3,7 @@ import { Text, BulletList } from '@keen.io/ui-core';
 
 import { getLabel } from './utils/tooltip.utils';
 import { getFromPath } from '../../utils/selectors.utils';
-import { getKeysDifference } from '../../utils/data.utils';
-import { normalizeToPercent } from '../../utils';
+import { getKeysDifference, normalizeToPercent } from '../../utils/data.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 

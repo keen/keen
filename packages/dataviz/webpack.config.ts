@@ -9,10 +9,10 @@ export default {
     main: `./src/index.ts`,
   },
   output: {
-    filename: '[name].js',
-    path: path.join(__dirname, 'dist', 'umd'),
-    library: 'KeenVisualizer',
-    libraryExport: 'KeenVisualizer',
+    filename: 'dataviz.min.js',
+    path: path.join(__dirname, 'dist'),
+    library: 'KeenDataviz',
+    libraryExport: 'KeenDataviz',
     libraryTarget: 'umd',
   },
   resolve: {

@@ -1,5 +1,20 @@
 import { select } from '@storybook/addon-knobs';
 
+const iconOptions = {
+  'arrow-up': 'arrow-up',
+  'arrow-down': 'arrow-down',
+  'caret-down': 'caret-down',
+  'caret-up': 'caret-up',
+  'caret-left': 'caret-left',
+  'caret-right': 'caret-right',
+  brand: 'brand',
+};
+
+export const iconKnobs = (
+  namespace: string,
+  defaultValue: string = iconOptions['arrow-up']
+) => select('Icon', iconOptions, defaultValue, namespace);
+
 const stackModeOptions = {
   percent: 'percent',
   normal: 'normal',
@@ -60,3 +75,13 @@ export const layoutKnobs = (
   namespace: string,
   defaultValue: string = layoutOptions.vertical
 ) => select('Layout', layoutOptions, defaultValue, namespace);
+
+const colorModeOptions = {
+  continuous: 'continuous',
+  discrete: 'discrete',
+};
+
+export const colorModeKnobs = (
+  namespace: string,
+  defaultValue: string = colorModeOptions.continuous
+) => select('Color mode', colorModeOptions, defaultValue, namespace);

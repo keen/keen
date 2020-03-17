@@ -7,14 +7,14 @@ import { ColorMode } from '@keen.io/ui-core';
 export const calculateColorScale = (
   minValue: number,
   maxValue: number,
-  colors: string[] = theme.colors,
+  colorMode: ColorMode = 'continuous',
   steps = 2,
-  colorMode: ColorMode = 'continuous'
+  colors: string[] = theme.colors
 ) => {
-  // steps
+  // discrete
   if (colorMode === 'discrete' && steps > 1) {
     const step = (maxValue - minValue) / steps;
-    const domainValues = colors.map((el: string, idx: number) => {
+    const domainValues = colors.map((_el: string, idx: number) => {
       return Math.floor(step * idx);
     });
     domainValues.push(maxValue);
@@ -29,7 +29,7 @@ export const calculateColorScale = (
   }
   // continuous
   const step = (maxValue - minValue) / (steps - 1);
-  const domainValues = colors.map((el: string, idx: number) => {
+  const domainValues = colors.map((_el: string, idx: number) => {
     return step * idx;
   });
 

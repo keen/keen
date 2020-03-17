@@ -1,7 +1,9 @@
 import React, { FC, useMemo, useContext } from 'react';
-import { colors } from '@keen.io/colors';
 
+import Gradient, { GRADIENT_ID } from './gradient.component';
+import HoverLine from './hover-line.component';
 import { Bar } from './hover-bar.styles';
+
 import { calculateBarProperties } from './hover-bar.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
@@ -15,14 +17,19 @@ export const hoverBarMotion = {
 
 type Props = {
   x: number;
-  y?: number;
   onMouseEnter: (e: React.MouseEvent) => void;
   onMouseLeave: (e: React.MouseEvent) => void;
+  y?: number;
+  showLine?: boolean;
 };
 
-const GRADIENT_ID = 'HOVER_BAR_MASK';
-
-const HoverBar: FC<Props> = ({ x, y, onMouseEnter, onMouseLeave }) => {
+const HoverBar: FC<Props> = ({
+  x,
+  y,
+  showLine = true,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
   const { svgDimensions, margins } = useContext(
     ChartContext
   ) as ChartContextType;
@@ -45,19 +52,7 @@ const HoverBar: FC<Props> = ({ x, y, onMouseEnter, onMouseLeave }) => {
 
   return (
     <>
-      <defs>
-        <linearGradient
-          id={GRADIENT_ID}
-          x1="100%"
-          x2="0%"
-          y1="67.625%"
-          y2="67.625%"
-        >
-          <stop offset="0%" stopColor={colors.gray['200']} />
-          <stop offset="47.54%" stopColor="#FEFEFE" stopOpacity=".572" />
-          <stop offset="100%" stopColor={colors.gray['200']} />
-        </linearGradient>
-      </defs>
+      <Gradient />
       <Bar
         fill={`url(#${GRADIENT_ID})`}
         fillRule="evenodd"
@@ -69,6 +64,7 @@ const HoverBar: FC<Props> = ({ x, y, onMouseEnter, onMouseLeave }) => {
         width={width}
         height={height}
       />
+      {showLine && <HoverLine x1={x} x2={x} y1={barY} y2={barY + height} />}
     </>
   );
 };

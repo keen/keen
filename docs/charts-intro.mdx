@@ -1,0 +1,46 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs|Charts" />
+
+# Charts
+
+The `@keen.io/charts` is set of reusable plots components built with [React](https://reactjs.org/) and [D3](https://d3js.org/).
+Charts are part of a `@keen.io/widgets` and `@keen.io/dataviz` packages that could be used to seamlessly embed and deliver metrics within your user interface.
+
+Charts plots theme could be fully customized by providing `theme` object. Each of chart plot supports a lot of configuration options to adjust it to Your own needs.
+
+### Use cases
+- [React](https://reactjs.org/) ecosystem front-end applications.
+- Create own visualization library by using production ready `@keen.io/charts` and Your custom `React` components.
+- Simple data visualizations that do not require additional features like *legend*, *filters* etc.
+
+## Installing
+
+Use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager.
+
+```sh
+yarn install @keen.io/charts
+```
+
+## Example
+Simple `<BarChart />` component rendered in `React` ecosystem.
+
+<Story id="visualizations-bar-chart-plot--plot" />
+
+```js
+import { BarChart } from '@keen.io/charts';
+
+const chartData = [
+  { name: 'Windows', users: 3, licenses: 52, shops: 12 },
+  { name: 'MacOS', users: 19, licenses: 82, shops: 15 },
+  { name: 'Linux', users: 20, licenses: 15, shops: 23 },
+  { name: 'Android', users: 3, licenses: 15, shops: 30 },
+];
+
+<BarChart data={chartData} labelSelector="name" keys={['users', 'licenses', 'shops']} />
+```
+
+## Compability
+
+- `react@^16`
+- `react-dom@^16`

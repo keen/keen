@@ -5,7 +5,7 @@ import { colors } from '@keen.io/colors';
 import ColorScale from './color-scale.component';
 
 export default {
-  title: 'Components / ColorScale',
+  title: 'Components|Color Scale',
   parameters: {
     component: ColorScale,
   },

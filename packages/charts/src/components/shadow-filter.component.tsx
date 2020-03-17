@@ -14,6 +14,7 @@ const ShadowFilter: FC<Props> = ({ filterId = SHADOW_FILTER_ID }) => (
     y="-50%"
     width="200%"
     height="200%"
+    pointerEvents="none"
   >
     <feDropShadow
       dx="4"

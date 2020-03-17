@@ -1,0 +1,39 @@
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+
+import { HeatmapChart } from '@keen.io/charts';
+
+<Meta title="Visualizations|Heatmap Chart / Description" component={HeatmapChart} />
+
+# Heatmap Chart
+
+A heat map displays quantitative values for two or more sets of categories. It is commonly used to visualize hot spots within data sets. It helps to discover patterns and correlations. Due to its compact nature, it is often used with large sets of data. Heat maps are used to present the order of magnitude.
+
+#### Category
+- Comparison
+- Correlation patterns
+- Distribution
+
+#### Composition
+Categories can be mapped onto the x and y axes and amount can be shown by color. Both axes present discrete scales. Logical sorting and/or event grouping of the categorical values along each axis will aid readability and may help to surface key relationships.
+
+#### Color
+Decisions need to be made about whether to use continuous gradient color range or employ discrete classifications for different value intervals. Colour lightness attribute is most often used to represent data on heat map charts. There can be just one colour used to create a monochromatic scale or multiple colours that will create the gradient effect.
+
+#### Annotations
+Direct value labeling is possible. However, a clear legend to indicate colour association should be just enough to estimate the values and understand the data. Colour slider allows limiting results to the range that might be exceptionally interesting. Adding value labels directly on the heat map with multiple categories may create redundant visual noise.
+
+#### Applications
+Use the heat map chart to visualize complex data like performance comparison of different companies etc.
+
+## Plot
+
+The plot is a part of `keen.io/charts` package and can be used in `React` environment as standalone component.
+
+<Preview>
+  <Story id="visualizations-heatmap-chart-plot--plot" />
+</Preview>
+
+## API
+
+<Props of={HeatmapChart} />

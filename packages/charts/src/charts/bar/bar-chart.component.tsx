@@ -52,6 +52,12 @@ export type Props = {
   stackMode?: StackMode;
 } & CommonChartSettings;
 
+/**
+- Support two different layouts - horizontal and vertical.
+- Automatically adjust render mode based on content.
+- Fully customized Typography and Card wrapper.
+- Could be used to disable series on chart.
+**/
 export const BarChart: FC<Props> = ({
   data,
   svgDimensions,

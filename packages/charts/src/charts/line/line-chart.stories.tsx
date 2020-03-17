@@ -19,7 +19,7 @@ import { CurveType } from './types';
 import { GroupMode, StackMode } from '../../types';
 
 export default {
-  title: 'Charts / Line Chart',
+  title: 'Visualizations|Line Chart|Plot',
   parameters: {
     component: LineChart,
     componentSubtitle: 'Line Chart plot',
@@ -34,7 +34,7 @@ const createThemeKnobs = () => ({
   gridY: gridKnobs('Grid Y'),
 });
 
-export const withKnobs = () => {
+export const plot = () => {
   const formatKnob = text('Date label format', '%d %b', 'Chart');
 
   const createLabelFormatter = (dateFormat = '%D %b') => date => {

@@ -5,7 +5,7 @@ import KeenAnalysis from 'keen-analysis';
 import Visualizer from './visualizer';
 
 export default {
-  title: 'DataViz / Funnel Charts',
+  title: 'Visualizations|Funnel Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Funnel charts created with @keen.io/dataviz library',
   },
