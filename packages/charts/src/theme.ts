@@ -7,6 +7,8 @@ export const chartColors = [
   colors.orange[500],
   colors.yellow[500],
   colors.green[500],
+  colors.blue[500],
+  colors.purple[500],
   colors.pink[500],
 ];
 
@@ -93,6 +95,28 @@ export const theme: Theme = {
       },
     },
   },
+  donut: {
+    labels: {
+      enabled: true,
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 10,
+        fontFamily: 'Gangster Grotesk Regular, sans-serif',
+        fontColor: colors.black['500'],
+      },
+    },
+    total: {
+      enabled: true,
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 24,
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.blue['400'],
+      },
+    },
+  },
   tooltip: {
     enabled: true,
     mode: 'dark',
@@ -155,7 +179,7 @@ export const theme: Theme = {
     typography: {
       fontStyle: 'normal',
       fontWeight: 'normal',
-      fontSize: 10,
+      fontSize: 12,
       fontFamily: 'Gangster Grotesk Regular, sans-serif',
       fontColor: colors.black['500'],
     },

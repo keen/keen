@@ -2,6 +2,7 @@ import {
   BarChartSettings,
   LineChartSettings,
   PieChartSettings,
+  DonutChartSettings,
   MetricChartSettings,
   FunnelChartSettings,
   HeatmapChartSettings,
@@ -22,6 +23,7 @@ export type ComponentSettings =
   | BarChartSettings
   | LineChartSettings
   | PieChartSettings
+  | DonutChartSettings
   | MetricChartSettings
   | FunnelChartSettings
   | HeatmapChartSettings

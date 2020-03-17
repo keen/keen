@@ -3,6 +3,7 @@ import {
   BarChartWidget,
   LineChartWidget,
   PieChartWidget,
+  DonutChartWidget,
   MetricChartWidget,
   FunnelChartWidget,
   HeatmapChartWidget,
@@ -12,7 +13,14 @@ import { ScaleSettings } from '@keen.io/charts';
 
 import { ComponentSettings } from './types';
 
-export type Widgets = 'bar' | 'line' | 'pie' | 'metric' | 'funnel' | 'heatmap';
+export type Widgets =
+  | 'bar'
+  | 'line'
+  | 'pie'
+  | 'donut'
+  | 'metric'
+  | 'funnel'
+  | 'heatmap';
 
 type Options = {
   type: Widgets;
@@ -47,6 +55,8 @@ export const renderWidget = ({
       return <MetricChartWidget {...config} />;
     case 'pie':
       return <PieChartWidget {...config} />;
+    case 'donut':
+      return <DonutChartWidget {...config} />;
     case 'bar':
       return (
         <BarChartWidget
@@ -69,6 +79,7 @@ export const renderWidget = ({
         <LineChartWidget
           xScaleSettings={{
             type: 'time',
+            precision: 'month',
             ...scaleSettings,
           }}
           {...config}

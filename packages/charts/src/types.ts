@@ -105,11 +105,23 @@ export type Funnel = {
   };
 };
 
+export type Donut = {
+  labels: {
+    enabled: boolean;
+    typography: Typography;
+  };
+  total: {
+    enabled: boolean;
+    typography: Typography;
+  };
+};
+
 export type Theme = {
   colors: string[];
   funnel: Funnel;
   bar: Bar;
   metric?: Metric;
+  donut: Donut;
   tooltip?: Tooltip;
   axisX?: Axis;
   axisY?: Axis;

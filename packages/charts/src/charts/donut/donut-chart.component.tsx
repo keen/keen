@@ -5,10 +5,11 @@ import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { generateCircularChart, LabelsPosition } from '../../utils';
 import { getTooltipContent } from '../../utils/tooltip.utils';
 
-import PieSlice from './pie-slice.component';
+import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase } from '../../components';
+import DonutTotal from './donut-total.component';
 
 import { useTooltip } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
@@ -24,9 +25,9 @@ export type Props = {
   keys?: string[];
   /** Labels that are disabled for rendering data series */
   disabledLabels?: string[];
-  /** Spacing between pie slices */
+  /** Spacing between donut slices */
   padAngle?: number;
-  /** Radius between pie slices */
+  /** Radius between donut slices */
   padRadius?: number;
   /** Arc corner radius */
   cornerRadius?: number;
@@ -34,7 +35,7 @@ export type Props = {
   innerRadius?: number;
   /** The radius for slice labels */
   labelsRadius?: number;
-  /** Show labels inside or outside pie slices */
+  /** Show labels inside or outside donut slices */
   labelsPosition?: LabelsPosition;
   /** Automatically adjust labels color */
   labelsAutocolor?: boolean;
@@ -46,7 +47,8 @@ export const tooltipMotion = {
   transition: { duration: 0.3 },
   exit: { opacity: 0 },
 };
-export const PieChart: FC<Props> = ({
+
+export const DonutChart: FC<Props> = ({
   data,
   svgDimensions,
   theme = defaultTheme,
@@ -57,13 +59,13 @@ export const PieChart: FC<Props> = ({
   padAngle = 0.02,
   padRadius = 100,
   cornerRadius = 2,
-  innerRadius = 20,
+  innerRadius = 150,
   labelsRadius = 30,
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
 }) => {
-  const { arcs, drawArc } = generateCircularChart({
+  const { total: totalValue, arcs, drawArc } = generateCircularChart({
     data,
     margins,
     padAngle,
@@ -75,9 +77,10 @@ export const PieChart: FC<Props> = ({
     keys,
     disabledLabels,
     labelsPosition,
-    stackTreshold,
     dimension: svgDimensions,
     colors: theme.colors,
+    type: 'donut',
+    stackTreshold,
   });
 
   const svgElement = useRef(null);
@@ -90,8 +93,7 @@ export const PieChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings } = theme;
-
+  const { tooltip: tooltipSettings, donut: donutSettings } = theme;
   return (
     <>
       <AnimatePresence>
@@ -151,7 +153,7 @@ export const PieChart: FC<Props> = ({
               stacked,
               stack,
             }) => (
-              <PieSlice
+              <DonutSlice
                 key={index}
                 draw={drawArc}
                 startAngle={startAngle}
@@ -171,10 +173,15 @@ export const PieChart: FC<Props> = ({
               />
             )
           )}
+          {donutSettings.total?.enabled && (
+            <DonutTotal {...donutSettings.total.typography}>
+              {totalValue}
+            </DonutTotal>
+          )}
         </g>
       </ChartBase>
     </>
   );
 };
 
-export default PieChart;
+export default DonutChart;

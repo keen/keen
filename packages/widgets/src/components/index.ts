@@ -4,6 +4,7 @@ import BarChartWidget from './bar-chart.widget';
 import LineChartWidget from './line-chart.widget';
 
 import PieChartWidget from './pie';
+import DonutChartWidget from './donut';
 import FunnelChartWidget from './funnel';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
 
@@ -16,6 +17,7 @@ export {
   LegendSocket,
   ContentSocket,
   PieChartWidget,
+  DonutChartWidget,
   LineChartWidget,
   BarChartWidget,
   FunnelChartWidget,
