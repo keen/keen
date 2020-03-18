@@ -8,8 +8,11 @@ export const useTooltip = (
 ) => {
   const tooltipUpdate = useRef(null);
 
-  const [tooltip, setTooltip] = useState<TooltipState>({
+  const [tooltip, setTooltip] = useState<
+    TooltipState & { meta?: Record<string, any> }
+  >({
     selectors: null,
+    meta: null,
     visible: false,
     x: 0,
     y: 0,
@@ -18,7 +21,8 @@ export const useTooltip = (
   const updateTooltipPosition = useCallback(
     (
       e: React.MouseEvent,
-      selectors: { selector: DataSelector; color: string }[]
+      selectors?: { selector: DataSelector; color: string }[],
+      meta?: Record<string, any>
     ) => {
       if (tooltipUpdate.current) clearTimeout(tooltipUpdate.current);
       e.persist();
@@ -31,6 +35,7 @@ export const useTooltip = (
         setTooltip({
           visible: true,
           selectors,
+          meta,
           x: e.pageX - left - window.scrollX,
           y: e.pageY - top - window.scrollY,
         });
@@ -51,6 +56,7 @@ export const useTooltip = (
   return {
     hideTooltip,
     updateTooltipPosition,
+    tooltipMeta: tooltip.meta,
     tooltipSelectors: tooltip.selectors,
     tooltipPosition: { x: tooltip.x, y: tooltip.y },
     tooltipVisible: tooltip.visible,

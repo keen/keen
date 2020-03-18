@@ -52,7 +52,7 @@ export const renderWidget = ({
   switch (type) {
     case 'funnel':
       const [key] = keys;
-      return <FunnelChartWidget key={key} {...config} />;
+      return <FunnelChartWidget valueKey={key} {...config} />;
     case 'metric':
       return <MetricChartWidget {...config} />;
     case 'pie':
