@@ -19,9 +19,21 @@ exports[`<ColorScale /> should render ColorScale with discrete mode 1`] = `
 
 exports[`<ColorScale /> should render ColorScale with gradient 1`] = `
 <Fragment>
-  <styled.div
-    endColor="#CB5623"
-    startColor="#85B4C3"
+  <Component
+    colors={
+      Array [
+        "#85B4C3",
+        "#CB5623",
+        "#E29B1E",
+        "#487650",
+        "#F4A083",
+      ]
+    }
+    controls={
+      Object {
+        "number": 2,
+      }
+    }
   />
 </Fragment>
 `;
