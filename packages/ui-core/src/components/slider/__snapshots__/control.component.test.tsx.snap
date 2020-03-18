@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Slider /> should call set state 1`] = `
+<Fragment>
+  <ForwardRef
+    background="#fff"
+    border="2px solid #CA8917"
+    center="y"
+    drag="x"
+    dragConstraints={
+      Object {
+        "left": 0,
+        "right": 200,
+      }
+    }
+    dragElastic={0}
+    dragMomentum={false}
+    left={-6}
+    name="Control"
+    onDrag={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    radius="50%"
+    size={12}
+    style={
+      Object {
+        "zIndex": undefined,
+      }
+    }
+    x={
+      e {
+        "canTrackVelocity": true,
+        "current": 0,
+        "lastUpdated": 0,
+        "notifySubscriber": [Function],
+        "parent": undefined,
+        "prev": undefined,
+        "scheduleVelocityCheck": [Function],
+        "setChild": [Function],
+        "timeDelta": 0,
+        "transformer": undefined,
+        "updateAndNotify": [Function],
+        "velocityCheck": [Function],
+      }
+    }
+  />
+</Fragment>
+`;

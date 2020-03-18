@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Slider /> should call set state 1`] = `
+<Fragment>
+  <ForwardRef
+    background="linear-gradient(90deg, white, blue"
+    height={4}
+    name="Rail"
+    radius={3}
+    width="97%"
+  >
+    <Control
+      dragConstraintsLeft={0}
+      dragConstraintsRight={0}
+      max={100}
+      min={0}
+      number={1}
+      onDrag={[Function]}
+      sliderWidth={0}
+      steps={0}
+      x={0}
+      zIdx={false}
+    />
+  </ForwardRef>
+</Fragment>
+`;
