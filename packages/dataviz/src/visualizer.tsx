@@ -59,16 +59,24 @@ class Visualizer {
     query,
     steps,
     result,
-  }: {
+  }: Partial<{
     query: Query;
     steps: Step[];
     result: AnalysisResult;
-  }) {
+  }> = {}) {
     const container =
       this.container instanceof HTMLElement
         ? this.container
         : document.querySelector(this.container);
-    const { keys, results } = parseQuery({ query, steps, result });
+
+    let keys: string[] = [];
+    let results: Record<string, any>[] = [];
+
+    if (arguments.length) {
+      const parser = parseQuery({ query, steps, result });
+      keys = parser.keys;
+      results = parser.results;
+    }
 
     ReactDOM.render(
       renderWidget({
