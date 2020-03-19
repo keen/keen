@@ -1,8 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useRef, useEffect } from 'react';
 import {
   geoMercator,
   geoOrthographic,
   geoGraticule,
   geoAzimuthalEqualArea,
+  geoEqualEarth,
+  geoNaturalEarth1,
   geoPath,
   GeoProjection,
   ExtendedFeatureCollection,
@@ -43,6 +47,8 @@ export type GeoPropety = {
 const projections: Record<Projection, () => GeoProjection> = {
   mercator: geoMercator,
   orthographic: geoOrthographic,
+  equalEarth: geoEqualEarth,
+  naturalEarth: geoNaturalEarth1,
   azimuthalEqualArea: geoAzimuthalEqualArea,
 };
 
@@ -57,8 +63,14 @@ export const generateChoropleth = ({
 }: Options) => {
   const geoData = new Map<string, GeoPropety>();
   const { width, height } = dimension;
-  const { rotation, translation, scale, type } = projection;
+  const { translation, rotation, scale, type } = projection;
   const { mode, colors, steps } = colorScale;
+
+  const geoProjectionRef = useRef(projections[type]());
+
+  useEffect(() => {
+    geoProjectionRef.current = projections[type]();
+  }, [type]);
 
   const [translateX, translateY] = translation;
   const { minimum, maximum } = calculateRange(data, 'auto', 'auto', [valueKey]);
@@ -73,20 +85,20 @@ export const generateChoropleth = ({
     });
   });
 
-  const geoProjection = projections[type]()
+  geoProjectionRef.current
     .fitSize([width, height], topology)
     .rotate(rotation)
     .translate([width / 2 + translateX, height / 2 + translateY])
     .scale(scale);
 
   const graticule = geoGraticule();
-
-  const drawPath = geoPath().projection(geoProjection);
+  const drawPath = geoPath().projection(geoProjectionRef.current);
 
   return {
     graticule,
     drawPath,
     getColor,
+    geoProjection: geoProjectionRef.current,
     geoData,
   };
 };

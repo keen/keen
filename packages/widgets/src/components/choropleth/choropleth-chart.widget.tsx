@@ -16,7 +16,7 @@ import { ContentSocket, TitleSocket } from '../widget-sockets.component';
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings } from '../../types';
 
-type Props = WidgetSettings &
+export type Props = WidgetSettings &
   ChoroplethChartSettings & {
     geographicArea?: 'us' | 'world';
   };
@@ -74,4 +74,5 @@ export const ChoroplethChartWidget: FC<Props> = ({
     </ChartWidget>
   );
 };
+
 export default ChoroplethChartWidget;

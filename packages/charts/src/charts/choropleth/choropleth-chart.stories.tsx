@@ -37,6 +37,8 @@ export const plot = () => {
     });
   }, []);
 
+  if (!topology) return null;
+
   return (
     <div
       style={{

@@ -2,6 +2,8 @@ import { select } from '@storybook/addon-knobs';
 
 const geoProjectionOptions = {
   mercator: 'mercator',
+  equalEarth: 'equalEarth',
+  naturalEarth: 'naturalEarth',
   orthographic: 'orthographic',
   azimuthalEqualArea: 'azimuthalEqualArea',
 };

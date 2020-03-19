@@ -8,6 +8,7 @@ import {
   MetricChartWidget,
   FunnelChartWidget,
   HeatmapChartWidget,
+  ChoroplethChartWidget,
   WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
@@ -22,6 +23,7 @@ export type Widgets =
   | 'donut'
   | 'metric'
   | 'funnel'
+  | 'choropleth'
   | 'heatmap';
 
 type Options = {
@@ -49,10 +51,19 @@ export const renderWidget = ({
     ...widgetSettings,
   };
 
+  const [valueKey] = keys;
+
   switch (type) {
+    case 'choropleth':
+      return (
+        <ChoroplethChartWidget
+          geoKey={config.labelSelector}
+          valueKey={valueKey}
+          {...config}
+        />
+      );
     case 'funnel':
-      const [key] = keys;
-      return <FunnelChartWidget valueKey={key} {...config} />;
+      return <FunnelChartWidget valueKey={valueKey} {...config} />;
     case 'metric':
       return <MetricChartWidget {...config} />;
     case 'pie':

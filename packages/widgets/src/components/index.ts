@@ -7,6 +7,7 @@ import AreaChartWidget from './area.widget';
 import PieChartWidget from './pie';
 import DonutChartWidget from './donut';
 import FunnelChartWidget from './funnel';
+import ChoroplethChartWidget from './choropleth';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
 
 import HeatmapChartWidget from './heatmap-chart.widget';
@@ -17,6 +18,7 @@ export {
   ChartWidget,
   LegendSocket,
   ContentSocket,
+  ChoroplethChartWidget,
   PieChartWidget,
   DonutChartWidget,
   LineChartWidget,

@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,12 +7,14 @@ import { Tooltip, ColorMode, BulletList } from '@keen.io/ui-core';
 import Map from './map.component';
 
 import { ChartBase } from '../../components';
-import { useTooltip } from '../../hooks';
 import { generateChoropleth } from './utils';
+
+import { useTooltip } from '../../hooks';
+import { useDragHandlers } from './hooks';
 
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
-import { Projection } from './types';
+import { Projection, ProjectionState } from './types';
 import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
@@ -62,6 +64,9 @@ export const ChoroplethChart: FC<Props> = ({
   data,
 }) => {
   const svgElement = useRef(null);
+  const [projectionState, setProjectionState] = useState<ProjectionState>({
+    rotation: projectionRotation,
+  });
 
   const {
     tooltipVisible,
@@ -73,11 +78,17 @@ export const ChoroplethChart: FC<Props> = ({
 
   const { tooltip: tooltipSettings } = theme;
 
-  const { drawPath, graticule, geoData, getColor } = generateChoropleth({
+  const {
+    drawPath,
+    graticule,
+    geoData,
+    geoProjection,
+    getColor,
+  } = generateChoropleth({
     topology,
     projection: {
       type: projection,
-      rotation: projectionRotation,
+      rotation: projectionState.rotation,
       translation: projectionTranslation,
       scale: projectionScale,
     },
@@ -92,6 +103,15 @@ export const ChoroplethChart: FC<Props> = ({
       steps: colorSteps,
     },
   });
+
+  const { dragged } = useDragHandlers(
+    svgElement,
+    geoProjection,
+    setProjectionState
+  );
+  useEffect(() => {
+    if (dragged && tooltipSettings.enabled) hideTooltip();
+  }, [dragged]);
 
   return (
     <>
@@ -143,12 +163,12 @@ export const ChoroplethChart: FC<Props> = ({
             geoKey={geoKey}
             valueKey={valueKey}
             onMouseEnter={(e, meta) => {
-              if (tooltipSettings.enabled) {
+              if (tooltipSettings.enabled && !dragged) {
                 updateTooltipPosition(e, null, meta);
               }
             }}
             onMouseLeave={() => {
-              hideTooltip();
+              if (tooltipSettings.enabled) hideTooltip();
             }}
           />
         </ChartBase>
