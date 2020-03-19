@@ -27,6 +27,15 @@ export const theme: Theme = {
       },
     },
   },
+  choropleth: {
+    map: {
+      stroke: colors.black['500'],
+    },
+    graticule: {
+      enabled: true,
+      color: colors.gray['400'],
+    },
+  },
   funnel: {
     header: {
       badge: {

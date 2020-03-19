@@ -1,5 +1,16 @@
 import { select } from '@storybook/addon-knobs';
 
+const geoProjectionOptions = {
+  mercator: 'mercator',
+  orthographic: 'orthographic',
+  azimuthalEqualArea: 'azimuthalEqualArea',
+};
+
+export const geoProjectionKnobs = (
+  namespace: string,
+  defaultValue: string = geoProjectionOptions['mercator']
+) => select('Projection', geoProjectionOptions, defaultValue, namespace);
+
 const iconOptions = {
   'arrow-up': 'arrow-up',
   'arrow-down': 'arrow-down',

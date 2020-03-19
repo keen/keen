@@ -62,7 +62,6 @@ export const calculateRange = (
   maxValue: number | 'auto',
   keys: string[]
 ) => {
-  console.log(data, keys, 'sasaas');
   const values = getValues(data, keys);
 
   let minimum = minValue === 'auto' ? min(values) : minValue;

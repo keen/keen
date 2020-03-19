@@ -1,12 +1,16 @@
-import React, { FC, useContext, useState } from 'react';
-import { motion } from 'framer-motion';
-import { ExtendedFeatureCollection } from 'd3-geo';
+import React, { FC, useContext } from 'react';
+import {
+  ExtendedFeatureCollection,
+  GeoGraticuleGenerator,
+  GeoPath,
+  GeoPermissibleObjects,
+} from 'd3-geo';
 
-import { ColorMode } from '@keen.io/ui-core';
-
-import { generateChoropleth } from './utils';
+import Graticule from './graticule.component';
+import { GeoPropety } from './utils/chart.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
+
 import { TooltipMeta } from './types';
 
 const defaultGeometry: Record<string, any> = {
@@ -15,47 +19,44 @@ const defaultGeometry: Record<string, any> = {
 };
 
 type Props = {
-  data: Record<string, any>[];
   topology: ExtendedFeatureCollection;
-  geoKey: string;
   labelKey: string;
   valueKey: string;
-  colorMode?: ColorMode;
-  steps: number;
   onMouseEnter: (e: React.MouseEvent, meta: TooltipMeta) => void;
   onMouseLeave: (e: React.MouseEvent) => void;
+  drawPath: GeoPath<any, GeoPermissibleObjects>;
+  graticule: GeoGraticuleGenerator;
+  geoData: Map<string, GeoPropety>;
+  geoKey: string;
+  getColor: (value: number) => string;
 };
 
 export const Map: FC<Props> = ({
-  data,
-  geoKey,
   valueKey,
   topology,
-  colorMode,
-  steps,
+  drawPath,
+  graticule,
+  geoData,
+  getColor,
   onMouseEnter,
   onMouseLeave,
 }) => {
-  const [, setActive] = useState(null);
-  const { margins, svgDimensions, theme } = useContext(
-    ChartContext
-  ) as ChartContextType;
+  const {
+    theme: {
+      choropleth: { map, graticule: graticuleSettings },
+    },
+  } = useContext(ChartContext) as ChartContextType;
   const { features } = topology;
-
-  const { drawPath, geoData, getColor } = generateChoropleth({
-    topology,
-    margins,
-    geoKey,
-    valueKey,
-    data,
-    dimension: svgDimensions,
-    colorMode,
-    colors: theme.colors,
-    steps,
-  });
 
   return (
     <>
+      {graticuleSettings.enabled && (
+        <Graticule
+          stroke={graticuleSettings.color}
+          draw={drawPath}
+          graticule={graticule}
+        />
+      )}
       {features.map((geometry, idx) => {
         const {
           properties: { name },
@@ -65,7 +66,6 @@ export const Map: FC<Props> = ({
         const value = geometryProperties.data[valueKey] || 0;
 
         const color = getColor(value);
-
         const meta = {
           color,
           value,
@@ -73,19 +73,15 @@ export const Map: FC<Props> = ({
         };
 
         return (
-          <motion.path
-            key={idx}
+          <path
+            key={`${name}-${idx}`}
             d={drawPath(geometry)}
             fill={color}
-            onMouseEnter={e => {
-              setActive(name);
-              onMouseEnter(e, meta);
-            }}
+            strokeWidth="0.5"
+            stroke={map.stroke}
+            onMouseEnter={e => onMouseEnter(e, meta)}
             onMouseMove={e => onMouseEnter(e, meta)}
-            onMouseLeave={e => {
-              setActive(null);
-              onMouseLeave(e);
-            }}
+            onMouseLeave={e => onMouseLeave(e)}
           />
         );
       })}

@@ -1,18 +1,18 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Loader, Tooltip, ColorMode, BulletList } from '@keen.io/ui-core';
+import { Tooltip, ColorMode, BulletList } from '@keen.io/ui-core';
 
 import Map from './map.component';
 
 import { ChartBase } from '../../components';
 import { useTooltip } from '../../hooks';
-
-import { fetchMapTopology, MapType } from './utils';
+import { generateChoropleth } from './utils';
 
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
+import { Projection } from './types';
 import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
@@ -26,15 +26,23 @@ export type Props = {
   /** Name of data object property used to create labels on axis */
   labelSelector: string;
   /** Key used to match map topology with data */
-  geoKey?: string;
+  geoKey: string;
   /** Key used to pick value property from data */
   valueKey?: string;
-  /** Type of map */
-  map?: MapType;
-  /** Color mode */
+  /** Collection of GeoJSON features */
+  topology?: ExtendedFeatureCollection;
+  /** Type of geo projection */
+  projection?: Projection;
+  /** Projection scale */
+  projectionScale?: number;
+  /** Translate x and y */
+  projectionTranslation?: [number, number];
+  /** Spherical rotation to the specified angles */
+  projectionRotation?: [number, number, number];
+  /** Color scale mode */
   colorMode?: ColorMode;
-  /** Amount of step for color calculation */
-  steps?: number;
+  /** Amount of step used in color scale */
+  colorSteps?: number;
 } & CommonChartSettings;
 
 export const ChoroplethChart: FC<Props> = ({
@@ -42,24 +50,17 @@ export const ChoroplethChart: FC<Props> = ({
   theme = defaultTheme,
   margins = defaultMargins,
   labelSelector,
+  geoKey,
   colorMode,
-  steps,
-  map = 'world',
-  geoKey = 'geo.country',
+  colorSteps,
+  topology,
+  projection = 'mercator',
+  projectionScale = 100,
+  projectionTranslation = [0, 0],
+  projectionRotation = [0, 0, 0],
   valueKey = 'value',
   data,
 }) => {
-  const [topology, setTopology] = useState<ExtendedFeatureCollection>(null);
-  const [loading, setLoading] = useState(null);
-
-  useEffect(() => {
-    setLoading(true);
-    fetchMapTopology(map).then(mapTopology => {
-      setTopology(mapTopology);
-      setLoading(false);
-    });
-  }, [map]);
-
   const svgElement = useRef(null);
 
   const {
@@ -72,9 +73,28 @@ export const ChoroplethChart: FC<Props> = ({
 
   const { tooltip: tooltipSettings } = theme;
 
+  const { drawPath, graticule, geoData, getColor } = generateChoropleth({
+    topology,
+    projection: {
+      type: projection,
+      rotation: projectionRotation,
+      translation: projectionTranslation,
+      scale: projectionScale,
+    },
+    margins,
+    geoKey,
+    valueKey,
+    data,
+    dimension: svgDimensions,
+    colorScale: {
+      colors: theme.colors,
+      mode: colorMode,
+      steps: colorSteps,
+    },
+  });
+
   return (
     <>
-      {loading && <Loader width={40} height={40} />}
       <AnimatePresence>
         {tooltipVisible && (
           <motion.div
@@ -114,11 +134,12 @@ export const ChoroplethChart: FC<Props> = ({
           margins={margins}
         >
           <Map
-            data={data}
             topology={topology}
-            colorMode={colorMode}
-            steps={steps}
+            drawPath={drawPath}
+            graticule={graticule}
+            getColor={getColor}
             labelKey={labelSelector}
+            geoData={geoData}
             geoKey={geoKey}
             valueKey={valueKey}
             onMouseEnter={(e, meta) => {
