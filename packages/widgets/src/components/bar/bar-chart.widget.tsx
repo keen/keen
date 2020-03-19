@@ -1,34 +1,35 @@
 /*eslint @typescript-eslint/no-empty-function: 0*/
 import React, { FC } from 'react';
 import {
-  LineChart,
-  LineChartSettings,
+  BarChart,
+  BarChartSettings,
   ResponsiveWrapper,
   Legend,
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import ChartWidget from './chart-widget.component';
-import WidgetHeading from './widget-heading.component';
+import ChartWidget from '../chart-widget.component';
+import WidgetHeading from '../widget-heading.component';
+
 import {
   ContentSocket,
   LegendSocket,
   TitleSocket,
-} from './widget-sockets.component';
+} from '../widget-sockets.component';
 
-import { useLegend } from '../hooks';
+import { useLegend } from '../../hooks';
 
-import { legendSettings } from '../widget-settings';
-import { WidgetSettings } from '../types';
+import { legendSettings } from '../../widget-settings';
+import { WidgetSettings } from '../../types';
 
-type Props = WidgetSettings & LineChartSettings;
+type Props = WidgetSettings & BarChartSettings;
 
-/** Line Chart widget integrated with other components */
-export const LineChartWidget: FC<Props> = ({
-  title,
-  subtitle,
+/** Bar Chart widget integrated with other components */
+export const BarChartWidget: FC<Props> = ({
   legend = legendSettings,
   theme = defaultTheme,
+  title,
+  subtitle,
   card,
   ...props
 }) => {
@@ -61,11 +62,11 @@ export const LineChartWidget: FC<Props> = ({
       <ContentSocket>
         <ResponsiveWrapper>
           {(width: number, height: number) => (
-            <LineChart
-              {...props}
+            <BarChart
               theme={theme}
               disabledKeys={disabledKeys}
               svgDimensions={{ width, height }}
+              {...props}
             />
           )}
         </ResponsiveWrapper>
@@ -73,5 +74,4 @@ export const LineChartWidget: FC<Props> = ({
     </ChartWidget>
   );
 };
-
-export default LineChartWidget;
+export default BarChartWidget;

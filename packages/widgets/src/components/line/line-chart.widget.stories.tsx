@@ -4,22 +4,26 @@ import {
   cardKnobs,
   axisXKnobs,
   axisYKnobs,
-  layoutKnobs,
+  gridKnobs,
   typographyKnobs,
-  colorModeKnobs,
+  legendKnobs,
+  curveKnobs,
+  groupModeKnobs,
+  lineStackModeKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
 
-import { HeatmapChartWidget } from './heatmap-chart.widget';
-import { chartData } from './heatmap-chart.widget.fixtures';
+import { LineChartWidget } from './line-chart.widget';
+import { chartData } from './line-chart.widget.fixtures';
+import { createLabelFormatter } from './line-chart.widget.utils';
 
-import { widgetSettings } from '../widget-settings';
+import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Heatmap Chart|Widget',
+  title: 'Visualizations|Line Chart|Widget',
   parameters: {
-    component: HeatmapChartWidget,
+    component: LineChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',
   },
 };
@@ -28,11 +32,15 @@ const createThemeKnobs = () => ({
   ...keenTheme,
   axisX: axisXKnobs('Axis X'),
   axisY: axisYKnobs('Axis Y'),
+  gridX: gridKnobs('Grid X'),
+  gridY: gridKnobs('Grid Y'),
 });
+
+const formatKnob = text('Date label format', '%d %b', 'Chart');
 
 export const widget = () => (
   <div style={{ width: '700px', height: '400px' }}>
-    <HeatmapChartWidget
+    <LineChartWidget
       title={{
         content: text('Title', 'Widget Title', 'Title Settings'),
         typography: typographyKnobs(
@@ -48,15 +56,22 @@ export const widget = () => (
         ),
       }}
       card={cardKnobs('Card')}
+      legend={legendKnobs('Legend') as any}
       labelSelector="name"
-      padding={number('padding', 2, {}, 'Chart')}
-      colorMode={colorModeKnobs('Chart') as any}
-      steps={number('steps', 2, {}, 'Chart')}
-      keys={['people', 'licenses', 'cars', 'documents']}
-      layout={layoutKnobs('Chart') as any}
+      keys={['users', 'books', 'licenses', 'shops']}
+      xScaleSettings={{
+        type: 'time',
+        precision: 'month',
+        formatLabel: createLabelFormatter(formatKnob),
+      }}
+      markRadius={number('Marks radius', 4, {}, 'Chart')}
+      strokeWidth={number('Line thickness', 2, {}, 'Chart')}
+      curve={curveKnobs('Chart') as CurveType}
+      groupMode={groupModeKnobs('Chart') as GroupMode}
+      stackMode={lineStackModeKnobs('Chart') as StackMode}
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 65 },
+        { top: 30, right: 20, bottom: 50, left: 40 },
         'Chart'
       )}
       theme={createThemeKnobs()}

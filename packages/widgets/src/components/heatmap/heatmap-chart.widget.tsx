@@ -7,12 +7,12 @@ import {
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import ChartWidget from './chart-widget.component';
-import WidgetHeading from './widget-heading.component';
-import { ContentSocket, TitleSocket } from './widget-sockets.component';
+import ChartWidget from '../chart-widget.component';
+import WidgetHeading from '../widget-heading.component';
+import { ContentSocket, TitleSocket } from '../widget-sockets.component';
 
-import { legendSettings } from '../widget-settings';
-import { WidgetSettings } from '../types';
+import { legendSettings } from '../../widget-settings';
+import { WidgetSettings } from '../../types';
 
 type Props = WidgetSettings & HeatmapChartSettings;
 

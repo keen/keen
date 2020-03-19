@@ -1,14 +1,12 @@
 import ChartWidget from './chart-widget.component';
 
-import BarChartWidget from './bar-chart.widget';
-import LineChartWidget from './line-chart.widget';
-
+import BarChartWidget from './bar';
+import LineChartWidget from './line';
 import PieChartWidget from './pie';
 import DonutChartWidget from './donut';
 import FunnelChartWidget from './funnel';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
-
-import HeatmapChartWidget from './heatmap-chart.widget';
+import HeatmapChartWidget from './heatmap';
 
 import { LegendSocket, ContentSocket } from './widget-sockets.component';
 

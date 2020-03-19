@@ -1,40 +1,39 @@
 /*eslint @typescript-eslint/no-empty-function: 0*/
 import React, { FC } from 'react';
 import {
-  BarChart,
-  BarChartSettings,
+  LineChart,
+  LineChartSettings,
   ResponsiveWrapper,
   Legend,
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import ChartWidget from './chart-widget.component';
-import WidgetHeading from './widget-heading.component';
-
+import ChartWidget from '../chart-widget.component';
+import WidgetHeading from '../widget-heading.component';
 import {
   ContentSocket,
   LegendSocket,
   TitleSocket,
-} from './widget-sockets.component';
+} from '../widget-sockets.component';
 
-import { useLegend } from '../hooks';
+import { useLegend } from '../../hooks';
 
-import { legendSettings } from '../widget-settings';
-import { WidgetSettings } from '../types';
+import { legendSettings } from '../../widget-settings';
+import { WidgetSettings } from '../../types';
 
-type Props = WidgetSettings & BarChartSettings;
+type Props = WidgetSettings & LineChartSettings;
 
-/** Bar Chart widget integrated with other components */
-export const BarChartWidget: FC<Props> = ({
-  legend = legendSettings,
-  theme = defaultTheme,
+/** Line Chart widget integrated with other components */
+export const LineChartWidget: FC<Props> = ({
   title,
   subtitle,
+  legend = legendSettings,
+  theme = defaultTheme,
   card,
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
-
+  console.log(legend);
   return (
     <ChartWidget
       cardSettings={card}
@@ -62,11 +61,11 @@ export const BarChartWidget: FC<Props> = ({
       <ContentSocket>
         <ResponsiveWrapper>
           {(width: number, height: number) => (
-            <BarChart
+            <LineChart
+              {...props}
               theme={theme}
               disabledKeys={disabledKeys}
               svgDimensions={{ width, height }}
-              {...props}
             />
           )}
         </ResponsiveWrapper>
@@ -74,4 +73,5 @@ export const BarChartWidget: FC<Props> = ({
     </ChartWidget>
   );
 };
-export default BarChartWidget;
+
+export default LineChartWidget;
