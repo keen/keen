@@ -70,7 +70,7 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
             <Tooltip
               mode={theme.tooltip.mode}
               arrowDirection={arrowDirection as Position}
-              top={arrowOffset}
+              arrowTop={arrowOffset}
             >
               {children}
             </Tooltip>

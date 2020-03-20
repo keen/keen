@@ -15,7 +15,7 @@ type Props = Partial<Typography> & {
   hasShadow?: boolean;
   hasArrow?: boolean;
   arrowDirection?: Position;
-  top?: string;
+  arrowTop?: string;
 };
 
 const LIGHT_MODE_BACKGROUND = Color(colors.white['500'])
@@ -80,7 +80,7 @@ const Wrapper = styled.div<Props>`
         variants: {
           left: {
             borderColor: `${arrowColor} transparent transparent ${arrowColor}`,
-            top: `${props.top ? props.top : '50%'}`,
+            top: `${props.arrowTop ? props.arrowTop : '50%'}`,
             bottom: 'auto',
             left: '0',
             right: 'auto',
@@ -88,7 +88,7 @@ const Wrapper = styled.div<Props>`
           },
           right: {
             borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
-            top: `${props.top ? props.top : '50%'}`,
+            top: `${props.arrowTop ? props.arrowTop : '50%'}`,
             bottom: 'auto',
             right: '-6px',
             transform: 'rotate(-45deg) translateY(-50%)',
