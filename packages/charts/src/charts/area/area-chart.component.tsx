@@ -1,8 +1,6 @@
 import React from 'react';
 import LineChart from '../line/line-chart.component';
 
-import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
-
 import {
   ScaleSettings,
   CommonChartSettings,
@@ -43,47 +41,8 @@ export type Props = {
   gradient?: boolean;
 } & CommonChartSettings;
 
-export const AreaChart = ({
-  data,
-  svgDimensions,
-  labelSelector,
-  theme = defaultTheme,
-  margins = defaultMargins,
-  minValue = 'auto',
-  maxValue = 'auto',
-  keys = ['value'],
-  disabledKeys = [],
-  markRadius = 4,
-  strokeWidth = 1,
-  curve = 'linear',
-  stackMode = 'normal',
-  groupMode = 'grouped',
-  xScaleSettings = { precision: 'month', type: 'time' },
-  yScaleSettings = { type: 'linear' },
-  gradient = true,
-}: Props) => {
-  return (
-    <LineChart
-      data={data}
-      svgDimensions={svgDimensions}
-      labelSelector={labelSelector}
-      theme={theme}
-      margins={margins}
-      minValue={minValue}
-      maxValue={maxValue}
-      keys={keys}
-      disabledKeys={disabledKeys}
-      markRadius={markRadius}
-      strokeWidth={strokeWidth}
-      curve={curve}
-      stackMode={stackMode}
-      groupMode={groupMode}
-      xScaleSettings={xScaleSettings}
-      yScaleSettings={yScaleSettings}
-      gradient={gradient}
-      areaMode={true}
-    />
-  );
+export const AreaChart = (props: Props) => {
+  return <LineChart {...props} areaMode={true} />;
 };
 
 export default AreaChart;
