@@ -10,9 +10,11 @@ import { ChartBase } from '../../components';
 import { generateChoropleth } from './utils';
 
 import { useTooltip } from '../../hooks';
-import { useDragHandlers } from './hooks';
+import { useZoom, useDragHandlers } from './hooks';
 
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
+
+import { THREE_DIMENSION_PROJECTIONS } from './constants';
 
 import { Projection, ProjectionState } from './types';
 import { CommonChartSettings } from '../../types';
@@ -66,6 +68,8 @@ export const ChoroplethChart: FC<Props> = ({
   const svgElement = useRef(null);
   const [projectionState, setProjectionState] = useState<ProjectionState>({
     rotation: projectionRotation,
+    scale: projectionScale,
+    translation: projectionTranslation,
   });
 
   const {
@@ -74,7 +78,7 @@ export const ChoroplethChart: FC<Props> = ({
     tooltipMeta,
     updateTooltipPosition,
     hideTooltip,
-  } = useTooltip(svgElement, 100);
+  } = useTooltip(svgElement);
 
   const { tooltip: tooltipSettings } = theme;
 
@@ -89,8 +93,8 @@ export const ChoroplethChart: FC<Props> = ({
     projection: {
       type: projection,
       rotation: projectionState.rotation,
-      translation: projectionTranslation,
-      scale: projectionScale,
+      translation: projectionState.translation,
+      scale: projectionState.scale,
     },
     margins,
     geoKey,
@@ -107,8 +111,12 @@ export const ChoroplethChart: FC<Props> = ({
   const { dragged } = useDragHandlers(
     svgElement,
     geoProjection,
-    setProjectionState
+    setProjectionState,
+    THREE_DIMENSION_PROJECTIONS.includes(projection) ? 'rotate' : 'translate'
   );
+
+  useZoom(svgElement, setProjectionState, projectionScale);
+
   useEffect(() => {
     if (dragged && tooltipSettings.enabled) hideTooltip();
   }, [dragged]);

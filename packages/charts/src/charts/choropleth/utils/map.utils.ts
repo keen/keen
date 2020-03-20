@@ -3,7 +3,8 @@ import { json } from 'd3-fetch';
 
 export type MapType = 'world' | 'us';
 
-const baseUrl = 'https://cdn.jsdelivr.net/npm/keen-dataviz-maps@latest/maps';
+const baseUrl =
+  'https://cdn.jsdelivr.net/npm/@keen.io/dataviz-maps@latest/maps';
 
 export const fetchMapTopology = (
   map: MapType

@@ -4,6 +4,7 @@ const geoProjectionOptions = {
   mercator: 'mercator',
   equalEarth: 'equalEarth',
   naturalEarth: 'naturalEarth',
+  geoAlbersUsa: 'geoAlbersUsa',
   orthographic: 'orthographic',
   azimuthalEqualArea: 'azimuthalEqualArea',
 };

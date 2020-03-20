@@ -1,11 +1,14 @@
 export type Projection =
   | 'mercator'
+  | 'geoAlbersUsa'
   | 'orthographic'
   | 'azimuthalEqualArea'
   | 'equalEarth'
   | 'naturalEarth';
 
 export type ProjectionState = {
+  translation: [number, number];
+  scale: number;
   rotation: [number, number, number];
 };
 

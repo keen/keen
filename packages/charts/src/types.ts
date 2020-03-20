@@ -110,6 +110,10 @@ export type Choropleth = {
     stroke: string;
   };
   graticule: Grid;
+  sphere: {
+    enabled: boolean;
+    backgroundColor: string;
+  };
 };
 
 export type Donut = {

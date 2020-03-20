@@ -18,6 +18,7 @@ export type VisualizerWidgetSettings = {
   subtitle?: Partial<TextSettings>;
   legend?: Partial<LegendSettings>;
   card?: Partial<CardSettings>;
+  geographicArea?: string;
 };
 
 export type ComponentSettings =

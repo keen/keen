@@ -31,8 +31,12 @@ export const theme: Theme = {
     map: {
       stroke: colors.black['500'],
     },
+    sphere: {
+      enabled: false,
+      backgroundColor: colors.gray['200'],
+    },
     graticule: {
-      enabled: true,
+      enabled: false,
       color: colors.gray['400'],
     },
   },

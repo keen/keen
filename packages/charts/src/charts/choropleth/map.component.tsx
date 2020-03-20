@@ -7,6 +7,8 @@ import {
 } from 'd3-geo';
 
 import Graticule from './graticule.component';
+import Sphere from './sphere.component';
+import MapPath from './map-path.component';
 import { GeoPropety } from './utils/chart.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
@@ -43,13 +45,16 @@ export const Map: FC<Props> = ({
 }) => {
   const {
     theme: {
-      choropleth: { map, graticule: graticuleSettings },
+      choropleth: { map, graticule: graticuleSettings, sphere: sphereSettings },
     },
   } = useContext(ChartContext) as ChartContextType;
   const { features } = topology;
 
   return (
     <>
+      {sphereSettings.enabled && (
+        <Sphere background={sphereSettings.backgroundColor} draw={drawPath} />
+      )}
       {graticuleSettings.enabled && (
         <Graticule
           stroke={graticuleSettings.color}
@@ -73,9 +78,9 @@ export const Map: FC<Props> = ({
         };
 
         return (
-          <path
+          <MapPath
             key={`${name}-${idx}`}
-            d={drawPath(geometry)}
+            path={drawPath(geometry)}
             fill={color}
             strokeWidth="0.5"
             stroke={map.stroke}

@@ -8,7 +8,13 @@ type Props = {
 };
 
 const Graticule: FC<Props> = memo(({ draw, graticule, stroke }) => (
-  <path fill="none" strokeWidth="0.5" stroke={stroke} d={draw(graticule())} />
+  <path
+    pointerEvents="none"
+    fill="none"
+    strokeWidth="0.5"
+    stroke={stroke}
+    d={draw(graticule())}
+  />
 ));
 
 Graticule.displayName = 'Graticule';

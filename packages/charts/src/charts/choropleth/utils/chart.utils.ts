@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useRef, useEffect } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import {
   geoMercator,
+  geoAlbersUsa,
   geoOrthographic,
   geoGraticule,
   geoAzimuthalEqualArea,
@@ -15,6 +16,8 @@ import { ColorMode } from '@keen.io/ui-core';
 
 import { calculateColorScale } from '../../../utils/colors.utils';
 import { calculateRange } from '../../../utils/data.utils';
+
+import { NOT_SUPPORT_ROTATION } from '../constants';
 
 import { Projection } from '../types';
 import { Dimension, Margins } from '../../../types';
@@ -46,6 +49,7 @@ export type GeoPropety = {
 
 const projections: Record<Projection, () => GeoProjection> = {
   mercator: geoMercator,
+  geoAlbersUsa: geoAlbersUsa,
   orthographic: geoOrthographic,
   equalEarth: geoEqualEarth,
   naturalEarth: geoNaturalEarth1,
@@ -73,7 +77,10 @@ export const generateChoropleth = ({
   }, [type]);
 
   const [translateX, translateY] = translation;
-  const { minimum, maximum } = calculateRange(data, 'auto', 'auto', [valueKey]);
+  const { minimum, maximum } = useMemo(
+    () => calculateRange(data, 'auto', 'auto', [valueKey]),
+    [valueKey, data]
+  );
 
   const getColor = calculateColorScale(minimum, maximum, mode, steps, colors);
 
@@ -87,11 +94,14 @@ export const generateChoropleth = ({
 
   geoProjectionRef.current
     .fitSize([width, height], topology)
-    .rotate(rotation)
     .translate([width / 2 + translateX, height / 2 + translateY])
     .scale(scale);
 
-  const graticule = geoGraticule();
+  if (!NOT_SUPPORT_ROTATION.includes(type)) {
+    geoProjectionRef.current.rotate(rotation);
+  }
+
+  const graticule = useMemo(() => geoGraticule(), []);
   const drawPath = geoPath().projection(geoProjectionRef.current);
 
   return {

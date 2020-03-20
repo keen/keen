@@ -47,7 +47,7 @@ export const worldMap = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '400px' }} ref={container} />;
 };
 
 export const worldMapOrthographic = () => {
@@ -68,6 +68,16 @@ export const worldMapOrthographic = () => {
       },
       settings: {
         projection: 'orthographic',
+        theme: {
+          choropleth: {
+            sphere: {
+              enabled: true,
+            },
+            graticule: {
+              enabled: true,
+            },
+          },
+        },
       },
     });
 
@@ -84,7 +94,7 @@ export const worldMapOrthographic = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+  return <div style={{ width: '400px', height: '300px' }} ref={container} />;
 };
 
 export const unitedStatesMap = () => {
@@ -105,8 +115,8 @@ export const unitedStatesMap = () => {
         geographicArea: 'us',
       },
       settings: {
-        projectionScale: 500,
-        projectionTranslation: [850, 340],
+        projection: 'geoAlbersUsa',
+        projectionScale: 350,
       },
     });
 
@@ -130,5 +140,5 @@ export const unitedStatesMap = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+  return <div style={{ width: '400px', height: '300px' }} ref={container} />;
 };

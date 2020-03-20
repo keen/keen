@@ -2,10 +2,7 @@ import React, { MutableRefObject, useRef, useState, useCallback } from 'react';
 
 import { TooltipState, DataSelector } from './types';
 
-export const useTooltip = (
-  container: MutableRefObject<any>,
-  debounce = 100
-) => {
+export const useTooltip = (container: MutableRefObject<any>) => {
   const tooltipUpdate = useRef(null);
 
   const [tooltip, setTooltip] = useState<
@@ -24,14 +21,14 @@ export const useTooltip = (
       selectors?: { selector: DataSelector; color: string }[],
       meta?: Record<string, any>
     ) => {
-      if (tooltipUpdate.current) clearTimeout(tooltipUpdate.current);
+      if (tooltipUpdate.current) cancelAnimationFrame(tooltipUpdate.current);
       e.persist();
       const {
         top,
         left,
       }: ClientRect = container.current.getBoundingClientRect();
 
-      tooltipUpdate.current = setTimeout(() => {
+      tooltipUpdate.current = requestAnimationFrame(() => {
         setTooltip({
           visible: true,
           selectors,
@@ -39,9 +36,9 @@ export const useTooltip = (
           x: e.pageX - left - window.scrollX,
           y: e.pageY - top - window.scrollY,
         });
-      }, debounce);
+      });
     },
-    [container, debounce]
+    [container]
   );
 
   const hideTooltip = useCallback(() => {
