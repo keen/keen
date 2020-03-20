@@ -35,7 +35,7 @@ export const findMarksInCluster = (
 };
 
 export const calculateStackData = (
-  data: any[],
+  data: Record<string, any>[],
   labelSelector: string,
   keys: string[]
 ): any[] => {
@@ -65,7 +65,7 @@ export const calculateStackData = (
 };
 
 export const calculateStackAreaData = (
-  data: any[],
+  data: Record<string, any>[],
   labelSelector: string,
   keys: string[]
 ): any => {

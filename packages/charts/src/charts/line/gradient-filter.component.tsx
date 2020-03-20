@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 type Props = {
   filterId: string;
@@ -22,4 +22,4 @@ const GradientFilter: FC<Props> = ({
   </linearGradient>
 );
 
-export default GradientFilter;
+export default memo(GradientFilter);
