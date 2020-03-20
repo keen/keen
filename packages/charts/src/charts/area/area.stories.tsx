@@ -12,10 +12,10 @@ import {
 } from '@keen.io/storybook-utils';
 
 import { AreaChart } from './area-chart.component';
-import { chartData } from './line-chart.fixtures';
+import { chartData } from '../line/line-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
-import { CurveType } from './types';
+import { CurveType } from '../line/types';
 import { GroupMode, StackMode } from '../../types';
 
 export default {

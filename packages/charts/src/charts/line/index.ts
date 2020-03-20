@@ -1,7 +1,3 @@
-import LineChart, {
-  Props as LineChartSettings,
-  Props as AreaChartSettings,
-} from './line-chart.component';
-import AreaChart from './area-chart.component';
+import LineChart, { Props as LineChartSettings } from './line-chart.component';
 
-export { LineChart, LineChartSettings, AreaChart, AreaChartSettings };
+export { LineChart, LineChartSettings };
