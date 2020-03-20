@@ -46,6 +46,10 @@ export type Props = {
   groupMode?: GroupMode;
   /** Stack mode */
   stackMode?: StackMode;
+  /** Area mode */
+  areaMode?: boolean;
+  /** Gradient on/off */
+  gradient?: boolean;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -65,8 +69,18 @@ export const LineChart: FC<Props> = ({
   groupMode = 'grouped',
   xScaleSettings = { precision: 'month', type: 'time' },
   yScaleSettings = { type: 'linear' },
+  areaMode = false,
+  gradient = true,
 }) => {
-  const { lines, marks, xScale, yScale, steps, stepMode } = generateLines({
+  const {
+    lines,
+    marks,
+    xScale,
+    yScale,
+    steps,
+    stepMode,
+    areas,
+  } = generateLines({
     data,
     margins,
     dimension: svgDimensions,
@@ -81,6 +95,7 @@ export const LineChart: FC<Props> = ({
     curve,
     stackMode,
     groupMode,
+    areaMode,
   });
 
   const svgElement = useRef(null);
@@ -110,7 +125,9 @@ export const LineChart: FC<Props> = ({
         lines={lines}
         marks={marks}
         steps={steps}
+        areas={areas}
         curve={curve}
+        gradient={gradient}
         groupMode={groupMode}
         stackMode={stackMode}
         stepMode={stepMode}

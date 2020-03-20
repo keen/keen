@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Mark } from './types';
+import { Mark, CurveType, StepType } from './types';
 
 import { Mark as PointMark, markMotion } from '../../components';
+
+import { GroupMode, StackMode } from '../../types';
 
 const pointMotion = {
   initial: 'hidden',
@@ -14,11 +16,22 @@ const pointMotion = {
 
 type Props = {
   marks: Mark[];
+  steps: StepType[];
+  curve: CurveType;
+  groupMode?: GroupMode;
+  stackMode?: StackMode;
   onMouseEnter?: (e: React.MouseEvent, mark: Mark) => void;
   onMouseLeave?: (e: React.MouseEvent) => void;
 };
 
-const Marks = ({ marks, onMouseEnter, onMouseLeave }: Props) => {
+const Marks = ({
+  marks,
+  onMouseEnter,
+  onMouseLeave,
+  curve,
+  stackMode,
+  groupMode,
+}: Props) => {
   const [activeMark, setActiveMark] = useState(null);
 
   return (
@@ -38,6 +51,7 @@ const Marks = ({ marks, onMouseEnter, onMouseLeave }: Props) => {
             }}
           >
             <motion.circle
+              key={`${key}-${curve}-${stackMode}-${groupMode}`}
               cx={x}
               cy={y}
               r={radius}

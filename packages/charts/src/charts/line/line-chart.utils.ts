@@ -1,12 +1,18 @@
 import { scaleLinear, scaleUtc, ScaleLinear, ScaleTime } from 'd3-scale';
-import { line as lineShape, curveStep, curveMonotoneX, stack } from 'd3-shape';
+import {
+  line as lineShape,
+  curveStep,
+  curveMonotoneX,
+  stack,
+  area,
+} from 'd3-shape';
 
-import { getKeysDifference } from '../../utils/data.utils';
+import { getKeysDifference, normalizeToPercent } from '../../utils/data.utils';
 import { calculateScaleDomain } from '../../utils/scale.utils';
 
 import { calculateRange, calculateStackedRange } from '../../utils/data.utils';
 
-import { Options, Mark, Line, StepType, CurveType } from './types';
+import { Options, Mark, Line, StepType, CurveType, AreaType } from './types';
 
 export const groupMarksByPosition = (marks: Mark[]): Record<number, Mark[]> => {
   const groups: Record<number, Mark[]> = {};
@@ -37,12 +43,17 @@ export const calculateStackData = (
 
   const newData = stackedData.reduce((acc, value) => {
     const stackValues = value.map((el, idx) => {
-      return {
+      const base = {
         ...acc[idx],
         [labelSelector]: el.data[labelSelector],
+      };
+      const first = {
+        ...base,
         [value.key]: el[1],
       };
+      return first;
     });
+
     return [...stackValues];
   }, []);
 
@@ -51,6 +62,39 @@ export const calculateStackData = (
   }
 
   return newData;
+};
+
+export const calculateStackAreaData = (
+  data: any[],
+  labelSelector: string,
+  keys: string[]
+): any => {
+  const stackedData = stack().keys(keys)(data);
+
+  const reduceStack = (id: number) => (acc: any[], value: any) => {
+    const stackValues = value.map((el: any, idx: number) => {
+      const base = {
+        ...acc[idx],
+        [labelSelector]: el.data[labelSelector],
+      };
+      const first = {
+        ...base,
+        [value.key]: el[id],
+      };
+      return first;
+    });
+
+    return [...stackValues];
+  };
+
+  const firstDataPart = stackedData.reduce(reduceStack(0), []);
+  const secondDataPart = stackedData.reduce(reduceStack(1), []);
+
+  if (!keys.length) {
+    return data.map(el => ({ labelSelector: el[labelSelector] }));
+  }
+
+  return { firstDataPart, secondDataPart: secondDataPart.reverse() };
 };
 
 const generateLineMarks = (
@@ -116,7 +160,7 @@ const generateSteps = (
   return steps;
 };
 
-const calculateLine = (
+const calculatePath = (
   curve: CurveType,
   xScale: ScaleTime<number, number>,
   yScale: ScaleLinear<number, number>,
@@ -147,6 +191,69 @@ const calculateLine = (
     });
 };
 
+const calculateNormalStackArea = (
+  curve: CurveType,
+  xScale: ScaleTime<number, number>,
+  yScale: ScaleLinear<number, number>,
+  labelSelector: string,
+  keyName: string
+) => {
+  let lineShapeType;
+  switch (curve) {
+    case 'spline':
+      lineShapeType = area().curve(curveMonotoneX);
+      break;
+
+    case 'step':
+      lineShapeType = area().curve(curveStep);
+      break;
+
+    default:
+      lineShapeType = area();
+      break;
+  }
+
+  return lineShapeType
+    .x(function(d: Record<string, any>) {
+      return xScale(new Date(d[labelSelector]));
+    })
+    .y1(function(d: Record<string, any>) {
+      return yScale(d[keyName]);
+    })
+    .y0(function() {
+      return yScale(0);
+    });
+};
+
+export const sortAreaKeys = (data: any[], keys: string[]) => {
+  const sumKeys = data.reduce((acc, item) => {
+    let idx = 0;
+    for (const [key, value] of Object.entries(item).filter(a =>
+      keys.includes(a[0])
+    )) {
+      if (acc[idx]) {
+        acc[idx] = {
+          ...acc[idx],
+          value: acc[idx].value + value,
+        };
+      } else {
+        acc[idx] = {
+          key: key,
+          value,
+        };
+      }
+      idx++;
+    }
+    return acc;
+  }, []);
+
+  sumKeys.sort(
+    (a: { key: string; value: number }, b: { key: string; value: number }) =>
+      a.value < b.value ? 1 : -1
+  );
+  return sumKeys.map((item: { key: string; value: number }) => item.key);
+};
+
 export const generateGroupedLines = ({
   data,
   keys,
@@ -160,6 +267,7 @@ export const generateGroupedLines = ({
   markRadius,
   strokeWidth,
   curve,
+  areaMode,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -173,8 +281,10 @@ export const generateGroupedLines = ({
     filteredKeys
   );
 
-  const marks: Mark[] = [];
-  let steps: StepType[] = [];
+  const marks = [] as Mark[];
+  const steps = [] as StepType[];
+  const areas = [] as AreaType[];
+  const lines = [] as Line[];
 
   const [first] = data;
 
@@ -192,9 +302,16 @@ export const generateGroupedLines = ({
 
   calculateScaleDomain(yScale, minimum, maximum);
 
-  const lines = [] as Line[];
   keys.forEach((keyName: string, idx: number) => {
-    const generateLine = calculateLine(
+    const generateLine = calculatePath(
+      curve,
+      xScale,
+      yScale,
+      labelSelector,
+      keyName
+    );
+
+    const generateArea = calculateNormalStackArea(
       curve,
       xScale,
       yScale,
@@ -204,7 +321,9 @@ export const generateGroupedLines = ({
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
       if (stepMode && idx === 0)
-        steps = generateSteps(data, xScale, yScale, labelSelector, keys[0]);
+        steps.push(
+          ...generateSteps(data, xScale, yScale, labelSelector, keys[0])
+        );
       marks.push(
         ...generateLineMarks(
           data,
@@ -224,6 +343,13 @@ export const generateGroupedLines = ({
         color: colors[idx],
         strokeWidth,
       });
+
+      if (areaMode)
+        areas.push({
+          firstOpacity: 0.8,
+          lastOpacity: 0.2,
+          d: generateArea(data),
+        });
     }
   });
 
@@ -234,6 +360,7 @@ export const generateGroupedLines = ({
     lines,
     xScale,
     yScale,
+    areas,
   };
 };
 
@@ -250,24 +377,34 @@ export const generateStackLines = ({
   markRadius,
   strokeWidth,
   curve,
+  areaMode,
+  stackMode,
+  groupMode,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
     ? getKeysDifference(keys, disabledKeys)
     : keys;
 
-  const newData = calculateStackData(data, labelSelector, filteredKeys);
+  const normalizeData =
+    groupMode === 'stacked' && stackMode === 'percent'
+      ? normalizeToPercent(data, filteredKeys)
+      : data;
 
-  const { minimum, maximum } = calculateStackedRange(
-    data,
-    minValue,
-    maxValue,
+  const newData = calculateStackData(
+    normalizeData,
+    labelSelector,
     filteredKeys
   );
 
+  const { minimum, maximum } =
+    groupMode === 'stacked' && stackMode === 'percent'
+      ? { minimum: 0, maximum: 100 }
+      : calculateStackedRange(normalizeData, minValue, maxValue, filteredKeys);
+
   const marks: Mark[] = [];
   const steps: StepType[] = [];
-
+  const areas: AreaType[] = [];
   const [first] = newData;
 
   const xScale = scaleUtc()
@@ -286,7 +423,7 @@ export const generateStackLines = ({
 
   const lines = [] as Line[];
   keys.forEach((keyName: string, idx: number) => {
-    const generateLine = calculateLine(
+    const generatePath = calculatePath(
       curve,
       xScale,
       yScale,
@@ -314,10 +451,26 @@ export const generateStackLines = ({
       lines.push({
         key: keyName,
         selector: [idx, keyName],
-        d: generateLine(newData),
+        d: generatePath(newData),
         color: colors[idx],
         strokeWidth,
       });
+
+      if (areaMode) {
+        const areaData = calculateStackAreaData(
+          normalizeData,
+          labelSelector,
+          filteredKeys
+        );
+
+        areas.push({
+          firstOpacity: 0.7,
+          lastOpacity: 0.3,
+          d: `${generatePath(areaData.firstDataPart)},L${generatePath(
+            areaData.secondDataPart
+          ).substring(1)}`,
+        });
+      }
     }
   });
 
@@ -328,13 +481,21 @@ export const generateStackLines = ({
     lines,
     xScale,
     yScale,
+    areas,
   };
 };
 
 export const generateLines = (options: Options) => {
-  const { groupMode, stackMode } = options;
+  const { groupMode, stackMode, areaMode, data, keys } = options;
 
-  return groupMode === 'grouped' && stackMode === 'normal'
-    ? generateGroupedLines(options)
-    : generateStackLines(options);
+  let newOptions = { ...options } as Options;
+  if (areaMode) {
+    const sortedKeys = sortAreaKeys(data, keys);
+    newOptions = { ...options, keys: sortedKeys };
+  }
+
+  return groupMode === 'grouped' &&
+    (stackMode === 'normal' || stackMode === 'percent')
+    ? generateGroupedLines(newOptions)
+    : generateStackLines(newOptions);
 };
