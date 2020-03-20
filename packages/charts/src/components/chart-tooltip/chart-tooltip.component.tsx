@@ -35,7 +35,12 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
     }
   }, [visible]);
 
-  const { tooltipX, transform, arrowDirection } = calculateTooltipPosition({
+  const {
+    tooltipX,
+    transform,
+    arrowDirection,
+    arrowOffset,
+  } = calculateTooltipPosition({
     svgDimensions,
     margins,
     x,
@@ -65,6 +70,7 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
             <Tooltip
               mode={theme.tooltip.mode}
               arrowDirection={arrowDirection as Position}
+              top={arrowOffset}
             >
               {children}
             </Tooltip>
