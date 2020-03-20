@@ -2,6 +2,7 @@ import { legendSettings, widgetSettings } from './widget-settings';
 import {
   BarChartWidget,
   LineChartWidget,
+  AreaChartWidget,
   PieChartWidget,
   DonutChartWidget,
   FunnelChartWidget,
@@ -17,6 +18,7 @@ export {
   BarChartWidget,
   FunnelChartWidget,
   LineChartWidget,
+  AreaChartWidget,
   PieChartWidget,
   DonutChartWidget,
   WidgetSettings,

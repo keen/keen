@@ -11,18 +11,18 @@ import {
   stackModeKnobs,
 } from '@keen.io/storybook-utils';
 
-import { LineChart } from './line-chart.component';
-import { chartData } from './line-chart.fixtures';
+import { AreaChart } from './area-chart.component';
+import { chartData } from '../line/line-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
-import { CurveType } from './types';
+import { CurveType } from '../line/types';
 import { GroupMode, StackMode } from '../../types';
 
 export default {
-  title: 'Visualizations|Line Chart|Plot',
+  title: 'Visualizations|Area Chart|Plot',
   parameters: {
-    component: LineChart,
-    componentSubtitle: 'Line Chart plot',
+    component: AreaChart,
+    componentSubtitle: 'Area Chart plot',
   },
 };
 
@@ -44,7 +44,7 @@ export const plot = () => {
 
   return (
     <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
-      <LineChart
+      <AreaChart
         labelSelector="name"
         keys={['users', 'books', 'licenses', 'shops']}
         xScaleSettings={{

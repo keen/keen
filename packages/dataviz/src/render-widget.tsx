@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BarChartWidget,
   LineChartWidget,
+  AreaChartWidget,
   PieChartWidget,
   DonutChartWidget,
   MetricChartWidget,
@@ -16,6 +17,7 @@ import { ComponentSettings } from './types';
 export type Widgets =
   | 'bar'
   | 'line'
+  | 'area'
   | 'pie'
   | 'donut'
   | 'metric'
@@ -77,6 +79,17 @@ export const renderWidget = ({
     case 'line':
       return (
         <LineChartWidget
+          xScaleSettings={{
+            type: 'time',
+            precision: 'month',
+            ...scaleSettings,
+          }}
+          {...config}
+        />
+      );
+    case 'area':
+      return (
+        <AreaChartWidget
           xScaleSettings={{
             type: 'time',
             precision: 'month',

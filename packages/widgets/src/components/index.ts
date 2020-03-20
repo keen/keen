@@ -2,6 +2,7 @@ import ChartWidget from './chart-widget.component';
 
 import BarChartWidget from './bar-chart.widget';
 import LineChartWidget from './line-chart.widget';
+import AreaChartWidget from './area.widget';
 
 import PieChartWidget from './pie';
 import DonutChartWidget from './donut';
@@ -19,6 +20,7 @@ export {
   PieChartWidget,
   DonutChartWidget,
   LineChartWidget,
+  AreaChartWidget,
   BarChartWidget,
   FunnelChartWidget,
   MetricChartWidget,

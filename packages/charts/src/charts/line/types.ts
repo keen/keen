@@ -15,6 +15,7 @@ export type Options = {
   curve: CurveType;
   groupMode?: GroupMode;
   stackMode?: StackMode;
+  areaMode?: boolean;
 };
 
 export type Line = {
@@ -42,6 +43,12 @@ export type StepType = {
   width: number;
   height: number;
   middle: number;
+};
+
+export type AreaType = {
+  d: string;
+  firstOpacity: number;
+  lastOpacity: number;
 };
 
 export type CurveType = 'linear' | 'spline' | 'step';
