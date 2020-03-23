@@ -1,10 +1,9 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-import { Frame } from 'framer';
 
 import OffRange from './off-range.component';
 import Control from './control.component';
 
-import { Controls, OffRangeType } from './types';
+import { Controls, OffRangeType, Layout, TooltipPosition } from './types';
 
 import { colorsString, onChangeValue } from './slider.utils';
 
@@ -17,6 +16,11 @@ type Props = {
   controls?: Controls;
   onChange?: (res: { min: number; max: number } | number) => void;
   offRange?: OffRangeType;
+  layout?: Layout;
+  tooltip?: {
+    enabled?: boolean;
+    position?: TooltipPosition;
+  };
 };
 
 export const Slider: FC<Props> = ({
@@ -28,6 +32,11 @@ export const Slider: FC<Props> = ({
   colorSteps = 2,
   onChange,
   offRange,
+  layout = 'horizontal',
+  tooltip = {
+    enabled: true,
+    position: layout === 'horizontal' ? 'bottom' : 'right',
+  },
 }) => {
   const slider = useRef<HTMLDivElement>();
   const [state, setState] = useState({
@@ -35,44 +44,76 @@ export const Slider: FC<Props> = ({
     posMax: null,
     valMin: min,
     valMax: max,
-    sliderWidth: 0,
+    sliderSize: 0,
   });
 
+  const { posMin, posMax, valMin, valMax, sliderSize } = state;
+
+  const isHorizontal = layout === 'horizontal';
+
   useEffect(() => {
-    const refWidth = slider.current.clientWidth;
+    const refSize = isHorizontal
+      ? slider.current.clientWidth
+      : slider.current.clientHeight;
     setState({
       ...state,
-      sliderWidth: refWidth,
+      sliderSize: refSize,
+      posMax: controls === 2 ? posMax : refSize,
     });
-  }, [slider.current]);
+  }, [slider.current, layout]);
 
-  const { posMin, posMax, valMin, valMax, sliderWidth } = state;
+  const layoutStyle = isHorizontal
+    ? {
+        width: '100%',
+        height: 4,
+      }
+    : {
+        width: 4,
+        height: '100%',
+      };
+
+  const gradientAngle = isHorizontal ? 90 : 180;
 
   return (
     <>
-      <Frame
+      <div
         ref={slider}
-        width={'97%'}
-        name={'Rail'}
-        height={4}
-        radius={3}
-        background={`linear-gradient(90deg, ${colorsString(
-          colors,
-          colorSteps
-        )}`}
+        style={{
+          position: 'relative',
+          borderRadius: 3,
+          background:
+            colorSteps > 1
+              ? `linear-gradient(${gradientAngle}deg, ${colorsString(
+                  colors,
+                  colorSteps
+                )}`
+              : colors[0],
+          ...layoutStyle,
+        }}
       >
         {controls.number === 2 && (
-          <OffRange left={0} width={posMin} {...offRange} />
+          <OffRange
+            isHorizontal={isHorizontal}
+            left={0}
+            width={posMin}
+            {...offRange}
+          />
         )}
         <Control
-          sliderWidth={sliderWidth}
+          isHorizontal={isHorizontal}
+          tooltip={tooltip}
+          sliderSize={sliderSize}
           min={min}
           max={max}
-          x={0}
+          initialPos={0}
           steps={steps}
           zIdx={posMin === max}
-          dragConstraintsLeft={0}
-          dragConstraintsRight={posMax ? posMax : sliderWidth}
+          dragConstraints={{
+            top: 0,
+            left: 0,
+            right: posMax ? posMax : sliderSize,
+            bottom: posMax ? posMax : sliderSize,
+          }}
           onDrag={({ pos, val }) => {
             setState({ ...state, posMin: pos, valMin: val });
             onChange &&
@@ -83,18 +124,25 @@ export const Slider: FC<Props> = ({
         {controls.number === 2 && (
           <>
             <OffRange
+              isHorizontal={isHorizontal}
               left={posMax}
-              width={posMax && sliderWidth - posMax}
+              width={posMax && sliderSize - posMax}
               {...offRange}
             />
             <Control
-              sliderWidth={sliderWidth}
+              isHorizontal={isHorizontal}
+              tooltip={tooltip}
+              sliderSize={sliderSize}
               min={min}
               max={max}
-              x={sliderWidth}
+              initialPos={sliderSize}
               steps={steps}
-              dragConstraintsLeft={posMin}
-              dragConstraintsRight={sliderWidth}
+              dragConstraints={{
+                top: posMin,
+                left: posMin,
+                right: sliderSize,
+                bottom: sliderSize,
+              }}
               onDrag={({ pos, val }) => {
                 setState({ ...state, posMax: pos, valMax: val });
                 onChange &&
@@ -104,7 +152,7 @@ export const Slider: FC<Props> = ({
             />
           </>
         )}
-      </Frame>
+      </div>
     </>
   );
 };
