@@ -9,8 +9,8 @@ import { Legend } from './legend.component';
 import { labels } from './legend.fixtures';
 
 const legendTypography = {
-  fontSize: 11,
-  fontFamily: 'Gangster Grotesk Regular, sans-serif',
+  fontSize: 12,
+  fontFamily: 'Lato Regular',
   fontStyle: 'normal',
   fontWeight: 'normal',
   fontColor: colors.black['500'],
