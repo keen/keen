@@ -18,7 +18,6 @@ export const useZoom = (
   const frameRequest = useRef(null);
 
   useEffect(() => {
-    console.log('useZoom');
     const handlers = zoom()
       .scaleExtent([1, 8])
       .on('zoom', () => {
