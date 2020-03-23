@@ -106,7 +106,7 @@ export const LineChart: FC<Props> = ({
     tooltipSelectors,
     updateTooltipPosition,
     hideTooltip,
-  } = useTooltip(svgElement, 0);
+  } = useTooltip(svgElement);
 
   const { tooltip: tooltipSettings } = theme;
 

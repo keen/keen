@@ -5,6 +5,7 @@ import BulletList from './bullet-list';
 import Group from './group';
 import Tooltip, { TooltipMode } from './tooltip';
 import Badge from './badge';
+import Loader from './loader';
 import Card, { CardSettings } from './card';
 
 export {
@@ -14,6 +15,7 @@ export {
   Card,
   CardSettings,
   ColorAdjuster,
+  Loader,
   Group,
   Tooltip,
   TooltipMode,

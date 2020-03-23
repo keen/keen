@@ -16,6 +16,11 @@ import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { ScaleSettings, CommonChartSettings } from '../../types';
 
+const tooltipMotion = {
+  transition: { duration: 0.3 },
+  exit: { opacity: 0 },
+};
+
 export type Props = {
   /** chart data */
   data: object[];
@@ -82,14 +87,9 @@ export const HeatmapChart: FC<Props> = ({
     tooltipSelectors,
     updateTooltipPosition,
     hideTooltip,
-  } = useTooltip(svgElement, 0);
+  } = useTooltip(svgElement);
 
   const { tooltip: tooltipSettings } = theme;
-
-  const tooltipMotion = {
-    transition: { duration: 0.3 },
-    exit: { opacity: 0 },
-  };
 
   return (
     <>
