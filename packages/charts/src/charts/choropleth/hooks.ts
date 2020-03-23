@@ -22,9 +22,8 @@ export const useZoom = (
       .scaleExtent([1, 8])
       .on('zoom', () => {
         const zoom = event.transform;
-        if (frameRequest.current)
-          window.cancelAnimationFrame(frameRequest.current);
-        frameRequest.current = window.requestAnimationFrame(() => {
+        if (frameRequest.current) cancelAnimationFrame(frameRequest.current);
+        frameRequest.current = requestAnimationFrame(() => {
           setProjectionState((state: ProjectionState) => ({
             ...state,
             scale: initialScale * zoom.k,
