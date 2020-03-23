@@ -1,95 +1,127 @@
 import React, { useState, useEffect } from 'react';
-import { Frame, useMotionValue } from 'framer';
+import { motion, useMotionValue } from 'framer-motion';
+
+import { TooltipPosition } from './types';
 
 import { calculatePercentage, calculateValueStep } from './slider.utils';
 
 import { Tooltip } from './slider.styles';
 
 type Props = {
-  sliderWidth: number;
+  isHorizontal: boolean;
+  sliderSize: number;
   min: number;
   max: number;
-  x: number;
-  dragConstraintsLeft: number;
-  dragConstraintsRight: number;
+  initialPos: number;
+  dragConstraints: {
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+  };
   steps: number;
   onDrag?: (res: { pos: number; val: number }) => void;
   zIdx?: boolean;
   size?: number;
   background?: string;
   border?: string;
+  tooltip?: {
+    enabled?: boolean;
+    position?: TooltipPosition;
+  };
 };
 
 const Control = ({
-  dragConstraintsLeft,
-  dragConstraintsRight,
+  isHorizontal,
   min,
   max,
-  x,
+  initialPos,
   steps,
-  sliderWidth,
+  sliderSize,
   onDrag,
   zIdx,
+  dragConstraints,
   size = 12,
   background = '#fff',
   border = '2px solid #CA8917',
+  tooltip: { enabled: tooltipEnabled, position: tooltipPosition },
 }: Props) => {
-  const stepSliderSize = steps ? sliderWidth / steps : 1;
+  const stepSliderSize = steps ? sliderSize / steps : 1;
   const stepValueSize = steps ? max / steps : 1;
-  const position = useMotionValue(x);
+  const position = useMotionValue(initialPos);
   const [state, setState] = useState({
     value: 0,
-    tooltip: false,
+    tooltipVisibility: false,
   });
 
   useEffect(() => {
-    position.set(x);
-    x > 0 && setState({ ...state, value: max });
-  }, [x]);
+    position.set(initialPos);
+    initialPos > 0 && setState({ ...state, value: max });
+    setState({
+      ...state,
+      value: sliderSize
+        ? calculatePercentage(initialPos, sliderSize, max, min, stepValueSize) +
+          min
+        : 0,
+    });
+  }, [initialPos, isHorizontal]);
 
-  const { value, tooltip } = state;
+  const { value, tooltipVisibility } = state;
+  const layoutStyle = isHorizontal
+    ? { x: position, transform: 'translateY(0)' }
+    : { y: position, transform: 'translateX(0)' };
 
+  // const tooltip
   return (
     <>
-      <Frame
-        name={'Control'}
-        size={size}
-        center={'y'}
-        radius={'50%'}
-        background={background}
-        border={border}
-        x={position}
-        left={-6}
-        drag={'x'}
-        dragConstraints={{
-          left: dragConstraintsLeft,
-          right: dragConstraintsRight,
+      <motion.div
+        drag={isHorizontal ? 'x' : 'y'}
+        dragConstraints={dragConstraints}
+        style={{
+          position: 'absolute',
+          top: -6,
+          width: size,
+          height: size,
+          borderRadius: '50%',
+          background,
+          border,
+          zIndex: zIdx && 1,
+          left: -6,
+          ...layoutStyle,
         }}
         dragElastic={0}
         dragMomentum={false}
-        style={{ zIndex: zIdx && 1 }}
         onDrag={(e, info) => {
-          const x = info.point.x;
-          position.set(calculateValueStep(position.get(), stepSliderSize));
+          const pos = isHorizontal ? info.point.x : info.point.y;
+          position.set(calculateValueStep(pos, stepSliderSize));
           setState({
             ...state,
+            tooltipVisibility: true,
             value:
-              calculatePercentage(x, sliderWidth, max, min, stepValueSize) +
+              calculatePercentage(pos, sliderSize, max, min, stepValueSize) +
               min,
           });
           onDrag({
-            pos: calculateValueStep(x, stepSliderSize),
+            pos: calculateValueStep(pos, stepSliderSize),
             val: value,
           });
         }}
         onMouseEnter={() => {
-          setState({ ...state, tooltip: true });
+          setState({ ...state, tooltipVisibility: true });
         }}
         onMouseLeave={() => {
-          setState({ ...state, tooltip: false });
+          setState({ ...state, tooltipVisibility: false });
         }}
-      />
-      {tooltip && <Tooltip left={position.get()}>{value}</Tooltip>}
+        onDragEnd={() => {
+          setState({ ...state, tooltipVisibility: false });
+        }}
+      >
+        {tooltipEnabled && tooltipVisibility && (
+          <Tooltip type={tooltipPosition} size={size}>
+            {value}
+          </Tooltip>
+        )}
+      </motion.div>
     </>
   );
 };

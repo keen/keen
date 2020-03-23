@@ -1,22 +1,38 @@
 import React from 'react';
-import { Frame } from 'framer';
+import { motion } from 'framer-motion';
 
 type Props = {
+  isHorizontal: boolean;
   left: number;
   width: number;
   background?: string;
 };
 
 const OffRange = (props: Props) => {
-  const { left, width, background } = props;
+  const { isHorizontal, left, width, background } = props;
+
+  const layoutStyle = isHorizontal
+    ? {
+        width,
+        height: 4,
+        left,
+        top: 0,
+      }
+    : {
+        width: 4,
+        height: width,
+        top: left,
+        left: 0,
+      };
+
   return (
-    <Frame
-      name={'OffRange'}
-      left={left}
-      width={width}
-      height={4}
-      radius={3}
-      background={background}
+    <motion.div
+      style={{
+        position: 'absolute',
+        background,
+        borderRadius: 3,
+        ...layoutStyle,
+      }}
     />
   );
 };
