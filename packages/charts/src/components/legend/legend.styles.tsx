@@ -7,7 +7,7 @@ import { RenderMode } from './legend.utils';
 
 const borderMixin = (layout: Layout) => css`
   border-${layout === 'vertical' ? 'top' : 'left'}: solid 3px ${
-  colors.blue['100']
+  colors.blue['500']
 };
 `;
 
@@ -82,5 +82,10 @@ export const LegendGroup = styled.div`
 export const LegendItem = styled.div`
   flex-shrink: 0;
   margin-right: 10px;
+  margin-bottom: 8px;
   outline: none;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
