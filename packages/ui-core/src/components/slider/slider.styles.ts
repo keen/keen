@@ -1,5 +1,75 @@
 import styled from 'styled-components';
 
+export const TickContainer = styled.div<{
+  left: number;
+  controlSize: number;
+  type: 'horizontal' | 'vertical';
+}>`
+  position: absolute;
+  width: 30px;
+
+  ${props =>
+    props.type === 'horizontal' &&
+    `
+    top: ${props.controlSize + 2}px;
+    left: ${props.left + props.controlSize / 2 - 20}px;
+    `}
+
+  ${props =>
+    props.type === 'vertical' &&
+    `
+    left: ${props.controlSize + 2}px;
+    top: ${props.left + props.controlSize / 2 - 12}px;
+    `}
+`;
+
+export const Tick = styled.div<{
+  type: 'horizontal' | 'vertical';
+}>`
+  position: absolute;
+  background: #4f5b5f;
+
+  ${props =>
+    props.type === 'horizontal' &&
+    `
+    top: 0px;
+    left: 50%;
+    width: 1px;
+    height: 5px;
+    `}
+
+  ${props =>
+    props.type === 'vertical' &&
+    `
+    top: 50%;
+    left: 0px;
+    width: 5px;
+    height: 1px;
+    `}
+`;
+
+export const Label = styled.div<{
+  type: 'horizontal' | 'vertical';
+}>`
+  font-family: Lato Regular;
+  font-size: 12px;
+  color: #4f5b5f;
+
+  ${props =>
+    props.type === 'horizontal' &&
+    `
+      text-align: center;
+      margin-top: 10px;
+    `}
+
+  ${props =>
+    props.type === 'vertical' &&
+    `
+      text-align: left;
+      margin-left: 10px;
+    `}
+`;
+
 export const Tooltip = styled.div<{
   type: 'top' | 'left' | 'right' | 'bottom';
   size: number;

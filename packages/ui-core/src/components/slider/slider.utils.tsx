@@ -1,12 +1,12 @@
 export const calculatePercentage = (
   x: number,
-  sliderWidth: number,
+  sliderSize: number,
   max: number,
   min: number,
   step?: number
 ) =>
   Math.round(
-    Math.round((((x * 100) / sliderWidth / 100) * (max - min)) / step) * step
+    Math.round((((x * 100) / sliderSize / 100) * (max - min)) / step) * step
   );
 
 export const colorsString = (colors: string[], colorSteps: number) => {
@@ -22,3 +22,22 @@ export const onChangeValue = (
 
 export const calculateValueStep = (x: number, step: number) =>
   Math.round(x / step) * step;
+
+export const calculateTicks = (
+  min: number,
+  max: number,
+  steps: number,
+  sliderSize: number
+) => {
+  const ticks = [];
+  const step = steps && sliderSize / steps > 35 ? steps : 4;
+  const tickSize = sliderSize / step;
+  const valueSize = (max - min) / step;
+  for (let i = 0; i < step + 1; i++) {
+    ticks.push({
+      pos: Math.round(i * tickSize),
+      val: Math.round(i * valueSize) + min,
+    });
+  }
+  return ticks;
+};

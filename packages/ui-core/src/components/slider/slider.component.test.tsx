@@ -5,7 +5,7 @@ import Slider from './slider.component';
 describe('<Slider />', () => {
   const colors = ['white', 'blue'];
 
-  test('should call set state', () => {
+  test('should render Slider component', () => {
     const wrapper = shallow(<Slider colors={colors} />);
     expect(wrapper).toMatchSnapshot();
   });

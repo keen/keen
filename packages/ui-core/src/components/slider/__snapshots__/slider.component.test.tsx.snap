@@ -1,26 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Slider /> should call set state 1`] = `
+exports[`<Slider /> should render Slider component 1`] = `
 <Fragment>
-  <ForwardRef
-    background="linear-gradient(90deg, white, blue"
-    height={4}
-    name="Rail"
-    radius={3}
-    width="97%"
+  <div
+    style={
+      Object {
+        "background": "linear-gradient(90deg, white, blue",
+        "borderRadius": 3,
+        "height": 4,
+        "position": "relative",
+        "width": "100%",
+      }
+    }
   >
     <Control
-      dragConstraintsLeft={0}
-      dragConstraintsRight={0}
+      dragConstraints={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0,
+        }
+      }
+      initialPos={0}
+      isHorizontal={true}
       max={100}
       min={0}
       number={1}
       onDrag={[Function]}
-      sliderWidth={0}
+      sliderSize={0}
       steps={0}
-      x={0}
-      zIdx={false}
+      tooltip={
+        Object {
+          "enabled": true,
+          "position": "bottom",
+        }
+      }
+      zIdx={true}
     />
-  </ForwardRef>
+    <Component
+      layout="horizontal"
+      ticks={
+        Array [
+          Object {
+            "pos": 0,
+            "val": 0,
+          },
+          Object {
+            "pos": 0,
+            "val": 25,
+          },
+          Object {
+            "pos": 0,
+            "val": 50,
+          },
+          Object {
+            "pos": 0,
+            "val": 75,
+          },
+          Object {
+            "pos": 0,
+            "val": 100,
+          },
+        ]
+      }
+    />
+  </div>
 </Fragment>
 `;

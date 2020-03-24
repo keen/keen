@@ -2,10 +2,11 @@ import React, { FC, useState, useRef, useEffect } from 'react';
 
 import OffRange from './off-range.component';
 import Control from './control.component';
+import Ruler from './ruler.component';
 
 import { Controls, OffRangeType, Layout, TooltipPosition } from './types';
 
-import { colorsString, onChangeValue } from './slider.utils';
+import { colorsString, onChangeValue, calculateTicks } from './slider.utils';
 
 type Props = {
   min?: number;
@@ -21,6 +22,7 @@ type Props = {
     enabled?: boolean;
     position?: TooltipPosition;
   };
+  ruler?: boolean;
 };
 
 export const Slider: FC<Props> = ({
@@ -37,6 +39,7 @@ export const Slider: FC<Props> = ({
     enabled: true,
     position: layout === 'horizontal' ? 'bottom' : 'right',
   },
+  ruler = true,
 }) => {
   const slider = useRef<HTMLDivElement>();
   const [state, setState] = useState({
@@ -46,7 +49,6 @@ export const Slider: FC<Props> = ({
     valMax: max,
     sliderSize: 0,
   });
-
   const { posMin, posMax, valMin, valMax, sliderSize } = state;
 
   const isHorizontal = layout === 'horizontal';
@@ -91,11 +93,18 @@ export const Slider: FC<Props> = ({
           ...layoutStyle,
         }}
       >
+        {ruler && (
+          <Ruler
+            layout={layout}
+            controlSize={controls.size}
+            ticks={calculateTicks(min, max, steps, sliderSize)}
+          />
+        )}
         {controls.number === 2 && (
           <OffRange
             isHorizontal={isHorizontal}
             left={0}
-            width={posMin}
+            size={posMin}
             {...offRange}
           />
         )}
@@ -107,7 +116,7 @@ export const Slider: FC<Props> = ({
           max={max}
           initialPos={0}
           steps={steps}
-          zIdx={posMin === max}
+          zIdx={posMin === sliderSize}
           dragConstraints={{
             top: 0,
             left: 0,
@@ -126,7 +135,7 @@ export const Slider: FC<Props> = ({
             <OffRange
               isHorizontal={isHorizontal}
               left={posMax}
-              width={posMax && sliderSize - posMax}
+              size={posMax && sliderSize - posMax}
               {...offRange}
             />
             <Control

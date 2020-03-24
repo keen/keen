@@ -47,7 +47,7 @@ const Control = ({
   tooltip: { enabled: tooltipEnabled, position: tooltipPosition },
 }: Props) => {
   const stepSliderSize = steps ? sliderSize / steps : 1;
-  const stepValueSize = steps ? max / steps : 1;
+  const stepValueSize = steps ? (max - min) / steps : 1;
   const position = useMotionValue(initialPos);
   const [state, setState] = useState({
     value: 0,
@@ -56,22 +56,18 @@ const Control = ({
 
   useEffect(() => {
     position.set(initialPos);
-    initialPos > 0 && setState({ ...state, value: max });
     setState({
       ...state,
       value: sliderSize
         ? calculatePercentage(initialPos, sliderSize, max, min, stepValueSize) +
           min
-        : 0,
+        : min,
     });
-  }, [initialPos, isHorizontal]);
+  }, [initialPos, isHorizontal, min, max, steps]);
 
   const { value, tooltipVisibility } = state;
-  const layoutStyle = isHorizontal
-    ? { x: position, transform: 'translateY(0)' }
-    : { y: position, transform: 'translateX(0)' };
+  const layoutStyle = isHorizontal ? { x: position } : { y: position };
 
-  // const tooltip
   return (
     <>
       <motion.div

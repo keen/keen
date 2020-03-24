@@ -13,6 +13,9 @@ export default {
 
 const Grid = styled.div`
   display: flex;
+  width: 500px;
+  height: 500px;
+  padding: 20px;
 `;
 
 export const gradient = () => {
