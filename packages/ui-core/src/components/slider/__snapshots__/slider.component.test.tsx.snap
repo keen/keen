@@ -13,31 +13,6 @@ exports[`<Slider /> should render Slider component 1`] = `
       }
     }
   >
-    <Control
-      dragConstraints={
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "right": 0,
-          "top": 0,
-        }
-      }
-      initialPos={0}
-      isHorizontal={true}
-      max={100}
-      min={0}
-      number={1}
-      onDrag={[Function]}
-      sliderSize={0}
-      steps={0}
-      tooltip={
-        Object {
-          "enabled": true,
-          "position": "bottom",
-        }
-      }
-      zIdx={true}
-    />
     <Component
       layout="horizontal"
       ticks={
@@ -64,6 +39,31 @@ exports[`<Slider /> should render Slider component 1`] = `
           },
         ]
       }
+    />
+    <Control
+      dragConstraints={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0,
+        }
+      }
+      initialPos={0}
+      isHorizontal={true}
+      max={100}
+      min={0}
+      number={1}
+      onDrag={[Function]}
+      sliderSize={0}
+      steps={0}
+      tooltip={
+        Object {
+          "enabled": true,
+          "position": "bottom",
+        }
+      }
+      zIdx={true}
     />
   </div>
 </Fragment>
