@@ -15,7 +15,7 @@ import {
   TitleSocket,
 } from '../widget-sockets.component';
 
-import { createLegendLabels } from './pie-chart.utils';
+import { createLegendLabels } from './pie-chart.widget.utils';
 
 import { legendSettings } from '../../widget-settings';
 import { useLegend } from '../../hooks';

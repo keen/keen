@@ -15,7 +15,7 @@ import { theme as keenTheme } from '@keen.io/charts';
 import { BarChartWidget } from './bar-chart.widget';
 import { chartData } from './bar-chart.widget.fixtures';
 
-import { widgetSettings } from '../widget-settings';
+import { widgetSettings } from '../../widget-settings';
 
 export default {
   title: 'Visualizations|Bar Chart|Widget',

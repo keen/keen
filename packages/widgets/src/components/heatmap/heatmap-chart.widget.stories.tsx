@@ -14,7 +14,7 @@ import { theme as keenTheme } from '@keen.io/charts';
 import { HeatmapChartWidget } from './heatmap-chart.widget';
 import { chartData } from './heatmap-chart.widget.fixtures';
 
-import { widgetSettings } from '../widget-settings';
+import { widgetSettings } from '../../widget-settings';
 
 export default {
   title: 'Visualizations|Heatmap Chart|Widget',
