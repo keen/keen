@@ -36,7 +36,7 @@ const tooltipHorizontalOpts = {
 
 const tooltipHorizontal = (
   namespace: string,
-  defaultValue: string = tooltipHorizontalOpts[1]
+  defaultValue: string = tooltipHorizontalOpts[2]
 ) => select('Position', tooltipHorizontalOpts, defaultValue, namespace);
 
 const tooltipVerticalOpts = {
@@ -67,6 +67,8 @@ const Container = styled.div`
 export const horizontal = () => (
   <Container>
     <Slider
+      min={number('Min', 0, {}, 'Slider')}
+      max={number('Max', 100, {}, 'Slider')}
       steps={number('Steps', 0, {}, 'Slider')}
       colors={array('Colors', colors, ', ', 'Slider')}
       colorSteps={number('Color steps', 2, {}, 'Slider')}
@@ -86,6 +88,7 @@ export const horizontal = () => (
       offRange={{
         background: color('Background', '#E1E2E4', 'Off Range'),
       }}
+      ruler={boolean('Ruler', true, 'Slider')}
     />
   </Container>
 );
@@ -93,6 +96,8 @@ export const horizontal = () => (
 export const vertical = () => (
   <Container>
     <Slider
+      min={number('Min', 0, {}, 'Slider')}
+      max={number('Max', 100, {}, 'Slider')}
       steps={number('Steps', 0, {}, 'Slider')}
       colors={array('Colors', colors, ', ', 'Slider')}
       colorSteps={number('Color steps', 2, {}, 'Slider')}
@@ -113,6 +118,7 @@ export const vertical = () => (
       offRange={{
         background: color('Background', '#E1E2E4', 'Off Range'),
       }}
+      ruler={boolean('Ruler', true, 'Slider')}
     />
   </Container>
 );

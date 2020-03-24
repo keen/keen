@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OffRange /> should render correctly horizontal component 1`] = `
+<ForwardRef(MotionComponent)
+  style={
+    Object {
+      "background": undefined,
+      "borderRadius": 3,
+      "height": 4,
+      "left": 0,
+      "position": "absolute",
+      "top": 0,
+      "width": 100,
+    }
+  }
+/>
+`;
+
+exports[`<OffRange /> should render correctly vertical component 1`] = `
+<ForwardRef(MotionComponent)
+  style={
+    Object {
+      "background": undefined,
+      "borderRadius": 3,
+      "height": 100,
+      "left": 0,
+      "position": "absolute",
+      "top": 0,
+      "width": 4,
+    }
+  }
+/>
+`;

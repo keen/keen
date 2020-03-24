@@ -1,46 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Slider /> should call set state 1`] = `
+exports[`<Control /> should render Control component 1`] = `
 <Fragment>
-  <ForwardRef
-    background="#fff"
-    border="2px solid #CA8917"
-    center="y"
+  <ForwardRef(MotionComponent)
     drag="x"
     dragConstraints={
       Object {
+        "bottom": 100,
         "left": 0,
-        "right": 200,
+        "right": 100,
+        "top": 0,
       }
     }
     dragElastic={0}
     dragMomentum={false}
-    left={-6}
-    name="Control"
     onDrag={[Function]}
+    onDragEnd={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    radius="50%"
-    size={12}
     style={
       Object {
+        "background": "#fff",
+        "border": "2px solid #CA8917",
+        "borderRadius": "50%",
+        "height": 12,
+        "left": -6,
+        "position": "absolute",
+        "top": -6,
+        "width": 12,
+        "x": MotionValue {
+          "canTrackVelocity": true,
+          "current": 0,
+          "lastUpdated": 0,
+          "notifySubscriber": [Function],
+          "parent": undefined,
+          "prev": undefined,
+          "scheduleVelocityCheck": [Function],
+          "setChild": [Function],
+          "timeDelta": 0,
+          "transformer": undefined,
+          "updateAndNotify": [Function],
+          "velocityCheck": [Function],
+        },
         "zIndex": undefined,
-      }
-    }
-    x={
-      e {
-        "canTrackVelocity": true,
-        "current": 0,
-        "lastUpdated": 0,
-        "notifySubscriber": [Function],
-        "parent": undefined,
-        "prev": undefined,
-        "scheduleVelocityCheck": [Function],
-        "setChild": [Function],
-        "timeDelta": 0,
-        "transformer": undefined,
-        "updateAndNotify": [Function],
-        "velocityCheck": [Function],
       }
     }
   />

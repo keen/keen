@@ -4,23 +4,23 @@ import { motion } from 'framer-motion';
 type Props = {
   isHorizontal: boolean;
   left: number;
-  width: number;
+  size: number;
   background?: string;
 };
 
 const OffRange = (props: Props) => {
-  const { isHorizontal, left, width, background } = props;
+  const { isHorizontal, left, size, background } = props;
 
   const layoutStyle = isHorizontal
     ? {
-        width,
+        width: size,
         height: 4,
         left,
         top: 0,
       }
     : {
         width: 4,
-        height: width,
+        height: size,
         top: left,
         left: 0,
       };
