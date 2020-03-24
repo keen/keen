@@ -14,9 +14,10 @@ import {
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
 
+import { timeFormat } from 'd3-time-format';
+
 import { LineChartWidget } from './line-chart.widget';
 import { chartData } from './line-chart.widget.fixtures';
-import { createLabelFormatter } from './line-chart.widget.utils';
 
 import { widgetSettings } from '../../widget-settings';
 
@@ -37,6 +38,11 @@ const createThemeKnobs = () => ({
 });
 
 const formatKnob = text('Date label format', '%d %b', 'Chart');
+
+const createLabelFormatter = (dateFormat = '%D %b') => (date: Date) => {
+  const format = timeFormat(dateFormat);
+  return format(date);
+};
 
 export const widget = () => (
   <div style={{ width: '700px', height: '400px' }}>
