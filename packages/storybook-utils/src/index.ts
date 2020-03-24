@@ -2,6 +2,7 @@ import { getGoogleFonts } from './storybook.utils';
 
 import typographyKnobs from './typography.knobs';
 import {
+  geoProjectionKnobs,
   stackModeKnobs,
   groupModeKnobs,
   layoutKnobs,
@@ -19,9 +20,14 @@ import StoryWrapper from './story-wrapper.component';
 
 export {
   StoryWrapper,
+  axisXKnobs,
+  axisYKnobs,
+  curveKnobs,
+  colorModeKnobs,
   iconKnobs,
   typographyKnobs,
   stackModeKnobs,
+  geoProjectionKnobs,
   groupModeKnobs,
   metricTypeKnobs,
   cardKnobs,
@@ -29,9 +35,5 @@ export {
   getGoogleFonts,
   lineStackModeKnobs,
   legendKnobs,
-  axisXKnobs,
-  axisYKnobs,
   gridKnobs,
-  curveKnobs,
-  colorModeKnobs,
 };

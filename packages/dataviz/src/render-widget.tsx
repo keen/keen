@@ -2,11 +2,13 @@ import React from 'react';
 import {
   BarChartWidget,
   LineChartWidget,
+  AreaChartWidget,
   PieChartWidget,
   DonutChartWidget,
   MetricChartWidget,
   FunnelChartWidget,
   HeatmapChartWidget,
+  ChoroplethChartWidget,
   WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
@@ -16,10 +18,12 @@ import { ComponentSettings } from './types';
 export type Widgets =
   | 'bar'
   | 'line'
+  | 'area'
   | 'pie'
   | 'donut'
   | 'metric'
   | 'funnel'
+  | 'choropleth'
   | 'heatmap';
 
 type Options = {
@@ -47,10 +51,19 @@ export const renderWidget = ({
     ...widgetSettings,
   };
 
+  const [valueKey] = keys;
+
   switch (type) {
+    case 'choropleth':
+      return (
+        <ChoroplethChartWidget
+          geoKey={config.labelSelector}
+          valueKey={valueKey}
+          {...config}
+        />
+      );
     case 'funnel':
-      const [key] = keys;
-      return <FunnelChartWidget key={key} {...config} />;
+      return <FunnelChartWidget valueKey={valueKey} {...config} />;
     case 'metric':
       return <MetricChartWidget {...config} />;
     case 'pie':
@@ -77,6 +90,17 @@ export const renderWidget = ({
     case 'line':
       return (
         <LineChartWidget
+          xScaleSettings={{
+            type: 'time',
+            precision: 'month',
+            ...scaleSettings,
+          }}
+          {...config}
+        />
+      );
+    case 'area':
+      return (
+        <AreaChartWidget
           xScaleSettings={{
             type: 'time',
             precision: 'month',

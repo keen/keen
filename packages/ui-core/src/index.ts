@@ -10,6 +10,7 @@ import {
   Card,
   CardSettings,
   ColorAdjuster,
+  Loader,
   Tooltip,
   TooltipMode,
 } from './components';
@@ -25,6 +26,7 @@ export {
   Title,
   Text,
   Group,
+  Loader,
   Typography,
   Tooltip,
   TooltipMode,

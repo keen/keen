@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, number, text } from '@storybook/addon-knobs';
+import { object, number, text, boolean } from '@storybook/addon-knobs';
 import { timeFormat } from 'd3-time-format';
 
 import {
@@ -7,8 +7,8 @@ import {
   axisYKnobs,
   gridKnobs,
   curveKnobs,
-  lineStackModeKnobs,
   groupModeKnobs,
+  stackModeKnobs,
 } from '@keen.io/storybook-utils';
 
 import { LineChart } from './line-chart.component';
@@ -56,7 +56,8 @@ export const plot = () => {
         strokeWidth={number('Line thickness', 2, {}, 'Chart')}
         curve={curveKnobs('Chart') as CurveType}
         groupMode={groupModeKnobs('Chart') as GroupMode}
-        stackMode={lineStackModeKnobs('Chart') as StackMode}
+        stackMode={stackModeKnobs('Chart') as StackMode}
+        gradient={boolean('Gradient mode', true, 'Chart')}
         svgDimensions={object(
           'svg',
           {

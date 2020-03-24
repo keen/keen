@@ -15,19 +15,57 @@ It allows to seamlessly embed and deliver metrics within your user interface wit
 
 ## Installing
 
-For Front-End applications use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager
+For Front-End applications use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager.
 
 ```sh
 yarn install @keen.io/dataviz
 ```
 
-For website integration embed a script with `@keen.io/dataviz` that is hosted on CDN.
+For direct website integration embed a script with `@keen.io/dataviz` that is hosted on CDN.
 
 ```js
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@keen.io/dataviz@latest/dist/dataviz.min.js"></script>
 ```
 
-## Example
+## Query Example
 Query `Keen API` by using `keen-analysis` package and create line chart with minimal effort.
 
 <iframe width="100%" height="400" src="//jsfiddle.net/maciejrybaniec/f7uqs5oa/9/embedded/result,js,html/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+## Using Own Data Source
+
+The `@keen.io/dataviz` could be easily used with any data source and API's. Instead of perform a query to `Keen API` you could pass data direct to visualization.
+
+All of our widgets uses unified interface and accepts the same data format - `Record<string, any>[]`. 
+
+```js
+const data = [
+  { name: 'JavaScript', jobOffers: 225 },
+  { name: 'Python', jobOffers: 122 },
+  { name: 'Go', jobOffers: 10 },
+  { name: 'PHP', jobOffers: 11 },
+  { name: 'Java', jobOffers: 134 },
+  { name: 'Scala', jobOffers: 98 },
+  { name: 'Groovy', jobOffers: 11 },
+];
+
+new KeenDataviz({
+  type: 'pie',
+  container: container.current,
+  widget: {
+    title: {
+      content: 'Job offers',
+    },
+    subtitle: {
+      content: 'By programming languages',
+    },
+  },
+  settings: {
+    data,
+    keys: ['jobOffers'],
+    labelSelector: 'name',
+  },
+}).render();
+```
+
+<Story id="visualizations-pie-chart-dataviz--own-data" />

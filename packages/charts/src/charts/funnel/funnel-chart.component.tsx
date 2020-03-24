@@ -19,7 +19,7 @@ export type Props = {
   /** Layout applied on chart steps */
   layout?: Layout;
   /** Key used to pick value property from data */
-  key?: string;
+  valueKey?: string;
   /** Function used to format step values */
   formatValues?: (value: number) => string | number;
 } & CommonChartSettings;
@@ -27,7 +27,7 @@ export type Props = {
 export const FunnelChart: FC<Props> = ({
   data,
   labelSelector,
-  key = 'value',
+  valueKey = 'value',
   layout = 'horizontal',
   theme = defaultTheme,
   formatValues = formatNumber,
@@ -35,7 +35,7 @@ export const FunnelChart: FC<Props> = ({
 }) => {
   const { steps, scale } = generateFunnel({
     data,
-    key,
+    key: valueKey,
     colors: theme.colors,
   });
 
