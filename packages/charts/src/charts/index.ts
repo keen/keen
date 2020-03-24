@@ -1,16 +1,26 @@
 import { BarChart, BarChartSettings } from './bar';
 import { LineChart, LineChartSettings } from './line';
+import { AreaChart, AreaChartSettings } from './area';
 import { PieChart, PieChartSettings } from './pie';
 import { DonutChart, DonutChartSettings } from './donut';
 import { MetricChart, MetricChartSettings } from './metric';
 import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
+import {
+  ChoroplethChart,
+  ChoroplethChartSettings,
+  fetchMapTopology,
+} from './choropleth';
 
 export {
   LineChart,
   LineChartSettings,
+  AreaChart,
+  AreaChartSettings,
   BarChart,
   BarChartSettings,
+  ChoroplethChart,
+  ChoroplethChartSettings,
   PieChart,
   PieChartSettings,
   DonutChart,
@@ -21,4 +31,5 @@ export {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  fetchMapTopology,
 };

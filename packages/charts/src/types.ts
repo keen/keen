@@ -105,6 +105,17 @@ export type Funnel = {
   };
 };
 
+export type Choropleth = {
+  map: {
+    stroke: string;
+  };
+  graticule: Grid;
+  sphere: {
+    enabled: boolean;
+    backgroundColor: string;
+  };
+};
+
 export type Donut = {
   labels: {
     enabled: boolean;
@@ -119,6 +130,7 @@ export type Donut = {
 export type Theme = {
   colors: string[];
   funnel: Funnel;
+  choropleth: Choropleth;
   bar: Bar;
   metric?: Metric;
   donut: Donut;

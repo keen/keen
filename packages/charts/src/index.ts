@@ -1,8 +1,12 @@
 import {
   BarChart,
   BarChartSettings,
+  ChoroplethChart,
+  ChoroplethChartSettings,
   LineChart,
   LineChartSettings,
+  AreaChart,
+  AreaChartSettings,
   PieChart,
   PieChartSettings,
   DonutChart,
@@ -13,6 +17,7 @@ import {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  fetchMapTopology,
 } from './charts';
 
 import { ResponsiveWrapper, Legend } from './components';
@@ -27,8 +32,12 @@ export {
   ScaleSettings,
   BarChart,
   BarChartSettings,
+  ChoroplethChart,
+  ChoroplethChartSettings,
   LineChart,
   LineChartSettings,
+  AreaChart,
+  AreaChartSettings,
   PieChart,
   PieChartSettings,
   DonutChart,
@@ -41,6 +50,7 @@ export {
   HeatmapChartSettings,
   ResponsiveWrapper,
   Legend,
+  fetchMapTopology,
   theme,
   margins,
 };

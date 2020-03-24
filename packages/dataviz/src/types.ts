@@ -6,6 +6,7 @@ import {
   MetricChartSettings,
   FunnelChartSettings,
   HeatmapChartSettings,
+  ChoroplethChartSettings,
 } from '@keen.io/charts';
 import { CardSettings } from '@keen.io/ui-core';
 import { TextSettings, LegendSettings } from '@keen.io/widgets';
@@ -17,6 +18,7 @@ export type VisualizerWidgetSettings = {
   subtitle?: Partial<TextSettings>;
   legend?: Partial<LegendSettings>;
   card?: Partial<CardSettings>;
+  geographicArea?: string;
 };
 
 export type ComponentSettings =
@@ -27,6 +29,7 @@ export type ComponentSettings =
   | MetricChartSettings
   | FunnelChartSettings
   | HeatmapChartSettings
+  | ChoroplethChartSettings
   | {};
 
 export type Options = {

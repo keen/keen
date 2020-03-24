@@ -9,7 +9,9 @@ import { HoverBar, hoverBarMotion } from '../../components';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
-import { Mark, Line, CurveType, StepType } from './types';
+import { Mark, Line, CurveType, StepType, AreaType } from './types';
+
+import GradientFilter from './gradient-filter.component';
 
 const HOVER_BAR_HIDE_TIME = 300;
 
@@ -24,7 +26,18 @@ const createLineMotion = (color: string) => ({
   },
 });
 
+const createAreaMotion = () => ({
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+});
+
 const lineTransition = { delay: 0.5, duration: 0.8 };
+
+const areaTransition = { delay: 0.7, duration: 0.8 };
 
 type Props = {
   lines: Line[];
@@ -34,6 +47,8 @@ type Props = {
   groupMode?: GroupMode;
   stackMode?: StackMode;
   stepMode: boolean;
+  areas?: AreaType[];
+  gradient?: boolean;
   onMarkMouseEnter: (
     e: React.MouseEvent,
     selectors: { selector: DataSelector; color: string }[]
@@ -45,10 +60,12 @@ const Lines = ({
   lines,
   marks,
   steps,
+  areas,
   curve,
   stackMode,
   groupMode,
   stepMode,
+  gradient,
   onMarkMouseEnter,
   onMarkMouseLeave,
 }: Props) => {
@@ -65,7 +82,7 @@ const Lines = ({
 
   return (
     <>
-      {lines.map(({ key, d, color, strokeWidth }: Line) => (
+      {lines.map(({ key, d, color, strokeWidth }: Line, idx) => (
         <g key={key}>
           <motion.path
             key={`${key}-${curve}-${stackMode}-${groupMode}`}
@@ -78,6 +95,27 @@ const Lines = ({
             strokeWidth={strokeWidth}
             fill="transparent"
           />
+          {areas.length && (
+            <>
+              {gradient && (
+                <GradientFilter
+                  filterId={`id-${color}`}
+                  color={color}
+                  firstOpacity={areas[idx].firstOpacity}
+                  lastOpacity={areas[idx].lastOpacity}
+                />
+              )}
+              <motion.path
+                key={`${key}-${curve}-${stackMode}-${groupMode}`}
+                d={areas[idx].d}
+                fill={gradient ? `url(#id-${color})` : color}
+                variants={createAreaMotion()}
+                transition={areaTransition}
+                initial="hidden"
+                animate="visible"
+              />
+            </>
+          )}
         </g>
       ))}
       <AnimatePresence>
@@ -133,6 +171,10 @@ const Lines = ({
       ) : (
         <Marks
           marks={marks}
+          curve={curve}
+          groupMode={groupMode}
+          stackMode={stackMode}
+          steps={steps}
           onMouseEnter={(e, mark) => {
             if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
             onMarkMouseEnter(
