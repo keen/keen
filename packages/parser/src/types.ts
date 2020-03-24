@@ -25,6 +25,8 @@ export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
 export type Query = {
   interval?: string;
   group_by?: string | string[];
+  target_property: string;
+  event_collection: string;
   analysis_type: Analysis;
 };
 
@@ -51,3 +53,9 @@ export type AnalysisResult =
   | number[]
   | IntervalResult[]
   | AtomicResult[];
+
+export type ParserInput = {
+  query?: Query;
+  steps?: Step[];
+  result: AnalysisResult;
+};

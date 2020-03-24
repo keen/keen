@@ -7,11 +7,19 @@ import {
   FunnelChartSettings,
   HeatmapChartSettings,
   ChoroplethChartSettings,
+  BubbleChartSettings,
 } from '@keen.io/charts';
+import { Query, Step, AnalysisResult } from '@keen.io/parser';
 import { CardSettings } from '@keen.io/ui-core';
 import { TextSettings, LegendSettings } from '@keen.io/widgets';
 
 import { Widgets } from './render-widget';
+
+export type VisualizationInput = Partial<{
+  query: Query;
+  steps: Step[];
+  result: AnalysisResult;
+}>;
 
 export type VisualizerWidgetSettings = {
   title?: Partial<TextSettings>;
@@ -30,11 +38,13 @@ export type ComponentSettings =
   | FunnelChartSettings
   | HeatmapChartSettings
   | ChoroplethChartSettings
+  | BubbleChartSettings
   | {};
 
 export type Options = {
   container: HTMLElement | string;
   type: Widgets;
+  mapKeys?: Record<string, string>;
   widget?: Partial<VisualizerWidgetSettings>;
   settings?: ComponentSettings;
 };

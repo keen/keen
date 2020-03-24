@@ -8,6 +8,7 @@ import {
   FunnelChartWidget,
   MetricChartWidget,
   HeatmapChartWidget,
+  BubbleChartWidget,
   ChoroplethChartWidget,
   metricWidgetSettings,
 } from './components';
@@ -17,6 +18,7 @@ import { LegendSettings, WidgetSettings, TextSettings } from './types';
 export {
   MetricChartWidget,
   BarChartWidget,
+  BubbleChartWidget,
   ChoroplethChartWidget,
   FunnelChartWidget,
   LineChartWidget,

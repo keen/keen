@@ -3,6 +3,7 @@ import ChartWidget from './chart-widget.component';
 import BarChartWidget from './bar';
 import LineChartWidget from './line';
 import AreaChartWidget from './area';
+import BubbleChartWidget from './bubble';
 import PieChartWidget from './pie';
 import DonutChartWidget from './donut';
 import FunnelChartWidget from './funnel';
@@ -24,6 +25,7 @@ export {
   BarChartWidget,
   FunnelChartWidget,
   MetricChartWidget,
+  BubbleChartWidget,
   metricWidgetSettings,
   HeatmapChartWidget,
 };
