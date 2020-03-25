@@ -11,6 +11,10 @@ const borderMixin = (layout: Layout) => css`
 };
 `;
 
+export const LegendItem = styled.div`
+  outline: none;
+`;
+
 export const LegendCard = styled.div<
   {
     layout: Layout;
@@ -23,6 +27,29 @@ ${props =>
   (props.renderMode === 'list' || props.renderMode === 'group') &&
   css`
     padding: 15px;
+  `}
+
+${props =>
+  props.renderMode === 'slider' &&
+  props.layout === 'horizontal' &&
+  css`
+    ${LegendItem} {
+      margin-right: 10px;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  `}
+
+${props =>
+  props.renderMode === 'slider' &&
+  props.layout === 'vertical' &&
+  css`
+    ${LegendItem} {
+      margin-bottom: 8px;
+    }
   `}
 
   position: relative;
@@ -59,33 +86,24 @@ LegendCard.defaultProps = {
 export const LegendLayout = styled.div<{
   type: Layout;
 }>`
-  display: flex;
+  display: grid;
+  grid-gap: 8px 10px;
 
   ${props =>
     props.type === 'horizontal' &&
     css`
-      flex-direction: row;
+      grid-auto-flow: column;
     `}
 
   ${props =>
     props.type === 'vertical' &&
     css`
-      flex-direction: column;
+      grid-auto-flow: row;
     `}
 `;
 
 export const LegendGroup = styled.div`
-  flex-shrink: 0;
-  margin-right: 10px;
-`;
-
-export const LegendItem = styled.div`
-  flex-shrink: 0;
-  margin-right: 10px;
-  margin-bottom: 8px;
-  outline: none;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 8px;
 `;
