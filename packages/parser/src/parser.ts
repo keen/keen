@@ -5,11 +5,16 @@ import {
   transformFunnel,
 } from './utils/transform.utils';
 
-import { ParserInput, IntervalResult, AtomicResult } from './types';
+import {
+  ParserInput,
+  ParserOutput,
+  IntervalResult,
+  AtomicResult,
+} from './types';
 
 import { KEEN_KEY, KEEN_VALUE } from './constants';
 
-export const parseQuery = ({ result, steps }: ParserInput) => {
+export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
   const keys: Set<string> = new Set();
   const results: Record<string, any>[] = [];
 
