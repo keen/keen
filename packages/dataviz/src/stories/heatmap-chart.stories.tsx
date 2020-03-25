@@ -2,9 +2,9 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import Visualizer from './visualizer';
+import KeenDataViz from '../visualizer';
 
-import { analysisConfig } from './fixture';
+import { analysisConfig } from '../fixture';
 
 export default {
   title: 'Visualizations|Heatmap Chart/Dataviz',
@@ -18,7 +18,7 @@ export const simpleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'heatmap',
       container: container.current,
       widget: {
@@ -55,7 +55,7 @@ export const multipleResultsSpline = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'heatmap',
       container: container.current,
       widget: {

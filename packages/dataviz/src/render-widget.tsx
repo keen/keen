@@ -16,6 +16,8 @@ import { ScaleSettings } from '@keen.io/charts';
 
 import { KEEN_KEY } from '@keen.io/parser';
 
+import { DEFAULT_TIME_PRECISION } from './constants';
+
 import { ComponentSettings } from './types';
 
 export type Widgets =
@@ -106,7 +108,7 @@ export const renderWidget = ({
         <LineChartWidget
           xScaleSettings={{
             type: 'time',
-            precision: 'month',
+            precision: DEFAULT_TIME_PRECISION,
             ...scaleSettings,
           }}
           {...config}
@@ -117,7 +119,7 @@ export const renderWidget = ({
         <AreaChartWidget
           xScaleSettings={{
             type: 'time',
-            precision: 'month',
+            precision: DEFAULT_TIME_PRECISION,
             ...scaleSettings,
           }}
           {...config}

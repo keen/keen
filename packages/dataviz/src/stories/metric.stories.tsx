@@ -2,9 +2,9 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import Visualizer from './visualizer';
+import KeenDataViz from '../visualizer';
 
-import { analysisConfig } from './fixture';
+import { analysisConfig } from '../fixture';
 
 export default {
   title: 'Visualizations|Metric Chart/Dataviz',
@@ -19,7 +19,7 @@ export const compareMetric = () => {
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
 
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
       widget: {
@@ -57,7 +57,7 @@ export const percentMetric = () => {
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
 
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
       widget: {
@@ -99,7 +99,7 @@ export const customizedMetric = () => {
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
 
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
       widget: {
@@ -163,7 +163,7 @@ export const differenceMetric = () => {
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
 
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
       widget: {
@@ -201,7 +201,7 @@ export const singleMetric = () => {
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
 
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
       widget: {

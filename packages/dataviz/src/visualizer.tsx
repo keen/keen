@@ -7,8 +7,8 @@ import {
   extendTheme,
   extendWidgetSettings,
   prepareVisualization,
+  validateOptions,
 } from './utils';
-import { validateOptions } from './visualizer.utils';
 
 import {
   Options,

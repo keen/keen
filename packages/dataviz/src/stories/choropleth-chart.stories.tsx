@@ -2,7 +2,7 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import KeenDataViz from './visualizer';
+import KeenDataViz from '../visualizer';
 
 export default {
   title: 'Visualizations|Choropleth Chart/Dataviz',
