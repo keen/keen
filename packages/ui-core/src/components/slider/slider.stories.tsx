@@ -75,13 +75,14 @@ export const horizontal = () => (
       onChange={res => {
         console.log(res);
       }}
+      size={number('Size', 4, {}, 'Slider')}
       tooltip={{
         enabled: boolean('Enabled', true, 'Tooltip'),
         position: tooltipHorizontal('Tooltip', 'bottom') as any,
       }}
       controls={{
-        number: controlKnobs('Slider', 1) as any,
-        size: number('Size', 12, {}, 'Controls'),
+        number: controlKnobs('Controls', 1) as any,
+        size: number('Size', 16, {}, 'Controls'),
         background: color('Background', '#fff', 'Controls'),
         border: text('Border', '2px solid #CA8917', 'Controls'),
       }}
@@ -104,14 +105,15 @@ export const vertical = () => (
       onChange={res => {
         console.log(res);
       }}
+      size={number('Size', 4, {}, 'Slider')}
       layout="vertical"
       tooltip={{
         enabled: boolean('Enabled', true, 'Tooltip'),
         position: tooltipVertical('Tooltip', 'right') as any,
       }}
       controls={{
-        number: controlKnobs('Slider', 1) as any,
-        size: number('Size', 12, {}, 'Controls'),
+        number: controlKnobs('Controls', 1) as any,
+        size: number('Size', 16, {}, 'Controls'),
         background: color('Background', '#fff', 'Controls'),
         border: text('Border', '2px solid #CA8917', 'Controls'),
       }}

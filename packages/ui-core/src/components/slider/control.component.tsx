@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 
-import { TooltipPosition } from './types';
+import { Position } from '../../types';
+import ContainerTooltip from './control-tooltip.component';
+import Tooltip from '../tooltip';
 
-import { calculatePercentage, calculateValueStep } from './slider.utils';
-
-import { Tooltip } from './slider.styles';
+import {
+  calculatePercentage,
+  calculateValueStep,
+  arrowReverse,
+} from './slider.utils';
 
 type Props = {
   isHorizontal: boolean;
@@ -20,6 +24,7 @@ type Props = {
     bottom: number;
   };
   steps: number;
+  sliderThickness: number;
   onDrag?: (res: { pos: number; val: number }) => void;
   zIdx?: boolean;
   size?: number;
@@ -27,7 +32,7 @@ type Props = {
   border?: string;
   tooltip?: {
     enabled?: boolean;
-    position?: TooltipPosition;
+    position?: Position;
   };
 };
 
@@ -37,11 +42,12 @@ const Control = ({
   max,
   initialPos,
   steps,
+  sliderThickness,
   sliderSize,
   onDrag,
   zIdx,
   dragConstraints,
-  size = 12,
+  size = 16,
   background = '#fff',
   border = '2px solid #CA8917',
   tooltip: { enabled: tooltipEnabled, position: tooltipPosition },
@@ -66,7 +72,13 @@ const Control = ({
   }, [initialPos, isHorizontal, min, max, steps]);
 
   const { value, tooltipVisibility } = state;
-  const layoutStyle = isHorizontal ? { x: position } : { y: position };
+  const layoutStyle = isHorizontal
+    ? { x: position, top: -size / 2 + sliderThickness / 2, left: -size / 2 + 2 }
+    : {
+        y: position,
+        left: -size / 2 + sliderThickness / 2,
+        top: -size / 2 + 2,
+      };
 
   return (
     <>
@@ -75,14 +87,13 @@ const Control = ({
         dragConstraints={dragConstraints}
         style={{
           position: 'absolute',
-          top: -6,
+          boxSizing: 'border-box',
           width: size,
           height: size,
           borderRadius: '50%',
           background,
           border,
           zIndex: zIdx && 1,
-          left: -6,
           ...layoutStyle,
         }}
         dragElastic={0}
@@ -113,9 +124,11 @@ const Control = ({
         }}
       >
         {tooltipEnabled && tooltipVisibility && (
-          <Tooltip type={tooltipPosition} size={size}>
-            {value}
-          </Tooltip>
+          <ContainerTooltip tooltipPosition={tooltipPosition} size={size}>
+            <Tooltip arrowDirection={arrowReverse(tooltipPosition)} mode="dark">
+              {value}
+            </Tooltip>
+          </ContainerTooltip>
         )}
       </motion.div>
     </>
