@@ -8,7 +8,3 @@ export type Controls = {
 export type OffRangeType = {
   background?: string;
 };
-
-export type Layout = 'horizontal' | 'vertical';
-
-export type TooltipPosition = 'top' | 'left' | 'right' | 'bottom';

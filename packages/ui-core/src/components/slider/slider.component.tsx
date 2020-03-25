@@ -4,13 +4,16 @@ import OffRange from './off-range.component';
 import Control from './control.component';
 import Ruler from './ruler.component';
 
-import { Controls, OffRangeType, Layout, TooltipPosition } from './types';
+import { Layout, Position } from '../../types';
+
+import { Controls, OffRangeType } from './types';
 
 import { colorsString, onChangeValue, calculateTicks } from './slider.utils';
 
 type Props = {
   min?: number;
   max?: number;
+  size?: number;
   colors: string[];
   steps?: number;
   colorSteps?: number;
@@ -20,7 +23,7 @@ type Props = {
   layout?: Layout;
   tooltip?: {
     enabled?: boolean;
-    position?: TooltipPosition;
+    position?: Position;
   };
   ruler?: boolean;
 };
@@ -28,6 +31,7 @@ type Props = {
 export const Slider: FC<Props> = ({
   min = 0,
   max = 100,
+  size = 4,
   controls = { number: 1 },
   steps = 0,
   colors,
@@ -60,17 +64,18 @@ export const Slider: FC<Props> = ({
     setState({
       ...state,
       sliderSize: refSize,
+      posMin: 0,
       posMax: controls === 2 ? posMax : refSize,
     });
-  }, [slider.current, layout]);
+  }, [slider.current, layout, steps]);
 
   const layoutStyle = isHorizontal
     ? {
         width: '100%',
-        height: 4,
+        height: size,
       }
     : {
-        width: 4,
+        width: size,
         height: '100%',
       };
 
@@ -116,6 +121,7 @@ export const Slider: FC<Props> = ({
           max={max}
           initialPos={0}
           steps={steps}
+          sliderThickness={size}
           zIdx={posMin === sliderSize}
           dragConstraints={{
             top: 0,
@@ -135,7 +141,7 @@ export const Slider: FC<Props> = ({
             <OffRange
               isHorizontal={isHorizontal}
               left={posMax}
-              size={posMax && sliderSize - posMax}
+              size={sliderSize - posMax}
               {...offRange}
             />
             <Control
@@ -146,6 +152,7 @@ export const Slider: FC<Props> = ({
               max={max}
               initialPos={sliderSize}
               steps={steps}
+              sliderThickness={size}
               dragConstraints={{
                 top: posMin,
                 left: posMin,

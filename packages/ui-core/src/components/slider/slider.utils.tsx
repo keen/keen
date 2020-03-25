@@ -1,3 +1,5 @@
+import { Position } from '../../types';
+
 export const calculatePercentage = (
   x: number,
   sliderSize: number,
@@ -40,4 +42,20 @@ export const calculateTicks = (
     });
   }
   return ticks;
+};
+
+export const arrowReverse = (position: Position) => {
+  switch (position) {
+    case 'top':
+      return 'bottom';
+    case 'left':
+      return 'right';
+    case 'right':
+      return 'left';
+    case 'bottom':
+      return 'top';
+
+    default:
+      return position;
+  }
 };

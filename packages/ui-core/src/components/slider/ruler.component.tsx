@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout } from './types';
+import { Layout } from '../../types';
 
 import { TickContainer, Tick, Label } from './slider.styles';
 
