@@ -7,7 +7,7 @@ import {
 
 import { ParserInput, IntervalResult, AtomicResult } from './types';
 
-import { DEFAULT_LABEL_KEY, DEFAULT_VALUE_KEY } from './constants';
+import { KEEN_KEY, KEEN_VALUE } from './constants';
 
 export const parseQuery = ({ result, steps }: ParserInput) => {
   const keys: Set<string> = new Set();
@@ -35,25 +35,25 @@ export const parseQuery = ({ result, steps }: ParserInput) => {
           const { data, keys: dataSetKeys } = transformIntervalsFromArray(
             value
           );
-          results.push({ name: timeframe.start, ...data });
+          results.push({ [KEEN_KEY]: timeframe.start, ...data });
           dataSetKeys.forEach(key => keys.add(key));
         }
 
         if (typeof value === 'number') {
-          keys.add(DEFAULT_VALUE_KEY);
+          keys.add(KEEN_VALUE);
           results.push({
-            [DEFAULT_LABEL_KEY]: timeframe.start,
-            [DEFAULT_VALUE_KEY]: value,
+            [KEEN_KEY]: timeframe.start,
+            [KEEN_VALUE]: value,
           });
         }
       }
 
       if (typeof partialResult !== 'number' && 'result' in partialResult) {
         const { result, ...properties } = transformAtomicResult(partialResult);
-        keys.add(DEFAULT_VALUE_KEY);
+        keys.add(KEEN_VALUE);
 
         Object.values(properties).forEach(property => {
-          results.push({ [DEFAULT_LABEL_KEY]: property, value: result });
+          results.push({ [KEEN_KEY]: property, [KEEN_VALUE]: result });
         });
       }
     });

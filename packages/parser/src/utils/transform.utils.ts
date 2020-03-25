@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { AtomicResult, Step } from '../types';
 
-import {
-  DEFAULT_NAME,
-  DEFAULT_LABEL_KEY,
-  DEFAULT_VALUE_KEY,
-} from '../constants';
+import { DEFAULT_NAME, KEEN_KEY, KEEN_VALUE } from '../constants';
 
 export const transformFromNumber = (value: number) => ({
-  results: [{ name: DEFAULT_NAME, value }],
-  keys: [DEFAULT_VALUE_KEY],
+  results: [{ [KEEN_KEY]: DEFAULT_NAME, [KEEN_VALUE]: value }],
+  keys: [KEEN_VALUE],
 });
 
 export const transformFunnel = ({
@@ -20,10 +16,10 @@ export const transformFunnel = ({
   result: number[];
 }) => ({
   results: steps.map(({ event_collection }: Step, idx: number) => ({
-    [DEFAULT_LABEL_KEY]: event_collection,
-    value: result[idx],
+    [KEEN_KEY]: event_collection,
+    [KEEN_VALUE]: result[idx],
   })),
-  keys: [DEFAULT_VALUE_KEY],
+  keys: [KEEN_VALUE],
 });
 
 export const transformAtomicResult = ({

@@ -115,9 +115,9 @@ export const multiAnalysys = () => {
       type: 'line',
       container: container.current,
       mapKeys: {
-        '0.users.maximum.value': 'Maximum',
-        '1.users.average.value': 'Average',
-        '2.users.minimum.value': 'Minimum',
+        '0.users.maximum.keen.value': 'Maximum',
+        '1.users.average.keen.value': 'Average',
+        '2.users.minimum.keen.value': 'Minimum',
       },
       widget: {
         title: {

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/parser - mergeResults() should merge parsed result of two queries 1`] = `
+Object {
+  "keys": Array [
+    "0.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness",
+    "0.book_purchase.minimum.George R. R. Martin Game of Thrones",
+    "0.book_purchase.minimum.J.K. Rowling Harry Potter",
+    "0.book_purchase.minimum.Stephen King It",
+    "0.book_purchase.minimum.Stephen King The Shining",
+    "1.book_purchase.maximum.Edwidge Danticat Love, Anger, Madness",
+    "1.book_purchase.maximum.George R. R. Martin Game of Thrones",
+    "1.book_purchase.maximum.J.K. Rowling Harry Potter",
+    "1.book_purchase.maximum.Stephen King It",
+    "1.book_purchase.maximum.Stephen King The Shining",
+  ],
+  "results": Array [
+    Object {
+      "0.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness": 95,
+      "0.book_purchase.minimum.George R. R. Martin Game of Thrones": 7419,
+      "0.book_purchase.minimum.J.K. Rowling Harry Potter": 1412,
+      "0.book_purchase.minimum.Stephen King It": 2059,
+      "0.book_purchase.minimum.Stephen King The Shining": 64,
+      "1.book_purchase.maximum.Edwidge Danticat Love, Anger, Madness": 95,
+      "1.book_purchase.maximum.George R. R. Martin Game of Thrones": 600,
+      "1.book_purchase.maximum.J.K. Rowling Harry Potter": 120,
+      "1.book_purchase.maximum.Stephen King It": 1300,
+      "1.book_purchase.maximum.Stephen King The Shining": 6,
+      "keen.key": "2020-01-01T00:00:00.000Z",
+    },
+    Object {
+      "0.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness": 42,
+      "0.book_purchase.minimum.George R. R. Martin Game of Thrones": 112,
+      "0.book_purchase.minimum.J.K. Rowling Harry Potter": 21,
+      "0.book_purchase.minimum.Stephen King It": 45,
+      "0.book_purchase.minimum.Stephen King The Shining": 30,
+      "1.book_purchase.maximum.Edwidge Danticat Love, Anger, Madness": 2,
+      "1.book_purchase.maximum.George R. R. Martin Game of Thrones": 11,
+      "1.book_purchase.maximum.J.K. Rowling Harry Potter": 1,
+      "1.book_purchase.maximum.Stephen King It": 45,
+      "1.book_purchase.maximum.Stephen King The Shining": 0,
+      "keen.key": "2020-02-01T00:00:00.000Z",
+    },
+  ],
+}
+`;

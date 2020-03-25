@@ -1,19 +1,20 @@
-import { visualizeQuery } from './visualize-query';
-
-import { mergeAnalysisResults } from './merge';
+import { mergeResults } from './merge';
 import { parseQuery, parseMultipleQueries } from './parser';
 import { mapKeys, createScaleSettings } from './utils';
+
+import { KEEN_VALUE, KEEN_KEY } from './constants';
 
 import { Query, AnalysisResult, Step } from './types';
 
 export {
-  visualizeQuery,
   parseQuery,
   mapKeys,
-  mergeAnalysisResults,
+  mergeResults,
   parseMultipleQueries,
   createScaleSettings,
   Query,
   Step,
   AnalysisResult,
+  KEEN_VALUE,
+  KEEN_KEY,
 };

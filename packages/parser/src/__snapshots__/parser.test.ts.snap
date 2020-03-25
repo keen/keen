@@ -3,28 +3,28 @@
 exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis grouped by two properties 1`] = `
 Object {
   "keys": Array [
-    "value",
+    "keen.value",
   ],
   "results": Array [
     Object {
-      "name": "Love, Anger, Madness Edwidge Danticat",
-      "value": 97,
+      "keen.key": "Love, Anger, Madness Edwidge Danticat",
+      "keen.value": 97,
     },
     Object {
-      "name": "Game of Thrones George R. R. Martin",
-      "value": 730,
+      "keen.key": "Game of Thrones George R. R. Martin",
+      "keen.value": 730,
     },
     Object {
-      "name": "Harry Potter J.K. Rowling",
-      "value": 113,
+      "keen.key": "Harry Potter J.K. Rowling",
+      "keen.value": 113,
     },
     Object {
-      "name": "It Stephen King",
-      "value": 2104,
+      "keen.key": "It Stephen King",
+      "keen.value": 2104,
     },
     Object {
-      "name": "The Shining Stephen King",
-      "value": 6,
+      "keen.key": "The Shining Stephen King",
+      "keen.value": 6,
     },
   ],
 }
@@ -33,24 +33,24 @@ Object {
 exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval 1`] = `
 Object {
   "keys": Array [
-    "value",
+    "keen.value",
   ],
   "results": Array [
     Object {
-      "name": "2019-11-01T00:00:00.000Z",
-      "value": 436,
+      "keen.key": "2019-11-01T00:00:00.000Z",
+      "keen.value": 436,
     },
     Object {
-      "name": "2019-12-01T00:00:00.000Z",
-      "value": 333,
+      "keen.key": "2019-12-01T00:00:00.000Z",
+      "keen.value": 333,
     },
     Object {
-      "name": "2020-01-01T00:00:00.000Z",
-      "value": 2991,
+      "keen.key": "2020-01-01T00:00:00.000Z",
+      "keen.value": 2991,
     },
     Object {
-      "name": "2020-02-01T00:00:00.000Z",
-      "value": 59,
+      "keen.key": "2020-02-01T00:00:00.000Z",
+      "keen.value": 59,
     },
   ],
 }
@@ -59,28 +59,28 @@ Object {
 exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by single property 1`] = `
 Object {
   "keys": Array [
-    "value",
+    "keen.value",
   ],
   "results": Array [
     Object {
-      "name": "Game of Thrones",
-      "value": 730,
+      "keen.key": "Game of Thrones",
+      "keen.value": 730,
     },
     Object {
-      "name": "Harry Potter",
-      "value": 113,
+      "keen.key": "Harry Potter",
+      "keen.value": 113,
     },
     Object {
-      "name": "It",
-      "value": 2104,
+      "keen.key": "It",
+      "keen.value": 2104,
     },
     Object {
-      "name": "Love, Anger, Madness",
-      "value": 97,
+      "keen.key": "Love, Anger, Madness",
+      "keen.value": 97,
     },
     Object {
-      "name": "The Shining",
-      "value": 6,
+      "keen.key": "The Shining",
+      "keen.value": 6,
     },
   ],
 }
@@ -102,7 +102,7 @@ Object {
       "J.K. Rowling Harry Potter": 112,
       "Stephen King It": 2059,
       "Stephen King The Shining": 6,
-      "name": "2020-01-01T00:00:00.000Z",
+      "keen.key": "2020-01-01T00:00:00.000Z",
     },
     Object {
       "Edwidge Danticat Love, Anger, Madness": 2,
@@ -110,7 +110,7 @@ Object {
       "J.K. Rowling Harry Potter": 1,
       "Stephen King It": 45,
       "Stephen King The Shining": 0,
-      "name": "2020-02-01T00:00:00.000Z",
+      "keen.key": "2020-02-01T00:00:00.000Z",
     },
   ],
 }
@@ -119,20 +119,20 @@ Object {
 exports[`@keen.io/parser - parseQuery() should create structure for "funnel" analysis 1`] = `
 Object {
   "keys": Array [
-    "value",
+    "keen.value",
   ],
   "results": Array [
     Object {
-      "name": "pageviews",
-      "value": 1128,
+      "keen.key": "pageviews",
+      "keen.value": 1128,
     },
     Object {
-      "name": "signups",
-      "value": 317,
+      "keen.key": "signups",
+      "keen.value": 317,
     },
     Object {
-      "name": "purchases",
-      "value": 89,
+      "keen.key": "purchases",
+      "keen.value": 89,
     },
   ],
 }

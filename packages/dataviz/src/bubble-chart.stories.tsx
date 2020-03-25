@@ -22,9 +22,9 @@ export const simple = () => {
       type: 'bubble',
       container: container.current,
       mapKeys: {
-        '0.ad_campaing_view.count.value': 'Views',
-        '1.ad_campaing_cost.sum.value': 'Cost',
-        '2.ad_campaing_conversion.count.value': 'Conversion',
+        '0.ad_campaing_view.count.keen.value': 'Views',
+        '1.ad_campaing_cost.sum.keen.value': 'Cost',
+        '2.ad_campaing_conversion.count.keen.value': 'Conversion',
       },
       widget: {
         title: {
