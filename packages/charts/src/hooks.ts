@@ -42,7 +42,7 @@ export const useTooltip = (container: MutableRefObject<any>) => {
   );
 
   const hideTooltip = useCallback(() => {
-    if (tooltipUpdate.current) clearTimeout(tooltipUpdate.current);
+    if (tooltipUpdate.current) cancelAnimationFrame(tooltipUpdate.current);
     setTooltip(currentState => ({
       ...currentState,
       visible: false,

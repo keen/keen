@@ -9,6 +9,7 @@ import {
   FunnelChartWidget,
   HeatmapChartWidget,
   ChoroplethChartWidget,
+  BubbleChartWidget,
   WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
@@ -24,6 +25,7 @@ export type Widgets =
   | 'metric'
   | 'funnel'
   | 'choropleth'
+  | 'bubble'
   | 'heatmap';
 
 type Options = {
@@ -54,6 +56,16 @@ export const renderWidget = ({
   const [valueKey] = keys;
 
   switch (type) {
+    case 'bubble':
+      const [xDomainKey, yDomainKey, bubbleValueKey] = keys;
+      return (
+        <BubbleChartWidget
+          xDomainKey={xDomainKey}
+          yDomainKey={yDomainKey}
+          valueKey={bubbleValueKey}
+          {...config}
+        />
+      );
     case 'choropleth':
       return (
         <ChoroplethChartWidget

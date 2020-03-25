@@ -5,24 +5,11 @@ import {
   transformFunnel,
 } from './utils/transform.utils';
 
-import {
-  AnalysisResult,
-  Step,
-  IntervalResult,
-  AtomicResult,
-  Query,
-} from './types';
+import { ParserInput, IntervalResult, AtomicResult } from './types';
 
-import { DEFAULT_VALUE_KEY } from './constants';
+import { DEFAULT_LABEL_KEY, DEFAULT_VALUE_KEY } from './constants';
 
-export const parseQuery = ({
-  result,
-  steps,
-}: {
-  query?: Query;
-  steps?: Step[];
-  result: AnalysisResult;
-}) => {
+export const parseQuery = ({ result, steps }: ParserInput) => {
   const keys: Set<string> = new Set();
   const results: Record<string, any>[] = [];
 
@@ -55,7 +42,7 @@ export const parseQuery = ({
         if (typeof value === 'number') {
           keys.add(DEFAULT_VALUE_KEY);
           results.push({
-            name: timeframe.start,
+            [DEFAULT_LABEL_KEY]: timeframe.start,
             [DEFAULT_VALUE_KEY]: value,
           });
         }
@@ -66,7 +53,7 @@ export const parseQuery = ({
         keys.add(DEFAULT_VALUE_KEY);
 
         Object.values(properties).forEach(property => {
-          results.push({ name: property, value: result });
+          results.push({ [DEFAULT_LABEL_KEY]: property, value: result });
         });
       }
     });
@@ -76,3 +63,6 @@ export const parseQuery = ({
     results,
   };
 };
+
+export const parseMultipleQueries = (input: ParserInput[]) =>
+  input.map(analysys => parseQuery(analysys));

@@ -1,6 +1,8 @@
 import {
   BarChart,
   BarChartSettings,
+  BubbleChart,
+  BubbleChartSettings,
   ChoroplethChart,
   ChoroplethChartSettings,
   LineChart,
@@ -32,6 +34,8 @@ export {
   ScaleSettings,
   BarChart,
   BarChartSettings,
+  BubbleChart,
+  BubbleChartSettings,
   ChoroplethChart,
   ChoroplethChartSettings,
   LineChart,

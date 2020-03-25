@@ -1,3 +1,4 @@
 import { createScaleSettings } from './scale.utils';
+import { mapKeys } from './keys.utils';
 
-export { createScaleSettings };
+export { mapKeys, createScaleSettings };
