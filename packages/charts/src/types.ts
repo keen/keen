@@ -112,7 +112,12 @@ export type Donut = {
   };
   total: {
     enabled: boolean;
-    typography: Typography;
+    label: {
+      typography: Typography;
+    };
+    value: {
+      typography: Typography;
+    };
   };
 };
 

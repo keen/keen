@@ -94,6 +94,11 @@ export const DonutChart: FC<Props> = ({
   } = useTooltip(svgElement);
 
   const { tooltip: tooltipSettings, donut: donutSettings } = theme;
+  const {
+    enabled: totalEnabled,
+    label: donutTotalLabel,
+    value: donutTotalValue,
+  } = donutSettings.total;
   return (
     <>
       <AnimatePresence>
@@ -173,8 +178,13 @@ export const DonutChart: FC<Props> = ({
               />
             )
           )}
-          {donutSettings.total?.enabled && (
-            <DonutTotal {...donutSettings.total.typography}>
+          {totalEnabled && (
+            <DonutTotal
+              total={{
+                label: { ...donutTotalLabel.typography },
+                value: { ...donutTotalValue.typography },
+              }}
+            >
               {totalValue}
             </DonutTotal>
           )}
