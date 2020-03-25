@@ -8,18 +8,18 @@ import {
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import ChartWidget from './chart-widget.component';
-import WidgetHeading from './widget-heading.component';
+import ChartWidget from '../chart-widget.component';
+import WidgetHeading from '../widget-heading.component';
 import {
   ContentSocket,
   LegendSocket,
   TitleSocket,
-} from './widget-sockets.component';
+} from '../widget-sockets.component';
 
-import { useLegend } from '../hooks';
+import { useLegend } from '../../hooks';
 
-import { legendSettings } from '../widget-settings';
-import { WidgetSettings } from '../types';
+import { legendSettings } from '../../widget-settings';
+import { WidgetSettings } from '../../types';
 
 type Props = WidgetSettings & AreaChartSettings;
 

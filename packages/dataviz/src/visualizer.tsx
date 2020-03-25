@@ -1,20 +1,21 @@
 import ReactDOM from 'react-dom';
-import {
-  parseQuery,
-  createScaleSettings,
-  Query,
-  Step,
-  AnalysisResult,
-} from '@keen.io/parser';
 import { WidgetSettings } from '@keen.io/widgets';
 
 import { renderWidget, Widgets } from './render-widget';
 
-import { extendTheme } from './utils/theme.utils';
-import { extendWidgetSettings } from './utils/widget.utils';
+import {
+  extendTheme,
+  extendWidgetSettings,
+  prepareVisualization,
+} from './utils';
 import { validateOptions } from './visualizer.utils';
 
-import { Options, VisualizerWidgetSettings, ComponentSettings } from './types';
+import {
+  Options,
+  VisualizerWidgetSettings,
+  VisualizationInput,
+  ComponentSettings,
+} from './types';
 
 class Visualizer {
   /** Type of widget that should be rendered */
@@ -22,6 +23,9 @@ class Visualizer {
 
   /** Container used to mount widget */
   private container: HTMLElement | string;
+
+  /** Declarations for key mappings */
+  private mapKeys?: Record<string, string>;
 
   /** General widget settings */
   private widgetSettings?: Partial<VisualizerWidgetSettings>;
@@ -31,8 +35,9 @@ class Visualizer {
 
   constructor(options: Options) {
     validateOptions(options);
-    const { container, type, widget, settings } = options;
+    const { container, type, mapKeys, widget, settings } = options;
 
+    this.mapKeys = mapKeys || null;
     this.componentSettings = settings || {};
     this.widgetSettings = widget || {};
     this.container = container;
@@ -55,15 +60,7 @@ class Visualizer {
     return extendWidgetSettings(this.widgetSettings, this.type);
   }
 
-  render({
-    query,
-    steps,
-    result,
-  }: Partial<{
-    query: Query;
-    steps: Step[];
-    result: AnalysisResult;
-  }> = {}) {
+  render(input: VisualizationInput | VisualizationInput[] = {}) {
     const container =
       this.container instanceof HTMLElement
         ? this.container
@@ -71,9 +68,11 @@ class Visualizer {
 
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
+    let scaleSettings = {};
 
     if (arguments.length) {
-      const parser = parseQuery({ query, steps, result });
+      const parser = prepareVisualization(input, this.mapKeys);
+      scaleSettings = parser.scaleSettings;
       keys = parser.keys;
       results = parser.results;
     }
@@ -84,7 +83,7 @@ class Visualizer {
         widgetSettings: this.setWidgetSettings(),
         componentSettings: this.setComponentSettings(),
         data: results,
-        scaleSettings: query ? createScaleSettings(query) : {},
+        scaleSettings,
         keys,
       }),
       container

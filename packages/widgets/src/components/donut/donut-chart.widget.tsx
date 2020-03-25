@@ -15,7 +15,7 @@ import {
   TitleSocket,
 } from '../widget-sockets.component';
 
-import { createLegendLabels } from './donut-chart.utils';
+import { createLegendLabels } from './donut-chart.widget.utils';
 
 import { legendSettings } from '../../widget-settings';
 import { useLegend } from '../../hooks';

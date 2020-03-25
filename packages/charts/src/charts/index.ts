@@ -6,6 +6,7 @@ import { DonutChart, DonutChartSettings } from './donut';
 import { MetricChart, MetricChartSettings } from './metric';
 import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
+import { BubbleChart, BubbleChartSettings } from './bubble';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
@@ -19,6 +20,8 @@ export {
   AreaChartSettings,
   BarChart,
   BarChartSettings,
+  BubbleChart,
+  BubbleChartSettings,
   ChoroplethChart,
   ChoroplethChartSettings,
   PieChart,

@@ -1,38 +1,29 @@
 import * as React from 'react';
-import { number, text, object } from '@storybook/addon-knobs';
-import {
-  cardKnobs,
-  axisXKnobs,
-  axisYKnobs,
-  layoutKnobs,
-  typographyKnobs,
-  colorModeKnobs,
-} from '@keen.io/storybook-utils';
+import { text, object, number } from '@storybook/addon-knobs';
+import { cardKnobs, typographyKnobs } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
 
-import { HeatmapChartWidget } from './heatmap-chart.widget';
-import { chartData } from './heatmap-chart.widget.fixtures';
+import { BubbleChartWidget } from './bubble-chart.widget';
+import { chartData } from './bubble-chart.widget.fixtures';
 
-import { widgetSettings } from '../widget-settings';
+import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Heatmap Chart|Widget',
+  title: 'Visualizations|Bubble Chart|Widget',
   parameters: {
-    component: HeatmapChartWidget,
+    component: BubbleChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',
   },
 };
 
 const createThemeKnobs = () => ({
   ...keenTheme,
-  axisX: axisXKnobs('Axis X'),
-  axisY: axisYKnobs('Axis Y'),
 });
 
 export const widget = () => (
   <div style={{ width: '700px', height: '400px' }}>
-    <HeatmapChartWidget
+    <BubbleChartWidget
       title={{
         content: text('Title', 'Widget Title', 'Title Settings'),
         typography: typographyKnobs(
@@ -48,15 +39,15 @@ export const widget = () => (
         ),
       }}
       card={cardKnobs('Card')}
-      labelSelector="name"
-      padding={number('padding', 2, {}, 'Chart')}
-      colorMode={colorModeKnobs('Chart') as any}
-      steps={number('steps', 2, {}, 'Chart')}
-      keys={['people', 'licenses', 'cars', 'documents']}
-      layout={layoutKnobs('Chart') as any}
+      labelSelector="channel"
+      valueKey="cost"
+      xDomainKey="users"
+      yDomainKey="conversion"
+      minAreaRadius={number('Min area radius', 1, {}, 'Chart')}
+      maxAreaRadius={number('Max area radius', 20, {}, 'Chart')}
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 65 },
+        { top: 20, right: 20, bottom: 50, left: 40 },
         'Chart'
       )}
       theme={createThemeKnobs()}

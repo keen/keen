@@ -1,16 +1,15 @@
 import ChartWidget from './chart-widget.component';
 
-import BarChartWidget from './bar-chart.widget';
-import LineChartWidget from './line-chart.widget';
-import AreaChartWidget from './area.widget';
-
+import BarChartWidget from './bar';
+import LineChartWidget from './line';
+import AreaChartWidget from './area';
+import BubbleChartWidget from './bubble';
 import PieChartWidget from './pie';
 import DonutChartWidget from './donut';
 import FunnelChartWidget from './funnel';
 import ChoroplethChartWidget from './choropleth';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
-
-import HeatmapChartWidget from './heatmap-chart.widget';
+import HeatmapChartWidget from './heatmap';
 
 import { LegendSocket, ContentSocket } from './widget-sockets.component';
 
@@ -26,6 +25,7 @@ export {
   BarChartWidget,
   FunnelChartWidget,
   MetricChartWidget,
+  BubbleChartWidget,
   metricWidgetSettings,
   HeatmapChartWidget,
 };

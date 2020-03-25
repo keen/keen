@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { Query, IntervalResult, Step } from './types';
+import { IntervalResult, Step } from './types';
 
 export const funnelAnalysis = {
   steps: [
@@ -49,7 +49,7 @@ export const countAnalysis = {
       end: '2020-02-01T16:00:00.000-00:00',
     },
     timezone: 3600,
-  } as Query,
+  },
   result: 7436,
 };
 
@@ -63,7 +63,7 @@ export const countAnalysisWithInterval = {
     },
     interval: 'monthly',
     timezone: 3600,
-  } as Query,
+  },
   result: [
     {
       value: 436,
@@ -107,7 +107,7 @@ export const countAnalysisDoubleGroupByWithInterval = {
     interval: 'monthly',
     group_by: ['author', 'name'],
     timezone: 3600,
-  } as Query,
+  },
   result: [
     {
       value: [
@@ -152,7 +152,7 @@ export const countAnalysisGroupByWithInterval = {
     },
     group_by: ['name'],
     timezone: 3600,
-  } as Query,
+  },
   result: [
     { name: 'Game of Thrones', result: 730 },
     { name: 'Harry Potter', result: 113 },
@@ -172,7 +172,7 @@ export const countAnalysisDoubleGroupBy = {
     },
     group_by: ['author', 'name'],
     timezone: 3600,
-  } as Query,
+  },
   result: [
     { result: 97, name: 'Love, Anger, Madness', author: 'Edwidge Danticat' },
     { result: 730, name: 'Game of Thrones', author: 'George R. R. Martin' },
