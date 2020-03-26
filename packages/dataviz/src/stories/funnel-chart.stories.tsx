@@ -2,7 +2,7 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import Visualizer from './visualizer';
+import KeenDataViz from '../visualizer';
 
 export default {
   title: 'Visualizations|Funnel Chart/Dataviz',
@@ -21,7 +21,7 @@ export const simple = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'funnel',
       container: container.current,
       widget: {

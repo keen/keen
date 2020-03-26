@@ -2,9 +2,9 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import Visualizer from './visualizer';
+import KeenDataViz from '../visualizer';
 
-import { analysisConfig } from './fixture';
+import { analysisConfig } from '../fixture';
 
 export default {
   title: 'Visualizations|Bubble Chart/Dataviz',
@@ -18,13 +18,13 @@ export const simple = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bubble',
       container: container.current,
       mapKeys: {
-        '0.ad_campaing_view.count.value': 'Views',
-        '1.ad_campaing_cost.sum.value': 'Cost',
-        '2.ad_campaing_conversion.count.value': 'Conversion',
+        '0.ad_campaing_view.count.keen.value': 'Views',
+        '1.ad_campaing_cost.sum.keen.value': 'Cost',
+        '2.ad_campaing_conversion.count.keen.value': 'Conversion',
       },
       widget: {
         title: {

@@ -1,4 +1,4 @@
-import { Options } from './types';
+import { Options } from '../types';
 
 const REQUIRED_PROPERTIES: Array<keyof Options> = ['container', 'type'];
 

@@ -3,9 +3,9 @@ import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 import { colors } from '@keen.io/colors';
 
-import Visualizer from './visualizer';
+import KeenDataViz from '../visualizer';
 
-import { analysisConfig } from './fixture';
+import { analysisConfig } from '../fixture';
 
 export default {
   title: 'Visualizations|Bar Chart/Dataviz',
@@ -19,7 +19,7 @@ export const singleResult = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       widget: {
@@ -49,7 +49,7 @@ export const SimpleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       widget: {
@@ -99,7 +99,7 @@ export const MultipleResultsPlot = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       widget: {
@@ -157,7 +157,7 @@ export const MultipleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       widget: {
@@ -206,7 +206,7 @@ export const StackedNormal = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       settings: {
@@ -255,7 +255,7 @@ export const StackedPercentage = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       settings: {
@@ -300,7 +300,7 @@ export const Grouped = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
     });
@@ -334,7 +334,7 @@ export const DoubleGrouped = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
+    const dataviz = new KeenDataViz({
       type: 'bar',
       container: container.current,
       widget: {

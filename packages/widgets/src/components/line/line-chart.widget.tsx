@@ -33,7 +33,6 @@ export const LineChartWidget: FC<Props> = ({
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
-  console.log(legend);
   return (
     <ChartWidget
       cardSettings={card}

@@ -1,29 +1,26 @@
 import { createComputedKey } from './utils/keys.utils';
 
-import { DEFAULT_LABEL_KEY } from './constants';
+import { KEEN_KEY } from './constants';
 
-import { ParserInput } from './types';
+import { ParserInput, ParserOutput } from './types';
 
-export const mergeAnalysisResults = (
-  analysis: ParserInput[],
-  parsedResults: {
-    keys: string[];
-    results: Record<string, any>[];
-  }[]
+export const mergeResults = (
+  analysisCollection: ParserInput[],
+  parserOutput: ParserOutput[]
 ) => {
   const keys: Set<string> = new Set();
   const data: Record<string, any>[] = [];
 
-  analysis.forEach(({ query }, idx: number) => {
+  analysisCollection.forEach(({ query }, idx: number) => {
     const computedKey = createComputedKey(query, idx);
-    const extractedKeys = parsedResults[idx].keys;
+    const extractedKeys = parserOutput[idx].keys;
 
-    parsedResults[idx].results.forEach((item, itemIndex: number) => {
+    parserOutput[idx].results.forEach((item, itemIndex: number) => {
       const mergedData = data[itemIndex] || {};
 
       extractedKeys.forEach(key => {
         const mergedKey = `${computedKey}.${key}`;
-        mergedData[DEFAULT_LABEL_KEY] = item[DEFAULT_LABEL_KEY];
+        mergedData[KEEN_KEY] = item[KEEN_KEY];
 
         mergedData[mergedKey] = item[key];
         keys.add(mergedKey);

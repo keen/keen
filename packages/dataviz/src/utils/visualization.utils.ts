@@ -1,7 +1,7 @@
 import {
   parseQuery,
   parseMultipleQueries,
-  mergeAnalysisResults,
+  mergeResults,
   createScaleSettings,
   mapKeys,
   Query,
@@ -31,10 +31,7 @@ export const prepareVisualization = (
       scaleSettings = createScaleSettings(firstAnalysys.query);
 
     const parsedQueries = parseMultipleQueries(analysisCollection);
-    const mergedResults = mergeAnalysisResults(
-      analysisCollection,
-      parsedQueries
-    );
+    const mergedResults = mergeResults(analysisCollection, parsedQueries);
 
     keys = mergedResults.keys;
     results = mergedResults.results;

@@ -2,14 +2,14 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import Visualizer from './visualizer';
+import KeenDataViz from '../visualizer';
 
-import { analysisConfig } from './fixture';
+import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Line Chart/Dataviz',
+  title: 'Visualizations|Area Chart/Dataviz',
   parameters: {
-    componentSubtitle: 'Line charts created with @keen.io/dataviz library',
+    componentSubtitle: 'Area charts created with @keen.io/dataviz library',
   },
 };
 
@@ -18,8 +18,8 @@ export const simpleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
-      type: 'line',
+    const dataviz = new KeenDataViz({
+      type: 'area',
       container: container.current,
       widget: {
         title: {
@@ -62,8 +62,8 @@ export const multipleResultsSpline = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
-      type: 'line',
+    const dataviz = new KeenDataViz({
+      type: 'area',
       container: container.current,
       widget: {
         title: {
@@ -101,82 +101,13 @@ export const multipleResultsSpline = () => {
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
 
-export const multiAnalysys = () => {
-  const container = React.useRef(null);
-
-  React.useEffect(() => {
-    const client = new KeenAnalysis({
-      projectId: '5c87b64ec9e77c0001cf5b6e',
-      readKey:
-        'FB952962910C97DE3E1C6A25EB2FC6B22FDB1ACA9D572948EA18227287BC4E12',
-    });
-
-    const dataviz = new Visualizer({
-      type: 'line',
-      container: container.current,
-      mapKeys: {
-        '0.users.maximum.value': 'Maximum',
-        '1.users.average.value': 'Average',
-        '2.users.minimum.value': 'Minimum',
-      },
-      widget: {
-        title: {
-          content: 'Website users age',
-        },
-        subtitle: {
-          content: 'Maximum, minimum and average',
-        },
-      },
-    });
-
-    const countMin = client.query({
-      analysis_type: 'minimum',
-      target_property: 'age',
-      event_collection: 'users',
-      timeframe: {
-        start: '2019-03-10T00:00:00.000-00:00',
-        end: '2019-03-17T00:00:00.000-00:00',
-      },
-      interval: 'daily',
-    });
-
-    const countAverage = client.query({
-      analysis_type: 'average',
-      target_property: 'age',
-      event_collection: 'users',
-      timeframe: {
-        start: '2019-03-10T00:00:00.000-00:00',
-        end: '2019-03-17T00:00:00.000-00:00',
-      },
-      interval: 'daily',
-    });
-
-    const countMax = client.query({
-      event_collection: 'users',
-      analysis_type: 'maximum',
-      target_property: 'age',
-      timeframe: {
-        start: '2019-03-10T00:00:00.000-00:00',
-        end: '2019-03-17T00:00:00.000-00:00',
-      },
-      interval: 'daily',
-    });
-
-    client
-      .run([countMax, countAverage, countMin])
-      .then((res: any) => dataviz.render(res));
-  }, []);
-
-  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
-};
-
 export const multipleResultsStep = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
-      type: 'line',
+    const dataviz = new KeenDataViz({
+      type: 'area',
       container: container.current,
       widget: {
         title: {
@@ -219,8 +150,8 @@ export const StackedNormalSpline = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
-      type: 'line',
+    const dataviz = new KeenDataViz({
+      type: 'area',
       container: container.current,
       widget: {
         title: {
@@ -265,8 +196,8 @@ export const StackedNormalStep = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new Visualizer({
-      type: 'line',
+    const dataviz = new KeenDataViz({
+      type: 'area',
       container: container.current,
       widget: {
         title: {

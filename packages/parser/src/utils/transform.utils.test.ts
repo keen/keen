@@ -4,6 +4,8 @@ import {
   transformAtomicResult,
 } from './transform.utils';
 
+import { KEEN_KEY, KEEN_VALUE } from '../constants';
+
 import { AtomicResult } from '../types';
 
 import { intervalResultFixture } from '../api.fixtures';
@@ -53,8 +55,8 @@ describe('@keen.io/parser - transform', () => {
     it('should create structure for "numeric" value', () => {
       const result = transformFromNumber(12);
       expect(result).toEqual({
-        keys: ['value'],
-        results: [{ name: 'Result', value: 12 }],
+        keys: [KEEN_VALUE],
+        results: [{ [KEEN_KEY]: 'Result', [KEEN_VALUE]: 12 }],
       });
     });
   });

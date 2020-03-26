@@ -2,51 +2,15 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import KeenDataviz from './visualizer';
+import KeenDataViz from '../visualizer';
 
-import { analysisConfig } from './fixture';
+import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Pie Chart/Dataviz',
+  title: 'Visualizations|Donut Chart/Dataviz',
   parameters: {
-    componentSubtitle: 'Pie charts created with @keen.io/dataviz library',
+    componentSubtitle: 'Donut charts created with @keen.io/dataviz library',
   },
-};
-
-export const ownData = () => {
-  const container = React.useRef(null);
-
-  const data = [
-    { name: 'JavaScript', jobOffers: 225 },
-    { name: 'Python', jobOffers: 122 },
-    { name: 'Go', jobOffers: 10 },
-    { name: 'PHP', jobOffers: 11 },
-    { name: 'Java', jobOffers: 134 },
-    { name: 'Scala', jobOffers: 98 },
-    { name: 'Groovy', jobOffers: 11 },
-  ];
-
-  React.useEffect(() => {
-    new KeenDataviz({
-      type: 'pie',
-      container: container.current,
-      widget: {
-        title: {
-          content: 'Job offers',
-        },
-        subtitle: {
-          content: 'By programming languages',
-        },
-      },
-      settings: {
-        data,
-        keys: ['jobOffers'],
-        labelSelector: 'name',
-      },
-    }).render();
-  }, []);
-
-  return <div style={{ width: '600px', height: '450px' }} ref={container} />;
 };
 
 export const singleResult = () => {
@@ -54,13 +18,16 @@ export const singleResult = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new KeenDataviz({
-      type: 'pie',
+    const dataviz = new KeenDataViz({
+      type: 'donut',
       container: container.current,
       widget: {
         title: {
           content: 'Book purchases',
         },
+      },
+      settings: {
+        innerRadius: 50,
       },
     });
 
@@ -84,13 +51,16 @@ export const simpleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new KeenDataviz({
-      type: 'pie',
+    const dataviz = new KeenDataViz({
+      type: 'donut',
       container: container.current,
       widget: {
         title: {
           content: 'Book purchases',
         },
+      },
+      settings: {
+        innerRadius: 50,
       },
     });
 
@@ -115,13 +85,16 @@ export const multipleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new KeenDataviz({
-      type: 'pie',
+    const dataviz = new KeenDataViz({
+      type: 'donut',
       container: container.current,
       widget: {
         title: {
           content: 'Book purchases',
         },
+      },
+      settings: {
+        innerRadius: 50,
       },
     });
 

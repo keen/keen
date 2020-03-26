@@ -59,3 +59,8 @@ export type ParserInput = {
   steps?: Step[];
   result: AnalysisResult;
 };
+
+export type ParserOutput = {
+  keys: string[];
+  results: Record<string, any>[];
+};

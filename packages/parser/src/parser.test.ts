@@ -1,5 +1,7 @@
 import { parseQuery } from './parser';
 
+import { KEEN_KEY, KEEN_VALUE } from './constants';
+
 import {
   countAnalysis,
   countAnalysisWithInterval,
@@ -17,11 +19,11 @@ describe('@keen.io/parser - parseQuery()', () => {
   });
 
   it('should create structure for "count" analysis', () => {
-    const result = parseQuery(countAnalysis);
+    const result = parseQuery(countAnalysis as any);
 
     expect(result).toEqual({
-      keys: ['value'],
-      results: [{ name: 'Result', value: 7436 }],
+      keys: [KEEN_VALUE],
+      results: [{ [KEEN_KEY]: 'Result', [KEEN_VALUE]: 7436 }],
     });
   });
 
