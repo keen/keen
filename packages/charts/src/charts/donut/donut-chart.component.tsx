@@ -181,8 +181,8 @@ export const DonutChart: FC<Props> = ({
           {totalEnabled && (
             <DonutTotal
               total={{
-                label: { ...donutTotalLabel.typography },
-                value: { ...donutTotalValue.typography },
+                label: donutTotalLabel.typography,
+                value: donutTotalValue.typography,
               }}
             >
               {totalValue}
