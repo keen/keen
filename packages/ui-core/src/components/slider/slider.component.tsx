@@ -45,14 +45,18 @@ export const Slider: FC<Props> = ({
   },
   ruler = true,
 }) => {
+  const initialMin = min < max ? min : max;
+  const initialMax = min > max ? min : max;
+
   const slider = useRef<HTMLDivElement>();
   const [state, setState] = useState({
     posMin: 0,
     posMax: null,
-    valMin: min,
-    valMax: max,
+    valMin: initialMin,
+    valMax: initialMax,
     sliderSize: 0,
   });
+
   const { posMin, posMax, valMin, valMax, sliderSize } = state;
 
   const isHorizontal = layout === 'horizontal';
@@ -102,7 +106,8 @@ export const Slider: FC<Props> = ({
           <Ruler
             layout={layout}
             controlSize={controls.size}
-            ticks={calculateTicks(min, max, steps, sliderSize)}
+            ticks={calculateTicks(initialMin, initialMax, steps, sliderSize)}
+            sliderThickness={size}
           />
         )}
         {controls.number === 2 && (
@@ -110,6 +115,7 @@ export const Slider: FC<Props> = ({
             isHorizontal={isHorizontal}
             left={0}
             size={posMin}
+            thickness={size}
             {...offRange}
           />
         )}
@@ -117,8 +123,8 @@ export const Slider: FC<Props> = ({
           isHorizontal={isHorizontal}
           tooltip={tooltip}
           sliderSize={sliderSize}
-          min={min}
-          max={max}
+          min={initialMin}
+          max={initialMax}
           initialPos={0}
           steps={steps}
           sliderThickness={size}
@@ -142,14 +148,15 @@ export const Slider: FC<Props> = ({
               isHorizontal={isHorizontal}
               left={posMax}
               size={sliderSize - posMax}
+              thickness={size}
               {...offRange}
             />
             <Control
               isHorizontal={isHorizontal}
               tooltip={tooltip}
               sliderSize={sliderSize}
-              min={min}
-              max={max}
+              min={initialMin}
+              max={initialMax}
               initialPos={sliderSize}
               steps={steps}
               sliderThickness={size}

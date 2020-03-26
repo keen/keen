@@ -5,6 +5,7 @@ export const TickContainer = styled.div<{
   left: number;
   controlSize: number;
   type: Layout;
+  sliderThickness: number;
 }>`
   position: absolute;
   width: 30px;
@@ -12,15 +13,15 @@ export const TickContainer = styled.div<{
   ${props =>
     props.type === 'horizontal' &&
     css`
-      top: ${12 + props.controlSize / 2}px;
-      left: ${props.left - 13.5}px;
+      top: ${props.controlSize / 2 + props.sliderThickness}px;
+      left: ${props.left - 14.5}px;
     `}
 
   ${props =>
     props.type === 'vertical' &&
     css`
-      left: ${12 + props.controlSize / 2}px;
-      top: ${props.left - 5}px;
+      left: ${props.controlSize / 2 + props.sliderThickness}px;
+      top: ${props.left - props.controlSize / 2}px;
     `}
 `;
 
@@ -79,6 +80,7 @@ export const ContainerTooltip = styled.div<{
 }>`
   position: absolute;
   font-family: Lato Regular;
+  font-size: 12px;
 
   ${props =>
     props.type === 'top' &&
