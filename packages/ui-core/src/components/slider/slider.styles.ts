@@ -21,7 +21,7 @@ export const TickContainer = styled.div<{
     props.type === 'vertical' &&
     css`
       left: ${props.controlSize / 2 + props.sliderThickness}px;
-      top: ${props.left - props.controlSize / 2}px;
+      top: ${props.left - 8}px;
     `}
 `;
 
