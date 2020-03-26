@@ -24,20 +24,20 @@ class Visualizer {
   /** Container used to mount widget */
   private container: HTMLElement | string;
 
-  /** Declarations for key mappings */
-  private mapKeys?: Record<string, string>;
+  /** Declarations for labels and keys mappings */
+  private mappings: Record<string, string>;
 
   /** General widget settings */
-  private widgetSettings?: Partial<VisualizerWidgetSettings>;
+  private widgetSettings: Partial<VisualizerWidgetSettings>;
 
   /** Specific visualization settings */
-  private componentSettings?: ComponentSettings;
+  private componentSettings: ComponentSettings;
 
   constructor(options: Options) {
     validateOptions(options);
-    const { container, type, mapKeys, widget, settings } = options;
+    const { container, type, mappings, widget, settings } = options;
 
-    this.mapKeys = mapKeys || null;
+    this.mappings = mappings || null;
     this.componentSettings = settings || {};
     this.widgetSettings = widget || {};
     this.container = container;
@@ -71,7 +71,11 @@ class Visualizer {
     let scaleSettings = {};
 
     if (arguments.length) {
-      const parser = prepareVisualization(input, this.mapKeys);
+      const parser = prepareVisualization(
+        input,
+        this.mappings,
+        this.componentSettings
+      );
       scaleSettings = parser.scaleSettings;
       keys = parser.keys;
       results = parser.results;
