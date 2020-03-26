@@ -1,5 +1,8 @@
 import { Margins, Dimension } from '../../types';
 
+import { calculateHypotenuseHeight } from '../../utils/math.utils';
+import { ARROW_SIZE } from '@keen.io/ui-core';
+
 type Options = {
   x: number;
   y: number;
@@ -33,12 +36,14 @@ export const calculateTooltipPosition = ({
   if (hasOverflowBottom) {
     const overflowBottom = y - yMaxPosition - height / 2;
     translateY = `translateY(${overflowBottom}px)`;
-    arrowOffset = `${-overflowBottom}px`;
+    arrowOffset = `${-overflowBottom -
+      Math.ceil(calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE))}px`;
   }
 
   if (hasOverflowTop) {
     translateY = `translateY(-${y}px)`;
-    arrowOffset = `${y}px`;
+    arrowOffset = `${y +
+      Math.ceil(calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE))}px`;
   }
 
   if (hasOverflow) {

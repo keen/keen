@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 import { colors } from '@keen.io/colors';
+import { calculateHypotenuseHeight } from '../../utils';
 import Color from 'color';
 import { Position, Typography } from '../../types';
 
@@ -26,6 +27,8 @@ const DARK_MODE_BACKGROUND = Color(colors.black['200'])
   .fade(0.05)
   .rgb()
   .toString();
+
+export const ARROW_SIZE = 4;
 
 const Wrapper = styled.div<Props>`
   padding: 10px 15px;
@@ -62,7 +65,7 @@ const Wrapper = styled.div<Props>`
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: 4px solid ${props => props.backgroundColor};
+    border: ${ARROW_SIZE}px solid ${props => props.backgroundColor};
     box-shadow: ${props =>
       props.hasShadow ? '-3px 3px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
     ${props => {
@@ -90,12 +93,16 @@ const Wrapper = styled.div<Props>`
             borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
             top: `${props.arrowTop ? props.arrowTop : '50%'}`,
             bottom: 'auto',
-            right: '-6px',
+            right: `-${Math.ceil(
+              calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE)
+            )}px`,
             transform: 'rotate(-45deg) translateY(-50%)',
           },
           top: {
             borderColor: `${arrowColor} ${arrowColor} transparent transparent`,
-            top: '-6px',
+            top: `-${Math.ceil(
+              calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE)
+            )}px`,
             bottom: 'auto',
             left: '50%',
             right: 'auto',
