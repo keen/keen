@@ -26,7 +26,7 @@ export const widgetSettings = {
   },
   title: {
     typography: {
-      fontSize: 19,
+      fontSize: 20,
       fontFamily: 'Gangster Grotesk Regular, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
@@ -35,8 +35,8 @@ export const widgetSettings = {
   },
   subtitle: {
     typography: {
-      fontSize: 13,
-      fontFamily: 'Gangster Grotesk Regular, sans-serif',
+      fontSize: 14,
+      fontFamily: 'Lato Regular, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontColor: colors.black['500'],

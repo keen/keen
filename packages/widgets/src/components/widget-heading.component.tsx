@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Text, Typography } from '@keen.io/ui-core';
 
-import { Container } from './widget-heading.styles';
+import { Container, Heading } from './widget-heading.styles';
 
 import { TextSettings } from '../types';
 
@@ -16,7 +16,11 @@ const Title = ({
 }: {
   content: string;
   typography: Typography;
-}) => <Text {...typography}>{content}</Text>;
+}) => (
+  <Heading>
+    <Text {...typography}>{content}</Text>
+  </Heading>
+);
 
 export const WidgetHeading: FC<Props> = ({ title, subtitle }) => (
   <Container>
