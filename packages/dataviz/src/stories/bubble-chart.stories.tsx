@@ -21,7 +21,7 @@ export const simple = () => {
     const dataviz = new KeenDataViz({
       type: 'bubble',
       container: container.current,
-      mapKeys: {
+      mappings: {
         '0.ad_campaing_view.count.keen.value': 'Views',
         '1.ad_campaing_cost.sum.keen.value': 'Cost',
         '2.ad_campaing_conversion.count.keen.value': 'Conversion',

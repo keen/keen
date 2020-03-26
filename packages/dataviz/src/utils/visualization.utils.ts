@@ -4,16 +4,18 @@ import {
   mergeResults,
   createScaleSettings,
   mapKeys,
+  KEEN_KEY,
   Query,
   Step,
   AnalysisResult,
 } from '@keen.io/parser';
 
-import { VisualizationInput } from '../types';
+import { VisualizationInput, ComponentSettings } from '../types';
 
 export const prepareVisualization = (
   input: VisualizationInput | VisualizationInput[] = {},
-  keysMap?: Record<string, string>
+  keysMap: Record<string, string>,
+  componentSettings: ComponentSettings
 ) => {
   let keys: string[] = [];
   let results: Record<string, any>[] = [];
@@ -43,7 +45,11 @@ export const prepareVisualization = (
   }
 
   if (keysMap) {
-    const mappings = mapKeys(keysMap, keys, results);
+    const labelSelector =
+      'labelSelector' in componentSettings
+        ? componentSettings.labelSelector
+        : KEEN_KEY;
+    const mappings = mapKeys(keysMap, keys, results, labelSelector);
 
     keys = mappings.keys;
     results = mappings.results;

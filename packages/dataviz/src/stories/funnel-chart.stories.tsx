@@ -24,6 +24,11 @@ export const simple = () => {
     const dataviz = new KeenDataViz({
       type: 'funnel',
       container: container.current,
+      mappings: {
+        pageviews: 'Views',
+        signups: 'Signups',
+        purchases: 'Purchsases',
+      },
       widget: {
         title: {
           content: 'Last month results',

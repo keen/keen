@@ -114,7 +114,7 @@ export const multiAnalysys = () => {
     const dataviz = new KeenDataViz({
       type: 'line',
       container: container.current,
-      mapKeys: {
+      mappings: {
         '0.users.maximum.keen.value': 'Maximum',
         '1.users.average.keen.value': 'Average',
         '2.users.minimum.keen.value': 'Minimum',

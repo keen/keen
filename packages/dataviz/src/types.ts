@@ -44,7 +44,7 @@ export type ComponentSettings =
 export type Options = {
   container: HTMLElement | string;
   type: Widgets;
-  mapKeys?: Record<string, string>;
+  mappings?: Record<string, string>;
   widget?: Partial<VisualizerWidgetSettings>;
   settings?: ComponentSettings;
 };
