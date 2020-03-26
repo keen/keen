@@ -3,7 +3,7 @@ import { colors as theme } from '@keen.io/colors';
 
 import { ColorMode } from '../../types';
 
-import { Slider } from '../slider/slider.component';
+import Slider from '../slider/slider.component';
 
 import { ColorCard } from './color-scale.styles';
 

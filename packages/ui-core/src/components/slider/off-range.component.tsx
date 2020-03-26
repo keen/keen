@@ -5,21 +5,22 @@ type Props = {
   isHorizontal: boolean;
   left: number;
   size: number;
+  thickness: number;
   background?: string;
 };
 
 const OffRange = (props: Props) => {
-  const { isHorizontal, left, size, background } = props;
+  const { isHorizontal, left, size, thickness, background } = props;
 
   const layoutStyle = isHorizontal
     ? {
         width: size,
-        height: 4,
+        height: thickness,
         left,
         top: 0,
       }
     : {
-        width: 4,
+        width: thickness,
         height: size,
         top: left,
         left: 0,

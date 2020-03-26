@@ -7,24 +7,31 @@ import { TickContainer, Tick, Label } from './slider.styles';
 type Props = {
   layout: Layout;
   controlSize: number;
+  sliderThickness: number;
   ticks: {
     pos: number;
     val: number;
   }[];
 };
 
-export const Ruler = ({ controlSize = 12, ticks, layout }: Props) => {
+export const Ruler = ({
+  ticks,
+  controlSize = 16,
+  layout,
+  sliderThickness,
+}: Props) => {
   return (
     <>
-      {ticks.map(({ pos, val }) => (
+      {ticks.map((item, idx) => (
         <TickContainer
-          key={val}
+          key={`${idx}-${item.val}`}
+          sliderThickness={sliderThickness}
           type={layout}
-          left={pos}
+          left={item.pos}
           controlSize={controlSize}
         >
           <Tick type={layout} />
-          <Label type={layout}>{val}</Label>
+          <Label type={layout}>{item.val}</Label>
         </TickContainer>
       ))}
     </>

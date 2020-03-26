@@ -73,11 +73,11 @@ const Control = ({
 
   const { value, tooltipVisibility } = state;
   const layoutStyle = isHorizontal
-    ? { x: position, top: -size / 2 + sliderThickness / 2, left: -size / 2 + 2 }
+    ? { x: position, top: -size / 2 + sliderThickness / 2, left: -size / 2 + 1 }
     : {
         y: position,
         left: -size / 2 + sliderThickness / 2,
-        top: -size / 2 + 2,
+        top: -size / 2,
       };
 
   return (

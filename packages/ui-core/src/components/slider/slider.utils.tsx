@@ -32,12 +32,16 @@ export const calculateTicks = (
   sliderSize: number
 ) => {
   const ticks = [];
-  const step = steps && sliderSize / steps > 35 ? steps : 4;
+  const step = steps
+    ? sliderSize / steps > 35
+      ? steps
+      : Math.round(sliderSize / 35)
+    : 4;
   const tickSize = sliderSize / step;
   const valueSize = (max - min) / step;
   for (let i = 0; i < step + 1; i++) {
     ticks.push({
-      pos: Math.round(i * tickSize),
+      pos: i * tickSize,
       val: Math.round(i * valueSize) + min,
     });
   }

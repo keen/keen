@@ -7,6 +7,7 @@ import {
   text,
   boolean,
 } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
 import { Slider } from './slider.component';
@@ -72,9 +73,7 @@ export const horizontal = () => (
       steps={number('Steps', 0, {}, 'Slider')}
       colors={array('Colors', colors, ', ', 'Slider')}
       colorSteps={number('Color steps', 2, {}, 'Slider')}
-      onChange={res => {
-        console.log(res);
-      }}
+      onChange={action('onChange')}
       size={number('Size', 4, {}, 'Slider')}
       tooltip={{
         enabled: boolean('Enabled', true, 'Tooltip'),
@@ -102,9 +101,7 @@ export const vertical = () => (
       steps={number('Steps', 0, {}, 'Slider')}
       colors={array('Colors', colors, ', ', 'Slider')}
       colorSteps={number('Color steps', 2, {}, 'Slider')}
-      onChange={res => {
-        console.log(res);
-      }}
+      onChange={action('onChange')}
       size={number('Size', 4, {}, 'Slider')}
       layout="vertical"
       tooltip={{
