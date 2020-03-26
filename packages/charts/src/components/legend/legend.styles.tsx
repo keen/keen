@@ -88,22 +88,22 @@ export const LegendLayout = styled.div<{
 }>`
   display: grid;
   grid-gap: 8px 10px;
-
-  ${props =>
-    props.type === 'horizontal' &&
-    css`
-      grid-auto-flow: column;
-    `}
-
-  ${props =>
-    props.type === 'vertical' &&
-    css`
-      grid-auto-flow: row;
-    `}
+  justify-content: flex-start
+    ${props =>
+      props.type === 'horizontal' &&
+      css`
+        grid-auto-flow: column;
+      `}
+    ${props =>
+      props.type === 'vertical' &&
+      css`
+        grid-auto-flow: row;
+      `};
 `;
 
 export const LegendGroup = styled.div`
   display: grid;
+  justify-content: flex-start;
   grid-auto-flow: row;
   grid-row-gap: 8px;
 `;
