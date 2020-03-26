@@ -29,13 +29,14 @@ export const calculateTicks = (
   min: number,
   max: number,
   steps: number,
-  sliderSize: number
+  sliderSize: number,
+  labelSize: number
 ) => {
   const ticks = [];
   const step = steps
-    ? sliderSize / steps > 35
+    ? sliderSize / steps > labelSize
       ? steps
-      : Math.round(sliderSize / 35)
+      : Math.round(sliderSize / labelSize)
     : 4;
   const tickSize = sliderSize / step;
   const valueSize = (max - min) / step;

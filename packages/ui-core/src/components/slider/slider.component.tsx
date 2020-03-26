@@ -25,7 +25,10 @@ type Props = {
     enabled?: boolean;
     position?: Position;
   };
-  ruler?: boolean;
+  ruler?: {
+    enabled?: boolean;
+    labelSize?: number;
+  };
 };
 
 export const Slider: FC<Props> = ({
@@ -43,7 +46,10 @@ export const Slider: FC<Props> = ({
     enabled: true,
     position: layout === 'horizontal' ? 'bottom' : 'right',
   },
-  ruler = true,
+  ruler = {
+    enabled: true,
+    labelSize: 35,
+  },
 }) => {
   const initialMin = min < max ? min : max;
   const initialMax = min > max ? min : max;
@@ -102,11 +108,17 @@ export const Slider: FC<Props> = ({
           ...layoutStyle,
         }}
       >
-        {ruler && (
+        {ruler.enabled && (
           <Ruler
             layout={layout}
             controlSize={controls.size}
-            ticks={calculateTicks(initialMin, initialMax, steps, sliderSize)}
+            ticks={calculateTicks(
+              initialMin,
+              initialMax,
+              steps,
+              sliderSize,
+              ruler.labelSize
+            )}
             sliderThickness={size}
           />
         )}
