@@ -4,7 +4,7 @@ exports[`<Ruler /> should render correctly horizontal ruler 1`] = `
 <Fragment>
   <styled.div
     controlSize={12}
-    key="0"
+    key="0-0"
     left={0}
     type="horizontal"
   >
@@ -19,7 +19,7 @@ exports[`<Ruler /> should render correctly horizontal ruler 1`] = `
   </styled.div>
   <styled.div
     controlSize={12}
-    key="10"
+    key="1-10"
     left={10}
     type="horizontal"
   >
@@ -34,7 +34,7 @@ exports[`<Ruler /> should render correctly horizontal ruler 1`] = `
   </styled.div>
   <styled.div
     controlSize={12}
-    key="20"
+    key="2-20"
     left={20}
     type="horizontal"
   >
@@ -54,7 +54,7 @@ exports[`<Ruler /> should render correctly vertical ruler 1`] = `
 <Fragment>
   <styled.div
     controlSize={12}
-    key="0"
+    key="0-0"
     left={0}
     type="vertical"
   >
@@ -69,7 +69,7 @@ exports[`<Ruler /> should render correctly vertical ruler 1`] = `
   </styled.div>
   <styled.div
     controlSize={12}
-    key="10"
+    key="1-10"
     left={10}
     type="vertical"
   >
@@ -84,7 +84,7 @@ exports[`<Ruler /> should render correctly vertical ruler 1`] = `
   </styled.div>
   <styled.div
     controlSize={12}
-    key="20"
+    key="2-20"
     left={20}
     type="vertical"
   >

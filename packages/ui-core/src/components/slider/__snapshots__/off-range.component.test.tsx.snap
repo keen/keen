@@ -6,7 +6,7 @@ exports[`<OffRange /> should render correctly horizontal component 1`] = `
     Object {
       "background": undefined,
       "borderRadius": 3,
-      "height": 4,
+      "height": undefined,
       "left": 0,
       "position": "absolute",
       "top": 0,
@@ -26,7 +26,7 @@ exports[`<OffRange /> should render correctly vertical component 1`] = `
       "left": 0,
       "position": "absolute",
       "top": 0,
-      "width": 4,
+      "width": undefined,
     }
   }
 />

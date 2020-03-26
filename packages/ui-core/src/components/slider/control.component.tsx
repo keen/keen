@@ -58,6 +58,8 @@ const Control = ({
   const [state, setState] = useState({
     value: 0,
     tooltipVisibility: false,
+    dragging: false,
+    pos: 0,
   });
 
   useEffect(() => {
@@ -71,7 +73,7 @@ const Control = ({
     });
   }, [initialPos, isHorizontal, min, max, steps]);
 
-  const { value, tooltipVisibility } = state;
+  const { value, tooltipVisibility, dragging, pos } = state;
   const layoutStyle = isHorizontal
     ? { x: position, top: -size / 2 + sliderThickness / 2, left: -size / 2 + 1 }
     : {
@@ -103,7 +105,9 @@ const Control = ({
           position.set(calculateValueStep(pos, stepSliderSize));
           setState({
             ...state,
+            dragging: true,
             tooltipVisibility: true,
+            pos,
             value:
               calculatePercentage(pos, sliderSize, max, min, stepValueSize) +
               min,
@@ -117,14 +121,18 @@ const Control = ({
           setState({ ...state, tooltipVisibility: true });
         }}
         onMouseLeave={() => {
-          setState({ ...state, tooltipVisibility: false });
+          !dragging && setState({ ...state, tooltipVisibility: false });
         }}
         onDragEnd={() => {
-          setState({ ...state, tooltipVisibility: false });
+          setState({ ...state, dragging: false, tooltipVisibility: false });
         }}
       >
         {tooltipEnabled && tooltipVisibility && (
-          <ContainerTooltip tooltipPosition={tooltipPosition} size={size}>
+          <ContainerTooltip
+            tooltipPosition={tooltipPosition}
+            size={size}
+            pos={pos}
+          >
             <Tooltip arrowDirection={arrowReverse(tooltipPosition)} mode="dark">
               {value}
             </Tooltip>

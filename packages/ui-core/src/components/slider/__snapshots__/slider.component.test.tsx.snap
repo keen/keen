@@ -15,6 +15,7 @@ exports[`<Slider /> should render Slider component 1`] = `
   >
     <Component
       layout="horizontal"
+      sliderThickness={4}
       ticks={
         Array [
           Object {

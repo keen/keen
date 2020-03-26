@@ -86,11 +86,11 @@ describe('slider - utils', () => {
             "val": 0,
           },
           Object {
-            "pos": 167,
+            "pos": 166.66666666666666,
             "val": 3,
           },
           Object {
-            "pos": 333,
+            "pos": 333.3333333333333,
             "val": 7,
           },
           Object {
