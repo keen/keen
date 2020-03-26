@@ -88,7 +88,10 @@ export const horizontal = () => (
       offRange={{
         background: color('Background', '#E1E2E4', 'Off Range'),
       }}
-      ruler={boolean('Ruler', true, 'Slider')}
+      ruler={{
+        enabled: boolean('Enabled', true, 'Ruler'),
+        labelSize: number('Label size', 35, {}, 'Ruler'),
+      }}
     />
   </Container>
 );
@@ -117,7 +120,10 @@ export const vertical = () => (
       offRange={{
         background: color('Background', '#E1E2E4', 'Off Range'),
       }}
-      ruler={boolean('Ruler', true, 'Slider')}
+      ruler={{
+        enabled: boolean('Enabled', true, 'Ruler'),
+        labelSize: number('Label size', 35, {}, 'Ruler'),
+      }}
     />
   </Container>
 );

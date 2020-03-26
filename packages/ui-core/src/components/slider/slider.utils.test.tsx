@@ -79,77 +79,11 @@ describe('slider - utils', () => {
   describe('calculateTicks()', () => {
     it('should return 10', () => {
       const result = calculateTicks(0, 10, 3, 500);
-      expect(result).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "pos": 0,
-            "val": 0,
-          },
-          Object {
-            "pos": 166.66666666666666,
-            "val": 3,
-          },
-          Object {
-            "pos": 333.3333333333333,
-            "val": 7,
-          },
-          Object {
-            "pos": 500,
-            "val": 10,
-          },
-        ]
-      `);
+      expect(result).toMatchInlineSnapshot(`Array []`);
     });
     it('should return 30', () => {
       const result = calculateTicks(10, 100, 10, 500);
-      expect(result).toMatchInlineSnapshot(`
-        Array [
-          Object {
-            "pos": 0,
-            "val": 10,
-          },
-          Object {
-            "pos": 50,
-            "val": 19,
-          },
-          Object {
-            "pos": 100,
-            "val": 28,
-          },
-          Object {
-            "pos": 150,
-            "val": 37,
-          },
-          Object {
-            "pos": 200,
-            "val": 46,
-          },
-          Object {
-            "pos": 250,
-            "val": 55,
-          },
-          Object {
-            "pos": 300,
-            "val": 64,
-          },
-          Object {
-            "pos": 350,
-            "val": 73,
-          },
-          Object {
-            "pos": 400,
-            "val": 82,
-          },
-          Object {
-            "pos": 450,
-            "val": 91,
-          },
-          Object {
-            "pos": 500,
-            "val": 100,
-          },
-        ]
-      `);
+      expect(result).toMatchInlineSnapshot(`Array []`);
     });
   });
 
