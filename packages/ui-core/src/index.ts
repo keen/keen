@@ -13,6 +13,7 @@ import {
   Loader,
   Tooltip,
   TooltipMode,
+  ARROW_SIZE,
 } from './components';
 
 export {
@@ -30,6 +31,7 @@ export {
   Typography,
   Tooltip,
   TooltipMode,
+  ARROW_SIZE,
   Position,
   Layout,
   ColorMode,

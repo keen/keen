@@ -1,4 +1,4 @@
-import Tooltip, { TooltipMode } from './tooltip.component';
+import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip.component';
 
 export default Tooltip;
-export { TooltipMode };
+export { TooltipMode, ARROW_SIZE };

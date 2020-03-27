@@ -3,7 +3,7 @@ import Caret from './caret.component';
 import ColorAdjuster from './color-adjuster';
 import BulletList from './bullet-list';
 import Group from './group';
-import Tooltip, { TooltipMode } from './tooltip';
+import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
 import Badge from './badge';
 import Loader from './loader';
 import Card, { CardSettings } from './card';
@@ -19,4 +19,5 @@ export {
   Group,
   Tooltip,
   TooltipMode,
+  ARROW_SIZE,
 };

@@ -9,12 +9,15 @@ export type CartesianCords = [number, number, number];
 const TO_RADIANS = Math.PI / 180;
 const TO_DEGREES = 180 / Math.PI;
 
+export const calculateHypotenuseHeight = (x: number, y: number): number =>
+  Math.sqrt(x * x + y * y);
+
 export const calculateHypotenuse = (
   x: number,
   y: number,
   radius: number
 ): [number, number] => {
-  const height = Math.sqrt(x * x + y * y);
+  const height = calculateHypotenuseHeight(x, y);
   return [(x / height) * radius, (y / height) * radius];
 };
 

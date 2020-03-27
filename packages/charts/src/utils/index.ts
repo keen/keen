@@ -1,4 +1,4 @@
-import { calculateHypotenuse } from './math.utils';
+import { calculateHypotenuse, calculateHypotenuseHeight } from './math.utils';
 import { formatNumber } from './format.utils';
 import { getFromPath } from './selectors.utils';
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
@@ -12,6 +12,7 @@ import {
 
 export {
   calculateHypotenuse,
+  calculateHypotenuseHeight,
   formatNumber,
   getFromPath,
   createArcTween,

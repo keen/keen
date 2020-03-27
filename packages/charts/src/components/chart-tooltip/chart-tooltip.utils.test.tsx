@@ -52,7 +52,7 @@ describe('@keen.io/charts - <ChartTooltip /> utils', () => {
       ...props,
     });
 
-    expect(arrowOffset).toEqual(`${props.y}px`);
+    expect(arrowOffset).toEqual('16px');
   });
 
   it('should return vertical overflow on bottom', () => {
@@ -68,6 +68,6 @@ describe('@keen.io/charts - <ChartTooltip /> utils', () => {
       ...props,
     });
 
-    expect(arrowOffset).toEqual(`${props.height}px`);
+    expect(arrowOffset).toEqual('14px');
   });
 });
