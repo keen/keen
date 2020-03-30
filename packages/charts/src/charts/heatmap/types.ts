@@ -1,7 +1,6 @@
-import { Dimension, Margins } from '../../types';
 import { Layout, ColorMode } from '@keen.io/ui-core';
-
-import { ScaleSettings } from '../../types';
+import { RangeType } from '@keen.io/ui-core';
+import { Dimension, Margins, ScaleSettings } from '../../types';
 
 export type Options = {
   data: any[];
@@ -17,6 +16,7 @@ export type Options = {
   maxValue?: number | 'auto';
   xScaleSettings?: ScaleSettings;
   yScaleSettings?: ScaleSettings;
+  range?: RangeType;
 };
 
 export type BlockType = {
@@ -27,4 +27,5 @@ export type BlockType = {
   height: number;
   selector: (string | number)[];
   color: string;
+  value: number;
 };

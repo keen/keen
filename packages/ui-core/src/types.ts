@@ -14,3 +14,8 @@ export type Alignment = 'left' | 'center' | 'right';
 export type Layout = 'vertical' | 'horizontal';
 
 export type ColorMode = 'discrete' | 'continuous';
+
+export type RangeType = {
+  min?: number;
+  max?: number;
+};

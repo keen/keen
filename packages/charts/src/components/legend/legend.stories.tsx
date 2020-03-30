@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
-import { Typography } from '@keen.io/ui-core';
+import { Slider, Typography } from '@keen.io/ui-core';
 
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
@@ -111,6 +111,39 @@ export const ColumnSlider = () => (
 );
 
 ColumnSlider.story = {
+  parameters: {
+    docs: {
+      storyDescription:
+        'Vertical `layout` with legend items displayed as slider.',
+    },
+  },
+};
+
+const colorArray = [
+  colors.lightBlue[500],
+  colors.orange[500],
+  colors.yellow[500],
+  colors.green[500],
+  colors.pink[500],
+];
+
+export const RangeSlider = () => (
+  <div style={{ width: '260px', height: '130px' }}>
+    <Legend
+      card={cardKnobs('Card')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
+      layout="vertical"
+    >
+      <Slider
+        colors={colorArray}
+        controls={{ number: 2 }}
+        ruler={{ enabled: false }}
+      />
+    </Legend>
+  </div>
+);
+
+RangeSlider.story = {
   parameters: {
     docs: {
       storyDescription:
