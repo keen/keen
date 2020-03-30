@@ -31,7 +31,6 @@ const SeriesVertical: FC<Props> = ({
   useEffect(() => {
     if (mode === 'list' && !adaptiveHeight) {
       setFullDimension(false);
-      console.log(setFullDimension);
     }
   }, [mode]);
 

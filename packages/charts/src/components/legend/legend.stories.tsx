@@ -1,16 +1,11 @@
 import * as React from 'react';
-import styled from 'styled-components';
-
 import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
-<<<<<<< HEAD
 import { Slider, Typography } from '@keen.io/ui-core';
-=======
-import { Typography, Card } from '@keen.io/ui-core';
->>>>>>> refactor: 💡 legend refactoring
 
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
+import LegendBase from './legend-base.component';
 import { SeriesLegend } from './series/series.component';
 import { labels } from './legend.fixtures';
 
@@ -21,41 +16,6 @@ const legendTypography = {
   fontWeight: 'normal',
   fontColor: colors.black['500'],
 };
-
-const Grid = styled.div`
-  padding: 15px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 100px;
-  grid-gap: 20px;
-  grid-row-gap: 15px;
-`;
-
-const GridItem = styled.div`
-  background: #ccc;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 4;
-  min-height: 0; /* NEW */
-  min-width: 0; /* NEW; needed for Firefox */
-`;
-
-const GridItem2 = styled.div`
-  background: #ccc;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 4;
-`;
-
-const GridItem3 = styled.div`
-  background: #ccc;
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 4;
-`;
 
 export default {
   title: 'Components / Legend',
@@ -94,40 +54,28 @@ export const Group = () => (
 Group.story = {
   parameters: {
     docs: {
-      storyDescription: 'Horizontal `layout` with grouped legend items.',
+      storyDescription: 'Grouped data series.',
     },
   },
 };
 
 export const GroupSlider = () => (
-  <Grid>
-    <GridItem2>1</GridItem2>
-    <GridItem>
-      <Card>
-        <div>
-          <SeriesLegend
-            position="top"
-            card={cardKnobs('Card')}
-            onClick={action('Legend element click')}
-            typography={typographyKnobs(
-              'typography',
-              legendTypography as Typography
-            )}
-            layout="horizontal"
-            labels={labels}
-          />
-        </div>
-      </Card>
-    </GridItem>
-    <GridItem3>2</GridItem3>
-  </Grid>
+  <div style={{ width: '270px' }}>
+    <SeriesLegend
+      position="top"
+      card={cardKnobs('Card')}
+      onClick={action('Legend element click')}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
+      layout="horizontal"
+      labels={labels}
+    />
+  </div>
 );
 
 GroupSlider.story = {
   parameters: {
     docs: {
-      storyDescription:
-        'Horizontal `layout` with grouped legend items displayed in slider.',
+      storyDescription: 'Grouped data series displayed as slider.',
     },
   },
 };
@@ -148,8 +96,7 @@ export const Column = () => (
 Column.story = {
   parameters: {
     docs: {
-      storyDescription:
-        'Vertical `layout` with legend items displayed in single column.',
+      storyDescription: 'Data series displayed in single column.',
     },
   },
 };
@@ -171,7 +118,7 @@ ColumnSlider.story = {
   parameters: {
     docs: {
       storyDescription:
-        'Vertical `layout` with legend items displayed as slider.',
+        'Vertical `layout` with data series displayed as column slider.',
     },
   },
 };
@@ -185,9 +132,9 @@ const colorArray = [
 ];
 
 export const RangeSlider = () => (
-  <div style={{ width: '260px', height: '130px' }}>
-    <Legend
-      card={cardKnobs('Card')}
+  <div style={{ width: '260px', height: '60px' }}>
+    <LegendBase
+      card={cardKnobs('Card') as any}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
     >
@@ -196,15 +143,14 @@ export const RangeSlider = () => (
         controls={{ number: 2 }}
         ruler={{ enabled: false }}
       />
-    </Legend>
+    </LegendBase>
   </div>
 );
 
 RangeSlider.story = {
   parameters: {
     docs: {
-      storyDescription:
-        'Vertical `layout` with legend items displayed as slider.',
+      storyDescription: 'Legend series displayed as range slider.',
     },
   },
 };

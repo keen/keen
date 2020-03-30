@@ -50,7 +50,7 @@ export const simpleResults = () => {
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
 
-export const multipleResultsSpline = () => {
+export const multipleResults = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
