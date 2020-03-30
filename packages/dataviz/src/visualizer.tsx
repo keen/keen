@@ -81,6 +81,8 @@ class Visualizer {
       results = parser.results;
     }
 
+    console.log(results, 'saasas');
+
     ReactDOM.render(
       renderWidget({
         type: this.type,

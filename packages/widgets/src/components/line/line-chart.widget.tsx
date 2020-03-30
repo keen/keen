@@ -4,7 +4,7 @@ import {
   LineChart,
   LineChartSettings,
   ResponsiveWrapper,
-  Legend,
+  SeriesLegend,
   theme as defaultTheme,
 } from '@keen.io/charts';
 
@@ -47,7 +47,7 @@ export const LineChartWidget: FC<Props> = ({
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
-          <Legend
+          <SeriesLegend
             {...legend}
             onClick={updateKeys}
             labels={props.keys.map((key, idx) => ({

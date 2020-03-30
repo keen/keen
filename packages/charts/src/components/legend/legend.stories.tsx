@@ -1,11 +1,17 @@
 import * as React from 'react';
+import styled from 'styled-components';
+
 import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
+<<<<<<< HEAD
 import { Slider, Typography } from '@keen.io/ui-core';
+=======
+import { Typography, Card } from '@keen.io/ui-core';
+>>>>>>> refactor: 💡 legend refactoring
 
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
-import { Legend } from './legend.component';
+import { SeriesLegend } from './series/series.component';
 import { labels } from './legend.fixtures';
 
 const legendTypography = {
@@ -16,17 +22,53 @@ const legendTypography = {
   fontColor: colors.black['500'],
 };
 
+const Grid = styled.div`
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+  grid-gap: 20px;
+  grid-row-gap: 15px;
+`;
+
+const GridItem = styled.div`
+  background: #ccc;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  min-height: 0; /* NEW */
+  min-width: 0; /* NEW; needed for Firefox */
+`;
+
+const GridItem2 = styled.div`
+  background: #ccc;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+`;
+
+const GridItem3 = styled.div`
+  background: #ccc;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+`;
+
 export default {
   title: 'Components / Legend',
   parameters: {
-    component: Legend,
+    component: SeriesLegend,
     componentSubtitle: 'Displays information about chart data series',
   },
 };
 
 export const Row = () => (
   <div style={{ width: '650px' }}>
-    <Legend
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
@@ -38,7 +80,8 @@ export const Row = () => (
 
 export const Group = () => (
   <div style={{ width: '500px' }}>
-    <Legend
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
@@ -57,15 +100,27 @@ Group.story = {
 };
 
 export const GroupSlider = () => (
-  <div style={{ width: '400px' }}>
-    <Legend
-      card={cardKnobs('Card')}
-      onClick={action('Legend element click')}
-      typography={typographyKnobs('typography', legendTypography as Typography)}
-      layout="horizontal"
-      labels={labels}
-    />
-  </div>
+  <Grid>
+    <GridItem2>1</GridItem2>
+    <GridItem>
+      <Card>
+        <div>
+          <SeriesLegend
+            position="top"
+            card={cardKnobs('Card')}
+            onClick={action('Legend element click')}
+            typography={typographyKnobs(
+              'typography',
+              legendTypography as Typography
+            )}
+            layout="horizontal"
+            labels={labels}
+          />
+        </div>
+      </Card>
+    </GridItem>
+    <GridItem3>2</GridItem3>
+  </Grid>
 );
 
 GroupSlider.story = {
@@ -79,8 +134,9 @@ GroupSlider.story = {
 
 export const Column = () => (
   <div style={{ width: '280px' }}>
-    <Legend
+    <SeriesLegend
       card={cardKnobs('Card')}
+      position="left"
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
@@ -99,8 +155,9 @@ Column.story = {
 };
 
 export const ColumnSlider = () => (
-  <div style={{ width: '260px', height: '130px' }}>
-    <Legend
+  <div style={{ width: '260px', height: '120px', background: 'red' }}>
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}

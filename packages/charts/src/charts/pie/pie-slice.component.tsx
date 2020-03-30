@@ -59,10 +59,13 @@ const PieSlice: FC<Props> = ({
         { startAngle, endAngle },
         draw
       );
-      animateArcPath(element, motion, () => {
-        setArcProperties({
-          startAngle,
-          endAngle,
+
+      requestAnimationFrame(() => {
+        animateArcPath(element, motion, () => {
+          setArcProperties({
+            startAngle,
+            endAngle,
+          });
         });
       });
     } else {

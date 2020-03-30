@@ -22,7 +22,7 @@ export default {
 };
 
 export const widget = () => (
-  <div style={{ width: '700px', height: '400px' }}>
+  <div style={{ width: '400px', height: '400px' }}>
     <DonutChartWidget
       title={{
         content: text('Title', 'Widget Title', 'Title Settings'),
