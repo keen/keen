@@ -22,7 +22,7 @@ import {
   fetchMapTopology,
 } from './charts';
 
-import { ResponsiveWrapper, SeriesLegend } from './components';
+import { ResponsiveWrapper, LegendBase, SeriesLegend } from './components';
 
 import { theme, margins } from './theme';
 
@@ -54,6 +54,7 @@ export {
   HeatmapChartSettings,
   ResponsiveWrapper,
   SeriesLegend,
+  LegendBase,
   fetchMapTopology,
   theme,
   margins,

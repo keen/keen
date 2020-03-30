@@ -4,7 +4,7 @@ import {
   HeatmapChart,
   HeatmapChartSettings,
   ResponsiveWrapper,
-  Legend,
+  LegendBase,
   theme as defaultTheme,
 } from '@keen.io/charts';
 
@@ -52,7 +52,7 @@ export const HeatmapChartWidget: FC<Props> = ({
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
-          <Legend {...legend}>
+          <LegendBase fullDimension {...legend}>
             <Slider
               min={min}
               max={max}
@@ -62,7 +62,7 @@ export const HeatmapChartWidget: FC<Props> = ({
               onChange={res => setRange(res)}
               colorSteps={steps}
             />
-          </Legend>
+          </LegendBase>
         </LegendSocket>
       )}
       <ContentSocket>

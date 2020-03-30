@@ -7,7 +7,7 @@ import { Mark, markMotion } from './mark';
 
 import Axes from './axes.component';
 import Grid from './grid.component';
-import { LegendCard, SeriesLegend } from './legend';
+import { LegendCard, LegendBase, SeriesLegend } from './legend';
 
 export {
   ChartBase,
@@ -15,6 +15,7 @@ export {
   ResponsiveWrapper,
   HoverBar,
   SeriesLegend,
+  LegendBase,
   LegendCard,
   Axes,
   Grid,

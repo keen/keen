@@ -1,5 +1,5 @@
 import LegendCard from './card';
-
 import SeriesLegend from './series';
+import LegendBase from './legend-base.component';
 
-export { LegendCard, SeriesLegend };
+export { LegendCard, LegendBase, SeriesLegend };
