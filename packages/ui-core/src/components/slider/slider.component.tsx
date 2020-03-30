@@ -4,7 +4,7 @@ import OffRange from './off-range.component';
 import Control from './control.component';
 import Ruler from './ruler.component';
 
-import { Layout, Position } from '../../types';
+import { Layout, Position, RangeType } from '../../types';
 
 import { Controls, OffRangeType } from './types';
 
@@ -18,7 +18,7 @@ type Props = {
   steps?: number;
   colorSteps?: number;
   controls?: Controls;
-  onChange?: (res: { min: number; max: number } | number) => void;
+  onChange?: (res: RangeType | number) => void;
   offRange?: OffRangeType;
   layout?: Layout;
   tooltip?: {

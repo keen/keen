@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layout, ColorMode } from '@keen.io/ui-core';
+import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
 
 import { generateBlocks } from './heatmap-chart.utils';
 
@@ -32,8 +32,6 @@ export type Props = {
   maxValue?: number | 'auto';
   /** Keys picked from data object used to generate lines */
   keys?: string[];
-  /** Keys that are disabled for rendering data series */
-  disabledKeys?: string[];
   /** Layout applied on chart bars */
   layout?: Layout;
   /** Color mode */
@@ -46,6 +44,8 @@ export type Props = {
   yScaleSettings?: ScaleSettings;
   /** Block padding */
   padding?: number;
+  /** Range from slider component */
+  range?: RangeType;
 } & CommonChartSettings;
 
 export const HeatmapChart: FC<Props> = ({
@@ -57,13 +57,13 @@ export const HeatmapChart: FC<Props> = ({
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
-  disabledKeys = [],
   layout = 'vertical',
   colorMode = 'continuous',
   steps = 2,
   xScaleSettings = { type: 'band' },
   yScaleSettings = { type: 'band' },
   padding = 2,
+  range,
 }) => {
   const { blocks, xScale, yScale } = generateBlocks({
     data,
@@ -71,12 +71,12 @@ export const HeatmapChart: FC<Props> = ({
     dimension: svgDimensions,
     labelSelector,
     keys,
-    disabledKeys,
     minValue,
     maxValue,
     layout,
     colorMode,
     steps,
+    range,
   });
 
   const svgElement = useRef(null);

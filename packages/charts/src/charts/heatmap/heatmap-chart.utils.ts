@@ -14,6 +14,7 @@ export const generateVerticalBlocks = ({
   labelSelector,
   colorMode,
   steps,
+  range,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
@@ -31,8 +32,8 @@ export const generateVerticalBlocks = ({
   keys.forEach((keyName: string) => {
     data.forEach((_d: any, index: number) => {
       const value = data[index]?.[keyName];
-
-      if (keyName !== labelSelector && value) {
+      const inRange = range ? value >= range.min && value <= range.max : true;
+      if (keyName !== labelSelector && value >= 0 && inRange) {
         const block = {
           key: `${index}.${keyName}.block`,
           selector: [index, keyName],
@@ -41,6 +42,7 @@ export const generateVerticalBlocks = ({
           height: yScale.bandwidth(),
           width: xScale.bandwidth(),
           color: color(value),
+          value,
         };
 
         blocks.push(block);
@@ -65,6 +67,7 @@ export const generateHorizontalBlocks = ({
   labelSelector,
   colorMode,
   steps,
+  range,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
@@ -82,8 +85,8 @@ export const generateHorizontalBlocks = ({
   keys.forEach((keyName: string) => {
     data.forEach((_d: any, index: number) => {
       const value = data[index]?.[keyName];
-
-      if (keyName !== labelSelector && value) {
+      const inRange = range ? value >= range.min && value <= range.max : true;
+      if (keyName !== labelSelector && value >= 0 && inRange) {
         const block = {
           key: `${index}.${keyName}.block`,
           selector: [index, keyName],
@@ -92,6 +95,7 @@ export const generateHorizontalBlocks = ({
           height: yScale.bandwidth(),
           width: xScale.bandwidth(),
           color: color(value),
+          value,
         };
 
         blocks.push(block);

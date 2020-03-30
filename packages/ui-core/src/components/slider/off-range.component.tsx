@@ -10,7 +10,7 @@ type Props = {
 };
 
 const OffRange = (props: Props) => {
-  const { isHorizontal, left, size, thickness, background } = props;
+  const { isHorizontal, left, size, thickness, background = '#E1E2E4' } = props;
 
   const layoutStyle = isHorizontal
     ? {

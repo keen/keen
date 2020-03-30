@@ -4,7 +4,7 @@ exports[`<OffRange /> should render correctly horizontal component 1`] = `
 <ForwardRef(MotionComponent)
   style={
     Object {
-      "background": undefined,
+      "background": "#E1E2E4",
       "borderRadius": 3,
       "height": undefined,
       "left": 0,
@@ -20,7 +20,7 @@ exports[`<OffRange /> should render correctly vertical component 1`] = `
 <ForwardRef(MotionComponent)
   style={
     Object {
-      "background": undefined,
+      "background": "#E1E2E4",
       "borderRadius": 3,
       "height": 100,
       "left": 0,

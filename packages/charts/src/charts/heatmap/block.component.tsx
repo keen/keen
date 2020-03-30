@@ -6,11 +6,11 @@ import { StyledRect } from './block.styles';
 
 import { BlockType } from './types';
 
-const rectMotion = () => ({
-  initial: 'hidden',
-  animate: 'show',
-  variants: { hidden: { opacity: 0 }, show: { opacity: 1 } },
-});
+const rectMotion = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 const rectHoverMotion = {
   scale: 1.1,
@@ -33,6 +33,7 @@ const Block = ({ block, padding, onMouseEnter, onMouseLeave }: Props) => {
   return (
     <motion.g
       ref={element}
+      {...rectMotion}
       onMouseEnter={e => {
         onMouseEnter(e, block);
         setActiveBlock(key);
@@ -46,7 +47,6 @@ const Block = ({ block, padding, onMouseEnter, onMouseLeave }: Props) => {
         setActiveBlock(null);
       }}
       whileHover={rectHoverMotion}
-      {...rectMotion()}
     >
       <StyledRect
         dropShadow={isActive}

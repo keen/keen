@@ -1,6 +1,13 @@
 import { Title, Text } from './typography';
 
-import { Typography, Position, Alignment, Layout, ColorMode } from './types';
+import {
+  Typography,
+  Position,
+  Alignment,
+  Layout,
+  ColorMode,
+  RangeType,
+} from './types';
 
 import {
   Caret,
@@ -13,6 +20,8 @@ import {
   Loader,
   Tooltip,
   TooltipMode,
+  Slider,
+  ColorScale,
 } from './components';
 
 export {
@@ -33,4 +42,7 @@ export {
   Position,
   Layout,
   ColorMode,
+  Slider,
+  ColorScale,
+  RangeType,
 };

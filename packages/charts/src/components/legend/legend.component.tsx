@@ -54,17 +54,18 @@ type Props = {
   /** Layout used on list elements */
   layout: Layout;
   /** Array of legend items */
-  labels: Item[];
+  labels?: Item[];
   /** typography styles */
   typography: Typography;
   /** Legend card styles */
   card: CardSettings;
   /** Handler for item click event */
-  onClick: (key: string, disabled: boolean, index: number) => void;
+  onClick?: (key: string, disabled: boolean, index: number) => void;
   /** Position in widget */
   position?: Position;
   /** Legend alignment */
   alignment?: Alignment;
+  children?: React.ReactNode;
 };
 
 /**
@@ -81,20 +82,23 @@ export const Legend: FC<Props> = ({
   onClick,
   alignment = 'left',
   position = 'top',
+  children,
 }) => {
   const wrapper = useRef(null);
   const overflowMask = useRef(null);
 
-  const items = labels.map(({ name, color }: Item, idx: number) => (
-    <LegendItem key={name}>
-      <LegendLabel
-        typography={typography}
-        markColor={color}
-        onClick={(disabled: boolean) => onClick(name, disabled, idx)}
-        text={name}
-      />
-    </LegendItem>
-  ));
+  const items =
+    labels &&
+    labels.map(({ name, color }: Item, idx: number) => (
+      <LegendItem key={name}>
+        <LegendLabel
+          typography={typography}
+          markColor={color}
+          onClick={(disabled: boolean) => onClick(name, disabled, idx)}
+          text={name}
+        />
+      </LegendItem>
+    ));
 
   const element = layout === 'horizontal' ? overflowMask : wrapper;
 
@@ -114,8 +118,13 @@ export const Legend: FC<Props> = ({
         layout={layout}
         {...card}
       >
-        <div ref={overflowMask} style={{ overflow: 'hidden' }}>
-          {renderLegend(items, mode, initialDimension, layout)}
+        <div
+          ref={overflowMask}
+          style={{ overflow: labels && 'hidden', padding: !labels && '10px' }}
+        >
+          {labels
+            ? renderLegend(items, mode, initialDimension, layout)
+            : children}
         </div>
       </LegendCard>
     </div>
