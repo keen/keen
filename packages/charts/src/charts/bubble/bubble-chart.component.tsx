@@ -48,8 +48,8 @@ export const BubbleChart: FC<Props> = ({
   valueKey,
   theme = defaultTheme,
   margins = defaultMargins,
-  maxAreaRadius = 20,
-  minAreaRadius = 1,
+  maxAreaRadius,
+  minAreaRadius,
   xScaleSettings = { type: 'linear' },
   yScaleSettings = { type: 'linear' },
 }) => {
