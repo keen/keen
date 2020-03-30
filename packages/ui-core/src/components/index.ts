@@ -7,6 +7,8 @@ import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
 import Badge from './badge';
 import Loader from './loader';
 import Card, { CardSettings } from './card';
+import Slider from './slider';
+import ColorScale from './color-scale';
 
 export {
   Badge,
@@ -19,5 +21,7 @@ export {
   Group,
   Tooltip,
   TooltipMode,
+  Slider,
+  ColorScale,
   ARROW_SIZE,
 };

@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import { Typography } from '@keen.io/ui-core';
 
-import LegendLabel from './legend-label.component';
+import Label from './label.component';
 
 describe('@keen.io/charts - <LegendLabel />', () => {
   let mockFn: any;
@@ -24,7 +24,7 @@ describe('@keen.io/charts - <LegendLabel />', () => {
   it('should truncate text based on "truncate" property', () => {
     const text = 'Lorem ipsum dolor sit amet';
     const wrapper = mount(
-      <LegendLabel {...props} truncate={10} text={text} onClick={mockFn} />
+      <Label {...props} truncate={10} text={text} onClick={mockFn} />
     );
 
     expect(wrapper.find('Text').text()).toEqual('Lorem ipsu...');
@@ -32,7 +32,7 @@ describe('@keen.io/charts - <LegendLabel />', () => {
 
   it('should provide disable state in "onClick" handler', () => {
     const wrapper = mount(
-      <LegendLabel {...props} text={'Lorem ipsum'} onClick={mockFn} />
+      <Label {...props} text={'Lorem ipsum'} onClick={mockFn} />
     );
 
     wrapper.simulate('click');

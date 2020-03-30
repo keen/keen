@@ -32,6 +32,27 @@ export const LegendPosition = styled.div<{
 }>`
   display: flex;
   position: relative;
+  align-items: center;
+
+  ${props =>
+    props.alignment === 'left' &&
+    css`
+      align-items: flex-start;
+    `}
+
+  ${props =>
+    props.alignment === 'center' &&
+    css`
+      align-items: center;
+    `}
+
+  ${props =>
+    props.alignment === 'right' &&
+    css`
+      align-items: flex-end;
+    `}
+
+
   ${props =>
     (props.position === 'top' || props.position === 'bottom') &&
     props.layout === 'vertical' &&
@@ -56,4 +77,21 @@ export const LegendPosition = styled.div<{
     css`
       max-width: 25%;
     `}
+
+
+    ${props =>
+      props.alignment === 'center' &&
+      (props.position === 'left' || props.position === 'right') &&
+      css`
+        top: 50%;
+        transform: translateY(-50%);
+      `}
+
+    ${props =>
+      props.alignment === 'right' &&
+      (props.position === 'left' || props.position === 'right') &&
+      css`
+        top: 100%;
+        transform: translateY(-100%);
+      `}
 `;

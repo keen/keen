@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 import { Typography, Text } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
-import { StyledLabel, Wrapper, Circle } from './legend-label.styles';
+import { StyledLabel, Wrapper, Circle } from './label.styles';
 
 type Props = {
   text: string;
@@ -13,7 +13,7 @@ type Props = {
   truncate?: number;
 };
 
-const LegendLabel: FC<Props> = ({
+const Label: FC<Props> = ({
   text,
   markColor,
   onClick,
@@ -43,4 +43,4 @@ const LegendLabel: FC<Props> = ({
   );
 };
 
-export default LegendLabel;
+export default Label;

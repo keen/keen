@@ -4,7 +4,7 @@ import {
   AreaChart,
   AreaChartSettings,
   ResponsiveWrapper,
-  Legend,
+  SeriesLegend,
   theme as defaultTheme,
 } from '@keen.io/charts';
 
@@ -48,7 +48,7 @@ export const AreaChartWidget: FC<Props> = ({
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
-          <Legend
+          <SeriesLegend
             {...legend}
             onClick={updateKeys}
             labels={props.keys.map((key, idx) => ({

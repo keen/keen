@@ -23,36 +23,21 @@ export const LegendCard = styled.div<
     position: Position;
   } & CardSettings
 >`
-${props =>
-  (props.renderMode === 'list' || props.renderMode === 'group') &&
-  css`
-    padding: 15px;
-  `}
+  ${props =>
+    (props.renderMode === 'list' || props.renderMode === 'group') &&
+    css`
+      padding: 15px;
+    `}
 
-${props =>
-  props.renderMode === 'slider' &&
-  props.layout === 'horizontal' &&
-  css`
-    ${LegendItem} {
-      margin-right: 10px;
-      margin-bottom: 8px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  `}
-
-${props =>
-  props.renderMode === 'slider' &&
-  props.layout === 'vertical' &&
-  css`
-    ${LegendItem} {
-      margin-bottom: 8px;
-    }
-  `}
+  ${props =>
+    props.renderMode === 'slider' &&
+    css`
+      width: 100%;
+      height: 100%;
+    `}
 
   position: relative;
+  box-sizing: border-box;
   background: ${props => props.backgroundColor};
   border: ${props => props.border};
   border-radius: ${props => props.borderRadius};
@@ -60,22 +45,6 @@ ${props =>
     props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
 
   ${props => !props.border && borderMixin(props.layout)}
-
-  ${props =>
-    props.alignment === 'center' &&
-    (props.position === 'left' || props.position === 'right') &&
-    css`
-      top: 50%;
-      transform: translateY(-50%);
-    `}
-
-  ${props =>
-    props.alignment === 'right' &&
-    (props.position === 'left' || props.position === 'right') &&
-    css`
-      top: 100%;
-      transform: translateY(-100%);
-    `}
 `;
 
 LegendCard.defaultProps = {
@@ -86,6 +55,7 @@ LegendCard.defaultProps = {
 export const LegendLayout = styled.div<{
   type: Layout;
 }>`
+  padding: 15px;
   display: grid;
   grid-gap: 8px 10px;
   justify-content: flex-start

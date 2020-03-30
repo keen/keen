@@ -3,7 +3,9 @@ import { colors as theme } from '@keen.io/colors';
 
 import { ColorMode } from '../../types';
 
-import { ColorCard, ColorGradient } from './color-scale.styles';
+import Slider from '../slider/slider.component';
+
+import { ColorCard } from './color-scale.styles';
 
 type Props = {
   colors?: string[];
@@ -23,7 +25,7 @@ const ColorScale = ({
   return (
     <>
       {mode === 'continuous' ? (
-        <ColorGradient startColor={colors[0]} endColor={colors[1]} />
+        <Slider colors={colors} controls={{ number: 2 }} />
       ) : (
         colors.map(el => <ColorCard key={el} background={el} />)
       )}

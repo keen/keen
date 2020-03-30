@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Position, Layout } from '@keen.io/ui-core';
+import { Layout, Position } from '@keen.io/ui-core';
 
 export type RenderMode = 'list' | 'group' | 'slider';
 
@@ -31,7 +31,7 @@ export const useRenderMode = (
 
   useEffect(() => {
     setMode(initialMode);
-  }, [position, layout, initialMode]);
+  }, [layout, position, initialMode]);
 
   useEffect(() => {
     const hasOverflow = hasContentOverflow(layout, element.current);
@@ -63,7 +63,7 @@ export const useRenderMode = (
           break;
       }
     }
-  }, [mode, layout, position, element]);
+  }, [mode, layout, element]);
 
   return { mode, initialDimension };
 };

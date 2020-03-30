@@ -90,7 +90,7 @@ export const percentMetric = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '300px', height: '170px' }} ref={container} />;
+  return <div style={{ width: '300px', height: '200px' }} ref={container} />;
 };
 
 export const customizedMetric = () => {
@@ -154,7 +154,7 @@ export const customizedMetric = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '300px', height: '170px' }} ref={container} />;
+  return <div style={{ width: '300px', height: '200px' }} ref={container} />;
 };
 
 export const differenceMetric = () => {

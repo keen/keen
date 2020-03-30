@@ -22,7 +22,7 @@ export default {
 };
 
 export const widget = () => (
-  <div style={{ width: '700px', height: '400px' }}>
+  <div style={{ width: '700px', height: '500px' }}>
     <PieChartWidget
       title={{
         content: text('Title', 'Widget Title', 'Title Settings'),
@@ -51,7 +51,7 @@ export const widget = () => (
       labelSelector="name"
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 40 },
+        { top: 30, right: 20, bottom: 10, left: 40 },
         'Chart'
       )}
       theme={keenTheme}

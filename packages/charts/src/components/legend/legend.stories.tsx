@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
-import { Typography } from '@keen.io/ui-core';
+import { Slider, Typography } from '@keen.io/ui-core';
 
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
-import { Legend } from './legend.component';
+import LegendBase from './legend-base.component';
+import { SeriesLegend } from './series/series.component';
 import { labels } from './legend.fixtures';
 
 const legendTypography = {
@@ -19,14 +20,15 @@ const legendTypography = {
 export default {
   title: 'Components / Legend',
   parameters: {
-    component: Legend,
+    component: SeriesLegend,
     componentSubtitle: 'Displays information about chart data series',
   },
 };
 
 export const Row = () => (
   <div style={{ width: '650px' }}>
-    <Legend
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
@@ -38,7 +40,8 @@ export const Row = () => (
 
 export const Group = () => (
   <div style={{ width: '500px' }}>
-    <Legend
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
@@ -51,14 +54,15 @@ export const Group = () => (
 Group.story = {
   parameters: {
     docs: {
-      storyDescription: 'Horizontal `layout` with grouped legend items.',
+      storyDescription: 'Grouped data series.',
     },
   },
 };
 
 export const GroupSlider = () => (
-  <div style={{ width: '400px' }}>
-    <Legend
+  <div style={{ width: '270px' }}>
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
@@ -71,16 +75,16 @@ export const GroupSlider = () => (
 GroupSlider.story = {
   parameters: {
     docs: {
-      storyDescription:
-        'Horizontal `layout` with grouped legend items displayed in slider.',
+      storyDescription: 'Grouped data series displayed as slider.',
     },
   },
 };
 
 export const Column = () => (
   <div style={{ width: '280px' }}>
-    <Legend
+    <SeriesLegend
       card={cardKnobs('Card')}
+      position="left"
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
@@ -92,15 +96,15 @@ export const Column = () => (
 Column.story = {
   parameters: {
     docs: {
-      storyDescription:
-        'Vertical `layout` with legend items displayed in single column.',
+      storyDescription: 'Data series displayed in single column.',
     },
   },
 };
 
 export const ColumnSlider = () => (
-  <div style={{ width: '260px', height: '130px' }}>
-    <Legend
+  <div style={{ width: '260px', height: '120px', background: 'red' }}>
+    <SeriesLegend
+      position="top"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
@@ -114,7 +118,39 @@ ColumnSlider.story = {
   parameters: {
     docs: {
       storyDescription:
-        'Vertical `layout` with legend items displayed as slider.',
+        'Vertical `layout` with data series displayed as column slider.',
+    },
+  },
+};
+
+const colorArray = [
+  colors.lightBlue[500],
+  colors.orange[500],
+  colors.yellow[500],
+  colors.green[500],
+  colors.pink[500],
+];
+
+export const RangeSlider = () => (
+  <div style={{ width: '260px', height: '60px' }}>
+    <LegendBase
+      card={cardKnobs('Card') as any}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
+      layout="vertical"
+    >
+      <Slider
+        colors={colorArray}
+        controls={{ number: 2 }}
+        ruler={{ enabled: false }}
+      />
+    </LegendBase>
+  </div>
+);
+
+RangeSlider.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Legend series displayed as range slider.',
     },
   },
 };

@@ -19,7 +19,7 @@ export const metricWidgetSettings = {
   subtitle: {
     typography: {
       fontSize: 13,
-      fontFamily: 'Gangster Grotesk Regular, sans-serif',
+      fontFamily: 'Lato Regular, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontColor: colors.black['500'],

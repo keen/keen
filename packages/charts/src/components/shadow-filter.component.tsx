@@ -17,9 +17,9 @@ const ShadowFilter: FC<Props> = ({ filterId = SHADOW_FILTER_ID }) => (
     pointerEvents="none"
   >
     <feDropShadow
-      dx="4"
-      dy="10"
-      stdDeviation="10"
+      dx="2"
+      dy="4"
+      stdDeviation="5"
       floodColor="#1D2729"
       floodOpacity="0.3"
     />
