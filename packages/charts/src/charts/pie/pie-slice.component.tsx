@@ -45,7 +45,9 @@ const PieSlice: FC<Props> = ({
 
   const [isActive, setActive] = useState(false);
   const { theme } = useContext(ChartContext) as ChartContextType;
-  const { labels } = theme;
+  const {
+    pie: { labels },
+  } = theme;
 
   const [x, y] = activePosition;
 
