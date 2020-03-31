@@ -43,6 +43,9 @@ export const Gradient = styled(motion.div)<{
 `;
 
 export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 `;
 
