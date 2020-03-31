@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Tooltip, ColorMode, BulletList } from '@keen.io/ui-core';
+import { Tooltip, ColorMode, BulletList, RangeType } from '@keen.io/ui-core';
 
 import Map from './map.component';
 
@@ -47,6 +47,8 @@ export type Props = {
   colorMode?: ColorMode;
   /** Amount of step used in color scale */
   colorSteps?: number;
+  /** Range for filtering map values */
+  valuesRange?: RangeType;
 } & CommonChartSettings;
 
 export const ChoroplethChart: FC<Props> = ({
@@ -58,6 +60,7 @@ export const ChoroplethChart: FC<Props> = ({
   colorMode,
   colorSteps,
   topology,
+  valuesRange,
   projection = 'mercator',
   projectionScale = 100,
   projectionTranslation = [0, 0],
@@ -170,6 +173,7 @@ export const ChoroplethChart: FC<Props> = ({
             geoData={geoData}
             geoKey={geoKey}
             valueKey={valueKey}
+            valuesRange={valuesRange}
             onMouseEnter={(e, meta) => {
               if (tooltipSettings.enabled && !dragged) {
                 updateTooltipPosition(e, null, meta);

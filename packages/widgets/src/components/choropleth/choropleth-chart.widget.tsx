@@ -1,8 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
+import { Slider } from '@keen.io/ui-core';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
   ResponsiveWrapper,
+  LegendBase,
   fetchMapTopology,
   theme as defaultTheme,
 } from '@keen.io/charts';
@@ -11,9 +13,14 @@ import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
 import WidgetLoader from '../widget-loader.component';
 
-import { ContentSocket, TitleSocket } from '../widget-sockets.component';
+import {
+  ContentSocket,
+  LegendSocket,
+  TitleSocket,
+} from '../widget-sockets.component';
+import { useSlider } from '../../hooks/use-slider.hook';
 
-import { legendSettings } from '../../widget-settings';
+import { choroplethLegendSettings } from './widget-settings';
 import { WidgetSettings } from '../../types';
 
 export type Props = WidgetSettings &
@@ -23,16 +30,20 @@ export type Props = WidgetSettings &
 
 /** Choropleth Chart widget integrated with other components */
 export const ChoroplethChartWidget: FC<Props> = ({
-  legend = legendSettings,
+  legend = choroplethLegendSettings,
   theme = defaultTheme,
   title,
   subtitle,
   card,
   geographicArea = 'world',
+  colorSteps,
   ...props
 }) => {
   const [topology, setTopology] = useState<any>(null);
   const [loading, setLoading] = useState(null);
+
+  const { max } = useSlider(props.data, [props.valueKey]);
+  const [range, setRange] = useState(null);
 
   useEffect(() => {
     if (geographicArea) {
@@ -56,6 +67,22 @@ export const ChoroplethChartWidget: FC<Props> = ({
       <TitleSocket>
         <WidgetHeading title={title} subtitle={subtitle} />
       </TitleSocket>
+      {legend.enabled && (
+        <LegendSocket>
+          <LegendBase fullDimension {...legend}>
+            <Slider
+              min={0}
+              max={max}
+              layout={legend.layout}
+              colors={theme.colors}
+              controls={{ number: 2 }}
+              ruler={{ enabled: false }}
+              onChange={updatedRange => setRange(updatedRange)}
+              colorSteps={colorSteps}
+            />
+          </LegendBase>
+        </LegendSocket>
+      )}
       <ContentSocket>
         {loading && <WidgetLoader />}
         {topology && (
@@ -65,6 +92,8 @@ export const ChoroplethChartWidget: FC<Props> = ({
                 theme={theme}
                 svgDimensions={{ width, height }}
                 topology={topology}
+                colorSteps={colorSteps}
+                valuesRange={range}
                 {...props}
               />
             )}

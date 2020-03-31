@@ -35,7 +35,7 @@ export const HeatmapChartWidget: FC<Props> = ({
   steps,
   ...props
 }) => {
-  const { min, max } = useSlider(props.data);
+  const { min, max } = useSlider(props.data, props.keys);
   const [range, setRange] = useState(null);
 
   return (
@@ -56,6 +56,7 @@ export const HeatmapChartWidget: FC<Props> = ({
             <Slider
               min={min}
               max={max}
+              layout={legend.layout}
               colors={theme.colors}
               controls={{ number: 2 }}
               ruler={{ enabled: false }}
