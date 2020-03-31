@@ -7,7 +7,7 @@ import BubbleChartWidget from './bubble';
 import PieChartWidget from './pie';
 import DonutChartWidget from './donut';
 import FunnelChartWidget from './funnel';
-import ChoroplethChartWidget from './choropleth';
+import ChoroplethChartWidget, { choroplethWidgetSettings } from './choropleth';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
 import HeatmapChartWidget from './heatmap';
 
@@ -27,5 +27,6 @@ export {
   MetricChartWidget,
   BubbleChartWidget,
   metricWidgetSettings,
+  choroplethWidgetSettings,
   HeatmapChartWidget,
 };

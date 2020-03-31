@@ -1,10 +1,12 @@
 import React, { FC, useContext } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
   ExtendedFeatureCollection,
   GeoGraticuleGenerator,
   GeoPath,
   GeoPermissibleObjects,
 } from 'd3-geo';
+import { RangeType } from '@keen.io/ui-core';
 
 import Graticule from './graticule.component';
 import Sphere from './sphere.component';
@@ -31,6 +33,13 @@ type Props = {
   geoData: Map<string, GeoPropety>;
   geoKey: string;
   getColor: (value: number) => string;
+  valuesRange?: RangeType;
+};
+
+const mapPathMotion = {
+  initial: { opacity: 0 },
+  exit: { opacity: 0 },
+  animate: { opacity: 1 },
 };
 
 export const Map: FC<Props> = ({
@@ -42,6 +51,7 @@ export const Map: FC<Props> = ({
   getColor,
   onMouseEnter,
   onMouseLeave,
+  valuesRange,
 }) => {
   const {
     theme: {
@@ -62,34 +72,42 @@ export const Map: FC<Props> = ({
           graticule={graticule}
         />
       )}
-      {features.map((geometry, idx) => {
-        const {
-          properties: { name },
-        } = geometry;
+      <AnimatePresence>
+        {features.map((geometry, idx) => {
+          const {
+            properties: { name },
+          } = geometry;
 
-        const geometryProperties = geoData.get(name) || defaultGeometry;
-        const value = geometryProperties.data[valueKey] || 0;
+          const geometryProperties = geoData.get(name) || defaultGeometry;
+          const value = geometryProperties.data[valueKey] || 0;
+          const inRange = valuesRange
+            ? value >= valuesRange.min && value <= valuesRange.max
+            : true;
 
-        const color = getColor(value);
-        const meta = {
-          color,
-          value,
-          label: name,
-        };
+          if (!inRange) return null;
 
-        return (
-          <MapPath
-            key={`${name}-${idx}`}
-            path={drawPath(geometry)}
-            fill={color}
-            strokeWidth="0.5"
-            stroke={map.stroke}
-            onMouseEnter={e => onMouseEnter(e, meta)}
-            onMouseMove={e => onMouseEnter(e, meta)}
-            onMouseLeave={e => onMouseLeave(e)}
-          />
-        );
-      })}
+          const color = getColor(value);
+          const meta = {
+            color,
+            value,
+            label: name,
+          };
+
+          return (
+            <motion.g key={`${name}-${idx}`} {...mapPathMotion}>
+              <MapPath
+                path={drawPath(geometry)}
+                fill={color}
+                strokeWidth="0.5"
+                stroke={map.stroke}
+                onMouseEnter={e => onMouseEnter(e, meta)}
+                onMouseMove={e => onMouseEnter(e, meta)}
+                onMouseLeave={e => onMouseLeave(e)}
+              />
+            </motion.g>
+          );
+        })}
+      </AnimatePresence>
     </>
   );
 };

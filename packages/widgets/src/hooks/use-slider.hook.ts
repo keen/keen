@@ -1,10 +1,15 @@
 import { max as getMax, min as getMin } from 'd3-array';
 
-export const useSlider = (data: any[]): { min: number; max: number } => {
-  const dataArray = [] as any[];
+export const useSlider = (
+  data: Record<string, any>[],
+  keys: string[]
+): { min: number; max: number } => {
+  const dataArray = [] as number[];
   data.forEach(item => {
     for (const property in item) {
-      typeof item[property] === 'number' && dataArray.push(item[property]);
+      if (typeof item[property] === 'number' && keys.includes(property)) {
+        dataArray.push(item[property]);
+      }
     }
   });
 

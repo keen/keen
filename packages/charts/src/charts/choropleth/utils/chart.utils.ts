@@ -78,7 +78,7 @@ export const generateChoropleth = ({
 
   const [translateX, translateY] = translation;
   const { minimum, maximum } = useMemo(
-    () => calculateRange(data, 'auto', 'auto', [valueKey]),
+    () => calculateRange(data, 0, 'auto', [valueKey]),
     [valueKey, data]
   );
 

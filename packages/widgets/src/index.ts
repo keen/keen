@@ -10,6 +10,7 @@ import {
   HeatmapChartWidget,
   BubbleChartWidget,
   ChoroplethChartWidget,
+  choroplethWidgetSettings,
   metricWidgetSettings,
 } from './components';
 
@@ -29,6 +30,7 @@ export {
   TextSettings,
   LegendSettings,
   metricWidgetSettings,
+  choroplethWidgetSettings,
   widgetSettings,
   legendSettings,
   HeatmapChartWidget,

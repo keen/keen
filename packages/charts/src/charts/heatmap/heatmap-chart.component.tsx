@@ -44,7 +44,7 @@ export type Props = {
   yScaleSettings?: ScaleSettings;
   /** Block padding */
   padding?: number;
-  /** Range from slider component */
+  /** Range for filtering map values */
   range?: RangeType;
 } & CommonChartSettings;
 

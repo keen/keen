@@ -3,6 +3,7 @@ import {
   WidgetSettings,
   widgetSettings as defaultWidgetSettings,
   metricWidgetSettings as defaultMetricWidgetSettings,
+  choroplethWidgetSettings as defaultChoroplethWidgetSettings,
 } from '@keen.io/widgets';
 
 import { Widgets } from '../render-widget';
@@ -14,9 +15,17 @@ export const extendWidgetSettings = (
   type: Widgets
 ): WidgetSettings => {
   switch (type) {
+    case 'choropleth':
+      return deepMerge(
+        defaultChoroplethWidgetSettings,
+        customSettings
+      ) as WidgetSettings;
     case 'metric':
-      return deepMerge(defaultMetricWidgetSettings, customSettings) as any;
+      return deepMerge(
+        defaultMetricWidgetSettings,
+        customSettings
+      ) as WidgetSettings;
     default:
-      return deepMerge(defaultWidgetSettings, customSettings) as any;
+      return deepMerge(defaultWidgetSettings, customSettings) as WidgetSettings;
   }
 };

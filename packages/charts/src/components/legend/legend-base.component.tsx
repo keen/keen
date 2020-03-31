@@ -25,7 +25,7 @@ const LegendBase: FC<Props> = ({
       fullDimension={fullDimension}
       {...card}
     >
-      <Container>{children}</Container>
+      <Container fullDimension={fullDimension}>{children}</Container>
     </Card>
   );
 };

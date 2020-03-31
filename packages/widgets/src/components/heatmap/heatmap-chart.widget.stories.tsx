@@ -5,6 +5,7 @@ import {
   axisXKnobs,
   axisYKnobs,
   layoutKnobs,
+  legendKnobs,
   typographyKnobs,
   colorModeKnobs,
 } from '@keen.io/storybook-utils';
@@ -48,6 +49,7 @@ export const widget = () => (
         ),
       }}
       card={cardKnobs('Card')}
+      legend={legendKnobs('Legend') as any}
       labelSelector="name"
       padding={number('padding', 2, {}, 'Chart')}
       colorMode={colorModeKnobs('Chart') as any}
