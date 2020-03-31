@@ -4,7 +4,7 @@ import 'jest-styled-components';
 
 import Slider from './slider.component';
 
-import { SliderItem, Button } from './slider.styles';
+import { SliderItem } from './slider.styles';
 
 describe('@keen.io/charts - <Slider />', () => {
   it('should group children based on "slidesPerRow" property', () => {
@@ -25,15 +25,5 @@ describe('@keen.io/charts - <Slider />', () => {
         </SliderItem>,
       ])
     ).toEqual(true);
-  });
-
-  it('should render navigation buttons', () => {
-    const wrapper = mount(
-      <Slider mode="vertical" slidesPerRow={1}>
-        <div>slide #1</div>
-      </Slider>
-    );
-
-    expect(wrapper.find(Button).length).toEqual(2);
   });
 });
