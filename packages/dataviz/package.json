@@ -40,6 +40,6 @@
   },
   "devDependencies": {
     "@types/react-dom": "^16.9.5",
-    "keen-analysis": "3.4.7-rc.0"
+    "keen-analysis": "3.5.0"
   }
 }

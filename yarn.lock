@@ -10826,10 +10826,10 @@ jsx-ast-utils@^2.2.3:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
 
-keen-analysis@3.4.7-rc.0:
-  version "3.4.7-rc.0"
-  resolved "https://registry.yarnpkg.com/keen-analysis/-/keen-analysis-3.4.7-rc.0.tgz#4316dcbc338d158c65f5ce049088d1e09663ff5b"
-  integrity sha512-FifU104ECWCJx6y21u/yOOIqQR/LUg0UQ0MNfNJiajiXY5q+c1A3R4EHG5Q6L1OHfzjdNn8yx5P+6H/mkKG77Q==
+keen-analysis@3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/keen-analysis/-/keen-analysis-3.5.0.tgz#ed15069358ab017cf2ada3c6f04f0bf7dec147cb"
+  integrity sha512-vdznjgBAt86F1DqXloA0PqQG46Xi5M2UxI4ev2A72tkoVN73Zmg5TCC4Ch8NWWEiGc6rGTOmATLqr+JkfJUPYg==
   dependencies:
     crossfilter2 "^1.4.6"
     csvtojson "^2.0.8"
