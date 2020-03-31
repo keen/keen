@@ -1,12 +1,7 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { Position } from '@keen.io/ui-core';
-import { colors } from '@keen.io/colors';
-
-import { Mode, Variant } from './types';
-
-export const VERTICAL_BUTTON_HEIGHT = 34;
+import { Mode } from './types';
 
 export const Slider = styled(motion.div)<{
   mode: Mode;
@@ -56,60 +51,3 @@ export const SliderItem = styled.div`
 `;
 
 export const SLIDER_ITEM_WIDTH = 100;
-
-const positionMixin = (position: Position) => css`
-  ${position}: 0;
-`;
-
-export const dimensionMixin = (variant: Variant) =>
-  variant === 'vertical'
-    ? css`
-        width: 34px;
-        height: 100%;
-
-        top: 50%;
-        transform: translateY(-50%);
-      `
-    : css`
-        width: 100%;
-        height: ${VERTICAL_BUTTON_HEIGHT}px;
-
-        left: 50%;
-        transform: translateX(-50%);
-      `;
-
-export const Button = styled.div<{
-  position: Position;
-  disabled: boolean;
-  variant: Variant;
-  gradientTransmition: string;
-  shadow: string;
-}>`
-  position: absolute;
-  ${props => positionMixin(props.position)}
-
-  background: ${colors.white['500']}
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  ${props => dimensionMixin(props.variant)}
-
-
-  ${props =>
-    !props.disabled &&
-    css`
-      cursor: pointer;
-      box-shadow: ${props.shadow};
-      &:hover {
-        background-image: linear-gradient(
-          ${props.gradientTransmition},
-          ${colors.white['400']},
-          ${colors.white['500']}
-        );
-      }
-    `}
-
-   transition: background .2s linear;
-  }
-`;
