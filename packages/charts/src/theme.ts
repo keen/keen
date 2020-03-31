@@ -108,6 +108,18 @@ export const theme: Theme = {
       },
     },
   },
+  pie: {
+    labels: {
+      enabled: true,
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 12,
+        fontFamily: 'Gangster Grotesk Regular, sans-serif',
+        fontColor: colors.black['500'],
+      },
+    },
+  },
   donut: {
     labels: {
       enabled: true,
@@ -186,15 +198,5 @@ export const theme: Theme = {
   gridY: {
     enabled: true,
     color: colors.gray['400'],
-  },
-  labels: {
-    enabled: true,
-    typography: {
-      fontStyle: 'normal',
-      fontWeight: 'normal',
-      fontSize: 12,
-      fontFamily: 'Gangster Grotesk Regular, sans-serif',
-      fontColor: colors.black['500'],
-    },
   },
 };

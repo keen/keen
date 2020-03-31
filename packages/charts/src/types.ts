@@ -127,6 +127,13 @@ export type Donut = {
   };
 };
 
+export type Pie = {
+  labels: {
+    enabled: boolean;
+    typography: Typography;
+  };
+};
+
 export type Theme = {
   colors: string[];
   funnel: Funnel;
@@ -134,12 +141,12 @@ export type Theme = {
   bar: Bar;
   metric?: Metric;
   donut: Donut;
+  pie: Pie;
   tooltip?: Tooltip;
   axisX?: Axis;
   axisY?: Axis;
   gridX?: Grid;
   gridY?: Grid;
-  labels?: Labels;
 };
 
 export type CommonChartSettings = {

@@ -20,9 +20,11 @@ export default {
 export const plot = () => {
   const theme = {
     ...defaultTheme,
-    labels: {
-      enabled: boolean('Enabled', true, 'Labels') as boolean,
-      typography: typographyKnobs('Labels'),
+    pie: {
+      labels: {
+        enabled: boolean('Enabled', true, 'Labels') as boolean,
+        typography: typographyKnobs('Labels'),
+      },
     },
   };
 
