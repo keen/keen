@@ -77,12 +77,12 @@ export const generateChoropleth = ({
   }, [type]);
 
   const [translateX, translateY] = translation;
-  const { maximum } = useMemo(
-    () => calculateRange(data, 'auto', 'auto', [valueKey]),
+  const { minimum, maximum } = useMemo(
+    () => calculateRange(data, 0, 'auto', [valueKey]),
     [valueKey, data]
   );
 
-  const getColor = calculateColorScale(0, maximum, mode, steps, colors);
+  const getColor = calculateColorScale(minimum, maximum, mode, steps, colors);
 
   data.forEach((item, idx) => {
     const key = item[geoKey];
