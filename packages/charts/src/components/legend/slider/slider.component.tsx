@@ -3,13 +3,8 @@ import { useMotionValue, useSpring } from 'framer-motion';
 import { Group } from '@keen.io/ui-core';
 import { Icon } from '@keen.io/icons';
 
-import {
-  Slider,
-  SliderItem,
-  SliderLayout,
-  ScrollMask,
-  Button,
-} from './slider.styles';
+import { Slider, SliderItem, SliderLayout, ScrollMask } from './slider.styles';
+import Button from './button.component';
 
 import { sliderSettings } from './slider.settings';
 import { getIconColor, getElementOffset } from '../utils';
