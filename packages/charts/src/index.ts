@@ -21,6 +21,8 @@ import {
   HeatmapChartSettings,
   GaugeChart,
   GaugeChartSettings,
+  TableChart,
+  TableChartSettings,
   fetchMapTopology,
   sortAreaKeys,
 } from './charts';
@@ -57,6 +59,8 @@ export {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  TableChart,
+  TableChartSettings,
   ResponsiveWrapper,
   SeriesLegend,
   LegendBase,

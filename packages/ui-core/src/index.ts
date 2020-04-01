@@ -7,6 +7,9 @@ import {
   Layout,
   ColorMode,
   RangeType,
+  CeilType,
+  ArrowsType,
+  SortByType,
 } from './types';
 
 import {
@@ -24,6 +27,9 @@ import {
   ColorScale,
   Toggle,
   ARROW_SIZE,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
 } from './components';
 
 export {
@@ -49,4 +55,10 @@ export {
   ColorScale,
   RangeType,
   Toggle,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  CeilType,
+  ArrowsType,
+  SortByType,
 };

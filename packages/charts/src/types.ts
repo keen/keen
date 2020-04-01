@@ -1,5 +1,6 @@
 import { Typography, TooltipMode } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
+import { CeilType } from '@keen.io/ui-core';
 
 export type Dimension = {
   width: number;
@@ -210,3 +211,11 @@ export type LabelRotation = {
 export type GroupMode = 'grouped' | 'stacked';
 
 export type StackMode = 'normal' | 'percent';
+
+export type FormatType = (children: CeilType) => void;
+
+export type FormatFuncType =
+  | {
+      [key: string]: FormatType;
+    }
+  | FormatType;
