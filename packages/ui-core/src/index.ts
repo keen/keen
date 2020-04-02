@@ -22,6 +22,7 @@ import {
   TooltipMode,
   Slider,
   ColorScale,
+  Toggle,
   ARROW_SIZE,
 } from './components';
 
@@ -47,4 +48,5 @@ export {
   Slider,
   ColorScale,
   RangeType,
+  Toggle,
 };
