@@ -10,6 +10,7 @@ import FunnelChartWidget from './funnel';
 import ChoroplethChartWidget, { choroplethWidgetSettings } from './choropleth';
 import MetricChartWidget, { metricWidgetSettings } from './metric';
 import HeatmapChartWidget from './heatmap';
+import GaugeChartWidget from './gauge';
 
 import { LegendSocket, ContentSocket } from './widget-sockets.component';
 
@@ -23,6 +24,7 @@ export {
   LineChartWidget,
   AreaChartWidget,
   BarChartWidget,
+  GaugeChartWidget,
   FunnelChartWidget,
   MetricChartWidget,
   BubbleChartWidget,

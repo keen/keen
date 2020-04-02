@@ -18,10 +18,8 @@ import { CommonChartSettings } from '../../types';
 export type Props = {
   /** Chart data */
   data: object[];
-  /** Name of data object property used to create series */
-  labelSelector?: string;
-  /** Keys picked from data object used to genrate slices */
-  keys?: string[];
+  /** Name of data object property used to create labels */
+  labelSelector: string;
   /** Key used to calculate the gauge progress */
   valueKey: string;
   /** Arc start angle */
@@ -33,11 +31,11 @@ export type Props = {
   /** Amount of step used in color scale */
   colorSteps?: number;
   /** Minimum progress value */
-  minValue?: number;
+  minValue?: number | 'auto';
   /** Maximum progress value */
-  maxValue?: number;
+  maxValue?: number | 'auto';
   /** Progress type */
-  type?: 'normal' | 'percent';
+  progressType?: 'normal' | 'percent';
 } & CommonChartSettings;
 
 export const tooltipMotion = {
@@ -62,9 +60,9 @@ export const GaugeChart: FC<Props> = ({
   margins = { top: 10, right: 10, bottom: 10, left: 10 },
   colorMode = 'continuous',
   colorSteps = 4,
-  type = 'percent',
-  minValue = 0,
-  maxValue = 100,
+  progressType = 'percent',
+  minValue = 'auto',
+  maxValue = 'auto',
 }) => {
   const {
     maskPath,
@@ -73,6 +71,8 @@ export const GaugeChart: FC<Props> = ({
     innerArcPath,
     emptySpaceArcPath,
     innerArcColor,
+    minimum,
+    maximum,
   } = generateGauge({
     data,
     dimension: svgDimensions,
@@ -153,9 +153,9 @@ export const GaugeChart: FC<Props> = ({
             />
             {gaugeSettings.total.enabled && (
               <text fill={fontColor} textAnchor="middle" style={valueStyles}>
-                {type === 'percent' ? (
+                {progressType === 'percent' ? (
                   <>
-                    {formatNumber((progressValue / maxValue) * 100)}
+                    {formatNumber((progressValue / maximum) * 100)}
                     <tspan
                       style={{
                         fontSize: valueStyles.fontSize / 2,
@@ -186,8 +186,8 @@ export const GaugeChart: FC<Props> = ({
           <path d={maskPath} fill="white" />
           {gaugeSettings.labels.enabled && (
             <GaugeLabels
-              minValue={minValue}
-              maxValue={maxValue}
+              minValue={minimum}
+              maxValue={maximum}
               typography={gaugeSettings.labels.typography}
               arcPath={emptySpaceArcPath}
             />

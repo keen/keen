@@ -11,6 +11,8 @@ import {
   MAX_DEGREES,
   INNER_WIDTH,
   OUTER_WIDTH,
+  DEFAULT_MIN,
+  DEFAULT_MAX,
 } from '../constants';
 
 import { Dimension, Margins } from '../../../types';
@@ -25,8 +27,8 @@ type Options = {
   endAngle: number;
   colorMode: ColorMode;
   colorSteps: number;
-  minValue: number;
-  maxValue: number;
+  minValue: number | 'auto';
+  maxValue: number | 'auto';
 };
 
 export const generateGauge = ({
@@ -59,8 +61,11 @@ export const generateGauge = ({
     endAngle: arcEndAngle,
   } as DefaultArcObject;
 
+  const minimum = minValue === 'auto' ? DEFAULT_MIN : minValue;
+  const maximum = maxValue === 'auto' ? DEFAULT_MAX : maxValue;
+
   const degreesScale = scaleLinear()
-    .domain([minValue, maxValue])
+    .domain([minimum, maximum])
     .range([startAngle, endAngle]);
 
   const innerArcPath = arc()
@@ -88,6 +93,8 @@ export const generateGauge = ({
 
   return {
     getColor,
+    minimum,
+    maximum,
     progressValue,
     emptySpaceArcPath,
     maskPath,

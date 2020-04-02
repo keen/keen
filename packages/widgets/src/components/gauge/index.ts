@@ -1,3 +1,3 @@
-import PieChartWidget from './pie-chart.widget';
+import GaugeChartWidget from './gauge-chart.widget';
 
-export default PieChartWidget;
+export default GaugeChartWidget;
