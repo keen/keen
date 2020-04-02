@@ -1,0 +1,1036 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toggle /> should render Toggle component 1`] = `
+<Toggle>
+  <Styled(Component)
+    animate="off"
+    initial="off"
+    isDisabled={false}
+    onTap={[Function]}
+    transition={
+      Object {
+        "duration": 0.2,
+        "type": "tween",
+      }
+    }
+    variants={
+      Object {
+        "off": Object {
+          "backgroundColor": "rgba(225,226,228,0.7)",
+          "color": "#4F5B5F",
+          "justifyContent": "flex-end",
+        },
+        "on": Object {
+          "backgroundColor": "#6C9A74",
+          "color": "#FFFFFF",
+          "justifyContent": "flex-start",
+        },
+      }
+    }
+  >
+    <StyledComponent
+      animate="off"
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "bWhtHr",
+            "rules": Array [
+              "
+  position: relative;
+  width: 60px;
+  height: 22px;
+  padding: 4px 10px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  cursor: pointer;
+  ",
+              [Function],
+              "
+",
+            ],
+          },
+          "displayName": "Styled(Component)",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          },
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      initial="off"
+      isDisabled={false}
+      onTap={[Function]}
+      transition={
+        Object {
+          "duration": 0.2,
+          "type": "tween",
+        }
+      }
+      variants={
+        Object {
+          "off": Object {
+            "backgroundColor": "rgba(225,226,228,0.7)",
+            "color": "#4F5B5F",
+            "justifyContent": "flex-end",
+          },
+          "on": Object {
+            "backgroundColor": "#6C9A74",
+            "color": "#FFFFFF",
+            "justifyContent": "flex-start",
+          },
+        }
+      }
+    >
+      <ForwardRef(MotionComponent)
+        animate="off"
+        className="sc-bdVaJa bWhtHr"
+        initial="off"
+        isDisabled={false}
+        onTap={[Function]}
+        transition={
+          Object {
+            "duration": 0.2,
+            "type": "tween",
+          }
+        }
+        variants={
+          Object {
+            "off": Object {
+              "backgroundColor": "rgba(225,226,228,0.7)",
+              "color": "#4F5B5F",
+              "justifyContent": "flex-end",
+            },
+            "on": Object {
+              "backgroundColor": "#6C9A74",
+              "color": "#FFFFFF",
+              "justifyContent": "flex-start",
+            },
+          }
+        }
+      >
+        <div
+          className="sc-bdVaJa bWhtHr"
+          style={
+            Object {
+              "backgroundColor": "rgba(225,226,228,0.7)",
+              "color": "#4F5B5F",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <Styled(Component)
+            animate="off"
+            initial="off"
+            transition={
+              Object {
+                "duration": 0.2,
+                "type": "tween",
+              }
+            }
+            variants={
+              Object {
+                "off": Object {
+                  "x": 0,
+                },
+                "on": Object {
+                  "x": 38,
+                },
+              }
+            }
+          >
+            <StyledComponent
+              animate="off"
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-bwzfXH",
+                    "isStatic": false,
+                    "lastClassName": "cWWJxQ",
+                    "rules": Array [
+                      "
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border: 2px solid ",
+                      "#487650",
+                      ";
+  background-color: ",
+                      "#FFFFFF",
+                      ";
+  border-radius: 50%;
+  box-sizing: border-box;
+",
+                    ],
+                  },
+                  "displayName": "Styled(Component)",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-bwzfXH",
+                  "target": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
+                  },
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+              initial="off"
+              transition={
+                Object {
+                  "duration": 0.2,
+                  "type": "tween",
+                }
+              }
+              variants={
+                Object {
+                  "off": Object {
+                    "x": 0,
+                  },
+                  "on": Object {
+                    "x": 38,
+                  },
+                }
+              }
+            >
+              <ForwardRef(MotionComponent)
+                animate="off"
+                className="sc-bwzfXH cWWJxQ"
+                initial="off"
+                transition={
+                  Object {
+                    "duration": 0.2,
+                    "type": "tween",
+                  }
+                }
+                variants={
+                  Object {
+                    "off": Object {
+                      "x": 0,
+                    },
+                    "on": Object {
+                      "x": 38,
+                    },
+                  }
+                }
+              >
+                <div
+                  className="sc-bwzfXH cWWJxQ"
+                  style={
+                    Object {
+                      "transform": "none",
+                    }
+                  }
+                />
+                <Memo(MountComponent)
+                  innerRef={
+                    Object {
+                      "current": <div
+                        class="sc-bwzfXH cWWJxQ"
+                        style="transform: none;"
+                      />,
+                    }
+                  }
+                  isStatic={false}
+                  values={
+                    MotionValuesMap {
+                      "hasMounted": true,
+                      "onUpdate": undefined,
+                      "output": [Function],
+                      "unsubscribers": Map {
+                        "x" => [Function],
+                      },
+                      "values": Map {
+                        "x" => MotionValue {
+                          "canTrackVelocity": true,
+                          "current": 0,
+                          "lastUpdated": 0,
+                          "notifySubscriber": [Function],
+                          "parent": undefined,
+                          "prev": undefined,
+                          "renderSubscribers": Set {
+                            [Function],
+                          },
+                          "scheduleVelocityCheck": [Function],
+                          "setChild": [Function],
+                          "timeDelta": 0,
+                          "transformer": undefined,
+                          "updateAndNotify": [Function],
+                          "updateSubscribers": Set {
+                            [Function],
+                          },
+                          "velocityCheck": [Function],
+                        },
+                      },
+                    }
+                  }
+                />
+                <Component
+                  animate="off"
+                  controls={
+                    ValueAnimationControls {
+                      "activeOverrides": Set {},
+                      "baseTarget": Object {
+                        "x": 0,
+                      },
+                      "defaultTransition": Object {
+                        "duration": 0.2,
+                        "type": "tween",
+                      },
+                      "hasValue": [Function],
+                      "isAnimating": Set {},
+                      "makeTargetAnimatable": [Function],
+                      "overrides": Array [],
+                      "props": Object {
+                        "animate": "off",
+                        "className": "sc-bwzfXH cWWJxQ",
+                        "initial": "off",
+                        "transition": Object {
+                          "duration": 0.2,
+                          "type": "tween",
+                        },
+                        "variants": Object {
+                          "off": Object {
+                            "x": 0,
+                          },
+                          "on": Object {
+                            "x": 38,
+                          },
+                        },
+                      },
+                      "readValueFromSource": [Function],
+                      "resolvedOverrides": Array [],
+                      "values": MotionValuesMap {
+                        "hasMounted": true,
+                        "onUpdate": undefined,
+                        "output": [Function],
+                        "unsubscribers": Map {
+                          "x" => [Function],
+                        },
+                        "values": Map {
+                          "x" => MotionValue {
+                            "canTrackVelocity": true,
+                            "current": 0,
+                            "lastUpdated": 0,
+                            "notifySubscriber": [Function],
+                            "parent": undefined,
+                            "prev": undefined,
+                            "renderSubscribers": Set {
+                              [Function],
+                            },
+                            "scheduleVelocityCheck": [Function],
+                            "setChild": [Function],
+                            "timeDelta": 0,
+                            "transformer": undefined,
+                            "updateAndNotify": [Function],
+                            "updateSubscribers": Set {
+                              [Function],
+                            },
+                            "velocityCheck": [Function],
+                          },
+                        },
+                      },
+                      "variants": Object {
+                        "off": Object {
+                          "x": 0,
+                        },
+                        "on": Object {
+                          "x": 38,
+                        },
+                      },
+                    }
+                  }
+                  inherit={false}
+                  initial="off"
+                  key="animation"
+                  transition={
+                    Object {
+                      "duration": 0.2,
+                      "type": "tween",
+                    }
+                  }
+                  values={
+                    MotionValuesMap {
+                      "hasMounted": true,
+                      "onUpdate": undefined,
+                      "output": [Function],
+                      "unsubscribers": Map {
+                        "x" => [Function],
+                      },
+                      "values": Map {
+                        "x" => MotionValue {
+                          "canTrackVelocity": true,
+                          "current": 0,
+                          "lastUpdated": 0,
+                          "notifySubscriber": [Function],
+                          "parent": undefined,
+                          "prev": undefined,
+                          "renderSubscribers": Set {
+                            [Function],
+                          },
+                          "scheduleVelocityCheck": [Function],
+                          "setChild": [Function],
+                          "timeDelta": 0,
+                          "transformer": undefined,
+                          "updateAndNotify": [Function],
+                          "updateSubscribers": Set {
+                            [Function],
+                          },
+                          "velocityCheck": [Function],
+                        },
+                      },
+                    }
+                  }
+                  variants={
+                    Object {
+                      "off": Object {
+                        "x": 0,
+                      },
+                      "on": Object {
+                        "x": 38,
+                      },
+                    }
+                  }
+                />
+              </ForwardRef(MotionComponent)>
+            </StyledComponent>
+          </Styled(Component)>
+          off
+        </div>
+        <Memo(MountComponent)
+          innerRef={
+            Object {
+              "current": <div
+                class="sc-bdVaJa bWhtHr"
+                style="justify-content: flex-end; background-color: rgba(225, 226, 228, 0.7); color: rgb(79, 91, 95);"
+              >
+                <div
+                  class="sc-bwzfXH cWWJxQ"
+                  style="transform: none;"
+                />
+                off
+              </div>,
+            }
+          }
+          isStatic={false}
+          values={
+            MotionValuesMap {
+              "hasMounted": true,
+              "onUpdate": undefined,
+              "output": [Function],
+              "unsubscribers": Map {
+                "justifyContent" => [Function],
+                "backgroundColor" => [Function],
+                "color" => [Function],
+              },
+              "values": Map {
+                "justifyContent" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "flex-end",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+                "backgroundColor" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "rgba(225,226,228,0.7)",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+                "color" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "#4F5B5F",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+              },
+            }
+          }
+        />
+        <Component
+          animate="off"
+          controls={
+            ValueAnimationControls {
+              "activeOverrides": Set {},
+              "baseTarget": Object {
+                "backgroundColor": "rgba(225,226,228,0.7)",
+                "color": "#4F5B5F",
+                "justifyContent": "flex-end",
+              },
+              "defaultTransition": Object {
+                "duration": 0.2,
+                "type": "tween",
+              },
+              "hasValue": [Function],
+              "isAnimating": Set {},
+              "makeTargetAnimatable": [Function],
+              "overrides": Array [],
+              "props": Object {
+                "animate": "off",
+                "children": Array [
+                  <ForwardRef(Styled(Component))
+                    animate="off"
+                    initial="off"
+                    transition={
+                      Object {
+                        "duration": 0.2,
+                        "type": "tween",
+                      }
+                    }
+                    variants={
+                      Object {
+                        "off": Object {
+                          "x": 0,
+                        },
+                        "on": Object {
+                          "x": 38,
+                        },
+                      }
+                    }
+                  />,
+                  "off",
+                ],
+                "className": "sc-bdVaJa bWhtHr",
+                "initial": "off",
+                "isDisabled": false,
+                "onTap": [Function],
+                "transition": Object {
+                  "duration": 0.2,
+                  "type": "tween",
+                },
+                "variants": Object {
+                  "off": Object {
+                    "backgroundColor": "rgba(225,226,228,0.7)",
+                    "color": "#4F5B5F",
+                    "justifyContent": "flex-end",
+                  },
+                  "on": Object {
+                    "backgroundColor": "#6C9A74",
+                    "color": "#FFFFFF",
+                    "justifyContent": "flex-start",
+                  },
+                },
+              },
+              "readValueFromSource": [Function],
+              "resolvedOverrides": Array [],
+              "values": MotionValuesMap {
+                "hasMounted": true,
+                "onUpdate": undefined,
+                "output": [Function],
+                "unsubscribers": Map {
+                  "justifyContent" => [Function],
+                  "backgroundColor" => [Function],
+                  "color" => [Function],
+                },
+                "values": Map {
+                  "justifyContent" => MotionValue {
+                    "canTrackVelocity": false,
+                    "current": "flex-end",
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": undefined,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                  "backgroundColor" => MotionValue {
+                    "canTrackVelocity": false,
+                    "current": "rgba(225,226,228,0.7)",
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": undefined,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                  "color" => MotionValue {
+                    "canTrackVelocity": false,
+                    "current": "#4F5B5F",
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": undefined,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                },
+              },
+              "variants": Object {
+                "off": Object {
+                  "backgroundColor": "rgba(225,226,228,0.7)",
+                  "color": "#4F5B5F",
+                  "justifyContent": "flex-end",
+                },
+                "on": Object {
+                  "backgroundColor": "#6C9A74",
+                  "color": "#FFFFFF",
+                  "justifyContent": "flex-start",
+                },
+              },
+            }
+          }
+          inherit={false}
+          initial="off"
+          key="animation"
+          transition={
+            Object {
+              "duration": 0.2,
+              "type": "tween",
+            }
+          }
+          values={
+            MotionValuesMap {
+              "hasMounted": true,
+              "onUpdate": undefined,
+              "output": [Function],
+              "unsubscribers": Map {
+                "justifyContent" => [Function],
+                "backgroundColor" => [Function],
+                "color" => [Function],
+              },
+              "values": Map {
+                "justifyContent" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "flex-end",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+                "backgroundColor" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "rgba(225,226,228,0.7)",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+                "color" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "#4F5B5F",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+              },
+            }
+          }
+          variants={
+            Object {
+              "off": Object {
+                "backgroundColor": "rgba(225,226,228,0.7)",
+                "color": "#4F5B5F",
+                "justifyContent": "flex-end",
+              },
+              "on": Object {
+                "backgroundColor": "#6C9A74",
+                "color": "#FFFFFF",
+                "justifyContent": "flex-start",
+              },
+            }
+          }
+        />
+        <Component
+          animate="off"
+          className="sc-bdVaJa bWhtHr"
+          controls={
+            ValueAnimationControls {
+              "activeOverrides": Set {},
+              "baseTarget": Object {
+                "backgroundColor": "rgba(225,226,228,0.7)",
+                "color": "#4F5B5F",
+                "justifyContent": "flex-end",
+              },
+              "defaultTransition": Object {
+                "duration": 0.2,
+                "type": "tween",
+              },
+              "hasValue": [Function],
+              "isAnimating": Set {},
+              "makeTargetAnimatable": [Function],
+              "overrides": Array [],
+              "props": Object {
+                "animate": "off",
+                "children": Array [
+                  <ForwardRef(Styled(Component))
+                    animate="off"
+                    initial="off"
+                    transition={
+                      Object {
+                        "duration": 0.2,
+                        "type": "tween",
+                      }
+                    }
+                    variants={
+                      Object {
+                        "off": Object {
+                          "x": 0,
+                        },
+                        "on": Object {
+                          "x": 38,
+                        },
+                      }
+                    }
+                  />,
+                  "off",
+                ],
+                "className": "sc-bdVaJa bWhtHr",
+                "initial": "off",
+                "isDisabled": false,
+                "onTap": [Function],
+                "transition": Object {
+                  "duration": 0.2,
+                  "type": "tween",
+                },
+                "variants": Object {
+                  "off": Object {
+                    "backgroundColor": "rgba(225,226,228,0.7)",
+                    "color": "#4F5B5F",
+                    "justifyContent": "flex-end",
+                  },
+                  "on": Object {
+                    "backgroundColor": "#6C9A74",
+                    "color": "#FFFFFF",
+                    "justifyContent": "flex-start",
+                  },
+                },
+              },
+              "readValueFromSource": [Function],
+              "resolvedOverrides": Array [],
+              "values": MotionValuesMap {
+                "hasMounted": true,
+                "onUpdate": undefined,
+                "output": [Function],
+                "unsubscribers": Map {
+                  "justifyContent" => [Function],
+                  "backgroundColor" => [Function],
+                  "color" => [Function],
+                },
+                "values": Map {
+                  "justifyContent" => MotionValue {
+                    "canTrackVelocity": false,
+                    "current": "flex-end",
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": undefined,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                  "backgroundColor" => MotionValue {
+                    "canTrackVelocity": false,
+                    "current": "rgba(225,226,228,0.7)",
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": undefined,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                  "color" => MotionValue {
+                    "canTrackVelocity": false,
+                    "current": "#4F5B5F",
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": undefined,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                },
+              },
+              "variants": Object {
+                "off": Object {
+                  "backgroundColor": "rgba(225,226,228,0.7)",
+                  "color": "#4F5B5F",
+                  "justifyContent": "flex-end",
+                },
+                "on": Object {
+                  "backgroundColor": "#6C9A74",
+                  "color": "#FFFFFF",
+                  "justifyContent": "flex-start",
+                },
+              },
+            }
+          }
+          initial="off"
+          innerRef={
+            Object {
+              "current": <div
+                class="sc-bdVaJa bWhtHr"
+                style="justify-content: flex-end; background-color: rgba(225, 226, 228, 0.7); color: rgb(79, 91, 95);"
+              >
+                <div
+                  class="sc-bwzfXH cWWJxQ"
+                  style="transform: none;"
+                />
+                off
+              </div>,
+            }
+          }
+          isDisabled={false}
+          key="gestures"
+          onTap={[Function]}
+          parentContext={
+            Object {
+              "static": false,
+            }
+          }
+          transition={
+            Object {
+              "duration": 0.2,
+              "type": "tween",
+            }
+          }
+          values={
+            MotionValuesMap {
+              "hasMounted": true,
+              "onUpdate": undefined,
+              "output": [Function],
+              "unsubscribers": Map {
+                "justifyContent" => [Function],
+                "backgroundColor" => [Function],
+                "color" => [Function],
+              },
+              "values": Map {
+                "justifyContent" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "flex-end",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+                "backgroundColor" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "rgba(225,226,228,0.7)",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+                "color" => MotionValue {
+                  "canTrackVelocity": false,
+                  "current": "#4F5B5F",
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": undefined,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+              },
+            }
+          }
+          variants={
+            Object {
+              "off": Object {
+                "backgroundColor": "rgba(225,226,228,0.7)",
+                "color": "#4F5B5F",
+                "justifyContent": "flex-end",
+              },
+              "on": Object {
+                "backgroundColor": "#6C9A74",
+                "color": "#FFFFFF",
+                "justifyContent": "flex-start",
+              },
+            }
+          }
+        />
+      </ForwardRef(MotionComponent)>
+    </StyledComponent>
+  </Styled(Component)>
+</Toggle>
+`;
