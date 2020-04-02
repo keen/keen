@@ -19,6 +19,8 @@ import {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  GaugeChart,
+  GaugeChartSettings,
   fetchMapTopology,
 } from './charts';
 
@@ -38,6 +40,8 @@ export {
   BubbleChartSettings,
   ChoroplethChart,
   ChoroplethChartSettings,
+  GaugeChart,
+  GaugeChartSettings,
   LineChart,
   LineChartSettings,
   AreaChart,

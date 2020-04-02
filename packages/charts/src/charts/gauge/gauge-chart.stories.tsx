@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object } from '@storybook/addon-knobs';
+import { object, number } from '@storybook/addon-knobs';
 
 import { theme as defaultTheme } from '../../theme';
 import { chartData } from './gauge-chart.fixtures';
@@ -20,18 +20,18 @@ export const plot = () => {
   };
 
   return (
-    <div style={{ width: '700px', height: '500px' }}>
+    <div style={{ width: '700px', height: '400px' }}>
       <GaugeChart
         data={chartData}
         valueKey="keen.value"
-        maxValue={10000}
+        minValue={number('Minimum value', 0, {}, 'Chart')}
+        maxValue={number('Maximum value', 200, {}, 'Chart')}
         theme={theme}
-        keys={['buy', 'sold']}
         svgDimensions={object(
           'svg',
           {
             width: 700,
-            height: 500,
+            height: 400,
           },
           'Chart'
         )}

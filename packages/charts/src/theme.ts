@@ -120,6 +120,31 @@ export const theme: Theme = {
       },
     },
   },
+  gauge: {
+    labels: {
+      enabled: true,
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.black['500'],
+      },
+    },
+    border: {
+      backgroundColor: colors.blue['500'],
+    },
+    total: {
+      enabled: true,
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 60,
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.blue['400'],
+      },
+    },
+  },
   donut: {
     labels: {
       enabled: true,

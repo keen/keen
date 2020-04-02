@@ -6,6 +6,13 @@ import { ColorMode } from '@keen.io/ui-core';
 import { convertDegreesToRadians } from '../../../utils/math.utils';
 import { calculateColorScale } from '../../../utils/colors.utils';
 
+import {
+  ALIGN_STROKE,
+  MAX_DEGREES,
+  INNER_WIDTH,
+  OUTER_WIDTH,
+} from '../constants';
+
 import { Dimension, Margins } from '../../../types';
 
 type Options = {
@@ -18,6 +25,7 @@ type Options = {
   endAngle: number;
   colorMode: ColorMode;
   colorSteps: number;
+  minValue: number;
   maxValue: number;
 };
 
@@ -28,6 +36,7 @@ export const generateGauge = ({
   margins,
   startAngle,
   endAngle,
+  minValue,
   maxValue,
   colors,
   colorMode,
@@ -40,13 +49,7 @@ export const generateGauge = ({
   ]);
 
   const progressValue = sum(data.map(item => item[valueKey]));
-  const getColor = calculateColorScale(
-    0,
-    maxValue,
-    colorMode,
-    colorSteps,
-    colors
-  );
+  const getColor = calculateColorScale(0, 1, colorMode, colorSteps, colors);
 
   const arcStartAngle = convertDegreesToRadians(startAngle);
   const arcEndAngle = convertDegreesToRadians(endAngle);
@@ -57,25 +60,36 @@ export const generateGauge = ({
   } as DefaultArcObject;
 
   const degreesScale = scaleLinear()
-    .domain([0, maxValue])
+    .domain([minValue, maxValue])
     .range([startAngle, endAngle]);
 
   const innerArcPath = arc()
-    .innerRadius(radius - 30)
-    .outerRadius(radius - 10)(arcProperties);
+    .innerRadius(radius - INNER_WIDTH)
+    .outerRadius(radius - OUTER_WIDTH)(arcProperties);
 
   const maskPath = arc()
-    .innerRadius(radius - 31)
-    .outerRadius(radius - 10)
+    .innerRadius(radius - INNER_WIDTH - ALIGN_STROKE)
+    .outerRadius(radius - OUTER_WIDTH)
     .startAngle(convertDegreesToRadians(degreesScale(progressValue)))
-    .endAngle(arcEndAngle)({} as DefaultArcObject);
+    .endAngle(convertDegreesToRadians(endAngle + ALIGN_STROKE))(
+    {} as DefaultArcObject
+  );
 
   const outerArcPath = arc()
-    .innerRadius(radius - 10)
+    .innerRadius(radius - OUTER_WIDTH)
     .outerRadius(radius)(arcProperties);
+
+  const emptySpaceArcPath = arc()
+    .innerRadius(radius - OUTER_WIDTH)
+    .outerRadius(radius)({
+    startAngle: arcEndAngle,
+    endAngle: convertDegreesToRadians(MAX_DEGREES - endAngle),
+  } as DefaultArcObject);
 
   return {
     getColor,
+    progressValue,
+    emptySpaceArcPath,
     maskPath,
     innerArcPath,
     outerArcPath,
