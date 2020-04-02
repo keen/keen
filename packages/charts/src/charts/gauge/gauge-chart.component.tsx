@@ -1,4 +1,5 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { DefaultArcObject } from 'd3-shape';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip, Text, ColorMode } from '@keen.io/ui-core';
 
@@ -6,6 +7,7 @@ import ArcGradient, { GRADIENT_ID } from './arc-gradient.component';
 import GaugeLabels from './gauge-labels.component';
 
 import { generateGauge } from './utils';
+import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
 import { formatNumber } from '../../utils/format.utils';
 
 import { ChartBase } from '../../components';
@@ -43,12 +45,12 @@ export const tooltipMotion = {
   exit: { opacity: 0 },
 };
 
-const progressMotion = {
-  transition: { duration: 0.3, delay: 0.3 },
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-};
+// const progressMotion = {
+//   transition: { duration: 0.3, delay: 0.3 },
+//   initial: { opacity: 0 },
+//   animate: { opacity: 1 },
+//   exit: { opacity: 0 },
+// };
 
 export const GaugeChart: FC<Props> = ({
   data,
@@ -68,7 +70,8 @@ export const GaugeChart: FC<Props> = ({
     maskPath,
     progressValue,
     outerArcPath,
-    innerArcPath,
+    drawInnerArcPath,
+    innerArcProperties,
     emptySpaceArcPath,
     innerArcColor,
     minimum,
@@ -87,13 +90,45 @@ export const GaugeChart: FC<Props> = ({
     colors: theme.colors,
   });
 
+  const [arcProperties, setArcProperties] = useState<ArcProperties>({
+    startAngle: innerArcProperties.startAngle,
+    endAngle: innerArcProperties.startAngle,
+  });
+
   const svgElement = useRef(null);
+  const pathElement = useRef(null);
+
   const {
     tooltipVisible,
     tooltipPosition,
     updateTooltipPosition,
     hideTooltip,
   } = useTooltip(svgElement);
+
+  useEffect(() => {
+    const motion = createArcTween(
+      arcProperties,
+      {
+        startAngle: innerArcProperties.startAngle,
+        endAngle: innerArcProperties.endAngle,
+      },
+      drawInnerArcPath
+    );
+
+    requestAnimationFrame(() => {
+      animateArcPath(
+        pathElement,
+        motion,
+        () => {
+          setArcProperties({
+            startAngle: innerArcProperties.startAngle,
+            endAngle: innerArcProperties.endAngle,
+          });
+        },
+        500
+      );
+    });
+  }, []);
 
   const { gauge: gaugeSettings, tooltip: tooltipSettings } = theme;
   const { fontColor, ...valueStyles } = gaugeSettings.total.typography;
@@ -170,19 +205,17 @@ export const GaugeChart: FC<Props> = ({
               </text>
             )}
           </g>
-          <AnimatePresence>
-            <motion.path
-              d={innerArcPath}
-              fill={innerArcFill}
-              onMouseMove={e => {
-                if (tooltipSettings.enabled) {
-                  updateTooltipPosition(e);
-                }
-              }}
-              onMouseLeave={() => hideTooltip()}
-              {...progressMotion}
-            />
-          </AnimatePresence>
+          <path
+            ref={pathElement}
+            d={drawInnerArcPath(arcProperties as DefaultArcObject)}
+            fill={innerArcFill}
+            onMouseMove={e => {
+              if (tooltipSettings.enabled) {
+                updateTooltipPosition(e);
+              }
+            }}
+            onMouseLeave={() => hideTooltip()}
+          />
           <path d={maskPath} fill="white" />
           {gaugeSettings.labels.enabled && (
             <GaugeLabels

@@ -51,7 +51,16 @@ export const generateGauge = ({
   ]);
 
   const progressValue = sum(data.map(item => item[valueKey]));
-  const getColor = calculateColorScale(0, 1, colorMode, colorSteps, colors);
+  const minimum = minValue === 'auto' ? DEFAULT_MIN : minValue;
+  const maximum = maxValue === 'auto' ? DEFAULT_MAX : maxValue;
+
+  const getColor = calculateColorScale(
+    minimum,
+    maximum,
+    colorMode,
+    colorSteps,
+    colors
+  );
 
   const arcStartAngle = convertDegreesToRadians(startAngle);
   const arcEndAngle = convertDegreesToRadians(endAngle);
@@ -61,16 +70,13 @@ export const generateGauge = ({
     endAngle: arcEndAngle,
   } as DefaultArcObject;
 
-  const minimum = minValue === 'auto' ? DEFAULT_MIN : minValue;
-  const maximum = maxValue === 'auto' ? DEFAULT_MAX : maxValue;
-
   const degreesScale = scaleLinear()
     .domain([minimum, maximum])
     .range([startAngle, endAngle]);
 
-  const innerArcPath = arc()
+  const drawInnerArcPath = arc()
     .innerRadius(radius - INNER_WIDTH)
-    .outerRadius(radius - OUTER_WIDTH)(arcProperties);
+    .outerRadius(radius - OUTER_WIDTH);
 
   const maskPath = arc()
     .innerRadius(radius - INNER_WIDTH - ALIGN_STROKE)
@@ -98,7 +104,8 @@ export const generateGauge = ({
     progressValue,
     emptySpaceArcPath,
     maskPath,
-    innerArcPath,
+    innerArcProperties: arcProperties,
+    drawInnerArcPath,
     outerArcPath,
     innerArcColor: getColor(progressValue),
   };
