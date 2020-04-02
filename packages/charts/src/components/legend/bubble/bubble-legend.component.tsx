@@ -15,11 +15,11 @@ type Props = {
   minRadius: number;
   maxRadius: number;
   /** Chart domain [min, max] */
-  domain: number[];
+  domain: [number, number];
   /** Legend title settings */
-  title?: {
-    value: string;
-    typography: Typography;
+  title: {
+    value?: string;
+    typography?: Typography;
   };
 };
 
@@ -27,14 +27,15 @@ export const BubbleLegend: FC<Props> = ({
   typography,
   domain,
   title,
-  minRadius,
-  maxRadius,
+  minRadius = 5,
+  maxRadius = 40,
 }) => {
   const { fontSize } = typography;
+
   return (
     <Wrapper>
       <TitleWrapper>
-        <Text {...title.typography}>{title.value}</Text>
+        <Text {...title?.typography}>{title?.value}</Text>
       </TitleWrapper>
       <svg preserveAspectRatio="xMinYMin" width="100%" height="100%">
         <Circles domain={domain} offsetTop={fontSize} />

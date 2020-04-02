@@ -76,13 +76,13 @@ export const widget = () => (
           'Legend'
         ),
         typography: typographyKnobs('Legend', { fontSize: 10 }),
-      }}
-      legendTitle={{
-        content: text('Title', 'Legend Subtitle', 'Legend Title'),
-        typography: typographyKnobs(
-          'Legend Title',
-          legendTypography as Typography
-        ),
+        title: {
+          value: text('Title', 'Legend Subtitle', 'Legend Title'),
+          typography: typographyKnobs(
+            'Legend Title',
+            legendTypography as Typography
+          ),
+        },
       }}
       labelSelector="channel"
       valueKey="cost"

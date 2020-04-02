@@ -18,6 +18,10 @@ export type LegendSettings = {
     borderRadius?: string;
     hasShadow?: boolean;
   };
+  title: {
+    value?: string;
+    typography?: Typography;
+  };
 };
 
 export type TextSettings = { content: string; typography: Typography };

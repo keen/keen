@@ -1,3 +1,3 @@
 import { BubbleLegend } from './bubble-legend.component';
 
-export { BubbleLegend };
+export default BubbleLegend;

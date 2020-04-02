@@ -22,10 +22,7 @@ import { WidgetSettings } from '../../types';
 import { getValues } from '../../../../charts/src/utils/data.utils';
 import { max, min } from 'd3-array';
 
-export type Props = WidgetSettings &
-  BubbleChartSettings & {
-    legendTitle?: any;
-  };
+export type Props = WidgetSettings & BubbleChartSettings;
 
 /** Bubble Chart widget integrated with other components */
 export const BubbleChartWidget: FC<Props> = ({
@@ -41,18 +38,13 @@ export const BubbleChartWidget: FC<Props> = ({
   const minimumVal = min(values);
   const maximumVal = max(values);
 
-  const {
-    content: legendTitle,
-    typography: legendTitleTypography,
-  } = props.legendTitle;
-
   const { minAreaRadius, maxAreaRadius } = props;
   return (
     <ChartWidget
       cardSettings={card}
       legendSettings={{
-        position: legend.position,
-        alignment: legend.alignment,
+        position: 'left',
+        alignment: 'right',
         layout: legend.layout,
       }}
     >
@@ -63,10 +55,6 @@ export const BubbleChartWidget: FC<Props> = ({
         <LegendSocket>
           <BubbleLegend
             domain={[minimumVal, maximumVal]}
-            title={{
-              value: legendTitle,
-              typography: legendTitleTypography,
-            }}
             minRadius={minAreaRadius}
             maxRadius={maxAreaRadius}
             {...legend}

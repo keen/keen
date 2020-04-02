@@ -6,6 +6,7 @@ import { Slider, Typography } from '@keen.io/ui-core';
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
 import LegendBase from './legend-base.component';
+import BubbleLegend from './bubble';
 import { SeriesLegend } from './series/series.component';
 import { labels } from './legend.fixtures';
 
@@ -151,6 +152,29 @@ RangeSlider.story = {
   parameters: {
     docs: {
       storyDescription: 'Legend series displayed as range slider.',
+    },
+  },
+};
+
+export const Bubble = () => (
+  <div style={{ width: '300px', height: '150px' }}>
+    <BubbleLegend
+      minRadius={5}
+      maxRadius={40}
+      domain={[100, 200]}
+      typography={typographyKnobs('typography', legendTypography as Typography)}
+      title={{
+        value: 'Bubble chart legend',
+        typography: typographyKnobs('title', legendTypography as Typography),
+      }}
+    />
+  </div>
+);
+
+Bubble.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Displays information about bubble chart data series',
     },
   },
 };

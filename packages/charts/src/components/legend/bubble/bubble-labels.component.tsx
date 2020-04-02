@@ -8,7 +8,7 @@ import {
 } from './bubble-legend.utils';
 
 type Props = {
-  domain: number[];
+  domain: [number, number];
   minRadius: number;
   maxRadius: number;
   typography?: Typography;

@@ -4,7 +4,7 @@ import { colors } from '@keen.io/colors';
 import { legendRadius, opacityScale } from './bubble-legend.utils';
 
 type Props = {
-  domain: number[];
+  domain: [number, number];
   offsetTop?: number;
 };
 

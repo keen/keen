@@ -14,6 +14,7 @@ export const legendSettings: LegendSettings = {
     fontColor: colors.black['500'],
   },
   card: undefined,
+  title: undefined,
 };
 
 export const widgetSettings = {
