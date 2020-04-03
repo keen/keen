@@ -20,6 +20,6 @@ export default {
 
 export const withKnobs = () => (
   <Wrapper>
-    <Toggle isDisabled={boolean('Disable toggle', true, 'Toggle')} />
+    <Toggle isDisabled={boolean('Disable toggle', false, 'Toggle')} />
   </Wrapper>
 );

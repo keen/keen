@@ -1,8 +1,46 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
+import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-export const TrackMotion = styled(motion.div)<{ isDisabled: boolean }>`
+export const ToggleWrapper = styled.div<{ isDisabled: boolean }>`
+  width: 60px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+
+  ${props =>
+    props.isDisabled &&
+    css`
+      opacity: 0.5;
+      pointer-events: none;
+    `}
+`;
+
+export const Track = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  background-color: ${transparentize(0.3, colors.gray['400'])};
+  overflow: hidden;
+`;
+
+export const TrackMotion = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  background: ${colors.green['300']};
+  box-sizing: border-box;
+  transform-origin: left center;
+`;
+
+export const LabelMotion = styled(motion.div)`
   position: relative;
   width: 60px;
   height: 22px;
@@ -14,13 +52,6 @@ export const TrackMotion = styled(motion.div)<{ isDisabled: boolean }>`
   font-size: 11px;
   text-transform: uppercase;
   box-sizing: border-box;
-  cursor: pointer;
-  ${props =>
-    props.isDisabled &&
-    css`
-      opacity: 0.5;
-      pointer-events: none;
-    `}
 `;
 
 export const SwitcherMotion = styled(motion.div)`

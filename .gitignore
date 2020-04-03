@@ -7,3 +7,4 @@ packages/**/dist
 package-lock.json
 coverage
 .DS_Store
+dist

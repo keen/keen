@@ -1,8 +1,13 @@
 import React, { FC, useState, useEffect } from 'react';
-import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { TrackMotion, SwitcherMotion } from './toggle.component.styles';
+import {
+  ToggleWrapper,
+  Track,
+  TrackMotion,
+  LabelMotion,
+  SwitcherMotion,
+} from './toggle.component.styles';
 
 type Props = {
   isOn?: boolean;
@@ -18,21 +23,8 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
     }
   }, [state]);
 
-  const onTap = () => {
+  const onClick = () => {
     setState(!state);
-  };
-
-  const trackVariants = {
-    on: {
-      justifyContent: 'flex-start',
-      backgroundColor: colors.green['300'],
-      color: colors.white['500'],
-    },
-    off: {
-      justifyContent: 'flex-end',
-      backgroundColor: transparentize(0.3, colors.gray['400']),
-      color: colors.black['100'],
-    },
   };
 
   const switcherVariants = {
@@ -40,28 +32,57 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
     off: { x: 0 },
   };
 
-  const transition = {
+  const trackVariants = {
+    on: { scaleX: 1 },
+    off: { scaleX: 0 },
+  };
+
+  const labelVariants = {
+    on: {
+      justifyContent: 'flex-start',
+      color: colors.white['500'],
+    },
+    off: {
+      justifyContent: 'flex-end',
+      color: colors.black['100'],
+    },
+  };
+
+  const switcherTransition = {
+    ease: [0.68, -0.55, 0.27, 1.55],
+    duration: 0.3,
+  };
+
+  const labelTransition = {
     type: 'tween',
-    duration: 0.2,
+    duration: 0.3,
   };
 
   return (
-    <TrackMotion
-      isDisabled={isDisabled}
-      onTap={onTap}
-      variants={trackVariants}
-      initial={state ? 'on' : 'off'}
-      animate={state ? 'on' : 'off'}
-      transition={transition}
-    >
+    <ToggleWrapper isDisabled={isDisabled} onClick={onClick}>
+      <Track>
+        <TrackMotion
+          variants={trackVariants}
+          initial={state ? 'on' : 'off'}
+          animate={state ? 'on' : 'off'}
+          transition={switcherTransition}
+        />
+      </Track>
+      <LabelMotion
+        variants={labelVariants}
+        initial={state ? 'on' : 'off'}
+        animate={state ? 'on' : 'off'}
+        transition={labelTransition}
+      >
+        {state ? 'on' : 'off'}
+      </LabelMotion>
       <SwitcherMotion
         variants={switcherVariants}
         initial={state ? 'on' : 'off'}
         animate={state ? 'on' : 'off'}
-        transition={transition}
+        transition={switcherTransition}
       />
-      {state ? 'on' : 'off'}
-    </TrackMotion>
+    </ToggleWrapper>
   );
 };
 
