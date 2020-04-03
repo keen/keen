@@ -210,7 +210,7 @@ export const GaugeChart: FC<Props> = ({
             }}
             onMouseLeave={() => hideTooltip()}
           />
-          <path d={maskPath} fill="white" />
+          {progressValue < maximum && <path d={maskPath} fill="white" />}
           {gaugeSettings.labels.enabled && (
             <GaugeLabels
               minValue={minimum}
