@@ -20,6 +20,7 @@ import {
   HeatmapChart,
   HeatmapChartSettings,
   fetchMapTopology,
+  sortAreaKeys,
 } from './charts';
 
 import { ResponsiveWrapper, LegendBase, SeriesLegend } from './components';
@@ -56,6 +57,7 @@ export {
   SeriesLegend,
   LegendBase,
   fetchMapTopology,
+  sortAreaKeys,
   theme,
   margins,
 };
