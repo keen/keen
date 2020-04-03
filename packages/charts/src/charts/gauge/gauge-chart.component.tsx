@@ -4,16 +4,18 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip, Text, ColorMode } from '@keen.io/ui-core';
 
 import ArcGradient, { GRADIENT_ID } from './arc-gradient.component';
+import GaugeProgress from './gauge-progress.component';
 import GaugeLabels from './gauge-labels.component';
 
 import { generateGauge } from './utils';
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
-import { formatNumber } from '../../utils/format.utils';
 
 import { ChartBase } from '../../components';
 import { useTooltip } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
+
+import { ARC_MOTION_MS } from './constants';
 
 import { CommonChartSettings } from '../../types';
 
@@ -45,12 +47,12 @@ export const tooltipMotion = {
   exit: { opacity: 0 },
 };
 
-// const progressMotion = {
-//   transition: { duration: 0.3, delay: 0.3 },
-//   initial: { opacity: 0 },
-//   animate: { opacity: 1 },
-//   exit: { opacity: 0 },
-// };
+const progressValueMotion = {
+  transition: { duration: 0.3, delay: 0.4 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export const GaugeChart: FC<Props> = ({
   data,
@@ -59,7 +61,7 @@ export const GaugeChart: FC<Props> = ({
   theme = defaultTheme,
   startAngle = -120,
   endAngle = 120,
-  margins = { top: 10, right: 10, bottom: 10, left: 10 },
+  margins = { top: 10, right: 0, bottom: 10, left: 0 },
   colorMode = 'continuous',
   colorSteps = 4,
   progressType = 'percent',
@@ -125,14 +127,12 @@ export const GaugeChart: FC<Props> = ({
             endAngle: innerArcProperties.endAngle,
           });
         },
-        500
+        ARC_MOTION_MS
       );
     });
   }, []);
 
   const { gauge: gaugeSettings, tooltip: tooltipSettings } = theme;
-  const { fontColor, ...valueStyles } = gaugeSettings.total.typography;
-
   const innerArcFill =
     colorMode === 'continuous' ? `url(#${GRADIENT_ID})` : innerArcColor;
 
@@ -187,22 +187,16 @@ export const GaugeChart: FC<Props> = ({
               fill={gaugeSettings.border.backgroundColor}
             />
             {gaugeSettings.total.enabled && (
-              <text fill={fontColor} textAnchor="middle" style={valueStyles}>
-                {progressType === 'percent' ? (
-                  <>
-                    {formatNumber((progressValue / maximum) * 100)}
-                    <tspan
-                      style={{
-                        fontSize: valueStyles.fontSize / 2,
-                      }}
-                    >
-                      %
-                    </tspan>
-                  </>
-                ) : (
-                  progressValue
-                )}
-              </text>
+              <AnimatePresence>
+                <motion.g {...progressValueMotion}>
+                  <GaugeProgress
+                    progressType={progressType}
+                    typography={gaugeSettings.total.typography}
+                    maximum={maximum}
+                    value={progressValue}
+                  />
+                </motion.g>
+              </AnimatePresence>
             )}
           </g>
           <path
