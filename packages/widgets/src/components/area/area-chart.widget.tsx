@@ -6,6 +6,7 @@ import {
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
+  sortAreaKeys,
 } from '@keen.io/charts';
 
 import ChartWidget from '../chart-widget.component';
@@ -34,6 +35,8 @@ export const AreaChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
+  const sortedKeys = sortAreaKeys(props.data, props.keys);
+
   return (
     <ChartWidget
       cardSettings={card}
@@ -51,7 +54,7 @@ export const AreaChartWidget: FC<Props> = ({
           <SeriesLegend
             {...legend}
             onClick={updateKeys}
-            labels={props.keys.map((key, idx) => ({
+            labels={sortedKeys.map((key: string, idx: number) => ({
               name: key,
               color: theme.colors[idx],
             }))}
