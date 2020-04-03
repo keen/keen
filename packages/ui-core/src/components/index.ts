@@ -9,6 +9,7 @@ import Loader from './loader';
 import Card, { CardSettings } from './card';
 import Slider from './slider';
 import ColorScale from './color-scale';
+import Toggle from './toggle';
 
 export {
   Badge,
@@ -23,5 +24,6 @@ export {
   TooltipMode,
   Slider,
   ColorScale,
+  Toggle,
   ARROW_SIZE,
 };
