@@ -1,0 +1,49 @@
+{
+  "name": "@keen.io/pricing-calculator",
+  "version": "0.0.1",
+  "description": "Pricing calculator for Keen.io plan recommendation",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "start": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack-dev-server",
+    "build:umd": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack --config webpack.prod.config.ts",
+    "build:es": "tsc",
+    "build": "yarn build:es && yarn build:umd"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "dependencies": {
+    "@keen.io/ui-core": "^0.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/html-webpack-plugin": "^3.2.2",
+    "@types/react-redux": "^7.1.7",
+    "@types/redux": "^3.6.0",
+    "@types/webpack-dev-server": "^3.10.1",
+    "html-webpack-plugin": "4.0.2",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
