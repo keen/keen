@@ -1,26 +1,19 @@
 import React from 'react';
-import { Ceil } from '@keen.io/ui-core';
+import { Ceil, Typography } from '@keen.io/ui-core';
 import { StripedTable } from './table.styles';
 import { copyToClipboard } from './table.utils';
-import { FormatFuncType } from '../../types';
 
 type Props = {
   data?: any;
   color: string;
-  format?: FormatFuncType;
+  typography: Typography;
 };
 
-export const Row = ({ data, color, format }: Props) => {
+export const Row = ({ data, color, typography }: Props) => {
   return (
-    <StripedTable color={color}>
+    <StripedTable color={color} typography={typography}>
       {Object.keys(data).map(key => (
-        <Ceil
-          key={`${key}`}
-          onClick={copyToClipboard}
-          format={typeof format === 'object' ? format[key] : format}
-        >
-          {data[key]}
-        </Ceil>
+        <Ceil key={`${key}`} onClick={copyToClipboard} value={data[key]} />
       ))}
     </StripedTable>
   );

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { hexRgb } from './table.utils';
+import { RESIZE_ELEMENT_WIDTH, Typography } from '@keen.io/ui-core';
+import { rgba } from 'polished';
 
 export const TableContainer = styled.div`
   height: 100%;
@@ -16,7 +17,11 @@ export const StyledTable = styled.div`
 
 export const Header = styled.div<{
   color: string;
+  typography: Typography;
 }>`
+  ${props => props.typography}
+  color: ${props => props.typography.fontColor};
+
   display: table-row;
 
   & .sticky {
@@ -33,14 +38,14 @@ export const Header = styled.div<{
     }
 
     & .drag {
-      width: 12px;
+      width: ${RESIZE_ELEMENT_WIDTH}px;
       background: ${props => props.color};
 
       & .dragLine {
         width: 3px;
         height: 100%;
         position: absolute;
-        left: 4px;
+        left: 5px;
         background: rgba(205, 207, 211, 0.3);
       }
     }
@@ -57,7 +62,11 @@ export const Header = styled.div<{
 
 export const StripedTable = styled.div<{
   color: string;
+  typography: Typography;
 }>`
+  ${props => props.typography}
+  color: ${props => props.typography.fontColor};
+
   display: table-row;
 
   &:first-child {
@@ -65,11 +74,11 @@ export const StripedTable = styled.div<{
   }
 
   &:nth-child(odd) {
-    background: ${props => hexRgb(props.color, 0.05)};
+    background: ${props => rgba(props.color, 0.05)};
   }
 
   &:hover {
-    background: ${props => hexRgb(props.color, 0.3)};
+    background: ${props => rgba(props.color, 0.3)};
     border-left: 8px solid ${props => props.color};
     box-shadow: 0 10px 24px rgba(29, 39, 41, 0.15);
 

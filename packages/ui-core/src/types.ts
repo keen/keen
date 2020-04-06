@@ -22,9 +22,9 @@ export type RangeType = {
 
 export type CeilType = string | number | Date;
 
-export type ArrowsType = 'asc' | 'desc';
+export type SortMode = 'ascending' | 'descending';
 
 export type SortByType = {
   property: string;
-  sort: ArrowsType;
+  sort: SortMode;
 };

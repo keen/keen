@@ -9,11 +9,7 @@ export const Sticky = styled.div`
 export const StyledHeaderCeil = styled.div<{
   width: number;
 }>`
-  color: #fff;
-  font-size: 14px;
-  line-height: 17px;
   text-align: left;
-  font-family: Gangster Grotesk Bold;
   white-space: nowrap;
 
   ${props =>
@@ -24,21 +20,11 @@ export const StyledHeaderCeil = styled.div<{
 `;
 
 export const StyledCeil = styled.div<{
-  type: string;
+  textAlign: string;
 }>`
-  color: #1d2729;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: left;
   padding: 12px 20px;
-  font-family: Lato Regular;
   position: relative;
-
-  ${props =>
-    props.type === 'number' &&
-    css`
-      text-align: right;
-    `}
+  text-align: ${props => props.textAlign};
 `;
 
 export const Container = styled.div`

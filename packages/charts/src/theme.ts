@@ -167,6 +167,28 @@ export const theme: Theme = {
       },
     },
   },
+  table: {
+    header: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontFamily: 'Gangster Grotesk Bold, sans-serif',
+        fontColor: colors.white['500'],
+        lineHeight: '17px',
+      },
+    },
+    body: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.black['400'],
+        lineHeight: '17px',
+      },
+    },
+  },
   tooltip: {
     enabled: true,
     mode: 'dark',

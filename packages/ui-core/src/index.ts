@@ -8,7 +8,7 @@ import {
   ColorMode,
   RangeType,
   CeilType,
-  ArrowsType,
+  SortMode,
   SortByType,
 } from './types';
 
@@ -30,6 +30,7 @@ import {
   Ceil,
   HeaderCeil,
   SortArrows,
+  RESIZE_ELEMENT_WIDTH,
 } from './components';
 
 export {
@@ -59,6 +60,7 @@ export {
   HeaderCeil,
   SortArrows,
   CeilType,
-  ArrowsType,
+  SortMode,
   SortByType,
+  RESIZE_ELEMENT_WIDTH,
 };

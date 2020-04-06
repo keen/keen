@@ -36,7 +36,11 @@ const ContainerArrows = styled.div`
 export const headerCeil = () => {
   return (
     <ContainerHeader>
-      <HeaderCeil onClick={action('onClick')}>property</HeaderCeil>
+      <HeaderCeil
+        onClick={action('onClick')}
+        property="property"
+        value="property"
+      />
     </ContainerHeader>
   );
 };
@@ -44,7 +48,7 @@ export const headerCeil = () => {
 export const normalCeil = () => {
   return (
     <ContainerCeil>
-      <Ceil>0.5</Ceil>
+      <Ceil value={0.5} />
     </ContainerCeil>
   );
 };
@@ -52,7 +56,7 @@ export const normalCeil = () => {
 export const sortArrows = () => {
   return (
     <ContainerArrows>
-      <SortArrows type="asc" /> <SortArrows type="desc" />
+      <SortArrows sortMode="ascending" /> <SortArrows sortMode="descending" />
     </ContainerArrows>
   );
 };

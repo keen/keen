@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { HeaderCeil, ArrowsType, SortByType } from '@keen.io/ui-core';
-import { FormatFuncType } from '../../types';
+import { HeaderCeil, SortMode, SortByType, Typography } from '@keen.io/ui-core';
 import { Header } from './table.styles';
 
 type Props = {
-  data?: any;
+  data: string[];
   color: string;
-  onClick?: (res: { property: string; sort: ArrowsType }) => void;
+  onClick?: (res: { property: string; sort: SortMode }) => void;
   sorting?: SortByType;
-  format?: FormatFuncType;
   onResize?: (res: { property: string; width: number }) => void;
+  typography: Typography;
 };
 
 export const HeaderRow = ({
@@ -17,25 +16,24 @@ export const HeaderRow = ({
   color,
   onClick,
   sorting,
-  format,
   onResize,
+  typography,
 }: Props) => {
   const [dragged, setDragged] = useState(false);
 
   return (
-    <Header color={color}>
-      {Object.keys(data).map(key => (
+    <Header color={color} typography={typography}>
+      {data.map((item: any) => (
         <HeaderCeil
-          key={`${key}`}
+          key={`${item.key}`}
           onClick={onClick}
           sorting={sorting}
-          format={typeof format === 'object' ? format[key] : format}
           dragged={dragged}
           setDragged={setDragged}
           onResize={onResize}
-        >
-          {key}
-        </HeaderCeil>
+          value={item.value}
+          property={item.key}
+        />
       ))}
     </Header>
   );

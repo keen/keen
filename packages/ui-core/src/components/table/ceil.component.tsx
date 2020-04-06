@@ -5,11 +5,10 @@ import { CeilType } from '../../types';
 import Tooltip from '../tooltip';
 
 type Props = {
-  children?: CeilType;
-  onClick?: (children: CeilType) => void;
+  value?: CeilType;
+  onClick?: (value: CeilType) => void;
   tooltipEnabled?: boolean;
   tooltipContent?: string | React.ReactNode;
-  format?: (children: CeilType) => void;
 };
 
 const tooltipMotion = {
@@ -19,31 +18,31 @@ const tooltipMotion = {
 };
 
 export const Ceil = ({
-  children,
+  value,
   onClick,
   tooltipEnabled = true,
   tooltipContent = 'Copied!',
-  format,
 }: Props) => {
   const [tooltip, setTooltip] = useState(false);
 
   const toogleTooltip = () => {
-    onClick(children);
+    onClick(value);
     setTooltip(true);
     setTimeout(() => {
       setTooltip(false);
     }, 1000);
   };
-  const type = `${typeof children}`;
+  const type = `${typeof value}`;
+  const textAlign = type === 'number' ? 'right' : 'left';
   return (
     <>
       <StyledCeil
         onClick={() => {
           toogleTooltip();
         }}
-        type={type}
+        textAlign={textAlign}
       >
-        {format ? format(children) : children}
+        {value}
         <AnimatePresence>
           {tooltipEnabled && tooltip && (
             <motion.div

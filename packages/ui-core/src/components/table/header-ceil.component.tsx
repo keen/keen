@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sticky, StyledHeaderCeil, Container } from './table.styles';
 import SortArrows from './sort-arrows.component';
-import { ArrowsType, SortByType } from '../../types';
+import { SortMode, SortByType } from '../../types';
+import { RESIZE_ELEMENT_WIDTH } from './constants';
 
 type Props = {
-  children?: string;
-  format?: (children: string) => void;
-  onClick?: (res: { property: string; sort: ArrowsType }) => void;
+  value?: string;
+  property: string;
+  onClick?: (res: { property: string; sort: SortMode }) => void;
   onResize?: (res: { property: string; width: number }) => void;
   sorting?: SortByType;
   dragged?: boolean;
@@ -15,27 +16,27 @@ type Props = {
 };
 
 export const HeaderCeil = ({
-  children,
+  value,
+  property,
   onClick,
   sorting,
-  format,
   dragged,
   setDragged,
   onResize,
 }: Props) => {
   const [state, setState] = useState({
     showArrows: false,
-    type: null,
+    sortMode: null,
     resize: 0,
     width: 0,
     dragLine: false,
   });
-  const { showArrows, type, resize, width, dragLine } = state;
+  const { showArrows, sortMode, resize, width, dragLine } = state;
   const ref = useRef(null);
   useEffect(() => {
     setState({ ...state, width: ref.current.clientWidth });
   }, [ref.current]);
-  const isSorting = sorting && sorting.property === children;
+  const isSorting = sorting && sorting.property === property;
   return (
     <>
       <Sticky className="sticky">
@@ -55,18 +56,18 @@ export const HeaderCeil = ({
             });
           }}
           onClick={() => {
-            onClick({ property: children, sort: type ? type : 'asc' });
-            type === 'desc'
-              ? setState({ ...state, type: 'asc' })
-              : setState({ ...state, type: 'desc' });
+            onClick({ property, sort: sortMode ? sortMode : 'ascending' });
+            sortMode === 'descending'
+              ? setState({ ...state, sortMode: 'ascending' })
+              : setState({ ...state, sortMode: 'descending' });
           }}
         >
           <Container>
-            {format ? format(children) : children}
+            {value}
             <div
               style={{ opacity: (showArrows && !dragged) || isSorting ? 1 : 0 }}
             >
-              <SortArrows type={type} />
+              <SortArrows sortMode={sortMode} />
             </div>
           </Container>
         </StyledHeaderCeil>
@@ -102,14 +103,14 @@ export const HeaderCeil = ({
               ...state,
               dragLine: false,
             });
-            onResize({ property: children, width: width + resize });
+            onResize({ property: value, width: width + resize });
             setDragged(false);
           }}
           className="drag"
           style={{
             position: 'absolute',
             top: 0,
-            right: resize - 7,
+            right: resize - RESIZE_ELEMENT_WIDTH / 2,
             height: '100%',
             cursor: 'ew-resize',
             boxSizing: 'border-box',
