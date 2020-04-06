@@ -10,6 +10,7 @@ import {
   HeatmapChartWidget,
   ChoroplethChartWidget,
   BubbleChartWidget,
+  GaugeChartWidget,
   WidgetSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
@@ -26,6 +27,7 @@ export type Widgets =
   | 'area'
   | 'pie'
   | 'donut'
+  | 'gauge'
   | 'metric'
   | 'funnel'
   | 'choropleth'
@@ -78,6 +80,8 @@ export const renderWidget = ({
           {...config}
         />
       );
+    case 'gauge':
+      return <GaugeChartWidget valueKey={valueKey} {...config} />;
     case 'funnel':
       return <FunnelChartWidget valueKey={valueKey} {...config} />;
     case 'metric':

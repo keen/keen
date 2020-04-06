@@ -134,6 +134,20 @@ export type Pie = {
   };
 };
 
+export type Gauge = {
+  labels: {
+    enabled: boolean;
+    typography: Typography;
+  };
+  border: {
+    backgroundColor: string;
+  };
+  total: {
+    enabled: boolean;
+    typography: Typography;
+  };
+};
+
 export type Theme = {
   colors: string[];
   funnel: Funnel;
@@ -142,6 +156,7 @@ export type Theme = {
   metric?: Metric;
   donut: Donut;
   pie: Pie;
+  gauge: Gauge;
   tooltip?: Tooltip;
   axisX?: Axis;
   axisY?: Axis;

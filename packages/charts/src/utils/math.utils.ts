@@ -9,6 +9,8 @@ export type CartesianCords = [number, number, number];
 const TO_RADIANS = Math.PI / 180;
 const TO_DEGREES = 180 / Math.PI;
 
+export const convertDegreesToRadians = (deg: number) => deg * TO_RADIANS;
+
 export const calculateHypotenuseHeight = (x: number, y: number): number =>
   Math.sqrt(x * x + y * y);
 
