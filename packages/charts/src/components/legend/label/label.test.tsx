@@ -26,8 +26,7 @@ describe('@keen.io/charts - <LegendLabel />', () => {
     const wrapper = mount(
       <Label {...props} truncate={10} text={text} onClick={mockFn} />
     );
-
-    expect(wrapper.find('ForwardRef').text()).toEqual('Lorem ipsu...');
+    expect(wrapper.text()).toEqual('Lorem ipsu...');
   });
 
   it('should provide disable state in "onClick" handler', () => {
