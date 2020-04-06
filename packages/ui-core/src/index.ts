@@ -1,4 +1,4 @@
-import { Title, Text } from './typography';
+import { Title, Text, RefText } from './typography';
 
 import {
   Typography,
@@ -35,6 +35,7 @@ export {
   CardSettings,
   Title,
   Text,
+  RefText,
   Group,
   Loader,
   Typography,

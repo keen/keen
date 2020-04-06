@@ -1,5 +1,5 @@
 import React, { FC, useRef, useEffect, useState } from 'react';
-import { Text } from '@keen.io/ui-core';
+import { RefText } from '@keen.io/ui-core';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { useTooltip } from '../../../hooks';
@@ -103,7 +103,6 @@ export const BubbleLegend: FC<Props> = ({
           }}
           onMouseMove={e => {
             if (truncate) {
-              console.log(e.currentTarget.getBoundingClientRect());
               updateTooltipPosition(e);
             }
           }}
@@ -112,9 +111,9 @@ export const BubbleLegend: FC<Props> = ({
           }}
         >
           {title?.value && (
-            <Text truncate={true} {...title?.typography} ref={titleRef}>
+            <RefText truncate={true} {...title?.typography} ref={titleRef}>
               {title.value}
-            </Text>
+            </RefText>
           )}
         </TitleWrapper>
         <svg viewBox={`0 0 80 ${80 + fontSize}`}>
