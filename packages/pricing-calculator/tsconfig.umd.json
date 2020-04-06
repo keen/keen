@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": false,
+    "composite": false
+  },
+  "include": ["./src/**/*"],
+  "references": [{ "path": "../ui-core" }, { "path": "../colors" }]
+}
