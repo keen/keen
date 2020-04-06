@@ -1,11 +1,11 @@
-import { scaleLinear } from 'd3-scale';
+import { scaleLinear, scaleLog } from 'd3-scale';
 
 export const legendRadius = [10, 25, 40];
 
 export const opacityScale = (domain: number[], minOpacity: number) =>
-  scaleLinear()
+  scaleLog()
     .domain(domain)
-    .range([0.9, minOpacity]);
+    .range([1, minOpacity]);
 
 export const radiusScale = (
   minRadius: number,
@@ -22,3 +22,6 @@ export const verticalPositionScale = (maxRadius: number) =>
     .range([0, maxRadius * 2]);
 
 export const sortByValue = (values: number[]) => values.sort((a, b) => a - b);
+
+export const isTruncated = (el: HTMLDivElement) =>
+  el.scrollWidth > el.clientWidth;

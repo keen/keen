@@ -29,6 +29,7 @@ export const Labels: FC<Props> = ({
 
   const verticalPosition = verticalPositionScale(maxRange);
   const legendValue = radiusScale(minRadius, maxRadius, max);
+
   return (
     <>
       {legendRadius.map(radius => {
@@ -41,7 +42,7 @@ export const Labels: FC<Props> = ({
             key={radius}
             x={x}
             y={y}
-            dominantBaseline="text-after-edge"
+            dominantBaseline="ideographic"
             textAnchor="middle"
             fill={fontColor}
             style={{ ...textStyles }}

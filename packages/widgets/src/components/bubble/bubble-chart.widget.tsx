@@ -43,8 +43,8 @@ export const BubbleChartWidget: FC<Props> = ({
     <ChartWidget
       cardSettings={card}
       legendSettings={{
-        position: 'left',
-        alignment: 'right',
+        position: legend.position,
+        alignment: legend.alignment,
         layout: legend.layout,
       }}
     >

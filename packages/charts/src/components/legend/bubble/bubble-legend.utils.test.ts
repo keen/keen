@@ -19,9 +19,9 @@ describe('@keen/components', () => {
     describe('opacityScale()', () => {
       it('should return correct opacity scale for object', () => {
         const getOpacityScale = opacityScale([10, 80], 0.1);
-        expect(getOpacityScale(10)).toEqual(0.9);
+        expect(getOpacityScale(10)).toEqual(1);
         expect(getOpacityScale(80)).toEqual(0.1);
-        expect(getOpacityScale(50)).toEqual(0.4428571428571429);
+        expect(getOpacityScale(50)).toEqual(0.30342157153379123);
       });
     });
 

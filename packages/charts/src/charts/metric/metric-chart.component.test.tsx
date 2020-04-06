@@ -91,7 +91,7 @@ describe('@keen.io/charts - <MetricChart />', () => {
       Object {
         "background": "#ECF5F7",
         "children": <ForwardRef(styled.div)>
-          <Text
+          <ForwardRef
             data-test="metric-excerpt-label"
             fontColor="#1D2729"
             fontFamily="Lato Regular, sans-serif"
@@ -100,7 +100,7 @@ describe('@keen.io/charts - <MetricChart />', () => {
             fontWeight="normal"
           >
             2.2k
-          </Text>
+          </ForwardRef>
         </ForwardRef(styled.div)>,
         "data-test": "metric-excerpt-container",
       }

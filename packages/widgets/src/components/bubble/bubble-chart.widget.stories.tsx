@@ -66,7 +66,7 @@ export const widget = () => (
         position: select(
           'Position',
           positionOptions,
-          positionOptions.left,
+          positionOptions.right,
           'Legend'
         ) as any,
         alignment: select(
@@ -75,7 +75,7 @@ export const widget = () => (
           alignmentOptions.right,
           'Legend'
         ),
-        typography: typographyKnobs('Legend', { fontSize: 10 }),
+        typography: typographyKnobs('Legend', { fontSize: 12 }),
         title: {
           value: text('Title', 'Legend Subtitle', 'Legend Title'),
           typography: typographyKnobs(

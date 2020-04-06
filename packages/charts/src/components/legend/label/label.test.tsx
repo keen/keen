@@ -27,7 +27,7 @@ describe('@keen.io/charts - <LegendLabel />', () => {
       <Label {...props} truncate={10} text={text} onClick={mockFn} />
     );
 
-    expect(wrapper.find('Text').text()).toEqual('Lorem ipsu...');
+    expect(wrapper.find('ForwardRef').text()).toEqual('Lorem ipsu...');
   });
 
   it('should provide disable state in "onClick" handler', () => {

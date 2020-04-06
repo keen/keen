@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { typography } from 'styled-system';
 import { Typography } from '../types';
@@ -6,6 +6,7 @@ import { Typography } from '../types';
 type Props = {
   children: React.ReactNode;
   truncate?: boolean;
+  ref?: any;
 } & Typography;
 
 const BaseText = styled.div<Props>`
@@ -21,10 +22,16 @@ const BaseText = styled.div<Props>`
     `}
 `;
 
-const Text = ({ children, truncate = false, ...props }: Props) => (
-  <BaseText truncate={truncate} {...props}>
-    {children}
-  </BaseText>
+const Text: FC<Props> = forwardRef(
+  ({ children, truncate = false, ...props }, ref) => {
+    return (
+      <BaseText ref={ref} truncate={truncate} {...props}>
+        {children}
+      </BaseText>
+    );
+  }
 );
+
+Text.displayName = 'Text';
 
 export default Text;
