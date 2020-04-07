@@ -1,3 +1,12 @@
-import { calculatorReducer } from './reducer';
+import Calculator from './calculator.component';
+import { calculatorReducer, ReducerState as CalculatorState } from './reducer';
+import { getCalculatorState } from './selectors';
+import { Services } from './types';
 
-export { calculatorReducer };
+export {
+  Calculator,
+  CalculatorState,
+  Services,
+  getCalculatorState,
+  calculatorReducer,
+};

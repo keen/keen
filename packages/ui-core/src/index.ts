@@ -1,4 +1,4 @@
-import { Title, Text } from './typography';
+import { Title, Text, FontLoader } from './typography';
 
 import {
   Typography,
@@ -39,6 +39,7 @@ export {
   Group,
   Loader,
   Typography,
+  FontLoader,
   Tooltip,
   TooltipMode,
   ARROW_SIZE,
