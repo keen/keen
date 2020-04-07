@@ -4,6 +4,9 @@ import {
   cardKnobs,
   axisXKnobs,
   axisYKnobs,
+  xAxisTitleKnobs,
+  yAxisTitleKnobs,
+  axisTitleThemeKnobs,
   gridKnobs,
   layoutKnobs,
   typographyKnobs,
@@ -31,6 +34,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 export const widget = () => (
@@ -58,9 +62,11 @@ export const widget = () => (
       valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['people', 'licenses', 'cars', 'documents']}
       layout={layoutKnobs('Chart') as any}
+      xAxisTitle={xAxisTitleKnobs('Axis Title')}
+      yAxisTitle={yAxisTitleKnobs('Axis Title')}
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 40 },
+        { top: 30, right: 20, bottom: 60, left: 60 },
         'Chart'
       )}
       theme={createThemeKnobs()}

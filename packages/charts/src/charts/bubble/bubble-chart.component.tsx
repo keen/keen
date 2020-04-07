@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
 
-import { ChartBase, Grid, Axes } from '../../components';
+import { ChartBase, Grid, Axes, AxisTitle } from '../../components';
 
 import Bubbles from './bubbles.component';
 import TooltipContent from './tooltip-content.component';
@@ -11,7 +11,11 @@ import { generateBubbles } from './utils/chart.utils';
 import { useTooltip } from '../../hooks';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ScaleSettings } from '../../types';
+import {
+  CommonChartSettings,
+  ScaleSettings,
+  AxisTitle as AxisTitleType,
+} from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -33,6 +37,10 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y Scale settings */
   yScaleSettings?: ScaleSettings;
+  /** X axis title settings */
+  xAxisTitle?: AxisTitleType;
+  /** Y axis title settings */
+  yAxisTitle?: AxisTitleType;
   /** Minimum area radius */
   minAreaRadius?: number;
   /** Maximum area radius */
@@ -52,6 +60,8 @@ export const BubbleChart: FC<Props> = ({
   minAreaRadius = 5,
   xScaleSettings = { type: 'linear' },
   yScaleSettings = { type: 'linear' },
+  xAxisTitle,
+  yAxisTitle,
 }) => {
   const { bubbles, xScale, yScale, middlePoint } = generateBubbles({
     data,
@@ -76,7 +86,7 @@ export const BubbleChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings } = theme;
+  const { tooltip: tooltipSettings, axisTitle: axisTitleSettings } = theme;
 
   return (
     <>
@@ -117,6 +127,9 @@ export const BubbleChart: FC<Props> = ({
         yScaleSettings={yScaleSettings}
       >
         <Grid xScale={xScale} yScale={yScale} />
+        {(xAxisTitle || yAxisTitle) && (
+          <AxisTitle x={xAxisTitle} y={yAxisTitle} {...axisTitleSettings} />
+        )}
         <Axes xScale={xScale} yScale={yScale} />
         <Bubbles
           bubbles={bubbles}

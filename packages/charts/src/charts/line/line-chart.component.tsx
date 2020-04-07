@@ -7,7 +7,13 @@ import Tooltip from './tooltip.component';
 
 import { useTooltip } from '../../hooks';
 
-import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
+import {
+  ChartBase,
+  ChartTooltip,
+  Axes,
+  AxisTitle,
+  Grid,
+} from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import {
@@ -15,6 +21,7 @@ import {
   CommonChartSettings,
   GroupMode,
   StackMode,
+  AxisTitle as AxisTitleType,
 } from '../../types';
 
 import { CurveType } from './types';
@@ -28,6 +35,10 @@ export type Props = {
   minValue?: number | 'auto';
   /** Maximum value for axis */
   maxValue?: number | 'auto';
+  /** X axis title settings */
+  xAxisTitle?: AxisTitleType;
+  /** Y axis title settings */
+  yAxisTitle?: AxisTitleType;
   /** Keys picked from data object used to generate lines */
   keys?: string[];
   /** Keys that are disabled for rendering data series */
@@ -71,6 +82,8 @@ export const LineChart: FC<Props> = ({
   yScaleSettings = { type: 'linear' },
   areaMode = false,
   gradient = true,
+  xAxisTitle,
+  yAxisTitle,
 }) => {
   const {
     lines,
@@ -108,7 +121,7 @@ export const LineChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings } = theme;
+  const { tooltip: tooltipSettings, axisTitle: axisTitleSettings } = theme;
 
   return (
     <ChartBase
@@ -121,6 +134,9 @@ export const LineChart: FC<Props> = ({
     >
       <Grid xScale={xScale} yScale={yScale} />
       <Axes xScale={xScale} yScale={yScale} />
+      {(xAxisTitle || yAxisTitle) && (
+        <AxisTitle x={xAxisTitle} y={yAxisTitle} {...axisTitleSettings} />
+      )}
       <Lines
         lines={lines}
         marks={marks}

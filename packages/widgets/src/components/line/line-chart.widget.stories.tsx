@@ -4,6 +4,9 @@ import {
   cardKnobs,
   axisXKnobs,
   axisYKnobs,
+  xAxisTitleKnobs,
+  yAxisTitleKnobs,
+  axisTitleThemeKnobs,
   gridKnobs,
   typographyKnobs,
   legendKnobs,
@@ -35,6 +38,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 const formatKnob = text('Date label format', '%d %b', 'Chart');
@@ -75,9 +79,11 @@ export const widget = () => (
       curve={curveKnobs('Chart') as CurveType}
       groupMode={groupModeKnobs('Chart') as GroupMode}
       stackMode={lineStackModeKnobs('Chart') as StackMode}
+      xAxisTitle={xAxisTitleKnobs('Axis Title')}
+      yAxisTitle={yAxisTitleKnobs('Axis Title')}
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 40 },
+        { top: 30, right: 20, bottom: 60, left: 60 },
         'Chart'
       )}
       theme={createThemeKnobs()}

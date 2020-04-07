@@ -4,6 +4,9 @@ import {
   cardKnobs,
   axisXKnobs,
   axisYKnobs,
+  xAxisTitleKnobs,
+  yAxisTitleKnobs,
+  axisTitleThemeKnobs,
   gridKnobs,
   typographyKnobs,
   legendKnobs,
@@ -35,6 +38,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 const formatKnob = text('Date label format', '%d %b', 'Chart');
@@ -70,6 +74,8 @@ export const widget = () => (
         precision: 'month',
         formatLabel: createLabelFormatter(formatKnob),
       }}
+      xAxisTitle={xAxisTitleKnobs('Axis Title')}
+      yAxisTitle={yAxisTitleKnobs('Axis Title')}
       markRadius={number('Marks radius', 4, {}, 'Chart')}
       strokeWidth={number('Line thickness', 2, {}, 'Chart')}
       curve={curveKnobs('Chart') as CurveType}
@@ -78,7 +84,7 @@ export const widget = () => (
       gradient={boolean('Gradient mode', true, 'Chart')}
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 40 },
+        { top: 30, right: 20, bottom: 60, left: 60 },
         'Chart'
       )}
       theme={createThemeKnobs()}

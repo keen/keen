@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { text, object, number, boolean, select } from '@storybook/addon-knobs';
-import { cardKnobs, typographyKnobs } from '@keen.io/storybook-utils';
+import {
+  cardKnobs,
+  typographyKnobs,
+  xAxisTitleKnobs,
+  yAxisTitleKnobs,
+  axisTitleThemeKnobs,
+} from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
 import { colors } from '@keen.io/colors';
@@ -20,6 +26,7 @@ export default {
 
 const createThemeKnobs = () => ({
   ...keenTheme,
+  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 const legendTypography = {
@@ -95,9 +102,11 @@ export const widget = () => (
         { min: 5, max: 40 },
         'Chart'
       )}
+      xAxisTitle={xAxisTitleKnobs('Axis Title')}
+      yAxisTitle={yAxisTitleKnobs('Axis Title')}
       margins={object(
         'Margins',
-        { top: 20, right: 20, bottom: 50, left: 40 },
+        { top: 20, right: 20, bottom: 60, left: 60 },
         'Chart'
       )}
       theme={createThemeKnobs()}

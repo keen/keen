@@ -249,6 +249,13 @@ export const theme: Theme = {
       radiusAngle: 0,
     },
   },
+  axisTitle: {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 14,
+    fontFamily: 'Lato Bold, sans-serif',
+    fontColor: colors.blue['500'],
+  },
   gridX: {
     enabled: true,
     color: colors.gray['400'],

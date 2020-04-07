@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { object, number } from '@storybook/addon-knobs';
 
-import { axisXKnobs, axisYKnobs, gridKnobs } from '@keen.io/storybook-utils';
+import {
+  axisXKnobs,
+  axisYKnobs,
+  gridKnobs,
+  xAxisTitleKnobs,
+  yAxisTitleKnobs,
+  axisTitleThemeKnobs,
+} from '@keen.io/storybook-utils';
 
 import { BubbleChart } from './bubble-chart.component';
 import { chartData } from './bubble-chart.fixtures';
@@ -22,6 +29,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 export const plot = () => (
@@ -44,6 +52,8 @@ export const plot = () => (
         { min: 5, max: 40 },
         'Chart'
       )}
+      xAxisTitle={xAxisTitleKnobs('Axis Title')}
+      yAxisTitle={yAxisTitleKnobs('Axis Title')}
       svgDimensions={object(
         'svg',
         {
@@ -54,7 +64,7 @@ export const plot = () => (
       )}
       margins={object(
         'Margins',
-        { top: 50, right: 20, bottom: 50, left: 40 },
+        { top: 50, right: 20, bottom: 60, left: 60 },
         'Chart'
       )}
       theme={createThemeKnobs()}

@@ -5,6 +5,9 @@ import { timeFormat } from 'd3-time-format';
 import {
   axisXKnobs,
   axisYKnobs,
+  xAxisTitleKnobs,
+  yAxisTitleKnobs,
+  axisTitleThemeKnobs,
   gridKnobs,
   curveKnobs,
   groupModeKnobs,
@@ -32,6 +35,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 export const plot = () => {
@@ -52,6 +56,8 @@ export const plot = () => {
           precision: 'month',
           formatLabel: createLabelFormatter(formatKnob),
         }}
+        xAxisTitle={xAxisTitleKnobs('Axis Title')}
+        yAxisTitle={yAxisTitleKnobs('Axis Title')}
         markRadius={number('Marks radius', 4, {}, 'Chart')}
         strokeWidth={number('Line thickness', 2, {}, 'Chart')}
         curve={curveKnobs('Chart') as CurveType}
@@ -68,7 +74,7 @@ export const plot = () => {
         )}
         margins={object(
           'Margins',
-          { top: 50, right: 30, bottom: 50, left: 40 },
+          { top: 50, right: 30, bottom: 60, left: 60 },
           'Chart'
         )}
         theme={createThemeKnobs()}

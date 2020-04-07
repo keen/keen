@@ -15,7 +15,7 @@ type Props = {
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
 };
 
-const X_AXIS_PADDING = 5;
+export const X_AXIS_PADDING = 5;
 
 const Axes = ({ xScale, yScale }: Props) => {
   const {
