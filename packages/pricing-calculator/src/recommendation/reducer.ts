@@ -2,11 +2,10 @@ import { plansConfig } from '../plans-config';
 
 import { SET_RECOMMENDATION } from '../constants';
 
-import { Plans } from './types';
-import { ActionTypes } from '../types';
+import { PlanId, ActionTypes } from '../types';
 
 type ReducerState = {
-  recommendedPlan: Plans;
+  recommendedPlan: PlanId;
   totalCost: number;
 };
 

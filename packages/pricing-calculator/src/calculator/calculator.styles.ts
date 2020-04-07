@@ -6,6 +6,7 @@ export const Title = styled.div`
   font-family: 'Gangster Grotesk Bold', sans-serif;
   line-height: 24px;
   color: ${colors.black['500']};
+  margin-top: 5px;
 `;
 
 export const Label = styled.div`

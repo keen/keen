@@ -6,17 +6,25 @@ export const Label = styled.div`
   line-height: 19px;
   color: ${colors.black['300']}
   font-family: 'Lato Regular', sans-serif;
-  margin-left: 8px;
+  margin: 0 8px 0 8px;
   cursor: pointer;
 `;
 
-export const Service = styled.div`
+export const TooltipContent = styled.div`
+  max-width: 180px;
+  font-size: 12px;
+  line-height: 15px;
+  color: ${colors.white['500']}
+  font-family: 'Lato Regular', sans-serif;
+`;
+
+export const ServiceWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
 
 export const Contaier = styled.div`
-  ${Service} + ${Service} {
+  ${ServiceWrapper} + ${ServiceWrapper} {
     margin-top: 20px;
   }
 `;

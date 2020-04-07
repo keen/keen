@@ -12,6 +12,7 @@ import {
 import {
   Caret,
   Badge,
+  Button,
   BulletList,
   Group,
   Card,
@@ -28,6 +29,7 @@ import {
 
 export {
   Badge,
+  Button,
   Caret,
   Alignment,
   BulletList,

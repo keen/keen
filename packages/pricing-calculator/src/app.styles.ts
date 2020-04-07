@@ -8,6 +8,7 @@ export const Layout = styled.div`
 
 export const Content = styled.div`
   margin-right: auto;
+  height: 545px;
   flex-grow: 1;
 `;
 
@@ -20,7 +21,8 @@ export const Aside = styled.aside`
 export const OffsetCard = styled.div`
   background: #f5f6f8;
   width: 100%;
-  height: auto;
+  height: 645px;
+  box-sizing: border-box;
   padding: 30px 0 65px 0;
   top: -50px;
   left: 25px;

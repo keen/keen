@@ -1,10 +1,12 @@
 import { all, select, put, takeLatest } from 'redux-saga/effects';
 
 import { plansConfig } from './plans-config';
-import { setRecommendation, getCurrentPlan, Plans } from './recommendation';
+import { setRecommendation, getCurrentPlan } from './recommendation';
 import { getCalculatorState } from './calculator';
 
 import { calculateCost } from './utils';
+
+import { PlanId } from './types';
 
 import {
   UPDATE_EVENTS,
@@ -13,7 +15,7 @@ import {
   PLAN_TOPOLOGY,
 } from './constants';
 
-function* updateRecommendation() {
+export function* updateRecommendation() {
   const state = yield select();
   const currentPlan = getCurrentPlan(state);
   const { events, queries, services } = getCalculatorState(state);
@@ -31,7 +33,7 @@ function* updateRecommendation() {
     return;
   }
 
-  const calculatedPlans = PLAN_TOPOLOGY.map((name: Plans) =>
+  const calculatedPlans = PLAN_TOPOLOGY.map((name: PlanId) =>
     calculateCost({
       planId: name,
       s3Streaming: services.s3Streaming,
@@ -41,13 +43,13 @@ function* updateRecommendation() {
   );
 
   const upgradeIndex = PLAN_TOPOLOGY.indexOf(currentPlan) + 1;
-  const nextPlan = PLAN_TOPOLOGY[upgradeIndex] as Plans;
+  const nextPlan = PLAN_TOPOLOGY[upgradeIndex] as PlanId;
 
   const shouldUpgrade =
     nextPlan && currentCost.total > plansConfig[nextPlan].priceTreshold;
 
   const downgradeIndex = PLAN_TOPOLOGY.indexOf(currentPlan) - 1;
-  const previousPlan = PLAN_TOPOLOGY[downgradeIndex] as Plans;
+  const previousPlan = PLAN_TOPOLOGY[downgradeIndex] as PlanId;
 
   const previousPlanCost = calculatedPlans.find(
     ({ plan }) => plan === previousPlan

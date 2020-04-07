@@ -1,12 +1,11 @@
 import { UPDATE_SERVICE, UPDATE_EVENTS, UPDATE_QUERIES } from '../constants';
 
-import { Services } from './types';
-import { ActionTypes } from '../types';
+import { ServiceId, ActionTypes } from '../types';
 
-export const updateService = (name: Services, state: boolean): ActionTypes => ({
+export const updateService = (id: ServiceId, state: boolean): ActionTypes => ({
   type: UPDATE_SERVICE,
   payload: {
-    name,
+    id,
     state,
   },
 });

@@ -2,13 +2,12 @@ import { plansConfig } from '../plans-config';
 
 import { UPDATE_EVENTS, UPDATE_QUERIES, UPDATE_SERVICE } from '../constants';
 
-import { Services } from './types';
-import { ActionTypes } from '../types';
+import { ServiceId, ActionTypes } from '../types';
 
 export type ReducerState = {
   events: number;
   queries: number;
-  services: Record<Services, boolean>;
+  services: Record<ServiceId, boolean>;
 };
 
 export const initialState: ReducerState = {
@@ -31,7 +30,7 @@ export const calculatorReducer = (
         ...state,
         services: {
           ...state.services,
-          [action.payload.name]: action.payload.state,
+          [action.payload.id]: action.payload.state,
         },
       };
     case UPDATE_QUERIES:

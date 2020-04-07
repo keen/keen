@@ -1,7 +1,6 @@
-import { Plans } from './recommendation';
-import { PlanDetails } from './types';
+import { PlanDetails, PlanId } from './types';
 
-export const plansConfig: Record<Plans, PlanDetails> = {
+export const plansConfig: Record<PlanId, PlanDetails> = {
   team: {
     title: 'Team Plan',
     basePrice: 299,
@@ -10,7 +9,7 @@ export const plansConfig: Record<Plans, PlanDetails> = {
     priceTreshold: 0,
     components: ['25 Access Keys', '5 Cached Queries', '5 Cached Datasets'],
   },
-  bussiness: {
+  business: {
     title: 'Business Plan',
     basePrice: 999,
     events: 5000000,
@@ -24,13 +23,11 @@ export const plansConfig: Record<Plans, PlanDetails> = {
     events: 5000000,
     queries: 5000000,
     priceTreshold: 2000,
-    components: [
-      'Unlimited Access Keys',
-      'Custom number of Cached Queries',
-      'Custom number of Cached Datasets',
-    ],
+    components: ['Tell us what you need'],
   },
 };
+
+export const PLANS_WITHOUT_S3: PlanId[] = ['team'];
 
 export const eventsGroup = {
   price: 1,

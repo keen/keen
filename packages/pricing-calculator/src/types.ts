@@ -6,8 +6,7 @@ import {
   SET_RECOMMENDATION,
 } from './constants';
 
-import { CalculatorState, Services } from './calculator';
-import { Plans } from './recommendation';
+import { CalculatorState } from './calculator';
 
 export type Options = {
   container: HTMLElement | string;
@@ -22,14 +21,24 @@ export type PlanDetails = {
   components: string[];
 };
 
+export type Service = {
+  id: ServiceId;
+  name: string;
+  description: string;
+};
+
 export type PricingPoints = 's3' | 'queries' | 'events';
+
+export type PlanId = 'team' | 'business' | 'custom';
+
+export type ServiceId = 's3Streaming' | 'rbac' | 'customSSL';
 
 /* State */
 
 export type AppState = {
   calculator: CalculatorState;
   recommendation: {
-    recommendedPlan: Plans;
+    recommendedPlan: PlanId;
   };
 };
 
@@ -42,7 +51,7 @@ interface AppStartAction {
 interface UpdateServiceAction {
   type: typeof UPDATE_SERVICE;
   payload: {
-    name: Services;
+    id: ServiceId;
     state: boolean;
   };
 }
@@ -64,7 +73,7 @@ interface UpdateQueriesAction {
 interface SetRecommendationAction {
   type: typeof SET_RECOMMENDATION;
   payload: {
-    plan: Plans;
+    plan: PlanId;
   };
 }
 

@@ -1,11 +1,19 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
+import { Button } from '@keen.io/ui-core';
 
 import { BillingSummary, List, ListTitle, ListItem } from './components';
 import { getCurrentPlan } from './selectors';
 import { getCalculatorState } from '../calculator';
 
-import { Container, Heading, Title } from './recommendation.styles';
+import {
+  Container,
+  PlanComponents,
+  ActionsContainer,
+  Heading,
+  Anchor,
+  Title,
+} from './recommendation.styles';
 
 import { plansConfig } from '../plans-config';
 
@@ -36,12 +44,18 @@ const Recommendation: FC<{}> = () => {
         overageQueriesPrice={overageCost.queries}
         s3ServicePrice={servicesCost.s3}
       />
-      <List type="secondary">
-        <ListTitle>What’s included?</ListTitle>
-        {plansConfig[planId].components.map(component => (
-          <ListItem key={component}>{component}</ListItem>
-        ))}
-      </List>
+      <PlanComponents>
+        <List type="secondary">
+          <ListTitle>What’s included?</ListTitle>
+          {plansConfig[planId].components.map(component => (
+            <ListItem key={component}>{component}</ListItem>
+          ))}
+        </List>
+      </PlanComponents>
+      <ActionsContainer>
+        <Button href="https://try.keen.io/contact">Request a Demo</Button>
+      </ActionsContainer>
+      <Anchor>Plan details »</Anchor>
     </Container>
   );
 };

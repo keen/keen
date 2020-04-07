@@ -7,7 +7,7 @@ export const SET_RECOMMENDATION = 'SET_RECOMMENDATION';
 export const CALCULATOR_REDUCER = 'calculator';
 export const RECOMMENDATION_REDUCER = 'recommendation';
 
-export const PLAN_TOPOLOGY = ['team', 'bussiness', 'custom'];
+export const PLAN_TOPOLOGY = ['team', 'business', 'custom'];
 export const PRICING_POINTS = ['events', 'queries', 's3'];
 
 export const MONTHLY_BILLING = 'mo';

@@ -16,12 +16,16 @@ export const Currency = styled.div`
 `;
 
 export const BillingPeriod = styled.div`
-color: ${colors.white['500']}
-font-size: 24px;
-line-height: 54px;
-opacity: 0.5;
-font-family: 'Gangster Grotesk Bold', sans-serif;
-margin-left: 5px;
+  color: ${colors.white['500']}
+  font-size: 24px;
+  line-height: 54px;
+  opacity: 0.5;
+  font-family: 'Gangster Grotesk Bold', sans-serif;
+  margin-left: 5px;
+`;
+
+export const PricingPoints = styled.div`
+  height: 125px;
 `;
 
 export const Total = styled.div`

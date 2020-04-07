@@ -10,6 +10,7 @@ import {
   Currency,
   BllingMode,
   BillingPeriod,
+  PricingPoints,
   Price,
   Total,
 } from './billing-summary.styles';
@@ -62,29 +63,31 @@ const BillingSummary: FC<Props> = ({
         <Price>{totalPrice}</Price>
         <BillingPeriod>/{MONTHLY_BILLING}</BillingPeriod>
       </Total>
-      <List>
-        <ListTitle>Price Details:</ListTitle>
-        <ListItem>
-          ${planPrice} base of {planName}
-        </ListItem>
-        <AnimatePresence>
-          {overageEventsPrice > 0 && (
-            <ListItem {...priceMotion}>
-              + ${overageEventsPrice} for events overage
-            </ListItem>
-          )}
-          {overageQueriesPrice > 0 && (
-            <ListItem {...priceMotion}>
-              + ${overageQueriesPrice} for queries overage
-            </ListItem>
-          )}
-          {s3ServicePrice > 0 && (
-            <ListItem {...priceMotion}>
-              + ${s3ServicePrice} for S3 Add-on
-            </ListItem>
-          )}
-        </AnimatePresence>
-      </List>
+      <PricingPoints>
+        <List>
+          <ListTitle>Price Details:</ListTitle>
+          <ListItem>
+            ${planPrice} base of {planName}
+          </ListItem>
+          <AnimatePresence>
+            {overageEventsPrice > 0 && (
+              <ListItem {...priceMotion}>
+                + ${overageEventsPrice} for events overage
+              </ListItem>
+            )}
+            {overageQueriesPrice > 0 && (
+              <ListItem {...priceMotion}>
+                + ${overageQueriesPrice} for queries overage
+              </ListItem>
+            )}
+            {s3ServicePrice > 0 && (
+              <ListItem {...priceMotion}>
+                + ${s3ServicePrice} for S3 Add-on
+              </ListItem>
+            )}
+          </AnimatePresence>
+        </List>
+      </PricingPoints>
     </Summary>
   );
 };

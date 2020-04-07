@@ -8,6 +8,22 @@ export const Title = styled.div`
   color: ${colors.green['500']};
 `;
 
+export const Anchor = styled.a`
+  color: ${colors.blue['500']};
+  font-family: 'Lato Bold', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+`;
+
+export const PlanComponents = styled.div`
+  height: 100px;
+`;
+
+export const ActionsContainer = styled.div`
+  margin: 20px 0;
+`;
+
 export const Heading = styled.div`
   margin-bottom: 15px;
   font-size: 16px;

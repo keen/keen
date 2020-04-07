@@ -5,5 +5,9 @@
     "composite": false
   },
   "include": ["./src/**/*"],
-  "references": [{ "path": "../ui-core" }, { "path": "../colors" }]
+  "references": [
+    { "path": "../ui-core" },
+    { "path": "../colors" },
+    { "path": "../icons" }
+  ]
 }

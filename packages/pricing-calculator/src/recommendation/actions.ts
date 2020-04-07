@@ -1,9 +1,8 @@
 import { SET_RECOMMENDATION } from '../constants';
 
-import { Plans } from './types';
-import { ActionTypes } from '../types';
+import { ActionTypes, PlanId } from '../types';
 
-export const setRecommendation = (plan: Plans): ActionTypes => ({
+export const setRecommendation = (plan: PlanId): ActionTypes => ({
   type: SET_RECOMMENDATION,
   payload: {
     plan,

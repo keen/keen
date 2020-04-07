@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Slider } from '@keen.io/ui-core';
 
 import { ServicesList } from './components';
@@ -11,12 +11,12 @@ import {
   ServicesSection,
 } from './calculator.styles';
 
+import { servicesConfig } from '../services-config';
+
 import { updateService, updateQueries, updateEvents } from './actions';
-import { getCalculatorState } from './selectors';
 
 const Calculator: FC<{}> = () => {
   const dispatch = useDispatch();
-  const { services } = useSelector(getCalculatorState);
 
   return (
     <>
@@ -48,7 +48,7 @@ const Calculator: FC<{}> = () => {
       <Title>Additional services</Title>
       <ServicesSection>
         <ServicesList
-          services={services}
+          services={servicesConfig}
           onChange={([service, state]) =>
             dispatch(updateService(service, state))
           }
