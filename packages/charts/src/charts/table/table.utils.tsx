@@ -1,6 +1,7 @@
 import { SortByType } from '@keen.io/ui-core';
-import { FormatTypeObject, ValueFormatter } from '../../types';
+import { FormatType, FormatTypeObject, ValueFormatter } from './types';
 import { isObject } from 'util';
+import { HeaderCeilType } from './types';
 
 export const firstCapital = (str: string) => {
   return str.replace(/^\w/, (c: string) => c.toUpperCase());
@@ -29,10 +30,12 @@ export const generateHeader = (
   data: Record<string, any>,
   format: FormatTypeObject
 ) => {
-  const header: any = [];
+  const header = [] as HeaderCeilType[];
   Object.keys(data).map((key: string) => {
     const formatFunc =
-      isObject(format) && format[key] ? format[key] : firstCapital;
+      isObject(format) && format[key]
+        ? format[key]
+        : (firstCapital as FormatType);
     header.push({
       key: key,
       value: formatFunc(key),
@@ -45,19 +48,20 @@ export const generateTable = (
   data: Record<string, any>[],
   format: ValueFormatter
 ) =>
-  data.map((el: any) => {
-    let table = {};
+  data.map((el: Record<string, any>) => {
+    let table = {} as Record<string, any>;
     Object.keys(el).map((key: string) => {
       if (isObject(format)) {
-        const formatFunc = format[key] && format[key];
+        const formatObj = format && (format as FormatTypeObject);
+        const formatFunc = formatObj[key] && (formatObj[key] as FormatType);
         return (table = {
           ...table,
-          [key]: format[key] ? formatFunc(el[key]) : el[key],
+          [key]: formatFunc ? formatFunc(el[key]) : el[key],
         });
       }
       return (table = {
         ...table,
-        [key]: typeof format === 'function' && format(el[key]),
+        [key]: format instanceof Function && format(el[key]),
       });
     });
     return table;

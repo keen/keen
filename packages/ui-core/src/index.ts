@@ -31,6 +31,9 @@ import {
   HeaderCeil,
   SortArrows,
   RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 } from './components';
 
 export {
@@ -63,4 +66,7 @@ export {
   SortMode,
   SortByType,
   RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 };

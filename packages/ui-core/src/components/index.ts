@@ -10,7 +10,15 @@ import Card, { CardSettings } from './card';
 import Slider from './slider';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
-import { Ceil, HeaderCeil, SortArrows, RESIZE_ELEMENT_WIDTH } from './table';
+import {
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
+} from './table';
 
 export {
   Badge,
@@ -31,4 +39,7 @@ export {
   HeaderCeil,
   SortArrows,
   RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 };

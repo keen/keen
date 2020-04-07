@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { StyledCeil } from './table.styles';
+import { StyledCeil, TableCell } from './table.styles';
 import { CeilType } from '../../types';
 import Tooltip from '../tooltip';
 
@@ -56,15 +56,11 @@ export const Ceil = ({
           )}
         </AnimatePresence>
       </StyledCeil>
-      <div
+      <TableCell
         onClick={() => {
           toogleTooltip();
         }}
-        className="tableCell"
-        style={{
-          display: 'table-cell',
-        }}
-      ></div>
+      />
     </>
   );
 };

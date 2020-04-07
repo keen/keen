@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { HeaderCeil, SortMode, SortByType, Typography } from '@keen.io/ui-core';
+import { HeaderCeilType } from './types';
 import { Header } from './table.styles';
 
 type Props = {
-  data: string[];
+  data: HeaderCeilType[];
   color: string;
   onClick?: (res: { property: string; sort: SortMode }) => void;
   sorting?: SortByType;
@@ -23,7 +24,7 @@ export const HeaderRow = ({
 
   return (
     <Header color={color} typography={typography}>
-      {data.map((item: any) => (
+      {data.map((item: HeaderCeilType) => (
         <HeaderCeil
           key={`${item.key}`}
           onClick={onClick}

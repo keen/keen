@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sticky, StyledHeaderCeil, Container } from './table.styles';
+import { Sticky, StyledHeaderCeil, Container, DragLine } from './table.styles';
 import SortArrows from './sort-arrows.component';
-import { SortMode, SortByType } from '../../types';
+import { SortMode, SortByType, CeilType } from '../../types';
 import { RESIZE_ELEMENT_WIDTH } from './constants';
 
 type Props = {
-  value?: string;
+  value?: CeilType;
   property: string;
   onClick?: (res: { property: string; sort: SortMode }) => void;
   onResize?: (res: { property: string; width: number }) => void;
@@ -39,7 +39,7 @@ export const HeaderCeil = ({
   const isSorting = sorting && sorting.property === property;
   return (
     <>
-      <Sticky className="sticky">
+      <Sticky>
         <StyledHeaderCeil
           ref={ref}
           width={width + resize}
@@ -103,10 +103,9 @@ export const HeaderCeil = ({
               ...state,
               dragLine: false,
             });
-            onResize({ property: value, width: width + resize });
+            onResize({ property, width: width + resize });
             setDragged(false);
           }}
-          className="drag"
           style={{
             position: 'absolute',
             top: 0,
@@ -114,9 +113,11 @@ export const HeaderCeil = ({
             height: '100%',
             cursor: 'ew-resize',
             boxSizing: 'border-box',
+            width: RESIZE_ELEMENT_WIDTH,
+            background: 'inherit',
           }}
         >
-          {dragLine && <div className="dragLine" />}
+          {dragLine && <DragLine />}
         </motion.div>
       </Sticky>
       <div

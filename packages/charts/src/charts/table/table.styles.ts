@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { RESIZE_ELEMENT_WIDTH, Typography } from '@keen.io/ui-core';
+import { Typography } from '@keen.io/ui-core';
 import { rgba } from 'polished';
+import { Sticky, DragLine, TableCell } from '@keen.io/ui-core';
 
 export const TableContainer = styled.div`
   height: 100%;
@@ -23,13 +24,9 @@ export const Header = styled.div<{
   color: ${props => props.typography.fontColor};
 
   display: table-row;
+  background: ${props => props.color};
 
-  & .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background: ${props => props.color};
-    z-index: 1;
+  ${Sticky} {
     padding: 20px 20px 20px 15px;
     margin-left: 5px;
 
@@ -37,23 +34,10 @@ export const Header = styled.div<{
       margin-left: 0;
     }
 
-    & .drag {
-      width: ${RESIZE_ELEMENT_WIDTH}px;
-      background: ${props => props.color};
-
-      & .dragLine {
-        width: 3px;
-        height: 100%;
-        position: absolute;
-        left: 5px;
-        background: rgba(205, 207, 211, 0.3);
-      }
-    }
-
     &:nth-last-child(-n + 3) {
       margin-right: 7px;
 
-      & .dragLine {
+      ${DragLine} {
         display: none;
       }
     }
@@ -82,20 +66,20 @@ export const StripedTable = styled.div<{
     border-left: 8px solid ${props => props.color};
     box-shadow: 0 10px 24px rgba(29, 39, 41, 0.15);
 
-    & .tableCell {
+    ${TableCell} {
       border-right: 1px solid #cdcfd3;
     }
 
-    & .tableCell:last-child {
+    ${TableCell}:last-child {
       border-right: 0;
     }
   }
 
-  & .tableCell {
+  ${TableCell} {
     border-right: 1px solid #f2f2f2;
   }
 
-  & .tableCell:last-child {
+  ${TableCell}:last-child {
     border-right: 0;
   }
 `;

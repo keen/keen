@@ -3,7 +3,7 @@ import HeaderRow from './header-row.component';
 import Row from './row.component';
 import { TableContainer, StyledTable } from './table.styles';
 import { sortData } from './table.utils';
-import { FormatTypeObject, ValueFormatter } from '../../types';
+import { FormatTypeObject, ValueFormatter } from './types';
 import { generateHeader, generateTable } from './table.utils';
 
 import { theme as defaultTheme } from '../../theme';

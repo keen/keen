@@ -4,6 +4,11 @@ export const Sticky = styled.div`
   display: flex;
   flex-direction: row;
   padding: 20px;
+  background: inherit;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;
 
 export const StyledHeaderCeil = styled.div<{
@@ -46,4 +51,16 @@ export const DownArrow = styled.div<{
   position: relative;
   top: 5px;
   left: -1px;
+`;
+
+export const DragLine = styled.div`
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 5px;
+  background: rgba(205, 207, 211, 0.3);
+`;
+
+export const TableCell = styled.div`
+  display: table-cell;
 `;

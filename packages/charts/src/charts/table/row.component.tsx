@@ -4,7 +4,7 @@ import { StripedTable } from './table.styles';
 import { copyToClipboard } from './table.utils';
 
 type Props = {
-  data?: any;
+  data?: Record<string, any>;
   color: string;
   typography: Typography;
 };
@@ -12,7 +12,7 @@ type Props = {
 export const Row = ({ data, color, typography }: Props) => {
   return (
     <StripedTable color={color} typography={typography}>
-      {Object.keys(data).map(key => (
+      {Object.keys(data).map((key: string) => (
         <Ceil key={`${key}`} onClick={copyToClipboard} value={data[key]} />
       ))}
     </StripedTable>

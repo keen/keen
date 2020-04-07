@@ -25,7 +25,6 @@ export const Plot = () => {
         data={data}
         color={color('Main color', '#27566d', 'Chart')}
         onResize={action('onResize')}
-        formatValue={e => e + 'asd'}
       />
     </Container>
   );
