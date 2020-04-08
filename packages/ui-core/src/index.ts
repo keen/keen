@@ -1,4 +1,4 @@
-import { Title, Text, RefText } from './typography';
+import { FontLoader, Title, Text, RefText } from './typography';
 
 import {
   Typography,
@@ -12,6 +12,7 @@ import {
 import {
   Caret,
   Badge,
+  Button,
   BulletList,
   Group,
   Card,
@@ -22,11 +23,13 @@ import {
   TooltipMode,
   Slider,
   ColorScale,
+  Toggle,
   ARROW_SIZE,
 } from './components';
 
 export {
   Badge,
+  Button,
   Caret,
   Alignment,
   BulletList,
@@ -39,6 +42,7 @@ export {
   Group,
   Loader,
   Typography,
+  FontLoader,
   Tooltip,
   TooltipMode,
   ARROW_SIZE,
@@ -48,4 +52,5 @@ export {
   Slider,
   ColorScale,
   RangeType,
+  Toggle,
 };

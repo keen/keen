@@ -19,7 +19,10 @@ import {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  GaugeChart,
+  GaugeChartSettings,
   fetchMapTopology,
+  sortAreaKeys,
 } from './charts';
 
 import {
@@ -43,6 +46,8 @@ export {
   BubbleChartSettings,
   ChoroplethChart,
   ChoroplethChartSettings,
+  GaugeChart,
+  GaugeChartSettings,
   LineChart,
   LineChartSettings,
   AreaChart,
@@ -62,6 +67,7 @@ export {
   LegendBase,
   BubbleLegend,
   fetchMapTopology,
+  sortAreaKeys,
   theme,
   margins,
 };

@@ -1,5 +1,5 @@
 import { BarChart, BarChartSettings } from './bar';
-import { LineChart, LineChartSettings } from './line';
+import { LineChart, LineChartSettings, sortAreaKeys } from './line';
 import { AreaChart, AreaChartSettings } from './area';
 import { PieChart, PieChartSettings } from './pie';
 import { DonutChart, DonutChartSettings } from './donut';
@@ -7,6 +7,7 @@ import { MetricChart, MetricChartSettings } from './metric';
 import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
 import { BubbleChart, BubbleChartSettings } from './bubble';
+import { GaugeChart, GaugeChartSettings } from './gauge';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
@@ -24,6 +25,8 @@ export {
   BubbleChartSettings,
   ChoroplethChart,
   ChoroplethChartSettings,
+  GaugeChart,
+  GaugeChartSettings,
   PieChart,
   PieChartSettings,
   DonutChart,
@@ -35,4 +38,5 @@ export {
   HeatmapChart,
   HeatmapChartSettings,
   fetchMapTopology,
+  sortAreaKeys,
 };

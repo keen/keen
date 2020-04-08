@@ -1,5 +1,6 @@
 import Title from './title.component';
 import Text from './text.component';
 import RefText from './ref-text.component';
+import FontLoader from './font-loader';
 
-export { Title, Text, RefText };
+export { FontLoader, Title, Text, RefText };

@@ -8,6 +8,7 @@ import {
   HeatmapChartSettings,
   ChoroplethChartSettings,
   BubbleChartSettings,
+  GaugeChartSettings,
 } from '@keen.io/charts';
 import { Query, Step, AnalysisResult } from '@keen.io/parser';
 import { CardSettings } from '@keen.io/ui-core';
@@ -32,6 +33,7 @@ export type VisualizerWidgetSettings = {
 export type ComponentSettings =
   | BarChartSettings
   | LineChartSettings
+  | GaugeChartSettings
   | PieChartSettings
   | DonutChartSettings
   | MetricChartSettings

@@ -11,6 +11,7 @@ import {
   BubbleChartWidget,
   bubbleWidgetSettings,
   ChoroplethChartWidget,
+  GaugeChartWidget,
   choroplethWidgetSettings,
   metricWidgetSettings,
 } from './components';
@@ -25,6 +26,7 @@ export {
   ChoroplethChartWidget,
   FunnelChartWidget,
   LineChartWidget,
+  GaugeChartWidget,
   AreaChartWidget,
   PieChartWidget,
   DonutChartWidget,

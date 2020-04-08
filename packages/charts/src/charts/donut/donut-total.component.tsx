@@ -1,43 +1,47 @@
 import React, { FC, memo } from 'react';
 
 import { Typography } from '@keen.io/ui-core';
-import { colors } from '@keen.io/colors';
 
 type Props = {
   children: string | number;
-} & Typography;
+  total: {
+    label: Typography;
+    value: Typography;
+  };
+};
 
-const DonutTotal: FC<Props> = memo(({ children, ...typography }) => {
-  const { fontColor, ...rest } = typography;
-  const { fontSize, fontFamily } = rest;
-  const totalLabelSize = 14;
+const DonutTotal: FC<Props> = memo(({ children, total }) => {
+  const { label, value } = total;
+  const { fontColor: labelColor, ...labelTypography } = label;
+  const { fontColor: valueColor, ...valueTypography } = value;
   return (
-    <>
-      <text
-        dx="0"
-        dy="0"
-        pointerEvents="none"
+    <text
+      y={`-${label.fontSize / 2}`}
+      pointerEvents="none"
+      style={{
+        textAnchor: 'middle',
+        dominantBaseline: 'middle',
+      }}
+    >
+      <tspan
         style={{
-          textAnchor: 'middle',
-          dominantBaseline: 'middle',
-          fill: fontColor,
-          ...rest,
+          fill: valueColor,
+          ...valueTypography,
         }}
       >
         {children}
-      </text>
-      <text
+      </tspan>
+      <tspan
+        x="0"
+        dy={label.fontSize + value.fontSize / 2}
         style={{
-          fontFamily,
-          fontSize: totalLabelSize,
-          fill: colors.black['300'],
-          textAnchor: 'middle',
+          fill: labelColor,
+          ...labelTypography,
         }}
-        dy={totalLabelSize + fontSize / 2}
       >
         Total
-      </text>
-    </>
+      </tspan>
+    </text>
   );
 });
 
