@@ -7,6 +7,9 @@ import {
   Layout,
   ColorMode,
   RangeType,
+  CeilType,
+  SortMode,
+  SortByType,
 } from './types';
 
 import {
@@ -25,6 +28,13 @@ import {
   ColorScale,
   Toggle,
   ARROW_SIZE,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 } from './components';
 
 export {
@@ -53,4 +63,14 @@ export {
   ColorScale,
   RangeType,
   Toggle,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  CeilType,
+  SortMode,
+  SortByType,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 };

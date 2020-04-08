@@ -19,3 +19,12 @@ export type RangeType = {
   min?: number;
   max?: number;
 };
+
+export type CeilType = string | number | Date;
+
+export type SortMode = 'ascending' | 'descending';
+
+export type SortByType = {
+  property: string;
+  sort: SortMode;
+};
