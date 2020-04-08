@@ -27,7 +27,7 @@ const Calculator: FC<{}> = () => {
 
   const tooltip = {
     enabled: true,
-    position: 'top' as Position,
+    position: device === 'desktop' ? 'top' : ('right' as Position),
   };
 
   return (
