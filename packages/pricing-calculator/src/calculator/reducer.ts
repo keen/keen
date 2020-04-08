@@ -1,16 +1,18 @@
-type ReducerState = {
+import { plansConfig } from '../plans-config';
+
+import { UPDATE_EVENTS, UPDATE_QUERIES, UPDATE_SERVICE } from '../constants';
+
+import { ServiceId, ActionTypes } from '../types';
+
+export type ReducerState = {
   events: number;
   queries: number;
-  services: {
-    s3Streaming: boolean;
-    rbac: boolean;
-    customSSL: boolean;
-  };
+  services: Record<ServiceId, boolean>;
 };
 
-const initialState: ReducerState = {
-  events: 0,
-  queries: 0,
+export const initialState: ReducerState = {
+  events: plansConfig.team.events,
+  queries: plansConfig.team.queries,
   services: {
     s3Streaming: false,
     rbac: false,
@@ -18,4 +20,30 @@ const initialState: ReducerState = {
   },
 };
 
-export const calculatorReducer = (state: ReducerState = initialState) => state;
+export const calculatorReducer = (
+  state: ReducerState = initialState,
+  action: ActionTypes
+) => {
+  switch (action.type) {
+    case UPDATE_SERVICE:
+      return {
+        ...state,
+        services: {
+          ...state.services,
+          [action.payload.id]: action.payload.state,
+        },
+      };
+    case UPDATE_QUERIES:
+      return {
+        ...state,
+        queries: action.payload.amount,
+      };
+    case UPDATE_EVENTS:
+      return {
+        ...state,
+        events: action.payload.amount,
+      };
+    default:
+      return state;
+  }
+};

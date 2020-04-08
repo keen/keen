@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should apply styles for button with type "primary" 1`] = `
+.c0 {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Lato Bold',sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 22.5px;
+  padding: 0 25px;
+  height: 42px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  background-color: #F0AB30;
+  border-color: #F0AB30;
+  color: #27566D;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 0.2rem rgba(218,165,80,.5);
+}
+
+.c0:hover {
+  color: #273437;
+  background-color: #E29B1E;
+}
+
+<Component
+  type="primary"
+>
+  <styled.button
+    isDisabled={false}
+    onClick={[Function]}
+    variant="primary"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "c0",
+            "rules": Array [
+              "
+  ",
+              "
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Lato Bold', sans-serif;
+  text-decoration: none;
+
+  border-radius: 22.5px;
+  padding: 0 25px;
+  height: 42px;
+
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+",
+              "
+  ",
+              [Function],
+              "
+",
+            ],
+          },
+          "displayName": "styled.button",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "button",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      isDisabled={false}
+      onClick={[Function]}
+      variant="primary"
+    >
+      <button
+        className="c0"
+        onClick={[Function]}
+      >
+        <span>
+          Sign up
+        </span>
+      </button>
+    </StyledComponent>
+  </styled.button>
+</Component>
+`;

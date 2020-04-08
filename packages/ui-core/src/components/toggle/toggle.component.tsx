@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useCallback } from 'react';
 import { colors } from '@keen.io/colors';
 
 import {
@@ -16,16 +16,7 @@ type Props = {
 };
 
 const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
-  const [state, setState] = useState(isOn);
-  useEffect(() => {
-    if (onChange) {
-      onChange(state);
-    }
-  }, [state]);
-
-  const onClick = () => {
-    setState(!state);
-  };
+  const onClick = useCallback(() => onChange(!isOn), [isOn]);
 
   const switcherVariants = {
     on: { x: 38 },
@@ -63,23 +54,23 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
       <Track>
         <TrackMotion
           variants={trackVariants}
-          initial={state ? 'on' : 'off'}
-          animate={state ? 'on' : 'off'}
+          initial={isOn ? 'on' : 'off'}
+          animate={isOn ? 'on' : 'off'}
           transition={switcherTransition}
         />
       </Track>
       <LabelMotion
         variants={labelVariants}
-        initial={state ? 'on' : 'off'}
-        animate={state ? 'on' : 'off'}
+        initial={isOn ? 'on' : 'off'}
+        animate={isOn ? 'on' : 'off'}
         transition={labelTransition}
       >
-        {state ? 'on' : 'off'}
+        {isOn ? 'on' : 'off'}
       </LabelMotion>
       <SwitcherMotion
         variants={switcherVariants}
-        initial={state ? 'on' : 'off'}
-        animate={state ? 'on' : 'off'}
+        initial={isOn ? 'on' : 'off'}
+        animate={isOn ? 'on' : 'off'}
         transition={switcherTransition}
       />
     </ToggleWrapper>

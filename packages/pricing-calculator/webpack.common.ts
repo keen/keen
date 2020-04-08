@@ -1,3 +1,8 @@
+/* @FIXME: https://github.com/jantimon/html-webpack-plugin/issues/1383 */
+
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
 export default {
   entry: {
     main: './src/index.tsx',
@@ -19,4 +24,9 @@ export default {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'index.html'),
+    }) as any,
+  ],
 };

@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 
 import App from './app.component';
+import { appStart } from './actions';
 
 import { createStore } from './create-store';
 import { createRootReducer } from './reducer';
+import { rootSaga } from './saga';
 
 import { Options } from './types';
 
@@ -24,7 +27,12 @@ class PricingCalculator {
         : document.querySelector(this.container);
 
     const reducer = createRootReducer();
-    const store = createStore(reducer, []);
+    const sagaMiddleware = createSagaMiddleware();
+
+    const store = createStore(reducer, [sagaMiddleware]);
+
+    sagaMiddleware.run(rootSaga);
+    store.dispatch(appStart());
 
     ReactDOM.render(
       <Provider store={store}>
