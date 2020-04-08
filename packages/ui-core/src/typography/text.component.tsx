@@ -8,7 +8,7 @@ type Props = {
   truncate?: boolean;
 } & Typography;
 
-const BaseText = styled.div<Props>`
+export const BaseText = styled.div<Props>`
   ${typography}
   color: ${props => props.fontColor};
 

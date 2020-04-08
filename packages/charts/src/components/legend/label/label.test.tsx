@@ -26,7 +26,6 @@ describe('@keen.io/charts - <LegendLabel />', () => {
     const wrapper = mount(
       <Label {...props} truncate={10} text={text} onClick={mockFn} />
     );
-
     expect(wrapper.find('Text').text()).toEqual('Lorem ipsu...');
   });
 

@@ -5,7 +5,7 @@ Array [
   Object {
     "color": "green",
     "key": "Google-2",
-    "radius": 20,
+    "radius": 40,
     "selector": Array [
       2,
     ],
@@ -15,7 +15,7 @@ Array [
   Object {
     "color": "blue",
     "key": "Facebook-0",
-    "radius": 17.82857142857143,
+    "radius": 36,
     "selector": Array [
       0,
     ],
@@ -25,7 +25,7 @@ Array [
   Object {
     "color": "yellow",
     "key": "Linkedin-1",
-    "radius": 12.4,
+    "radius": 26,
     "selector": Array [
       1,
     ],
@@ -35,7 +35,7 @@ Array [
   Object {
     "color": "orange",
     "key": "Youtube-3",
-    "radius": 9.142857142857142,
+    "radius": 20,
     "selector": Array [
       3,
     ],

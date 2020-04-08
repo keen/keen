@@ -25,7 +25,12 @@ import {
   sortAreaKeys,
 } from './charts';
 
-import { ResponsiveWrapper, LegendBase, SeriesLegend } from './components';
+import {
+  ResponsiveWrapper,
+  LegendBase,
+  SeriesLegend,
+  BubbleLegend,
+} from './components';
 
 import { theme, margins } from './theme';
 
@@ -60,6 +65,7 @@ export {
   ResponsiveWrapper,
   SeriesLegend,
   LegendBase,
+  BubbleLegend,
   fetchMapTopology,
   sortAreaKeys,
   theme,
