@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from '@keen.io/colors';
 
 export const Title = styled.div`
@@ -17,9 +17,46 @@ export const Label = styled.div`
   color: ${colors.black['300']};
 `;
 
-export const SliderWrapper = styled.div`
+export const SliderContainer = styled.div`
+  width: 100%;
+`;
+
+export const Wrapper = styled.div<{
+  layout: 'column' | 'row';
+}>`
   display: flex;
-  height: 80px;
+
+  ${props =>
+    props.layout === 'column' &&
+    css`
+      flex-direction: column;
+      height: 90px;
+
+      & + & {
+        margin-top: 20px;
+      }
+
+      ${Label} {
+        margin-bottom: 25px;
+      }
+    `}
+
+  ${props =>
+    props.layout === 'row' &&
+    css`
+      flex-direction: row;
+      height: 120px;
+
+      &:nth-child(1) {
+        margin-top: 70px;
+      }
+
+      ${SliderContainer} {
+        box-sizing: border-box;
+        padding: 0 10px;
+        margin-top: 5px;
+      }
+    `}
 `;
 
 export const ComputeSection = styled.div`
