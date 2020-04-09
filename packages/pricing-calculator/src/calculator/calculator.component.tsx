@@ -1,49 +1,69 @@
 import React, { FC } from 'react';
-import { useDispatch } from 'react-redux';
-import { Slider } from '@keen.io/ui-core';
+import { useDispatch, useSelector } from 'react-redux';
+import { colors } from '@keen.io/colors';
+import { Slider, Position } from '@keen.io/ui-core';
 
 import { ServicesList } from './components';
 import {
   Title,
   Label,
-  SliderWrapper,
+  Wrapper,
+  SliderContainer,
   ComputeSection,
   ServicesSection,
 } from './calculator.styles';
 
+import { getDevice } from '../app';
 import { servicesConfig } from '../services-config';
 
 import { updateService, updateQueries, updateEvents } from './actions';
 
 const Calculator: FC<{}> = () => {
   const dispatch = useDispatch();
+  const device = useSelector(getDevice);
+
+  const sliderLayout = device === 'desktop' ? 'row' : 'column';
+  const sliderColors = Object.values(colors.green);
+
+  const tooltip = {
+    enabled: true,
+    position: device === 'desktop' ? 'top' : ('right' as Position),
+  };
 
   return (
     <>
       <Title>Estimated usage per month</Title>
       <ComputeSection>
-        <SliderWrapper>
+        <Wrapper layout={sliderLayout}>
           <Label>Events</Label>
-          <Slider
-            onChange={(events: number) => {
-              dispatch(updateEvents(events));
-            }}
-            min={0}
-            max={1000000}
-            colors={['green', 'blue']}
-          />
-        </SliderWrapper>
-        <SliderWrapper>
+          <SliderContainer>
+            <Slider
+              onChange={(events: number) => {
+                dispatch(updateEvents(events));
+              }}
+              tooltip={tooltip}
+              min={0}
+              max={1000000}
+              size={6}
+              colors={sliderColors}
+            />
+          </SliderContainer>
+        </Wrapper>
+        <Wrapper layout={sliderLayout}>
           <Label>Queries</Label>
-          <Slider
-            onChange={(queries: number) => {
-              dispatch(updateQueries(queries));
-            }}
-            min={0}
-            max={60000}
-            colors={['green', 'blue']}
-          />
-        </SliderWrapper>
+          <SliderContainer>
+            <Slider
+              onChange={(queries: number) => {
+                dispatch(updateQueries(queries));
+              }}
+              tooltip={tooltip}
+              min={0}
+              max={60000}
+              size={6}
+              colors={sliderColors}
+            />
+          </SliderContainer>
+        </Wrapper>
       </ComputeSection>
       <Title>Additional services</Title>
       <ServicesSection>

@@ -4,7 +4,7 @@ import { SET_RECOMMENDATION } from '../constants';
 
 import { PlanId, ActionTypes } from '../types';
 
-type ReducerState = {
+export type ReducerState = {
   recommendedPlan: PlanId;
   totalCost: number;
 };

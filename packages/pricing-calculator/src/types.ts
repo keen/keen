@@ -2,10 +2,13 @@ import {
   APP_START,
   UPDATE_SERVICE,
   UPDATE_EVENTS,
+  SET_DEVICE,
   UPDATE_QUERIES,
   SET_RECOMMENDATION,
 } from './constants';
 
+import { AppReducerState } from './app';
+import { RecomendationState } from './recommendation';
 import { CalculatorState } from './calculator';
 
 export type Options = {
@@ -27,6 +30,8 @@ export type Service = {
   description: string;
 };
 
+export type Device = 'mobile' | 'desktop';
+
 export type PricingPoints = 's3' | 'queries' | 'events';
 
 export type PlanId = 'team' | 'business' | 'custom';
@@ -36,10 +41,9 @@ export type ServiceId = 's3Streaming' | 'rbac' | 'customSSL';
 /* State */
 
 export type AppState = {
+  app: AppReducerState;
   calculator: CalculatorState;
-  recommendation: {
-    recommendedPlan: PlanId;
-  };
+  recommendation: RecomendationState;
 };
 
 /* Actions */
@@ -77,9 +81,17 @@ interface SetRecommendationAction {
   };
 }
 
+interface SetDeviceAction {
+  type: typeof SET_DEVICE;
+  payload: {
+    device: Device;
+  };
+}
+
 export type ActionTypes =
   | AppStartAction
   | UpdateServiceAction
   | UpdateEventsAction
   | UpdateQueriesAction
+  | SetDeviceAction
   | SetRecommendationAction;
