@@ -15,18 +15,6 @@ const yAxisTitleAlignment = {
   bottom: 'bottom',
 };
 
-// export const axisTitleKnobs = (namespace: string) => ({
-//   x: {
-//     value: text('Horizontal Title', 'Axis Title', namespace),
-//     alignment: select('Horizontal Alignment', xAxisTitleAlignment, xAxisTitleAlignment.center, namespace)
-//   },
-//   y: {
-//     value: text('Vertical Title', 'Axis Title', namespace),
-//     alignment: select('Vertical Alignment', yAxisTitleAlignment, yAxisTitleAlignment.center, namespace),
-//   },
-//   ...typographyKnobs(namespace, { fontSize: 14 })
-// });
-
 export const xAxisTitleKnobs = (namespace: string) => ({
   value: text('Horizontal Title', 'Axis Title', namespace),
   alignment: select(
