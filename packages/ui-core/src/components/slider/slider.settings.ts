@@ -10,7 +10,7 @@ export const sliderControlSettings: ControlSettings = {
 };
 
 export const tooltipTypography: Typography = {
-  fontSize: 10,
+  fontSize: 12,
   fontFamily: 'Lato Regular, sans-serif',
   fontWeight: 'normal',
   fontStyle: 'normal',

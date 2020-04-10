@@ -1,6 +1,5 @@
 import Slider from './slider.component';
-
-import IntervalSlider from './interval';
+import IntervalSlider from './interval-slider.component';
 
 export { IntervalSlider };
 

@@ -1,39 +1,49 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import Control from './control.component';
-import Mark from './mark.component';
+import Control from './control';
+import OffRange from './off-range';
+import Rail from './rail';
+import Mark from './mark';
 
-import { sliderControlSettings, tooltipTypography } from '../slider.settings';
+import { sliderControlSettings, tooltipTypography } from './slider.settings';
 
-import Rail from '../rail.component';
-import TooltipPosition from '../tooltip-position.component';
-import { calculateIntervalValue, arrowReverse } from '../utils';
+import TooltipPosition from './tooltip-position.component';
+import { calculateIntervalValue, arrowReverse } from './utils';
 
-import Tooltip from '../../tooltip';
-import { Text } from '../../../typography';
+import Tooltip from '../tooltip';
+import { Text } from '../../typography';
 
-import { ControlSettings, Interval } from '../types';
-import { Position, Typography } from '../../../types';
+import { ControlSettings, RailSettings, Interval } from './types';
+import { Position, Typography } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
+  animate: { opacity: 1 },
+  initial: { opacity: 0 },
   exit: { opacity: 0 },
 };
 
 type Props = {
+  /** Collection of intervals */
   intervals: Interval[];
+  /** Slider value change handler */
   onChange?: (value: number) => void;
+  /** Drag control settings  */
+  controlSettings?: ControlSettings;
+  /** Tooltip settings  */
   tooltipSettings?: {
     enabled: boolean;
     position: Position;
     typography?: Typography;
     renderText?: (value: number) => React.ReactNode;
   };
+  /** Rail settings  */
+  railSettings?: RailSettings;
+  /** Colors applied to rail container  */
   colors: string[];
+  /** Number of colors steps */
   colorSteps?: number;
-  controlSettings?: ControlSettings;
-  size?: number;
 };
 
 export const IntervalSlider: FC<Props> = ({
@@ -47,13 +57,22 @@ export const IntervalSlider: FC<Props> = ({
     typography: undefined,
   },
   controlSettings = sliderControlSettings,
-  size = 4,
+  railSettings = { size: 4, borderRadius: 3 },
 }) => {
   const slider = useRef(null);
 
   const [dimension, setDimension] = useState(0);
   const [value, setValue] = useState(0);
   const [intervalIndex, setIntervalIndex] = useState(0);
+
+  const [drag, setDrag] = useState<{
+    active: boolean;
+    position: number;
+  }>({
+    active: false,
+    position: 0,
+  });
+  const [controlActive, setControl] = useState(false);
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     x: number;
@@ -65,9 +84,25 @@ export const IntervalSlider: FC<Props> = ({
     setDimension(width);
   }, [slider.current]);
 
-  const stepDimension = dimension / intervals.length;
+  const showTooltip = useCallback(() => {
+    if (tooltipSettings.enabled) {
+      setTooltip(state => ({
+        ...state,
+        visible: true,
+      }));
+    }
+  }, [tooltipSettings.enabled]);
 
-  console.log(tooltipSettings, 'sa');
+  const hideTooltip = useCallback(() => {
+    if (tooltipSettings.enabled) {
+      setTooltip(state => ({
+        ...state,
+        visible: false,
+      }));
+    }
+  }, [tooltipSettings.enabled]);
+
+  const stepDimension = dimension / intervals.length;
 
   return (
     <div
@@ -76,22 +111,32 @@ export const IntervalSlider: FC<Props> = ({
     >
       <Rail
         type="horizontal"
-        size={size}
+        size={railSettings.size}
+        borderRadius={railSettings.borderRadius}
         colors={colors}
         colorSteps={colorSteps}
       />
+      <OffRange
+        size={railSettings.size}
+        borderRadius={railSettings.borderRadius}
+        position={drag.position}
+      />
       <Control
         onDragStart={() => {
-          if (tooltipSettings.enabled) {
-            setTooltip(state => ({ ...state, visible: true }));
-          }
+          setDrag(state => ({
+            ...state,
+            active: true,
+          }));
+          showTooltip();
         }}
         onDragEnd={() => {
-          if (tooltipSettings.enabled) {
-            setTooltip(state => ({ ...state, visible: false }));
-          }
+          setDrag(state => ({
+            ...state,
+            active: false,
+          }));
+          if (!controlActive) hideTooltip();
         }}
-        onDrag={(_e, dragInfo) => {
+        onDrag={(_event, dragInfo) => {
           const {
             point: { x },
           } = dragInfo;
@@ -111,6 +156,10 @@ export const IntervalSlider: FC<Props> = ({
           });
 
           setValue(value);
+          setDrag(state => ({
+            ...state,
+            position: x,
+          }));
           onChange && onChange(value);
           if (tooltipSettings.enabled) {
             setTooltip(state => ({ ...state, y: 0, x }));
@@ -125,11 +174,22 @@ export const IntervalSlider: FC<Props> = ({
         }}
       >
         <>
-          <Mark {...controlSettings} />
+          <Mark
+            {...controlSettings}
+            onMouseEnter={() => {
+              setControl(true);
+              showTooltip();
+            }}
+            onMouseLeave={() => {
+              setControl(false);
+              if (!drag.active) hideTooltip();
+            }}
+          />
           {tooltipSettings.enabled && (
             <TooltipPosition
               x={tooltip.x}
               y={tooltip.y}
+              visible={tooltip.visible}
               containerSize={controlSettings.size}
               position={tooltipSettings.position}
             >

@@ -22,6 +22,11 @@ export type DragConstraints = {
   bottom: number;
 };
 
+export type RailSettings = {
+  size: number;
+  borderRadius: number;
+};
+
 export type ControlSettings = {
   count?: number;
   size: number;

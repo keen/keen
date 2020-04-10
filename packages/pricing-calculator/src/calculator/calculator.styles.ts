@@ -5,7 +5,7 @@ export const Title = styled.div`
   font-size: 20px;
   font-family: 'Gangster Grotesk Bold', sans-serif;
   line-height: 24px;
-  color: ${colors.black['500']};
+  color: ${colors.black['300']};
   margin-top: 5px;
 `;
 
@@ -34,6 +34,7 @@ export const RulerLabel = styled.div<{ bold: boolean }>`
   ${props =>
     props.bold &&
     css`
+      font-family: 'Lato Bold', sans-serif;
       font-weight: 700;
     `}
 `;

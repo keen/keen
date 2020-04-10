@@ -59,6 +59,7 @@ type Props = {
   containerSize: number;
   x: number;
   y: number;
+  visible: boolean;
   position: Position;
 };
 
@@ -67,6 +68,7 @@ const TooltipPosition: FC<Props> = ({
   x,
   y,
   containerSize,
+  visible,
   position,
 }) => {
   const element = useRef<HTMLDivElement>(null);
@@ -81,7 +83,7 @@ const TooltipPosition: FC<Props> = ({
       width,
       height,
     });
-  }, [element.current, position, x, y]);
+  }, [element.current, visible, position, x, y]);
 
   return (
     <PositionContainer

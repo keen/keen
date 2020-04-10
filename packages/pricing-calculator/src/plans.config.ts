@@ -19,7 +19,7 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
   },
   custom: {
     title: 'Custom Plan',
-    basePrice: 2000,
+    basePrice: 2500,
     events: 20000000,
     queries: 100000,
     priceTreshold: 2000,
@@ -28,6 +28,8 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
 };
 
 export const PLANS_WITHOUT_S3: PlanId[] = ['team'];
+
+export const PLANS_WITHOUT_SERVICES: PlanId[] = ['team'];
 
 export const eventsGroup = {
   price: 1,

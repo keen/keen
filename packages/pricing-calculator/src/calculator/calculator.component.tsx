@@ -53,7 +53,7 @@ const Calculator: FC<{}> = () => {
           <SliderContainer>
             <IntervalSlider
               colors={sliderColors}
-              size={6}
+              railSettings={{ size: 6, borderRadius: 3 }}
               controlSettings={controlSettings}
               tooltipSettings={{
                 enabled: true,
@@ -87,7 +87,7 @@ const Calculator: FC<{}> = () => {
           <SliderContainer>
             <IntervalSlider
               colors={sliderColors}
-              size={6}
+              railSettings={{ size: 6, borderRadius: 3 }}
               controlSettings={controlSettings}
               tooltipSettings={{
                 enabled: true,

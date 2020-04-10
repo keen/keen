@@ -1,17 +1,18 @@
 import React, { FC } from 'react';
 
-import { stringifyColors } from './utils';
+import { stringifyColors } from '../utils';
 
-import { Layout } from '../../types';
+import { Layout } from '../../../types';
 
 type Props = {
   type: Layout;
   size: number;
+  borderRadius: number;
   colors: string[];
   colorSteps: number;
 };
 
-const Rail: FC<Props> = ({ type, colors, colorSteps, size }) => {
+const Rail: FC<Props> = ({ type, colors, colorSteps, borderRadius, size }) => {
   const gradientAngle = type === 'horizontal' ? 90 : 180;
   const dimension =
     type === 'horizontal'
@@ -38,7 +39,7 @@ const Rail: FC<Props> = ({ type, colors, colorSteps, size }) => {
         position: 'absolute',
         top: '50%',
         transform: 'translateY(-50%)',
-        borderRadius: 3,
+        borderRadius,
         background,
         ...dimension,
       }}
