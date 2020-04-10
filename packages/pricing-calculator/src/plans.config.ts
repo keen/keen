@@ -20,8 +20,8 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
   custom: {
     title: 'Custom Plan',
     basePrice: 2000,
-    events: 5000000,
-    queries: 5000000,
+    events: 20000000,
+    queries: 100000,
     priceTreshold: 2000,
     components: ['Tell us what you need'],
   },

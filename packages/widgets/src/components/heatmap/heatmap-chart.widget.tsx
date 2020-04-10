@@ -59,7 +59,6 @@ export const HeatmapChartWidget: FC<Props> = ({
               layout={legend.layout}
               colors={theme.colors}
               controls={{ number: 2 }}
-              ruler={{ enabled: false }}
               onChange={res => setRange(res)}
               colorSteps={steps}
             />

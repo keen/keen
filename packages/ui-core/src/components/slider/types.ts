@@ -8,3 +8,23 @@ export type Controls = {
 export type OffRangeType = {
   background?: string;
 };
+
+export type Interval = {
+  minimum: number;
+  maximum: number;
+  step: number;
+};
+
+export type DragConstraints = {
+  top: number;
+  left: number;
+  right: number;
+  bottom: number;
+};
+
+export type ControlSettings = {
+  count?: number;
+  size: number;
+  backgroundColor: string;
+  borderColor: string;
+};

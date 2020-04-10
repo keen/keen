@@ -69,7 +69,7 @@ export const horizontal = () => (
   <Container>
     <Slider
       min={number('Min', 0, {}, 'Slider')}
-      max={number('Max', 100, {}, 'Slider')}
+      max={number('Max', 5000, {}, 'Slider')}
       steps={number('Steps', 0, {}, 'Slider')}
       colors={array('Colors', colors, ', ', 'Slider')}
       colorSteps={number('Color steps', 2, {}, 'Slider')}

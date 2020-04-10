@@ -79,11 +79,77 @@ describe('slider - utils', () => {
   describe('calculateTicks()', () => {
     it('should return 10', () => {
       const result = calculateTicks(0, 10, 3, 500);
-      expect(result).toMatchInlineSnapshot(`Array []`);
+      expect(result).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "child": 0,
+            "value": 0,
+          },
+          Object {
+            "child": 3.3333333333333335,
+            "value": 3.3333333333333335,
+          },
+          Object {
+            "child": 6.666666666666667,
+            "value": 6.666666666666667,
+          },
+          Object {
+            "child": 10,
+            "value": 10,
+          },
+        ]
+      `);
     });
     it('should return 30', () => {
       const result = calculateTicks(10, 100, 10, 500);
-      expect(result).toMatchInlineSnapshot(`Array []`);
+      expect(result).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "child": 0,
+            "value": 0,
+          },
+          Object {
+            "child": 10,
+            "value": 10,
+          },
+          Object {
+            "child": 20,
+            "value": 20,
+          },
+          Object {
+            "child": 30,
+            "value": 30,
+          },
+          Object {
+            "child": 40,
+            "value": 40,
+          },
+          Object {
+            "child": 50,
+            "value": 50,
+          },
+          Object {
+            "child": 60,
+            "value": 60,
+          },
+          Object {
+            "child": 70,
+            "value": 70,
+          },
+          Object {
+            "child": 80,
+            "value": 80,
+          },
+          Object {
+            "child": 90,
+            "value": 90,
+          },
+          Object {
+            "child": 100,
+            "value": 100,
+          },
+        ]
+      `);
     });
   });
 

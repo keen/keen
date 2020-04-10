@@ -46,6 +46,7 @@ export const tooltipMotion = {
   transition: { duration: 0.3 },
   exit: { opacity: 0 },
 };
+
 export const PieChart: FC<Props> = ({
   data,
   svgDimensions,

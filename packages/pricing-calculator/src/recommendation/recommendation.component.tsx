@@ -15,7 +15,7 @@ import {
   Title,
 } from './recommendation.styles';
 
-import { plansConfig } from '../plans-config';
+import { plansConfig } from '../plans.config';
 
 import { calculateCost } from '../utils';
 

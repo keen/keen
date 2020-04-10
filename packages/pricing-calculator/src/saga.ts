@@ -1,7 +1,7 @@
 import { all, select, put, call, take, takeLatest } from 'redux-saga/effects';
 import { eventChannel, EventChannel, END } from 'redux-saga';
 
-import { plansConfig } from './plans-config';
+import { plansConfig } from './plans.config';
 import { setRecommendation, getCurrentPlan } from './recommendation';
 import { getCalculatorState } from './calculator';
 import { getDevice, setDevice } from './app';

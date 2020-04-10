@@ -1,3 +1,3 @@
 import ServicesList from './services-list.component';
 
-export { ServicesList };
+export default ServicesList;

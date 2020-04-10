@@ -8,9 +8,10 @@ import Badge from './badge';
 import Button from './button';
 import Loader from './loader';
 import Card, { CardSettings } from './card';
-import Slider from './slider';
+import Slider, { IntervalSlider } from './slider';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
+import Ruler, { RulerTick } from './ruler';
 
 export {
   Badge,
@@ -25,7 +26,10 @@ export {
   Tooltip,
   TooltipMode,
   Slider,
+  IntervalSlider,
   ColorScale,
   Toggle,
+  Ruler,
+  RulerTick,
   ARROW_SIZE,
 };

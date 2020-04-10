@@ -4,7 +4,7 @@ import {
   eventsGroup,
   queryGroup,
   s3StreamingPrice,
-} from '../plans-config';
+} from '../plans.config';
 
 import { PlanId } from '../types';
 

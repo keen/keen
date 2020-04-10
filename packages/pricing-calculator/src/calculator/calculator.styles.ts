@@ -21,6 +21,31 @@ export const SliderContainer = styled.div`
   width: 100%;
 `;
 
+export const RulerContainer = styled.div`
+  margin-top: 15px;
+`;
+
+export const RulerLabel = styled.div<{ bold: boolean }>`
+  margin-top: 10px;
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 14px;
+  color: ${colors.black['100']};
+
+  ${props =>
+    props.bold &&
+    css`
+      font-weight: 700;
+    `}
+`;
+
+export const TooltipText = styled.div`
+  white-space: nowrap;
+`;
+
+export const ComputeSection = styled.div`
+  margin-top: 25px;
+`;
+
 export const Wrapper = styled.div<{
   layout: 'column' | 'row';
 }>`
@@ -30,7 +55,8 @@ export const Wrapper = styled.div<{
     props.layout === 'column' &&
     css`
       flex-direction: column;
-      height: 90px;
+      margin-bottom: 20px;
+      height: 110px;
 
       & + & {
         margin-top: 20px;
@@ -54,13 +80,8 @@ export const Wrapper = styled.div<{
       ${SliderContainer} {
         box-sizing: border-box;
         padding: 0 10px;
-        margin-top: 5px;
       }
     `}
-`;
-
-export const ComputeSection = styled.div`
-  margin-top: 25px;
 `;
 
 export const ServicesSection = styled.div`

@@ -76,7 +76,6 @@ export const ChoroplethChartWidget: FC<Props> = ({
               layout={legend.layout}
               colors={theme.colors}
               controls={{ number: 2 }}
-              ruler={{ enabled: false }}
               onChange={updatedRange => setRange(updatedRange)}
               colorSteps={colorSteps}
             />

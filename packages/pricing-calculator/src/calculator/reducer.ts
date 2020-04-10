@@ -1,4 +1,4 @@
-import { plansConfig } from '../plans-config';
+import { plansConfig } from '../plans.config';
 
 import { UPDATE_EVENTS, UPDATE_QUERIES, UPDATE_SERVICE } from '../constants';
 

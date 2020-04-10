@@ -47,7 +47,7 @@ const Control = ({
   onDrag,
   zIdx,
   dragConstraints,
-  size = 16,
+  size = 15,
   background = '#fff',
   border = '2px solid #CA8917',
   tooltip: { enabled: tooltipEnabled, position: tooltipPosition },

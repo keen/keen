@@ -85,36 +85,40 @@ const Wrapper = styled.div<Props>`
             borderColor: `${arrowColor} transparent transparent ${arrowColor}`,
             top: `${props.arrowTop ? props.arrowTop : '50%'}`,
             bottom: 'auto',
-            left: '0',
+            left: '1px',
             right: 'auto',
-            transform: 'rotate(-45deg) translateY(-50%)',
+            transform: `rotate(-45deg) translateY(-50%) translateY(-${ARROW_SIZE /
+              2}px)`,
           },
           right: {
             borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
             top: `${props.arrowTop ? props.arrowTop : '50%'}`,
             bottom: 'auto',
-            right: `-${Math.ceil(
+            right: `-${Math.floor(
               calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE)
             )}px`,
-            transform: 'rotate(-45deg) translateY(-50%)',
+            transform: `rotate(-45deg) translateY(-50%) translateX(${ARROW_SIZE /
+              2}px)`,
           },
           top: {
             borderColor: `${arrowColor} ${arrowColor} transparent transparent`,
-            top: `-${Math.ceil(
+            top: `-${Math.floor(
               calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE)
             )}px`,
             bottom: 'auto',
             left: '50%',
             right: 'auto',
-            transform: 'rotate(-45deg) translateX(-50%)',
+            transform: `rotate(-45deg) translateX(-50%) translateY(-${ARROW_SIZE /
+              2}px)`,
           },
           bottom: {
             borderColor: `transparent transparent ${arrowColor} ${arrowColor}`,
             top: 'auto',
-            bottom: '-1px',
+            bottom: '1px',
             left: '50%',
             right: 'auto',
-            transform: 'rotate(-45deg) translateX(-50%)',
+            transform: `rotate(-45deg) translateX(-50%) translateX(-${ARROW_SIZE /
+              2}px)`,
           },
         },
       });

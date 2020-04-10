@@ -22,8 +22,11 @@ import {
   Tooltip,
   TooltipMode,
   Slider,
+  IntervalSlider,
   ColorScale,
   Toggle,
+  Ruler,
+  RulerTick,
   ARROW_SIZE,
 } from './components';
 
@@ -49,7 +52,10 @@ export {
   Layout,
   ColorMode,
   Slider,
+  IntervalSlider,
   ColorScale,
   RangeType,
+  Ruler,
+  RulerTick,
   Toggle,
 };

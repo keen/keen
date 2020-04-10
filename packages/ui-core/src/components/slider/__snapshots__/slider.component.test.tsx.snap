@@ -1,72 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Slider /> should render Slider component 1`] = `
-<Fragment>
-  <div
-    style={
+<div
+  style={
+    Object {
+      "background": "linear-gradient(90deg, white, blue",
+      "borderRadius": 3,
+      "height": 4,
+      "position": "relative",
+      "width": "100%",
+    }
+  }
+>
+  <Control
+    dragConstraints={
       Object {
-        "background": "linear-gradient(90deg, white, blue",
-        "borderRadius": 3,
-        "height": 4,
-        "position": "relative",
-        "width": "100%",
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
       }
     }
-  >
-    <Component
-      layout="horizontal"
-      sliderThickness={4}
-      ticks={
-        Array [
-          Object {
-            "pos": 0,
-            "val": 0,
-          },
-          Object {
-            "pos": 0,
-            "val": 25,
-          },
-          Object {
-            "pos": 0,
-            "val": 50,
-          },
-          Object {
-            "pos": 0,
-            "val": 75,
-          },
-          Object {
-            "pos": 0,
-            "val": 100,
-          },
-        ]
+    initialPos={0}
+    isHorizontal={true}
+    max={100}
+    min={0}
+    number={1}
+    onDrag={[Function]}
+    sliderSize={0}
+    sliderThickness={4}
+    steps={0}
+    tooltip={
+      Object {
+        "enabled": true,
+        "position": "bottom",
       }
-    />
-    <Control
-      dragConstraints={
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "right": 0,
-          "top": 0,
-        }
-      }
-      initialPos={0}
-      isHorizontal={true}
-      max={100}
-      min={0}
-      number={1}
-      onDrag={[Function]}
-      sliderSize={0}
-      sliderThickness={4}
-      steps={0}
-      tooltip={
-        Object {
-          "enabled": true,
-          "position": "bottom",
-        }
-      }
-      zIdx={true}
-    />
-  </div>
-</Fragment>
+    }
+    zIdx={true}
+  />
+</div>
 `;
