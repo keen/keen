@@ -2,7 +2,10 @@ import React, { MutableRefObject, useRef, useState, useCallback } from 'react';
 
 import { TooltipState, DataSelector } from './types';
 
-export const useTooltip = (container: MutableRefObject<any>) => {
+export const useTooltip = (
+  container: MutableRefObject<any>,
+  computeRelativeToTarget?: boolean
+) => {
   const tooltipUpdate = useRef(null);
 
   const [tooltip, setTooltip] = useState<
@@ -27,18 +30,28 @@ export const useTooltip = (container: MutableRefObject<any>) => {
         top,
         left,
       }: ClientRect = container.current.getBoundingClientRect();
+      let tooltipX = e.pageX - left - window.scrollX;
+      let tooltipY = e.pageY - top - window.scrollY;
+
+      if (computeRelativeToTarget) {
+        const eventTarget = e.target as HTMLElement;
+        const targetRect = eventTarget.getBoundingClientRect();
+
+        tooltipX = Math.abs(left - targetRect.left) + targetRect.width / 2;
+        tooltipY = Math.abs(top - targetRect.top) + targetRect.height / 2;
+      }
 
       tooltipUpdate.current = requestAnimationFrame(() => {
         setTooltip({
           visible: true,
           selectors,
           meta,
-          x: e.pageX - left - window.scrollX,
-          y: e.pageY - top - window.scrollY,
+          x: tooltipX,
+          y: tooltipY,
         });
       });
     },
-    [container]
+    [container, computeRelativeToTarget]
   );
 
   const hideTooltip = useCallback(() => {
