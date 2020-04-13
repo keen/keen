@@ -11,7 +11,7 @@ import { SliderActions } from './types';
 
 type SliderState = {
   value: number | [number, number];
-  dimension: number;
+  dimension?: number;
   dragControls: Record<
     string,
     {

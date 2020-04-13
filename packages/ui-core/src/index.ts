@@ -10,7 +10,6 @@ import {
 } from './types';
 
 import {
-  Caret,
   Badge,
   Button,
   BulletList,
@@ -33,7 +32,6 @@ import {
 export {
   Badge,
   Button,
-  Caret,
   Alignment,
   BulletList,
   ColorAdjuster,

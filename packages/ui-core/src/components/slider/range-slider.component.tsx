@@ -152,7 +152,7 @@ export const RangeSlider: FC<Props> = ({
         colors={colors}
         colorSteps={colorSteps}
       />
-      {dimension && (
+      {dimension !== null && (
         <>
           <OffRange
             borderRadius={railSettings.borderRadius}

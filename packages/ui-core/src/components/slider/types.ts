@@ -8,17 +8,6 @@ import {
   SET_DRAG_STATE,
 } from './constants';
 
-export type Controls = {
-  number?: 1 | 2;
-  size?: number;
-  background?: string;
-  border?: string;
-};
-
-export type OffRangeType = {
-  background?: string;
-};
-
 export type Interval = {
   minimum: number;
   maximum: number;

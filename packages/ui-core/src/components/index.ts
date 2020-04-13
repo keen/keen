@@ -1,5 +1,3 @@
-import Caret from './caret.component';
-
 import ColorAdjuster from './color-adjuster';
 import BulletList from './bullet-list';
 import Group from './group';
@@ -17,7 +15,6 @@ export {
   Badge,
   Button,
   BulletList,
-  Caret,
   Card,
   CardSettings,
   ColorAdjuster,

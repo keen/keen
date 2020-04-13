@@ -73,6 +73,10 @@ export const ChoroplethChartWidget: FC<Props> = ({
             <RangeSlider
               minimum={0}
               maximum={max}
+              tooltipSettings={{
+                enabled: true,
+                position: 'right',
+              }}
               layout={legend.layout}
               colors={theme.colors}
               onChange={(min, max) => setRange({ min, max })}
