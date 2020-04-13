@@ -1,3 +1,5 @@
+import { Typography, Position } from '../../types';
+
 import {
   SET_DIMENSION,
   SET_VALUE,
@@ -39,6 +41,13 @@ export type ControlSettings = {
   size: number;
   backgroundColor: string;
   borderColor: string;
+};
+
+export type TooltipSettings = {
+  enabled: boolean;
+  position: Position;
+  typography?: Typography;
+  renderText?: (value: number) => React.ReactNode;
 };
 
 /* Actions */

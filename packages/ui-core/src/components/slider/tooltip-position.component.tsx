@@ -8,6 +8,13 @@ import { Position } from '../../types';
 const ARROW_OFFSET = 4;
 const TOOLTIP_ARROW_SIZE = ARROW_SIZE + ARROW_OFFSET;
 
+export const tooltipMotion = {
+  transition: { duration: 0.3 },
+  animate: { opacity: 1 },
+  initial: { opacity: 0 },
+  exit: { opacity: 0 },
+};
+
 const PositionContainer = styled.div<{
   position: Position;
   containerSize: number;

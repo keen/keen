@@ -18,7 +18,7 @@ import { sliderReducer, initialState } from './slider.reducer';
 
 import { sliderControlSettings, tooltipTypography } from './slider.settings';
 
-import TooltipPosition from './tooltip-position.component';
+import TooltipPosition, { tooltipMotion } from './tooltip-position.component';
 import { calculateIntervalValue, arrowReverse } from './utils';
 
 import Tooltip from '../tooltip';
@@ -26,15 +26,12 @@ import { Text } from '../../typography';
 
 import { DRAG_CONTROL_ID } from './constants';
 
-import { ControlSettings, RailSettings, Interval } from './types';
-import { Position, Typography } from '../../types';
-
-const tooltipMotion = {
-  transition: { duration: 0.3 },
-  animate: { opacity: 1 },
-  initial: { opacity: 0 },
-  exit: { opacity: 0 },
-};
+import {
+  ControlSettings,
+  TooltipSettings,
+  RailSettings,
+  Interval,
+} from './types';
 
 type Props = {
   /** Collection of intervals */
@@ -44,12 +41,7 @@ type Props = {
   /** Drag control settings  */
   controlSettings?: ControlSettings;
   /** Tooltip settings  */
-  tooltipSettings?: {
-    enabled: boolean;
-    position: Position;
-    typography?: Typography;
-    renderText?: (value: number) => React.ReactNode;
-  };
+  tooltipSettings?: TooltipSettings;
   /** Rail settings  */
   railSettings?: RailSettings;
   /** Colors applied to rail container  */

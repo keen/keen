@@ -1,4 +1,12 @@
-import React, { FC, useRef, useCallback, useReducer, useEffect } from 'react';
+import React, {
+  FC,
+  useRef,
+  useState,
+  useCallback,
+  useReducer,
+  useEffect,
+} from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import Rail from './rail';
 import Mark from './mark';
@@ -8,9 +16,15 @@ import Control from './control';
 import { sliderActions } from './slider.actions';
 import { sliderReducer, initialState } from './slider.reducer';
 
-import { sliderControlSettings } from './slider.settings';
+import { sliderControlSettings, tooltipTypography } from './slider.settings';
 
-import { ControlSettings, RailSettings } from './types';
+import TooltipPosition, { tooltipMotion } from './tooltip-position.component';
+import { arrowReverse } from './utils';
+
+import Tooltip from '../tooltip';
+import { Text } from '../../typography';
+
+import { ControlSettings, TooltipSettings, RailSettings } from './types';
 import { Layout } from '../../types';
 
 const initialDragControlsState = {
@@ -39,6 +53,8 @@ type Props = {
   layout?: Layout;
   /** Drag controls settings  */
   controlSettings?: ControlSettings;
+  /** Tooltip settings  */
+  tooltipSettings?: TooltipSettings;
   /** Rail settings  */
   railSettings?: RailSettings;
   /** Number of colors steps */
@@ -51,6 +67,11 @@ export const RangeSlider: FC<Props> = ({
   colors,
   onChange,
   colorSteps = 2,
+  tooltipSettings = {
+    enabled: true,
+    position: 'bottom',
+    typography: undefined,
+  },
   railSettings = { size: 4, borderRadius: 3 },
   minimum,
   maximum,
@@ -58,6 +79,33 @@ export const RangeSlider: FC<Props> = ({
   const slider = useRef(null);
   const isHorizontal = layout === 'horizontal';
   const dragDirection = isHorizontal ? 'x' : 'y';
+
+  const [tooltip, setTooltip] = useState<{
+    visible: 'minimum' | 'maximum' | null;
+    x: number;
+    y: number;
+  }>({ visible: null, x: 0, y: 0 });
+
+  const showTooltip = useCallback(
+    (dragTooltip: 'minimum' | 'maximum') => {
+      if (tooltipSettings.enabled) {
+        setTooltip(state => ({
+          ...state,
+          visible: dragTooltip,
+        }));
+      }
+    },
+    [tooltipSettings.enabled]
+  );
+
+  const hideTooltip = useCallback(() => {
+    if (tooltipSettings.enabled) {
+      setTooltip(state => ({
+        ...state,
+        visible: null,
+      }));
+    }
+  }, [tooltipSettings.enabled]);
 
   const [{ value, dimension, dragControls }, dispatch] = useReducer(
     sliderReducer,
@@ -92,6 +140,8 @@ export const RangeSlider: FC<Props> = ({
         width: `${controlSettings.size}px`,
         height: '100%',
       };
+
+  const [currentMinimum, currentMaximum] = value;
 
   return (
     <div ref={slider} style={{ position: 'relative', ...layoutStyle }}>
@@ -149,6 +199,14 @@ export const RangeSlider: FC<Props> = ({
             }
           />
           <Control
+            onDragStart={() => {
+              dispatch(sliderActions.setControlDrag('minimum', true));
+              showTooltip('minimum');
+            }}
+            onDragEnd={() => {
+              dispatch(sliderActions.setControlDrag('minimum', false));
+              if (!dragControls.minimum.active) hideTooltip();
+            }}
             onDrag={(_event, dragInfo) => {
               const {
                 point: { x, y },
@@ -162,6 +220,11 @@ export const RangeSlider: FC<Props> = ({
               dispatch(sliderActions.setControlPosition('minimum', position));
 
               onChange && onChange(minimumValue, maximumValue);
+              if (tooltipSettings.enabled) {
+                setTooltip(state =>
+                  isHorizontal ? { ...state, y: 0, x } : { ...state, x: 0, y }
+                );
+              }
             }}
             dragDirection={dragDirection}
             dragConstraints={
@@ -180,9 +243,63 @@ export const RangeSlider: FC<Props> = ({
                   }
             }
           >
-            <Mark {...controlSettings} />
+            <>
+              <Mark
+                {...controlSettings}
+                onMouseEnter={() => {
+                  dispatch(sliderActions.setControlState('minimum', true));
+                  showTooltip('minimum');
+                }}
+                onMouseLeave={() => {
+                  dispatch(sliderActions.setControlState('minimum', false));
+                  if (!dragControls.minimum.moving) hideTooltip();
+                }}
+              />
+              {tooltipSettings.enabled && (
+                <TooltipPosition
+                  x={tooltip.x}
+                  y={tooltip.y}
+                  visible={tooltip.visible === 'minimum'}
+                  containerSize={controlSettings.size}
+                  position={tooltipSettings.position}
+                >
+                  <AnimatePresence>
+                    {tooltip.visible === 'minimum' && (
+                      <motion.div {...tooltipMotion}>
+                        <Tooltip
+                          arrowDirection={arrowReverse(
+                            tooltipSettings.position
+                          )}
+                          mode="dark"
+                        >
+                          <Text
+                            {...(tooltipSettings.typography
+                              ? tooltipSettings.typography
+                              : tooltipTypography)}
+                          >
+                            {tooltipSettings.renderText
+                              ? tooltipSettings.renderText(
+                                  currentMinimum as number
+                                )
+                              : currentMinimum}
+                          </Text>
+                        </Tooltip>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </TooltipPosition>
+              )}
+            </>
           </Control>
           <Control
+            onDragStart={() => {
+              dispatch(sliderActions.setControlDrag('maximum', true));
+              showTooltip('maximum');
+            }}
+            onDragEnd={() => {
+              dispatch(sliderActions.setControlDrag('maximum', false));
+              if (!dragControls.minimum.active) hideTooltip();
+            }}
             onDrag={(_event, dragInfo) => {
               const {
                 point: { x, y },
@@ -196,6 +313,11 @@ export const RangeSlider: FC<Props> = ({
               dispatch(sliderActions.setControlPosition('maximum', position));
 
               onChange && onChange(minimumValue, maximumValue);
+              if (tooltipSettings.enabled) {
+                setTooltip(state =>
+                  isHorizontal ? { ...state, y: 0, x } : { ...state, x: 0, y }
+                );
+              }
             }}
             dragDirection={dragDirection}
             dragConstraints={
@@ -215,7 +337,53 @@ export const RangeSlider: FC<Props> = ({
             }
             controlStyles={{ [isHorizontal ? 'x' : 'y']: dimension }}
           >
-            <Mark {...controlSettings} />
+            <>
+              <Mark
+                {...controlSettings}
+                onMouseEnter={() => {
+                  dispatch(sliderActions.setControlState('maximum', true));
+                  showTooltip('maximum');
+                }}
+                onMouseLeave={() => {
+                  dispatch(sliderActions.setControlState('maximum', false));
+                  if (!dragControls.maximum.moving) hideTooltip();
+                }}
+              />
+              {tooltipSettings.enabled && (
+                <TooltipPosition
+                  x={tooltip.x}
+                  y={tooltip.y}
+                  visible={tooltip.visible === 'maximum'}
+                  containerSize={controlSettings.size}
+                  position={tooltipSettings.position}
+                >
+                  <AnimatePresence>
+                    {tooltip.visible === 'maximum' && (
+                      <motion.div {...tooltipMotion}>
+                        <Tooltip
+                          arrowDirection={arrowReverse(
+                            tooltipSettings.position
+                          )}
+                          mode="dark"
+                        >
+                          <Text
+                            {...(tooltipSettings.typography
+                              ? tooltipSettings.typography
+                              : tooltipTypography)}
+                          >
+                            {tooltipSettings.renderText
+                              ? tooltipSettings.renderText(
+                                  currentMaximum as number
+                                )
+                              : currentMaximum}
+                          </Text>
+                        </Tooltip>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </TooltipPosition>
+              )}
+            </>
           </Control>
         </>
       )}
