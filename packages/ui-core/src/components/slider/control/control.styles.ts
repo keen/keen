@@ -1,5 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  transform: translateX(-50%);
+export const Container = styled.div<{
+  dragDirection: 'x' | 'y';
+}>`
+  ${props =>
+    props.dragDirection === 'x' &&
+    css`
+      transform: translateX(-50%);
+    `}
+
+  ${props =>
+    props.dragDirection === 'y' &&
+    css`
+      transform: translateY(-50%);
+    `}
 `;

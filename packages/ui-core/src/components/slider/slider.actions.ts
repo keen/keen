@@ -18,19 +18,19 @@ const setValue = (value: number | [number, number]): SliderActions => ({
   payload: { value },
 });
 
-const setControlPosition = (position: number): SliderActions => ({
+const setControlPosition = (id: string, position: number): SliderActions => ({
   type: SET_DRAG_POSITION,
-  payload: { position },
+  payload: { id, position },
 });
 
-const setControlDrag = (moving: boolean): SliderActions => ({
+const setControlDrag = (id: string, moving: boolean): SliderActions => ({
   type: SET_DRAG_MOVING,
-  payload: { moving },
+  payload: { id, moving },
 });
 
-const setControlState = (active: boolean): SliderActions => ({
+const setControlState = (id: string, active: boolean): SliderActions => ({
   type: SET_DRAG_STATE,
-  payload: { active },
+  payload: { id, active },
 });
 
 export const sliderActions = {

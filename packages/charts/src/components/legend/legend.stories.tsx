@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
-import { Slider, Typography } from '@keen.io/ui-core';
+import { RangeSlider, Typography } from '@keen.io/ui-core';
 
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
 
@@ -131,23 +131,19 @@ const colorArray = [
   colors.pink[500],
 ];
 
-export const RangeSlider = () => (
+export const ValuesSlider = () => (
   <div style={{ width: '260px', height: '60px' }}>
     <LegendBase
       card={cardKnobs('Card') as any}
-      typography={typographyKnobs('typography', legendTypography as Typography)}
-      layout="vertical"
+      layout="horizontal"
+      spacing="thin"
     >
-      <Slider
-        colors={colorArray}
-        controls={{ number: 2 }}
-        ruler={{ enabled: false }}
-      />
+      <RangeSlider colors={colorArray} minimum={0} maximum={100} />
     </LegendBase>
   </div>
 );
 
-RangeSlider.story = {
+ValuesSlider.story = {
   parameters: {
     docs: {
       storyDescription: 'Legend series displayed as range slider.',

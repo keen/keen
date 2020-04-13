@@ -14,15 +14,19 @@ type Props = {
 
 const Rail: FC<Props> = ({ type, colors, colorSteps, borderRadius, size }) => {
   const gradientAngle = type === 'horizontal' ? 90 : 180;
-  const dimension =
+  const layoutStyles =
     type === 'horizontal'
       ? {
           width: '100%',
           height: `${size}px`,
+          top: '50%',
+          transform: 'translateY(-50%)',
         }
       : {
           height: '100%',
           width: `${size}px`,
+          left: '50%',
+          transform: 'translateX(-50%)',
         };
 
   const background =
@@ -37,11 +41,9 @@ const Rail: FC<Props> = ({ type, colors, colorSteps, borderRadius, size }) => {
     <div
       style={{
         position: 'absolute',
-        top: '50%',
-        transform: 'translateY(-50%)',
         borderRadius,
         background,
-        ...dimension,
+        ...layoutStyles,
       }}
     />
   );

@@ -36,7 +36,6 @@ export type RailSettings = {
 };
 
 export type ControlSettings = {
-  count?: number;
   size: number;
   backgroundColor: string;
   borderColor: string;
@@ -47,6 +46,7 @@ export type ControlSettings = {
 interface SetControlPositionAction {
   type: typeof SET_DRAG_POSITION;
   payload: {
+    id: string;
     position: number;
   };
 }
@@ -54,6 +54,7 @@ interface SetControlPositionAction {
 interface SetControlDragAction {
   type: typeof SET_DRAG_MOVING;
   payload: {
+    id: string;
     moving: boolean;
   };
 }
@@ -61,6 +62,7 @@ interface SetControlDragAction {
 interface SetControlState {
   type: typeof SET_DRAG_STATE;
   payload: {
+    id: string;
     active: boolean;
   };
 }

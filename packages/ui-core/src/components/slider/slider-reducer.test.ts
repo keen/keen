@@ -1,6 +1,8 @@
 import { sliderReducer, initialState } from './slider.reducer';
 import { sliderActions } from './slider.actions';
 
+import { DRAG_CONTROL_ID } from './constants';
+
 describe('@keen.io/ui-core - slider reducer', () => {
   it('should update slider "dimension"', () => {
     const dimension = 300;
@@ -20,23 +22,23 @@ describe('@keen.io/ui-core - slider reducer', () => {
 
   it('should update "drag control" position', () => {
     const position = 30;
-    const action = sliderActions.setControlPosition(position);
-    const { dragControl } = sliderReducer(initialState, action);
+    const action = sliderActions.setControlPosition(DRAG_CONTROL_ID, position);
+    const { dragControls } = sliderReducer(initialState, action);
 
-    expect(dragControl.position).toEqual(position);
+    expect(dragControls[DRAG_CONTROL_ID].position).toEqual(position);
   });
 
   it('should update "drag control" moving state', () => {
-    const action = sliderActions.setControlDrag(true);
-    const { dragControl } = sliderReducer(initialState, action);
+    const action = sliderActions.setControlDrag(DRAG_CONTROL_ID, true);
+    const { dragControls } = sliderReducer(initialState, action);
 
-    expect(dragControl.moving).toBeTruthy();
+    expect(dragControls[DRAG_CONTROL_ID].moving).toBeTruthy();
   });
 
   it('should update "drag control" active state', () => {
-    const action = sliderActions.setControlState(true);
-    const { dragControl } = sliderReducer(initialState, action);
+    const action = sliderActions.setControlState(DRAG_CONTROL_ID, true);
+    const { dragControls } = sliderReducer(initialState, action);
 
-    expect(dragControl.active).toBeTruthy();
+    expect(dragControls[DRAG_CONTROL_ID].active).toBeTruthy();
   });
 });

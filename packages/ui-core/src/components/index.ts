@@ -8,7 +8,7 @@ import Badge from './badge';
 import Button from './button';
 import Loader from './loader';
 import Card, { CardSettings } from './card';
-import Slider, { IntervalSlider } from './slider';
+import { IntervalSlider, RangeSlider } from './slider';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
@@ -25,7 +25,7 @@ export {
   Group,
   Tooltip,
   TooltipMode,
-  Slider,
+  RangeSlider,
   IntervalSlider,
   ColorScale,
   Toggle,

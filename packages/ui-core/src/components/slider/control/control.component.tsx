@@ -12,6 +12,7 @@ type Props = {
   onDrag: (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void;
   onDragStart?: (e: MouseEvent | TouchEvent | PointerEvent) => void;
   onDragEnd?: (e: MouseEvent | TouchEvent | PointerEvent) => void;
+  controlStyles?: MotionStyle;
 };
 
 export const Control: FC<Props> = ({
@@ -20,11 +21,13 @@ export const Control: FC<Props> = ({
   onDragStart,
   onDragEnd,
   onDrag,
+  controlStyles,
   children,
 }) => {
   const styles = {
     display: 'inline-block',
-    position: 'relative',
+    position: 'absolute',
+    ...controlStyles,
   } as MotionStyle;
 
   return (
@@ -38,7 +41,7 @@ export const Control: FC<Props> = ({
       dragMomentum={false}
       style={styles}
     >
-      <Container>{children}</Container>
+      <Container dragDirection={dragDirection}>{children}</Container>
     </motion.div>
   );
 };
