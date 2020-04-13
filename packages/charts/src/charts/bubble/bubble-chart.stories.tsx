@@ -37,8 +37,13 @@ export const plot = () => (
       valueKey="cost"
       xDomainKey="users"
       yDomainKey="conversion"
-      minAreaRadius={number('Min area radius', 1, {}, 'Chart')}
-      maxAreaRadius={number('Max area radius', 20, {}, 'Chart')}
+      minAreaRadius={number('Min area radius', 5, { min: 5, max: 40 }, 'Chart')}
+      maxAreaRadius={number(
+        'Max area radius',
+        40,
+        { min: 5, max: 40 },
+        'Chart'
+      )}
       svgDimensions={object(
         'svg',
         {

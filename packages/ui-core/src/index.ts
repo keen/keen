@@ -1,4 +1,4 @@
-import { Title, Text, FontLoader } from './typography';
+import { FontLoader, Title, Text, RefText } from './typography';
 
 import {
   Typography,
@@ -7,6 +7,9 @@ import {
   Layout,
   ColorMode,
   RangeType,
+  CeilType,
+  SortMode,
+  SortByType,
 } from './types';
 
 import {
@@ -27,6 +30,13 @@ import {
   Ruler,
   RulerTick,
   ARROW_SIZE,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 } from './components';
 
 export {
@@ -39,6 +49,7 @@ export {
   CardSettings,
   Title,
   Text,
+  RefText,
   Group,
   Loader,
   Typography,
@@ -56,4 +67,14 @@ export {
   Ruler,
   RulerTick,
   Toggle,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  CeilType,
+  SortMode,
+  SortByType,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 };

@@ -152,6 +152,14 @@ export type Gauge = {
     typography: Typography;
   };
 };
+export type Table = {
+  header: {
+    typography: Typography;
+  };
+  body: {
+    typography: Typography;
+  };
+};
 
 export type Theme = {
   colors: string[];
@@ -162,6 +170,7 @@ export type Theme = {
   donut: Donut;
   pie: Pie;
   gauge: Gauge;
+  table: Table;
   tooltip?: Tooltip;
   axisX?: Axis;
   axisY?: Axis;

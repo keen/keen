@@ -4,6 +4,7 @@ import {
   widgetSettings as defaultWidgetSettings,
   metricWidgetSettings as defaultMetricWidgetSettings,
   choroplethWidgetSettings as defaultChoroplethWidgetSettings,
+  bubbleWidgetSettings as defaultBubbleWidgetSettings,
 } from '@keen.io/widgets';
 
 import { Widgets } from '../render-widget';
@@ -23,6 +24,11 @@ export const extendWidgetSettings = (
     case 'metric':
       return deepMerge(
         defaultMetricWidgetSettings,
+        customSettings
+      ) as WidgetSettings;
+    case 'bubble':
+      return deepMerge(
+        defaultBubbleWidgetSettings,
         customSettings
       ) as WidgetSettings;
     default:

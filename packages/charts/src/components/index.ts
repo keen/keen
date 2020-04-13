@@ -7,7 +7,7 @@ import { Mark, markMotion } from './mark';
 
 import Axes from './axes.component';
 import Grid from './grid.component';
-import { LegendCard, LegendBase, SeriesLegend } from './legend';
+import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
 
 export {
   ChartBase,
@@ -17,6 +17,7 @@ export {
   SeriesLegend,
   LegendBase,
   LegendCard,
+  BubbleLegend,
   Axes,
   Grid,
   Mark,

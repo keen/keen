@@ -8,6 +8,7 @@ import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
 import { BubbleChart, BubbleChartSettings } from './bubble';
 import { GaugeChart, GaugeChartSettings } from './gauge';
+import { TableChart, TableChartSettings } from './table';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
@@ -37,6 +38,8 @@ export {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  TableChart,
+  TableChartSettings,
   fetchMapTopology,
   sortAreaKeys,
 };

@@ -21,11 +21,18 @@ import {
   HeatmapChartSettings,
   GaugeChart,
   GaugeChartSettings,
+  TableChart,
+  TableChartSettings,
   fetchMapTopology,
   sortAreaKeys,
 } from './charts';
 
-import { ResponsiveWrapper, LegendBase, SeriesLegend } from './components';
+import {
+  ResponsiveWrapper,
+  LegendBase,
+  SeriesLegend,
+  BubbleLegend,
+} from './components';
 
 import { theme, margins } from './theme';
 
@@ -57,9 +64,12 @@ export {
   FunnelChartSettings,
   HeatmapChart,
   HeatmapChartSettings,
+  TableChart,
+  TableChartSettings,
   ResponsiveWrapper,
   SeriesLegend,
   LegendBase,
+  BubbleLegend,
   fetchMapTopology,
   sortAreaKeys,
   theme,

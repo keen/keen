@@ -10,6 +10,15 @@ import { IntervalSlider, RangeSlider } from './slider';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
+import {
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
+} from './table';
 
 export {
   Badge,
@@ -29,4 +38,11 @@ export {
   Ruler,
   RulerTick,
   ARROW_SIZE,
+  Ceil,
+  HeaderCeil,
+  SortArrows,
+  RESIZE_ELEMENT_WIDTH,
+  Sticky,
+  DragLine,
+  TableCell,
 };
