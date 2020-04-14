@@ -14,7 +14,7 @@ type Props = {
   correlations: { name: string; value: number | string }[];
   title: string;
   color: string;
-  valueKey?: string;
+  valueKey: string;
 };
 
 const Correlation: FC<Props> = ({
