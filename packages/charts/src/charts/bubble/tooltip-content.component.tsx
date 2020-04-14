@@ -10,7 +10,7 @@ type Props = {
   data: Record<string, any>[];
   typography: Typography;
   labelSelector: string;
-  valueKey?: string;
+  valueKey: string;
   selectors: { selector: DataSelector; color: string }[];
 };
 
