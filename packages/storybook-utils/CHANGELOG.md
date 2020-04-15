@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/storybook-utils@0.1.0...@keen.io/storybook-utils@0.2.0) (2020-04-15)
+
+
+### Features
+
+* 🎸 choropleth ([4fa2124](https://github.com/keen/keen/commit/4fa21245eb9fbe4eb5bbb23abd183a46951a9670))
+
+
+
+
+
 # 0.1.0 (2020-03-16)
 
 
