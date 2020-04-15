@@ -94,6 +94,15 @@ export const theme: Theme = {
         fontColor: colors.blue['500'],
       },
     },
+    icon: {
+      enabled: false,
+      settings: {
+        height: 60,
+        width: 60,
+        color: colors.black['500'],
+        type: 'brand',
+      },
+    },
     excerpt: {
       icons: {
         increase: {

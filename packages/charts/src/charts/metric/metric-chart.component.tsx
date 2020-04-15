@@ -64,10 +64,10 @@ export const MetricChart: FC<Props> = ({
   });
 
   const {
-    metric: { excerpt, label },
+    metric: { excerpt, label, icon },
   } = theme;
 
-  const icon = {
+  const statusIcon = {
     ...(difference?.status === 'increase'
       ? excerpt.icons.increase
       : excerpt.icons.decrease),
@@ -75,44 +75,56 @@ export const MetricChart: FC<Props> = ({
 
   return (
     <Layout>
-      <AnimatePresence>
-        <motion.div {...textMotion}>
-          <Text data-test="metric-label" {...label.typography}>
-            {labelPrefix && labelPrefix}
-            {value}
-            {labelSuffix && labelSuffix}
-          </Text>
-        </motion.div>
-      </AnimatePresence>
-      {difference && (
-        <div>
-          <Excerpt
-            data-test="metric-excerpt-container"
-            background={excerpt.backgroundColor}
-          >
-            <Wrapper>
-              {type !== 'compare' && difference.status !== 'static' && (
-                <AnimatePresence>
-                  <motion.div
-                    {...(difference.status === 'increase'
-                      ? increaseMotion
-                      : decreaseMotion)}
-                  >
-                    <IconWrapper>
-                      <Icon type={icon.type} fill={icon.color} />
-                    </IconWrapper>
-                  </motion.div>
-                </AnimatePresence>
-              )}
-              <Text data-test="metric-excerpt-label" {...excerpt.typography}>
-                {type === 'percent'
-                  ? `${difference.value}%`
-                  : formatNumber(difference.value)}
-              </Text>
-            </Wrapper>
-          </Excerpt>
-        </div>
-      )}
+      <div>
+        <AnimatePresence>
+          <motion.div {...textMotion}>
+            <Text data-test="metric-label" {...label.typography}>
+              {labelPrefix && labelPrefix}
+              {value}
+              {labelSuffix && labelSuffix}
+            </Text>
+          </motion.div>
+        </AnimatePresence>
+        {difference && (
+          <div>
+            <Excerpt
+              data-test="metric-excerpt-container"
+              background={excerpt.backgroundColor}
+            >
+              <Wrapper>
+                {type !== 'compare' && difference.status !== 'static' && (
+                  <AnimatePresence>
+                    <motion.div
+                      {...(difference.status === 'increase'
+                        ? increaseMotion
+                        : decreaseMotion)}
+                    >
+                      <IconWrapper>
+                        <Icon type={statusIcon.type} fill={statusIcon.color} />
+                      </IconWrapper>
+                    </motion.div>
+                  </AnimatePresence>
+                )}
+                <Text data-test="metric-excerpt-label" {...excerpt.typography}>
+                  {type === 'percent'
+                    ? `${difference.value}%`
+                    : formatNumber(difference.value)}
+                </Text>
+              </Wrapper>
+            </Excerpt>
+          </div>
+        )}
+      </div>
+      <div>
+        {icon.enabled && (
+          <Icon
+            type={icon.settings.type}
+            width={icon.settings.width}
+            height={icon.settings.height}
+            fill={icon.settings.color}
+          />
+        )}
+      </div>
     </Layout>
   );
 };

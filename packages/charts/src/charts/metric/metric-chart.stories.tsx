@@ -31,6 +31,15 @@ export const plot = () => {
           keenTheme.metric.label.typography
         ),
       },
+      icon: {
+        enabled: true,
+        settings: {
+          color: color('Color', keenTheme.metric.icon.settings.color, 'Icon'),
+          height: 60,
+          width: 60,
+          type: iconKnobs('Icon', 'brand'),
+        },
+      },
       excerpt: {
         icons: {
           increase: {

@@ -12,4 +12,5 @@ export type IconType =
   | 'caret-left'
   | 'caret-right'
   | 'brand'
-  | 'question-mark';
+  | 'question-mark'
+  | 'eye';

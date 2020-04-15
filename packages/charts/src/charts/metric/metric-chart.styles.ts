@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Layout = styled.div`
   display: flex;
-  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 
 export const Excerpt = styled.div<{
