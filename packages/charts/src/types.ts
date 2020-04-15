@@ -63,11 +63,17 @@ export type Grid = {
 export type Icon = {
   color: string;
   type: IconType;
+  height?: number;
+  width?: number;
 };
 
 export type Metric = {
   label: {
     typography: Typography;
+  };
+  icon?: {
+    enabled: boolean;
+    settings: Icon;
   };
   excerpt: {
     icons: {

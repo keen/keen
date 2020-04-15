@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { text } from '@storybook/addon-knobs';
+import { text, color } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   typographyKnobs,
   metricTypeKnobs,
+  iconKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
@@ -21,31 +22,89 @@ export default {
   },
 };
 
-export const widget = () => (
-  <div style={{ width: '300px', height: '200px' }}>
-    <MetricChartWidget
-      title={{
-        content: text('Title', 'Widget Title', 'Title Settings'),
+export const widget = () => {
+  const theme = {
+    ...keenTheme,
+    metric: {
+      label: {
         typography: typographyKnobs(
-          'Title Settings',
-          widgetSettings.title.typography as Typography
+          'Metric',
+          keenTheme.metric.label.typography
         ),
-      }}
-      subtitle={{
-        content: text('Subtitle', 'Widget Subtitle', 'Subtitle Settings'),
+      },
+      icon: {
+        enabled: true,
+        settings: {
+          color: color('Color', keenTheme.metric.icon.settings.color, 'Icon'),
+          height: 60,
+          width: 60,
+          type: iconKnobs('Icon', 'brand'),
+        },
+      },
+      excerpt: {
+        icons: {
+          increase: {
+            color: color(
+              'Color',
+              keenTheme.metric.excerpt.icons.increase.color,
+              'Increase'
+            ),
+            type: iconKnobs(
+              'Increase',
+              keenTheme.metric.excerpt.icons.increase.type
+            ),
+          },
+          decrease: {
+            color: color(
+              'Color',
+              keenTheme.metric.excerpt.icons.increase.color,
+              'Decrease'
+            ),
+            type: iconKnobs(
+              'Decrease',
+              keenTheme.metric.excerpt.icons.decrease.type
+            ),
+          },
+        },
+        backgroundColor: color(
+          'Background',
+          keenTheme.metric.excerpt.backgroundColor,
+          'Excerpt'
+        ),
         typography: typographyKnobs(
-          'Subtitle Settings',
-          widgetSettings.subtitle.typography as Typography
+          'Excerpt',
+          keenTheme.metric.excerpt.typography
         ),
-      }}
-      card={cardKnobs('Card')}
-      labelSelector="day"
-      labelPrefix={text('Prefix', '', 'Chart')}
-      labelSuffix={text('Suffix', '', 'Chart')}
-      type={metricTypeKnobs('Chart')}
-      keys={['users']}
-      theme={keenTheme}
-      data={chartData}
-    />
-  </div>
-);
+      },
+    },
+  };
+
+  return (
+    <div style={{ width: '300px', height: '200px' }}>
+      <MetricChartWidget
+        title={{
+          content: text('Title', 'Widget Title', 'Title Settings'),
+          typography: typographyKnobs(
+            'Title Settings',
+            widgetSettings.title.typography as Typography
+          ),
+        }}
+        subtitle={{
+          content: text('Subtitle', 'Widget Subtitle', 'Subtitle Settings'),
+          typography: typographyKnobs(
+            'Subtitle Settings',
+            widgetSettings.subtitle.typography as Typography
+          ),
+        }}
+        card={cardKnobs('Card')}
+        labelSelector="day"
+        labelPrefix={text('Prefix', '', 'Chart')}
+        labelSuffix={text('Suffix', '', 'Chart')}
+        type={metricTypeKnobs('Chart')}
+        keys={['users']}
+        theme={theme}
+        data={chartData}
+      />
+    </div>
+  );
+};
