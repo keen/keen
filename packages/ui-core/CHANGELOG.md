@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.1.0...@keen.io/ui-core@0.2.0) (2020-04-15)
+
+
+### Bug Fixes
+
+* 🐛 tooltip position ([93c14de](https://github.com/keen/keen/commit/93c14dedfe5e499c13cc1bc0ca3630e4f3f65a22))
+
+
+### Features
+
+* 🎸 interval slider ([a98b284](https://github.com/keen/keen/commit/a98b28402d227783fe68813c86d389d74bd46b10))
+* 🎸 slider component ([4cc7267](https://github.com/keen/keen/commit/4cc7267f0d1512437d3c6710d17078c6aa488a45)), closes [#173](https://github.com/keen/keen/issues/173)
+* 🎸 table chart plot ([91d3a56](https://github.com/keen/keen/commit/91d3a5618d1f534d3b11e4f3e95596da7c5c8033)), closes [#204](https://github.com/keen/keen/issues/204)
+* 🎸 toggle ([bb7f910](https://github.com/keen/keen/commit/bb7f9108c2ab50ab14a322ac36c2f816ffa5d3ae)), closes [#240](https://github.com/keen/keen/issues/240)
+* 🎸 vertical tooltip position ([8345674](https://github.com/keen/keen/commit/8345674e8a7ccffc42dd8688bff9b86d95be296c)), closes [#168](https://github.com/keen/keen/issues/168)
+
+
+
+
+
 # 0.1.0 (2020-03-16)
 
 
