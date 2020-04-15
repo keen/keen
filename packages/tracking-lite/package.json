@@ -1,0 +1,45 @@
+{
+  "name": "@keen.io/tracking-lite",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "start": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack-dev-server",
+    "build:umd": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack --config webpack.prod.config.ts",
+    "build:es": "tsc",
+    "build": "yarn build:es && yarn build:umd"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/html-webpack-plugin": "^3.2.2",
+    "@types/webpack-bundle-analyzer": "^2.13.3",
+    "@types/webpack-dev-server": "^3.10.1",
+    "html-webpack-plugin": "4.0.2",
+    "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^3.0.0"
+  }
+}
