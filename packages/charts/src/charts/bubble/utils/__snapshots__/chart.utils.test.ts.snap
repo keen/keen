@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/charts <BubbleChart /> - utils generateBubbles() should sort "bubbles" in descending order 1`] = `
+Array [
+  Object {
+    "color": "green",
+    "key": "Google-2",
+    "radius": 40,
+    "selector": Array [
+      2,
+    ],
+    "x": 31.25,
+    "y": 76,
+  },
+  Object {
+    "color": "blue",
+    "key": "Facebook-0",
+    "radius": 36,
+    "selector": Array [
+      0,
+    ],
+    "x": 88,
+    "y": 0,
+  },
+  Object {
+    "color": "yellow",
+    "key": "Linkedin-1",
+    "radius": 26,
+    "selector": Array [
+      1,
+    ],
+    "x": 20.5,
+    "y": 80,
+  },
+  Object {
+    "color": "orange",
+    "key": "Youtube-3",
+    "radius": 20,
+    "selector": Array [
+      3,
+    ],
+    "x": 80,
+    "y": 36,
+  },
+]
+`;

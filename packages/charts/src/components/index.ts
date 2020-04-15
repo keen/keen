@@ -1,6 +1,26 @@
-import Legend from './legend.component';
+import ResponsiveWrapper from './responsive-wrapper.component';
 import ChartBase from './chart-base.component';
 
-import Axes from './axes.component';
+import ChartTooltip from './chart-tooltip';
+import HoverBar, { hoverBarMotion } from './hover-bar';
+import { Mark, markMotion } from './mark';
 
-export { ChartBase, Legend, Axes };
+import Axes from './axes.component';
+import Grid from './grid.component';
+import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
+
+export {
+  ChartBase,
+  ChartTooltip,
+  ResponsiveWrapper,
+  HoverBar,
+  SeriesLegend,
+  LegendBase,
+  LegendCard,
+  BubbleLegend,
+  Axes,
+  Grid,
+  Mark,
+  markMotion,
+  hoverBarMotion,
+};

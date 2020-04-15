@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -14,8 +16,7 @@
     "jsx": "react",
     "baseUrl": "./packages",
     "paths": {
-      "@keen/charts": ["packages/charts"],
-      "@keen/ui-core": ["packages/ui-core"],
+      "@keen.io/*": ["packages/*"]
     }
   },
   "exclude": [

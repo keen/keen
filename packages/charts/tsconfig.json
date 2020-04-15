@@ -1,7 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "outDir": "./dist"
   },
-  "include": ["src/**/*"]
+  "references": [
+    { "path": "../colors" },
+    { "path": "../icons" },
+    { "path": "../ui-core" },
+    { "path": "../storybook-utils" }
+  ],
+  "include": ["src/**/*", "typings/*.d.ts"]
 }

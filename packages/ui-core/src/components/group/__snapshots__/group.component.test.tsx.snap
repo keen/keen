@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/charts - <Group /> should wrap children with provided node 1`] = `
+Array [
+  <span>
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+    <div>
+      3
+    </div>
+  </span>,
+  <span>
+    <div>
+      4
+    </div>
+  </span>,
+]
+`;
+
+exports[`@keen.io/charts - <Group /> should wrap groupped children 1`] = `
+Array [
+  <div
+    class=""
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+  </div>,
+  <div
+    class=""
+  >
+    <div>
+      3
+    </div>
+    <div>
+      4
+    </div>
+  </div>,
+]
+`;
+
+exports[`@keen.io/charts - <Group /> should wrap groupped children based on chunks property 1`] = `
+Array [
+  <div
+    class=""
+  >
+    <div>
+      1
+    </div>
+    <div>
+      2
+    </div>
+    <div>
+      3
+    </div>
+  </div>,
+  <div
+    class=""
+  >
+    <div>
+      4
+    </div>
+  </div>,
+]
+`;

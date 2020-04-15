@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ['dist/'],
   parser: '@typescript-eslint/parser',
   extends: [
     'plugin:@typescript-eslint/recommended',
@@ -20,6 +21,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/prop-types': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',

@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis grouped by two properties 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.key": "Love, Anger, Madness Edwidge Danticat",
+      "keen.value": 97,
+    },
+    Object {
+      "keen.key": "Game of Thrones George R. R. Martin",
+      "keen.value": 730,
+    },
+    Object {
+      "keen.key": "Harry Potter J.K. Rowling",
+      "keen.value": 113,
+    },
+    Object {
+      "keen.key": "It Stephen King",
+      "keen.value": 2104,
+    },
+    Object {
+      "keen.key": "The Shining Stephen King",
+      "keen.value": 6,
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.key": "2019-11-01T00:00:00.000Z",
+      "keen.value": 436,
+    },
+    Object {
+      "keen.key": "2019-12-01T00:00:00.000Z",
+      "keen.value": 333,
+    },
+    Object {
+      "keen.key": "2020-01-01T00:00:00.000Z",
+      "keen.value": 2991,
+    },
+    Object {
+      "keen.key": "2020-02-01T00:00:00.000Z",
+      "keen.value": 59,
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by single property 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.key": "Game of Thrones",
+      "keen.value": 730,
+    },
+    Object {
+      "keen.key": "Harry Potter",
+      "keen.value": 113,
+    },
+    Object {
+      "keen.key": "It",
+      "keen.value": 2104,
+    },
+    Object {
+      "keen.key": "Love, Anger, Madness",
+      "keen.value": 97,
+    },
+    Object {
+      "keen.key": "The Shining",
+      "keen.value": 6,
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by two properties 1`] = `
+Object {
+  "keys": Array [
+    "Edwidge Danticat Love, Anger, Madness",
+    "George R. R. Martin Game of Thrones",
+    "J.K. Rowling Harry Potter",
+    "Stephen King It",
+    "Stephen King The Shining",
+  ],
+  "results": Array [
+    Object {
+      "Edwidge Danticat Love, Anger, Madness": 95,
+      "George R. R. Martin Game of Thrones": 719,
+      "J.K. Rowling Harry Potter": 112,
+      "Stephen King It": 2059,
+      "Stephen King The Shining": 6,
+      "keen.key": "2020-01-01T00:00:00.000Z",
+    },
+    Object {
+      "Edwidge Danticat Love, Anger, Madness": 2,
+      "George R. R. Martin Game of Thrones": 11,
+      "J.K. Rowling Harry Potter": 1,
+      "Stephen King It": 45,
+      "Stephen King The Shining": 0,
+      "keen.key": "2020-02-01T00:00:00.000Z",
+    },
+  ],
+}
+`;
+
+exports[`@keen.io/parser - parseQuery() should create structure for "funnel" analysis 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.key": "pageviews",
+      "keen.value": 1128,
+    },
+    Object {
+      "keen.key": "signups",
+      "keen.value": 317,
+    },
+    Object {
+      "keen.key": "purchases",
+      "keen.value": 89,
+    },
+  ],
+}
+`;

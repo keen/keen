@@ -1,0 +1,180 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs|Theming" />
+
+# Theming
+
+Keen components could be customized in context of features and visual aspects.
+The look of `chart` / `widget` is described with self descriptive `Theme` object that could be easily adjusted.
+
+By default all of components use official `Keen` theme.
+
+# Example
+
+```typescript
+const dataviz = new KeenDataviz({
+  type: 'line',
+  container: '#container',
+  widget: {
+    title: {
+      content: 'Book purchases',
+    },
+    subtitle: {
+      content: 'Most popular authors',
+    },
+  },
+  settings: {
+    barPadding: 0,
+    margins: { top: 15, left: 0, right: 0, bottom: 30 },
+    theme: {
+      colors: ['#DBD56E', '#88AB75', '#2D93AD', '#2D93AD', '#DE8F6E'],
+      axisX: { enabled: false },
+      axisY: { enabled: false },
+      gridY: { color: '#ddd' },
+      gridX: { color: '#ddd' },
+      tooltip: {
+        mode: 'light',
+        labels: { typography: { fontColor: '#2D93AD' } },
+      },
+    },
+  },
+});
+```
+
+# Charts API
+
+## Theme
+The `root` structure of theme object. The visual properties for specific plot features was placed inside `key` that refers to specific chart.
+
+#### Generic properties
+- `colors` list of colors that will be applied for data series.
+- `axisX / axisY` visual aspects of chart axes.
+- `gridX / gridY` visual aspects of cartesian grid.
+- `tooltip` theme properties for tooltip.
+
+
+```typescript
+type Theme = {
+  colors: string[];
+  funnel: Funnel;
+  bar: Bar;
+  metric: Metric;
+  tooltip: Tooltip;
+  axisX: Axis;
+  axisY: Axis;
+  gridX: Grid;
+  gridY: Grid;
+  labels: Labels;
+};
+```
+
+## Axis
+```typescript
+type Axis = {
+  enabled: boolean;
+  tickSize: number;
+  tickPadding: number;
+  stroke: number;
+  color: string;
+  labels: Labels;
+};
+```
+
+## Grid
+```typescript
+type Grid = {
+  enabled: boolean;
+  color: string;
+};
+```
+
+## Tooltip
+```typescript
+type Tooltip = {
+  enabled: boolean;
+  mode: 'light' | 'dark';
+  labels: {
+    typography: Typography;
+  };
+};
+```
+
+## Labels
+```typescript
+type Labels = {
+  enabled: boolean;
+  typography: Typography;
+  radiusAngle: number;
+};
+```
+
+## Typography
+```typescript
+type Typography = {
+  fontStyle: 'normal' | 'italic';
+  fontWeight: 'normal' | 'bold';
+  fontSize: number;
+  fontColor: string;
+  fontFamily: string;
+  lineHeight: string;
+};
+```
+
+## Icon
+```typescript
+type Icon = {
+  color: string;
+  type: IconType;
+};
+
+type IconType =
+  | 'arrow-up'
+  | 'arrow-down'
+  | 'caret-down'
+  | 'caret-up'
+  | 'caret-left'
+  | 'caret-right'
+  | 'brand';
+```
+
+## Funnel
+Properties related with `funnel` chart.
+```typescript
+type Funnel = {
+  header: {
+    value: {
+      enabled: boolean;
+      typography: Typography;
+    };
+    title: {
+      typography: Typography;
+    };
+    badge: {
+      enabled: boolean;
+      typography: Typography;
+    };
+    backgroundColor: string;
+  };
+  step: {
+    backgroundColor: string;
+  };
+};
+```
+
+## Metric
+Properties related with `metric` chart.
+```typescript
+type Metric = {
+  label: {
+    typography: Typography;
+  };
+  excerpt: {
+    icons: {
+      increase: Icon;
+      decrease: Icon;
+    };
+    backgroundColor: string;
+    typography: Typography;
+  };
+};
+```

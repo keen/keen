@@ -1,12 +1,13 @@
 {
-  "name": "@keen/ui-core",
-  "version": "0.0.1",
+  "name": "@keen.io/ui-core",
+  "version": "0.1.0",
   "description": "Keen visual components",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "src/index.ts",
   "directories": {
     "lib": "dist"
   },
@@ -18,22 +19,31 @@
     "url": "git+https://github.com/keen/keen.git"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "test": "jest",
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "build": "tsc"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "d3-array": "^2.4.0",
+    "@keen.io/colors": "^0.1.0",
+    "@keen.io/icons": "^0.1.0",
+    "color": "^3.1.2",
+    "framer-motion": "^1.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "styled-components": "^4.4.1",
-    "styled-system": "^5.1.4"
+    "styled-system": "^5.1.4",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@types/d3-array": "^2.0.0",
+    "@types/color": "^3.0.1",
     "@types/styled-components": "^4.4.1",
-    "@types/styled-system": "^5.1.4"
+    "@types/styled-system": "^5.1.4",
+    "@types/webfontloader": "^1.6.29"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

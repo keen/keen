@@ -1,0 +1,50 @@
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+
+import { BarChart } from '@keen.io/charts';
+
+<Meta title="Visualizations|Bar Chart / Description" component={BarChart} />
+
+# Bar Chart
+
+Bar chart (bar graph, column chart) is the most common approach to visualize amounts for different categories. Bars height or length is proportional to the values that they represent for each group. It is the easiest way to compare individual metrics side-by-side. You can see in the glimpse of an eye which columns are the highest, which are the lowest, and how they compare against each other. If there are two or more sets of categories characteristics, we can group or stack the bars. Bar charts can be also applied to present amounts for discrete periods of time. For instance totals over a monthly period.
+
+#### Category
+- Comprasion
+- Proportions
+- Categorical data
+
+#### Variations
+
+- **Simple bar chart** - displays values for different category items.
+
+- **Grouped bar chart** - presents the set of values for different categories. Allows comparison of more than one characteristic of given categories. Grouped bars should have the same order in each cluster and each characteristic should use its own color explained by the legend.
+
+- **Stacked bar chart** - shows the set of values that make up a whole for different categories. Bars for individual categories are built from the same set of properties and represent the absolute total. Stacked bars should have the same sequence on each bar. Sometimes the whole is standardised to represent 100%. Stacked bar charts work best when the categories are ordinal in nature. The overall pattern of spread across the whole is important here. Ensure the stacked parts have sufficiently different color hues so they are easy to distinguish and do not merge visually.
+
+#### Composition
+The bars should be proportionally sized according to the values - otherwise the perception can be distorted. The best approach is to set the quantitative scale baseline to zero. This will help you keep a proper ratio for bar length and will prevent the misrepresentation of your data.
+
+Bars can be arranged **horizontally** or **vertically**. There is no significant difference in perception between these two orientations. Just use the layout that makes it easier to display the range of values and to read the labels associated with each bar.
+
+#### Color
+Color provides an extra dimension in bar chart visualization. Avoid using more than one hue for a simple bar chart if they do not add any additional meaning. Too many colors can just cause visual noise and make it harder to analyse simple data.
+Colors are essential for a grouped bar chart and a stacked chart. For these cases apply hues that are easy to distinguish the different metrics in a glimpse. Low contrast between adjoined bars may cause visual merge of different items. All colors should be explained by the legend.
+
+#### Annotations
+- If you include axis-scale labels there is no need to label directly each bar value, as it may lead to label overload.
+- Showing gridlines can help increase the precision of judging values.
+- Sorting the values in the chart improves the readability and explains the visual meaning.
+- Set baseline to zero to avoid misrepresentation and misinterpretation of your data.
+
+## Plot
+
+The plot is a part of `keen.io/charts` package and can be used in `React` environment as standalone component.
+
+<Preview>
+  <Story id="visualizations-bar-chart-plot--plot" />
+</Preview>
+
+## Chart API
+
+<Props of={BarChart} />
