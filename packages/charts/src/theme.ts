@@ -10,6 +10,13 @@ export const chartColors = [
   colors.blue[500],
   colors.purple[500],
   colors.pink[500],
+  colors.lightBlue[400],
+  colors.orange[400],
+  colors.yellow[400],
+  colors.green[400],
+  colors.blue[400],
+  colors.purple[400],
+  colors.pink[400],
 ];
 
 export const margins: Margins = { top: 50, right: 20, bottom: 50, left: 40 };
