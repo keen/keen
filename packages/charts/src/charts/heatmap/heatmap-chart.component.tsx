@@ -42,6 +42,10 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y scale settings */
   yScaleSettings?: ScaleSettings;
+  /** X axis title settings */
+  xAxisTitle?: string;
+  /** Y axis title settings */
+  yAxisTitle?: string;
   /** Block padding */
   padding?: number;
   /** Range for filtering map values */
@@ -64,6 +68,8 @@ export const HeatmapChart: FC<Props> = ({
   yScaleSettings = { type: 'band' },
   padding = 2,
   range,
+  xAxisTitle,
+  yAxisTitle,
 }) => {
   const { blocks, xScale, yScale } = generateBlocks({
     data,
@@ -128,7 +134,12 @@ export const HeatmapChart: FC<Props> = ({
         svgDimensions={svgDimensions}
         margins={margins}
       >
-        <Axes xScale={xScale} yScale={yScale} />
+        <Axes
+          xScale={xScale}
+          yScale={yScale}
+          xTitle={xAxisTitle}
+          yTitle={yAxisTitle}
+        />
         <ShadowFilter />
         <Heatmap
           blocks={blocks}

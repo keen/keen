@@ -6,7 +6,6 @@ import {
   CommonChartSettings,
   GroupMode,
   StackMode,
-  AxisTitle,
 } from '../../types';
 
 import { CurveType } from '../line/types';
@@ -21,9 +20,9 @@ export type Props = {
   /** Maximum value for axis */
   maxValue?: number | 'auto';
   /** X axis title settings */
-  xAxisTitle?: AxisTitle;
+  xAxisTitle?: string;
   /** Y axis title settings */
-  yAxisTitle?: AxisTitle;
+  yAxisTitle?: string;
   /** Keys picked from data object used to generate lines */
   keys?: string[];
   /** Keys that are disabled for rendering data series */

@@ -1,50 +1,43 @@
 import {
-  calculateVerticalOffset,
-  calculateHorizontalOffset,
+  getHorizontalPosition,
+  getVerticalPosition,
   getTextAnchor,
 } from './axis-title.utils';
-import { X_AXIS_PADDING } from '../axes.component';
 
 describe('@keen.io/charts - <AxisTitle /> utils', () => {
-  const svgDimensions = { width: 100, height: 100 };
-  const margins = { top: 10, right: 10, bottom: 10, left: 10 };
+  const line = { x1: 0, x2: 100, y1: 100, y2: 0 };
+  const { x1, x2, y1, y2 } = line;
 
-  describe('calculateVerticalOffset()', () => {
+  describe('getVerticalPosition()', () => {
     it('should return offset for "top" alignment', () => {
-      const top = calculateVerticalOffset('top', svgDimensions, margins);
-      expect(top).toEqual(-margins.top);
+      const top = getVerticalPosition('top', line);
+      expect(top).toEqual(-y2);
     });
 
     it('should return offset for "bottom" alignment', () => {
-      const bottom = calculateVerticalOffset('bottom', svgDimensions, margins);
-      expect(bottom).toEqual(
-        -svgDimensions.height - X_AXIS_PADDING + margins.bottom
-      );
+      const bottom = getVerticalPosition('bottom', line);
+      expect(bottom).toEqual(-y1);
     });
 
     it('should return offset for "center" alignment', () => {
-      const center = calculateVerticalOffset('center', svgDimensions, margins);
-      expect(center).toEqual(-svgDimensions.height / 2);
+      const center = getVerticalPosition('center', line);
+      expect(center).toEqual(-(y1 + (y2 - y1) / 2));
     });
   });
-  describe('calculateHorizontalOffset()', () => {
+  describe('getHorizontalPosition()', () => {
     it('should return offset for "left" alignment', () => {
-      const left = calculateHorizontalOffset('left', svgDimensions, margins);
-      expect(left).toEqual(margins.left);
+      const left = getHorizontalPosition('left', line);
+      expect(left).toEqual(x1);
     });
 
     it('should return offset for "right" alignment', () => {
-      const right = calculateHorizontalOffset('right', svgDimensions, margins);
-      expect(right).toEqual(svgDimensions.width - margins.right);
+      const right = getHorizontalPosition('right', line);
+      expect(right).toEqual(x2);
     });
 
     it('should return offset for "center" alignment', () => {
-      const center = calculateHorizontalOffset(
-        'center',
-        svgDimensions,
-        margins
-      );
-      expect(center).toEqual(svgDimensions.height / 2);
+      const center = getHorizontalPosition('center', line);
+      expect(center).toEqual(x1 + (x2 - x1) / 2);
     });
   });
   describe('getTextAnchor()', () => {

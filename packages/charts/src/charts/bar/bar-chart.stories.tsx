@@ -1,12 +1,9 @@
 import * as React from 'react';
-import { object, number, boolean } from '@storybook/addon-knobs';
+import { object, number, boolean, text } from '@storybook/addon-knobs';
 
 import {
   axisXKnobs,
   axisYKnobs,
-  xAxisTitleKnobs,
-  yAxisTitleKnobs,
-  axisTitleThemeKnobs,
   gridKnobs,
   stackModeKnobs,
   groupModeKnobs,
@@ -34,7 +31,6 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
-  axisTitle: axisTitleThemeKnobs('Axis Title'),
   bar: {
     values: {
       typography: typographyKnobs('Values', keenTheme.bar.values.typography),
@@ -59,8 +55,8 @@ export const plot = () => (
       valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['users', 'licenses', 'shops']}
       layout={layoutKnobs('Chart', 'vertical') as any}
-      xAxisTitle={xAxisTitleKnobs('Axis Title')}
-      yAxisTitle={yAxisTitleKnobs('Axis Title')}
+      xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
+      yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
       svgDimensions={object(
         'svg',
         {

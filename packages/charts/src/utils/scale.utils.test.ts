@@ -145,7 +145,7 @@ describe('@keen.io/charts - scale utils', () => {
         y: 0,
         scale,
         tickSize,
-        orientation: Orientation.VERTICAL,
+        orientation: Orientation.HORIZONTAL,
       });
 
       expect(ticks).toMatchSnapshot();
@@ -161,7 +161,7 @@ describe('@keen.io/charts - scale utils', () => {
         y: 0,
         scale,
         tickSize,
-        orientation: Orientation.HORIZONTAL,
+        orientation: Orientation.VERTICAL,
       });
 
       expect(ticks).toMatchSnapshot();
@@ -177,7 +177,7 @@ describe('@keen.io/charts - scale utils', () => {
         y: 0,
         scale,
         tickSize,
-        orientation: Orientation.HORIZONTAL,
+        orientation: Orientation.VERTICAL,
       });
 
       expect(ticks).toMatchSnapshot();
@@ -193,7 +193,7 @@ describe('@keen.io/charts - scale utils', () => {
         y: 0,
         scale,
         tickSize,
-        orientation: Orientation.VERTICAL,
+        orientation: Orientation.HORIZONTAL,
       });
 
       expect(ticks).toMatchSnapshot();
@@ -209,7 +209,7 @@ describe('@keen.io/charts - scale utils', () => {
         y: 0,
         scale,
         tickSize,
-        orientation: Orientation.HORIZONTAL,
+        orientation: Orientation.VERTICAL,
       });
 
       expect(ticks).toMatchSnapshot();

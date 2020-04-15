@@ -5,9 +5,6 @@ import { timeFormat } from 'd3-time-format';
 import {
   axisXKnobs,
   axisYKnobs,
-  xAxisTitleKnobs,
-  yAxisTitleKnobs,
-  axisTitleThemeKnobs,
   gridKnobs,
   curveKnobs,
   groupModeKnobs,
@@ -35,7 +32,6 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
-  axisTitle: axisTitleThemeKnobs('Axis Title'),
 });
 
 export const plot = () => {
@@ -51,8 +47,8 @@ export const plot = () => {
       <LineChart
         labelSelector="name"
         keys={['users', 'books', 'licenses', 'shops']}
-        xAxisTitle={xAxisTitleKnobs('Axis Title')}
-        yAxisTitle={yAxisTitleKnobs('Axis Title')}
+        xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
+        yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         xScaleSettings={{
           type: 'time',
           precision: 'month',

@@ -7,13 +7,7 @@ import { getSelectors } from './utils/tooltip.utils';
 import Bars from './bars.component';
 import BarTooltipContent from './bar-tooltip-content.component';
 
-import {
-  ChartBase,
-  ChartTooltip,
-  Grid,
-  Axes,
-  AxisTitle,
-} from '../../components';
+import { ChartBase, ChartTooltip, Grid, Axes } from '../../components';
 
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
@@ -25,7 +19,6 @@ import {
   ScaleSettings,
   GroupMode,
   StackMode,
-  AxisTitle as AxisTitleType,
 } from '../../types';
 
 export type Props = {
@@ -54,9 +47,9 @@ export type Props = {
   /** Y Scale settings */
   yScaleSettings?: ScaleSettings;
   /** X axis title settings */
-  xAxisTitle?: AxisTitleType;
+  xAxisTitle?: string;
   /** Y axis title settings */
-  yAxisTitle?: AxisTitleType;
+  yAxisTitle?: string;
   /** Group mode */
   groupMode?: GroupMode;
   /** Stack mode */
@@ -108,7 +101,7 @@ export const BarChart: FC<Props> = ({
     yScaleSettings,
   });
 
-  const { tooltip: tooltipSettings, axisTitle: axisTitleSettings } = theme;
+  const { tooltip: tooltipSettings } = theme;
 
   const clearTooltip = useRef(null);
   const [tooltip, setTooltip] = useState<TooltipState>({
@@ -127,10 +120,12 @@ export const BarChart: FC<Props> = ({
         {...scaleSettings}
       >
         <Grid xScale={xScale} yScale={yScale} />
-        {(xAxisTitle || yAxisTitle) && (
-          <AxisTitle x={xAxisTitle} y={yAxisTitle} {...axisTitleSettings} />
-        )}
-        <Axes xScale={xScale} yScale={yScale} />
+        <Axes
+          xScale={xScale}
+          yScale={yScale}
+          xTitle={xAxisTitle}
+          yTitle={yAxisTitle}
+        />
         <Bars
           bars={bars}
           stackMode={stackMode}

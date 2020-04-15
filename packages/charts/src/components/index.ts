@@ -6,7 +6,6 @@ import HoverBar, { hoverBarMotion } from './hover-bar';
 import { Mark, markMotion } from './mark';
 
 import Axes from './axes.component';
-import AxisTitle from './axis-title';
 import Grid from './grid.component';
 import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
 
@@ -20,7 +19,6 @@ export {
   LegendCard,
   BubbleLegend,
   Axes,
-  AxisTitle,
   Grid,
   Mark,
   markMotion,
