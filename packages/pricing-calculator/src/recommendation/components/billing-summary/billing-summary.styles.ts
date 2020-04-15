@@ -29,7 +29,7 @@ export const PricingPoints = styled.div`
 `;
 
 export const Total = styled.div`
-  margin: 25px 0 20px 0;
+  margin: 10px 0 20px 0;
   display: flex;
   justify-content: center;
   color: ${colors.white['500']}
@@ -54,6 +54,7 @@ export const Label = styled.div`
 `;
 
 export const BllingMode = styled.div`
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;

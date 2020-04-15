@@ -1,7 +1,7 @@
 import { all, select, put, call, take, takeLatest } from 'redux-saga/effects';
 import { eventChannel, EventChannel, END } from 'redux-saga';
 
-import { plansConfig } from './plans-config';
+import { plansConfig, PLANS_WITHOUT_SERVICES } from './plans.config';
 import { setRecommendation, getCurrentPlan } from './recommendation';
 import { getCalculatorState } from './calculator';
 import { getDevice, setDevice } from './app';
@@ -47,11 +47,6 @@ export function* updateRecommendation() {
     queries,
   });
 
-  if (services.customSSL || services.rbac) {
-    yield put(setRecommendation('custom'));
-    return;
-  }
-
   const calculatedPlans = PLAN_TOPOLOGY.map((name: PlanId) =>
     calculateCost({
       planId: name,
@@ -74,8 +69,14 @@ export function* updateRecommendation() {
     ({ plan }) => plan === previousPlan
   );
 
+  const servicesDowngrade =
+    PLANS_WITHOUT_SERVICES.includes(previousPlan) &&
+    (services.customSSL || services.rbac);
+
   const shouldDowngrade =
-    previousPlanCost && previousPlanCost.total < currentTreshold;
+    previousPlanCost &&
+    previousPlanCost.total < currentTreshold &&
+    !servicesDowngrade;
 
   if (shouldDowngrade) {
     yield put(setRecommendation(previousPlan));
@@ -104,12 +105,25 @@ export function* watchWindowResize() {
   }
 }
 
+export function* updatePlanForService() {
+  const state = yield select();
+  const currentPlan = getCurrentPlan(state);
+  const { services } = getCalculatorState(state);
+
+  if (
+    PLANS_WITHOUT_SERVICES.includes(currentPlan) &&
+    (services.customSSL || services.rbac)
+  ) {
+    yield put(setRecommendation('business'));
+  }
+
+  yield call(updateRecommendation);
+}
+
 export function* rootSaga() {
   yield all([
     takeLatest(APP_START, watchWindowResize),
-    takeLatest(
-      [UPDATE_EVENTS, UPDATE_QUERIES, UPDATE_SERVICE],
-      updateRecommendation
-    ),
+    takeLatest(UPDATE_SERVICE, updatePlanForService),
+    takeLatest([UPDATE_EVENTS, UPDATE_QUERIES], updateRecommendation),
   ]);
 }

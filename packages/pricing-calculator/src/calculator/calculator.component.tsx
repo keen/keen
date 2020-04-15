@@ -1,20 +1,33 @@
+/* eslint-disable react/display-name */
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '@keen.io/colors';
-import { Slider, Position } from '@keen.io/ui-core';
+import { IntervalSlider, Ruler } from '@keen.io/ui-core';
 
 import { ServicesList } from './components';
 import {
   Title,
   Label,
   Wrapper,
+  TooltipText,
+  RulerLabel,
+  RulerContainer,
   SliderContainer,
   ComputeSection,
   ServicesSection,
 } from './calculator.styles';
 
 import { getDevice } from '../app';
-import { servicesConfig } from '../services-config';
+
+import {
+  eventsSettings,
+  eventsRulerSettings,
+  mapEventsValue,
+  queriesSettings,
+  queriesRulerSettings,
+  mapQueriesValue,
+} from './calculator.config';
+import { servicesConfig } from '../services.config';
 
 import { updateService, updateQueries, updateEvents } from './actions';
 
@@ -25,9 +38,10 @@ const Calculator: FC<{}> = () => {
   const sliderLayout = device === 'desktop' ? 'row' : 'column';
   const sliderColors = Object.values(colors.green);
 
-  const tooltip = {
-    enabled: true,
-    position: device === 'desktop' ? 'top' : ('right' as Position),
+  const controlSettings = {
+    size: 20,
+    backgroundColor: colors.white['500'],
+    borderColor: colors.green['500'],
   };
 
   return (
@@ -37,31 +51,69 @@ const Calculator: FC<{}> = () => {
         <Wrapper layout={sliderLayout}>
           <Label>Events</Label>
           <SliderContainer>
-            <Slider
+            <IntervalSlider
+              colors={sliderColors}
+              railSettings={{ size: 6, borderRadius: 3 }}
+              controlSettings={controlSettings}
+              tooltipSettings={{
+                enabled: true,
+                position: 'top',
+                renderText: value => (
+                  <TooltipText>{mapEventsValue(value)} events</TooltipText>
+                ),
+              }}
+              intervals={eventsSettings.intervals}
               onChange={(events: number) => {
                 dispatch(updateEvents(events));
               }}
-              tooltip={tooltip}
-              min={0}
-              max={1000000}
-              size={6}
-              colors={sliderColors}
             />
+            <RulerContainer>
+              <Ruler
+                layout="horizontal"
+                ticks={eventsRulerSettings}
+                renderLabel={(label: string) => (
+                  <RulerLabel
+                    bold={eventsSettings.highlightLabels.includes(label)}
+                  >
+                    {label}
+                  </RulerLabel>
+                )}
+              />
+            </RulerContainer>
           </SliderContainer>
         </Wrapper>
         <Wrapper layout={sliderLayout}>
           <Label>Queries</Label>
           <SliderContainer>
-            <Slider
+            <IntervalSlider
+              colors={sliderColors}
+              railSettings={{ size: 6, borderRadius: 3 }}
+              controlSettings={controlSettings}
+              tooltipSettings={{
+                enabled: true,
+                position: 'top',
+                renderText: value => (
+                  <TooltipText>{mapQueriesValue(value)} queries</TooltipText>
+                ),
+              }}
+              intervals={queriesSettings.intervals}
               onChange={(queries: number) => {
                 dispatch(updateQueries(queries));
               }}
-              tooltip={tooltip}
-              min={0}
-              max={60000}
-              size={6}
-              colors={sliderColors}
             />
+            <RulerContainer>
+              <Ruler
+                layout="horizontal"
+                ticks={queriesRulerSettings}
+                renderLabel={(label: string) => (
+                  <RulerLabel
+                    bold={queriesSettings.highlightLabels.includes(label)}
+                  >
+                    {label}
+                  </RulerLabel>
+                )}
+              />
+            </RulerContainer>
           </SliderContainer>
         </Wrapper>
       </ComputeSection>

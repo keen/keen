@@ -10,7 +10,7 @@ import { colors } from '@keen.io/colors';
 import { Position } from '../../types';
 
 const Wrapper = styled.div`
-  width: 400px;
+  width: 100px;
 `;
 
 export default {

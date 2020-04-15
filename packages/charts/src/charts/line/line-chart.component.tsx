@@ -97,8 +97,8 @@ export const LineChart: FC<Props> = ({
     groupMode,
     areaMode,
   });
-
   const svgElement = useRef(null);
+  const computeTooltipRelative = !stepMode;
 
   const {
     tooltipVisible,
@@ -106,7 +106,7 @@ export const LineChart: FC<Props> = ({
     tooltipSelectors,
     updateTooltipPosition,
     hideTooltip,
-  } = useTooltip(svgElement);
+  } = useTooltip(svgElement, computeTooltipRelative);
 
   const { tooltip: tooltipSettings } = theme;
 

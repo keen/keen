@@ -49,15 +49,6 @@ const BillingSummary: FC<Props> = ({
 
   return (
     <Summary>
-      <BllingMode>
-        <Label onClick={() => setAnnualBilling(!annualBilling)}>
-          Annual blling
-        </Label>
-        <Toggle
-          isOn={annualBilling}
-          onChange={state => setAnnualBilling(state)}
-        />
-      </BllingMode>
       <Total>
         <Currency>$</Currency>
         <Price>{totalPrice}</Price>
@@ -71,23 +62,32 @@ const BillingSummary: FC<Props> = ({
           </ListItem>
           <AnimatePresence>
             {overageEventsPrice > 0 && (
-              <ListItem {...priceMotion}>
+              <ListItem key="events" {...priceMotion}>
                 + ${overageEventsPrice} for events overage
               </ListItem>
             )}
             {overageQueriesPrice > 0 && (
-              <ListItem {...priceMotion}>
+              <ListItem key="queries" {...priceMotion}>
                 + ${overageQueriesPrice} for queries overage
               </ListItem>
             )}
             {s3ServicePrice > 0 && (
-              <ListItem {...priceMotion}>
+              <ListItem key="s3" {...priceMotion}>
                 + ${s3ServicePrice} for S3 Add-on
               </ListItem>
             )}
           </AnimatePresence>
         </List>
       </PricingPoints>
+      <BllingMode>
+        <Label onClick={() => setAnnualBilling(!annualBilling)}>
+          Annual blling (save 10%)
+        </Label>
+        <Toggle
+          isOn={annualBilling}
+          onChange={state => setAnnualBilling(state)}
+        />
+      </BllingMode>
     </Summary>
   );
 };
