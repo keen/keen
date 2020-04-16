@@ -17,7 +17,7 @@ type Props = {
   yTitle?: string;
 };
 
-export const X_AXIS_PADDING = 5;
+const X_AXIS_PADDING = 5;
 
 const Axes = ({ xScale, yScale, xTitle, yTitle }: Props) => {
   const {
