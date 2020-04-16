@@ -3,6 +3,7 @@ import {
   transformAtomicResult,
   transformFromNumber,
   transformFunnel,
+  transformExtraction,
 } from './utils/transform.utils';
 
 import {
@@ -60,6 +61,15 @@ export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
         Object.values(properties).forEach(property => {
           results.push({ [KEEN_KEY]: property, [KEEN_VALUE]: result });
         });
+      }
+
+      if (
+        typeof partialResult !== 'number' &&
+        !('value' in partialResult) &&
+        !('timeframe' in partialResult) &&
+        !('result' in partialResult)
+      ) {
+        results.push(transformExtraction(partialResult));
       }
     });
 
