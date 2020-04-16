@@ -71,7 +71,12 @@ export const HeatmapChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
 }) => {
-  const { blocks, xScale, yScale } = generateBlocks({
+  const {
+    blocks,
+    xScale,
+    yScale,
+    settings: { xAxisTitle: xTitle, yAxisTitle: yTitle },
+  } = generateBlocks({
     data,
     margins,
     dimension: svgDimensions,
@@ -83,6 +88,8 @@ export const HeatmapChart: FC<Props> = ({
     colorMode,
     steps,
     range,
+    xAxisTitle,
+    yAxisTitle,
   });
 
   const svgElement = useRef(null);
@@ -137,8 +144,9 @@ export const HeatmapChart: FC<Props> = ({
         <Axes
           xScale={xScale}
           yScale={yScale}
-          xTitle={xAxisTitle}
-          yTitle={yAxisTitle}
+          xTitle={xTitle}
+          yTitle={yTitle}
+          layout={layout}
         />
         <ShadowFilter />
         <Heatmap

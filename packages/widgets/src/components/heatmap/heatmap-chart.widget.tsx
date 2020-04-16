@@ -59,7 +59,6 @@ export const HeatmapChartWidget: FC<Props> = ({
               layout={legend.layout}
               colors={theme.colors}
               onChange={(min, max) => {
-                console.log(min, max, 'sa');
                 setRange({ min, max });
               }}
               colorSteps={steps}

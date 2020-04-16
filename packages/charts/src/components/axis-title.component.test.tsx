@@ -73,7 +73,6 @@ describe('<AxisTitle />', () => {
 
   it('should render AxisTitle text', () => {
     const { wrapper } = setup();
-    console.log(wrapper.html());
     expect(wrapper.find('text').text()).toEqual(title);
   });
 });
