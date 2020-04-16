@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { action } from '@storybook/addon-actions';
 
 import { Button } from './button.component';
 
@@ -10,12 +11,18 @@ export default {
   },
 };
 
-export const primary = () => (
-  <Button onClick={() => console.log('sa')}>Hello World!</Button>
-);
+export const primary = () => <Button onClick={action('click')}>Button</Button>;
 
 export const primaryButtonLink = () => (
-  <Button href="https://keen.io" onClick={() => console.log('sa')}>
-    Hello World!
+  <Button href="https://keen.io" onClick={action('click')}>
+    Link
   </Button>
 );
+
+primaryButtonLink.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Displays button as `anchor` HTML element.',
+    },
+  },
+};

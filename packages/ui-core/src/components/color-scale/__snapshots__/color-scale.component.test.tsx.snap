@@ -29,11 +29,8 @@ exports[`<ColorScale /> should render ColorScale with gradient 1`] = `
         "#F4A083",
       ]
     }
-    controls={
-      Object {
-        "number": 2,
-      }
-    }
+    maximum={100}
+    minimum={0}
   />
 </Fragment>
 `;

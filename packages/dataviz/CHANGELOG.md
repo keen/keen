@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/dataviz@0.1.0...@keen.io/dataviz@0.2.0) (2020-04-15)
+
+
+### Features
+
+* 🎸 add support for label mappings ([3e65ee9](https://github.com/keen/keen/commit/3e65ee9fb7429a646c5130cde6058d2e6938ba5f))
+* 🎸 area chart ([8b4c0c9](https://github.com/keen/keen/commit/8b4c0c97838003573756353b27e01ff330a126a5)), closes [#182](https://github.com/keen/keen/issues/182)
+* 🎸 bubble chart ([6475765](https://github.com/keen/keen/commit/64757650343a4cd81eff6475e109348fd33d27a0))
+* 🎸 donut chart ([4dea4d0](https://github.com/keen/keen/commit/4dea4d02dd40f1b9ea5f27e697bf7303ce14c127))
+* 🎸 integrate slider with choropleth ([d0f6324](https://github.com/keen/keen/commit/d0f6324ae6b2f6d29b3692a5133ea8c8f1d10984))
+* 🎸 stacked arcs ([44f5a99](https://github.com/keen/keen/commit/44f5a99dd61595746d07f92d668c9ad68241f505))
+
+
+
+
+
 # 0.1.0 (2020-03-16)
 
 

@@ -1,3 +1,3 @@
-import { ServicesList } from './services-list';
+import ServicesList from './services-list';
 
 export { ServicesList };

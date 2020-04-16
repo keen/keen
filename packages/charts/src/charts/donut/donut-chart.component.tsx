@@ -31,7 +31,7 @@ export type Props = {
   padRadius?: number;
   /** Arc corner radius */
   cornerRadius?: number;
-  /** Radius of inner circle */
+  /** Radius of inner circle - relative to outer radius [0, 1] */
   innerRadius?: number;
   /** The radius for slice labels */
   labelsRadius?: number;
@@ -59,7 +59,7 @@ export const DonutChart: FC<Props> = ({
   padAngle = 0.02,
   padRadius = 100,
   cornerRadius = 2,
-  innerRadius = 150,
+  innerRadius = 0.5,
   labelsRadius = 30,
   labelsPosition = 'inside',
   labelsAutocolor = true,

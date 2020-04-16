@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { Slider } from '@keen.io/ui-core';
+import { RangeSlider } from '@keen.io/ui-core';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
@@ -69,15 +69,17 @@ export const ChoroplethChartWidget: FC<Props> = ({
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
-          <LegendBase fullDimension {...legend}>
-            <Slider
-              min={0}
-              max={max}
+          <LegendBase spacing="thin" fullDimension {...legend}>
+            <RangeSlider
+              minimum={0}
+              maximum={max}
+              tooltipSettings={{
+                enabled: true,
+                position: 'right',
+              }}
               layout={legend.layout}
               colors={theme.colors}
-              controls={{ number: 2 }}
-              ruler={{ enabled: false }}
-              onChange={updatedRange => setRange(updatedRange)}
+              onChange={(min, max) => setRange({ min, max })}
               colorSteps={colorSteps}
             />
           </LegendBase>

@@ -4,7 +4,7 @@ import {
   calculateQueriesOverage,
 } from './plan.utils';
 
-import { plansConfig } from '../plans-config';
+import { plansConfig } from '../plans.config';
 import { PlanId } from '../types';
 
 describe('@keen.io/pricing-calculator - utils', () => {

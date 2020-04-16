@@ -116,6 +116,8 @@ export const generateCircularChart = ({
       height - margins.top - margins.bottom
     ) / 2;
 
+  const relativeInnerRadius = radius * Math.min(innerRadius, 1);
+
   data.forEach((item, idx) => {
     const label = item[labelSelector];
     if (!disabledLabels.includes(label)) {
@@ -150,7 +152,7 @@ export const generateCircularChart = ({
     endAngle: number
   ): [number, number] => {
     const [x, y] = createArc.centroid({
-      innerRadius: innerRadius,
+      innerRadius: relativeInnerRadius,
       outerRadius: type === 'donut' ? radius : radius + labelsRadius,
       startAngle,
       endAngle,
@@ -167,7 +169,7 @@ export const generateCircularChart = ({
     ({ startAngle, endAngle, value, index, data }) => {
       const { color, selector, stacked, stack } = data as any;
       const [x, y] = createArc.centroid({
-        innerRadius: innerRadius,
+        innerRadius: relativeInnerRadius,
         outerRadius: 0,
         startAngle,
         endAngle,
@@ -193,7 +195,7 @@ export const generateCircularChart = ({
     arcs,
     drawArc: arc()
       .padAngle(padAngle)
-      .innerRadius(innerRadius)
+      .innerRadius(relativeInnerRadius)
       .outerRadius(radius)
       .padRadius(padRadius)
       .cornerRadius(cornerRadius),

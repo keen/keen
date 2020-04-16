@@ -38,36 +38,4 @@ describe('@keen.io/charts - <ChartTooltip /> utils', () => {
     expect(arrowDirection).toEqual('right');
     expect(tooltipX).not.toEqual(props.x);
   });
-
-  it('should return vertical overflow on top', () => {
-    const props = {
-      x: 0,
-      y: 10,
-      width: 20,
-      height: 20,
-    };
-    const { arrowOffset } = calculateTooltipPosition({
-      svgDimensions,
-      margins,
-      ...props,
-    });
-
-    expect(arrowOffset).toEqual('16px');
-  });
-
-  it('should return vertical overflow on bottom', () => {
-    const props = {
-      x: 0,
-      y: svgDimensions.height - margins.bottom,
-      width: 20,
-      height: 20,
-    };
-    const { arrowOffset } = calculateTooltipPosition({
-      svgDimensions,
-      margins,
-      ...props,
-    });
-
-    expect(arrowOffset).toEqual('14px');
-  });
 });

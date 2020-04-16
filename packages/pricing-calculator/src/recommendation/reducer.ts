@@ -1,4 +1,4 @@
-import { plansConfig } from '../plans-config';
+import { plansConfig } from '../plans.config';
 
 import { SET_RECOMMENDATION } from '../constants';
 

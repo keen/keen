@@ -3,7 +3,7 @@ import { colors as theme } from '@keen.io/colors';
 
 import { ColorMode } from '../../types';
 
-import Slider from '../slider/slider.component';
+import { RangeSlider } from '../slider';
 
 import { ColorCard } from './color-scale.styles';
 
@@ -25,7 +25,7 @@ const ColorScale = ({
   return (
     <>
       {mode === 'continuous' ? (
-        <Slider colors={colors} controls={{ number: 2 }} />
+        <RangeSlider colors={colors} minimum={0} maximum={100} />
       ) : (
         colors.map(el => <ColorCard key={el} background={el} />)
       )}

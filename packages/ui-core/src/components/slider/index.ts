@@ -1,3 +1,4 @@
-import Slider from './slider.component';
+import RangeSlider from './range-slider.component';
+import IntervalSlider from './interval-slider.component';
 
-export default Slider;
+export { IntervalSlider, RangeSlider };

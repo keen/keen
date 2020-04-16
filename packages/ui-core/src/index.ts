@@ -13,7 +13,6 @@ import {
 } from './types';
 
 import {
-  Caret,
   Badge,
   Button,
   BulletList,
@@ -24,9 +23,12 @@ import {
   Loader,
   Tooltip,
   TooltipMode,
-  Slider,
+  RangeSlider,
+  IntervalSlider,
   ColorScale,
   Toggle,
+  Ruler,
+  RulerTick,
   ARROW_SIZE,
   Ceil,
   HeaderCeil,
@@ -40,7 +42,6 @@ import {
 export {
   Badge,
   Button,
-  Caret,
   Alignment,
   BulletList,
   ColorAdjuster,
@@ -59,9 +60,12 @@ export {
   Position,
   Layout,
   ColorMode,
-  Slider,
+  RangeSlider,
+  IntervalSlider,
   ColorScale,
   RangeType,
+  Ruler,
+  RulerTick,
   Toggle,
   Ceil,
   HeaderCeil,

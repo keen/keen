@@ -10,6 +10,7 @@ type Props = {
   data: Record<string, any>[];
   typography: Typography;
   labelSelector: string;
+  valueKey: string;
   selectors: { selector: DataSelector; color: string }[];
 };
 
@@ -18,6 +19,7 @@ export const TooltipContent: FC<Props> = ({
   typography,
   labelSelector,
   selectors,
+  valueKey,
 }) => {
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
@@ -54,6 +56,7 @@ export const TooltipContent: FC<Props> = ({
           color={color}
           correlations={correlations}
           typography={typography}
+          valueKey={valueKey}
         />
       ))}
     </>

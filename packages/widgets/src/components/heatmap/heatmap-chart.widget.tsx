@@ -8,7 +8,7 @@ import {
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import { Slider } from '@keen.io/ui-core';
+import { RangeSlider } from '@keen.io/ui-core';
 
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
@@ -36,7 +36,7 @@ export const HeatmapChartWidget: FC<Props> = ({
   ...props
 }) => {
   const { min, max } = useSlider(props.data, props.keys);
-  const [range, setRange] = useState(null);
+  const [range, setRange] = useState({ min, max });
 
   return (
     <ChartWidget
@@ -52,15 +52,16 @@ export const HeatmapChartWidget: FC<Props> = ({
       </TitleSocket>
       {legend.enabled && (
         <LegendSocket>
-          <LegendBase fullDimension {...legend}>
-            <Slider
-              min={min}
-              max={max}
+          <LegendBase fullDimension spacing="thin" {...legend}>
+            <RangeSlider
+              minimum={min}
+              maximum={max}
               layout={legend.layout}
               colors={theme.colors}
-              controls={{ number: 2 }}
-              ruler={{ enabled: false }}
-              onChange={res => setRange(res)}
+              onChange={(min, max) => {
+                console.log(min, max, 'sa');
+                setRange({ min, max });
+              }}
               colorSteps={steps}
             />
           </LegendBase>
@@ -72,7 +73,7 @@ export const HeatmapChartWidget: FC<Props> = ({
             <HeatmapChart
               {...props}
               theme={theme}
-              range={range ? range : { min, max }}
+              range={range}
               steps={steps}
               svgDimensions={{ width, height }}
             />

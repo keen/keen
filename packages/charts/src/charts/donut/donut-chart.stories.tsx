@@ -38,7 +38,10 @@ export const plot = () => {
       },
       labels: {
         enabled: boolean('Enabled', true, 'Labels') as boolean,
-        typography: typographyKnobs('Labels', defaultTheme.labels.typography),
+        typography: typographyKnobs(
+          'Labels',
+          defaultTheme.donut.labels.typography
+        ),
       },
     },
   };
@@ -58,27 +61,14 @@ export const plot = () => {
     'Chart'
   );
 
-  const getDonutRadius = () => {
-    const width =
-      svgDimensionsKnob.width - marginsKnob.left - marginsKnob.right;
-    const height =
-      svgDimensionsKnob.height - marginsKnob.top - marginsKnob.bottom;
-    const min = Math.min(width, height);
-    const radius = {
-      min: min > 0 ? Math.round((0.3 * min) / 2) : 100,
-      max: min > 0 ? Math.round((0.9 * min) / 2) : 150,
-    };
-    return radius;
-  };
-
   const innerRadiusKnob = number(
     'Inner Radius',
-    80,
+    0.5,
     {
       range: true,
-      min: getDonutRadius().min,
-      max: getDonutRadius().max,
-      step: 1,
+      min: 0.1,
+      max: 0.95,
+      step: 0.01,
     },
     'Chart'
   );
