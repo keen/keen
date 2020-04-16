@@ -1,21 +1,17 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import { DefaultArcObject } from 'd3-shape';
+import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip, Text, ColorMode } from '@keen.io/ui-core';
 
-import ArcGradient, { GRADIENT_ID } from './arc-gradient.component';
 import GaugeProgress from './gauge-progress.component';
 import GaugeLabels from './gauge-labels.component';
 
 import { generateGauge } from './utils';
-import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
 
 import { ChartBase } from '../../components';
 import { useTooltip } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
-
-import { ARC_MOTION_MS } from './constants';
+import { TOOLTIP_TIMEOUT } from './constants';
 
 import { CommonChartSettings } from '../../types';
 
@@ -47,6 +43,13 @@ export const tooltipMotion = {
   exit: { opacity: 0 },
 };
 
+const createArcMotion = (index: number) => ({
+  initial: { opacity: 0 },
+  animate: { opacity: 0.5 },
+  exit: {},
+  transition: { delay: 0.005 * index, duration: 0 },
+});
+
 const progressValueMotion = {
   transition: { duration: 0.3, delay: 0.4 },
   initial: { opacity: 0 },
@@ -63,21 +66,18 @@ export const GaugeChart: FC<Props> = ({
   endAngle = 120,
   margins = { top: 10, right: 0, bottom: 10, left: 0 },
   colorMode = 'continuous',
-  colorSteps = 4,
+  colorSteps = 2,
   progressType = 'percent',
   minValue = 'auto',
   maxValue = 'auto',
 }) => {
   const {
-    maskPath,
     progressValue,
     outerArcPath,
-    drawInnerArcPath,
-    innerArcProperties,
     emptySpaceArcPath,
-    innerArcColor,
     minimum,
     maximum,
+    innerArcs,
   } = generateGauge({
     data,
     dimension: svgDimensions,
@@ -92,49 +92,18 @@ export const GaugeChart: FC<Props> = ({
     colors: theme.colors,
   });
 
-  const [arcProperties, setArcProperties] = useState<ArcProperties>({
-    startAngle: innerArcProperties.startAngle,
-    endAngle: innerArcProperties.startAngle,
-  });
-
   const svgElement = useRef(null);
-  const pathElement = useRef(null);
+  const tooltipTimeout = useRef(null);
 
   const {
     tooltipVisible,
     tooltipPosition,
+    tooltipMeta,
     updateTooltipPosition,
     hideTooltip,
   } = useTooltip(svgElement);
 
-  useEffect(() => {
-    const motion = createArcTween(
-      arcProperties,
-      {
-        startAngle: innerArcProperties.startAngle,
-        endAngle: innerArcProperties.endAngle,
-      },
-      drawInnerArcPath
-    );
-
-    requestAnimationFrame(() => {
-      animateArcPath(
-        pathElement,
-        motion,
-        () => {
-          setArcProperties({
-            startAngle: innerArcProperties.startAngle,
-            endAngle: innerArcProperties.endAngle,
-          });
-        },
-        ARC_MOTION_MS
-      );
-    });
-  }, []);
-
   const { gauge: gaugeSettings, tooltip: tooltipSettings } = theme;
-  const innerArcFill =
-    colorMode === 'continuous' ? `url(#${GRADIENT_ID})` : innerArcColor;
 
   return (
     <>
@@ -155,7 +124,7 @@ export const GaugeChart: FC<Props> = ({
           >
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               <Text {...tooltipSettings.labels.typography}>
-                {progressValue}
+                {tooltipMeta.value}
               </Text>
             </Tooltip>
           </motion.div>
@@ -173,9 +142,6 @@ export const GaugeChart: FC<Props> = ({
               2}px, ${svgDimensions.height / 2}px)`,
           }}
         >
-          {colorMode === 'continuous' && (
-            <ArcGradient steps={colorSteps} colors={theme.colors} />
-          )}
           <g
             style={{
               textAnchor: 'middle',
@@ -199,18 +165,28 @@ export const GaugeChart: FC<Props> = ({
               </AnimatePresence>
             )}
           </g>
-          <path
-            ref={pathElement}
-            d={drawInnerArcPath(arcProperties as DefaultArcObject)}
-            fill={innerArcFill}
-            onMouseMove={e => {
-              if (tooltipSettings.enabled) {
-                updateTooltipPosition(e);
-              }
-            }}
-            onMouseLeave={() => hideTooltip()}
-          />
-          {progressValue < maximum && <path d={maskPath} fill="white" />}
+          <AnimatePresence>
+            {innerArcs.map(({ path, value, color }, idx) => (
+              <motion.path
+                key={idx}
+                d={path}
+                fill={color}
+                {...createArcMotion(idx)}
+                onMouseLeave={() => {
+                  tooltipTimeout.current = setTimeout(() => {
+                    hideTooltip();
+                  }, TOOLTIP_TIMEOUT);
+                }}
+                onMouseEnter={e => {
+                  if (tooltipSettings.enabled) {
+                    if (tooltipTimeout.current)
+                      clearTimeout(tooltipTimeout.current);
+                    updateTooltipPosition(e, null, { value });
+                  }
+                }}
+              />
+            ))}
+          </AnimatePresence>
           {gaugeSettings.labels.enabled && (
             <GaugeLabels
               minValue={minimum}
