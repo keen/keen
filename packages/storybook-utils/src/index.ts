@@ -15,11 +15,13 @@ import {
 import { axisXKnobs, axisYKnobs, gridKnobs } from './theme.knobs';
 import { legendKnobs } from './legend.knobs';
 import { cardKnobs } from './card.knobs';
+import { metricIconKnobs } from './metric.knobs';
 
 import StoryWrapper from './story-wrapper.component';
 
 export {
   StoryWrapper,
+  metricIconKnobs,
   axisXKnobs,
   axisYKnobs,
   curveKnobs,

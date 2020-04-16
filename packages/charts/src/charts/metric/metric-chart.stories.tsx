@@ -4,6 +4,7 @@ import { text, color } from '@storybook/addon-knobs';
 import {
   metricTypeKnobs,
   typographyKnobs,
+  metricIconKnobs,
   iconKnobs,
 } from '@keen.io/storybook-utils';
 
@@ -25,21 +26,11 @@ export const plot = () => {
   const theme = {
     ...keenTheme,
     metric: {
-      label: {
-        typography: typographyKnobs(
-          'Metric',
-          keenTheme.metric.label.typography
-        ),
+      value: {
+        typography: typographyKnobs('Value', keenTheme.metric.value.typography),
       },
-      icon: {
-        enabled: true,
-        settings: {
-          color: color('Color', keenTheme.metric.icon.settings.color, 'Icon'),
-          height: 60,
-          width: 60,
-          type: iconKnobs('Icon', 'brand'),
-        },
-      },
+      caption: keenTheme.metric.caption,
+      icon: metricIconKnobs('Icon'),
       excerpt: {
         icons: {
           increase: {
@@ -82,14 +73,14 @@ export const plot = () => {
     <div
       style={{
         padding: '0 10px',
-        width: '200px',
+        width: '300px',
         height: '200px',
+        overflow: 'hidden',
       }}
     >
       <MetricChart
         labelSelector="day"
-        labelPrefix={text('Prefix', '', 'Chart')}
-        labelSuffix={text('Suffix', '', 'Chart')}
+        caption={text('Caption', 'Metric caption', 'Chart')}
         type={metricTypeKnobs('Chart')}
         keys={['users']}
         theme={theme}
