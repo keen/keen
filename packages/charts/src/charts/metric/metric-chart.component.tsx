@@ -3,10 +3,19 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 import { Text } from '@keen.io/ui-core';
 
-import { Excerpt, Wrapper, IconWrapper, Layout } from './metric-chart.styles';
+import MetricIcon from './metric-icon.component';
+import {
+  Excerpt,
+  Wrapper,
+  ValueContainer,
+  IconWrapper,
+  Layout,
+} from './metric-chart.styles';
 
 import { generateMetric } from './utils';
 import { formatNumber } from '../../utils/format.utils';
+import { createMargins } from '../../utils/element.utils';
+
 import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';
@@ -35,22 +44,22 @@ export const increaseMotion = {
 export type Props = {
   /** Chart data */
   data: object[];
+  /** Caption for describing metric */
+  caption?: string;
   /** Name of data object property used to create label */
   labelSelector?: string;
   /** Keys picked from data object used to create metric */
   keys?: string[];
-  /** Prefix for metric value */
-  labelPrefix?: string;
-  /** Suffix for metric value */
-  labelSuffix?: string;
+  /** Value format function */
+  formatValue?: (value: string | number) => React.ReactNode;
   /** Metric type */
   type?: 'percent' | 'difference' | 'compare';
 } & CommonChartSettings;
 
 export const MetricChart: FC<Props> = ({
   data,
-  labelPrefix,
-  labelSuffix,
+  caption,
+  formatValue,
   labelSelector = 'name',
   theme = defaultTheme,
   keys = ['value'],
@@ -64,7 +73,7 @@ export const MetricChart: FC<Props> = ({
   });
 
   const {
-    metric: { excerpt, label, icon },
+    metric: { excerpt, caption: captionSettings, value: valueSettings, icon },
   } = theme;
 
   const statusIcon = {
@@ -75,16 +84,15 @@ export const MetricChart: FC<Props> = ({
 
   return (
     <Layout>
-      <div>
+      <ValueContainer>
         <AnimatePresence>
           <motion.div {...textMotion}>
-            <Text data-test="metric-label" {...label.typography}>
-              {labelPrefix && labelPrefix}
-              {value}
-              {labelSuffix && labelSuffix}
+            <Text data-test="metric-label" {...valueSettings.typography}>
+              {formatValue ? formatValue(value) : value}
             </Text>
           </motion.div>
         </AnimatePresence>
+        {caption && <Text {...captionSettings.typography}>{caption}</Text>}
         {difference && (
           <div>
             <Excerpt
@@ -114,17 +122,24 @@ export const MetricChart: FC<Props> = ({
             </Excerpt>
           </div>
         )}
-      </div>
-      <div>
-        {icon.enabled && (
-          <Icon
-            type={icon.settings.type}
-            width={icon.settings.width}
-            height={icon.settings.height}
-            fill={icon.settings.color}
-          />
-        )}
-      </div>
+      </ValueContainer>
+      {icon.enabled && (
+        <div style={createMargins(icon.margins)}>
+          <MetricIcon
+            position={icon.position}
+            circleStyle={icon.style}
+            baseColor={valueSettings.typography.fontColor}
+          >
+            <Icon
+              type={icon.type}
+              width={60}
+              height={60}
+              opacity={icon.style === 'solid' ? 0.15 : 0.2}
+              fill={valueSettings.typography.fontColor}
+            />
+          </MetricIcon>
+        </div>
+      )}
     </Layout>
   );
 };

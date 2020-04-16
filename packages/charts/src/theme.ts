@@ -85,7 +85,16 @@ export const theme: Theme = {
     },
   },
   metric: {
-    label: {
+    caption: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 15,
+        fontFamily: 'Gangster Grotesk Regular, sans-serif',
+        fontColor: colors.black['300'],
+      },
+    },
+    value: {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
@@ -96,12 +105,10 @@ export const theme: Theme = {
     },
     icon: {
       enabled: false,
-      settings: {
-        height: 60,
-        width: 60,
-        color: colors.black['500'],
-        type: 'brand',
-      },
+      position: 'top',
+      style: 'solid',
+      margins: { top: 0, left: 0, bottom: 0, right: 0 },
+      type: 'brand',
     },
     excerpt: {
       icons: {

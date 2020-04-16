@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
+  position: relative;
   display: flex;
   height: 100%;
   justify-content: space-between;
   flex-direction: row;
+`;
+
+export const ValueContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 
 export const Excerpt = styled.div<{

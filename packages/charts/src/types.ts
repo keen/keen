@@ -68,12 +68,18 @@ export type Icon = {
 };
 
 export type Metric = {
-  label: {
+  value: {
+    typography: Typography;
+  };
+  caption: {
     typography: Typography;
   };
   icon?: {
     enabled: boolean;
-    settings: Icon;
+    position: 'top' | 'center' | 'bottom';
+    margins: Margins;
+    style: 'solid' | 'regular';
+    type: IconType;
   };
   excerpt: {
     icons: {
