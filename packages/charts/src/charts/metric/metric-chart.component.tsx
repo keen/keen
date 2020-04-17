@@ -87,7 +87,7 @@ export const MetricChart: FC<Props> = ({
       <ValueContainer>
         <AnimatePresence>
           <motion.div {...textMotion}>
-            <Text data-test="metric-label" {...valueSettings.typography}>
+            <Text data-test="metric-value" {...valueSettings.typography}>
               {formatValue ? formatValue(value) : value}
             </Text>
           </motion.div>
@@ -113,7 +113,7 @@ export const MetricChart: FC<Props> = ({
                     </motion.div>
                   </AnimatePresence>
                 )}
-                <Text data-test="metric-excerpt-label" {...excerpt.typography}>
+                <Text data-test="metric-excerpt-value" {...excerpt.typography}>
                   {type === 'percent'
                     ? `${difference.value}%`
                     : formatNumber(difference.value)}

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { colors } from '@keen.io/colors';
+
 import HeaderRow from './header-row.component';
 import Row from './row.component';
+import { generateHeader, generateTable, sortData } from './table.utils';
+
 import { TableContainer, StyledTable } from './table.styles';
-import { sortData } from './table.utils';
-import { FormatTypeObject, ValueFormatter } from './types';
-import { generateHeader, generateTable } from './table.utils';
 
 import { theme as defaultTheme } from '../../theme';
 
+import { FormatFunction, ValueFormatter } from './types';
 import { CommonChartSettings } from '../../types';
 
 export type Props = {
@@ -16,7 +18,7 @@ export type Props = {
   /** Main color */
   color: string;
   /** Object of functions to format headers separately */
-  formatHeader?: FormatTypeObject;
+  formatHeader?: Record<string, FormatFunction>;
   /** Format function for values, or object of functions to format values separately */
   formatValue?: ValueFormatter;
   /** Return property name and width of resized column */
@@ -25,7 +27,7 @@ export type Props = {
 
 export const TableChart = ({
   data,
-  color = '#27566D',
+  color = colors.blue['500'],
   formatHeader,
   formatValue,
   onResize,

@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sticky, StyledHeaderCeil, Container, DragLine } from './table.styles';
 import SortArrows from './sort-arrows.component';
-import { SortMode, SortByType, CeilType } from '../../types';
+import { SortMode, SortByType } from '../../types';
 import { RESIZE_ELEMENT_WIDTH } from './constants';
 
 type Props = {
-  value?: CeilType;
+  value?: React.ReactNode;
   property: string;
   onClick?: (res: { property: string; sort: SortMode }) => void;
   onResize?: (res: { property: string; width: number }) => void;

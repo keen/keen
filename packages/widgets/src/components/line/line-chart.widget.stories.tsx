@@ -37,51 +37,52 @@ const createThemeKnobs = () => ({
   gridY: gridKnobs('Grid Y'),
 });
 
-const formatKnob = text('Date label format', '%d %b', 'Chart');
-
 const createLabelFormatter = (dateFormat = '%D %b') => (date: Date) => {
   const format = timeFormat(dateFormat);
   return format(date);
 };
 
-export const widget = () => (
-  <div style={{ width: '700px', height: '400px' }}>
-    <LineChartWidget
-      title={{
-        content: text('Title', 'Widget Title', 'Title Settings'),
-        typography: typographyKnobs(
-          'Title Settings',
-          widgetSettings.title.typography as Typography
-        ),
-      }}
-      subtitle={{
-        content: text('Subtitle', 'Widget Subtitle', 'Subtitle Settings'),
-        typography: typographyKnobs(
-          'Subtitle Settings',
-          widgetSettings.subtitle.typography as Typography
-        ),
-      }}
-      card={cardKnobs('Card')}
-      legend={legendKnobs('Legend') as any}
-      labelSelector="name"
-      keys={['users', 'books', 'licenses', 'shops']}
-      xScaleSettings={{
-        type: 'time',
-        precision: 'month',
-        formatLabel: createLabelFormatter(formatKnob),
-      }}
-      markRadius={number('Marks radius', 4, {}, 'Chart')}
-      strokeWidth={number('Line thickness', 2, {}, 'Chart')}
-      curve={curveKnobs('Chart') as CurveType}
-      groupMode={groupModeKnobs('Chart') as GroupMode}
-      stackMode={lineStackModeKnobs('Chart') as StackMode}
-      margins={object(
-        'Margins',
-        { top: 30, right: 20, bottom: 50, left: 40 },
-        'Chart'
-      )}
-      theme={createThemeKnobs()}
-      data={chartData}
-    />
-  </div>
-);
+export const widget = () => {
+  const formatKnob = text('Date label format', '%d %b', 'Chart');
+  return (
+    <div style={{ width: '700px', height: '400px' }}>
+      <LineChartWidget
+        title={{
+          content: text('Title', 'Widget Title', 'Title Settings'),
+          typography: typographyKnobs(
+            'Title Settings',
+            widgetSettings.title.typography as Typography
+          ),
+        }}
+        subtitle={{
+          content: text('Subtitle', 'Widget Subtitle', 'Subtitle Settings'),
+          typography: typographyKnobs(
+            'Subtitle Settings',
+            widgetSettings.subtitle.typography as Typography
+          ),
+        }}
+        card={cardKnobs('Card')}
+        legend={legendKnobs('Legend') as any}
+        labelSelector="name"
+        keys={['users', 'books', 'licenses', 'shops']}
+        xScaleSettings={{
+          type: 'time',
+          precision: 'month',
+          formatLabel: createLabelFormatter(formatKnob),
+        }}
+        markRadius={number('Marks radius', 4, {}, 'Chart')}
+        strokeWidth={number('Line thickness', 2, {}, 'Chart')}
+        curve={curveKnobs('Chart') as CurveType}
+        groupMode={groupModeKnobs('Chart') as GroupMode}
+        stackMode={lineStackModeKnobs('Chart') as StackMode}
+        margins={object(
+          'Margins',
+          { top: 30, right: 20, bottom: 50, left: 40 },
+          'Chart'
+        )}
+        theme={createThemeKnobs()}
+        data={chartData}
+      />
+    </div>
+  );
+};
