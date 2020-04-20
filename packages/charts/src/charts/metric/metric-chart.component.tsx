@@ -132,8 +132,8 @@ export const MetricChart: FC<Props> = ({
           >
             <Icon
               type={icon.type}
-              width={60}
-              height={60}
+              width={80}
+              height={80}
               opacity={icon.style === 'solid' ? 0.15 : 0.2}
               fill={valueSettings.typography.fontColor}
             />

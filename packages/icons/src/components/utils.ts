@@ -6,7 +6,16 @@ import CaretUp from './caret-up.component';
 import CaretDown from './caret-down.component';
 import Brand from './brand.component';
 import QuestionMark from './question-mark.component';
-import Eye from './eye.component';
+import EyeSolid from './eye-solid.component';
+import EyeOutline from './eye-outline.component';
+import UserSolid from './user-solid.component';
+import UserOutline from './user-outline.component';
+import UsersSolid from './users-solid.component';
+import UsersOutline from './users-outline.component';
+import ClickSolid from './click-solid.component';
+import ClickOutline from './click-outline.component';
+import CursorSolid from './cursor-solid.component';
+import CursorOutline from './cursor-outline.component';
 
 import { IconType } from '../types';
 
@@ -28,7 +37,25 @@ export const getIcon = (type: IconType) => {
       return Brand;
     case 'question-mark':
       return QuestionMark;
-    case 'eye':
-      return Eye;
+    case 'click-solid':
+      return ClickSolid;
+    case 'click-outline':
+      return ClickOutline;
+    case 'cursor-solid':
+      return CursorSolid;
+    case 'cursor-outline':
+      return CursorOutline;
+    case 'eye-solid':
+      return EyeSolid;
+    case 'eye-outline':
+      return EyeOutline;
+    case 'user-solid':
+      return UserSolid;
+    case 'user-outline':
+      return UserOutline;
+    case 'users-solid':
+      return UsersSolid;
+    case 'users-outline':
+      return UsersOutline;
   }
 };

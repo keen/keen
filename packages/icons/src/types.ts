@@ -14,4 +14,13 @@ export type IconType =
   | 'caret-right'
   | 'brand'
   | 'question-mark'
-  | 'eye';
+  | 'cursor-solid'
+  | 'cursor-outline'
+  | 'click-solid'
+  | 'click-outline'
+  | 'eye-solid'
+  | 'eye-outline'
+  | 'user-solid'
+  | 'user-outline'
+  | 'users-solid'
+  | 'users-outline';
