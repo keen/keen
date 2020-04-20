@@ -73,7 +73,7 @@ export const percentMetric = () => {
       },
       settings: {
         type: 'percent',
-        labelSuffix: ' Qty.',
+        formatValue: (v: number) => `${v} Qty.`,
       },
     });
 
@@ -121,7 +121,7 @@ export const customizedMetric = () => {
       },
       settings: {
         type: 'percent',
-        labelSuffix: ' Qty.',
+        formatValue: (v: number) => `${v} Qty.`,
         theme: {
           metric: {
             excerpt: {

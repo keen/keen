@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import MetricChart from './metric-chart.component';
+import { theme as defaultTheme } from '../../theme';
 
 import { chartData } from './metric-chart.fixtures';
 
@@ -18,106 +19,79 @@ const setup = (overProps: any = {}) => {
   return {
     wrapper,
     props,
-    findLabel: () => wrapper.find('[data-test="metric-label"]'),
+    findValue: () => wrapper.find('[data-test="metric-value"]'),
     findExcerptContainer: () =>
       wrapper.find('[data-test="metric-excerpt-container"]'),
-    findExcerptLabel: () => wrapper.find('[data-test="metric-excerpt-label"]'),
+    findExcerpt: () => wrapper.find('[data-test="metric-excerpt-value"]'),
   };
 };
 
 describe('@keen.io/charts - <MetricChart />', () => {
-  it('should render "previous" and "current" metric labels', () => {
-    const { findLabel, findExcerptLabel } = setup();
+  it('should apply format function', () => {
+    const mockFn = jest.fn().mockImplementation(value => `Total ${value}`);
+    const { findValue } = setup({ formatValue: mockFn });
 
-    const label = findLabel();
-    const excerptLabel = findExcerptLabel();
+    const label = findValue().first();
 
-    expect(label.length).toBeTruthy();
-    expect(excerptLabel.length).toBeTruthy();
+    expect(mockFn).toHaveBeenCalled();
+    expect(label.text()).toMatchInlineSnapshot(`"Total 3281"`);
   });
 
-  it('should not display "excerpt" container for signle metric', () => {
-    const { findExcerptContainer } = setup({
-      data: [chartData[0]],
+  it('should render <Excerpt /> component with percent difference', () => {
+    const { findExcerpt } = setup({ type: 'percent' });
+    const excerpt = findExcerpt().first();
+
+    expect(excerpt.text()).toMatchInlineSnapshot(`"49.14%"`);
+  });
+
+  it('should render <Excerpt /> component with value difference', () => {
+    const { findExcerpt } = setup({ type: 'difference' });
+    const excerpt = findExcerpt().first();
+
+    expect(excerpt.text()).toMatchInlineSnapshot(`"1.1k"`);
+  });
+
+  it('should render <Excerpt /> component with previous metric value', () => {
+    const { findExcerpt } = setup();
+    const excerpt = findExcerpt().first();
+
+    expect(excerpt.text()).toMatchInlineSnapshot(`"2.2k"`);
+  });
+
+  it('should not render <Excerpt /> component for metric with single data serie', () => {
+    const [firstSerie] = chartData;
+    const { findExcerpt } = setup({
+      data: [firstSerie],
     });
-    const container = findExcerptContainer().first();
 
-    expect(container.length).toBeFalsy();
+    const excerpt = findExcerpt().first();
+
+    expect(excerpt.length).toBeFalsy();
   });
 
-  it('should apply "typography" theming properties on metric label', () => {
-    const { findLabel } = setup();
-    const label = findLabel().first();
+  it('should apply "typography" theming properties on metric value', () => {
+    const { findValue } = setup();
+    const value = findValue().first();
+    const { metric } = defaultTheme;
 
-    expect(label.props()).toMatchInlineSnapshot(`
-      Object {
-        "children": Array [
-          undefined,
-          3281,
-          undefined,
-        ],
-        "data-test": "metric-label",
-        "fontColor": "#27566D",
-        "fontFamily": "Lato Light, sans-serif",
-        "fontSize": 60,
-        "fontStyle": "normal",
-        "fontWeight": "normal",
-      }
-    `);
+    expect(value.props()).toMatchObject(metric.value.typography);
   });
 
   it('should apply "typography" theming properties on excerpt label', () => {
-    const { findExcerptLabel } = setup();
-    const label = findExcerptLabel().first();
+    const { findExcerpt } = setup();
+    const excerpt = findExcerpt().first();
+    const { metric } = defaultTheme;
 
-    expect(label.props()).toMatchInlineSnapshot(`
-      Object {
-        "children": "2.2k",
-        "data-test": "metric-excerpt-label",
-        "fontColor": "#1D2729",
-        "fontFamily": "Lato Regular, sans-serif",
-        "fontSize": 16,
-        "fontStyle": "normal",
-        "fontWeight": "normal",
-      }
-    `);
+    expect(excerpt.props()).toMatchObject(metric.excerpt.typography);
   });
 
   it('should apply "backgroundColor" property on "excerpt" container', () => {
     const { findExcerptContainer } = setup();
-    const container = findExcerptContainer().first();
+    const excerptContainer = findExcerptContainer().first();
+    const { metric } = defaultTheme;
 
-    expect(container.props()).toMatchInlineSnapshot(`
-      Object {
-        "background": "#ECF5F7",
-        "children": <ForwardRef(styled.div)>
-          <Text
-            data-test="metric-excerpt-label"
-            fontColor="#1D2729"
-            fontFamily="Lato Regular, sans-serif"
-            fontSize={16}
-            fontStyle="normal"
-            fontWeight="normal"
-          >
-            2.2k
-          </Text>
-        </ForwardRef(styled.div)>,
-        "data-test": "metric-excerpt-container",
-      }
-    `);
-  });
-
-  it('should render label prefix based on "labelPrefix" property', () => {
-    const { findLabel } = setup({ labelPrefix: 'Total ' });
-    const label = findLabel().first();
-
-    expect(label.text()).toMatchInlineSnapshot(`"Total 3281"`);
-  });
-
-  it('should render label suffix based on "labelSuffix" property', () => {
-    const { findLabel } = setup({ labelPrefix: ' Qty.' });
-    const label = findLabel().first();
-
-    expect(label.text()).toMatchInlineSnapshot(`" Qty.3281"`);
+    expect(excerptContainer.props()).toMatchObject({
+      background: metric.excerpt.backgroundColor,
+    });
   });
 });

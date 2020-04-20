@@ -2,8 +2,8 @@ import React from 'react';
 
 import { IconProps } from '../types';
 
-const Brand = ({ width, height, fill }: IconProps) => (
-  <svg width={width} height={height} viewBox="0 0 143 120">
+const Brand = ({ width, height, opacity, fill }: IconProps) => (
+  <svg width={width} height={height} opacity={opacity} viewBox="0 0 143 120">
     <g fill="none" fillRule="evenodd">
       <g fill={fill}>
         <path d="M57.6 69 64.385 80.349 47.423 108.72 135.485 108.72 142.2 120 27 120z" />

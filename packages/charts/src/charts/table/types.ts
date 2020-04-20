@@ -1,14 +1,10 @@
-import { CeilType } from '@keen.io/ui-core';
+import React from 'react';
 
 export type HeaderCeilType = {
   key: string;
-  value: CeilType;
+  value: React.ReactNode;
 };
 
-export type FormatType = (value: CeilType) => CeilType;
+export type FormatFunction = (value: string | number) => React.ReactNode;
 
-export type FormatTypeObject = {
-  [key: string]: FormatType;
-};
-
-export type ValueFormatter = FormatTypeObject | FormatType;
+export type ValueFormatter = FormatFunction | Record<string, FormatFunction>;
