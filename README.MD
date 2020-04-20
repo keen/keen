@@ -9,7 +9,13 @@ The Complete Event Data Management Solution
 
 This project contains mono-repository for Keen.io Front-End projects and applications.
 
+## Documentation
+
+All documentation, including charts, widgets and dataviz can be found at [Storybook](https://keen.github.io/keen)
+
 ## Contribution guide
+
+This is an open source project and we love involvement from the community! Hit us up with pull requests and issues.
 
 ### Project structure
 
@@ -19,9 +25,12 @@ This project contains mono-repository for Keen.io Front-End projects and applica
 ├── packages            
 │   ├── charts    
 │   ├── widgets
+│   ├── dataviz
+│   ├── parser
 │   ├── ui-core
 │   ├── colors
-│   ├── storybook-utils
+│   ├── tracking-lite
+│   └── storybook-utils
 └── ...
 ```
 
@@ -57,3 +66,7 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org) to
 | Command      | Description                        |
 | ------------ | ---------------------------------- |
 | `npx lerna add <name>[@ver] packages/<name> [--dev]` | Add dependency to specific package in mono-repository. |
+
+### deployments
+
+The all commits pushed into master branch will be picked by CircleCI workflow that perform npm packages version and publish.
