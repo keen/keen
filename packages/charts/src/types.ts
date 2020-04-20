@@ -164,6 +164,7 @@ export type Gauge = {
     typography: Typography;
   };
 };
+
 export type Table = {
   header: {
     typography: Typography;
