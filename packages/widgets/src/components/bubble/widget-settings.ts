@@ -12,6 +12,7 @@ export const bubbleWidgetSettings = {
   ...widgetSettings,
   legend: {
     ...legendSettings,
+    position: 'left',
     series: {
       ...legendSettings,
       layout: 'vertical',
