@@ -10,5 +10,13 @@ export const bubbleLegendSettings: LegendSettings = {
 
 export const bubbleWidgetSettings = {
   ...widgetSettings,
-  legend: bubbleLegendSettings,
+  legend: {
+    ...legendSettings,
+    series: {
+      ...legendSettings,
+      layout: 'vertical',
+      alignment: 'center',
+    },
+    bubble: bubbleLegendSettings,
+  },
 };

@@ -32,7 +32,12 @@ export type WidgetSettings = {
   /** Widget subtitle */
   subtitle: TextSettings;
   /** Legend component settings */
-  legend?: LegendSettings;
+  legend?: LegendSettings & BubbleWidgetLegendSettings;
   /** Widget card settings */
   card: CardSettings;
+};
+
+export type BubbleWidgetLegendSettings = {
+  series?: LegendSettings;
+  bubble?: LegendSettings;
 };

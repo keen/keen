@@ -18,6 +18,7 @@ type Options = {
   xDomainKey: string;
   yDomainKey: string;
   labelSelector: string;
+  disabledKeys: string[];
 };
 
 const createScale = ({
@@ -47,6 +48,7 @@ export const generateBubbles = ({
   dimension,
   colors,
   labelSelector,
+  disabledKeys,
   valueKey,
   xDomainKey,
   yDomainKey,
@@ -76,16 +78,18 @@ export const generateBubbles = ({
 
   data.forEach((item, idx) => {
     const label = item[labelSelector];
-    const bubble = {
-      key: `${label}-${idx}`,
-      x: xScale(item[xDomainKey]),
-      y: yScale(item[yDomainKey]),
-      color: colorScale(label),
-      selector: [idx],
-      radius: radiusScale(item[valueKey]),
-    };
-
-    bubbles.push(bubble);
+    const color = colorScale(label);
+    if (disabledKeys && !disabledKeys.includes(label)) {
+      const bubble = {
+        key: `${label}-${idx}`,
+        x: xScale(item[xDomainKey]),
+        y: yScale(item[yDomainKey]),
+        color,
+        selector: [idx],
+        radius: radiusScale(item[valueKey]),
+      };
+      bubbles.push(bubble);
+    }
   });
 
   return {

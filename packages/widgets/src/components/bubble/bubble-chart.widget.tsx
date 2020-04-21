@@ -4,8 +4,13 @@ import {
   BubbleChartSettings,
   ResponsiveWrapper,
   BubbleLegend,
+  SeriesLegend,
   theme as defaultTheme,
 } from '@keen.io/charts';
+
+import { scaleOrdinal } from 'd3-scale';
+
+import { LegendContainer } from './bubble-chart.styles';
 
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
@@ -15,6 +20,10 @@ import {
   TitleSocket,
   LegendSocket,
 } from '../widget-sockets.component';
+
+import { createLegendLabels } from './bubble-chart.widget.utils';
+
+import { useLegend } from '../../hooks';
 
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings } from '../../types';
@@ -26,7 +35,11 @@ export type Props = WidgetSettings & BubbleChartSettings;
 
 /** Bubble Chart widget integrated with other components */
 export const BubbleChartWidget: FC<Props> = ({
-  legend = legendSettings,
+  legend = {
+    series: legendSettings,
+    bubble: legendSettings,
+    ...legendSettings,
+  },
   theme = defaultTheme,
   title,
   subtitle,
@@ -38,33 +51,58 @@ export const BubbleChartWidget: FC<Props> = ({
   const minimumVal = min(values);
   const maximumVal = max(values);
 
+  const scaleColor = scaleOrdinal(theme.colors);
+
+  const { disabledKeys, updateKeys } = useLegend();
+  const labels = createLegendLabels(data, props.labelSelector);
+
+  const alignment = legend.series.enabled
+    ? legend.series.alignment
+    : legend.bubble.alignment;
+  const layout = legend.series.enabled
+    ? legend.series.layout
+    : legend.bubble.layout;
+
   const { minAreaRadius, maxAreaRadius } = props;
   return (
     <ChartWidget
       cardSettings={card}
       legendSettings={{
         position: legend.position,
-        alignment: legend.alignment,
-        layout: legend.layout,
+        alignment,
+        layout,
       }}
     >
       <TitleSocket>
         <WidgetHeading title={title} subtitle={subtitle} />
       </TitleSocket>
-      {legend.enabled && (
-        <LegendSocket>
-          <BubbleLegend
-            domain={[minimumVal, maximumVal]}
-            minRadius={minAreaRadius}
-            maxRadius={maxAreaRadius}
-            {...legend}
-          />
-        </LegendSocket>
-      )}
+      <LegendSocket>
+        <LegendContainer position={legend.position}>
+          {legend.series.enabled && (
+            <SeriesLegend
+              {...legend.series}
+              onClick={updateKeys}
+              labels={labels.map((el: string) => ({
+                name: el,
+                color: scaleColor(el),
+              }))}
+            />
+          )}
+          {legend.bubble.enabled && (
+            <BubbleLegend
+              domain={[minimumVal, maximumVal]}
+              minRadius={minAreaRadius}
+              maxRadius={maxAreaRadius}
+              {...legend.bubble}
+            />
+          )}
+        </LegendContainer>
+      </LegendSocket>
       <ContentSocket>
         <ResponsiveWrapper>
           {(width: number, height: number) => (
             <BubbleChart
+              disabledKeys={disabledKeys}
               theme={theme}
               svgDimensions={{ width, height }}
               {...props}
