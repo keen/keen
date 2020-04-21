@@ -108,6 +108,7 @@ export type Funnel = {
     };
     badge: {
       enabled: boolean;
+      backgroundColor?: string;
       typography: Typography;
     };
     backgroundColor: string;

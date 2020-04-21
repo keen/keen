@@ -46,7 +46,11 @@ export const FunnelHeader: FC<Props> = ({
       </div>
       {header.badge.enabled && (
         <div>
-          <Badge data-test="step-badge" type="dark">
+          <Badge
+            data-test="step-badge"
+            type="dark"
+            backgroundColor={header.badge.backgroundColor}
+          >
             <Text data-test="badge-text" {...header.badge.typography}>
               {percentageValue.toFixed(0)}%
             </Text>
