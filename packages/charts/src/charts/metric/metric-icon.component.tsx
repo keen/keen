@@ -26,7 +26,7 @@ export const createCircleTransition = (index: number) => ({
 });
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   baseColor: string;
   circleStyle: 'solid' | 'regular';
   position: IconPosition;

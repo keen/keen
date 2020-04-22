@@ -16,6 +16,26 @@ describe('@keen.io/charts', () => {
       expect(maximum).toMatchInlineSnapshot(`100`);
     });
 
+    it('should return provided "minimum" value', () => {
+      const maxValue = 2500;
+      const { maximum } = generateGauge({
+        ...gaugeChart,
+        maxValue,
+      });
+
+      expect(maximum).toEqual(maxValue);
+    });
+
+    it('should return provided "minimum" value', () => {
+      const minValue = -300;
+      const { minimum } = generateGauge({
+        ...gaugeChart,
+        minValue,
+      });
+
+      expect(minimum).toEqual(minValue);
+    });
+
     it('should create "innerArcs" based on angle range', () => {
       const { innerArcs } = generateGauge(gaugeChart);
 
