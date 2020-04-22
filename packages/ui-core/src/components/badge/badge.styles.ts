@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 import { colors } from '@keen.io/colors';
 
@@ -6,6 +6,7 @@ export type BadgeType = 'dark' | 'light' | 'danger' | 'success';
 
 export const StyledBadge = styled.div<{
   type: BadgeType;
+  backgroundColor?: string;
 }>`
   display: inline-block;
   border-radius: 4px;
@@ -32,4 +33,10 @@ export const StyledBadge = styled.div<{
       },
     },
   })}
+
+  ${props =>
+    props.backgroundColor &&
+    css`
+      background: ${props.backgroundColor};
+    `}
 `;
