@@ -22,7 +22,7 @@ export const eventsSettings = {
   highlightLabels: ['50k', '250k', '5M'],
 };
 
-export const mapEventsValue = (value: number) =>
+const mapEventsValue = (value: number) =>
   eventsSettings.mappings[value] || value;
 
 export const eventsRulerSettings = [
@@ -58,7 +58,7 @@ export const queriesSettings = {
   highlightLabels: ['500', '5k', '25k'],
 };
 
-export const mapQueriesValue = (value: number) =>
+const mapQueriesValue = (value: number) =>
   queriesSettings.mappings[value] || value;
 
 export const queriesRulerSettings = [
@@ -71,3 +71,12 @@ export const queriesRulerSettings = [
     label: mapQueriesValue(maximum),
   })),
 ];
+
+const addNumberSeparator = (num: number) => {
+  const numParts = num.toString().split('.');
+  numParts[0] = numParts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return numParts.join('.');
+};
+
+export const getTooltipText = (value: number, max: number) =>
+  value === max ? 'Unlimited' : addNumberSeparator(value);

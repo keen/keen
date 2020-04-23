@@ -106,7 +106,9 @@ export const IntervalSlider: FC<Props> = ({
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const offset = e.clientX - e.currentTarget.offsetLeft;
-    const x = offset < 0 ? 0 : offset;
+    let x = offset;
+    if (offset < 0) x = 0;
+    if (offset > dimension) x = dimension;
 
     let index = Math.floor(x / stepDimension);
 

@@ -22,10 +22,9 @@ import { getDevice } from '../app';
 import {
   eventsSettings,
   eventsRulerSettings,
-  mapEventsValue,
   queriesSettings,
   queriesRulerSettings,
-  mapQueriesValue,
+  getTooltipText,
 } from './calculator.config';
 import { servicesConfig } from '../services.config';
 
@@ -59,7 +58,15 @@ const Calculator: FC<{}> = () => {
                 enabled: true,
                 position: 'top',
                 renderText: value => (
-                  <TooltipText>{mapEventsValue(value)} events</TooltipText>
+                  <TooltipText>
+                    {getTooltipText(
+                      value,
+                      eventsSettings.intervals[
+                        eventsSettings.intervals.length - 1
+                      ].maximum
+                    )}{' '}
+                    events
+                  </TooltipText>
                 ),
               }}
               intervals={eventsSettings.intervals}
@@ -74,6 +81,7 @@ const Calculator: FC<{}> = () => {
                 renderLabel={(label: string) => (
                   <RulerLabel
                     bold={eventsSettings.highlightLabels.includes(label)}
+                    device={device}
                   >
                     {label}
                   </RulerLabel>
@@ -93,7 +101,15 @@ const Calculator: FC<{}> = () => {
                 enabled: true,
                 position: 'top',
                 renderText: value => (
-                  <TooltipText>{mapQueriesValue(value)} queries</TooltipText>
+                  <TooltipText>
+                    {getTooltipText(
+                      value,
+                      queriesSettings.intervals[
+                        queriesSettings.intervals.length - 1
+                      ].maximum
+                    )}{' '}
+                    queries
+                  </TooltipText>
                 ),
               }}
               intervals={queriesSettings.intervals}
@@ -108,6 +124,7 @@ const Calculator: FC<{}> = () => {
                 renderLabel={(label: string) => (
                   <RulerLabel
                     bold={queriesSettings.highlightLabels.includes(label)}
+                    device={device}
                   >
                     {label}
                   </RulerLabel>
