@@ -7,9 +7,9 @@ import { Meta } from "@storybook/addon-docs/blocks";
 Keen components could be customized in context of features and visual aspects.
 The look of `chart` / `widget` is described with self descriptive `Theme` object that could be easily adjusted.
 
-By default all of components use official `Keen` theme.
+By default all of components use official `Keen` theme. You can create one generic theme for all charts or specify unique visual properties for each.
 
-# Example
+## Example
 
 ```typescript
 const dataviz = new KeenDataviz({
@@ -52,13 +52,17 @@ The `root` structure of theme object. The visual properties for specific plot fe
 - `gridX / gridY` visual aspects of cartesian grid.
 - `tooltip` theme properties for tooltip.
 
-
 ```typescript
 type Theme = {
   colors: string[];
   funnel: Funnel;
+  choropleth: Choropleth;
   bar: Bar;
   metric: Metric;
+  donut: Donut;
+  pie: Pie;
+  gauge: Gauge;
+  table: Table;
   tooltip: Tooltip;
   axisX: Axis;
   axisY: Axis;
@@ -69,6 +73,10 @@ type Theme = {
 ```
 
 ## Axis
+
+`Object` definition for styling **Axis** properties like for eg. labels, line colors and tick sizes.
+Could be applied only to charts that uses cartesian coordinate system.
+
 ```typescript
 type Axis = {
   enabled: boolean;
@@ -81,6 +89,9 @@ type Axis = {
 ```
 
 ## Grid
+
+`Object` definition for styling **Grid** properties. Could be applied only to charts that uses cartesian coordinate system.
+
 ```typescript
 type Grid = {
   enabled: boolean;
@@ -89,6 +100,10 @@ type Grid = {
 ```
 
 ## Tooltip
+
+`Object` definition for styling **Tooltip** properties. Support two modes `light` and `dark` - for reference check `<Tooltip />` component [documentation](/?path=/docs/components-tooltip--bullet-points).
+Each of charts could contain a different tooltip content.
+
 ```typescript
 type Tooltip = {
   enabled: boolean;
@@ -100,6 +115,9 @@ type Tooltip = {
 ```
 
 ## Labels
+
+Generic `object` for styling charts labels.
+
 ```typescript
 type Labels = {
   enabled: boolean;
@@ -109,6 +127,9 @@ type Labels = {
 ```
 
 ## Typography
+
+Generic `object` for styling all text aspects like font size, color, weight etc.
+
 ```typescript
 type Typography = {
   fontStyle: 'normal' | 'italic';
@@ -121,6 +142,9 @@ type Typography = {
 ```
 
 ## Icon
+
+The `object` used to describe icon properties. For reference check the `<Icon />` component [documentation](/?path=/docs/components-icons--page).
+
 ```typescript
 type Icon = {
   color: string;
@@ -134,11 +158,24 @@ type IconType =
   | 'caret-up'
   | 'caret-left'
   | 'caret-right'
-  | 'brand';
+  | 'brand'
+  | 'question-mark'
+  | 'cursor-solid'
+  | 'cursor-outline'
+  | 'click-solid'
+  | 'click-outline'
+  | 'eye-solid'
+  | 'eye-outline'
+  | 'user-solid'
+  | 'user-outline'
+  | 'users-solid'
+  | 'users-outline';
 ```
 
 ## Funnel
-Properties related with `funnel` chart.
+
+`Object` used to describe `funnel` chart theme.
+
 ```typescript
 type Funnel = {
   header: {
@@ -162,10 +199,15 @@ type Funnel = {
 ```
 
 ## Metric
-Properties related with `metric` chart.
+
+`Object` used to describe `metric` chart theme.
+
 ```typescript
 type Metric = {
-  label: {
+  value: {
+    typography: Typography;
+  };
+  caption: {
     typography: Typography;
   };
   excerpt: {
@@ -175,6 +217,100 @@ type Metric = {
     };
     backgroundColor: string;
     typography: Typography;
+  };
+  icon?: {
+    enabled: boolean;
+    position: 'top' | 'center' | 'bottom';
+    margins: Margins;
+    style: 'solid' | 'regular';
+    type: IconType;
+  };
+};
+```
+
+## Table
+
+`Object` used to describe `table` chart theme.
+
+```typescript
+type Table = {
+  header: {
+    typography: Typography;
+  };
+  body: {
+    typography: Typography;
+  };
+};
+```
+
+## Gauge
+
+`Object` used to describe `gauge` chart theme.
+
+```typescript
+type Gauge = {
+  labels: {
+    enabled: boolean;
+    typography: Typography;
+  };
+  border: {
+    backgroundColor: string;
+  };
+  total: {
+    enabled: boolean;
+    typography: Typography;
+  };
+};
+```
+
+## Pie
+
+`Object` used to describe `pie` chart theme.
+
+```typescript
+type Pie = {
+  labels: {
+    enabled: boolean;
+    typography: Typography;
+  };
+};
+```
+
+## Donut
+
+`Object` used to describe `donut` chart theme.
+
+```typescript
+type Donut = {
+  labels: {
+    enabled: boolean;
+    typography: Typography;
+  };
+  total: {
+    enabled: boolean;
+    label: {
+      typography: Typography;
+    };
+    value: {
+      typography: Typography;
+    };
+  };
+};
+```
+
+## Choropleth
+
+`Object` used to describe `choropleth` chart theme.
+
+```typescript
+type Choropleth = {
+  map: {
+    stroke: string;
+  };
+  graticule: Grid;
+  sphere: {
+    enabled: boolean;
+    backgroundColor: string;
   };
 };
 ```

@@ -1,5 +1,5 @@
 import { SortByType } from '@keen.io/ui-core';
-import { FormatType, FormatTypeObject, ValueFormatter } from './types';
+import { FormatFunction, ValueFormatter } from './types';
 import { isObject } from 'util';
 import { HeaderCeilType } from './types';
 
@@ -28,14 +28,14 @@ export const copyToClipboard = (value: any) => {
 
 export const generateHeader = (
   data: Record<string, any>,
-  format: FormatTypeObject
+  format: Record<string, FormatFunction>
 ) => {
   const header = [] as HeaderCeilType[];
   Object.keys(data).map((key: string) => {
     const formatFunc =
       isObject(format) && format[key]
         ? format[key]
-        : (firstCapital as FormatType);
+        : (firstCapital as FormatFunction);
     header.push({
       key: key,
       value: formatFunc(key),
@@ -52,8 +52,8 @@ export const generateTable = (
     let table = {} as Record<string, any>;
     Object.keys(el).map((key: string) => {
       if (isObject(format)) {
-        const formatObj = format && (format as FormatTypeObject);
-        const formatFunc = formatObj[key] && (formatObj[key] as FormatType);
+        const formatObj = format && (format as Record<string, FormatFunction>);
+        const formatFunc = formatObj[key] && formatObj[key];
         return (table = {
           ...table,
           [key]: formatFunc ? formatFunc(el[key]) : el[key],
