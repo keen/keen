@@ -71,6 +71,7 @@ export const IntervalSlider: FC<Props> = ({
 
   const dragControl = dragControls[DRAG_CONTROL_ID];
   const [currentIndex, setIndex] = useState(0);
+  const [xOffset, setXOffset] = useState(0);
 
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
@@ -103,10 +104,39 @@ export const IntervalSlider: FC<Props> = ({
 
   const stepDimension = dimension / intervals.length;
 
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const offset = e.clientX - e.currentTarget.offsetLeft;
+    const x = offset < 0 ? 0 : offset;
+
+    let index = Math.floor(x / stepDimension);
+
+    if (x !== 0 && x % stepDimension === 0) {
+      index -= 1;
+    }
+
+    setIndex(index);
+
+    const value = calculateIntervalValue({
+      controlPosition: x,
+      interval: intervals[index],
+      currentIndex: index,
+      stepDimension,
+    });
+    dispatch(sliderActions.setValue(value));
+    dispatch(sliderActions.setControlPosition(DRAG_CONTROL_ID, x));
+    setXOffset(x);
+
+    onChange && onChange(value);
+    if (tooltipSettings.enabled) {
+      setTooltip(state => ({ ...state, visible: true, y: 0, x }));
+    }
+  };
+
   return (
     <div
       ref={slider}
       style={{ height: `${controlSettings.size}px`, position: 'relative' }}
+      onClick={handleClick}
     >
       <Rail
         type="horizontal"
@@ -127,6 +157,7 @@ export const IntervalSlider: FC<Props> = ({
         }}
       />
       <Control
+        x={xOffset}
         onDragStart={() => {
           dispatch(sliderActions.setControlDrag(DRAG_CONTROL_ID, true));
           showTooltip();

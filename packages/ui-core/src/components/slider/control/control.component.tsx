@@ -6,6 +6,7 @@ import { Container } from './control.styles';
 import { DragConstraints } from '../types';
 
 type Props = {
+  x?: number;
   dragDirection: 'x' | 'y';
   dragConstraints: DragConstraints;
   children: React.ReactNode;
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export const Control: FC<Props> = ({
+  x,
   dragDirection,
   dragConstraints,
   onDragStart,
@@ -27,6 +29,8 @@ export const Control: FC<Props> = ({
   const styles = {
     display: 'inline-block',
     position: 'absolute',
+    zIndex: 1,
+    x,
     ...controlStyles,
   } as MotionStyle;
 
