@@ -5,27 +5,24 @@ export const LegendContainer = styled.div<{
   position: Position;
 }>`
   display: flex;
-  min-height: 0;
-  min-width: 0;
-  flex-direction: row;
+  width: auto;
+  height: auto;
+  flex-direction: column;
 
   & > div:first-child {
+    margin: 0 0 20px 0;
     ${props =>
       (props.position === 'top' || props.position === 'bottom') &&
       css`
-        margin-right: 20px;
-      `}
-    ${props =>
-      (props.position === 'left' || props.position === 'right') &&
-      css`
-        margin-bottom: 20px;
+        margin: 0 20px 0 0;
       `}
   }
 
   ${props =>
-    (props.position === 'left' || props.position === 'right') &&
+    (props.position === 'top' || props.position === 'bottom') &&
     css`
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
     `}
 `;

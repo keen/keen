@@ -51,24 +51,21 @@ export const BubbleChartWidget: FC<Props> = ({
   const minimumVal = min(values);
   const maximumVal = max(values);
 
+  const { position, series, bubble } = legend;
   const scaleColor = scaleOrdinal(theme.colors);
 
   const { disabledKeys, updateKeys } = useLegend();
   const labels = createLegendLabels(data, props.labelSelector);
 
-  const alignment = legend.series.enabled
-    ? legend.series.alignment
-    : legend.bubble.alignment;
-  const layout = legend.series.enabled
-    ? legend.series.layout
-    : legend.bubble.layout;
+  const alignment = series.enabled ? series.alignment : bubble.alignment;
+  const layout = series.enabled ? series.layout : bubble.layout;
 
   const { minAreaRadius, maxAreaRadius } = props;
   return (
     <ChartWidget
       cardSettings={card}
       legendSettings={{
-        position: legend.position,
+        position,
         alignment,
         layout,
       }}
@@ -77,10 +74,10 @@ export const BubbleChartWidget: FC<Props> = ({
         <WidgetHeading title={title} subtitle={subtitle} />
       </TitleSocket>
       <LegendSocket>
-        <LegendContainer position={legend.position}>
-          {legend.series.enabled && (
+        <LegendContainer position={position}>
+          {series.enabled && (
             <SeriesLegend
-              {...legend.series}
+              {...series}
               onClick={updateKeys}
               labels={labels.map((el: string) => ({
                 name: el,
@@ -88,12 +85,12 @@ export const BubbleChartWidget: FC<Props> = ({
               }))}
             />
           )}
-          {legend.bubble.enabled && (
+          {bubble.enabled && (
             <BubbleLegend
               domain={[minimumVal, maximumVal]}
               minRadius={minAreaRadius}
               maxRadius={maxAreaRadius}
-              {...legend.bubble}
+              {...bubble}
             />
           )}
         </LegendContainer>

@@ -3,7 +3,7 @@ import { text, object, number, boolean, select } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   typographyKnobs,
-  legendKnobs,
+  layoutKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
@@ -34,14 +34,14 @@ const bubbleLegendTypography = {
   fontColor: colors.black['500'],
 };
 
-const bubblePositionOptions = {
+const positionOptions = {
   top: 'top',
   bottom: 'bottom',
   left: 'left',
   right: 'right',
 };
 
-const bubbleAlignmentOptions = {
+const alignmentOptions = {
   left: 'left',
   center: 'center',
   right: 'right',
@@ -68,23 +68,27 @@ export const widget = () => (
       legend={{
         position: select(
           'Position',
-          bubblePositionOptions,
-          bubblePositionOptions.right,
+          positionOptions,
+          positionOptions.left,
           'Legend'
         ) as any,
-        series: legendKnobs('Series Legend') as any,
-        bubble: {
-          enabled: boolean('Enabled', true, 'Bubble Legend'),
-          position: select(
-            'Position',
-            bubblePositionOptions,
-            bubblePositionOptions.right,
-            'Bubble Legend'
-          ) as any,
+        series: {
+          enabled: boolean('Enabled', true, 'Series Legend'),
+          layout: layoutKnobs('Series Legend', 'vertical'),
           alignment: select(
             'Alignment',
-            bubbleAlignmentOptions,
-            bubbleAlignmentOptions.right,
+            alignmentOptions,
+            alignmentOptions.center,
+            'Series Legend'
+          ),
+          typography: typographyKnobs('Series Legend', { fontSize: 10 }),
+        },
+        bubble: {
+          enabled: boolean('Enabled', true, 'Bubble Legend'),
+          alignment: select(
+            'Alignment',
+            alignmentOptions,
+            alignmentOptions.right,
             'Bubble Legend'
           ),
           typography: typographyKnobs('Bubble Legend', { fontSize: 12 }),

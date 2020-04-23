@@ -8,6 +8,7 @@ export const LegendWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  max-height: 100%;
   width: 90px;
   box-sizing: border-box;
 `;
