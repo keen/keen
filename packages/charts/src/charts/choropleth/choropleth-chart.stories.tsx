@@ -42,8 +42,7 @@ export const plot = () => {
   return (
     <div
       style={{
-        padding: '0 40px',
-        width: '500px',
+        width: '600px',
         height: '300px',
       }}
     >
@@ -73,7 +72,7 @@ export const plot = () => {
         svgDimensions={object(
           'svg',
           {
-            width: 500,
+            width: 600,
             height: 300,
           },
           'Chart'
