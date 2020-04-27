@@ -26,7 +26,7 @@ const setup = (overProps: any = {}) => {
         tickPadding: 10,
         labels: {},
         title: {
-          alignment: 'center',
+          alignment: 'left',
           typography: {
             fontStyle: 'normal',
             fontWeight: 'normal',
@@ -36,19 +36,19 @@ const setup = (overProps: any = {}) => {
           },
         },
       },
-    },
-    axisY: {
-      tickSize: 10,
-      tickPadding: 10,
-      labels: {},
-      title: {
-        alignment: 'center',
-        typography: {
-          fontStyle: 'normal',
-          fontWeight: 'normal',
-          fontSize: 14,
-          fontFamily: 'Lato Bold, sans-serif',
-          fontColor: colors.blue['500'],
+      axisY: {
+        tickSize: 10,
+        tickPadding: 10,
+        labels: {},
+        title: {
+          alignment: 'top',
+          typography: {
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            fontSize: 10,
+            fontFamily: 'Lato Bold, sans-serif',
+            fontColor: colors.blue['300'],
+          },
         },
       },
     },
@@ -74,5 +74,47 @@ describe('<AxisTitle />', () => {
   it('should render AxisTitle text', () => {
     const { wrapper } = setup();
     expect(wrapper.find('text').text()).toEqual(title);
+  });
+
+  it('should render horizontal title with theme props', () => {
+    const { wrapper } = setup();
+    expect(wrapper.find('text')).toMatchInlineSnapshot(`
+      <text
+        fill="#27566D"
+        fontFamily="Lato Bold, sans-serif"
+        fontSize={14}
+        fontStyle="normal"
+        fontWeight="normal"
+        style={Object {}}
+        textAnchor="start"
+        x={0}
+        y={40}
+      >
+        Axis Title
+      </text>
+    `);
+  });
+
+  it('should render vertical title with theme props', () => {
+    const { wrapper } = setup({ orientation: 'vertical' });
+    expect(wrapper.find('text')).toMatchInlineSnapshot(`
+      <text
+        fill="#44748C"
+        fontFamily="Lato Bold, sans-serif"
+        fontSize={10}
+        fontStyle="normal"
+        fontWeight="normal"
+        style={
+          Object {
+            "transform": "rotate(-90deg)",
+          }
+        }
+        textAnchor="end"
+        x={-0}
+        y={-10}
+      >
+        Axis Title
+      </text>
+    `);
   });
 });

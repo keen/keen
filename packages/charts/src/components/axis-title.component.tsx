@@ -8,6 +8,7 @@ import {
   getTextAnchor,
   getVerticalPosition,
   getHorizontalPosition,
+  getAxisTheme,
 } from './axis-title.utils';
 
 type GroupBox = {
@@ -35,23 +36,7 @@ const AxisTitle = ({
 }: Props) => {
   const { theme } = useContext(ChartContext) as ChartContextType;
 
-  const getAxisTheme = () => {
-    let axisTheme;
-
-    switch (true) {
-      case layout === 'vertical' && orientation === Orientation.HORIZONTAL:
-      case layout === 'horizontal' && orientation === Orientation.VERTICAL:
-      case !layout && orientation === Orientation.VERTICAL:
-        axisTheme = theme.axisY;
-        break;
-      default:
-        axisTheme = theme.axisX;
-    }
-
-    return axisTheme;
-  };
-
-  const { title } = getAxisTheme();
+  const { title } = getAxisTheme(layout, orientation, theme);
   const { alignment, typography } = title;
   const { fontColor, ...typographyProps } = typography;
   const { x, y, height } = groupBox;

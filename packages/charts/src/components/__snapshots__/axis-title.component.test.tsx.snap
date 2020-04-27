@@ -27,8 +27,8 @@ exports[`<AxisTitle /> should render AxisTitle 1`] = `
       fontStyle="normal"
       fontWeight="normal"
       style={Object {}}
-      textAnchor="middle"
-      x={50}
+      textAnchor="start"
+      x={0}
       y={40}
     >
       Axis Title
