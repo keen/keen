@@ -119,7 +119,7 @@ export const RangeSlider: FC<Props> = ({
   const calculateControlValue = useCallback(
     (position: number) => {
       const percent = (position / dimension) * 100;
-      return Math.round((maximum - minimum) * (percent / 100));
+      return Math.round((maximum - minimum) * (percent / 100)) + minimum;
     },
     [dimension, minimum, maximum]
   );
