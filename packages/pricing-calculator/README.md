@@ -1,6 +1,5 @@
 # `@keen.io/pricing-calculator`
 
-#### Description
 
 This package contains Front-end codebase for Keen.io pricing calculator. It allows to
 recommend users the most suited plan based on defined `query` / `events` usage.

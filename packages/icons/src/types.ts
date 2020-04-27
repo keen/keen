@@ -2,6 +2,7 @@ export type IconProps = {
   width: number;
   height: number;
   fill: string;
+  opacity?: number;
 };
 
 export type IconType =
@@ -12,4 +13,14 @@ export type IconType =
   | 'caret-left'
   | 'caret-right'
   | 'brand'
-  | 'question-mark';
+  | 'question-mark'
+  | 'cursor-solid'
+  | 'cursor-outline'
+  | 'click-solid'
+  | 'click-outline'
+  | 'eye-solid'
+  | 'eye-outline'
+  | 'user-solid'
+  | 'user-outline'
+  | 'users-solid'
+  | 'users-outline';

@@ -1,4 +1,3 @@
-import { scaleLinear } from 'd3-scale';
 import { arc, DefaultArcObject } from 'd3-shape';
 import { min, sum } from 'd3-array';
 import { ColorMode } from '@keen.io/ui-core';
@@ -7,7 +6,6 @@ import { convertDegreesToRadians } from '../../../utils/math.utils';
 import { calculateColorScale } from '../../../utils/colors.utils';
 
 import {
-  ALIGN_STROKE,
   MAX_DEGREES,
   INNER_WIDTH,
   OUTER_WIDTH,
@@ -15,6 +13,7 @@ import {
   DEFAULT_MAX,
 } from '../constants';
 
+import { InnerArc } from '../types';
 import { Dimension, Margins } from '../../../types';
 
 type Options = {
@@ -54,9 +53,12 @@ export const generateGauge = ({
   const minimum = minValue === 'auto' ? DEFAULT_MIN : minValue;
   const maximum = maxValue === 'auto' ? DEFAULT_MAX : maxValue;
 
+  const colorMin = colorMode === 'discrete' ? minimum : startAngle;
+  const colorMax = colorMode === 'discrete' ? maximum : endAngle;
+
   const getColor = calculateColorScale(
-    minimum,
-    maximum,
+    colorMin,
+    colorMax,
     colorMode,
     colorSteps,
     colors
@@ -70,21 +72,35 @@ export const generateGauge = ({
     endAngle: arcEndAngle,
   } as DefaultArcObject;
 
-  const degreesScale = scaleLinear()
-    .domain([minimum, maximum])
-    .range([startAngle, endAngle]);
-
   const drawInnerArcPath = arc()
     .innerRadius(radius - INNER_WIDTH)
     .outerRadius(radius - OUTER_WIDTH);
 
-  const maskPath = arc()
-    .innerRadius(radius - INNER_WIDTH - ALIGN_STROKE)
-    .outerRadius(radius - OUTER_WIDTH)
-    .startAngle(convertDegreesToRadians(degreesScale(progressValue)))
-    .endAngle(convertDegreesToRadians(endAngle + ALIGN_STROKE))(
-    {} as DefaultArcObject
-  );
+  const innerArcs: InnerArc[] = [];
+  const maximumValue = maximum - minimum;
+
+  const currentPercent = (progressValue / maximumValue) * 100;
+  const arcRange = Math.abs(startAngle) + endAngle;
+
+  const progressMaxAngle =
+    currentPercent >= 100
+      ? endAngle
+      : startAngle + Math.round((currentPercent * arcRange) / 100);
+
+  for (let i = startAngle; i <= progressMaxAngle - 1; i++) {
+    const props = {
+      startAngle: convertDegreesToRadians(i),
+      endAngle: convertDegreesToRadians(i + 1),
+    } as DefaultArcObject;
+
+    const path = drawInnerArcPath(props);
+    innerArcs.push({
+      path,
+      color: getColor(colorMode === 'discrete' ? progressValue : i),
+      value:
+        (Math.round(((i + endAngle) / arcRange) * 100) * maximumValue) / 100,
+    });
+  }
 
   const outerArcPath = arc()
     .innerRadius(radius - OUTER_WIDTH)
@@ -98,15 +114,11 @@ export const generateGauge = ({
   } as DefaultArcObject);
 
   return {
-    getColor,
+    innerArcs,
     minimum,
     maximum,
     progressValue,
     emptySpaceArcPath,
-    maskPath,
-    innerArcProperties: arcProperties,
-    drawInnerArcPath,
     outerArcPath,
-    innerArcColor: getColor(progressValue),
   };
 };

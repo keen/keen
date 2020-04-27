@@ -4,7 +4,7 @@ import { TimePrecision } from '@keen.io/charts';
 const DATE_FORMATS: Record<TimePrecision, string> = {
   minute: '%I:%M:%S %p',
   hour: '%I:%M %p',
-  day: '%b %a %y',
+  day: '%e %a %y',
   week: '%d %a',
   month: '%b %y',
   year: '%b, %Y',

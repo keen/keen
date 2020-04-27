@@ -466,7 +466,7 @@ export const generateStackLines = ({
         areas.push({
           firstOpacity: 0.7,
           lastOpacity: 0.3,
-          d: `${generatePath(areaData.firstDataPart)},L${generatePath(
+          d: `${generatePath(areaData.firstDataPart)} L${generatePath(
             areaData.secondDataPart
           ).substring(1)}`,
         });

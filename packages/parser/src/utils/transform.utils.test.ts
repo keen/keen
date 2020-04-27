@@ -2,13 +2,17 @@ import {
   transformIntervalsFromArray,
   transformFromNumber,
   transformAtomicResult,
+  transformExtraction,
 } from './transform.utils';
 
 import { KEEN_KEY, KEEN_VALUE } from '../constants';
 
 import { AtomicResult } from '../types';
 
-import { intervalResultFixture } from '../api.fixtures';
+import {
+  intervalResultFixture,
+  extractionResultFixture,
+} from '../api.fixtures';
 
 describe('@keen.io/parser - transform', () => {
   describe('transformAtomicResult()', () => {
@@ -58,6 +62,29 @@ describe('@keen.io/parser - transform', () => {
         keys: [KEEN_VALUE],
         results: [{ [KEEN_KEY]: 'Result', [KEEN_VALUE]: 12 }],
       });
+    });
+  });
+
+  describe('transformExtraction()', () => {
+    it('should flat array with object', () => {
+      const result = transformExtraction(extractionResultFixture.result);
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "geo.city": "Krakow",
+          "geo.coordinates.0": 19.9789,
+          "geo.coordinates.1": 50.0591,
+          "geo.country": "Poland",
+          "geo.province": "Lesser Poland",
+          "lastLoginDate": 1576851939,
+          "tech.device.family": "other",
+          "tech.device.type": "desktop",
+          "userData.email": "John@Evans.com",
+          "userData.firstName": "John",
+          "userData.id": 1,
+          "userData.lastName": "Evans",
+        }
+      `);
     });
   });
 });

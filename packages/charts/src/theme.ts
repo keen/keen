@@ -10,6 +10,13 @@ export const chartColors = [
   colors.blue[500],
   colors.purple[500],
   colors.pink[500],
+  colors.lightBlue[400],
+  colors.orange[400],
+  colors.yellow[400],
+  colors.green[400],
+  colors.blue[400],
+  colors.purple[400],
+  colors.pink[400],
 ];
 
 export const margins: Margins = { top: 50, right: 20, bottom: 50, left: 40 };
@@ -44,6 +51,7 @@ export const theme: Theme = {
     header: {
       badge: {
         enabled: true,
+        backgroundColor: null,
         typography: {
           fontStyle: 'normal',
           fontWeight: 'normal',
@@ -78,7 +86,16 @@ export const theme: Theme = {
     },
   },
   metric: {
-    label: {
+    caption: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 15,
+        fontFamily: 'Gangster Grotesk Regular, sans-serif',
+        fontColor: colors.black['300'],
+      },
+    },
+    value: {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
@@ -86,6 +103,13 @@ export const theme: Theme = {
         fontFamily: 'Lato Light, sans-serif',
         fontColor: colors.blue['500'],
       },
+    },
+    icon: {
+      enabled: false,
+      position: 'top',
+      style: 'solid',
+      margins: { top: 0, left: 0, bottom: 0, right: 0 },
+      type: 'brand',
     },
     excerpt: {
       icons: {

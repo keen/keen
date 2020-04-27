@@ -48,7 +48,7 @@ export const widget = () => (
         'Chart'
       )}
       theme={keenTheme}
-      colorSteps={number('Color steps', 4, {}, 'Chart')}
+      colorSteps={number('Color steps', 2, {}, 'Chart')}
       colorMode={colorModeKnobs('Chart', 'continuous') as any}
       data={chartData}
     />

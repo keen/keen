@@ -13,7 +13,7 @@ describe('@keen.io/parser - date', () => {
     it('should create formatter for "day" precision', () => {
       const format = createLabelFormatter('day');
 
-      expect(format(date)).toMatchInlineSnapshot(`"Jan Tue 19"`);
+      expect(format(date)).toMatchInlineSnapshot(`" 1 Tue 19"`);
     });
 
     it('should create formatter for "week" precision', () => {

@@ -2,8 +2,8 @@ import React from 'react';
 
 import { IconProps } from '../types';
 
-const ArrowUp = ({ width, height, fill }: IconProps) => (
-  <svg width={width} height={height} viewBox="0 0 24 30">
+const ArrowUp = ({ width, height, opacity, fill }: IconProps) => (
+  <svg width={width} height={height} opacity={opacity} viewBox="0 0 24 30">
     <polygon
       fill={fill}
       fillRule="evenodd"

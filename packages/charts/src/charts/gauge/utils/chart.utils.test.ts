@@ -16,6 +16,32 @@ describe('@keen.io/charts', () => {
       expect(maximum).toMatchInlineSnapshot(`100`);
     });
 
+    it('should return provided "minimum" value', () => {
+      const maxValue = 2500;
+      const { maximum } = generateGauge({
+        ...gaugeChart,
+        maxValue,
+      });
+
+      expect(maximum).toEqual(maxValue);
+    });
+
+    it('should return provided "minimum" value', () => {
+      const minValue = -300;
+      const { minimum } = generateGauge({
+        ...gaugeChart,
+        minValue,
+      });
+
+      expect(minimum).toEqual(minValue);
+    });
+
+    it('should create "innerArcs" based on angle range', () => {
+      const { innerArcs } = generateGauge(gaugeChart);
+
+      expect(innerArcs.length).toMatchInlineSnapshot(`189`);
+    });
+
     it('should calculate progress value for multiple series', () => {
       const { progressValue } = generateGauge({
         ...gaugeChart,
@@ -26,20 +52,6 @@ describe('@keen.io/charts', () => {
       });
 
       expect(progressValue).toEqual(105);
-    });
-
-    it('should calculate "path" for arc mask', () => {
-      const { maskPath } = generateGauge(gaugeChart);
-
-      expect(maskPath).toMatchSnapshot();
-    });
-
-    it('should return "drawInnerArcPath" function', () => {
-      const { drawInnerArcPath } = generateGauge(gaugeChart);
-
-      expect(
-        {}.toString.call(drawInnerArcPath) === '[object Function]'
-      ).toBeTruthy();
     });
   });
 });

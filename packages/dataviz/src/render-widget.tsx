@@ -12,8 +12,11 @@ import {
   BubbleChartWidget,
   GaugeChartWidget,
   WidgetSettings,
+  TableChartWidget,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
+
+import { colors } from '@keen.io/colors';
 
 import { KEEN_KEY } from '@keen.io/parser';
 
@@ -32,7 +35,8 @@ export type Widgets =
   | 'funnel'
   | 'choropleth'
   | 'bubble'
-  | 'heatmap';
+  | 'heatmap'
+  | 'table';
 
 type Options = {
   type: Widgets;
@@ -90,6 +94,8 @@ export const renderWidget = ({
       return <PieChartWidget {...config} />;
     case 'donut':
       return <DonutChartWidget {...config} />;
+    case 'table':
+      return <TableChartWidget color={colors.blue[500]} {...config} />;
     case 'bar':
       return (
         <BarChartWidget

@@ -2,7 +2,7 @@ import { Layout } from '@keen.io/ui-core';
 
 type MarkVariants = 'normal' | 'small';
 
-const MARK_VARIANTS: Record<MarkVariants, Record<string, any>> = {
+export const MARK_VARIANTS: Record<MarkVariants, Record<string, any>> = {
   normal: {
     outerRadius: 10,
     innerRadius: 4,
