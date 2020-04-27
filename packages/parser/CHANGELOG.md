@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/parser@0.1.0...@keen.io/parser@0.2.0) (2020-04-27)
+
+
+### Features
+
+* 🎸 table widget ([68f2f2e](https://github.com/keen/keen/commit/68f2f2e55fb99a69aab00a053d283c3d6bf015a4))
+
+
+
+
+
 # [0.1.0](https://github.com/keen/keen/compare/@keen.io/parser@0.0.2...@keen.io/parser@0.1.0) (2020-04-15)
 
 
