@@ -72,7 +72,6 @@ export const plot = () => {
   return (
     <div
       style={{
-        padding: '0 10px',
         width: '300px',
         height: '200px',
         overflow: 'hidden',

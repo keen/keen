@@ -83,6 +83,8 @@ export const DonutChart: FC<Props> = ({
     stackTreshold,
   });
 
+  console.log(arcs, 'laalal');
+
   const svgElement = useRef(null);
 
   const {

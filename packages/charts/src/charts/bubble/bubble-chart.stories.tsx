@@ -27,9 +27,8 @@ const createThemeKnobs = () => ({
 export const plot = () => (
   <div
     style={{
-      padding: '0 40px',
-      width: '500px',
-      height: '300px',
+      width: '700px',
+      height: '500px',
     }}
   >
     <BubbleChart
@@ -47,8 +46,8 @@ export const plot = () => (
       svgDimensions={object(
         'svg',
         {
-          width: 500,
-          height: 300,
+          width: 700,
+          height: 500,
         },
         'Chart'
       )}
