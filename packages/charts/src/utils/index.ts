@@ -3,6 +3,7 @@ import { formatNumber } from './format.utils';
 import { getFromPath } from './selectors.utils';
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
 import { getTooltipContent } from './tooltip.utils';
+import { bubbleColorScale } from './scale.utils';
 
 import {
   generateCircularChart,
@@ -26,4 +27,5 @@ export {
   generateCircularChart,
   calculateTotalValue,
   OTHERS_DATA_KEY,
+  bubbleColorScale,
 };

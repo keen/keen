@@ -1,4 +1,4 @@
-import { ScaleLinear, ScaleBand, ScaleTime } from 'd3-scale';
+import { ScaleLinear, ScaleBand, ScaleTime, scaleOrdinal } from 'd3-scale';
 import {
   timeDay,
   timeMinute,
@@ -132,3 +132,5 @@ export const calculateScaleDomain = (
     scale.domain([minimum, newMaximum]);
   }
 };
+
+export const bubbleColorScale = (colors: string[]) => scaleOrdinal(colors);

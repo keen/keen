@@ -6,9 +6,8 @@ import {
   BubbleLegend,
   SeriesLegend,
   theme as defaultTheme,
+  bubbleColorScale,
 } from '@keen.io/charts';
-
-import { scaleOrdinal } from 'd3-scale';
 
 import { LegendContainer } from './bubble-chart.styles';
 
@@ -52,7 +51,7 @@ export const BubbleChartWidget: FC<Props> = ({
   const maximumVal = max(values);
 
   const { position, series, bubble } = legend;
-  const scaleColor = scaleOrdinal(theme.colors);
+  const scaleColor = bubbleColorScale(theme.colors);
 
   const { disabledKeys, updateKeys } = useLegend();
   const labels = createLegendLabels(data, props.labelSelector);
