@@ -7,24 +7,40 @@ import { LineChart } from '@keen.io/charts';
 
 # Line Chart
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Line chart shows how a given value changes over continuous intervals. It displays the series of data points(called markers) connected by lines segments. It is the easiest visualisation for the human mind to observe trends over time, understand patterns in data, quickly detect that something unusual happened. Multiple categories can be displayed at the same chart to compare the trend between different groups or products.
 
 #### Category
-- Lorem ipsum
-- Dolor sit amet
-- Consectetur adipiscing
+- Trend
+- Patterns
+- Comparison
+
+#### Variations
+- **Simple line chart** - Neighboring markers are connected by straight lines. This type is the best when you need to show the precise measurements.
+- **Spline line chart** - Lines connecting the data points are interpolated to the smooth curves. This type can be used to empathize the general trend. When we want to observe the general trend, our brain smooths the lines itself. You can decrease the cognitive load by smoothing the chart for your viewer. However be aware that spline lines may disturb the perception of your detailed data. It may be perceived that there is more data between connected data points.
+- **Step line chart** - Data points are connected by straight horizontal and vertical lines. It is used to monitor sudden value changes.
+- **Multi-series line chart** - This type simply presents more than one line on the chart. It is useful variation to see how the set of metrics compare to each other in time.
+- **Stacked line chart** - Displays a set of line series on one chart that do not overlap or intersect. They are cumulative at each point.
 
 #### Composition
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Line charts typically are horizontal. The  horizontal x-axis displays continuous intervals, the vertical y-axis shows the measured values.
+The line chart does not necessarily need to have a value axis origin always set to zero(in contrast to the bar chart). Values are represented by point along value scale, not through the size. Starting from zero may not present your data most effectively.<br/>
+Choose the baseline that is best for your data. Remember to make it clear to the viewers that the baseline position does not represent zero by proper axis labeling.
 
 #### Color
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+When you show many categories on a multi-series line chart it may be a good idea to use different colours for each of them.
 
 #### Annotations
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- If you want to monitor the general trend, turn markers off to make the plot less busy visually. Without points, the chart focuses on the trend in the data. Individual observations are missed.
+- If you aim for more detailed representation of data add grid and markers. They increase the precision of judgment.
+- Be careful with the multi-series line chart. If there are too many overlapping lines, the chart may lose readability. If the lines are well separated then your chart should be clear.
 
 #### Applications
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- Monitoring values
+- Finance
+- Marketing
+- Sales reports
+- Social media analysis
+- Compering the same(similar) metric across different products/timezones
 
 ## Plot
 

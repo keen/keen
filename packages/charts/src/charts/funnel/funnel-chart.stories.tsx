@@ -67,9 +67,8 @@ export const plot = () => {
   return (
     <div
       style={{
-        padding: '40px',
-        width: '500px',
-        height: '400px',
+        width: '700px',
+        height: '500px',
       }}
     >
       <FunnelChart

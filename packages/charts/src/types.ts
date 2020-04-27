@@ -69,11 +69,23 @@ export type Grid = {
 export type Icon = {
   color: string;
   type: IconType;
+  height?: number;
+  width?: number;
 };
 
 export type Metric = {
-  label: {
+  value: {
     typography: Typography;
+  };
+  caption: {
+    typography: Typography;
+  };
+  icon?: {
+    enabled: boolean;
+    position: 'top' | 'center' | 'bottom';
+    margins: Margins;
+    style: 'solid' | 'regular';
+    type: IconType;
   };
   excerpt: {
     icons: {
@@ -102,6 +114,7 @@ export type Funnel = {
     };
     badge: {
       enabled: boolean;
+      backgroundColor?: string;
       typography: Typography;
     };
     backgroundColor: string;
@@ -158,6 +171,7 @@ export type Gauge = {
     typography: Typography;
   };
 };
+
 export type Table = {
   header: {
     typography: Typography;

@@ -4,10 +4,11 @@ import { Typography } from '@keen.io/ui-core';
 import { formatNumber } from '../../utils/format.utils';
 
 type Props = {
-  progressType?: 'normal' | 'percent';
   typography: Typography;
   maximum: number;
   value: number;
+  progressType?: 'normal' | 'percent';
+  formatValue?: (value: string | number) => React.ReactNode;
 };
 
 const GaugeProgress: FC<Props> = ({
@@ -15,6 +16,7 @@ const GaugeProgress: FC<Props> = ({
   value,
   maximum,
   typography,
+  formatValue,
 }) => {
   const { fontColor, ...valueStyles } = typography;
 
@@ -31,6 +33,8 @@ const GaugeProgress: FC<Props> = ({
             %
           </tspan>
         </>
+      ) : formatValue ? (
+        formatValue(value)
       ) : (
         value
       )}

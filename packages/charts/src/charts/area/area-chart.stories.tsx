@@ -43,7 +43,7 @@ export const plot = () => {
   };
 
   return (
-    <div style={{ padding: '0 40px', width: '700px', height: '500px' }}>
+    <div style={{ width: '700px', height: '500px' }}>
       <AreaChart
         labelSelector="name"
         keys={['users', 'books', 'licenses', 'shops']}

@@ -34,6 +34,8 @@ export type Props = {
   minValue?: number | 'auto';
   /** Maximum progress value */
   maxValue?: number | 'auto';
+  /** Value format function */
+  formatValue?: (value: string | number) => React.ReactNode;
   /** Progress type */
   progressType?: 'normal' | 'percent';
 } & CommonChartSettings;
@@ -70,6 +72,7 @@ export const GaugeChart: FC<Props> = ({
   progressType = 'percent',
   minValue = 'auto',
   maxValue = 'auto',
+  formatValue,
 }) => {
   const {
     progressValue,
@@ -157,6 +160,7 @@ export const GaugeChart: FC<Props> = ({
                 <motion.g {...progressValueMotion}>
                   <GaugeProgress
                     progressType={progressType}
+                    formatValue={formatValue}
                     typography={gaugeSettings.total.typography}
                     maximum={maximum}
                     value={progressValue}

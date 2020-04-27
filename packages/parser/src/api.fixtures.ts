@@ -202,3 +202,36 @@ export const intervalResultFixture: IntervalResult = {
     },
   ],
 };
+
+export const extractionResultFixture = {
+  query: {
+    analysis_type: 'extraction',
+    event_collection: 'user_action',
+    timeframe: {
+      start: '2020-01-01T00:00:00.000-00:00',
+      end: '2020-02-01T16:00:00.000-00:00',
+    },
+    timezone: 3600,
+  },
+  result: {
+    userData: {
+      id: 1,
+      firstName: 'John',
+      lastName: 'Evans',
+      email: 'John@Evans.com',
+    },
+    geo: {
+      province: 'Lesser Poland',
+      city: 'Krakow',
+      country: 'Poland',
+      coordinates: [19.9789, 50.0591],
+    },
+    tech: {
+      device: {
+        type: 'desktop',
+        family: 'other',
+      },
+    },
+    lastLoginDate: 1576851939,
+  },
+};

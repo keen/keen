@@ -73,7 +73,7 @@ export const percentMetric = () => {
       },
       settings: {
         type: 'percent',
-        labelSuffix: ' Qty.',
+        formatValue: (v: number) => `${v} Qty.`,
       },
     });
 
@@ -90,7 +90,7 @@ export const percentMetric = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '300px', height: '200px' }} ref={container} />;
+  return <div style={{ width: '300px', height: '250px' }} ref={container} />;
 };
 
 export const customizedMetric = () => {
@@ -106,31 +106,30 @@ export const customizedMetric = () => {
         card: {
           backgroundColor: '#25404E',
         },
-        title: {
-          content: 'Book purchases',
-          typography: {
-            fontColor: '#ccc',
-          },
-        },
-        subtitle: {
-          content: 'Percentage',
-          typography: {
-            fontColor: '#ccc',
-          },
-        },
       },
       settings: {
         type: 'percent',
-        labelSuffix: ' Qty.',
+        caption: 'Book purchases',
+        formatValue: (v: number) => `${v} Qty.`,
         theme: {
           metric: {
+            icon: {
+              enabled: true,
+              style: 'regular',
+              type: 'click-outline',
+            },
+            caption: {
+              typography: {
+                fontColor: '#fff',
+              },
+            },
             excerpt: {
               backgroundColor: '#213642',
               typography: {
                 fontColor: '#ccc',
               },
             },
-            label: {
+            value: {
               typography: {
                 fontSize: 40,
                 fontColor: '#fff',

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/charts - <MetricChart /> utils generateCircles() should add color opacity for "regular" style 1`] = `
+Array [
+  Object {
+    "color": "rgba(0,0,0,0)",
+    "opacity": 0.01,
+    "radius": 225,
+  },
+  Object {
+    "color": "rgba(0,0,0,0.05)",
+    "opacity": 0.02,
+    "radius": 200,
+  },
+  Object {
+    "color": "rgba(0,0,0,0.1)",
+    "opacity": 0.03,
+    "radius": 175,
+  },
+  Object {
+    "color": "rgba(0,0,0,0.15)",
+    "opacity": 0.04,
+    "radius": 150,
+  },
+  Object {
+    "color": "rgba(0,0,0,0.2)",
+    "opacity": 0.05,
+    "radius": 125,
+  },
+  Object {
+    "color": "rgba(0,0,0,0.25)",
+    "opacity": 0.08,
+    "radius": 100,
+  },
+  Object {
+    "color": "rgba(0,0,0,0.3)",
+    "opacity": 0.01,
+    "radius": 75,
+  },
+]
+`;

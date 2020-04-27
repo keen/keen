@@ -63,7 +63,7 @@ export const plot = () => {
 
   const innerRadiusKnob = number(
     'Inner Radius',
-    0.5,
+    0.7,
     {
       range: true,
       min: 0.1,

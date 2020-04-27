@@ -30,9 +30,9 @@ export type Props = {
   minValue?: number | 'auto';
   /** Maximum value for axis */
   maxValue?: number | 'auto';
-  /** Keys picked from data object used to generate lines */
+  /** Keys picked from data object used to generate blocks */
   keys?: string[];
-  /** Layout applied on chart bars */
+  /** Layout applied on chart blocks */
   layout?: Layout;
   /** Color mode */
   colorMode?: ColorMode;

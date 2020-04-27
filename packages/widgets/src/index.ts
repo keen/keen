@@ -14,6 +14,7 @@ import {
   GaugeChartWidget,
   choroplethWidgetSettings,
   metricWidgetSettings,
+  TableChartWidget,
 } from './components';
 
 import { LegendSettings, WidgetSettings, TextSettings } from './types';
@@ -38,4 +39,5 @@ export {
   widgetSettings,
   legendSettings,
   HeatmapChartWidget,
+  TableChartWidget,
 };

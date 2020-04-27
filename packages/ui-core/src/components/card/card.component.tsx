@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from '@keen.io/colors';
 
 export type Props = {
@@ -6,6 +6,7 @@ export type Props = {
   border?: string;
   borderRadius?: string;
   hasShadow?: boolean;
+  hideOverflow?: boolean;
 };
 
 export const Card = styled.div<Props>`
@@ -19,6 +20,12 @@ export const Card = styled.div<Props>`
   box-sizing: border-box;
   box-shadow: ${props =>
     props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
+
+  ${props =>
+    props.hideOverflow &&
+    css`
+      overflow: hidden;
+    `}
 `;
 
 Card.defaultProps = {
