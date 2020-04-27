@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AxisTitle /> should render AxisTitle 1`] = `
+<svg>
+  <AxisTitle
+    groupBox={
+      Object {
+        "height": 10,
+        "x": 10,
+        "y": 10,
+      }
+    }
+    line={
+      Object {
+        "x1": 0,
+        "x2": 100,
+        "y1": 100,
+        "y2": 0,
+      }
+    }
+    orientation="horizontal"
+  >
+    <text
+      fill="#27566D"
+      fontFamily="Lato Bold, sans-serif"
+      fontSize={14}
+      fontStyle="normal"
+      fontWeight="normal"
+      style={Object {}}
+      textAnchor="start"
+      x={0}
+      y={40}
+    >
+      Axis Title
+    </text>
+  </AxisTitle>
+</svg>
+`;

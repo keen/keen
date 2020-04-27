@@ -1,4 +1,4 @@
-import { Typography, TooltipMode } from '@keen.io/ui-core';
+import { Typography, TooltipMode, Position } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 
 export type Dimension = {
@@ -46,6 +46,11 @@ export type Tooltip = {
   };
 };
 
+type AxisTitle = {
+  alignment?: Position | 'center';
+  typography?: Typography;
+};
+
 export type Axis = {
   enabled: boolean;
   tickSize: number;
@@ -53,6 +58,7 @@ export type Axis = {
   stroke?: number;
   color?: string;
   labels?: Labels;
+  title?: AxisTitle;
 };
 
 export type Grid = {

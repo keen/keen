@@ -36,7 +36,7 @@ export const createRuler = ({
   });
   let line;
 
-  if (orientation === Orientation.VERTICAL) {
+  if (orientation === Orientation.HORIZONTAL) {
     line = {
       x1: scaleStart,
       x2: scaleEnd,
@@ -69,7 +69,7 @@ export const rotateLabel = (
     radius: radiusAngle,
   };
   if (radiusAngle) {
-    if (orientation === Orientation.HORIZONTAL) {
+    if (orientation === Orientation.VERTICAL) {
       switch (radiusAngle) {
         case 90:
           return {
@@ -144,7 +144,7 @@ export const rotateLabel = (
     }
   }
   return {
-    anchor: orientation === Orientation.VERTICAL ? 'middle' : 'end',
+    anchor: orientation === Orientation.HORIZONTAL ? 'middle' : 'end',
     radius: 0,
     translateX: 0,
     translateY: 0,
