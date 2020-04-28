@@ -19,33 +19,32 @@ This is an open source project and we love involvement from the community! Hit u
 
 ### Project structure
 
-```
-.
-├── ...
-├── packages            
-│   ├── charts    
-│   ├── widgets
-│   ├── dataviz
-│   ├── parser
-│   ├── ui-core
-│   ├── colors
-│   ├── tracking-lite
-│   └── storybook-utils
-└── ...
-```
+    .
+    ├── ...
+    ├── packages            
+    │   ├── charts    
+    │   ├── widgets
+    │   ├── dataviz
+    │   ├── parser
+    │   ├── ui-core
+    │   ├── colors
+    │   ├── embedded-registration   
+    │   ├── tracking-lite
+    │   └── storybook-utils
+    └── ...
 
 ### npm scripts
 
 List of useful commands that could be used by developers. Execution in the command-line interface should be prefixed with `yarn` package manager.
 
-| Command               | Description                                                                       |
-| --------------------- | --------------------------------------------------------------------------------- |
-| `storybook`           | run storybook for development on port `3000`                                      |
-| `build-storybook`     | build storybook production distribution.                                          |
-| `lint`                | run linter against current application codebase.                                  |
-| `test`                | run unit tests.                                                                   |
-| `test:cov`            | run unit tests with coverage reporter.                                            |
-| `prettier`            | run code formatter process against current codebase.                              |
+| Command           | Description                                          |
+| ----------------- | ---------------------------------------------------- |
+| `storybook`       | run storybook for development on port `3000`         |
+| `build-storybook` | build storybook production distribution.             |
+| `lint`            | run linter against current application codebase.     |
+| `test`            | run unit tests.                                      |
+| `test:cov`        | run unit tests with coverage reporter.               |
+| `prettier`        | run code formatter process against current codebase. |
 
 ### commit
 
@@ -57,15 +56,21 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org) to
 
 ### build packages
 
-| Command      | Description                        |
-| ------------ | ---------------------------------- |
+| Command               | Description                                           |
+| --------------------- | ----------------------------------------------------- |
 | `npx lerna run build` | run build script from `package.json` for each package |
 
 ### add dependency to package
 
-| Command      | Description                        |
-| ------------ | ---------------------------------- |
+| Command                                              | Description                                            |
+| ---------------------------------------------------- | ------------------------------------------------------ |
 | `npx lerna add <name>[@ver] packages/<name> [--dev]` | Add dependency to specific package in mono-repository. |
+
+### updating dependencies
+
+| Command           | Description                               |
+| ----------------- | ----------------------------------------- |
+| `update-packages` | run update wizard command line interface. |
 
 ### deployments
 
