@@ -175,7 +175,6 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           Object {
             "display": "inline-block",
             "position": "absolute",
-            "x": 0,
             "zIndex": 1,
           }
         }
@@ -442,9 +441,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           controls={
             ValueAnimationControls {
               "activeOverrides": Set {},
-              "baseTarget": Object {
-                "x": 0,
-              },
+              "baseTarget": Object {},
               "hasValue": [Function],
               "isAnimating": Set {},
               "makeTargetAnimatable": [Function],
@@ -487,7 +484,6 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                 "style": Object {
                   "display": "inline-block",
                   "position": "absolute",
-                  "x": 0,
                   "zIndex": 1,
                 },
               },
@@ -571,7 +567,6 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
             Object {
               "display": "inline-block",
               "position": "absolute",
-              "x": 0,
               "zIndex": 1,
             }
           }

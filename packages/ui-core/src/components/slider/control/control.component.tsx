@@ -30,9 +30,10 @@ export const Control: FC<Props> = ({
     display: 'inline-block',
     position: 'absolute',
     zIndex: 1,
-    x,
     ...controlStyles,
   } as MotionStyle;
+
+  if (x) styles.x = x;
 
   return (
     <motion.div
