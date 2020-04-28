@@ -8,7 +8,6 @@ import AxisTitle from './axis-title.component';
 import { createRuler, rotateLabel } from './ruler.utils';
 
 import { Axis, Tick as RulerTick, Orientation, ScaleSettings } from '../types';
-import { Layout } from '@keen.io/ui-core';
 
 const TEXT_CENTER = '0.32em';
 
@@ -22,7 +21,6 @@ type Props = {
   y: number;
   scaleSettings?: ScaleSettings;
   axisTitle?: string;
-  layout?: Layout;
 } & Axis;
 
 const Ruler = ({
@@ -34,10 +32,10 @@ const Ruler = ({
   tickSize,
   stroke,
   labels,
+  title,
   color,
   scaleSettings,
   axisTitle,
-  layout,
 }: Props) => {
   const groupElement = useRef(null);
   const [groupBox, setGroupBox] = useState({ x: 0, y: 0, height: 0 });
@@ -107,10 +105,10 @@ const Ruler = ({
       </Group>
       {axisTitle && (
         <AxisTitle
+          titleSettings={title}
           orientation={orientation as Orientation}
           line={line}
           groupBox={groupBox}
-          layout={layout}
         >
           {axisTitle}
         </AxisTitle>

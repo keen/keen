@@ -141,13 +141,7 @@ export const HeatmapChart: FC<Props> = ({
         svgDimensions={svgDimensions}
         margins={margins}
       >
-        <Axes
-          xScale={xScale}
-          yScale={yScale}
-          xTitle={xTitle}
-          yTitle={yTitle}
-          layout={layout}
-        />
+        <Axes xScale={xScale} yScale={yScale} xTitle={xTitle} yTitle={yTitle} />
         <ShadowFilter />
         <Heatmap
           blocks={blocks}
