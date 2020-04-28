@@ -46,7 +46,7 @@ export type Tooltip = {
   };
 };
 
-type AxisTitle = {
+export type AxisTitle = {
   alignment?: Position | 'center';
   typography?: Typography;
 };
@@ -58,7 +58,7 @@ export type Axis = {
   stroke?: number;
   color?: string;
   labels?: Labels;
-  title?: AxisTitle;
+  title: AxisTitle;
 };
 
 export type Grid = {

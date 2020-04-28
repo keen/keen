@@ -344,7 +344,7 @@ export const generateBars = (options: Options) => {
   } = options;
 
   const settings =
-    layout === 'horizontal'
+    layout === 'vertical'
       ? {
           xScaleSettings,
           yScaleSettings,

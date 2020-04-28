@@ -56,12 +56,6 @@ export type Props = {
   stackMode?: StackMode;
 } & CommonChartSettings;
 
-/**
-- Support two different layouts - horizontal and vertical.
-- Automatically adjust render mode based on content.
-- Fully customized Typography and Card wrapper.
-- Could be used to disable series on chart.
-**/
 export const BarChart: FC<Props> = ({
   data,
   svgDimensions,
@@ -128,13 +122,7 @@ export const BarChart: FC<Props> = ({
         {...settings}
       >
         <Grid xScale={xScale} yScale={yScale} />
-        <Axes
-          xScale={xScale}
-          yScale={yScale}
-          xTitle={xTitle}
-          yTitle={yTitle}
-          layout={layout}
-        />
+        <Axes xScale={xScale} yScale={yScale} xTitle={xTitle} yTitle={yTitle} />
         <Bars
           bars={bars}
           stackMode={stackMode}

@@ -65,7 +65,7 @@ export const SimpleResults = () => {
       },
       settings: {
         margins: { top: 10, left: 50, bottom: 40, right: 10 },
-        layout: 'horizontal',
+        layout: 'vertical',
       },
     });
 

@@ -19,6 +19,18 @@ exports[`<AxisTitle /> should render AxisTitle 1`] = `
       }
     }
     orientation="horizontal"
+    titleSettings={
+      Object {
+        "alignment": "center",
+        "typography": Object {
+          "fontColor": "#27566D",
+          "fontFamily": "Lato Bold, sans-serif",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      }
+    }
   >
     <text
       fill="#27566D"
@@ -27,8 +39,8 @@ exports[`<AxisTitle /> should render AxisTitle 1`] = `
       fontStyle="normal"
       fontWeight="normal"
       style={Object {}}
-      textAnchor="start"
-      x={0}
+      textAnchor="middle"
+      x={50}
       y={40}
     >
       Axis Title

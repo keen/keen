@@ -1,5 +1,5 @@
-import { Orientation, Theme, Line as LineType } from '../types';
-import { Position, Layout } from '@keen.io/ui-core';
+import { Line as LineType } from '../types';
+import { Position } from '@keen.io/ui-core';
 
 export const getHorizontalPosition = (
   alignment: Position | 'center',
@@ -58,24 +58,4 @@ export const getTextAnchor = (alignment: Position | 'center') => {
   }
 
   return textAnchor;
-};
-
-export const getAxisTheme = (
-  layout: Layout,
-  orientation: Orientation,
-  theme: Theme
-) => {
-  let axisTheme;
-
-  switch (true) {
-    case layout === 'vertical' && orientation === Orientation.HORIZONTAL:
-    case layout === 'horizontal' && orientation === Orientation.VERTICAL:
-    case !layout && orientation === Orientation.VERTICAL:
-      axisTheme = theme.axisY;
-      break;
-    default:
-      axisTheme = theme.axisX;
-  }
-
-  return axisTheme;
 };

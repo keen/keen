@@ -9,7 +9,7 @@ import TooltipContent from './tooltip-content.component';
 import { generateBubbles } from './utils/chart.utils';
 
 import { useTooltip } from '../../hooks';
-import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
+import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings, ScaleSettings } from '../../types';
 
@@ -51,7 +51,7 @@ export const BubbleChart: FC<Props> = ({
   labelSelector,
   valueKey,
   theme = defaultTheme,
-  margins = defaultMargins,
+  margins = { top: 20, right: 20, bottom: 25, left: 30 },
   maxAreaRadius = 40,
   minAreaRadius = 5,
   xScaleSettings = { type: 'linear' },
