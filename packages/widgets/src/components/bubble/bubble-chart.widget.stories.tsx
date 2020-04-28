@@ -95,11 +95,9 @@ export const widget = () => (
         { min: 5, max: 40 },
         'Chart'
       )}
-      xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
-      yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
       margins={object(
         'Margins',
-        { top: 20, right: 20, bottom: 60, left: 60 },
+        { top: 20, right: 20, bottom: 50, left: 40 },
         'Chart'
       )}
       theme={createThemeKnobs()}

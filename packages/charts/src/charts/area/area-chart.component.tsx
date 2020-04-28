@@ -19,10 +19,6 @@ export type Props = {
   minValue?: number | 'auto';
   /** Maximum value for axis */
   maxValue?: number | 'auto';
-  /** X axis title settings */
-  xAxisTitle?: string;
-  /** Y axis title settings */
-  yAxisTitle?: string;
   /** Keys picked from data object used to generate lines */
   keys?: string[];
   /** Keys that are disabled for rendering data series */

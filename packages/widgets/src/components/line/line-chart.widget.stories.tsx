@@ -75,8 +75,6 @@ export const widget = () => {
         curve={curveKnobs('Chart') as CurveType}
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={lineStackModeKnobs('Chart') as StackMode}
-        xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
-        yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         margins={object(
           'Margins',
           { top: 30, right: 20, bottom: 50, left: 40 },

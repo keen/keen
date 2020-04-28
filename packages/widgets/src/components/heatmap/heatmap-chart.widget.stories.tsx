@@ -56,11 +56,9 @@ export const widget = () => (
       steps={number('steps', 2, {}, 'Chart')}
       keys={['people', 'licenses', 'cars', 'documents']}
       layout={layoutKnobs('Chart') as any}
-      xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
-      yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
       margins={object(
         'Margins',
-        { top: 30, right: 20, bottom: 50, left: 100 },
+        { top: 30, right: 20, bottom: 50, left: 65 },
         'Chart'
       )}
       theme={createThemeKnobs()}

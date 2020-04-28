@@ -116,31 +116,21 @@ const BLOCK_RENDER_MAP: Record<string, any> = {
 };
 
 export const generateBlocks = (options: Options) => {
-  const {
-    layout,
-    xScaleSettings,
-    yScaleSettings,
-    xAxisTitle,
-    yAxisTitle,
-  } = options;
+  const { layout, xScaleSettings, yScaleSettings } = options;
 
-  const settings =
-    layout === 'horizontal'
+  const scaleSettings =
+    layout === 'vertical'
       ? {
           xScaleSettings,
           yScaleSettings,
-          xAxisTitle,
-          yAxisTitle,
         }
       : {
           xScaleSettings: yScaleSettings,
           yScaleSettings: xScaleSettings,
-          xAxisTitle: yAxisTitle,
-          yAxisTitle: xAxisTitle,
         };
 
   return {
-    settings,
+    scaleSettings,
     ...BLOCK_RENDER_MAP[layout].call(null, options),
   };
 };

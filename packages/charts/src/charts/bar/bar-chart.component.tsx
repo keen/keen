@@ -46,10 +46,6 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y Scale settings */
   yScaleSettings?: ScaleSettings;
-  /** X axis title settings */
-  xAxisTitle?: string;
-  /** Y axis title settings */
-  yAxisTitle?: string;
   /** Group mode */
   groupMode?: GroupMode;
   /** Stack mode */
@@ -80,16 +76,8 @@ export const BarChart: FC<Props> = ({
   barPadding = 0.1,
   showValues = false,
   valuesAutocolor = true,
-  xAxisTitle,
-  yAxisTitle,
 }) => {
-  const {
-    bars,
-    xScale,
-    yScale,
-    settings,
-    settings: { xAxisTitle: xTitle, yAxisTitle: yTitle },
-  } = generateBars({
+  const { bars, xScale, yScale, scaleSettings } = generateBars({
     data,
     margins,
     dimension: svgDimensions,
@@ -105,8 +93,6 @@ export const BarChart: FC<Props> = ({
     groupMode,
     xScaleSettings,
     yScaleSettings,
-    xAxisTitle,
-    yAxisTitle,
   });
 
   const { tooltip: tooltipSettings } = theme;
@@ -125,16 +111,10 @@ export const BarChart: FC<Props> = ({
         theme={theme}
         svgDimensions={svgDimensions}
         margins={margins}
-        {...settings}
+        {...scaleSettings}
       >
         <Grid xScale={xScale} yScale={yScale} />
-        <Axes
-          xScale={xScale}
-          yScale={yScale}
-          xTitle={xTitle}
-          yTitle={yTitle}
-          layout={layout}
-        />
+        <Axes xScale={xScale} yScale={yScale} />
         <Bars
           bars={bars}
           stackMode={stackMode}

@@ -20,10 +20,10 @@ const Tick = ({
   children,
 }: Props) => {
   const linePosition =
-    orientation === Orientation.HORIZONTAL ? size : -Math.abs(size);
+    orientation === Orientation.VERTICAL ? size : -Math.abs(size);
 
   const position = {
-    [orientation === Orientation.HORIZONTAL ? 'y2' : 'x2']: linePosition,
+    [orientation === Orientation.VERTICAL ? 'y2' : 'x2']: linePosition,
   };
 
   return (

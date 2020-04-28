@@ -6,7 +6,6 @@ import Ruler from './ruler.component';
 import { ChartContext, ChartContextType } from '../contexts';
 
 import { Orientation } from '../types';
-import { Layout } from '@keen.io/ui-core';
 
 type Props = {
   xScale:
@@ -14,14 +13,11 @@ type Props = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
-  xTitle?: string;
-  yTitle?: string;
-  layout?: Layout;
 };
 
 const X_AXIS_PADDING = 5;
 
-const Axes = ({ xScale, yScale, xTitle, yTitle, layout }: Props) => {
+const Axes = ({ xScale, yScale }: Props) => {
   const {
     theme,
     margins,
@@ -35,9 +31,7 @@ const Axes = ({ xScale, yScale, xTitle, yTitle, layout }: Props) => {
     y: svgDimensions.height - margins.bottom + X_AXIS_PADDING,
     scale: xScale,
     scaleSettings: xScaleSettings,
-    orientation: Orientation.HORIZONTAL,
-    axisTitle: xTitle,
-    layout,
+    orientation: Orientation.VERTICAL,
   };
 
   const axisY = theme.axisY.enabled && {
@@ -45,18 +39,13 @@ const Axes = ({ xScale, yScale, xTitle, yTitle, layout }: Props) => {
     y: 0,
     scale: yScale,
     scaleSettings: yScaleSettings,
-    orientation: Orientation.VERTICAL,
-    axisTitle: yTitle,
-    layout,
+    orientation: Orientation.HORIZONTAL,
   };
-
-  const xAxisTheme = layout === 'vertical' ? theme.axisY : theme.axisX;
-  const yAxisTheme = layout === 'vertical' ? theme.axisX : theme.axisY;
 
   return (
     <>
-      {axisX && <Ruler {...axisX} {...xAxisTheme} />}
-      {axisY && <Ruler {...axisY} {...yAxisTheme} />}
+      {axisX && <Ruler {...axisX} {...theme.axisX} />}
+      {axisY && <Ruler {...axisY} {...theme.axisY} />}
     </>
   );
 };

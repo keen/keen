@@ -9,7 +9,7 @@ describe('@keen.io/charts - <Tick />', () => {
   it('should set svg group coordinates', () => {
     const wrapper = mount(
       <svg>
-        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10} />
+        <Tick orientation={Orientation.VERTICAL} x={10} y={25} size={10} />
       </svg>
     );
 
@@ -21,7 +21,7 @@ describe('@keen.io/charts - <Tick />', () => {
   it('should set line position for vertical orientation', () => {
     const wrapper = mount(
       <svg>
-        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10} />
+        <Tick orientation={Orientation.VERTICAL} x={10} y={25} size={10} />
       </svg>
     );
 
@@ -36,7 +36,7 @@ describe('@keen.io/charts - <Tick />', () => {
   it('should set line position for horizontal orientation', () => {
     const wrapper = mount(
       <svg>
-        <Tick orientation={Orientation.VERTICAL} x={10} y={25} size={10} />
+        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10} />
       </svg>
     );
 
@@ -51,7 +51,7 @@ describe('@keen.io/charts - <Tick />', () => {
   it('should render children', () => {
     const wrapper = mount(
       <svg>
-        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10}>
+        <Tick orientation={Orientation.VERTICAL} x={10} y={25} size={10}>
           <text />
         </Tick>
       </svg>

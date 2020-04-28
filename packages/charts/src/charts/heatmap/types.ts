@@ -17,8 +17,6 @@ export type Options = {
   xScaleSettings?: ScaleSettings;
   yScaleSettings?: ScaleSettings;
   range?: RangeType;
-  xAxisTitle?: string;
-  yAxisTitle?: string;
 };
 
 export type BlockType = {
