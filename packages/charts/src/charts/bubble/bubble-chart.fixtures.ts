@@ -28,5 +28,5 @@ export const chartFixture = {
   labelSelector: 'channel',
   xDomainKey: 'conversion',
   yDomainKey: 'users',
-  disabledKeys: [],
+  disabledKeys: [] as string[],
 };
