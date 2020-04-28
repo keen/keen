@@ -1,0 +1,39 @@
+{
+  "name": "@keen.io/embedded-registration",
+  "version": "0.0.1",
+  "description": "Embeddable registration component for HubSpot integration",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "start": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack-dev-server",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "devDependencies": {
+    "@types/html-webpack-plugin": "^3.2.2",
+    "@types/webpack-dev-server": "^3.10.1",
+    "html-webpack-plugin": "4.0.2",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
