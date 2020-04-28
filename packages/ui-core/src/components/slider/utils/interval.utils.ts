@@ -26,3 +26,13 @@ export const calculateIntervalValue = ({
 
   return intervalValue * step + minimum;
 };
+
+export const getIndex = (x: number, stepDimension: number) => {
+  let index = Math.floor(x / stepDimension);
+
+  if (x !== 0 && x % stepDimension === 0) {
+    index -= 1;
+  }
+
+  return index;
+};

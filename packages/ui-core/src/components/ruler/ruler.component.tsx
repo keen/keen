@@ -11,6 +11,8 @@ type Props = {
   ticks: { label: string | number; position: string }[];
   /** Label renderer function */
   renderLabel?: (label: string | number, layout: Layout) => JSX.Element;
+  /** Click event handler */
+  onClick?: (position: string) => void;
 };
 
 const defaultRenderer = (label: string | number, layout: Layout) => {
@@ -21,6 +23,7 @@ export const Ruler: FC<Props> = ({
   layout,
   ticks,
   renderLabel = defaultRenderer,
+  onClick,
 }) => {
   return (
     <Container layout={layout}>
@@ -28,7 +31,11 @@ export const Ruler: FC<Props> = ({
         return (
           <React.Fragment key={`${idx}-${position}`}>
             <Tick type={layout} position={position} />
-            <PositionContainer type={layout} position={position}>
+            <PositionContainer
+              type={layout}
+              position={position}
+              onClick={() => onClick && onClick(position)}
+            >
               {renderLabel(label, layout)}
             </PositionContainer>
           </React.Fragment>

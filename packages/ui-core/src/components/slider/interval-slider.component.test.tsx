@@ -44,4 +44,10 @@ describe('@keen.io/ui-core - <RangeSlider />', () => {
 
     expect(rail.props()).toMatchObject(railSettings);
   });
+
+  it('should set initial value', () => {
+    const wrapper = mount(<IntervalSlider {...props} initialValue={50} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
