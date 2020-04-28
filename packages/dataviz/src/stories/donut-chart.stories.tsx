@@ -26,9 +26,6 @@ export const singleResult = () => {
           content: 'Book purchases',
         },
       },
-      settings: {
-        innerRadius: 50,
-      },
     });
 
     client
@@ -58,9 +55,6 @@ export const simpleResults = () => {
         title: {
           content: 'Book purchases',
         },
-      },
-      settings: {
-        innerRadius: 50,
       },
     });
 
@@ -92,9 +86,6 @@ export const multipleResults = () => {
         title: {
           content: 'Book purchases',
         },
-      },
-      settings: {
-        innerRadius: 50,
       },
     });
 

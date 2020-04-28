@@ -15,6 +15,18 @@ const radiusAngleOptions = {
   '90': 90,
 };
 
+const xAxisTitleAlignment = {
+  left: 'left',
+  center: 'center',
+  right: 'right',
+};
+
+const yAxisTitleAlignment = {
+  top: 'top',
+  center: 'center',
+  bottom: 'bottom',
+};
+
 export const gridKnobs = (namespace: string) => ({
   enabled: boolean('Enabled', true, namespace),
   color: color('Color', colors.gray['400'], namespace),
@@ -31,6 +43,19 @@ export const axisXKnobs = (namespace: string) => ({
     typography: typographyKnobs(namespace, { fontSize: 10 }),
     radiusAngle: select('Radius angle', radiusAngleOptions, 0, namespace),
   },
+  title: {
+    alignment: select(
+      'Title Alignment',
+      xAxisTitleAlignment,
+      xAxisTitleAlignment.center,
+      `${namespace} Title`
+    ),
+    typography: typographyKnobs(`${namespace} Title`, {
+      fontSize: 14,
+      fontFamily: 'Lato Bold',
+      fontColor: colors.blue['500'],
+    }),
+  },
 });
 
 export const axisYKnobs = (namespace: string) => ({
@@ -43,5 +68,18 @@ export const axisYKnobs = (namespace: string) => ({
     enabled: boolean('Show Labels', true, namespace),
     typography: typographyKnobs(namespace, { fontSize: 10 }),
     radiusAngle: select('Radius angle', radiusAngleOptions, 0, namespace),
+  },
+  title: {
+    alignment: select(
+      'Title Alignment',
+      yAxisTitleAlignment,
+      yAxisTitleAlignment.center,
+      `${namespace} Title`
+    ),
+    typography: typographyKnobs(`${namespace} Title`, {
+      fontSize: 14,
+      fontFamily: 'Lato Bold',
+      fontColor: colors.blue['500'],
+    }),
   },
 });

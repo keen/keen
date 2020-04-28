@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, number, boolean } from '@storybook/addon-knobs';
+import { object, number, boolean, text } from '@storybook/addon-knobs';
 
 import {
   axisXKnobs,
@@ -41,9 +41,8 @@ const createThemeKnobs = () => ({
 export const plot = () => (
   <div
     style={{
-      padding: '0 40px',
-      width: '500px',
-      height: '300px',
+      width: '700px',
+      height: '500px',
     }}
   >
     <BarChart
@@ -55,17 +54,19 @@ export const plot = () => (
       valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['users', 'licenses', 'shops']}
       layout={layoutKnobs('Chart', 'vertical') as any}
+      xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
+      yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
       svgDimensions={object(
         'svg',
         {
-          width: 500,
-          height: 300,
+          width: 700,
+          height: 500,
         },
         'Chart'
       )}
       margins={object(
         'Margins',
-        { top: 50, right: 20, bottom: 50, left: 40 },
+        { top: 50, right: 20, bottom: 60, left: 100 },
         'Chart'
       )}
       theme={createThemeKnobs()}

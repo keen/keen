@@ -254,6 +254,16 @@ export const theme: Theme = {
       },
       radiusAngle: 0,
     },
+    title: {
+      alignment: 'center',
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontFamily: 'Lato Bold, sans-serif',
+        fontColor: colors.blue['500'],
+      },
+    },
   },
   axisY: {
     enabled: true,
@@ -271,6 +281,16 @@ export const theme: Theme = {
         fontColor: colors.black['500'],
       },
       radiusAngle: 0,
+    },
+    title: {
+      alignment: 'center',
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 14,
+        fontFamily: 'Lato Bold, sans-serif',
+        fontColor: colors.blue['500'],
+      },
     },
   },
   gridX: {

@@ -1,12 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { Text, Tick, Line } from './elements';
 import { Group } from './ruler.styles';
+import AxisTitle from './axis-title.component';
 
 import { createRuler, rotateLabel } from './ruler.utils';
 
 import { Axis, Tick as RulerTick, Orientation, ScaleSettings } from '../types';
+import { Layout } from '@keen.io/ui-core';
 
 const TEXT_CENTER = '0.32em';
 
@@ -19,6 +21,8 @@ type Props = {
   x: number;
   y: number;
   scaleSettings?: ScaleSettings;
+  axisTitle?: string;
+  layout?: Layout;
 } & Axis;
 
 const Ruler = ({
@@ -32,7 +36,19 @@ const Ruler = ({
   labels,
   color,
   scaleSettings,
+  axisTitle,
+  layout,
 }: Props) => {
+  const groupElement = useRef(null);
+  const [groupBox, setGroupBox] = useState({ x: 0, y: 0, height: 0 });
+
+  useEffect(() => {
+    if (groupElement.current) {
+      const { x, y, height } = groupElement.current.getBBox();
+      setGroupBox({ x, y, height });
+    }
+  }, [x, y, scaleSettings]);
+
   const { enabled, typography, radiusAngle } = labels;
   const { line, ticks } = createRuler({
     x,
@@ -46,7 +62,7 @@ const Ruler = ({
   const { fontColor, ...rest } = typography;
   const textPosition = useMemo(
     () =>
-      orientation === Orientation.VERTICAL
+      orientation === Orientation.HORIZONTAL
         ? {
             dy: tickPadding + tickSize,
             dx: 0,
@@ -66,28 +82,40 @@ const Ruler = ({
   );
 
   return (
-    <Group color={fontColor} style={{ ...rest }}>
-      <Line {...line} color={color} stroke={stroke} />
-      {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (
-        <Tick
-          key={idx}
-          x={x}
-          y={y}
-          size={size}
-          color={color}
-          orientation={orientation}
+    <>
+      <Group color={fontColor} style={{ ...rest }} ref={groupElement}>
+        <Line {...line} color={color} stroke={stroke} />
+        {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (
+          <Tick
+            key={idx}
+            x={x}
+            y={y}
+            size={size}
+            color={color}
+            orientation={orientation}
+          >
+            {enabled && (
+              <g
+                textAnchor={anchor}
+                transform={`translate(${translateX}, ${translateY}) rotate(${radius})`}
+              >
+                <Text {...textPosition}>{text}</Text>
+              </g>
+            )}
+          </Tick>
+        ))}
+      </Group>
+      {axisTitle && (
+        <AxisTitle
+          orientation={orientation as Orientation}
+          line={line}
+          groupBox={groupBox}
+          layout={layout}
         >
-          {enabled && (
-            <g
-              textAnchor={anchor}
-              transform={`translate(${translateX}, ${translateY}) rotate(${radius})`}
-            >
-              <Text {...textPosition}>{text}</Text>
-            </g>
-          )}
-        </Tick>
-      ))}
-    </Group>
+          {axisTitle}
+        </AxisTitle>
+      )}
+    </>
   );
 };
 

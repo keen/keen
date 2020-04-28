@@ -33,6 +33,10 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y Scale settings */
   yScaleSettings?: ScaleSettings;
+  /** X axis title settings */
+  xAxisTitle?: string;
+  /** Y axis title settings */
+  yAxisTitle?: string;
   /** Minimum area radius */
   minAreaRadius?: number;
   /** Maximum area radius */
@@ -52,6 +56,8 @@ export const BubbleChart: FC<Props> = ({
   minAreaRadius = 5,
   xScaleSettings = { type: 'linear' },
   yScaleSettings = { type: 'linear' },
+  xAxisTitle,
+  yAxisTitle,
 }) => {
   const { bubbles, xScale, yScale, middlePoint } = generateBubbles({
     data,
@@ -118,7 +124,12 @@ export const BubbleChart: FC<Props> = ({
         yScaleSettings={yScaleSettings}
       >
         <Grid xScale={xScale} yScale={yScale} />
-        <Axes xScale={xScale} yScale={yScale} />
+        <Axes
+          xScale={xScale}
+          yScale={yScale}
+          xTitle={xAxisTitle}
+          yTitle={yAxisTitle}
+        />
         <Bubbles
           bubbles={bubbles}
           middlePoint={middlePoint}

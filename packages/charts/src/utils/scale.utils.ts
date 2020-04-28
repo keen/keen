@@ -61,7 +61,7 @@ export const getCenterPosition = (scale: ScaleBand<string>) => {
 export const generateTicks = ({
   scale,
   tickSize,
-  orientation = Orientation.VERTICAL,
+  orientation = Orientation.HORIZONTAL,
   scaleSettings,
   x,
   y,
@@ -82,10 +82,10 @@ export const generateTicks = ({
   const position = 'bandwidth' in scale ? getCenterPosition(scale) : scale;
 
   const getX = (value: string & { valueOf(): number }) =>
-    orientation === Orientation.VERTICAL ? position(value) : x + TICK_ALIGN;
+    orientation === Orientation.HORIZONTAL ? position(value) : x + TICK_ALIGN;
 
   const getY = (value: string & { valueOf(): number }) =>
-    orientation === Orientation.VERTICAL ? y - TICK_ALIGN : position(value);
+    orientation === Orientation.HORIZONTAL ? y - TICK_ALIGN : position(value);
 
   values.forEach((value: any) => {
     ticks.push({
@@ -96,7 +96,7 @@ export const generateTicks = ({
     });
   });
 
-  if ('bandwidth' in scale && orientation === Orientation.VERTICAL) {
+  if ('bandwidth' in scale && orientation === Orientation.HORIZONTAL) {
     const [scaleStart, scaleEnd] = scale.range();
 
     ticks.push(

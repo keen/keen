@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/charts@0.2.0...@keen.io/charts@0.3.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* 🐛 area stacked firefox fix ([94f97c0](https://github.com/keen/keen/commit/94f97c0409d1e89d07fede8caa3e144f4ffbc531)), closes [#279](https://github.com/keen/keen/issues/279)
+
+
+### Features
+
+* 🎸 gauge chart enhancments ([6a158d2](https://github.com/keen/keen/commit/6a158d2920540973ea003cb80ebce8f3514ec71b))
+
+
+
+
+
 # [0.2.0](https://github.com/keen/keen/compare/@keen.io/charts@0.1.0...@keen.io/charts@0.2.0) (2020-04-15)
 
 

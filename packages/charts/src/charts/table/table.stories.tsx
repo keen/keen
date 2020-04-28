@@ -14,7 +14,7 @@ export default {
 };
 
 const Container = styled.div`
-  width: 900px;
+  width: 700px;
   height: 500px;
 `;
 
