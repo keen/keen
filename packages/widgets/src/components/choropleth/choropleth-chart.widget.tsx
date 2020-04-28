@@ -21,9 +21,9 @@ import {
 import { useSlider } from '../../hooks/use-slider.hook';
 
 import { choroplethLegendSettings } from './widget-settings';
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-export type Props = WidgetSettings &
+export type Props = { legend: LegendSettings } & WidgetSettings &
   ChoroplethChartSettings & {
     geographicArea?: 'us' | 'world';
   };

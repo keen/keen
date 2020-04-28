@@ -20,9 +20,9 @@ import {
 import { useLegend } from '../../hooks';
 
 import { legendSettings } from '../../widget-settings';
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & AreaChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & AreaChartSettings;
 
 /** Area Chart widget integrated with other components */
 export const AreaChartWidget: FC<Props> = ({

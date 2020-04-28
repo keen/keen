@@ -12,9 +12,9 @@ import { ContentSocket, TitleSocket } from '../widget-sockets.component';
 
 import { legendSettings } from '../../widget-settings';
 
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & GaugeChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & GaugeChartSettings;
 
 /** Gauge Chart widget integrated with other components */
 export const GaugeChartWidget: FC<Props> = ({

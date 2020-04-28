@@ -21,9 +21,9 @@ import { createLegendLabels } from './pie-chart.widget.utils';
 import { legendSettings } from '../../widget-settings';
 import { useLegend } from '../../hooks';
 
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & PieChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & PieChartSettings;
 
 /** Pie Chart widget integrated with other components */
 export const PieChartWidget: FC<Props> = ({

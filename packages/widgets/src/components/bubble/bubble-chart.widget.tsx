@@ -24,21 +24,18 @@ import { createLegendLabels } from './bubble-chart.widget.utils';
 
 import { useLegend } from '../../hooks';
 
-import { legendSettings } from '../../widget-settings';
-import { WidgetSettings } from '../../types';
+import { bubbleLegendSettings } from './widget-settings';
+import { WidgetSettings, BubbleWidgetLegendSettings } from '../../types';
 
 import { getValues } from '../../../../charts/src/utils/data.utils';
 import { max, min } from 'd3-array';
 
-export type Props = WidgetSettings & BubbleChartSettings;
+export type Props = { legend: BubbleWidgetLegendSettings } & WidgetSettings &
+  BubbleChartSettings;
 
 /** Bubble Chart widget integrated with other components */
 export const BubbleChartWidget: FC<Props> = ({
-  legend = {
-    series: legendSettings,
-    bubble: legendSettings,
-    ...legendSettings,
-  },
+  legend = bubbleLegendSettings,
   theme = defaultTheme,
   title,
   subtitle,
@@ -77,6 +74,7 @@ export const BubbleChartWidget: FC<Props> = ({
           {series.enabled && (
             <SeriesLegend
               {...series}
+              position={position}
               onClick={updateKeys}
               labels={labels.map((el: string) => ({
                 name: el,

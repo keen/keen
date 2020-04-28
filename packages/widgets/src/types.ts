@@ -6,7 +6,7 @@ import {
   CardSettings,
 } from '@keen.io/ui-core';
 
-export interface LegendSettings {
+export type LegendSettings = {
   enabled: boolean;
   position: Position;
   alignment: Alignment;
@@ -22,7 +22,7 @@ export interface LegendSettings {
     value?: string;
     typography?: Typography;
   };
-}
+};
 
 export type TextSettings = { content: string; typography: Typography };
 
@@ -31,13 +31,12 @@ export type WidgetSettings = {
   title: TextSettings;
   /** Widget subtitle */
   subtitle: TextSettings;
-  /** Legend component settings */
-  legend?: LegendSettings | BubbleWidgetLegendSettings;
   /** Widget card settings */
   card: CardSettings;
 };
 
-export interface BubbleWidgetLegendSettings extends LegendSettings {
-  series?: LegendSettings;
-  bubble?: LegendSettings;
-}
+export type BubbleWidgetLegendSettings = {
+  position: Position;
+  series?: Omit<LegendSettings, 'position'>;
+  bubble?: Omit<LegendSettings, 'position'>;
+};
