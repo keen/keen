@@ -142,6 +142,11 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
       </styled.div>
     </OffRange>
     <Component
+      controlStyles={
+        Object {
+          "x": 0,
+        }
+      }
       dragConstraints={
         Object {
           "bottom": 0,
@@ -154,7 +159,6 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
       onDrag={[Function]}
       onDragEnd={[Function]}
       onDragStart={[Function]}
-      x={0}
     >
       <ForwardRef(MotionComponent)
         drag="x"
@@ -175,6 +179,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           Object {
             "display": "inline-block",
             "position": "absolute",
+            "x": 0,
             "zIndex": 1,
           }
         }
@@ -441,7 +446,9 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           controls={
             ValueAnimationControls {
               "activeOverrides": Set {},
-              "baseTarget": Object {},
+              "baseTarget": Object {
+                "x": 0,
+              },
               "hasValue": [Function],
               "isAnimating": Set {},
               "makeTargetAnimatable": [Function],
@@ -484,6 +491,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                 "style": Object {
                   "display": "inline-block",
                   "position": "absolute",
+                  "x": 0,
                   "zIndex": 1,
                 },
               },
@@ -567,6 +575,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
             Object {
               "display": "inline-block",
               "position": "absolute",
+              "x": 0,
               "zIndex": 1,
             }
           }

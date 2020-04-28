@@ -184,7 +184,7 @@ export const IntervalSlider: FC<Props> = ({
         }}
       />
       <Control
-        x={xOffset}
+        controlStyles={{ x: xOffset }}
         onDragStart={() => {
           dispatch(sliderActions.setControlDrag(DRAG_CONTROL_ID, true));
           showTooltip();

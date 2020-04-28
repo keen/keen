@@ -6,7 +6,6 @@ import { Container } from './control.styles';
 import { DragConstraints } from '../types';
 
 type Props = {
-  x?: number;
   dragDirection: 'x' | 'y';
   dragConstraints: DragConstraints;
   children: React.ReactNode;
@@ -17,7 +16,6 @@ type Props = {
 };
 
 export const Control: FC<Props> = ({
-  x,
   dragDirection,
   dragConstraints,
   onDragStart,
@@ -32,8 +30,6 @@ export const Control: FC<Props> = ({
     zIndex: 1,
     ...controlStyles,
   } as MotionStyle;
-
-  if (x) styles.x = x;
 
   return (
     <motion.div
