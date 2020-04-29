@@ -9,7 +9,7 @@ import { calculateBarProperties } from './hover-bar.utils';
 import { ChartContext, ChartContextType } from '../../contexts';
 
 import { HoverBarType } from '../../charts/line/types';
-import { colors } from '@keen.io/colors/src';
+import { colors } from '@keen.io/colors/';
 
 export const hoverBarMotion = {
   initial: { opacity: 0.3 },
