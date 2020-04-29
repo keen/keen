@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as React from 'react';
 import { colors } from '@keen.io/colors';
 
 import { IntervalSlider } from './interval-slider.component';
+import { calculateIntervalValue, getIndex } from './utils';
 
 import Ruler from '../ruler';
 
@@ -22,6 +24,8 @@ const rulerSettings = [
   })),
 ];
 
+const dimension = 300;
+
 export default {
   title: 'Components|Interval Slider',
   parameters: {
@@ -31,7 +35,7 @@ export default {
 };
 
 export const basic = () => (
-  <div style={{ width: '300px', margin: '20px' }}>
+  <div style={{ width: `${dimension}px`, margin: '20px' }}>
     <IntervalSlider
       colorSteps={5}
       colors={Object.values(colors.orange)}
@@ -40,17 +44,36 @@ export const basic = () => (
   </div>
 );
 
-export const withRuler = () => (
-  <div style={{ width: '300px', margin: '20px' }}>
-    <IntervalSlider
-      railSettings={{ size: 6, borderRadius: 3 }}
-      colorSteps={5}
-      colors={Object.values(colors.lightBlue)}
-      intervals={intervals}
-    />
-    <Ruler layout="horizontal" ticks={rulerSettings} />
-  </div>
-);
+export const withRuler = () => {
+  const [intervalOffset, setIntervalOffset] = React.useState(0);
+  const onRulerClick = (position: string) => {
+    const controlPosition = Math.round(
+      (parseFloat(position) / 100) * dimension
+    );
+    const stepDimension = dimension / intervals.length;
+    const index = getIndex(controlPosition, stepDimension);
+    const value = calculateIntervalValue({
+      controlPosition,
+      interval: intervals[index],
+      currentIndex: index,
+      stepDimension,
+    });
+
+    setIntervalOffset(value);
+  };
+  return (
+    <div style={{ width: `${dimension}px`, margin: '20px' }}>
+      <IntervalSlider
+        railSettings={{ size: 6, borderRadius: 3 }}
+        colorSteps={5}
+        colors={Object.values(colors.lightBlue)}
+        intervals={intervals}
+        initialValue={intervalOffset}
+      />
+      <Ruler layout="horizontal" ticks={rulerSettings} onClick={onRulerClick} />
+    </div>
+  );
+};
 
 withRuler.story = {
   parameters: {

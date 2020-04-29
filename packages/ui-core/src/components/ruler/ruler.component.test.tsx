@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import Ruler from './ruler.component';
 
-import { Tick } from './ruler.styles';
+import { Tick, PositionContainer } from './ruler.styles';
 
 describe('@keen.io/ui-core - <Ruler />', () => {
   const ticks = [
@@ -25,5 +25,18 @@ describe('@keen.io/ui-core - <Ruler />', () => {
     );
 
     expect(wrapper.find('.custom').length).toEqual(ticks.length);
+  });
+
+  it('should call onClick when provided', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Ruler layout="vertical" ticks={ticks} onClick={onClick} />
+    );
+    wrapper
+      .find(PositionContainer)
+      .first()
+      .simulate('click');
+
+    expect(onClick).toHaveBeenCalled();
   });
 });

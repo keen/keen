@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { colors } from '@keen.io/colors';
 
+import { Device } from '../types';
+
 export const Title = styled.div`
   font-size: 20px;
   font-family: 'Gangster Grotesk Bold', sans-serif;
@@ -25,7 +27,7 @@ export const RulerContainer = styled.div`
   margin-top: 15px;
 `;
 
-export const RulerLabel = styled.div<{ bold: boolean }>`
+export const RulerLabel = styled.div<{ bold: boolean; device: Device }>`
   margin-top: 10px;
   font-family: 'Lato Regular', sans-serif;
   font-size: 14px;
@@ -36,6 +38,12 @@ export const RulerLabel = styled.div<{ bold: boolean }>`
     css`
       font-family: 'Lato Bold', sans-serif;
       font-weight: 700;
+    `}
+
+  ${props =>
+    props.device === 'mobile' &&
+    css`
+      font-size: 12px;
     `}
 `;
 

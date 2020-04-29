@@ -25,7 +25,7 @@ export const Layout = styled.div<{
       justify-content: flex-end;
 
       ${Content} {
-        padding: 10px;
+        padding: 10px 30px;
         margin-right: auto;
         height: 545px;
         flex-grow: 1;
@@ -59,7 +59,7 @@ export const Layout = styled.div<{
       }
 
       ${Content} {
-        padding-bottom: 60px;
+        padding: 10px 10px 60px 10px;
       }
 
       ${OffsetCard} {
