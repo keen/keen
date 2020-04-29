@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/storybook-utils@0.2.1...@keen.io/storybook-utils@0.3.0) (2020-04-29)
+
+
+### Features
+
+* 🎸 axis title ([5f8666a](https://github.com/keen/keen/commit/5f8666aaa9e345da93fa7569ab000fcf8dbd5533))
+
+
+
+
+
 ## [0.2.1](https://github.com/keen/keen/compare/@keen.io/storybook-utils@0.2.0...@keen.io/storybook-utils@0.2.1) (2020-04-27)
 
 **Note:** Version bump only for package @keen.io/storybook-utils
