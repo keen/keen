@@ -8,7 +8,6 @@ import { calculateBarProperties } from './hover-bar.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-import { HoverBarType } from '../../charts/line/types';
 import { colors } from '@keen.io/colors/';
 
 export const hoverBarMotion = {
@@ -24,7 +23,6 @@ type Props = {
   onMouseLeave: (e: React.MouseEvent) => void;
   y?: number;
   showLine?: boolean;
-  type?: HoverBarType;
 };
 
 const HoverBar: FC<Props> = ({
@@ -33,11 +31,14 @@ const HoverBar: FC<Props> = ({
   showLine = true,
   onMouseEnter,
   onMouseLeave,
-  type = 'dark',
 }) => {
-  const { svgDimensions, margins } = useContext(
-    ChartContext
-  ) as ChartContextType;
+  const {
+    svgDimensions,
+    margins,
+    theme: {
+      hoverBar: { type },
+    },
+  } = useContext(ChartContext) as ChartContextType;
 
   const { xMin, xMax } = useMemo(() => {
     return {

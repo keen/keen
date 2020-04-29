@@ -36,6 +36,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  hoverBar: hoverBarKnobs('Hover bar'),
 });
 
 const createLabelFormatter = (dateFormat = '%D %b') => (date: Date) => {
@@ -73,11 +74,6 @@ export const widget = () => {
         }}
         markRadius={number('Marks radius', 4, {}, 'Chart')}
         strokeWidth={number('Line thickness', 2, {}, 'Chart')}
-        hoverBar={
-          {
-            type: hoverBarKnobs('Chart'),
-          } as HoverBarSettings
-        }
         curve={curveKnobs('Chart') as CurveType}
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={lineStackModeKnobs('Chart') as StackMode}

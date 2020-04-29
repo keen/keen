@@ -301,4 +301,8 @@ export const theme: Theme = {
     enabled: true,
     color: colors.gray['400'],
   },
+  hoverBar: {
+    enabled: true,
+    type: 'dark',
+  },
 };

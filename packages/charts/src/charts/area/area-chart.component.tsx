@@ -8,7 +8,7 @@ import {
   StackMode,
 } from '../../types';
 
-import { CurveType, HoverBarSettings } from '../line/types';
+import { CurveType } from '../line/types';
 
 export type Props = {
   /** chart data */
@@ -43,8 +43,6 @@ export type Props = {
   stackMode?: StackMode;
   /** Gradient on/off */
   gradient?: boolean;
-  /** Hover bar settings */
-  hoverBar?: HoverBarSettings;
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {

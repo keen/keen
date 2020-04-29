@@ -33,6 +33,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  hoverBar: hoverBarKnobs('Hover bar'),
 });
 
 export const plot = () => {
@@ -61,7 +62,6 @@ export const plot = () => {
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={stackModeKnobs('Chart') as StackMode}
         gradient={boolean('Gradient mode', true, 'Chart')}
-        hoverBar={hoverBarKnobs('Chart')}
         svgDimensions={object(
           'svg',
           {

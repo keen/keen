@@ -36,6 +36,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  hoverBar: hoverBarKnobs('Hover bar'),
 });
 
 const createLabelFormatter = (dateFormat = '%D %b') => (date: Date) => {
@@ -78,7 +79,6 @@ export const widget = () => {
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={lineStackModeKnobs('Chart') as StackMode}
         gradient={boolean('Gradient mode', true, 'Chart')}
-        hoverBar={hoverBarKnobs('Chart')}
         xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
         yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         margins={object(

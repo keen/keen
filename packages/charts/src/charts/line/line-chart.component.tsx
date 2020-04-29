@@ -10,8 +10,6 @@ import { useTooltip } from '../../hooks';
 import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
-import { HoverBarSettings } from './types';
-
 import {
   ScaleSettings,
   CommonChartSettings,
@@ -56,8 +54,6 @@ export type Props = {
   areaMode?: boolean;
   /** Gradient on/off */
   gradient?: boolean;
-  /** Hover bar settings */
-  hoverBar?: HoverBarSettings;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -81,7 +77,6 @@ export const LineChart: FC<Props> = ({
   gradient = true,
   xAxisTitle,
   yAxisTitle,
-  hoverBar,
 }) => {
   const {
     lines,
@@ -147,7 +142,6 @@ export const LineChart: FC<Props> = ({
         groupMode={groupMode}
         stackMode={stackMode}
         stepMode={stepMode}
-        hoverBar={hoverBar}
         onMarkMouseEnter={(e, selectors) => {
           if (tooltipSettings.enabled) {
             updateTooltipPosition(e, selectors);

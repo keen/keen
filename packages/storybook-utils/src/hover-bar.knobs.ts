@@ -1,4 +1,4 @@
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 const hoverBarOptions = {
   dark: 'dark',
@@ -6,6 +6,7 @@ const hoverBarOptions = {
 };
 
 export const hoverBarKnobs = (namespace: string) => ({
+  enabled: boolean('Enabled', true, namespace),
   type: select(
     'Hover Bar type',
     hoverBarOptions,
