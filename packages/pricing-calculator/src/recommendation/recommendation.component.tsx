@@ -31,7 +31,7 @@ const Recommendation: FC<{}> = () => {
     s3Streaming: services.s3Streaming,
   });
 
-  const planName = plansConfig[planId].title;
+  const { ctaLabel, ctaUrl, detailsUrl, title: planName } = plansConfig[planId];
 
   return (
     <Container>
@@ -53,9 +53,9 @@ const Recommendation: FC<{}> = () => {
         </List>
       </PlanComponents>
       <ActionsContainer>
-        <Button href="https://try.keen.io/contact">Request a Demo</Button>
+        <Button href={ctaUrl}>{ctaLabel}</Button>
       </ActionsContainer>
-      <Anchor>Plan details »</Anchor>
+      <Anchor href={detailsUrl}>Plan details »</Anchor>
     </Container>
   );
 };
