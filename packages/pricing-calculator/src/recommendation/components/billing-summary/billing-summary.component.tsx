@@ -81,7 +81,7 @@ const BillingSummary: FC<Props> = ({
       </PricingPoints>
       <BllingMode>
         <Label onClick={() => setAnnualBilling(!annualBilling)}>
-          Annual blling (save 10%)
+          Annual billing (save 10%)
         </Label>
         <Toggle
           isOn={annualBilling}
