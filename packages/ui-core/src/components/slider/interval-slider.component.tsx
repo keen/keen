@@ -19,7 +19,12 @@ import { sliderReducer, initialState } from './slider.reducer';
 import { sliderControlSettings, tooltipTypography } from './slider.settings';
 
 import TooltipPosition, { tooltipMotion } from './tooltip-position.component';
-import { calculateIntervalValue, arrowReverse, getIndex } from './utils';
+import {
+  calculateIntervalValue,
+  arrowReverse,
+  getIndex,
+  getInitialOffset,
+} from './utils';
 
 import Tooltip from '../tooltip';
 import { Text } from '../../typography';
@@ -91,19 +96,11 @@ export const IntervalSlider: FC<Props> = ({
 
   useEffect(() => {
     if (dimension && initialValue !== value) {
-      let offset = initialValue;
-      let index = 0;
-      intervals.forEach((interval, idx) => {
-        if (
-          initialValue > interval.minimum &&
-          initialValue <= interval.maximum
-        ) {
-          offset =
-            (initialValue * stepDimension) / interval.maximum +
-            stepDimension * idx;
-          index = idx;
-        }
-      });
+      const { index, offset } = getInitialOffset(
+        initialValue,
+        stepDimension,
+        intervals
+      );
 
       setIndex(index);
       setXOffset(offset);

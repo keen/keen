@@ -1,4 +1,8 @@
-import { calculateIntervalValue, getIndex } from './interval.utils';
+import {
+  calculateIntervalValue,
+  getIndex,
+  getInitialOffset,
+} from './interval.utils';
 
 describe('@keen.io/ui-core - interval utils', () => {
   describe('calculateIntervalValue()', () => {
@@ -64,6 +68,52 @@ describe('@keen.io/ui-core - interval utils', () => {
     it('should return 1 index', () => {
       const x = 120;
       expect(getIndex(x, stepDimension)).toEqual(1);
+    });
+  });
+
+  describe('getInitialOffset()', () => {
+    const stepDimension = 100;
+    const intervals = [
+      {
+        minimum: 0,
+        maximum: 100,
+        step: 10,
+      },
+      {
+        minimum: 100,
+        maximum: 500,
+        step: 100,
+      },
+    ];
+
+    it('should return offset and index equal to 0 for 0 as initialValue', () => {
+      const initialValue = 0;
+      expect(
+        getInitialOffset(initialValue, stepDimension, intervals).index
+      ).toEqual(0);
+      expect(
+        getInitialOffset(initialValue, stepDimension, intervals).offset
+      ).toEqual(0);
+    });
+
+    it('should return offset 200 and index 1 for 500 as initialValue', () => {
+      const initialValue = 500;
+      expect(
+        getInitialOffset(initialValue, stepDimension, intervals).index
+      ).toEqual(1);
+      expect(
+        getInitialOffset(initialValue, stepDimension, intervals).offset
+      ).toEqual(200);
+    });
+
+    it('should return offset 20 and index 0 for 20 as initialValue', () => {
+      const initialValue = 20;
+      expect(
+        getInitialOffset(initialValue, stepDimension, intervals).index
+      ).toEqual(0);
+      expect(
+        getInitialOffset(initialValue, stepDimension, intervals).offset
+      ).toEqual(20);
     });
   });
 });
