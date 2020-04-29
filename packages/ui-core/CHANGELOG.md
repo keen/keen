@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.3.0...@keen.io/ui-core@0.3.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* 🐛 slider fix ([66b6321](https://github.com/keen/keen/commit/66b63213c2f592fcb462d18ab7a475eced32b695))
+
+
+
+
+
 # [0.3.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.2.1...@keen.io/ui-core@0.3.0) (2020-04-29)
 
 
