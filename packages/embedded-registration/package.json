@@ -46,5 +46,8 @@
     "restful-react": "^11.2.0",
     "styled-components": "^4.4.1",
     "yup": "^0.28.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
