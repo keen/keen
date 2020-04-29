@@ -1,6 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: solid 2px #F0AB30;
+}
+
+.c0 {
+  border-radius: 3px;
+  background: #E1E2E4;
+}
+
+.c1 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
 <Component
   colors={
     Array [
@@ -89,9 +118,9 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
               "$$typeof": Symbol(react.forward_ref),
               "attrs": Array [],
               "componentStyle": ComponentStyle {
-                "componentId": "sc-gqjmRU",
+                "componentId": "sc-VigVT",
                 "isStatic": false,
-                "lastClassName": "kctUMZ",
+                "lastClassName": "c0",
                 "rules": Array [
                   "
   border-radius: ",
@@ -106,7 +135,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
               "displayName": "styled.div",
               "foldedComponentIds": Array [],
               "render": [Function],
-              "styledComponentId": "sc-gqjmRU",
+              "styledComponentId": "sc-VigVT",
               "target": "div",
               "toString": [Function],
               "warnTooManyClasses": [Function],
@@ -126,7 +155,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           }
         >
           <div
-            className="sc-gqjmRU kctUMZ"
+            className="c0"
             style={
               Object {
                 "height": "4px",
@@ -204,9 +233,9 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": Array [],
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-VigVT",
+                    "componentId": "sc-jTzLTM",
                     "isStatic": false,
-                    "lastClassName": "ddLViL",
+                    "lastClassName": "c1",
                     "rules": Array [
                       "
   ",
@@ -222,7 +251,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                   "displayName": "styled.div",
                   "foldedComponentIds": Array [],
                   "render": [Function],
-                  "styledComponentId": "sc-VigVT",
+                  "styledComponentId": "sc-jTzLTM",
                   "target": "div",
                   "toString": [Function],
                   "warnTooManyClasses": [Function],
@@ -232,7 +261,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
               forwardedRef={null}
             >
               <div
-                className="sc-VigVT ddLViL"
+                className="c1"
               >
                 <Mark
                   backgroundColor="#FFFFFF"
@@ -256,9 +285,9 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                           "$$typeof": Symbol(react.forward_ref),
                           "attrs": Array [],
                           "componentStyle": ComponentStyle {
-                            "componentId": "sc-gZMcBi",
+                            "componentId": "sc-gqjmRU",
                             "isStatic": false,
-                            "lastClassName": "idlimu",
+                            "lastClassName": "c2",
                             "rules": Array [
                               "
   box-sizing: border-box;
@@ -281,7 +310,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                           "displayName": "styled.div",
                           "foldedComponentIds": Array [],
                           "render": [Function],
-                          "styledComponentId": "sc-gZMcBi",
+                          "styledComponentId": "sc-gqjmRU",
                           "target": "div",
                           "toString": [Function],
                           "warnTooManyClasses": [Function],
@@ -294,7 +323,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                       size={15}
                     >
                       <div
-                        className="sc-gZMcBi idlimu"
+                        className="c2"
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
                         size={15}
@@ -322,9 +351,9 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                           "$$typeof": Symbol(react.forward_ref),
                           "attrs": Array [],
                           "componentStyle": ComponentStyle {
-                            "componentId": "sc-jTzLTM",
+                            "componentId": "sc-fjdhpX",
                             "isStatic": false,
-                            "lastClassName": "iVxLov",
+                            "lastClassName": "c3",
                             "rules": Array [
                               "
   position: absolute;
@@ -352,7 +381,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                           "displayName": "styled.div",
                           "foldedComponentIds": Array [],
                           "render": [Function],
-                          "styledComponentId": "sc-jTzLTM",
+                          "styledComponentId": "sc-fjdhpX",
                           "target": "div",
                           "toString": [Function],
                           "warnTooManyClasses": [Function],
@@ -361,8 +390,17 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                       }
                       forwardedRef={
                         Object {
-                          "current": <div
-                            class="sc-jTzLTM iVxLov"
+                          "current": .c0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<div
+                            class="c0"
                             height="0"
                             width="0"
                           />,
@@ -373,7 +411,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                       width={0}
                     >
                       <div
-                        className="sc-jTzLTM iVxLov"
+                        className="c3"
                         height={0}
                         width={0}
                       >
@@ -389,18 +427,42 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
         <Memo(MountComponent)
           innerRef={
             Object {
-              "current": <div
+              "current": .c1 {
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: solid 2px #F0AB30;
+}
+
+.c0 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<div
                 style="display: inline-block; position: absolute; z-index: 1; transform: none;"
               >
                 <div
-                  class="sc-VigVT ddLViL"
+                  class="c0"
                 >
                   <div
-                    class="sc-gZMcBi idlimu"
+                    class="c1"
                     size="15"
                   />
                   <div
-                    class="sc-jTzLTM iVxLov"
+                    class="c2"
                     height="0"
                     width="0"
                   />
@@ -547,14 +609,14 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                 style="display: inline-block; position: absolute; z-index: 1; transform: none;"
               >
                 <div
-                  class="sc-VigVT ddLViL"
+                  class="c1"
                 >
                   <div
-                    class="sc-gZMcBi idlimu"
+                    class="c2"
                     size="15"
                   />
                   <div
-                    class="sc-jTzLTM iVxLov"
+                    class="c3"
                     height="0"
                     width="0"
                   />
