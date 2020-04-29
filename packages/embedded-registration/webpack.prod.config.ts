@@ -9,7 +9,7 @@ import commonConfig from './webpack.common';
 export default merge(commonConfig, {
   mode: 'production',
   entry: {
-    main: `./src/index.tsx`,
+    main: `./src/index.ts`,
   },
   output: {
     filename: 'embedded-registration.min.js',

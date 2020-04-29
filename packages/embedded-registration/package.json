@@ -21,19 +21,30 @@
   "scripts": {
     "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "start": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack-dev-server",
-    "build": "tsc"
+    "build:umd": "cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack --config webpack.prod.config.ts",
+    "build:es": "tsc",
+    "build": "yarn build:es && yarn build:umd"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
   "devDependencies": {
     "@types/html-webpack-plugin": "^3.2.2",
+    "@types/lodash": "^4.14.150",
+    "@types/styled-components": "^4.4.1",
     "@types/webpack-dev-server": "^3.10.1",
+    "@types/yup": "^0.28.0",
     "html-webpack-plugin": "4.0.2",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@keen.io/ui-core": "^0.2.1",
+    "formik": "^2.1.4",
+    "http-status-codes": "^1.4.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "restful-react": "^11.2.0",
+    "styled-components": "^4.4.1",
+    "yup": "^0.28.4"
   }
 }

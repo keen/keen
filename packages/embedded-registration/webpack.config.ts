@@ -7,9 +7,9 @@ const config = merge(commonConfig, {
   mode: 'development',
   target: 'web',
   devServer: {
-    publicPath: '/assets/',
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 3000,
+    port: 8080,
   },
   output: {
     filename: '[name].js',

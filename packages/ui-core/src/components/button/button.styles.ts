@@ -24,7 +24,6 @@ const buttonVariants = {
 
 const buttonMixin = () => css`
   font-size: 16px;
-  line-height: 19px;
   font-family: 'Lato Bold', sans-serif;
   text-decoration: none;
 

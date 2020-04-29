@@ -6,10 +6,11 @@ import { ButtonVariant } from './types';
 
 type Props = {
   children: React.ReactNode;
-  type?: ButtonVariant;
+  variant?: ButtonVariant;
   isDisabled?: boolean;
   href?: string;
   target?: string;
+  htmlType?: 'button' | 'submit' | 'reset';
   onClick?: (e: React.SyntheticEvent) => void;
 };
 
@@ -17,7 +18,7 @@ export const Button: FC<Props> = ({
   /** Component React.Children nodes */
   children,
   /** Type of button */
-  type = 'primary',
+  variant = 'primary',
   /** Click event handler */
   onClick,
   /** Anchor element href property */
@@ -26,16 +27,18 @@ export const Button: FC<Props> = ({
   target = '_blank',
   /** Disabled state */
   isDisabled = false,
+  /** HTML button element type */
+  htmlType = 'button',
 }) => {
   if (href) {
     return (
       <StyledAnchor
         isDisabled={isDisabled}
-        variant={type}
+        variant={variant}
         href={href}
         target={target}
         onClick={(e: React.MouseEvent<HTMLElement>) =>
-          !isDisabled && onClick(e)
+          !isDisabled && onClick && onClick(e)
         }
       >
         {children}
@@ -46,8 +49,11 @@ export const Button: FC<Props> = ({
   return (
     <StyledButton
       isDisabled={isDisabled}
-      variant={type}
-      onClick={(e: React.MouseEvent<HTMLElement>) => !isDisabled && onClick(e)}
+      type={htmlType}
+      variant={variant}
+      onClick={(e: React.MouseEvent<HTMLElement>) =>
+        !isDisabled && onClick && onClick(e)
+      }
     >
       {children}
     </StyledButton>
