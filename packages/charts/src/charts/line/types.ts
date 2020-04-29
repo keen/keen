@@ -16,6 +16,7 @@ export type Options = {
   groupMode?: GroupMode;
   stackMode?: StackMode;
   areaMode?: boolean;
+  hoverBar?: HoverBarSettings;
 };
 
 export type Line = {
@@ -52,3 +53,9 @@ export type AreaType = {
 };
 
 export type CurveType = 'linear' | 'spline' | 'step';
+
+export type HoverBarType = 'dark' | 'light';
+
+export type HoverBarSettings = {
+  type: HoverBarType;
+};

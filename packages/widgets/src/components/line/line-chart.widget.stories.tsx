@@ -10,6 +10,7 @@ import {
   curveKnobs,
   groupModeKnobs,
   lineStackModeKnobs,
+  hoverBarKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
@@ -72,6 +73,11 @@ export const widget = () => {
         }}
         markRadius={number('Marks radius', 4, {}, 'Chart')}
         strokeWidth={number('Line thickness', 2, {}, 'Chart')}
+        hoverBar={
+          {
+            type: hoverBarKnobs('Chart'),
+          } as HoverBarSettings
+        }
         curve={curveKnobs('Chart') as CurveType}
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={lineStackModeKnobs('Chart') as StackMode}

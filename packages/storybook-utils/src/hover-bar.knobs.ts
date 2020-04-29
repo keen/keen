@@ -1,0 +1,15 @@
+import { select } from '@storybook/addon-knobs';
+
+const hoverBarOptions = {
+  dark: 'dark',
+  light: 'light',
+};
+
+export const hoverBarKnobs = (namespace: string) => ({
+  type: select(
+    'Hover Bar type',
+    hoverBarOptions,
+    hoverBarOptions.dark,
+    namespace
+  ) as any,
+});

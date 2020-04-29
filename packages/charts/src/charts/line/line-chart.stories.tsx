@@ -9,6 +9,7 @@ import {
   curveKnobs,
   groupModeKnobs,
   stackModeKnobs,
+  hoverBarKnobs,
 } from '@keen.io/storybook-utils';
 
 import { LineChart } from './line-chart.component';
@@ -60,6 +61,7 @@ export const plot = () => {
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={stackModeKnobs('Chart') as StackMode}
         gradient={boolean('Gradient mode', true, 'Chart')}
+        hoverBar={hoverBarKnobs('Chart')}
         svgDimensions={object(
           'svg',
           {

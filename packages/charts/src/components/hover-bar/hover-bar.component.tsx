@@ -8,6 +8,9 @@ import { calculateBarProperties } from './hover-bar.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
+import { HoverBarType } from '../../charts/line/types';
+import { colors } from '@keen.io/colors/src';
+
 export const hoverBarMotion = {
   initial: { opacity: 0.3 },
   animate: { opacity: 1 },
@@ -21,6 +24,7 @@ type Props = {
   onMouseLeave: (e: React.MouseEvent) => void;
   y?: number;
   showLine?: boolean;
+  type?: HoverBarType;
 };
 
 const HoverBar: FC<Props> = ({
@@ -29,6 +33,7 @@ const HoverBar: FC<Props> = ({
   showLine = true,
   onMouseEnter,
   onMouseLeave,
+  type = 'dark',
 }) => {
   const { svgDimensions, margins } = useContext(
     ChartContext
@@ -50,13 +55,15 @@ const HoverBar: FC<Props> = ({
     margins,
   });
 
+  const color = type === 'dark' ? colors.black[500] : colors.gray[100];
+
   return (
     <>
-      <Gradient />
+      <Gradient color={color} />
       <Bar
         fill={`url(#${GRADIENT_ID})`}
         fillRule="evenodd"
-        opacity=".65"
+        opacity=".1"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         x={barX}

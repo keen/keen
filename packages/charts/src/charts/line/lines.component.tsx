@@ -9,7 +9,14 @@ import { HoverBar, hoverBarMotion } from '../../components';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
-import { Mark, Line, CurveType, StepType, AreaType } from './types';
+import {
+  Mark,
+  Line,
+  CurveType,
+  StepType,
+  AreaType,
+  HoverBarSettings,
+} from './types';
 
 import GradientFilter from './gradient-filter.component';
 
@@ -49,6 +56,7 @@ type Props = {
   stepMode: boolean;
   areas?: AreaType[];
   gradient?: boolean;
+  hoverBar?: HoverBarSettings;
   onMarkMouseEnter: (
     e: React.MouseEvent,
     selectors: { selector: DataSelector; color: string }[]
@@ -68,9 +76,10 @@ const Lines = ({
   gradient,
   onMarkMouseEnter,
   onMarkMouseLeave,
+  hoverBar,
 }: Props) => {
   const hideHoverBar = useRef(null);
-  const [hoverBar, setHoverBar] = useState<{
+  const [hoverBarState, setHoverBar] = useState<{
     visible: boolean;
     x: number;
   }>({
@@ -119,7 +128,7 @@ const Lines = ({
         </g>
       ))}
       <AnimatePresence>
-        {hoverBar.visible && (
+        {hoverBarState.visible && (
           <motion.g {...hoverBarMotion}>
             <HoverBar
               onMouseEnter={() =>
@@ -133,7 +142,8 @@ const Lines = ({
                   });
                 }, HOVER_BAR_HIDE_TIME);
               }}
-              x={hoverBar.x}
+              x={hoverBarState.x}
+              {...hoverBar}
             />
           </motion.g>
         )}

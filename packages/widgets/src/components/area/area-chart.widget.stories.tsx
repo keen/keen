@@ -10,6 +10,7 @@ import {
   curveKnobs,
   groupModeKnobs,
   lineStackModeKnobs,
+  hoverBarKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
@@ -77,6 +78,7 @@ export const widget = () => {
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={lineStackModeKnobs('Chart') as StackMode}
         gradient={boolean('Gradient mode', true, 'Chart')}
+        hoverBar={hoverBarKnobs('Chart')}
         xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
         yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         margins={object(
