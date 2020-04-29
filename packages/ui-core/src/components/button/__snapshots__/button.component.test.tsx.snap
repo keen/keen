@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> should apply styles for button with type "primary" 1`] = `
+exports[`@keen.io/ui-core - <Button /> should apply styles for button with "primary" variant 1`] = `
 .c0 {
   font-size: 16px;
-  line-height: 19px;
   font-family: 'Lato Bold',sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -30,11 +29,12 @@ exports[`<Button /> should apply styles for button with type "primary" 1`] = `
 }
 
 <Component
-  type="primary"
+  variant="primary"
 >
   <styled.button
     isDisabled={false}
     onClick={[Function]}
+    type="button"
     variant="primary"
   >
     <StyledComponent
@@ -51,7 +51,6 @@ exports[`<Button /> should apply styles for button with type "primary" 1`] = `
   ",
               "
   font-size: 16px;
-  line-height: 19px;
   font-family: 'Lato Bold', sans-serif;
   text-decoration: none;
 
@@ -87,11 +86,13 @@ exports[`<Button /> should apply styles for button with type "primary" 1`] = `
       forwardedRef={null}
       isDisabled={false}
       onClick={[Function]}
+      type="button"
       variant="primary"
     >
       <button
         className="c0"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Sign up

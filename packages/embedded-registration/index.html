@@ -8,6 +8,13 @@
   </style>
   </head>
   <body>
-    <iframe src="./assets/iframe-socket.html"></iframe>
+    <div id="root"></div>
   </body>
+  <script type="text/javascript">
+     new KeenEmbeddedRegistration({
+       container: '#root',
+       offerHandle: 'public-free-v1',
+       apiUrl: 'https://staging.keen.io',
+     }).render();
+  </script>
 </html>

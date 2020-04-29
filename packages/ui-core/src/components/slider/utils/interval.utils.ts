@@ -26,3 +26,34 @@ export const calculateIntervalValue = ({
 
   return intervalValue * step + minimum;
 };
+
+export const getIndex = (x: number, stepDimension: number) => {
+  let index = Math.floor(x / stepDimension);
+
+  if (x !== 0 && x % stepDimension === 0) {
+    index -= 1;
+  }
+
+  return index;
+};
+
+export const getInitialOffset = (
+  initialValue: number,
+  stepDimension: number,
+  intervals: Interval[]
+) => {
+  let offset = initialValue;
+  let index = 0;
+  intervals.forEach((interval, idx) => {
+    if (initialValue > interval.minimum && initialValue <= interval.maximum) {
+      offset =
+        (initialValue * stepDimension) / interval.maximum + stepDimension * idx;
+      index = idx;
+    }
+  });
+
+  return {
+    offset,
+    index,
+  };
+};

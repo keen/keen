@@ -19,7 +19,12 @@ import { sliderReducer, initialState } from './slider.reducer';
 import { sliderControlSettings, tooltipTypography } from './slider.settings';
 
 import TooltipPosition, { tooltipMotion } from './tooltip-position.component';
-import { calculateIntervalValue, arrowReverse } from './utils';
+import {
+  calculateIntervalValue,
+  arrowReverse,
+  getIndex,
+  getInitialOffset,
+} from './utils';
 
 import Tooltip from '../tooltip';
 import { Text } from '../../typography';
@@ -48,6 +53,8 @@ type Props = {
   colors: string[];
   /** Number of colors steps */
   colorSteps?: number;
+  /** Initial value */
+  initialValue?: number;
 };
 
 export const IntervalSlider: FC<Props> = ({
@@ -62,6 +69,7 @@ export const IntervalSlider: FC<Props> = ({
   },
   controlSettings = sliderControlSettings,
   railSettings = { size: 4, borderRadius: 3 },
+  initialValue,
 }) => {
   const slider = useRef(null);
   const [{ value, dimension, dragControls }, dispatch] = useReducer(
@@ -71,6 +79,7 @@ export const IntervalSlider: FC<Props> = ({
 
   const dragControl = dragControls[DRAG_CONTROL_ID];
   const [currentIndex, setIndex] = useState(0);
+  const [xOffset, setXOffset] = useState(0);
 
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
@@ -78,10 +87,27 @@ export const IntervalSlider: FC<Props> = ({
     y: number;
   }>({ visible: false, x: 0, y: 0 });
 
+  const stepDimension = dimension / intervals.length;
+
   useEffect(() => {
     const { width } = slider.current.getBoundingClientRect();
     dispatch(sliderActions.setDimension(width));
   }, [slider.current]);
+
+  useEffect(() => {
+    if (dimension && initialValue !== value) {
+      const { index, offset } = getInitialOffset(
+        initialValue,
+        stepDimension,
+        intervals
+      );
+
+      setIndex(index);
+      setXOffset(offset);
+      dispatch(sliderActions.setValue(initialValue));
+      dispatch(sliderActions.setControlPosition(DRAG_CONTROL_ID, offset));
+    }
+  }, [initialValue, dimension]);
 
   const showTooltip = useCallback(() => {
     if (tooltipSettings.enabled) {
@@ -101,12 +127,40 @@ export const IntervalSlider: FC<Props> = ({
     }
   }, [tooltipSettings.enabled]);
 
-  const stepDimension = dimension / intervals.length;
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const { left } = e.currentTarget.getBoundingClientRect();
+      const offset = e.clientX - left;
+      let x = offset;
+      if (offset < 0) x = 0;
+      if (offset > dimension) x = dimension;
+      const index = getIndex(x, stepDimension);
+
+      setIndex(index);
+
+      const value = calculateIntervalValue({
+        controlPosition: x,
+        interval: intervals[index],
+        currentIndex: index,
+        stepDimension,
+      });
+      dispatch(sliderActions.setValue(value));
+      dispatch(sliderActions.setControlPosition(DRAG_CONTROL_ID, x));
+      setXOffset(x);
+
+      onChange && onChange(value);
+      if (tooltipSettings.enabled) {
+        setTooltip(state => ({ ...state, visible: true, y: 0, x }));
+      }
+    },
+    [dimension, stepDimension, tooltipSettings.enabled]
+  );
 
   return (
     <div
       ref={slider}
       style={{ height: `${controlSettings.size}px`, position: 'relative' }}
+      onClick={handleClick}
     >
       <Rail
         type="horizontal"
@@ -127,6 +181,7 @@ export const IntervalSlider: FC<Props> = ({
         }}
       />
       <Control
+        controlStyles={{ x: xOffset }}
         onDragStart={() => {
           dispatch(sliderActions.setControlDrag(DRAG_CONTROL_ID, true));
           showTooltip();
