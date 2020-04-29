@@ -45,7 +45,7 @@ const Ruler = ({
       const { x, y, height } = groupElement.current.getBBox();
       setGroupBox({ x, y, height });
     }
-  }, [x, y, scaleSettings]);
+  }, [groupElement, x, y, axisTitle]);
 
   const { enabled, typography, radiusAngle } = labels;
   const { line, ticks } = createRuler({
