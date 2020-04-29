@@ -4,7 +4,7 @@ import 'jest-styled-components';
 
 import Button from './button.component';
 
-describe('<Button />', () => {
+describe('@keen.io/ui-core - <Button />', () => {
   const children = <span>Sign up</span>;
 
   it('should render children', () => {
@@ -39,9 +39,16 @@ describe('<Button />', () => {
     expect(mockFn).not.toHaveBeenCalled();
   });
 
-  it('should apply styles for button with type "primary"', () => {
-    const wrapper = mount(<Button type="primary">{children}</Button>);
+  it('should apply styles for button with "primary" variant', () => {
+    const wrapper = mount(<Button variant="primary">{children}</Button>);
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render "button" element with proper type', () => {
+    const htmlType = 'reset';
+    const wrapper = mount(<Button htmlType={htmlType}>{children}</Button>);
+
+    expect(wrapper.find('button').props().type).toEqual(htmlType);
   });
 });

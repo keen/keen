@@ -24,6 +24,7 @@ describe('@keen.io/charts - <AxisTitle /> utils', () => {
       expect(center).toEqual(-(y1 + (y2 - y1) / 2));
     });
   });
+
   describe('getHorizontalPosition()', () => {
     it('should return offset for "left" alignment', () => {
       const left = getHorizontalPosition('left', line);
@@ -56,14 +57,6 @@ describe('@keen.io/charts - <AxisTitle /> utils', () => {
 
       expect(right).toEqual('end');
       expect(top).toEqual('end');
-    });
-
-    it('should return "middle" anchor', () => {
-      const center = getTextAnchor('center');
-      const empty = getTextAnchor('' as any);
-
-      expect(center).toEqual('middle');
-      expect(empty).toEqual('middle');
     });
   });
 });

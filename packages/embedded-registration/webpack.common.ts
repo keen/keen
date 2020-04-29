@@ -26,7 +26,6 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: false,
       template: path.join(__dirname, 'index.html'),
     }) as any,
   ],

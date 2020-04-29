@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { RestfulProvider } from 'restful-react';
 
 import { App } from './app.component';
 
@@ -9,8 +10,16 @@ class EmbeddedRegistration {
   /** Container used to mount widget */
   private container: HTMLElement | string;
 
-  constructor({ container }: Options) {
+  /** Offer identifier used for registration  */
+  private offerHandle: string;
+
+  /** API url  */
+  private apiUrl: string;
+
+  constructor({ container, offerHandle, apiUrl }: Options) {
     this.container = container;
+    this.offerHandle = offerHandle;
+    this.apiUrl = apiUrl;
   }
 
   render() {
@@ -19,7 +28,17 @@ class EmbeddedRegistration {
         ? this.container
         : document.querySelector(this.container);
 
-    ReactDOM.render(<App />, container);
+    ReactDOM.render(
+      <RestfulProvider
+        base={this.apiUrl}
+        requestOptions={() => ({
+          headers: { Accept: 'application/json' },
+        })}
+      >
+        <App offerHandle={this.offerHandle} apiUrl={this.apiUrl} />
+      </RestfulProvider>,
+      container
+    );
   }
 }
 

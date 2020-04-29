@@ -1,3 +1,4 @@
+import Alert from './alert';
 import ColorAdjuster from './color-adjuster';
 import BulletList from './bullet-list';
 import Group from './group';
@@ -10,6 +11,9 @@ import { IntervalSlider, RangeSlider } from './slider';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
+import { Label } from './label';
+import { Input } from './input';
+import { Error } from './error';
 import {
   Ceil,
   HeaderCeil,
@@ -20,15 +24,21 @@ import {
   TableCell,
 } from './table';
 
+export { ARROW_SIZE, RESIZE_ELEMENT_WIDTH };
+
 export {
+  Alert,
   Badge,
   Button,
   BulletList,
   Card,
   CardSettings,
   ColorAdjuster,
+  Error,
+  Label,
   Loader,
   Group,
+  Input,
   Tooltip,
   TooltipMode,
   RangeSlider,
@@ -37,11 +47,9 @@ export {
   Toggle,
   Ruler,
   RulerTick,
-  ARROW_SIZE,
   Ceil,
   HeaderCeil,
   SortArrows,
-  RESIZE_ELEMENT_WIDTH,
   Sticky,
   DragLine,
   TableCell,
