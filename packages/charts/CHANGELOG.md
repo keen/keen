@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/keen/keen/compare/@keen.io/charts@0.3.0...@keen.io/charts@0.4.0) (2020-04-29)
+
+
+### Bug Fixes
+
+* 🐛 axis title issue on bar hover ([5f60762](https://github.com/keen/keen/commit/5f607621b5a6867b1461d5b137a70510129c092d))
+
+
+### Features
+
+* 🎸 axis title ([5f8666a](https://github.com/keen/keen/commit/5f8666aaa9e345da93fa7569ab000fcf8dbd5533))
+
+
+
+
+
 # [0.3.0](https://github.com/keen/keen/compare/@keen.io/charts@0.2.0...@keen.io/charts@0.3.0) (2020-04-27)
 
 

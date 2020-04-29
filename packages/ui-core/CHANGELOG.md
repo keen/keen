@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.2.1...@keen.io/ui-core@0.3.0) (2020-04-29)
+
+
+### Bug Fixes
+
+* 🐛 issue with x property for slider ([43e71f0](https://github.com/keen/keen/commit/43e71f03f0496cdfb107b93859b3f851ca4aae62))
+* 🐛 range slider minimum and maximum ([d1bb5dd](https://github.com/keen/keen/commit/d1bb5dd09ab94702bea330edcf60eef2eb3c29dd))
+
+
+### Features
+
+* 🎸 handle click on slider ([f696c7f](https://github.com/keen/keen/commit/f696c7f2a9d1fd1b2d06e92134b3298317446570)), closes [#269](https://github.com/keen/keen/issues/269)
+
+
+
+
+
 ## [0.2.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.2.0...@keen.io/ui-core@0.2.1) (2020-04-27)
 
 **Note:** Version bump only for package @keen.io/ui-core
