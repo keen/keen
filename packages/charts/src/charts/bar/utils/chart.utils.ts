@@ -36,6 +36,8 @@ type Options = {
   colors: string[];
   xScaleSettings: ScaleSettings;
   yScaleSettings: ScaleSettings;
+  xAxisTitle?: string;
+  yAxisTitle?: string;
 };
 
 export const generateHorizontalGroupedBars = ({
@@ -332,21 +334,32 @@ const BAR_RENDER_MAP: Record<string, any> = {
 };
 
 export const generateBars = (options: Options) => {
-  const { layout, groupMode, xScaleSettings, yScaleSettings } = options;
+  const {
+    layout,
+    groupMode,
+    xScaleSettings,
+    yScaleSettings,
+    xAxisTitle,
+    yAxisTitle,
+  } = options;
 
-  const scaleSettings =
+  const settings =
     layout === 'vertical'
       ? {
           xScaleSettings,
           yScaleSettings,
+          xAxisTitle,
+          yAxisTitle,
         }
       : {
           xScaleSettings: yScaleSettings,
           yScaleSettings: xScaleSettings,
+          xAxisTitle: yAxisTitle,
+          yAxisTitle: xAxisTitle,
         };
 
   return {
-    scaleSettings,
+    settings,
     ...BAR_RENDER_MAP[groupMode][layout].call(null, options),
   };
 };

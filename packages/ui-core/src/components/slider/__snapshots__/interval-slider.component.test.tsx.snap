@@ -1,0 +1,681 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: solid 2px #F0AB30;
+}
+
+.c0 {
+  border-radius: 3px;
+  background: #E1E2E4;
+}
+
+.c1 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<Component
+  colors={
+    Array [
+      "blue",
+      "red",
+    ]
+  }
+  initialValue={50}
+  intervals={
+    Array [
+      Object {
+        "maximum": 100,
+        "minimum": 0,
+        "step": 1,
+      },
+    ]
+  }
+  maximum={0}
+  minimum={0}
+>
+  <div
+    onClick={[Function]}
+    style={
+      Object {
+        "height": "15px",
+        "position": "relative",
+      }
+    }
+  >
+    <Rail
+      borderRadius={3}
+      colorSteps={2}
+      colors={
+        Array [
+          "blue",
+          "red",
+        ]
+      }
+      size={4}
+      type="horizontal"
+    >
+      <div
+        style={
+          Object {
+            "background": "linear-gradient(90deg, blue, red",
+            "borderRadius": 3,
+            "height": "4px",
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "100%",
+          }
+        }
+      />
+    </Rail>
+    <OffRange
+      borderRadius={3}
+      styles={
+        Object {
+          "height": "4px",
+          "left": "0px",
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translateY(-50%)",
+          "width": "calc(100% - 0px)",
+        }
+      }
+    >
+      <styled.div
+        borderRadius={3}
+        style={
+          Object {
+            "height": "4px",
+            "left": "0px",
+            "position": "absolute",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+            "width": "calc(100% - 0px)",
+          }
+        }
+      >
+        <StyledComponent
+          borderRadius={3}
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-VigVT",
+                "isStatic": false,
+                "lastClassName": "c0",
+                "rules": Array [
+                  "
+  border-radius: ",
+                  [Function],
+                  "px;
+  background: ",
+                  "#E1E2E4",
+                  ";
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-VigVT",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={null}
+          style={
+            Object {
+              "height": "4px",
+              "left": "0px",
+              "position": "absolute",
+              "top": "50%",
+              "transform": "translateY(-50%)",
+              "width": "calc(100% - 0px)",
+            }
+          }
+        >
+          <div
+            className="c0"
+            style={
+              Object {
+                "height": "4px",
+                "left": "0px",
+                "position": "absolute",
+                "top": "50%",
+                "transform": "translateY(-50%)",
+                "width": "calc(100% - 0px)",
+              }
+            }
+          />
+        </StyledComponent>
+      </styled.div>
+    </OffRange>
+    <Component
+      controlStyles={
+        Object {
+          "x": 0,
+        }
+      }
+      dragConstraints={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0,
+        }
+      }
+      dragDirection="x"
+      onDrag={[Function]}
+      onDragEnd={[Function]}
+      onDragStart={[Function]}
+    >
+      <ForwardRef(MotionComponent)
+        drag="x"
+        dragConstraints={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "top": 0,
+          }
+        }
+        dragElastic={0}
+        dragMomentum={false}
+        onDrag={[Function]}
+        onDragEnd={[Function]}
+        onDragStart={[Function]}
+        style={
+          Object {
+            "display": "inline-block",
+            "position": "absolute",
+            "x": 0,
+            "zIndex": 1,
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "inline-block",
+              "position": "absolute",
+              "transform": "none",
+              "zIndex": 1,
+            }
+          }
+        >
+          <styled.div
+            dragDirection="x"
+          >
+            <StyledComponent
+              dragDirection="x"
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-jTzLTM",
+                    "isStatic": false,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "
+  ",
+                      [Function],
+                      "
+
+  ",
+                      [Function],
+                      "
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-jTzLTM",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <div
+                className="c1"
+              >
+                <Mark
+                  backgroundColor="#FFFFFF"
+                  borderColor="#F0AB30"
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  size={15}
+                >
+                  <styled.div
+                    backgroundColor="#FFFFFF"
+                    borderColor="#F0AB30"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    size={15}
+                  >
+                    <StyledComponent
+                      backgroundColor="#FFFFFF"
+                      borderColor="#F0AB30"
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-gqjmRU",
+                            "isStatic": false,
+                            "lastClassName": "c2",
+                            "rules": Array [
+                              "
+  box-sizing: border-box;
+  width: ",
+                              [Function],
+                              "px;
+  height: ",
+                              [Function],
+                              "px;
+  border-radius: 50%;
+  background: ",
+                              [Function],
+                              ";
+  border: solid 2px ",
+                              [Function],
+                              ";
+",
+                            ],
+                          },
+                          "displayName": "styled.div",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-gqjmRU",
+                          "target": "div",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      size={15}
+                    >
+                      <div
+                        className="c2"
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        size={15}
+                      />
+                    </StyledComponent>
+                  </styled.div>
+                </Mark>
+                <TooltipPosition
+                  containerSize={15}
+                  position="bottom"
+                  visible={false}
+                  x={0}
+                  y={0}
+                >
+                  <styled.div
+                    containerSize={15}
+                    height={0}
+                    position="bottom"
+                    width={0}
+                  >
+                    <StyledComponent
+                      containerSize={15}
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-fjdhpX",
+                            "isStatic": false,
+                            "lastClassName": "c3",
+                            "rules": Array [
+                              "
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  ",
+                              [Function],
+                              "
+
+  ",
+                              [Function],
+                              "
+
+  ",
+                              [Function],
+                              "
+
+  ",
+                              [Function],
+                              "
+",
+                            ],
+                          },
+                          "displayName": "styled.div",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-fjdhpX",
+                          "target": "div",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={
+                        Object {
+                          "current": .c0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<div
+                            class="c0"
+                            height="0"
+                            width="0"
+                          />,
+                        }
+                      }
+                      height={0}
+                      position="bottom"
+                      width={0}
+                    >
+                      <div
+                        className="c3"
+                        height={0}
+                        width={0}
+                      >
+                        <AnimatePresence />
+                      </div>
+                    </StyledComponent>
+                  </styled.div>
+                </TooltipPosition>
+              </div>
+            </StyledComponent>
+          </styled.div>
+        </div>
+        <Memo(MountComponent)
+          innerRef={
+            Object {
+              "current": .c1 {
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: solid 2px #F0AB30;
+}
+
+.c0 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<div
+                style="display: inline-block; position: absolute; z-index: 1; transform: none;"
+              >
+                <div
+                  class="c0"
+                >
+                  <div
+                    class="c1"
+                    size="15"
+                  />
+                  <div
+                    class="c2"
+                    height="0"
+                    width="0"
+                  />
+                </div>
+              </div>,
+            }
+          }
+          isStatic={false}
+          values={
+            MotionValuesMap {
+              "hasMounted": true,
+              "onUpdate": undefined,
+              "output": [Function],
+              "unsubscribers": Map {
+                "x" => [Function],
+              },
+              "values": Map {
+                "x" => MotionValue {
+                  "canTrackVelocity": true,
+                  "current": 0,
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": 0,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+              },
+            }
+          }
+        />
+        <Component
+          controls={
+            ValueAnimationControls {
+              "activeOverrides": Set {},
+              "baseTarget": Object {
+                "x": 0,
+              },
+              "hasValue": [Function],
+              "isAnimating": Set {},
+              "makeTargetAnimatable": [Function],
+              "overrides": Array [],
+              "props": Object {
+                "children": <ForwardRef(styled.div)
+                  dragDirection="x"
+                >
+                  <React.Fragment>
+                    <Mark
+                      backgroundColor="#FFFFFF"
+                      borderColor="#F0AB30"
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      size={15}
+                    />
+                    <TooltipPosition
+                      containerSize={15}
+                      position="bottom"
+                      visible={false}
+                      x={0}
+                      y={0}
+                    >
+                      <AnimatePresence />
+                    </TooltipPosition>
+                  </React.Fragment>
+                </ForwardRef(styled.div)>,
+                "drag": "x",
+                "dragConstraints": Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                },
+                "dragElastic": 0,
+                "dragMomentum": false,
+                "onDrag": [Function],
+                "onDragEnd": [Function],
+                "onDragStart": [Function],
+                "style": Object {
+                  "display": "inline-block",
+                  "position": "absolute",
+                  "x": 0,
+                  "zIndex": 1,
+                },
+              },
+              "readValueFromSource": [Function],
+              "resolvedOverrides": Array [],
+              "values": MotionValuesMap {
+                "hasMounted": true,
+                "onUpdate": undefined,
+                "output": [Function],
+                "unsubscribers": Map {
+                  "x" => [Function],
+                },
+                "values": Map {
+                  "x" => MotionValue {
+                    "canTrackVelocity": true,
+                    "current": 0,
+                    "lastUpdated": 0,
+                    "notifySubscriber": [Function],
+                    "parent": undefined,
+                    "prev": 0,
+                    "renderSubscribers": Set {
+                      [Function],
+                    },
+                    "scheduleVelocityCheck": [Function],
+                    "setChild": [Function],
+                    "timeDelta": 0,
+                    "transformer": undefined,
+                    "updateAndNotify": [Function],
+                    "updateSubscribers": Set {
+                      [Function],
+                    },
+                    "velocityCheck": [Function],
+                  },
+                },
+              },
+              "variants": Object {},
+            }
+          }
+          drag="x"
+          dragConstraints={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "right": 0,
+              "top": 0,
+            }
+          }
+          dragElastic={0}
+          dragMomentum={false}
+          innerRef={
+            Object {
+              "current": <div
+                style="display: inline-block; position: absolute; z-index: 1; transform: none;"
+              >
+                <div
+                  class="c1"
+                >
+                  <div
+                    class="c2"
+                    size="15"
+                  />
+                  <div
+                    class="c3"
+                    height="0"
+                    width="0"
+                  />
+                </div>
+              </div>,
+            }
+          }
+          key="drag"
+          onDrag={[Function]}
+          onDragEnd={[Function]}
+          onDragStart={[Function]}
+          parentContext={
+            Object {
+              "static": false,
+            }
+          }
+          style={
+            Object {
+              "display": "inline-block",
+              "position": "absolute",
+              "x": 0,
+              "zIndex": 1,
+            }
+          }
+          values={
+            MotionValuesMap {
+              "hasMounted": true,
+              "onUpdate": undefined,
+              "output": [Function],
+              "unsubscribers": Map {
+                "x" => [Function],
+              },
+              "values": Map {
+                "x" => MotionValue {
+                  "canTrackVelocity": true,
+                  "current": 0,
+                  "lastUpdated": 0,
+                  "notifySubscriber": [Function],
+                  "parent": undefined,
+                  "prev": 0,
+                  "renderSubscribers": Set {
+                    [Function],
+                  },
+                  "scheduleVelocityCheck": [Function],
+                  "setChild": [Function],
+                  "timeDelta": 0,
+                  "transformer": undefined,
+                  "updateAndNotify": [Function],
+                  "updateSubscribers": Set {
+                    [Function],
+                  },
+                  "velocityCheck": [Function],
+                },
+              },
+            }
+          }
+        />
+      </ForwardRef(MotionComponent)>
+    </Component>
+  </div>
+</Component>
+`;

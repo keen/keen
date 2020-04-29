@@ -27,6 +27,7 @@ export const Control: FC<Props> = ({
   const styles = {
     display: 'inline-block',
     position: 'absolute',
+    zIndex: 1,
     ...controlStyles,
   } as MotionStyle;
 

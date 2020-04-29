@@ -9,7 +9,7 @@ import TooltipContent from './tooltip-content.component';
 import { generateBubbles } from './utils/chart.utils';
 
 import { useTooltip } from '../../hooks';
-import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
+import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings, ScaleSettings } from '../../types';
 
@@ -33,6 +33,10 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y Scale settings */
   yScaleSettings?: ScaleSettings;
+  /** X axis title settings */
+  xAxisTitle?: string;
+  /** Y axis title settings */
+  yAxisTitle?: string;
   /** Minimum area radius */
   minAreaRadius?: number;
   /** Maximum area radius */
@@ -47,11 +51,13 @@ export const BubbleChart: FC<Props> = ({
   labelSelector,
   valueKey,
   theme = defaultTheme,
-  margins = defaultMargins,
+  margins = { top: 20, right: 20, bottom: 25, left: 30 },
   maxAreaRadius = 40,
   minAreaRadius = 5,
   xScaleSettings = { type: 'linear' },
   yScaleSettings = { type: 'linear' },
+  xAxisTitle,
+  yAxisTitle,
 }) => {
   const { bubbles, xScale, yScale, middlePoint } = generateBubbles({
     data,
@@ -118,7 +124,12 @@ export const BubbleChart: FC<Props> = ({
         yScaleSettings={yScaleSettings}
       >
         <Grid xScale={xScale} yScale={yScale} />
-        <Axes xScale={xScale} yScale={yScale} />
+        <Axes
+          xScale={xScale}
+          yScale={yScale}
+          xTitle={xAxisTitle}
+          yTitle={yAxisTitle}
+        />
         <Bubbles
           bubbles={bubbles}
           middlePoint={middlePoint}

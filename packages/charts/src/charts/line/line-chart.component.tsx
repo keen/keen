@@ -28,6 +28,10 @@ export type Props = {
   minValue?: number | 'auto';
   /** Maximum value for axis */
   maxValue?: number | 'auto';
+  /** X axis title settings */
+  xAxisTitle?: string;
+  /** Y axis title settings */
+  yAxisTitle?: string;
   /** Keys picked from data object used to generate lines */
   keys?: string[];
   /** Keys that are disabled for rendering data series */
@@ -71,6 +75,8 @@ export const LineChart: FC<Props> = ({
   yScaleSettings = { type: 'linear' },
   areaMode = false,
   gradient = true,
+  xAxisTitle,
+  yAxisTitle,
 }) => {
   const {
     lines,
@@ -120,7 +126,12 @@ export const LineChart: FC<Props> = ({
       margins={margins}
     >
       <Grid xScale={xScale} yScale={yScale} />
-      <Axes xScale={xScale} yScale={yScale} />
+      <Axes
+        xScale={xScale}
+        yScale={yScale}
+        xTitle={xAxisTitle}
+        yTitle={yAxisTitle}
+      />
       <Lines
         lines={lines}
         marks={marks}

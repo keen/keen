@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import 'jest-styled-components';
+
 import { Tooltip } from '@keen.io/ui-core';
 
 import Rail from './rail';
@@ -43,5 +45,11 @@ describe('@keen.io/ui-core - <RangeSlider />', () => {
     const rail = wrapper.find(Rail).first();
 
     expect(rail.props()).toMatchObject(railSettings);
+  });
+
+  it('should set initial value', () => {
+    const wrapper = mount(<IntervalSlider {...props} initialValue={50} />);
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

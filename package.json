@@ -15,6 +15,7 @@
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:ci": "jest --coverage -w 1",
+    "update-packages": "lernaupdate",
     "storybook": "start-storybook -p 3000 -s .storybook",
     "build-storybook": "build-storybook -c .storybook -s .storybook -o dist",
     "publish-storybook": "gh-pages -d dist"
@@ -36,6 +37,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "resolutions": {
+    "deepmerge": "4.2.2"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.8.3",
@@ -76,6 +80,7 @@
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.4",
     "lerna": "^3.18.4",
+    "lerna-update-wizard": "^0.17.8",
     "lint-staged": "^9.5.0",
     "lorem-ipsum": "^2.0.3",
     "prettier": "^1.19.1",

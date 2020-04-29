@@ -13,11 +13,13 @@ type Props = {
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
   yScale: ScaleBand<string> | ScaleLinear<number, number>;
+  xTitle?: string;
+  yTitle?: string;
 };
 
 const X_AXIS_PADDING = 5;
 
-const Axes = ({ xScale, yScale }: Props) => {
+const Axes = ({ xScale, yScale, xTitle, yTitle }: Props) => {
   const {
     theme,
     margins,
@@ -31,7 +33,8 @@ const Axes = ({ xScale, yScale }: Props) => {
     y: svgDimensions.height - margins.bottom + X_AXIS_PADDING,
     scale: xScale,
     scaleSettings: xScaleSettings,
-    orientation: Orientation.VERTICAL,
+    orientation: Orientation.HORIZONTAL,
+    axisTitle: xTitle,
   };
 
   const axisY = theme.axisY.enabled && {
@@ -39,7 +42,8 @@ const Axes = ({ xScale, yScale }: Props) => {
     y: 0,
     scale: yScale,
     scaleSettings: yScaleSettings,
-    orientation: Orientation.HORIZONTAL,
+    orientation: Orientation.VERTICAL,
+    axisTitle: yTitle,
   };
 
   return (

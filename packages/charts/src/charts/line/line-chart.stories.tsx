@@ -47,6 +47,8 @@ export const plot = () => {
       <LineChart
         labelSelector="name"
         keys={['users', 'books', 'licenses', 'shops']}
+        xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
+        yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         xScaleSettings={{
           type: 'time',
           precision: 'month',
@@ -68,7 +70,7 @@ export const plot = () => {
         )}
         margins={object(
           'Margins',
-          { top: 50, right: 30, bottom: 50, left: 40 },
+          { top: 50, right: 30, bottom: 60, left: 60 },
           'Chart'
         )}
         theme={createThemeKnobs()}
