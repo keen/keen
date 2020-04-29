@@ -8,6 +8,9 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
     queries: 5000,
     priceTreshold: 0,
     components: ['25 Access Keys', '5 Cached Queries', '5 Cached Datasets'],
+    ctaLabel: 'Start Your Free Trial',
+    ctaUrl: 'https://try.keen.io/contact',
+    detailsUrl: 'https://keen.io/pricing/#block_5d54065d8b7e2',
   },
   business: {
     title: 'Business Plan',
@@ -16,6 +19,9 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
     queries: 25000,
     priceTreshold: 800,
     components: ['50 Access Keys', '50 Cached Queries', '50 Cached Datasets'],
+    ctaLabel: 'Request a Demo',
+    ctaUrl: 'https://try.keen.io/contact',
+    detailsUrl: 'https://keen.io/pricing/#block_5d54065d8b7e2',
   },
   custom: {
     title: 'Custom Plan',
@@ -24,6 +30,9 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
     queries: 100000,
     priceTreshold: 2000,
     components: ['Tell us what you need'],
+    ctaLabel: 'Request a Demo',
+    ctaUrl: 'https://try.keen.io/contact',
+    detailsUrl: 'https://keen.io/pricing/#block_5d54065d8b7e2',
   },
 };
 

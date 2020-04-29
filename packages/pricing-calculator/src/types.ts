@@ -22,6 +22,9 @@ export type PlanDetails = {
   events: number;
   queries: number;
   components: string[];
+  ctaLabel: string;
+  ctaUrl: string;
+  detailsUrl: string;
 };
 
 export type Service = {
