@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React, { FC } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '@keen.io/colors';
 import { IntervalSlider, Ruler } from '@keen.io/ui-core';
@@ -36,12 +36,18 @@ import {
 } from './actions';
 import { getCalculatorState } from './selectors';
 
-import { Interval, getIndex, calculateIntervalValue } from '../utils';
+import { convertPositionToValue } from '../utils';
 
 const Calculator: FC<{}> = () => {
   const dispatch = useDispatch();
   const device = useSelector(getDevice);
   const { sliderDimension, events, queries } = useSelector(getCalculatorState);
+  const sliderRef = useRef(null);
+  useEffect(() => {
+    if (sliderRef.current) {
+      dispatch(setSliderDimension(sliderRef.current.offsetWidth));
+    }
+  }, [sliderRef]);
 
   const sliderLayout = device === 'desktop' ? 'row' : 'column';
   const sliderColors = Object.values(colors.green);
@@ -52,27 +58,13 @@ const Calculator: FC<{}> = () => {
     borderColor: colors.green['500'],
   };
 
-  const convertPositionToValue = (position: string, intervals: Interval[]) => {
-    const controlPosition = (parseFloat(position) / 100) * sliderDimension;
-    const stepDimension = sliderDimension / intervals.length;
-    const index = getIndex(controlPosition, stepDimension);
-    const value = calculateIntervalValue({
-      controlPosition,
-      interval: intervals[index],
-      currentIndex: index,
-      stepDimension,
-    });
-
-    return value;
-  };
-
   return (
     <>
       <Title>Estimated usage per month</Title>
       <ComputeSection>
         <Wrapper layout={sliderLayout}>
           <Label>Events</Label>
-          <SliderContainer>
+          <SliderContainer ref={sliderRef}>
             <IntervalSlider
               colors={sliderColors}
               railSettings={{ size: 6, borderRadius: 3 }}
@@ -103,7 +95,8 @@ const Calculator: FC<{}> = () => {
                 onClick={pos => {
                   const val = convertPositionToValue(
                     pos,
-                    eventsSettings.intervals
+                    eventsSettings.intervals,
+                    sliderDimension
                   );
                   dispatch(updateEvents(val));
                 }}
@@ -144,9 +137,6 @@ const Calculator: FC<{}> = () => {
               }}
               intervals={queriesSettings.intervals}
               onChange={(queries: number) => dispatch(updateQueries(queries))}
-              getSliderDimension={(dimension: number) =>
-                dispatch(setSliderDimension(dimension))
-              }
             />
             <RulerContainer>
               <Ruler
@@ -155,7 +145,8 @@ const Calculator: FC<{}> = () => {
                 onClick={pos => {
                   const val = convertPositionToValue(
                     pos,
-                    queriesSettings.intervals
+                    queriesSettings.intervals,
+                    sliderDimension
                   );
                   dispatch(updateQueries(val));
                 }}
