@@ -4,6 +4,7 @@ export const UPDATE_EVENTS = 'UPDATE_EVENTS';
 export const UPDATE_QUERIES = 'UPDATE_QUERIES';
 export const SET_RECOMMENDATION = 'SET_RECOMMENDATION';
 export const SET_DEVICE = 'SET_DEVICE';
+export const SET_SLIDER_DIMENSION = 'SET_SLIDER_DIMENSION';
 
 export const APP_REDUCER = 'app';
 export const CALCULATOR_REDUCER = 'calculator';

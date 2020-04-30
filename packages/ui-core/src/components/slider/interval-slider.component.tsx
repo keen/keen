@@ -43,6 +43,7 @@ type Props = {
   intervals: Interval[];
   /** Slider value change handler */
   onChange?: (value: number) => void;
+  getSliderDimension?: (dimension: number) => void;
   /** Drag control settings  */
   controlSettings?: ControlSettings;
   /** Tooltip settings  */
@@ -60,6 +61,7 @@ type Props = {
 export const IntervalSlider: FC<Props> = ({
   intervals,
   onChange,
+  getSliderDimension,
   colors,
   colorSteps = 2,
   tooltipSettings = {
@@ -95,7 +97,11 @@ export const IntervalSlider: FC<Props> = ({
   }, [slider.current]);
 
   useEffect(() => {
-    if (dimension && initialValue !== value) {
+    if (
+      dimension &&
+      typeof initialValue === 'number' &&
+      initialValue !== value
+    ) {
       const { index, offset } = getInitialOffset(
         initialValue,
         stepDimension,
@@ -108,6 +114,10 @@ export const IntervalSlider: FC<Props> = ({
       dispatch(sliderActions.setControlPosition(DRAG_CONTROL_ID, offset));
     }
   }, [initialValue, dimension]);
+
+  useEffect(() => {
+    if (dimension && getSliderDimension) getSliderDimension(dimension);
+  }, [dimension]);
 
   const showTooltip = useCallback(() => {
     if (tooltipSettings.enabled) {

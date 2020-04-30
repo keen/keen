@@ -5,6 +5,7 @@ import {
   SET_DEVICE,
   UPDATE_QUERIES,
   SET_RECOMMENDATION,
+  SET_SLIDER_DIMENSION,
 } from './constants';
 
 import { AppReducerState } from './app';
@@ -91,10 +92,18 @@ interface SetDeviceAction {
   };
 }
 
+interface SetSliderDimensionAction {
+  type: typeof SET_SLIDER_DIMENSION;
+  payload: {
+    dimension: number;
+  };
+}
+
 export type ActionTypes =
   | AppStartAction
   | UpdateServiceAction
   | UpdateEventsAction
   | UpdateQueriesAction
   | SetDeviceAction
-  | SetRecommendationAction;
+  | SetRecommendationAction
+  | SetSliderDimensionAction;

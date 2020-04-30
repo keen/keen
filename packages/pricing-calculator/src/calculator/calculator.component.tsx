@@ -28,11 +28,20 @@ import {
 } from './calculator.config';
 import { servicesConfig } from '../services.config';
 
-import { updateService, updateQueries, updateEvents } from './actions';
+import {
+  updateService,
+  updateQueries,
+  updateEvents,
+  setSliderDimension,
+} from './actions';
+import { getCalculatorState } from './selectors';
+
+import { Interval, getIndex, calculateIntervalValue } from '../utils';
 
 const Calculator: FC<{}> = () => {
   const dispatch = useDispatch();
   const device = useSelector(getDevice);
+  const { sliderDimension, events, queries } = useSelector(getCalculatorState);
 
   const sliderLayout = device === 'desktop' ? 'row' : 'column';
   const sliderColors = Object.values(colors.green);
@@ -41,6 +50,20 @@ const Calculator: FC<{}> = () => {
     size: 20,
     backgroundColor: colors.white['500'],
     borderColor: colors.green['500'],
+  };
+
+  const convertPositionToValue = (position: string, intervals: Interval[]) => {
+    const controlPosition = (parseFloat(position) / 100) * sliderDimension;
+    const stepDimension = sliderDimension / intervals.length;
+    const index = getIndex(controlPosition, stepDimension);
+    const value = calculateIntervalValue({
+      controlPosition,
+      interval: intervals[index],
+      currentIndex: index,
+      stepDimension,
+    });
+
+    return value;
   };
 
   return (
@@ -54,6 +77,7 @@ const Calculator: FC<{}> = () => {
               colors={sliderColors}
               railSettings={{ size: 6, borderRadius: 3 }}
               controlSettings={controlSettings}
+              initialValue={events}
               tooltipSettings={{
                 enabled: true,
                 position: 'top',
@@ -70,14 +94,19 @@ const Calculator: FC<{}> = () => {
                 ),
               }}
               intervals={eventsSettings.intervals}
-              onChange={(events: number) => {
-                dispatch(updateEvents(events));
-              }}
+              onChange={(events: number) => dispatch(updateEvents(events))}
             />
             <RulerContainer>
               <Ruler
                 layout="horizontal"
                 ticks={eventsRulerSettings}
+                onClick={pos => {
+                  const val = convertPositionToValue(
+                    pos,
+                    eventsSettings.intervals
+                  );
+                  dispatch(updateEvents(val));
+                }}
                 renderLabel={(label: string) => (
                   <RulerLabel
                     bold={eventsSettings.highlightLabels.includes(label)}
@@ -97,6 +126,7 @@ const Calculator: FC<{}> = () => {
               colors={sliderColors}
               railSettings={{ size: 6, borderRadius: 3 }}
               controlSettings={controlSettings}
+              initialValue={queries}
               tooltipSettings={{
                 enabled: true,
                 position: 'top',
@@ -113,14 +143,22 @@ const Calculator: FC<{}> = () => {
                 ),
               }}
               intervals={queriesSettings.intervals}
-              onChange={(queries: number) => {
-                dispatch(updateQueries(queries));
-              }}
+              onChange={(queries: number) => dispatch(updateQueries(queries))}
+              getSliderDimension={(dimension: number) =>
+                dispatch(setSliderDimension(dimension))
+              }
             />
             <RulerContainer>
               <Ruler
                 layout="horizontal"
                 ticks={queriesRulerSettings}
+                onClick={pos => {
+                  const val = convertPositionToValue(
+                    pos,
+                    queriesSettings.intervals
+                  );
+                  dispatch(updateQueries(val));
+                }}
                 renderLabel={(label: string) => (
                   <RulerLabel
                     bold={queriesSettings.highlightLabels.includes(label)}
