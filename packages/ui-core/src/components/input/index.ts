@@ -1,3 +1,4 @@
-import Input from './input.component';
+import Input, { Props as InputProps } from './input.component';
 
-export { Input };
+export default Input;
+export { InputProps };

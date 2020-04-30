@@ -1,3 +1,3 @@
 import Label from './label.component';
 
-export { Label };
+export default Label;

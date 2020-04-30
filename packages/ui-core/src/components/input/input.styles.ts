@@ -3,6 +3,24 @@ import { transparentize } from 'polished';
 
 import { colors } from '@keen.io/colors';
 
+export const Container = styled.div`
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  grid-template-columns: 1fr auto 8px;
+  display: grid;
+`;
+
+export const Suffix = styled.div`
+  display: flex;
+  align-self: center;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  grid-area: input;
+  grid-column: 2;
+`;
+
 export const StyledInput = styled.input<{
   hasError: boolean;
 }>`
@@ -12,6 +30,8 @@ export const StyledInput = styled.input<{
   border: none;
   border-bottom: solid 1px ${colors.blue['400']}
   box-sizing: border-box;
+  grid-area: input;
+  grid-column: 1 / span 3;
 
   font-family: 'Lato Regular', sans-serif;
   outline: none;

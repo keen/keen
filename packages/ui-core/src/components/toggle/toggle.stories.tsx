@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import * as React from 'react';
 import styled from 'styled-components';
 import { boolean } from '@storybook/addon-knobs';
@@ -18,8 +20,15 @@ export default {
   },
 };
 
-export const withKnobs = () => (
-  <Wrapper>
-    <Toggle isDisabled={boolean('Disable toggle', false, 'Toggle')} />
-  </Wrapper>
-);
+export const withKnobs = () => {
+  const [toggle, setToggle] = React.useState(false);
+  return (
+    <Wrapper>
+      <Toggle
+        isOn={toggle}
+        onChange={setToggle}
+        isDisabled={boolean('Disable toggle', false, 'Toggle')}
+      />
+    </Wrapper>
+  );
+};
