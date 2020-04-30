@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import Marks from './marks.component';
@@ -6,6 +6,8 @@ import Step from './step.component';
 import { groupMarksByPosition, findMarksInCluster } from './line-chart.utils';
 
 import { HoverBar, hoverBarMotion } from '../../components';
+
+import { ChartContext, ChartContextType } from '../../contexts';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
@@ -70,13 +72,17 @@ const Lines = ({
   onMarkMouseLeave,
 }: Props) => {
   const hideHoverBar = useRef(null);
-  const [hoverBar, setHoverBar] = useState<{
+  const [hoverBarState, setHoverBar] = useState<{
     visible: boolean;
     x: number;
   }>({
     visible: false,
     x: 0,
   });
+
+  const {
+    theme: { hoverBar },
+  } = useContext(ChartContext) as ChartContextType;
 
   const groupedMarks = useMemo(() => groupMarksByPosition(marks), [marks]);
 
@@ -119,7 +125,7 @@ const Lines = ({
         </g>
       ))}
       <AnimatePresence>
-        {hoverBar.visible && (
+        {hoverBar.enabled && hoverBarState.visible && (
           <motion.g {...hoverBarMotion}>
             <HoverBar
               onMouseEnter={() =>
@@ -133,7 +139,7 @@ const Lines = ({
                   });
                 }, HOVER_BAR_HIDE_TIME);
               }}
-              x={hoverBar.x}
+              x={hoverBarState.x}
             />
           </motion.g>
         )}
