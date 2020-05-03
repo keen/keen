@@ -28,7 +28,7 @@ export const StyledInput = styled.input<{
   height: 40px;
   padding: 0 16px;
   border: none;
-  border-bottom: solid 1px ${colors.blue['400']}
+  border-bottom: solid 1px ${colors.blue['400']};
   box-sizing: border-box;
   grid-area: input;
   grid-column: 1 / span 3;
@@ -47,16 +47,16 @@ export const StyledInput = styled.input<{
     `}
 
   &:focus {
-    background: ${transparentize(0.9, colors.blue['100'])}
+    background: ${transparentize(0.9, colors.blue['100'])};
   }
 
   &:disabled {
-    border-bottom: solid 1px ${colors.gray['500']}
+    border-bottom: solid 1px ${colors.gray['500']};
   }
 
   &::-webkit-credentials-auto-fill-button {
     display: none !important;
   }
 
-  transition: background .1s linear;
+  transition: background 0.1s linear;
 `;

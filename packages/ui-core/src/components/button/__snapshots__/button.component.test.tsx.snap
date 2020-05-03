@@ -37,68 +37,15 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
     type="button"
     variant="primary"
   >
-    <StyledComponent
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bdVaJa",
-            "isStatic": false,
-            "lastClassName": "c0",
-            "rules": Array [
-              "
-  ",
-              "
-  font-size: 16px;
-  font-family: 'Lato Bold', sans-serif;
-  text-decoration: none;
-
-  border-radius: 22.5px;
-  padding: 0 25px;
-  height: 42px;
-
-  outline: none;
-  border: none;
-  cursor: pointer;
-
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    -webkit-box-shadow 0.15s ease-in-out;
-",
-              "
-  ",
-              [Function],
-              "
-",
-            ],
-          },
-          "displayName": "styled.button",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-bdVaJa",
-          "target": "button",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
-      isDisabled={false}
+    <button
+      className="c0"
       onClick={[Function]}
       type="button"
-      variant="primary"
     >
-      <button
-        className="c0"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Sign up
-        </span>
-      </button>
-    </StyledComponent>
+      <span>
+        Sign up
+      </span>
+    </button>
   </styled.button>
 </Component>
 `;
