@@ -78,6 +78,7 @@
     "git-cz": "^3.3.0",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-styled-components": "^7.0.2",
     "lerna": "^3.18.4",
     "lerna-update-wizard": "^0.17.8",

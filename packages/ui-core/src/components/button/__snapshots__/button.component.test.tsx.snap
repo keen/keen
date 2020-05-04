@@ -12,11 +12,19 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   outline: none;
   border: none;
   cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   background-color: #F0AB30;
   border-color: #F0AB30;
-  color: #27566D;
+  color: #1D2729;
 }
 
 .c0:focus {

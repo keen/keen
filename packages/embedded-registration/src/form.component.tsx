@@ -5,16 +5,20 @@ import {
   Label,
   Button,
   Input,
+  Checkbox,
   PasswordInput,
   PasswordValidator,
   Error,
   Loader,
 } from '@keen.io/ui-core';
 
+import { ServiceTerms } from './components';
 import {
   ErrorContainer,
   ButtonContent,
   Footer,
+  CompanyMessage,
+  CompanyDisclaimer,
   PasswordHints,
   Text,
   Group,
@@ -25,12 +29,20 @@ import { schema } from './schema';
 import { FormValues, User } from './types';
 
 type Props = {
+  buttonLabel: string;
+  apiUrl: string;
   onSignup: (values: FormValues) => Promise<User>;
-  onSuccess: (organizationId: string) => void;
+  onSuccess: (organizationId: string, companyDisclaimer: boolean) => void;
   onError: (error: { status: number; message: string }) => void;
 };
 
-export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
+export const RegisterForm: FC<Props> = ({
+  buttonLabel,
+  apiUrl,
+  onSignup,
+  onError,
+  onSuccess,
+}) => (
   <Formik
     validationSchema={schema}
     initialValues={{
@@ -42,9 +54,10 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
       email: '',
     }}
     onSubmit={(values: FormValues, actions) => {
+      actions.setSubmitting(true);
       onSignup(values)
         .then(({ organizationId }) => {
-          onSuccess(organizationId);
+          onSuccess(organizationId, values.companyDisclaimer);
         })
         .catch(err => {
           actions.setSubmitting(false);
@@ -56,10 +69,12 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
       values,
       errors,
       touched,
+      submitForm,
       isSubmitting,
       handleBlur,
       handleChange,
       handleSubmit,
+      setFieldValue,
     }) => (
       <form onSubmit={handleSubmit}>
         <Group>
@@ -74,7 +89,11 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
             value={values.firstName}
           />
           <ErrorContainer>
-            <ErrorMessage name="firstName" component={Error} />
+            <ErrorMessage
+              data-error="firstName"
+              name="firstName"
+              component={Error}
+            />
           </ErrorContainer>
         </Group>
         <Group>
@@ -89,7 +108,11 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
             value={values.lastName}
           />
           <ErrorContainer>
-            <ErrorMessage name="lastName" component={Error} />
+            <ErrorMessage
+              data-error="lastName"
+              name="lastName"
+              component={Error}
+            />
           </ErrorContainer>
         </Group>
         <Group>
@@ -103,8 +126,24 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
             onChange={handleChange}
             value={values.companyName}
           />
+          <CompanyDisclaimer htmlFor="companyDisclaimer">
+            <Checkbox
+              id="companyDisclaimer"
+              checked={values.companyDisclaimer}
+              onChange={() =>
+                setFieldValue('companyDisclaimer', !values.companyDisclaimer)
+              }
+            />
+            <CompanyMessage>
+              I am not associated with any company
+            </CompanyMessage>
+          </CompanyDisclaimer>
           <ErrorContainer>
-            <ErrorMessage name="companyName" component={Error} />
+            <ErrorMessage
+              data-error="companyName"
+              name="companyName"
+              component={Error}
+            />
           </ErrorContainer>
         </Group>
         <Group>
@@ -119,7 +158,7 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
             value={values.email}
           />
           <ErrorContainer>
-            <ErrorMessage name="email" component={Error} />
+            <ErrorMessage data-error="email" name="email" component={Error} />
           </ErrorContainer>
         </Group>
         <Group>
@@ -139,15 +178,21 @@ export const RegisterForm: FC<Props> = ({ onSignup, onError, onSuccess }) => (
             />
           </PasswordHints>
         </Group>
+        <ServiceTerms baseUrl={apiUrl} disclaimer={buttonLabel} />
         <Footer>
-          <Button htmlType="submit">
+          <Button
+            htmlType="button"
+            data-button="submit"
+            isDisabled={isSubmitting}
+            onClick={submitForm}
+          >
             {isSubmitting ? (
               <ButtonContent>
                 <Text>Checking your data</Text>
                 <Loader width={22} height={22} />
               </ButtonContent>
             ) : (
-              <>Finish registration</>
+              <>{buttonLabel}</>
             )}
           </Button>
         </Footer>

@@ -1,57 +1,33 @@
 import React from 'react';
-import styled from 'styled-components';
-import {
-  variant,
-  typography,
-  color,
-  ColorProps,
-  TypographyProps,
-} from 'styled-system';
+import { colors } from '@keen.io/colors';
 
-type LeveLRange = 1 | 2 | 3 | 4 | 5 | 6;
+import { BaseText } from './text.component';
+import { textVariants } from '../theme';
+
+import { TextVariant, Typography } from '../types';
 
 type Props = {
   children: string;
-  level?: LeveLRange;
+  color?: string;
+  variant?: TextVariant;
 };
 
-const BaseTitle = styled.div<ColorProps & TypographyProps>`
-  ${color}
-  ${typography}
-  ${variant({
-    prop: 'as',
-    variants: {
-      h1: {
-        lineHeight: 4,
-      },
-      h2: {
-        lineHeight: 3,
-      },
-      h3: {
-        lineHeight: 2,
-      },
-      h4: {
-        lineHeight: 2,
-        fontWeight: 'regular',
-      },
-      h5: {
-        lineHeight: 1,
-        fontWeight: 'regular',
-      },
-      h6: {
-        lineHeight: 0,
-        fontWeight: 'regular',
-      },
-    },
-  })}
-`;
+const HTML_ELEMENTS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-const Title = ({ children, level = 1 }: Props) => {
-  const component = `h${level}` as any;
+export const Title = ({
+  children,
+  variant = 'h1',
+  color = colors.black['100'],
+}: Props) => {
+  const typography = textVariants[variant] as Typography;
   return (
-    <BaseTitle as={component} fontWeight="bold" color="black">
+    <BaseText
+      as={HTML_ELEMENTS.includes(variant) ? (variant as any) : 'div'}
+      fontColor={color}
+      {...typography}
+    >
       {children}
-    </BaseTitle>
+    </BaseText>
   );
 };
 

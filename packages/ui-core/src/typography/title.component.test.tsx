@@ -27,11 +27,19 @@ describe('<Title />', () => {
     expect(wrapper.props().children).toEqual(text);
   });
 
-  it('should render HTML element based on level property', () => {
+  it('should render HTML heading element based on variant property', () => {
     const { wrapper } = setup({
-      level: 3,
+      variant: 'h3',
     });
 
     expect(wrapper.find('h3').length).toEqual(1);
+  });
+
+  it('should render HTML "div" element based on variant property', () => {
+    const { wrapper } = setup({
+      variant: 'number-l',
+    });
+
+    expect(wrapper.find('div').length).toEqual(1);
   });
 });
