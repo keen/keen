@@ -13,12 +13,16 @@ class EmbeddedRegistration {
   /** Offer identifier used for registration  */
   private offerHandle: string;
 
+  /** Label used on CTA button */
+  private ctaLabel: string;
+
   /** API url  */
   private apiUrl: string;
 
-  constructor({ container, offerHandle, apiUrl }: Options) {
+  constructor({ container, offerHandle, ctaLabel, apiUrl }: Options) {
     this.container = container;
     this.offerHandle = offerHandle;
+    this.ctaLabel = ctaLabel;
     this.apiUrl = apiUrl;
   }
 
@@ -35,7 +39,11 @@ class EmbeddedRegistration {
           headers: { Accept: 'application/json' },
         })}
       >
-        <App offerHandle={this.offerHandle} apiUrl={this.apiUrl} />
+        <App
+          offerHandle={this.offerHandle}
+          apiUrl={this.apiUrl}
+          ctaLabel={this.ctaLabel}
+        />
       </RestfulProvider>,
       container
     );

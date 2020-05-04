@@ -1,6 +1,7 @@
 export type Options = {
   container: HTMLElement | string;
   offerHandle: string;
+  ctaLabel: string;
   apiUrl: string;
 };
 
