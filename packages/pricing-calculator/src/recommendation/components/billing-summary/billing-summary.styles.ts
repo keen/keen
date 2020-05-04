@@ -10,13 +10,13 @@ export const Summary = styled.div`
 `;
 
 export const Currency = styled.div`
-  color: ${colors.white['500']}
+  color: ${colors.white['500']};
   font-size: 24px;
   font-family: 'Gangster Grotesk Bold', sans-serif;
 `;
 
 export const BillingPeriod = styled.div`
-  color: ${colors.white['500']}
+  color: ${colors.white['500']};
   font-size: 24px;
   line-height: 54px;
   opacity: 0.5;
@@ -32,7 +32,7 @@ export const Total = styled.div`
   margin: 10px 0 20px 0;
   display: flex;
   justify-content: center;
-  color: ${colors.white['500']}
+  color: ${colors.white['500']};
   font-size: 24px;
   font-family: 'Gangster Grotesk Bold', sans-serif;
 `;
@@ -40,7 +40,7 @@ export const Total = styled.div`
 export const Price = styled.div`
   font-size: 40px;
   line-height: 54px;
-  color: ${colors.white['500']}
+  color: ${colors.white['500']};
   font-family: 'Gangster Grotesk Bold', sans-serif;
 `;
 
@@ -49,7 +49,7 @@ export const Label = styled.div`
   font-family: 'Lato Regular', sans-serif;
   font-size: 14px;
   line-height: 17px;
-  color: ${colors.white['500']}
+  color: ${colors.white['500']};
   cursor: pointer;
 `;
 

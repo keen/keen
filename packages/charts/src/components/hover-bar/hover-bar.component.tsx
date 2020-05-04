@@ -8,6 +8,8 @@ import { calculateBarProperties } from './hover-bar.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
+import { colors } from '@keen.io/colors/';
+
 export const hoverBarMotion = {
   initial: { opacity: 0.3 },
   animate: { opacity: 1 },
@@ -30,9 +32,13 @@ const HoverBar: FC<Props> = ({
   onMouseEnter,
   onMouseLeave,
 }) => {
-  const { svgDimensions, margins } = useContext(
-    ChartContext
-  ) as ChartContextType;
+  const {
+    svgDimensions,
+    margins,
+    theme: {
+      hoverBar: { type },
+    },
+  } = useContext(ChartContext) as ChartContextType;
 
   const { xMin, xMax } = useMemo(() => {
     return {
@@ -50,13 +56,15 @@ const HoverBar: FC<Props> = ({
     margins,
   });
 
+  const color = type === 'dark' ? colors.black[500] : colors.gray[100];
+
   return (
     <>
-      <Gradient />
+      <Gradient color={color} />
       <Bar
         fill={`url(#${GRADIENT_ID})`}
         fillRule="evenodd"
-        opacity=".65"
+        opacity=".1"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         x={barX}

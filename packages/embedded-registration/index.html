@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" type="text/css" href="https://static.keen.io/assets/keen-fonts.css" />
   </style>
   </head>
   <body>
@@ -13,6 +14,7 @@
   <script type="text/javascript">
      new KeenEmbeddedRegistration({
        container: '#root',
+       ctaLabel: 'Register for Free',
        offerHandle: 'public-free-v1',
        apiUrl: 'https://staging.keen.io',
      }).render();

@@ -8,11 +8,12 @@ export type IconProps = {
 export type IconType =
   | 'arrow-up'
   | 'arrow-down'
+  | 'brand'
+  | 'check'
   | 'caret-down'
   | 'caret-up'
   | 'caret-left'
   | 'caret-right'
-  | 'brand'
   | 'question-mark'
   | 'cursor-solid'
   | 'cursor-outline'
@@ -20,7 +21,9 @@ export type IconType =
   | 'click-outline'
   | 'eye-solid'
   | 'eye-outline'
+  | 'eye-slash-solid'
   | 'user-solid'
   | 'user-outline'
   | 'users-solid'
-  | 'users-outline';
+  | 'users-outline'
+  | 'line';

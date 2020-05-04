@@ -1,6 +1,7 @@
 export type Options = {
   container: HTMLElement | string;
   offerHandle: string;
+  ctaLabel: string;
   apiUrl: string;
 };
 
@@ -9,6 +10,8 @@ export type FormValues = {
   lastName: string;
   password: string;
   email: string;
+  companyDisclaimer: boolean;
+  companyName: string;
 };
 
 export type SignupResponse = {

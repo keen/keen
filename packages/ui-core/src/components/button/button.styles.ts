@@ -10,7 +10,7 @@ const buttonVariants = {
     primary: {
       backgroundColor: colors.yellow['400'],
       borderColor: colors.yellow['400'],
-      color: colors.blue['500'],
+      color: colors.black['500'],
       '&:focus': {
         boxShadow: `0 0 0 0.2rem rgba(218,165,80, .5)`,
       },
@@ -34,6 +34,9 @@ const buttonMixin = () => css`
   outline: none;
   border: none;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
