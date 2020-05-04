@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/keen/keen/compare/@keen.io/widgets@0.4.1...@keen.io/widgets@0.4.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* 🐛 Vertical hover fix ([bc6af58](https://github.com/keen/keen/commit/bc6af585fdd57832d515b2c329d35957648831ef))
+
+
+
+
+
 ## [0.4.1](https://github.com/keen/keen/compare/@keen.io/widgets@0.4.0...@keen.io/widgets@0.4.1) (2020-04-29)
 
 **Note:** Version bump only for package @keen.io/widgets

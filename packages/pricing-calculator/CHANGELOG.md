@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.1.4...@keen.io/pricing-calculator@0.2.0) (2020-05-04)
+
+
+### Features
+
+* 🎸 registration redirect ([1c8363c](https://github.com/keen/keen/commit/1c8363c204829356ba2ac1924c9b0eca12d0ea2d))
+
+
+
+
+
 ## [0.1.4](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.1.3...@keen.io/pricing-calculator@0.1.4) (2020-04-29)
 
 **Note:** Version bump only for package @keen.io/pricing-calculator
