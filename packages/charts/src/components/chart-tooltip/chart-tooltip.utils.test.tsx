@@ -38,4 +38,38 @@ describe('@keen.io/charts - <ChartTooltip /> utils', () => {
     expect(arrowDirection).toEqual('right');
     expect(tooltipX).not.toEqual(props.x);
   });
+
+  it('should return vertical min overflow', () => {
+    const props = {
+      x: 50,
+      y: 10,
+      width: 20,
+      height: 20,
+    };
+    const { tooltipY } = calculateTooltipPosition({
+      svgDimensions,
+      margins,
+      ...props,
+    });
+
+    expect(tooltipY).toEqual(props.height / 2);
+  });
+
+  it('should return vertical max overflow', () => {
+    const props = {
+      x: 50,
+      y: 90,
+      width: 20,
+      height: 20,
+    };
+    const { tooltipY } = calculateTooltipPosition({
+      svgDimensions,
+      margins,
+      ...props,
+    });
+
+    expect(tooltipY).toEqual(
+      svgDimensions.height - margins.top - props.height / 2
+    );
+  });
 });
