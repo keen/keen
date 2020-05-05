@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '@keen.io/colors';
 import { IntervalSlider, Ruler } from '@keen.io/ui-core';
@@ -28,12 +28,7 @@ import {
 } from './calculator.config';
 import { servicesConfig } from '../services.config';
 
-import {
-  updateService,
-  updateQueries,
-  updateEvents,
-  setSliderDimension,
-} from './actions';
+import { updateService, updateQueries, updateEvents } from './actions';
 import { getCalculatorState } from './selectors';
 
 import { convertPositionToValue } from '../utils';
@@ -41,11 +36,12 @@ import { convertPositionToValue } from '../utils';
 const Calculator: FC<{}> = () => {
   const dispatch = useDispatch();
   const device = useSelector(getDevice);
-  const { sliderDimension, events, queries } = useSelector(getCalculatorState);
+  const { events, queries } = useSelector(getCalculatorState);
   const sliderRef = useRef(null);
+  const [sliderDimension, setSliderDimesion] = useState(0);
   useEffect(() => {
     if (sliderRef.current) {
-      dispatch(setSliderDimension(sliderRef.current.offsetWidth));
+      setSliderDimesion(sliderRef.current.offsetWidth);
     }
   }, [sliderRef]);
 
