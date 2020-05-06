@@ -3,14 +3,26 @@ import React, { FC, useRef, useState, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
-import DonutLabel from '../../components/pie-label.component';
+import { PieLabel } from '../../components';
 import { StyledPath } from './donut-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-const transition = { duration: 0.2, ease: 'easeInOut' };
+const hoverTransition = { duration: 0.2, ease: 'easeInOut' };
+
+const sliceVariants = {
+  hidden: { opacity: 0 },
+  remove: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      ease: 'easeInOut',
+      delay: 0.5,
+    },
+  },
+};
 
 type Props = {
   draw: Arc<any, DefaultArcObject>;
@@ -37,8 +49,8 @@ const DonutSlice: FC<Props> = ({
   onMouseMove,
 }) => {
   const [arcProperties, setArcProperties] = useState<ArcProperties>({
-    startAngle: 0,
-    endAngle: 0,
+    startAngle,
+    endAngle,
   });
   const element = useRef(null);
   const path = useRef(null);
@@ -46,61 +58,66 @@ const DonutSlice: FC<Props> = ({
   const [isActive, setActive] = useState(false);
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme.donut;
+  const [labelX, labelY] = labelPosition;
 
   useEffect(() => {
-    const shouldAnimate =
-      arcProperties.startAngle !== 0 && arcProperties.endAngle !== 0;
+    const motion = createArcTween(
+      arcProperties,
+      { startAngle, endAngle },
+      draw
+    );
 
-    if (shouldAnimate) {
-      const motion = createArcTween(
-        arcProperties,
-        { startAngle, endAngle },
-        draw
-      );
+    requestAnimationFrame(() => {
       animateArcPath(element, motion, () => {
         setArcProperties({
           startAngle,
           endAngle,
         });
       });
-    } else {
-      setArcProperties({
-        startAngle,
-        endAngle,
-      });
-    }
+    });
   }, [startAngle, endAngle]);
 
   return (
     <motion.g
-      onMouseMove={onMouseMove}
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={e => {
-        onMouseLeave(e);
-        setActive(false);
-      }}
-      transition={transition}
-      whileHover={{ scale: 1.05 }}
-      style={{ originX: '0', originY: '0' }}
-      ref={path}
+      variants={sliceVariants}
+      initial="hidden"
+      animate="show"
+      exit="remove"
     >
-      <StyledPath
-        dropShadow={isActive}
-        ref={element}
-        d={draw(arcProperties as DefaultArcObject)}
-        key={background}
-        fill={background}
-      />
-      {labels.enabled && (
-        <DonutLabel
-          sliceBackground={background}
-          autocolor={autocolor}
-          position={labelPosition}
-          {...labels.typography}
-        >
-          {label}
-        </DonutLabel>
-      )}
+      <motion.g
+        onMouseMove={onMouseMove}
+        onMouseEnter={() => setActive(true)}
+        onMouseLeave={e => {
+          onMouseLeave(e);
+          setActive(false);
+        }}
+        transition={hoverTransition}
+        whileHover={{ scale: 1.05 }}
+        style={{ originX: '0', originY: '0' }}
+        ref={path}
+      >
+        <StyledPath
+          dropShadow={isActive}
+          ref={element}
+          d={draw(arcProperties as DefaultArcObject)}
+          key={background}
+          fill={background}
+        />
+        {labels.enabled && (
+          <motion.g
+            animate={{ x: labelX, y: labelY }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          >
+            <PieLabel
+              sliceBackground={background}
+              autocolor={autocolor}
+              {...labels.typography}
+            >
+              {label}
+            </PieLabel>
+          </motion.g>
+        )}
+      </motion.g>
     </motion.g>
   );
 };

@@ -39,7 +39,7 @@ export const animateArcPath = (
   element: MutableRefObject<SVGPathElement>,
   tween: ValueFn<any, any, (t: number) => string>,
   onMotionEnd: () => void,
-  duration: number = 400
+  duration: number = 500
 ) => {
   select(element.current)
     .transition()

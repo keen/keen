@@ -145,39 +145,41 @@ export const DonutChart: FC<Props> = ({
           }}
         >
           <ShadowFilter />
-          {arcs.map(
-            ({
-              index,
-              label,
-              labelPosition,
-              activePosition,
-              startAngle,
-              endAngle,
-              color,
-              selector,
-              stacked,
-              stack,
-            }) => (
-              <DonutSlice
-                key={index}
-                draw={drawArc}
-                startAngle={startAngle}
-                endAngle={endAngle}
-                label={label}
-                autocolor={labelsAutocolor}
-                activePosition={activePosition}
-                labelPosition={labelPosition}
-                background={color}
-                onMouseMove={e => {
-                  if (tooltipSettings.enabled) {
-                    if (stacked) updateTooltipPosition(e, stack);
-                    else updateTooltipPosition(e, [{ color, selector }]);
-                  }
-                }}
-                onMouseLeave={() => hideTooltip()}
-              />
-            )
-          )}
+          <AnimatePresence>
+            {arcs.map(
+              ({
+                dataKey,
+                label,
+                labelPosition,
+                activePosition,
+                startAngle,
+                endAngle,
+                color,
+                selector,
+                stacked,
+                stack,
+              }) => (
+                <DonutSlice
+                  key={dataKey}
+                  draw={drawArc}
+                  startAngle={startAngle}
+                  endAngle={endAngle}
+                  label={label}
+                  autocolor={labelsAutocolor}
+                  activePosition={activePosition}
+                  labelPosition={labelPosition}
+                  background={color}
+                  onMouseMove={e => {
+                    if (tooltipSettings.enabled) {
+                      if (stacked) updateTooltipPosition(e, stack);
+                      else updateTooltipPosition(e, [{ color, selector }]);
+                    }
+                  }}
+                  onMouseLeave={() => hideTooltip()}
+                />
+              )
+            )}
+          </AnimatePresence>
           {totalEnabled && (
             <DonutTotal
               total={{
