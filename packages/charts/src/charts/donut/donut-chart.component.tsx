@@ -8,7 +8,7 @@ import { getTooltipContent } from '../../utils/tooltip.utils';
 import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
-import { ChartBase } from '../../components';
+import { ChartBase, Delayed } from '../../components';
 import DonutTotal from './donut-total.component';
 
 import { useTooltip } from '../../hooks';
@@ -132,66 +132,68 @@ export const DonutChart: FC<Props> = ({
           </motion.div>
         )}
       </AnimatePresence>
-      <ChartBase
-        ref={svgElement}
-        theme={theme}
-        svgDimensions={svgDimensions}
-        margins={margins}
-      >
-        <g
-          style={{
-            transform: `translate(${svgDimensions.width /
-              2}px, ${svgDimensions.height / 2}px)`,
-          }}
+      <Delayed>
+        <ChartBase
+          ref={svgElement}
+          theme={theme}
+          svgDimensions={svgDimensions}
+          margins={margins}
         >
-          <ShadowFilter />
-          <AnimatePresence>
-            {arcs.map(
-              ({
-                dataKey,
-                label,
-                labelPosition,
-                activePosition,
-                startAngle,
-                endAngle,
-                color,
-                selector,
-                stacked,
-                stack,
-              }) => (
-                <DonutSlice
-                  key={dataKey}
-                  draw={drawArc}
-                  startAngle={startAngle}
-                  endAngle={endAngle}
-                  label={label}
-                  autocolor={labelsAutocolor}
-                  activePosition={activePosition}
-                  labelPosition={labelPosition}
-                  background={color}
-                  onMouseMove={e => {
-                    if (tooltipSettings.enabled) {
-                      if (stacked) updateTooltipPosition(e, stack);
-                      else updateTooltipPosition(e, [{ color, selector }]);
-                    }
-                  }}
-                  onMouseLeave={() => hideTooltip()}
-                />
-              )
+          <g
+            style={{
+              transform: `translate(${svgDimensions.width /
+                2}px, ${svgDimensions.height / 2}px)`,
+            }}
+          >
+            <ShadowFilter />
+            <AnimatePresence>
+              {arcs.map(
+                ({
+                  dataKey,
+                  label,
+                  labelPosition,
+                  activePosition,
+                  startAngle,
+                  endAngle,
+                  color,
+                  selector,
+                  stacked,
+                  stack,
+                }) => (
+                  <DonutSlice
+                    key={dataKey}
+                    draw={drawArc}
+                    startAngle={startAngle}
+                    endAngle={endAngle}
+                    label={label}
+                    autocolor={labelsAutocolor}
+                    activePosition={activePosition}
+                    labelPosition={labelPosition}
+                    background={color}
+                    onMouseMove={e => {
+                      if (tooltipSettings.enabled) {
+                        if (stacked) updateTooltipPosition(e, stack);
+                        else updateTooltipPosition(e, [{ color, selector }]);
+                      }
+                    }}
+                    onMouseLeave={() => hideTooltip()}
+                  />
+                )
+              )}
+            </AnimatePresence>
+            {totalEnabled && (
+              <DonutTotal
+                total={{
+                  label: donutTotalLabel.typography,
+                  value: donutTotalValue.typography,
+                }}
+              >
+                {totalValue}
+              </DonutTotal>
             )}
-          </AnimatePresence>
-          {totalEnabled && (
-            <DonutTotal
-              total={{
-                label: donutTotalLabel.typography,
-                value: donutTotalValue.typography,
-              }}
-            >
-              {totalValue}
-            </DonutTotal>
-          )}
-        </g>
-      </ChartBase>
+          </g>
+        </ChartBase>
+      </Delayed>
     </>
   );
 };
