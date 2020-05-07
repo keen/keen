@@ -111,8 +111,38 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           }
         }
       >
-        <div
-          className="c0"
+        <StyledComponent
+          borderRadius={3}
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-VigVT",
+                "isStatic": false,
+                "lastClassName": "c0",
+                "rules": Array [
+                  "
+  border-radius: ",
+                  [Function],
+                  "px;
+  background: ",
+                  "#E1E2E4",
+                  ";
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-VigVT",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={null}
           style={
             Object {
               "height": "4px",
@@ -123,7 +153,21 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
               "width": "calc(100% - 0px)",
             }
           }
-        />
+        >
+          <div
+            className="c0"
+            style={
+              Object {
+                "height": "4px",
+                "left": "0px",
+                "position": "absolute",
+                "top": "50%",
+                "transform": "translateY(-50%)",
+                "width": "calc(100% - 0px)",
+              }
+            }
+          />
+        </StyledComponent>
       </styled.div>
     </OffRange>
     <Component
@@ -182,54 +226,202 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           <styled.div
             dragDirection="x"
           >
-            <div
-              className="c1"
+            <StyledComponent
+              dragDirection="x"
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-jTzLTM",
+                    "isStatic": false,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "
+  ",
+                      [Function],
+                      "
+
+  ",
+                      [Function],
+                      "
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-jTzLTM",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
             >
-              <Mark
-                backgroundColor="#FFFFFF"
-                borderColor="#F0AB30"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                size={15}
+              <div
+                className="c1"
               >
-                <styled.div
+                <Mark
                   backgroundColor="#FFFFFF"
                   borderColor="#F0AB30"
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
                   size={15}
                 >
-                  <div
-                    className="c2"
+                  <styled.div
+                    backgroundColor="#FFFFFF"
+                    borderColor="#F0AB30"
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
                     size={15}
-                  />
-                </styled.div>
-              </Mark>
-              <TooltipPosition
-                containerSize={15}
-                position="bottom"
-                visible={false}
-                x={0}
-                y={0}
-              >
-                <styled.div
+                  >
+                    <StyledComponent
+                      backgroundColor="#FFFFFF"
+                      borderColor="#F0AB30"
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-gqjmRU",
+                            "isStatic": false,
+                            "lastClassName": "c2",
+                            "rules": Array [
+                              "
+  box-sizing: border-box;
+  width: ",
+                              [Function],
+                              "px;
+  height: ",
+                              [Function],
+                              "px;
+  border-radius: 50%;
+  background: ",
+                              [Function],
+                              ";
+  border: solid 2px ",
+                              [Function],
+                              ";
+",
+                            ],
+                          },
+                          "displayName": "styled.div",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-gqjmRU",
+                          "target": "div",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      size={15}
+                    >
+                      <div
+                        className="c2"
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        size={15}
+                      />
+                    </StyledComponent>
+                  </styled.div>
+                </Mark>
+                <TooltipPosition
                   containerSize={15}
-                  height={0}
                   position="bottom"
-                  width={0}
+                  visible={false}
+                  x={0}
+                  y={0}
                 >
-                  <div
-                    className="c3"
+                  <styled.div
+                    containerSize={15}
                     height={0}
+                    position="bottom"
                     width={0}
                   >
-                    <AnimatePresence />
-                  </div>
-                </styled.div>
-              </TooltipPosition>
-            </div>
+                    <StyledComponent
+                      containerSize={15}
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-fjdhpX",
+                            "isStatic": false,
+                            "lastClassName": "c3",
+                            "rules": Array [
+                              "
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  ",
+                              [Function],
+                              "
+
+  ",
+                              [Function],
+                              "
+
+  ",
+                              [Function],
+                              "
+
+  ",
+                              [Function],
+                              "
+",
+                            ],
+                          },
+                          "displayName": "styled.div",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-fjdhpX",
+                          "target": "div",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={
+                        Object {
+                          "current": .c0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<div
+                            class="c0"
+                            height="0"
+                            width="0"
+                          />,
+                        }
+                      }
+                      height={0}
+                      position="bottom"
+                      width={0}
+                    >
+                      <div
+                        className="c3"
+                        height={0}
+                        width={0}
+                      >
+                        <AnimatePresence />
+                      </div>
+                    </StyledComponent>
+                  </styled.div>
+                </TooltipPosition>
+              </div>
+            </StyledComponent>
           </styled.div>
         </div>
         <Memo(MountComponent)

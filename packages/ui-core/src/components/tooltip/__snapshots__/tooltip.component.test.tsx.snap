@@ -50,12 +50,91 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
     hasShadow={false}
     mode="light"
   >
-    <div
-      className="c0"
+    <StyledComponent
+      arrowDirection="bottom"
+      backgroundColor="#FFFFFF"
+      borderRadius="0px"
+      fontColor="#3A494D"
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "c0",
+            "rules": Array [
+              "
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: ",
+              [Function],
+              ";
+  border-radius: ",
+              [Function],
+              ";
+  font-family: ",
+              [Function],
+              ";
+  font-size: ",
+              [Function],
+              ";
+  color: ",
+              [Function],
+              ";
+  box-shadow: ",
+              [Function],
+              ";
+  position: relative;
+  ",
+              [Function],
+              "
+  &::after {
+    ",
+              [Function],
+              "
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: ",
+              "4",
+              "px solid ",
+              [Function],
+              ";
+    box-shadow: ",
+              [Function],
+              ";
+    ",
+              [Function],
+              "
+  }
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      hasArrow={true}
+      hasShadow={false}
       mode="light"
     >
-      tooltip
-    </div>
+      <div
+        className="c0"
+        mode="light"
+      >
+        tooltip
+      </div>
+    </StyledComponent>
   </styled.div>
 </Tooltip>
 `;
@@ -110,12 +189,91 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
     hasShadow={true}
     mode="dark"
   >
-    <div
-      className="c0"
+    <StyledComponent
+      arrowDirection="bottom"
+      backgroundColor="#FFFFFF"
+      borderRadius="0px"
+      fontColor="#3A494D"
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "c0",
+            "rules": Array [
+              "
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: ",
+              [Function],
+              ";
+  border-radius: ",
+              [Function],
+              ";
+  font-family: ",
+              [Function],
+              ";
+  font-size: ",
+              [Function],
+              ";
+  color: ",
+              [Function],
+              ";
+  box-shadow: ",
+              [Function],
+              ";
+  position: relative;
+  ",
+              [Function],
+              "
+  &::after {
+    ",
+              [Function],
+              "
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    border: ",
+              "4",
+              "px solid ",
+              [Function],
+              ";
+    box-shadow: ",
+              [Function],
+              ";
+    ",
+              [Function],
+              "
+  }
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      hasArrow={true}
+      hasShadow={true}
       mode="dark"
     >
-      tooltip
-    </div>
+      <div
+        className="c0"
+        mode="dark"
+      >
+        tooltip
+      </div>
+    </StyledComponent>
   </styled.div>
 </Tooltip>
 `;

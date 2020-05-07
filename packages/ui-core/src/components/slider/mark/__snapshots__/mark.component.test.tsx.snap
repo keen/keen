@@ -15,9 +15,53 @@ exports[`@keen.io/ui-core - <Mark /> should set element dimension based on "size
   borderColor="gray"
   size={10}
 >
-  <div
-    className="c0"
+  <StyledComponent
+    backgroundColor="black"
+    borderColor="gray"
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+  box-sizing: border-box;
+  width: ",
+            [Function],
+            "px;
+  height: ",
+            [Function],
+            "px;
+  border-radius: 50%;
+  background: ",
+            [Function],
+            ";
+  border: solid 2px ",
+            [Function],
+            ";
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
     size={10}
-  />
+  >
+    <div
+      className="c0"
+      size={10}
+    />
+  </StyledComponent>
 </styled.div>
 `;
