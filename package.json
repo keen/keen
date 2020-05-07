@@ -12,6 +12,7 @@
     "prettier": "prettier --write 'packages/**/*.{js,ts,tsx,json}'",
     "lint": "eslint --quiet --ext .ts --ext .tsx packages/",
     "create-version": "lerna version --conventional-commits",
+    "browsers": "browserslist",
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:ci": "jest --coverage -w 1",

@@ -22,3 +22,7 @@ For direct website integration embed a script with `@keen.io/dataviz` that is ho
 ## Examples
 
 For code examples check the Keen [Storybook](https://keen.github.io/keen/).
+
+## Supported Browsers
+
+This project targeting all modern browsers with support for IE 11.
