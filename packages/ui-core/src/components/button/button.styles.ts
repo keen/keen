@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
+import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
 import { ButtonVariant } from './types';
@@ -19,6 +20,16 @@ const buttonVariants = {
         backgroundColor: colors.yellow['500'],
       },
     },
+    secondary: {
+      backgroundColor: colors.blue['500'],
+      borderColor: colors.blue['500'],
+      color: colors.white['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: colors.blue['400'],
+      },
+    },
   },
 };
 
@@ -35,7 +46,6 @@ const buttonMixin = () => css`
   border: none;
   cursor: pointer;
 
-  display: flex;
   align-items: center;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -47,8 +57,9 @@ export const StyledButton = styled.button<{
   variant: ButtonVariant;
   isDisabled: boolean;
 }>`
-  ${buttonMixin()}
-  ${variant(buttonVariants)}
+  display: flex;
+  ${buttonMixin()};
+  ${variant(buttonVariants)};
 `;
 
 export const StyledAnchor = styled.a<{
@@ -56,7 +67,6 @@ export const StyledAnchor = styled.a<{
   isDisabled: boolean;
 }>`
   display: inline-flex;
-  align-items: center;
   ${buttonMixin()}
   ${variant(buttonVariants)}
 `;

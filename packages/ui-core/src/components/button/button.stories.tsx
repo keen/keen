@@ -26,3 +26,15 @@ primaryButtonLink.story = {
     },
   },
 };
+
+export const secondary = () => (
+  <Button onClick={action('click')} variant="secondary">
+    Button
+  </Button>
+);
+
+export const secondaryButtonLink = () => (
+  <Button href="https://keen.io" onClick={action('click')} variant="secondary">
+    Link
+  </Button>
+);
