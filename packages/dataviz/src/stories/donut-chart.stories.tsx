@@ -40,7 +40,7 @@ export const singleResult = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '400px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '500px', height: '500px' }} ref={container} />;
 };
 
 export const simpleResults = () => {
@@ -71,7 +71,7 @@ export const simpleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '400px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '500px', height: '500px' }} ref={container} />;
 };
 
 export const multipleResults = () => {
@@ -102,5 +102,5 @@ export const multipleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '400px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '500px', height: '500px' }} ref={container} />;
 };

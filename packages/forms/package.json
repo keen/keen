@@ -1,0 +1,46 @@
+{
+  "name": "@keen.io/forms",
+  "version": "0.0.1",
+  "description": "Keen form helpers",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "dependencies": {
+    "@keen.io/colors": "^0.1.2",
+    "@keen.io/ui-core": "^0.4.0",
+    "formik": "^2.1.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "5.1.0",
+    "styled-system": "5.1.5"
+  },
+  "devDependencies": {
+    "@types/styled-components": "5.1.0",
+    "@types/styled-system": "5.1.9",
+    "yup": "^0.28.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

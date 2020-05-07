@@ -4,6 +4,8 @@ import ChartBase from './chart-base.component';
 import ChartTooltip from './chart-tooltip';
 import HoverBar, { hoverBarMotion } from './hover-bar';
 import { Mark, markMotion } from './mark';
+import PieLabel from './pie-label';
+import Delayed from './delayed';
 
 import Axes from './axes.component';
 import Grid from './grid.component';
@@ -12,6 +14,8 @@ import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
 export {
   ChartBase,
   ChartTooltip,
+  Delayed,
+  PieLabel,
   ResponsiveWrapper,
   HoverBar,
   SeriesLegend,

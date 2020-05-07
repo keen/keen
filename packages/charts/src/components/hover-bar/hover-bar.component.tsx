@@ -57,6 +57,7 @@ const HoverBar: FC<Props> = ({
   });
 
   const color = type === 'dark' ? colors.black[500] : colors.gray[100];
+  const opacity = type === 'dark' ? '.1' : '0.2';
 
   return (
     <>
@@ -64,7 +65,7 @@ const HoverBar: FC<Props> = ({
       <Bar
         fill={`url(#${GRADIENT_ID})`}
         fillRule="evenodd"
-        opacity=".1"
+        opacity={opacity}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         x={barX}

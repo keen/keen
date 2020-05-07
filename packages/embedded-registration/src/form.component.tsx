@@ -78,7 +78,10 @@ export const RegisterForm: FC<Props> = ({
     }) => (
       <form onSubmit={handleSubmit}>
         <Group>
-          <Label htmlFor="firstName" hasError={getIn(errors, 'firstName')}>
+          <Label
+            htmlFor="firstName"
+            hasError={getIn(touched, 'firstName') && getIn(errors, 'firstName')}
+          >
             First name
           </Label>
           <Input
@@ -97,7 +100,10 @@ export const RegisterForm: FC<Props> = ({
           </ErrorContainer>
         </Group>
         <Group>
-          <Label htmlFor="lastName" hasError={getIn(errors, 'lastName')}>
+          <Label
+            htmlFor="lastName"
+            hasError={getIn(touched, 'lastName') && getIn(errors, 'lastName')}
+          >
             Last name
           </Label>
           <Input
@@ -116,7 +122,12 @@ export const RegisterForm: FC<Props> = ({
           </ErrorContainer>
         </Group>
         <Group>
-          <Label htmlFor="companyName" hasError={getIn(errors, 'companyName')}>
+          <Label
+            htmlFor="companyName"
+            hasError={
+              getIn(touched, 'companyName') && getIn(errors, 'companyName')
+            }
+          >
             Company name
           </Label>
           <Input
@@ -147,7 +158,10 @@ export const RegisterForm: FC<Props> = ({
           </ErrorContainer>
         </Group>
         <Group>
-          <Label htmlFor="email" hasError={getIn(errors, 'email')}>
+          <Label
+            htmlFor="email"
+            hasError={getIn(touched, 'email') && getIn(errors, 'email')}
+          >
             Email
           </Label>
           <Input
@@ -162,7 +176,10 @@ export const RegisterForm: FC<Props> = ({
           </ErrorContainer>
         </Group>
         <Group>
-          <Label htmlFor="password" hasError={getIn(errors, 'password')}>
+          <Label
+            htmlFor="password"
+            hasError={getIn(touched, 'password') && getIn(errors, 'password')}
+          >
             Password
           </Label>
           <PasswordInput

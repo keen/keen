@@ -19,6 +19,7 @@ describe('@keen.io/charts - <GaugeProgress />', () => {
         <GaugeProgress
           typography={typography}
           progressType="percent"
+          minimum={0}
           maximum={200}
           value={50}
         />
@@ -38,13 +39,14 @@ describe('@keen.io/charts - <GaugeProgress />', () => {
         <GaugeProgress
           typography={typography}
           progressType="percent"
+          minimum={0}
           maximum={200}
           value={50}
         />
       </svg>
     );
 
-    expect(wrapper.find('text').text()).toEqual('25%');
+    expect(wrapper.find('text').text()).toEqual('0.0%');
   });
 
   it('should display progress value', () => {
@@ -53,12 +55,13 @@ describe('@keen.io/charts - <GaugeProgress />', () => {
         <GaugeProgress
           typography={typography}
           progressType="normal"
+          minimum={0}
           maximum={200}
           value={50}
         />
       </svg>
     );
 
-    expect(wrapper.find('text').text()).toEqual('50');
+    expect(wrapper.find('text').text()).toEqual('0');
   });
 });

@@ -83,7 +83,7 @@ export const widget = () => {
         yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         margins={object(
           'Margins',
-          { top: 30, right: 20, bottom: 50, left: 40 },
+          { top: 30, right: 20, bottom: 50, left: 60 },
           'Chart'
         )}
         theme={createThemeKnobs()}
