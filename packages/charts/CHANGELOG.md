@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/keen/keen/compare/@keen.io/charts@0.5.0...@keen.io/charts@0.5.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* 🐛 tooltip position ([e7e6da3](https://github.com/keen/keen/commit/e7e6da3a2b866a8b64ee29794c87d178a6e25718))
+
+
+
+
+
 # [0.5.0](https://github.com/keen/keen/compare/@keen.io/charts@0.4.2...@keen.io/charts@0.5.0) (2020-05-07)
 
 
