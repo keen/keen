@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.2.0...@keen.io/pricing-calculator@0.2.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* 🐛 Wrong redirect link: Start Your Free Trial in calculator ([baadc27](https://github.com/keen/keen/commit/baadc2738b69456d5b717360f51f3bdde7f9c4cb))
+
+
+
+
+
 # [0.2.0](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.1.4...@keen.io/pricing-calculator@0.2.0) (2020-05-04)
 
 

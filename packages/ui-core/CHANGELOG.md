@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.4.0...@keen.io/ui-core@0.5.0) (2020-05-07)
+
+
+### Features
+
+* 🎸 arc animation ([267bb82](https://github.com/keen/keen/commit/267bb82b3fc56649daa95f38a88139a3b85c6e3e))
+
+
+
+
+
 # [0.4.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.3.1...@keen.io/ui-core@0.4.0) (2020-05-04)
 
 
