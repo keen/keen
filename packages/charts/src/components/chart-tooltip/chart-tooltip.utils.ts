@@ -1,5 +1,5 @@
-import { Margins, Dimension } from '../../types';
 import { ARROW_SIZE } from '@keen.io/ui-core';
+import { Margins, Dimension } from '../../types';
 import { calculateHypotenuseHeight } from '../../utils';
 
 type Options = {
