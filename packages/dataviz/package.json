@@ -39,6 +39,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@types/react-dom": "^16.9.5",
     "babel-loader": "^8.1.0",
