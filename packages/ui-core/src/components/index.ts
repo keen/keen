@@ -8,6 +8,7 @@ import Button from './button';
 import Loader from './loader';
 import Card, { CardSettings } from './card';
 import { IntervalSlider, RangeSlider } from './slider';
+import { calculateIntervalValue } from './slider/utils';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
@@ -43,6 +44,7 @@ export {
   TooltipMode,
   RangeSlider,
   IntervalSlider,
+  calculateIntervalValue,
   ColorScale,
   Toggle,
   Ruler,

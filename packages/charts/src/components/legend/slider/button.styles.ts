@@ -58,7 +58,7 @@ export const Block = styled.div<{
   position: absolute;
   ${props => getPosition(props.position)}
 
-  background: ${colors.white['500']}
+  background: ${colors.white['500']};
 
   display: flex;
   justify-content: center;
