@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/keen/keen/compare/@keen.io/storybook-utils@0.3.1...@keen.io/storybook-utils@0.3.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* 🐛 Vertical hover fix ([bc6af58](https://github.com/keen/keen/commit/bc6af585fdd57832d515b2c329d35957648831ef))
+
+
+
+
+
 ## [0.3.1](https://github.com/keen/keen/compare/@keen.io/storybook-utils@0.3.0...@keen.io/storybook-utils@0.3.1) (2020-04-29)
 
 **Note:** Version bump only for package @keen.io/storybook-utils

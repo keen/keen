@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/dataviz",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Keen data visualizer",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -28,9 +28,9 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "@keen.io/charts": "^0.4.1",
-    "@keen.io/parser": "^0.2.2",
-    "@keen.io/widgets": "^0.4.1",
+    "@keen.io/charts": "^0.4.2",
+    "@keen.io/parser": "^0.2.3",
+    "@keen.io/widgets": "^0.4.2",
     "deepmerge": "4.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
@@ -39,7 +39,13 @@
     "access": "public"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
     "@types/react-dom": "^16.9.5",
-    "keen-analysis": "3.5.0"
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
+    "keen-analysis": "3.5.0",
+    "regenerator-runtime": "^0.13.5"
   }
 }

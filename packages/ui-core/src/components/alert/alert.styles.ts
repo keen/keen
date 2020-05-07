@@ -25,7 +25,7 @@ export const StyledAlert = styled.div<{
   type: Variant;
 }>`
   padding: 10px 20px;
-  border-left: solid
+  border-left: solid;
 
   font-family: 'Lato Regular', sans-serif;
   font-size: 14px;

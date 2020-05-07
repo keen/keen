@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/keen/keen/compare/@keen.io/charts@0.4.1...@keen.io/charts@0.4.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* 🐛 fix fo tests ([a171930](https://github.com/keen/keen/commit/a171930407e385ae581c4448e8a44522faf5ada1))
+* 🐛 Vertical hover fix ([bc6af58](https://github.com/keen/keen/commit/bc6af585fdd57832d515b2c329d35957648831ef))
+
+
+
+
+
 ## [0.4.1](https://github.com/keen/keen/compare/@keen.io/charts@0.4.0...@keen.io/charts@0.4.1) (2020-04-29)
 
 **Note:** Version bump only for package @keen.io/charts

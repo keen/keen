@@ -53,7 +53,7 @@ const createArcMotion = (index: number) => ({
 });
 
 const progressValueMotion = {
-  transition: { duration: 0.3, delay: 0.4 },
+  transition: { duration: 0.3 },
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
@@ -162,6 +162,7 @@ export const GaugeChart: FC<Props> = ({
                     progressType={progressType}
                     formatValue={formatValue}
                     typography={gaugeSettings.total.typography}
+                    minimum={minimum}
                     maximum={maximum}
                     value={progressValue}
                   />

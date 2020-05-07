@@ -10,6 +10,7 @@ import {
   curveKnobs,
   groupModeKnobs,
   lineStackModeKnobs,
+  hoverBarKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
@@ -35,6 +36,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  hoverBar: hoverBarKnobs('Hover bar'),
 });
 
 const createLabelFormatter = (dateFormat = '%D %b') => (date: Date) => {
@@ -81,7 +83,7 @@ export const widget = () => {
         yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         margins={object(
           'Margins',
-          { top: 30, right: 20, bottom: 50, left: 40 },
+          { top: 30, right: 20, bottom: 50, left: 60 },
           'Chart'
         )}
         theme={createThemeKnobs()}

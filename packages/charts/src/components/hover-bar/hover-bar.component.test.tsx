@@ -14,6 +14,11 @@ const setup = (overProps: any = {}) => {
   };
 
   const context = {
+    theme: {
+      hoverBar: {
+        type: 'dark',
+      },
+    },
     margins: { top: 10, bottom: 10, left: 10, right: 10 },
     svgDimensions: { width: 100, height: 100 },
   };

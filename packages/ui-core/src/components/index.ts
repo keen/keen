@@ -12,9 +12,13 @@ import { calculateIntervalValue } from './slider/utils';
 import ColorScale from './color-scale';
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
-import { Label } from './label';
-import { Input } from './input';
-import { Error } from './error';
+import Label from './label';
+import Input from './input';
+import Checkbox from './checkbox';
+import PasswordInput from './password-input';
+import PasswordValidator from './password-validator';
+import Error from './error';
+
 import {
   Ceil,
   HeaderCeil,
@@ -34,6 +38,7 @@ export {
   BulletList,
   Card,
   CardSettings,
+  Checkbox,
   ColorAdjuster,
   Error,
   Label,
@@ -47,6 +52,8 @@ export {
   calculateIntervalValue,
   ColorScale,
   Toggle,
+  PasswordInput,
+  PasswordValidator,
   Ruler,
   RulerTick,
   Ceil,

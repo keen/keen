@@ -181,6 +181,13 @@ export type Table = {
   };
 };
 
+export type HoverBarType = 'dark' | 'light';
+
+export type HoverBarSettings = {
+  enabled: boolean;
+  type: HoverBarType;
+};
+
 export type Theme = {
   colors: string[];
   funnel: Funnel;
@@ -196,6 +203,7 @@ export type Theme = {
   axisY?: Axis;
   gridX?: Grid;
   gridY?: Grid;
+  hoverBar?: HoverBarSettings;
 };
 
 export type CommonChartSettings = {

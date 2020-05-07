@@ -35,6 +35,7 @@ type Arc = {
   labelPosition: [number, number];
   color: string;
   selector: DataSelector;
+  dataKey: string;
   startAngle: number;
   endAngle: number;
   stacked: boolean;
@@ -44,12 +45,15 @@ type Arc = {
 type Slice = {
   color: string;
   value: number;
+  dataKey: string;
   selector: DataSelector;
   stacked?: boolean;
   stack?: { selector: DataSelector; color: string }[];
 };
 
 export const HOVER_RADIUS = 5;
+
+export const OTHERS_DATA_KEY = 'Others';
 
 export const createStackedSlice = ({
   slices,
@@ -80,6 +84,7 @@ export const createStackedSlice = ({
 
     filteredSlices.push({
       color: colors.gray['500'],
+      dataKey: OTHERS_DATA_KEY,
       value: stackValue,
       selector: [],
       stacked: true,
@@ -128,6 +133,7 @@ export const generateCircularChart = ({
 
       slices.push({
         value: result,
+        dataKey: label,
         selector: [idx],
         color: colors[idx],
       });
@@ -167,7 +173,7 @@ export const generateCircularChart = ({
 
   const arcs: Arc[] = createPie(slices as any).map(
     ({ startAngle, endAngle, value, index, data }) => {
-      const { color, selector, stacked, stack } = data as any;
+      const { color, selector, stacked, stack, dataKey } = data as any;
       const [x, y] = createArc.centroid({
         innerRadius: relativeInnerRadius,
         outerRadius: 0,
@@ -180,6 +186,7 @@ export const generateCircularChart = ({
         labelPosition: calculateLabelPosition(startAngle, endAngle),
         activePosition: [x, y],
         index: String(index),
+        dataKey,
         selector,
         color,
         startAngle,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/icons@0.1.2...@keen.io/icons@0.2.0) (2020-05-04)
+
+
+### Features
+
+* 🎸 embeded registration components ([69ad26b](https://github.com/keen/keen/commit/69ad26beaa95fcd07297adc45bd1f09137034209))
+
+
+
+
+
 ## [0.1.2](https://github.com/keen/keen/compare/@keen.io/icons@0.1.1...@keen.io/icons@0.1.2) (2020-04-27)
 
 **Note:** Version bump only for package @keen.io/icons

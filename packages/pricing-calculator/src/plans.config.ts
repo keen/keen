@@ -9,7 +9,8 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
     priceTreshold: 0,
     components: ['25 Access Keys', '5 Cached Queries', '5 Cached Datasets'],
     ctaLabel: 'Start Your Free Trial',
-    ctaUrl: 'https://try.keen.io/contact',
+    ctaUrl:
+      'https://keen.io/users/signup?ref=eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJLZWVuVXNlck1hbmFnZW1lbnRTZXJ2aWNlLXByb2QiLCJhdWQiOiJrZWVuLmlvIiwiaWF0IjoxNTg4MDg4NDAzLCJpbnZpdGVlX25hbWUiOm51bGwsIm9mZmVyX2hhbmRsZSI6InB1YmxpYy10cmlhbC12MiJ9.39QEry1_aLV5VclTVdRPdvdbeqX9yw7Ggwcm5GuCkHFVCkYWSFIUKResFo19l20b3QERByr6tWk9r7s7Ep22kA',
     detailsUrl: 'https://keen.io/pricing/#keenBlockPlansCompare',
   },
   business: {

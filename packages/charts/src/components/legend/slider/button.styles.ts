@@ -32,9 +32,11 @@ export const Gradient = styled(motion.div)<{
   transmition: string;
   variant: Variant;
 }>`
-  position: absolute;
   top: 0;
-  ${props => getDimension(props.variant)}
+  position: absolute;
+
+  ${props => getDimension(props.variant)};
+
   background-image: linear-gradient(
     ${props => props.transmition},
     ${colors.white['400']},
@@ -56,14 +58,14 @@ export const Block = styled.div<{
   shadow: string;
 }>`
   position: absolute;
-  ${props => getPosition(props.position)}
+  ${props => getPosition(props.position)};
 
   background: ${colors.white['500']};
 
   display: flex;
   justify-content: center;
   align-items: center;
-  ${props => getDimension(props.variant)}
+  ${props => getDimension(props.variant)};
   ${props =>
     !props.disabled &&
     css`

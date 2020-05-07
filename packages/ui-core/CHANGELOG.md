@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.3.1...@keen.io/ui-core@0.4.0) (2020-05-04)
+
+
+### Features
+
+* 🎸 embeded registration components ([69ad26b](https://github.com/keen/keen/commit/69ad26beaa95fcd07297adc45bd1f09137034209))
+* 🎸 registration redirect ([1c8363c](https://github.com/keen/keen/commit/1c8363c204829356ba2ac1924c9b0eca12d0ea2d))
+
+
+
+
+
 ## [0.3.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.3.0...@keen.io/ui-core@0.3.1) (2020-04-29)
 
 
