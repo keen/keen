@@ -2,6 +2,10 @@
 
 exports[`@keen.io/ui-core - <Button /> should apply styles for button with "primary" variant 1`] = `
 .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 16px;
   font-family: 'Lato Bold',sans-serif;
   -webkit-text-decoration: none;
@@ -12,10 +16,6 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   outline: none;
   border: none;
   cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
