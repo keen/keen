@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/keen/keen/compare/@keen.io/dataviz@0.3.3...@keen.io/dataviz@0.4.0) (2020-05-07)
+
+
+### Bug Fixes
+
+* 🐛 chart paint ([f4df0ea](https://github.com/keen/keen/commit/f4df0eaca0d3825cc5d828e15533b1afd30859c3))
+
+
+### Features
+
+* 🎸 arc animation ([267bb82](https://github.com/keen/keen/commit/267bb82b3fc56649daa95f38a88139a3b85c6e3e))
+
+
+
+
+
 ## [0.3.3](https://github.com/keen/keen/compare/@keen.io/dataviz@0.3.2...@keen.io/dataviz@0.3.3) (2020-05-04)
 
 **Note:** Version bump only for package @keen.io/dataviz

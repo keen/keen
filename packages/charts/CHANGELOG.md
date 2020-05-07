@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/keen/keen/compare/@keen.io/charts@0.4.2...@keen.io/charts@0.5.0) (2020-05-07)
+
+
+### Bug Fixes
+
+* 🐛 chart paint ([f4df0ea](https://github.com/keen/keen/commit/f4df0eaca0d3825cc5d828e15533b1afd30859c3))
+* 🐛 Fix for light hoverBar ([10e9fad](https://github.com/keen/keen/commit/10e9fad1f970597817580a6c576e09f9079213d1))
+
+
+### Features
+
+* 🎸 arc animation ([267bb82](https://github.com/keen/keen/commit/267bb82b3fc56649daa95f38a88139a3b85c6e3e))
+* 🎸 gauge interpolation ([19e3d20](https://github.com/keen/keen/commit/19e3d20ad0aac8f3b218170e3ce828b99c74510b))
+
+
+
+
+
 ## [0.4.2](https://github.com/keen/keen/compare/@keen.io/charts@0.4.1...@keen.io/charts@0.4.2) (2020-05-04)
 
 

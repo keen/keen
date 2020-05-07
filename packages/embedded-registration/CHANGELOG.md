@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/keen/keen/compare/@keen.io/embedded-registration@0.1.0...@keen.io/embedded-registration@0.1.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* 🐛 form labels error state ([b9d60e4](https://github.com/keen/keen/commit/b9d60e40eb72560efee2b01aa962f8a612cf7cc8))
+
+
+
+
+
 # [0.1.0](https://github.com/keen/keen/compare/@keen.io/embedded-registration@0.0.4...@keen.io/embedded-registration@0.1.0) (2020-05-04)
 
 
