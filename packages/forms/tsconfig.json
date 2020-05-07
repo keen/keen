@@ -4,6 +4,10 @@
     "rootDir": "./src",
     "outDir": "./dist"
   },
-  "references": [{ "path": "../colors" }, { "path": "../icons" }],
+  "references": [
+    { "path": "../colors" },
+    { "path": "../icons" },
+    { "path": "../ui-core" }
+  ],
   "include": ["./src/**/*"]
 }

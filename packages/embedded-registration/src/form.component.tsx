@@ -11,17 +11,16 @@ import {
   Error,
   Loader,
 } from '@keen.io/ui-core';
+import { Icon } from '@keen.io/icons';
+import { Form, InputGroup, FieldGroup, ErrorContainer } from '@keen.io/forms';
+import { colors } from '@keen.io/colors';
 
 import { ServiceTerms } from './components';
 import {
-  ErrorContainer,
-  ButtonContent,
   Footer,
   CompanyMessage,
   CompanyDisclaimer,
   PasswordHints,
-  Text,
-  Group,
 } from './form.styles';
 
 import { schema } from './schema';
@@ -76,52 +75,14 @@ export const RegisterForm: FC<Props> = ({
       handleSubmit,
       setFieldValue,
     }) => (
-      <form onSubmit={handleSubmit}>
-        <Group>
-          <Label
-            htmlFor="firstName"
-            hasError={getIn(touched, 'firstName') && getIn(errors, 'firstName')}
-          >
-            First name
-          </Label>
-          <Input
-            name="firstName"
-            type="text"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={values.firstName}
-          />
-          <ErrorContainer>
-            <ErrorMessage
-              data-error="firstName"
-              name="firstName"
-              component={Error}
-            />
-          </ErrorContainer>
-        </Group>
-        <Group>
-          <Label
-            htmlFor="lastName"
-            hasError={getIn(touched, 'lastName') && getIn(errors, 'lastName')}
-          >
-            Last name
-          </Label>
-          <Input
-            name="lastName"
-            type="text"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={values.lastName}
-          />
-          <ErrorContainer>
-            <ErrorMessage
-              data-error="lastName"
-              name="lastName"
-              component={Error}
-            />
-          </ErrorContainer>
-        </Group>
-        <Group>
+      <Form isSubmitting={isSubmitting} onSubmit={handleSubmit}>
+        <FieldGroup>
+          <InputGroup name="firstName" label="First name" />
+        </FieldGroup>
+        <FieldGroup>
+          <InputGroup name="lastName" label="Last name" />
+        </FieldGroup>
+        <FieldGroup>
           <Label
             htmlFor="companyName"
             hasError={
@@ -136,6 +97,9 @@ export const RegisterForm: FC<Props> = ({
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.companyName}
+            hasError={
+              getIn(touched, 'companyName') && getIn(errors, 'companyName')
+            }
           />
           <CompanyDisclaimer htmlFor="companyDisclaimer">
             <Checkbox
@@ -156,26 +120,11 @@ export const RegisterForm: FC<Props> = ({
               component={Error}
             />
           </ErrorContainer>
-        </Group>
-        <Group>
-          <Label
-            htmlFor="email"
-            hasError={getIn(touched, 'email') && getIn(errors, 'email')}
-          >
-            Email
-          </Label>
-          <Input
-            name="email"
-            type="email"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            value={values.email}
-          />
-          <ErrorContainer>
-            <ErrorMessage data-error="email" name="email" component={Error} />
-          </ErrorContainer>
-        </Group>
-        <Group>
+        </FieldGroup>
+        <FieldGroup>
+          <InputGroup name="email" label="Email" />
+        </FieldGroup>
+        <FieldGroup>
           <Label
             htmlFor="password"
             hasError={getIn(touched, 'password') && getIn(errors, 'password')}
@@ -187,6 +136,7 @@ export const RegisterForm: FC<Props> = ({
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.password}
+            hasError={getIn(touched, 'password') && getIn(errors, 'password')}
           />
           <PasswordHints>
             <PasswordValidator
@@ -194,7 +144,7 @@ export const RegisterForm: FC<Props> = ({
               touched={touched.password}
             />
           </PasswordHints>
-        </Group>
+        </FieldGroup>
         <ServiceTerms baseUrl={apiUrl} disclaimer={buttonLabel} />
         <Footer>
           <Button
@@ -202,18 +152,23 @@ export const RegisterForm: FC<Props> = ({
             data-button="submit"
             isDisabled={isSubmitting}
             onClick={submitForm}
-          >
-            {isSubmitting ? (
-              <ButtonContent>
-                <Text>Checking your data</Text>
+            icon={
+              isSubmitting ? (
                 <Loader width={22} height={22} />
-              </ButtonContent>
-            ) : (
-              <>{buttonLabel}</>
-            )}
+              ) : (
+                <Icon
+                  type="button-arrow"
+                  width={32}
+                  height={32}
+                  fill={colors.black['500']}
+                />
+              )
+            }
+          >
+            {isSubmitting ? 'Checking your data' : buttonLabel}
           </Button>
         </Footer>
-      </form>
+      </Form>
     )}
   </Formik>
 );

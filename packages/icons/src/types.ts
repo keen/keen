@@ -8,6 +8,7 @@ export type IconProps = {
 export type IconType =
   | 'arrow-up'
   | 'arrow-down'
+  | 'button-arrow'
   | 'brand'
   | 'check'
   | 'caret-down'
