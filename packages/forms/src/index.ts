@@ -1,3 +1,9 @@
-import { FieldGroup } from './components';
+import {
+  FieldGroup,
+  ErrorContainer,
+  InputGroup,
+  Form,
+  FakeInput,
+} from './components';
 
-export { FieldGroup };
+export { FieldGroup, ErrorContainer, InputGroup, Form, FakeInput };
