@@ -2,11 +2,12 @@ import React, { FC } from 'react';
 
 import { StyledButton, StyledAnchor, IconSocket } from './button.styles';
 
-import { ButtonVariant } from './types';
+import { ButtonVariant, ButtonSize } from './types';
 
 type Props = {
   children: React.ReactNode;
   variant?: ButtonVariant;
+  size?: ButtonSize;
   isDisabled?: boolean;
   href?: string;
   target?: string;
@@ -30,6 +31,8 @@ export const Button: FC<Props> = ({
   isDisabled = false,
   /** HTML button element type */
   htmlType = 'button',
+  /** Button size */
+  size = 'default',
   /** Icon render handler */
   icon,
 }) => {
@@ -38,6 +41,7 @@ export const Button: FC<Props> = ({
       <StyledAnchor
         isDisabled={isDisabled}
         variant={variant}
+        size={size}
         href={href}
         target={target}
         onClick={(e: React.MouseEvent<HTMLElement>) =>
@@ -55,6 +59,7 @@ export const Button: FC<Props> = ({
       isDisabled={isDisabled}
       type={htmlType}
       variant={variant}
+      size={size}
       onClick={(e: React.MouseEvent<HTMLElement>) =>
         !isDisabled && onClick && onClick(e)
       }

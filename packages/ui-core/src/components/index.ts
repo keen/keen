@@ -6,6 +6,7 @@ import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
 import Badge from './badge';
 import Button from './button';
 import Loader from './loader';
+import FadeLoader from './fade-loader';
 import Card, { CardSettings } from './card';
 import { IntervalSlider, RangeSlider } from './slider';
 import { calculateIntervalValue } from './slider/utils';
@@ -41,6 +42,7 @@ export {
   Checkbox,
   ColorAdjuster,
   Error,
+  FadeLoader,
   Label,
   Loader,
   Group,
