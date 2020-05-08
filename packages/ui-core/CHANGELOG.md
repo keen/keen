@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.6.0...@keen.io/ui-core@0.6.1) (2020-05-08)
+
+
+### Bug Fixes
+
+* 🐛 handle click on pricing calculator ruler ([41cee2e](https://github.com/keen/keen/commit/41cee2e3e8ea52a7c2849286958a284a65212781))
+
+
+
+
+
 # [0.6.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.5.0...@keen.io/ui-core@0.6.0) (2020-05-07)
 
 
