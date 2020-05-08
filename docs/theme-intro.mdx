@@ -85,6 +85,7 @@ type Axis = {
   stroke: number;
   color: string;
   labels: Labels;
+  title: AxisTitle;
 };
 ```
 
@@ -123,6 +124,17 @@ type Labels = {
   enabled: boolean;
   typography: Typography;
   radiusAngle: number;
+};
+```
+
+## AxisTitle
+
+Generic `object` for styling axis title.
+
+```typescript
+type AxisTitle = {
+  alignment: 'top' | 'bottom' | 'left' | 'right' | 'center';
+  typography: Typography;
 };
 ```
 

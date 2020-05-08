@@ -33,9 +33,9 @@ export type Props = {
   xScaleSettings?: ScaleSettings;
   /** Y Scale settings */
   yScaleSettings?: ScaleSettings;
-  /** X axis title settings */
+  /** Title for X axis */
   xAxisTitle?: string;
-  /** Y axis title settings */
+  /** Title for Y axis */
   yAxisTitle?: string;
   /** Minimum area radius */
   minAreaRadius?: number;
