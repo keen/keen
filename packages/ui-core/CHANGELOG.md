@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.7.0...@keen.io/ui-core@0.8.0) (2020-05-08)
+
+
+### Features
+
+* 🎸 success callback ([d3db059](https://github.com/keen/keen/commit/d3db059f90a294934fe6fa81543920e3c528c521))
+
+
+
+
+
 # [0.7.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.6.1...@keen.io/ui-core@0.7.0) (2020-05-08)
 
 
