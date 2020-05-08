@@ -28,9 +28,9 @@ export type Props = {
   minValue?: number | 'auto';
   /** Maximum value for axis */
   maxValue?: number | 'auto';
-  /** X axis title settings */
+  /** Title for X axis */
   xAxisTitle?: string;
-  /** Y axis title settings */
+  /** Title for Y axis */
   yAxisTitle?: string;
   /** Keys picked from data object used to generate lines */
   keys?: string[];
