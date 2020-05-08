@@ -10,7 +10,7 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   font-family: 'Lato Bold',sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
-  border-radius: 22.5px;
+  border-radius: 25px;
   padding: 0 25px;
   height: 42px;
   outline: none;
