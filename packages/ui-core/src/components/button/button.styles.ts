@@ -38,7 +38,7 @@ const buttonMixin = () => css`
   font-family: 'Lato Bold', sans-serif;
   text-decoration: none;
 
-  border-radius: 22.5px;
+  border-radius: 25px;
   padding: 0 25px;
   height: 42px;
 

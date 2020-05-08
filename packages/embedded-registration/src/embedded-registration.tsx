@@ -19,11 +19,21 @@ class EmbeddedRegistration {
   /** API url  */
   private apiUrl: string;
 
-  constructor({ container, offerHandle, ctaLabel, apiUrl }: Options) {
+  /** Success callback handler  */
+  private onSuccess: () => void;
+
+  constructor({
+    container,
+    offerHandle,
+    ctaLabel,
+    apiUrl,
+    onSuccess,
+  }: Options) {
     this.container = container;
     this.offerHandle = offerHandle;
     this.ctaLabel = ctaLabel;
     this.apiUrl = apiUrl;
+    this.onSuccess = onSuccess;
   }
 
   render() {
@@ -41,6 +51,7 @@ class EmbeddedRegistration {
       >
         <App
           offerHandle={this.offerHandle}
+          onSuccessCallback={this.onSuccess}
           apiUrl={this.apiUrl}
           ctaLabel={this.ctaLabel}
         />

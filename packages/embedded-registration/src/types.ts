@@ -3,6 +3,7 @@ export type Options = {
   offerHandle: string;
   ctaLabel: string;
   apiUrl: string;
+  onSuccess: () => void;
 };
 
 export type FormValues = {
