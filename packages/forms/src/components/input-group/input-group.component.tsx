@@ -28,7 +28,7 @@ export const InputGroup = ({
   return (
     <>
       {label && (
-        <Label hasError={hasError} htmlFor={name}>
+        <Label hasError={hasError} htmlFor={props.name}>
           {label}
         </Label>
       )}
@@ -40,7 +40,7 @@ export const InputGroup = ({
         {...field}
       />
       <ErrorContainer>
-        {hasError && <Error data-error={name}>{meta.error}</Error>}
+        {hasError && <Error data-error={props.name}>{meta.error}</Error>}
       </ErrorContainer>
     </>
   );
