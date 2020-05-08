@@ -95,7 +95,11 @@ export const IntervalSlider: FC<Props> = ({
   }, [slider.current]);
 
   useEffect(() => {
-    if (dimension && initialValue && initialValue !== value) {
+    if (
+      dimension &&
+      typeof initialValue === 'number' &&
+      initialValue !== value
+    ) {
       const { index, offset } = getInitialOffset(
         initialValue,
         stepDimension,

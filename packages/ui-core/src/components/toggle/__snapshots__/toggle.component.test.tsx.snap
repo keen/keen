@@ -1,18 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Toggle /> should render Toggle component 1`] = `
+.c0 {
+  width: 60px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  background-color: rgba(225,226,228,0.7);
+  overflow: hidden;
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  background: #6C9A74;
+  box-sizing: border-box;
+  -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.c3 {
+  position: relative;
+  width: 60px;
+  height: 22px;
+  padding: 4px 10px;
+  border-radius: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.c4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border: 2px solid #487650;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
 <Toggle>
   <styled.div
     isDisabled={false}
     onClick={[Function]}
   >
     <div
-      className="sc-AxjAm bprqXP"
+      className="c0"
       onClick={[Function]}
     >
       <styled.div>
         <div
-          className="sc-AxirZ gDIZwG"
+          className="c1"
         >
           <Styled(Component)
             animate="off"
@@ -41,7 +105,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           >
             <ForwardRef(MotionComponent)
               animate="off"
-              className="sc-AxiKw gBECSS"
+              className="c2"
               initial="off"
               transition={
                 Object {
@@ -66,7 +130,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
               }
             >
               <div
-                className="sc-AxiKw gBECSS"
+                className="c2"
                 style={
                   Object {
                     "transform": "scaleX(0) translateZ(0)",
@@ -76,8 +140,22 @@ exports[`<Toggle /> should render Toggle component 1`] = `
               <Memo(MountComponent)
                 innerRef={
                   Object {
-                    "current": <div
-                      class="sc-AxiKw gBECSS"
+                    "current": .c0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  background: #6C9A74;
+  box-sizing: border-box;
+  -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center;
+}
+
+<div
+                      class="c0"
                       style="transform: scaleX(0) translateZ(0);"
                     />,
                   }
@@ -139,7 +217,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                     "overrides": Array [],
                     "props": Object {
                       "animate": "off",
-                      "className": "sc-AxiKw gBECSS",
+                      "className": "sc-AxiKw c2",
                       "initial": "off",
                       "transition": Object {
                         "duration": 0.3,
@@ -286,7 +364,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
       >
         <ForwardRef(MotionComponent)
           animate="off"
-          className="sc-AxhCb hoIqKA"
+          className="c3"
           initial="off"
           transition={
             Object {
@@ -308,7 +386,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           }
         >
           <div
-            className="sc-AxhCb hoIqKA"
+            className="c3"
             style={
               Object {
                 "color": "#4F5B5F",
@@ -321,8 +399,28 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           <Memo(MountComponent)
             innerRef={
               Object {
-                "current": <div
-                  class="sc-AxhCb hoIqKA"
+                "current": .c0 {
+  position: relative;
+  width: 60px;
+  height: 22px;
+  padding: 4px 10px;
+  border-radius: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+<div
+                  class="c0"
                   style="justify-content: flex-end; color: rgb(79, 91, 95);"
                 >
                   off
@@ -404,7 +502,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 "props": Object {
                   "animate": "off",
                   "children": "off",
-                  "className": "sc-AxhCb hoIqKA",
+                  "className": "sc-AxhCb c3",
                   "initial": "off",
                   "transition": Object {
                     "duration": 0.3,
@@ -590,7 +688,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
       >
         <ForwardRef(MotionComponent)
           animate="off"
-          className="sc-AxhUy gXjZGV"
+          className="c4"
           initial="off"
           transition={
             Object {
@@ -615,7 +713,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           }
         >
           <div
-            className="sc-AxhUy gXjZGV"
+            className="c4"
             style={
               Object {
                 "transform": "none",
@@ -625,8 +723,20 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           <Memo(MountComponent)
             innerRef={
               Object {
-                "current": <div
-                  class="sc-AxhUy gXjZGV"
+                "current": .c0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border: 2px solid #487650;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+<div
+                  class="c0"
                   style="transform: none;"
                 />,
               }
@@ -688,7 +798,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 "overrides": Array [],
                 "props": Object {
                   "animate": "off",
-                  "className": "sc-AxhUy gXjZGV",
+                  "className": "sc-AxhUy c4",
                   "initial": "off",
                   "transition": Object {
                     "duration": 0.3,
