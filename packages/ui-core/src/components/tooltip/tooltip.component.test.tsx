@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import 'jest-styled-components';
 
 import Tooltip from './tooltip.component';
 import BulletList from '../bullet-list';

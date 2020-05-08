@@ -70,3 +70,9 @@ export const StyledAnchor = styled.a<{
   ${buttonMixin()}
   ${variant(buttonVariants)}
 `;
+
+export const IconSocket = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+`;

@@ -41,6 +41,9 @@
   },
   "dependencies": {
     "@keen.io/ui-core": "^0.6.0",
+    "@keen.io/colors": "^0.1.2",
+    "@keen.io/icons": "^0.2.0",
+    "@keen.io/forms": "^0.0.4",
     "formik": "^2.1.4",
     "http-status-codes": "^1.4.0",
     "react": "^16.12.0",

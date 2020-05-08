@@ -5,5 +5,10 @@
     "outDir": "./dist"
   },
   "include": ["./src/**/*"],
-  "references": [{ "path": "../ui-core" }]
+  "references": [
+    { "path": "../ui-core" },
+    { "path": "../icons" },
+    { "path": "../colors" },
+    { "path": "../forms" }
+  ]
 }

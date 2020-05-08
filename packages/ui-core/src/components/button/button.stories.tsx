@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Icon } from '@keen.io/icons';
 import { action } from '@storybook/addon-actions';
 
 import { Button } from './button.component';
@@ -32,6 +33,24 @@ export const secondary = () => (
     Button
   </Button>
 );
+
+export const secondaryWithIcon = () => (
+  <Button
+    onClick={action('click')}
+    variant="secondary"
+    icon={<Icon type="button-arrow" width={32} height={32} />}
+  >
+    Button
+  </Button>
+);
+
+secondaryWithIcon.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Displays button with `<Icon />` component.',
+    },
+  },
+};
 
 export const secondaryButtonLink = () => (
   <Button href="https://keen.io" onClick={action('click')} variant="secondary">

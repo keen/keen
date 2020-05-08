@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { StyledButton, StyledAnchor } from './button.styles';
+import { StyledButton, StyledAnchor, IconSocket } from './button.styles';
 
 import { ButtonVariant } from './types';
 
@@ -12,6 +12,7 @@ type Props = {
   target?: string;
   htmlType?: 'button' | 'submit' | 'reset';
   onClick?: (e: React.SyntheticEvent) => void;
+  icon?: JSX.Element;
 };
 
 export const Button: FC<Props> = ({
@@ -29,6 +30,8 @@ export const Button: FC<Props> = ({
   isDisabled = false,
   /** HTML button element type */
   htmlType = 'button',
+  /** Icon render handler */
+  icon,
 }) => {
   if (href) {
     return (
@@ -42,6 +45,7 @@ export const Button: FC<Props> = ({
         }
       >
         {children}
+        {icon && <IconSocket>{icon}</IconSocket>}
       </StyledAnchor>
     );
   }
@@ -56,6 +60,7 @@ export const Button: FC<Props> = ({
       }
     >
       {children}
+      {icon && <IconSocket>{icon}</IconSocket>}
     </StyledButton>
   );
 };
