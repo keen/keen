@@ -15,9 +15,19 @@ import { FormValues } from './types';
 
 const REDIRECT_TIME = 4000;
 
-type Props = { apiUrl: string; offerHandle: string; ctaLabel: string };
+type Props = {
+  apiUrl: string;
+  offerHandle: string;
+  ctaLabel: string;
+  onSuccessCallback?: () => void;
+};
 
-export const App: FC<Props> = ({ apiUrl, ctaLabel, offerHandle }) => {
+export const App: FC<Props> = ({
+  apiUrl,
+  ctaLabel,
+  offerHandle,
+  onSuccessCallback,
+}) => {
   const [errorCode, setErrorCode] = useState(null);
   const [successRegisteration, setSuccessRegistration] = useState(false);
   const [registrationMeta, setRegistrationMeta] = useState({
@@ -32,6 +42,7 @@ export const App: FC<Props> = ({ apiUrl, ctaLabel, offerHandle }) => {
 
   const onSuccess = useCallback(
     (organizationId: string, companyDisclaimer: boolean) => {
+      if (onSuccessCallback) onSuccessCallback();
       setRegistrationMeta({ organizationId, companyDisclaimer });
       setSuccessRegistration(true);
       setTimeout(() => {
