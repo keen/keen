@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.2.2...@keen.io/pricing-calculator@0.2.3) (2020-05-08)
+
+
+### Bug Fixes
+
+* 🐛 handle click on pricing calculator ruler ([41cee2e](https://github.com/keen/keen/commit/41cee2e3e8ea52a7c2849286958a284a65212781))
+
+
+
+
+
 ## [0.2.2](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.2.1...@keen.io/pricing-calculator@0.2.2) (2020-05-07)
 
 **Note:** Version bump only for package @keen.io/pricing-calculator
