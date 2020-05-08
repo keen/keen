@@ -6,13 +6,12 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-size: 16px;
+  font-size: 15px;
   font-family: 'Lato Bold',sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   border-radius: 22.5px;
   padding: 0 25px;
-  height: 42px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -25,6 +24,7 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   background-color: #F0AB30;
   border-color: #F0AB30;
   color: #1D2729;
+  height: 42px;
 }
 
 .c0:focus {
@@ -42,12 +42,14 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   <styled.button
     isDisabled={false}
     onClick={[Function]}
+    size="default"
     type="button"
     variant="primary"
   >
     <button
       className="c0"
       onClick={[Function]}
+      size="default"
       type="button"
     >
       <span>

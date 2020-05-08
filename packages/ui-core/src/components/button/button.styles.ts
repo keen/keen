@@ -3,9 +3,9 @@ import { variant } from 'styled-system';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { ButtonVariant } from './types';
+import { ButtonVariant, ButtonSize } from './types';
 
-const buttonVariants = {
+const themeVariants = {
   prop: 'variant',
   variants: {
     primary: {
@@ -33,14 +33,25 @@ const buttonVariants = {
   },
 };
 
+const sizeVariants = {
+  prop: 'size',
+  variants: {
+    default: {
+      height: '42px',
+    },
+    large: {
+      height: '48px',
+    },
+  },
+};
+
 const buttonMixin = () => css`
-  font-size: 16px;
+  font-size: 15px;
   font-family: 'Lato Bold', sans-serif;
   text-decoration: none;
 
   border-radius: 22.5px;
   padding: 0 25px;
-  height: 42px;
 
   outline: none;
   border: none;
@@ -55,20 +66,24 @@ const buttonMixin = () => css`
 
 export const StyledButton = styled.button<{
   variant: ButtonVariant;
+  size: ButtonSize;
   isDisabled: boolean;
 }>`
   display: flex;
   ${buttonMixin()};
-  ${variant(buttonVariants)};
+  ${variant(themeVariants)};
+  ${variant(sizeVariants)};
 `;
 
 export const StyledAnchor = styled.a<{
   variant: ButtonVariant;
+  size: ButtonSize;
   isDisabled: boolean;
 }>`
   display: inline-flex;
   ${buttonMixin()}
-  ${variant(buttonVariants)}
+  ${variant(themeVariants)}
+  ${variant(sizeVariants)};
 `;
 
 export const IconSocket = styled.div`
