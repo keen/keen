@@ -14,6 +14,20 @@ export default {
 
 export const primary = () => <Button onClick={action('click')}>Button</Button>;
 
+export const primaryLarge = () => (
+  <Button onClick={action('click')} size="large">
+    Large Button
+  </Button>
+);
+
+primaryLarge.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Displays button with increased size.',
+    },
+  },
+};
+
 export const primaryButtonLink = () => (
   <Button href="https://keen.io" onClick={action('click')}>
     Link
