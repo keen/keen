@@ -7,7 +7,7 @@ import { textVariants } from '../theme';
 import { TextVariant, Typography } from '../types';
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
   color?: string;
   variant?: TextVariant;
 };
