@@ -27,4 +27,10 @@ export type IconType =
   | 'user-outline'
   | 'users-solid'
   | 'users-outline'
-  | 'line';
+  | 'line'
+  | 'churn-money-outline'
+  | 'churn-money-solid'
+  | 'churn-outline'
+  | 'churn-solid'
+  | 'money-outline'
+  | 'money-solid';
