@@ -1,21 +1,27 @@
 import Alert from './alert';
-import ColorAdjuster from './color-adjuster';
-import BulletList from './bullet-list';
-import Group from './group';
-import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
+import Anchor from './anchor';
 import Badge from './badge';
 import Button from './button';
+import BulletList from './bullet-list';
+import Card, { CardSettings } from './card';
+import Checkbox from './checkbox';
+import ColorAdjuster from './color-adjuster';
+import ColorScale from './color-scale';
+import ContentSeparator from './content-separator';
+import Group from './group';
+import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
+
 import Loader from './loader';
 import FadeLoader from './fade-loader';
-import Card, { CardSettings } from './card';
 import { IntervalSlider, RangeSlider } from './slider';
 import { calculateIntervalValue } from './slider/utils';
-import ColorScale from './color-scale';
+
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
 import Label from './label';
+import FakeInput from './fake-input';
 import Input from './input';
-import Checkbox from './checkbox';
+
 import PasswordInput from './password-input';
 import PasswordValidator from './password-validator';
 import Error from './error';
@@ -34,6 +40,7 @@ export { ARROW_SIZE, RESIZE_ELEMENT_WIDTH };
 
 export {
   Alert,
+  Anchor,
   Badge,
   Button,
   BulletList,
@@ -41,7 +48,9 @@ export {
   CardSettings,
   Checkbox,
   ColorAdjuster,
+  ContentSeparator,
   Error,
+  FakeInput,
   FadeLoader,
   Label,
   Loader,
