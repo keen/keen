@@ -11,6 +11,7 @@ export type IconType =
   | 'button-arrow'
   | 'brand'
   | 'check'
+  | 'close'
   | 'caret-down'
   | 'caret-up'
   | 'caret-left'
