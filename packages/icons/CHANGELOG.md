@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/icons@0.2.2...@keen.io/icons@0.3.0) (2020-05-11)
+
+
+### Features
+
+* 🎸 info icon ([77b362d](https://github.com/keen/keen/commit/77b362d7aa97af209913683066c2e53af50541c9))
+
+
+
+
+
 ## [0.2.2](https://github.com/keen/keen/compare/@keen.io/icons@0.2.1...@keen.io/icons@0.2.2) (2020-05-11)
 
 **Note:** Version bump only for package @keen.io/icons
