@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/keen/keen/compare/@keen.io/icons@0.3.0...@keen.io/icons@0.4.0) (2020-05-11)
+
+
+### Features
+
+* 🎸 extracted common components ([248b0c1](https://github.com/keen/keen/commit/248b0c18fe20b7958482d30d63055fcb64a4c015))
+
+
+
+
+
 # [0.3.0](https://github.com/keen/keen/compare/@keen.io/icons@0.2.2...@keen.io/icons@0.3.0) (2020-05-11)
 
 

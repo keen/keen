@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.9.0...@keen.io/ui-core@0.10.0) (2020-05-11)
+
+
+### Features
+
+* 🎸 extracted common components ([248b0c1](https://github.com/keen/keen/commit/248b0c18fe20b7958482d30d63055fcb64a4c015))
+
+
+
+
+
 # [0.9.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.8.1...@keen.io/ui-core@0.9.0) (2020-05-11)
 
 
