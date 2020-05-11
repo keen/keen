@@ -26,6 +26,7 @@ import ChurnOutline from './churn-outline.component';
 import ChurnSolid from './churn-solid.component';
 import MoneyOutline from './money-outline.component';
 import MoneySolid from './money-solid.component';
+import Info from './info.component';
 
 import { IconType } from '../types';
 
@@ -49,6 +50,8 @@ export const getIcon = (type: IconType) => {
       return Check;
     case 'line':
       return Line;
+    case 'info':
+      return Info;
     case 'brand':
       return Brand;
     case 'question-mark':
