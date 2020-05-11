@@ -28,6 +28,7 @@ export type IconType =
   | 'users-solid'
   | 'users-outline'
   | 'line'
+  | 'info'
   | 'churn-money-outline'
   | 'churn-money-solid'
   | 'churn-outline'
