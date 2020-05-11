@@ -20,6 +20,12 @@ import CursorSolid from './cursor-solid.component';
 import CursorOutline from './cursor-outline.component';
 import Check from './check.component';
 import Line from './line.component';
+import ChurnMoneyOutline from './churn-money-outline.component';
+import ChurnMoneySolid from './churn-money-solid.component';
+import ChurnOutline from './churn-outline.component';
+import ChurnSolid from './churn-solid.component';
+import MoneyOutline from './money-outline.component';
+import MoneySolid from './money-solid.component';
 
 import { IconType } from '../types';
 
@@ -69,5 +75,17 @@ export const getIcon = (type: IconType) => {
       return UsersSolid;
     case 'users-outline':
       return UsersOutline;
+    case 'churn-money-outline':
+      return ChurnMoneyOutline;
+    case 'churn-money-solid':
+      return ChurnMoneySolid;
+    case 'churn-outline':
+      return ChurnOutline;
+    case 'churn-solid':
+      return ChurnSolid;
+    case 'money-outline':
+      return MoneyOutline;
+    case 'money-solid':
+      return MoneySolid;
   }
 };
