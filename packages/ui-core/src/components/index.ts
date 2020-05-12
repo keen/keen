@@ -24,6 +24,7 @@ import Input from './input';
 
 import PasswordInput from './password-input';
 import PasswordValidator from './password-validator';
+import TagManager from './tag-manager';
 import Error from './error';
 
 import {
@@ -71,6 +72,7 @@ export {
   HeaderCeil,
   SortArrows,
   Sticky,
+  TagManager,
   DragLine,
   TableCell,
 };

@@ -5,7 +5,7 @@ const FakeInput = styled.div<{
   hasError?: boolean;
 }>`
   height: 42px;
-  border-bottom: solid 1px ${colors.blue['400']}
+  border-bottom: solid 1px ${colors.blue['400']};
   box-sizing: border-box;
 
   ${props =>
