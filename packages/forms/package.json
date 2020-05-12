@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/forms",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Keen form helpers",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@keen.io/colors": "^0.1.2",
-    "@keen.io/ui-core": "^0.10.0",
+    "@keen.io/ui-core": "^0.11.0",
     "formik": "^2.1.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
