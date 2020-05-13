@@ -328,18 +328,30 @@ export const lineChartPlot = () => (
   </div>
 );
 
-export const metricChartPlot = () => (
-  <div style={{ ...SVG_DIMENSION, height: 120 }}>
-    <MetricChart
-      labelSelector="day"
-      caption={'Metric caption'}
-      type={'percent'}
-      keys={['users']}
-      theme={keenTheme}
-      data={metricChartData}
-    />
-  </div>
-);
+export const metricChartPlot = () => {
+  const theme = {
+    ...keenTheme,
+    metric: {
+      ...keenTheme.metric,
+      icon: {
+        ...keenTheme.metric.icon,
+        enabled: true,
+      },
+    },
+  };
+  return (
+    <div style={{ ...SVG_DIMENSION, height: 120, overflow: 'hidden' }}>
+      <MetricChart
+        labelSelector="day"
+        caption={'Metric caption'}
+        type={'percent'}
+        keys={['users']}
+        theme={theme}
+        data={metricChartData}
+      />
+    </div>
+  );
+};
 
 export const pieChartPlot = () => (
   <div style={SVG_DIMENSION}>
