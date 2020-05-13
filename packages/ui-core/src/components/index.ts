@@ -21,6 +21,7 @@ import Ruler, { RulerTick } from './ruler';
 import Label from './label';
 import FakeInput from './fake-input';
 import Input from './input';
+import Image from './image';
 
 import PasswordInput from './password-input';
 import PasswordValidator from './password-validator';
@@ -57,6 +58,7 @@ export {
   Loader,
   Group,
   Input,
+  Image,
   Tooltip,
   TooltipMode,
   RangeSlider,

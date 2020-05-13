@@ -12,6 +12,8 @@ import {
   SortByType,
 } from './types';
 
+import { CDNContext } from './context';
+
 import {
   Anchor,
   Alert,
@@ -30,6 +32,7 @@ import {
   FadeLoader,
   FakeInput,
   HeaderCeil,
+  Image,
   Label,
   Loader,
   Input,
@@ -66,6 +69,7 @@ export {
   Card,
   Ceil,
   CardSettings,
+  CDNContext,
   Checkbox,
   DragLine,
   Error,
@@ -75,6 +79,7 @@ export {
   Text,
   RefText,
   Group,
+  Image,
   Label,
   Loader,
   FontLoader,

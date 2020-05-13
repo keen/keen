@@ -3,5 +3,14 @@ import ErrorContainer from './error-container';
 import Form from './form';
 import InputGroup from './input-group';
 import FakeInput from './fake-input';
+import { CreditCard, CreditCardFields } from './credit-card';
 
-export { ErrorContainer, FakeInput, Form, FieldGroup, InputGroup };
+export {
+  CreditCard,
+  CreditCardFields,
+  ErrorContainer,
+  FakeInput,
+  Form,
+  FieldGroup,
+  InputGroup,
+};

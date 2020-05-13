@@ -10,7 +10,7 @@ It allows to seamlessly embed and deliver metrics within your user interface wit
 For Front-End applications use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager.
 
 ```sh
-yarn install @keen.io/dataviz
+yarn add @keen.io/dataviz
 ```
 
 For direct website integration embed a script with `@keen.io/dataviz` that is hosted on CDN.
