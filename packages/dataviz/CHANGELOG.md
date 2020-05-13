@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/keen/keen/compare/@keen.io/dataviz@0.4.9...@keen.io/dataviz@0.5.0) (2020-05-13)
+
+
+### Features
+
+* 🎸 credit card form ([59bdce2](https://github.com/keen/keen/commit/59bdce2128bd44cb16cd5b43312c65ecef6ffe4b))
+
+
+
+
+
 ## [0.4.9](https://github.com/keen/keen/compare/@keen.io/dataviz@0.4.8...@keen.io/dataviz@0.4.9) (2020-05-12)
 
 **Note:** Version bump only for package @keen.io/dataviz

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/forms@0.1.5...@keen.io/forms@0.2.0) (2020-05-13)
+
+
+### Features
+
+* 🎸 credit card form ([59bdce2](https://github.com/keen/keen/commit/59bdce2128bd44cb16cd5b43312c65ecef6ffe4b))
+
+
+
+
+
 ## [0.1.5](https://github.com/keen/keen/compare/@keen.io/forms@0.1.4...@keen.io/forms@0.1.5) (2020-05-12)
 
 **Note:** Version bump only for package @keen.io/forms
