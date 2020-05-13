@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Layout, Typography, Position, CardSettings } from '@keen.io/ui-core';
 
+import { OTHERS_DATA_KEY } from '../../../utils';
+
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
 
@@ -39,7 +41,7 @@ export const SeriesLegend: FC<Props> = ({
         typography={typography}
         markColor={color}
         onClick={(disabled: boolean) => onClick(name, disabled, idx)}
-        text={name}
+        text={Array.isArray(name) ? OTHERS_DATA_KEY : name}
       />
     </SingleSerie>
   ));

@@ -77,10 +77,18 @@ Array [
     "value": 3,
   },
   Object {
-    "color": "green",
-    "selector": Array [
-      4,
+    "color": "#CDCFD3",
+    "dataKey": "Others",
+    "selector": Array [],
+    "stack": Array [
+      Object {
+        "color": "green",
+        "selector": Array [
+          4,
+        ],
+      },
     ],
+    "stacked": true,
     "value": 2,
   },
 ]

@@ -1,9 +1,13 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 
-import { generateCircularChart, LabelsPosition } from '../../utils';
-import { getTooltipContent } from '../../utils/tooltip.utils';
+import {
+  generateCircularChart,
+  LabelsPosition,
+  calculateTotalValue,
+} from '../../utils';
+import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
 
 import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
@@ -41,6 +45,8 @@ export type Props = {
   labelsAutocolor?: boolean;
   /** Stack the arcs if percent value is lower than provided treshold */
   stackTreshold?: number;
+  /** Return dataKeys after stacking */
+  onChange?: (res: any) => void;
 } & CommonChartSettings;
 
 export const tooltipMotion = {
@@ -64,8 +70,15 @@ export const DonutChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
+  onChange,
 }) => {
-  const { total: totalValue, arcs, drawArc } = generateCircularChart({
+  const [treshold, setTreshold] = useState(0);
+  if (!treshold && stackTreshold) {
+    const total = calculateTotalValue(data, labelSelector, keys);
+    setTreshold(total * (stackTreshold / 100));
+  }
+
+  const { total: totalValue, arcs, drawArc, dataKeys } = generateCircularChart({
     data,
     margins,
     padAngle,
@@ -80,8 +93,12 @@ export const DonutChart: FC<Props> = ({
     dimension: svgDimensions,
     colors: theme.colors,
     type: 'donut',
-    stackTreshold,
+    treshold,
   });
+
+  useEffect(() => {
+    onChange(dataKeys);
+  }, []);
 
   const svgElement = useRef(null);
 
@@ -119,11 +136,12 @@ export const DonutChart: FC<Props> = ({
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
                 <BulletList
-                  list={getTooltipContent({
+                  list={getCircularChartTooltipContent({
                     data,
                     keys,
                     labelSelector,
                     selectors: tooltipSelectors,
+                    disabledLabels,
                   })}
                   typography={tooltipSettings.labels.typography}
                 />

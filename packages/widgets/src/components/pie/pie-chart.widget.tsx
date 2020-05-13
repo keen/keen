@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   PieChart,
   PieChartSettings,
@@ -35,6 +35,8 @@ export const PieChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
+  const [dataKeys, setDataKeys] = useState([]);
+
   return (
     <ChartWidget
       cardSettings={card}
@@ -53,7 +55,7 @@ export const PieChartWidget: FC<Props> = ({
             {...legend}
             onClick={updateKeys}
             labels={createLegendLabels(
-              props.data,
+              dataKeys,
               theme.colors,
               props.labelSelector
             )}
@@ -65,6 +67,7 @@ export const PieChartWidget: FC<Props> = ({
           {(width: number, height: number) => (
             <PieChart
               {...props}
+              onChange={res => setDataKeys(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
               theme={theme}

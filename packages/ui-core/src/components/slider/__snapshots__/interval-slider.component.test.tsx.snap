@@ -170,13 +170,11 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
         }
       >
         <div
-          draggable={false}
           style={
             Object {
               "display": "inline-block",
               "position": "absolute",
               "transform": "none",
-              "userSelect": "none",
               "zIndex": 1,
             }
           }
@@ -262,8 +260,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
 }
 
 <div
-                draggable="false"
-                style="display: inline-block; position: absolute; z-index: 1; transform: none; user-select: none;"
+                style="display: inline-block; position: absolute; z-index: 1; transform: none;"
               >
                 <div
                   class="c0"
@@ -417,8 +414,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           innerRef={
             Object {
               "current": <div
-                draggable="false"
-                style="display: inline-block; position: absolute; z-index: 1; transform: none; user-select: none;"
+                style="display: inline-block; position: absolute; z-index: 1; transform: none;"
               >
                 <div
                   class="c1"

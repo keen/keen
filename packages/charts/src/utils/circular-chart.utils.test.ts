@@ -1,6 +1,8 @@
 import {
   generateCircularChart,
   createStackedSlice,
+  calculateTresholdPercent,
+  calculateTotalValue,
 } from './circular-chart.utils';
 
 import { pieChart } from '../charts/pie/pie-chart.fixtures';
@@ -28,6 +30,24 @@ describe('@keen/charts - circular chart utils', () => {
     });
   });
 
+  describe('calculateTresholdPercent()', () => {
+    it('should return 50', () => {
+      const result = calculateTresholdPercent(100, 50);
+
+      expect(result).toEqual(50);
+    });
+    it('should return 25', () => {
+      const result = calculateTresholdPercent(12, 3);
+
+      expect(result).toEqual(25);
+    });
+    it('should return 100', () => {
+      const result = calculateTresholdPercent(5, 5);
+
+      expect(result).toEqual(100);
+    });
+  });
+
   describe('generateCircularChart()', () => {
     it('should create arcs based on provided data', () => {
       const { arcs } = generateCircularChart(pieChart);
@@ -49,6 +69,18 @@ describe('@keen/charts - circular chart utils', () => {
       });
 
       expect(arcs).toMatchSnapshot();
+    });
+  });
+
+  describe('NcalculateTotalValue()', () => {
+    it('should return ', () => {
+      const result = calculateTotalValue(
+        pieChart.data,
+        pieChart.labelSelector,
+        pieChart.keys
+      );
+
+      expect(result).toEqual(166);
     });
   });
 });

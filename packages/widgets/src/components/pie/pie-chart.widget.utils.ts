@@ -1,3 +1,5 @@
+import { colors as palette } from '@keen.io/colors';
+
 export const createLegendLabels = (
   data: Record<string, any>[],
   colors: string[],
@@ -5,5 +7,5 @@ export const createLegendLabels = (
 ) =>
   data.map((item, idx) => ({
     name: item[labelSelector],
-    color: colors[idx],
+    color: Array.isArray(item[labelSelector]) ? palette.gray[500] : colors[idx],
   }));

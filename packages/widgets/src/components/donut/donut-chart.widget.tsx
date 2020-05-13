@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   DonutChart,
   DonutChartSettings,
@@ -35,6 +35,8 @@ export const DonutChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
+  const [dataKeys, setDataKeys] = useState([]);
+
   return (
     <ChartWidget
       cardSettings={card}
@@ -53,7 +55,7 @@ export const DonutChartWidget: FC<Props> = ({
             {...legend}
             onClick={updateKeys}
             labels={createLegendLabels(
-              props.data,
+              dataKeys,
               theme.colors,
               props.labelSelector
             )}
@@ -65,6 +67,7 @@ export const DonutChartWidget: FC<Props> = ({
           {(width: number, height: number) => (
             <DonutChart
               {...props}
+              onChange={res => setDataKeys(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
               theme={theme}
