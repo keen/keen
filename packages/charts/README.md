@@ -12,7 +12,7 @@ Charts plots theme could be fully customized by providing `theme` object. Each o
 For Front-End applications use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager.
 
 ```sh
-yarn install @keen.io/charts
+yarn add @keen.io/charts
 ```
 
 ## Examples

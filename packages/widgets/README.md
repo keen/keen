@@ -10,7 +10,7 @@ that could be used to interact with charts plots.
 For Front-End applications use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager.
 
 ```sh
-yarn install @keen.io/widgets
+yarn add @keen.io/widgets
 ```
 
 ## Examples
