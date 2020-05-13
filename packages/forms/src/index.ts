@@ -1,4 +1,6 @@
 import {
+  CreditCard,
+  CreditCardFields,
   FieldGroup,
   ErrorContainer,
   InputGroup,
@@ -6,4 +8,12 @@ import {
   FakeInput,
 } from './components';
 
-export { FieldGroup, ErrorContainer, InputGroup, Form, FakeInput };
+export {
+  CreditCard,
+  CreditCardFields,
+  FieldGroup,
+  ErrorContainer,
+  InputGroup,
+  Form,
+  FakeInput,
+};
