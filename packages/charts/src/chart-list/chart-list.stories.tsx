@@ -281,7 +281,7 @@ export const gaugeChartPlot = () => (
       maxValue={200}
       theme={keenTheme}
       svgDimensions={SVG_DIMENSION}
-      margins={{ top: 10, right: 10, bottom: 10, left: 10 }}
+      margins={{ top: 0, right: 0, bottom: 0, left: 0 }}
     />
   </div>
 );
