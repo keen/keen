@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/forms@0.2.0...@keen.io/forms@0.3.0) (2020-05-13)
+
+
+### Features
+
+* 🎸 form exports ([2e5f6dd](https://github.com/keen/keen/commit/2e5f6ddbce9265f0640b5e06bb9dafd88d65d134))
+
+
+
+
+
 # [0.2.0](https://github.com/keen/keen/compare/@keen.io/forms@0.1.5...@keen.io/forms@0.2.0) (2020-05-13)
 
 
