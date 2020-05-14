@@ -23,7 +23,7 @@ import { fetchMapTopology } from '../charts/choropleth/utils';
 
 import { theme as keenTheme } from '../theme';
 
-const DIMENSION = { width: 480, height: 240 };
+const DIMENSION = { width: 480, height: 315 };
 const SVG_DIMENSION = { width: DIMENSION.width, height: DIMENSION.height };
 
 const barChartData = [
@@ -110,6 +110,18 @@ const tableChartData = [
     referrer: 'facebook/cpc',
     price: 0.5,
     city: 'Shenyang',
+  },
+  {
+    platform: 'Web',
+    referrer: 'facebook/cpc',
+    price: 0.5,
+    city: 'Shenyang',
+  },
+  {
+    platform: 'Web',
+    referrer: 'google/ads',
+    price: 0.5,
+    city: 'Parsons',
   },
 ];
 
@@ -228,11 +240,11 @@ export const donutChartPlot = () => (
 );
 
 export const funnelChartPlot = () => (
-  <div style={{ width: 410, height: 200, marginLeft: 20, marginRight: 20 }}>
+  <div style={{ width: 410, height: 275, marginLeft: 20, marginRight: 20 }}>
     <FunnelChart
       labelSelector="name"
       layout={'vertical'}
-      svgDimensions={{ width: 410, height: 200 }}
+      svgDimensions={{ width: 410, height: 275 }}
       margins={{ top: 0, right: 0, bottom: 0, left: 0 }}
       theme={keenTheme}
       data={funnelChartData}
