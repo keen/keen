@@ -136,7 +136,7 @@ export const barChartPlot = () => (
       svgDimensions={SVG_DIMENSION}
       labelSelector="name"
       theme={keenTheme}
-      margins={{ top: 20, right: 0, bottom: 25, left: 25 }}
+      margins={{ top: 20, right: 25, bottom: 25, left: 25 }}
       layout="vertical"
       minValue="auto"
       maxValue="auto"
@@ -171,7 +171,7 @@ export const areaChartPlot = () => (
       }}
       gradient={true}
       svgDimensions={SVG_DIMENSION}
-      margins={{ top: 25, right: 20, bottom: 30, left: 25 }}
+      margins={{ top: 25, right: 25, bottom: 30, left: 25 }}
       theme={keenTheme}
       data={areaChartData}
     />
@@ -301,8 +301,8 @@ export const lineChartPlot = () => (
       strokeWidth={2}
       curve={'spline'}
       gradient={true}
-      svgDimensions={{ ...SVG_DIMENSION, width: 440 }}
-      margins={{ top: 25, right: 0, bottom: 30, left: 25 }}
+      svgDimensions={SVG_DIMENSION}
+      margins={{ top: 25, right: 25, bottom: 30, left: 25 }}
       theme={keenTheme}
       data={areaChartData}
     />
