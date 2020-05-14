@@ -15,21 +15,62 @@ import { MetricChart } from '../charts/metric/metric-chart.component';
 import { PieChart } from '../charts/pie/pie-chart.component';
 import TableChart from '../charts/table/table-chart.component';
 
-import { chartData as barChartData } from '../charts/bar/bar-chart.fixtures';
-import { chartData as areaChartData } from '../charts/line/line-chart.fixtures';
-import { chartData as bubbleChartData } from '../charts/bubble/bubble-chart.fixtures';
 import { chartData as choroplethChartData } from '../charts/choropleth/choropleth-chart.fixtures';
 import { chartData as gaugeChartData } from '../charts/gauge/gauge-chart.fixtures';
-import { chartData as heatmapChartData } from '../charts/heatmap/heatmap-chart.fixtures';
-import { chartData as lineChartData } from '../charts/line/line-chart.fixtures';
 import { chartData as metricChartData } from '../charts/metric/metric-chart.fixtures';
 
 import { fetchMapTopology } from '../charts/choropleth/utils';
 
 import { theme as keenTheme } from '../theme';
 
-const DIMENSION = { width: 480, height: 200 };
+const DIMENSION = { width: 480, height: 240 };
 const SVG_DIMENSION = { width: DIMENSION.width, height: DIMENSION.height };
+
+const barChartData = [
+  { name: 'Windows', users: 3, licenses: 5, shops: 40 },
+  { name: 'MacOS', users: 5, licenses: 10, shops: 20 },
+  { name: 'Linux', users: 10, licenses: 20, shops: 10 },
+];
+
+const areaChartData = [
+  {
+    name: '2020-01-01T00:00:00.000Z',
+    licenses: 10,
+    shops: 10,
+    books: 30,
+  },
+  {
+    name: '2020-02-01T00:00:00.000Z',
+    licenses: 40,
+    shops: 20,
+    books: 10,
+  },
+  {
+    name: '2020-03-01T00:00:00.000Z',
+    licenses: 15,
+    shops: 25,
+    books: 35,
+  },
+  {
+    name: '2020-04-01T00:00:00.000Z',
+    licenses: 40,
+    shops: 10,
+    books: 20,
+  },
+];
+
+const bubbleChartData = [
+  { channel: 'Facebook', cost: 310, conversion: 352, users: 350 },
+  { channel: 'Linkedin', cost: 210, conversion: 82, users: 100 },
+  { channel: 'Google', cost: 350, conversion: 125, users: 120 },
+  { channel: 'Youtube', cost: 150, conversion: 320, users: 220 },
+];
+
+const heatmapChartData = [
+  { name: 'Windows', users: 3, licenses: 52, shops: 12 },
+  { name: 'MacOS', users: 19, licenses: 82, shops: 15 },
+  { name: 'Linux', users: 20, licenses: 15, shops: 23 },
+];
 
 const funnelChartData = [
   { name: 'Logins', value: 5900 },
@@ -70,78 +111,6 @@ const tableChartData = [
     price: 0.5,
     city: 'Shenyang',
   },
-  {
-    platform: 'Web',
-    referrer: 'google/ads',
-    price: 0.5,
-    city: 'Parsons',
-  },
-  {
-    platform: 'Mobile',
-    referrer: 'google/ads',
-    price: 2.5,
-    city: 'Shenyang',
-  },
-  {
-    platform: 'Web',
-    referrer: 'google/ads',
-    price: 0.5,
-    city: 'Parsons',
-  },
-  {
-    platform: 'Mobile',
-    referrer: 'facebook/cpc',
-    price: 10.5,
-    city: 'Parsons',
-  },
-  {
-    platform: 'Web',
-    referrer: 'google/ads',
-    price: 0.5,
-    city: 'Shenyang',
-  },
-  {
-    platform: 'Mobile',
-    referrer: 'google/ads',
-    price: 0.5,
-    city: 'Parsons',
-  },
-  {
-    platform: 'Web',
-    referrer: 'google/ads',
-    price: 1.5,
-    city: 'Shenyang',
-  },
-  {
-    platform: 'Web',
-    referrer: 'facebook/cpc',
-    price: 0.5,
-    city: 'Shenyang',
-  },
-  {
-    platform: 'Web',
-    referrer: 'google/ads',
-    price: 0.5,
-    city: 'Parsons',
-  },
-  {
-    platform: 'Mobile',
-    referrer: 'google/ads',
-    price: 2.5,
-    city: 'Shenyang',
-  },
-  {
-    platform: 'Web',
-    referrer: 'google/ads',
-    price: 0.5,
-    city: 'Parsons',
-  },
-  {
-    platform: 'Mobile',
-    referrer: 'facebook/cpc',
-    price: 10.5,
-    city: 'Parsons',
-  },
 ];
 
 export default {
@@ -155,7 +124,7 @@ export const barChartPlot = () => (
       svgDimensions={SVG_DIMENSION}
       labelSelector="name"
       theme={keenTheme}
-      margins={{ top: 50, right: 20, bottom: 60, left: 65 }}
+      margins={{ top: 20, right: 0, bottom: 25, left: 25 }}
       layout="vertical"
       minValue="auto"
       maxValue="auto"
@@ -190,7 +159,7 @@ export const areaChartPlot = () => (
       }}
       gradient={true}
       svgDimensions={SVG_DIMENSION}
-      margins={{ top: 50, right: 30, bottom: 60, left: 60 }}
+      margins={{ top: 25, right: 20, bottom: 30, left: 25 }}
       theme={keenTheme}
       data={areaChartData}
     />
@@ -207,7 +176,7 @@ export const bubbleChartPlot = () => (
       minAreaRadius={5}
       maxAreaRadius={40}
       svgDimensions={SVG_DIMENSION}
-      margins={{ top: 50, right: 40, bottom: 60, left: 80 }}
+      margins={{ top: 20, right: 50, bottom: 30, left: 40 }}
       theme={keenTheme}
       data={bubbleChartData}
     />
@@ -235,7 +204,7 @@ export const choroplethChartPlot = () => {
         topology={topology}
         projectionScale={100}
         svgDimensions={SVG_DIMENSION}
-        margins={{ top: 50, right: 20, bottom: 50, left: 40 }}
+        margins={{ top: 0, right: 0, bottom: 0, left: 0 }}
         theme={keenTheme}
         data={choroplethChartData}
       />
@@ -259,11 +228,11 @@ export const donutChartPlot = () => (
 );
 
 export const funnelChartPlot = () => (
-  <div style={SVG_DIMENSION}>
+  <div style={{ width: 410, height: 200, marginLeft: 20, marginRight: 20 }}>
     <FunnelChart
       labelSelector="name"
       layout={'vertical'}
-      svgDimensions={SVG_DIMENSION}
+      svgDimensions={{ width: 410, height: 200 }}
       margins={{ top: 0, right: 0, bottom: 0, left: 0 }}
       theme={keenTheme}
       data={funnelChartData}
@@ -296,7 +265,7 @@ export const heatmapChartPlot = () => (
       labelSelector="name"
       keys={['users', 'licenses', 'shops']}
       svgDimensions={SVG_DIMENSION}
-      margins={{ top: 10, right: 10, bottom: 40, left: 80 }}
+      margins={{ top: 15, right: 40, bottom: 40, left: 60 }}
       theme={keenTheme}
       data={heatmapChartData}
     />
@@ -320,33 +289,23 @@ export const lineChartPlot = () => (
       strokeWidth={2}
       curve={'spline'}
       gradient={true}
-      svgDimensions={SVG_DIMENSION}
-      margins={{ top: 50, right: 30, bottom: 60, left: 60 }}
+      svgDimensions={{ ...SVG_DIMENSION, width: 440 }}
+      margins={{ top: 25, right: 0, bottom: 30, left: 25 }}
       theme={keenTheme}
-      data={lineChartData}
+      data={areaChartData}
     />
   </div>
 );
 
 export const metricChartPlot = () => {
-  const theme = {
-    ...keenTheme,
-    metric: {
-      ...keenTheme.metric,
-      icon: {
-        ...keenTheme.metric.icon,
-        enabled: true,
-      },
-    },
-  };
   return (
-    <div style={{ ...SVG_DIMENSION, height: 120, overflow: 'hidden' }}>
+    <div style={{ width: 140, height: 120, overflow: 'hidden' }}>
       <MetricChart
         labelSelector="day"
         caption={'Metric caption'}
         type={'percent'}
         keys={['users']}
-        theme={theme}
+        theme={keenTheme}
         data={metricChartData}
       />
     </div>
