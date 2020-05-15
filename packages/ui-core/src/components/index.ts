@@ -22,6 +22,7 @@ import Ruler, { RulerTick } from './ruler';
 import Label from './label';
 import FakeInput from './fake-input';
 import Input from './input';
+import Select from './select';
 import Image from './image';
 
 import PasswordInput from './password-input';
@@ -59,6 +60,7 @@ export {
   Loader,
   Group,
   Input,
+  Select,
   Image,
   Tooltip,
   Modal,
