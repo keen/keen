@@ -11,6 +11,7 @@ import ContentSeparator from './content-separator';
 import Group from './group';
 import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
 
+import Modal from './modal';
 import Loader from './loader';
 import FadeLoader from './fade-loader';
 import { IntervalSlider, RangeSlider } from './slider';
@@ -60,6 +61,7 @@ export {
   Input,
   Image,
   Tooltip,
+  Modal,
   TooltipMode,
   RangeSlider,
   IntervalSlider,
