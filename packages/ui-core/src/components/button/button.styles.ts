@@ -30,6 +30,16 @@ const themeVariants = {
         backgroundColor: colors.blue['400'],
       },
     },
+    success: {
+      backgroundColor: colors.green['300'],
+      borderColor: colors.green['300'],
+      color: colors.white['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: colors.green['400'],
+      },
+    },
   },
 };
 

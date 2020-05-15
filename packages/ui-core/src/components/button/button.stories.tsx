@@ -48,6 +48,12 @@ export const secondary = () => (
   </Button>
 );
 
+export const success = () => (
+  <Button onClick={action('click')} variant="success">
+    Button
+  </Button>
+);
+
 export const secondaryWithIcon = () => (
   <Button
     onClick={action('click')}
