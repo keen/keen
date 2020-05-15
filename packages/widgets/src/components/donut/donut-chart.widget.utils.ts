@@ -1,4 +1,5 @@
 import { OTHERS_DATA_KEY } from '@keen.io/charts';
+import { colors as pallete } from '@keen.io/colors';
 
 export const createLegendLabels = (
   data: Record<string, any>[],
@@ -16,7 +17,7 @@ export const createLegendLabels = (
   if (stackElem) {
     labels.push({
       name: OTHERS_DATA_KEY,
-      color: colors[labels.length],
+      color: pallete.gray[500],
     });
   }
 

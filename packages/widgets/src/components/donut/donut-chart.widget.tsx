@@ -5,6 +5,7 @@ import {
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
+  OTHERS_DATA_KEY,
 } from '@keen.io/charts';
 
 import WidgetHeading from '../widget-heading.component';
@@ -53,7 +54,13 @@ export const DonutChartWidget: FC<Props> = ({
         <LegendSocket>
           <SeriesLegend
             {...legend}
-            onClick={updateKeys}
+            onClick={(key, disabled) => {
+              if (key === OTHERS_DATA_KEY) {
+                stackedElem.forEach(el => updateKeys(el, disabled));
+              } else {
+                updateKeys(key, disabled);
+              }
+            }}
             labels={createLegendLabels(
               props.data,
               theme.colors,
