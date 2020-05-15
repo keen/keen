@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.12.0...@keen.io/ui-core@0.13.0) (2020-05-15)
+
+
+### Features
+
+* 🎸 modal component ([61798a4](https://github.com/keen/keen/commit/61798a480617f4683c8649ad655770a10bcc9aa7))
+
+
+
+
+
 # [0.12.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.11.0...@keen.io/ui-core@0.12.0) (2020-05-13)
 
 
