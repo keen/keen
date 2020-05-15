@@ -11,7 +11,7 @@ export type Props = {
   options: Record<string, string>[];
   placeholder: string;
   value: any;
-  onChange: (value: any, meta: ActionMeta) => void;
+  onChange: (value: any, meta: ActionMeta<any>) => void;
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void;
   hasError?: boolean;
 };
