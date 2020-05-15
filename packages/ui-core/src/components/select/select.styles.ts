@@ -32,29 +32,29 @@ export const createStyles = (hasError: boolean) => ({
   }),
   noOptionsMessage: (provided: object) => ({
     ...provided,
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: "'Lato Regular', sans-serif",
   }),
   option: (provided: object) => ({
     ...provided,
     fontSize: '16px',
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: "'Lato Regular', sans-serif",
   }),
   singleValue: (provided: object) => ({
     ...provided,
     fontSize: '16px',
     padding: '0 8px',
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: "'Lato Regular', sans-serif",
   }),
   placeholder: (provided: object) => ({
     ...provided,
     fontSize: '16px',
     padding: '0 8px',
     color: '#ccc',
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: "'Lato Regular', sans-serif",
   }),
   input: (provided: object) => ({
     ...provided,
     margin: '0 8px',
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: "'Lato Regular', sans-serif",
   }),
 });
