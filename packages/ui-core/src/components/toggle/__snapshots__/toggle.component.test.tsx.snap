@@ -15,8 +15,8 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   width: 60px;
   height: 22px;
   border-radius: 22px;
-  background-color: rgba(225,226,228,0.7);
   overflow: hidden;
+  background-color: rgba(225,226,228,0.7);
 }
 
 .c2 {
@@ -26,11 +26,11 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   width: 60px;
   height: 22px;
   border-radius: 22px;
-  background: #6C9A74;
   box-sizing: border-box;
   -webkit-transform-origin: left center;
   -ms-transform-origin: left center;
   transform-origin: left center;
+  background-color: #6C9A74;
 }
 
 .c3 {
@@ -59,10 +59,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   left: 0;
   height: 22px;
   width: 22px;
-  border: 2px solid #487650;
-  background-color: #FFFFFF;
   border-radius: 50%;
   box-sizing: border-box;
+  background-color: #FFFFFF;
+  border: 2px solid #487650;
 }
 
 <Toggle>
@@ -74,7 +74,9 @@ exports[`<Toggle /> should render Toggle component 1`] = `
       className="c0"
       onClick={[Function]}
     >
-      <styled.div>
+      <styled.div
+        variant="primary"
+      >
         <div
           className="c1"
         >
@@ -92,6 +94,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 ],
               }
             }
+            variant="primary"
             variants={
               Object {
                 "off": Object {
@@ -118,6 +121,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                   ],
                 }
               }
+              variant="primary"
               variants={
                 Object {
                   "off": Object {
@@ -147,11 +151,11 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   width: 60px;
   height: 22px;
   border-radius: 22px;
-  background: #6C9A74;
   box-sizing: border-box;
   -webkit-transform-origin: left center;
   -ms-transform-origin: left center;
   transform-origin: left center;
+  background-color: #6C9A74;
 }
 
 <div
@@ -228,6 +232,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                           1.55,
                         ],
                       },
+                      "variant": "primary",
                       "variants": Object {
                         "off": Object {
                           "scaleX": 0,
@@ -675,6 +680,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
             ],
           }
         }
+        variant="primary"
         variants={
           Object {
             "off": Object {
@@ -701,6 +707,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
               ],
             }
           }
+          variant="primary"
           variants={
             Object {
               "off": Object {
@@ -729,10 +736,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   left: 0;
   height: 22px;
   width: 22px;
-  border: 2px solid #487650;
-  background-color: #FFFFFF;
   border-radius: 50%;
   box-sizing: border-box;
+  background-color: #FFFFFF;
+  border: 2px solid #487650;
 }
 
 <div
@@ -809,6 +816,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                       1.55,
                     ],
                   },
+                  "variant": "primary",
                   "variants": Object {
                     "off": Object {
                       "x": 0,
