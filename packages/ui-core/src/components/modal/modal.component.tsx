@@ -11,8 +11,8 @@ import Card from '../card';
 import { ClosableIndicator } from './types';
 
 const modalMotion = {
-  initial: { y: 20, x: '-50%', opaicty: 0 },
-  animate: { y: 0, opaicty: 1 },
+  initial: { y: 20, x: '-50%', opacity: 0 },
+  animate: { y: 0, opacity: 1 },
   exit: { opacity: 0 },
 };
 
