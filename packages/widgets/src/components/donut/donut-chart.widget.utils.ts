@@ -1,11 +1,24 @@
-import { colors as palette } from '@keen.io/colors';
+import { OTHERS_DATA_KEY } from '@keen.io/charts';
 
 export const createLegendLabels = (
   data: Record<string, any>[],
   colors: string[],
-  labelSelector: string
-) =>
-  data.map((item, idx) => ({
-    name: item[labelSelector],
-    color: Array.isArray(item[labelSelector]) ? palette.gray[500] : colors[idx],
-  }));
+  labelSelector: string,
+  stackElem: string[]
+) => {
+  const labels = data
+    .filter(item => !stackElem.includes(item.name))
+    .map((item, idx) => ({
+      name: item[labelSelector],
+      color: colors[idx],
+    }));
+
+  if (stackElem) {
+    labels.push({
+      name: OTHERS_DATA_KEY,
+      color: colors[labels.length],
+    });
+  }
+
+  return labels;
+};

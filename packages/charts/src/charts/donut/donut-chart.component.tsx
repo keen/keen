@@ -46,7 +46,7 @@ export type Props = {
   /** Stack the arcs if percent value is lower than provided treshold */
   stackTreshold?: number;
   /** Return dataKeys after stacking */
-  onChange?: (res: any) => void;
+  onDataStack?: (res: any) => void;
 } & CommonChartSettings;
 
 export const tooltipMotion = {
@@ -70,7 +70,7 @@ export const DonutChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
-  onChange,
+  onDataStack,
 }) => {
   const [treshold, setTreshold] = useState(0);
   if (!treshold && stackTreshold) {
@@ -78,7 +78,12 @@ export const DonutChart: FC<Props> = ({
     setTreshold(total * (stackTreshold / 100));
   }
 
-  const { total: totalValue, arcs, drawArc, dataKeys } = generateCircularChart({
+  const {
+    total: totalValue,
+    arcs,
+    drawArc,
+    stackedElem,
+  } = generateCircularChart({
     data,
     margins,
     padAngle,
@@ -97,7 +102,7 @@ export const DonutChart: FC<Props> = ({
   });
 
   useEffect(() => {
-    onChange(dataKeys);
+    onDataStack(stackedElem);
   }, []);
 
   const svgElement = useRef(null);

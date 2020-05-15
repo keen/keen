@@ -2,11 +2,10 @@ import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
 import { colors } from '@keen.io/colors';
 
-import { getFromPath } from './selectors.utils';
-
 import { calculateHypotenuse } from './math.utils';
 
 import { Dimension, Margins, DataSelector } from '../types';
+import { getFromPath } from './selectors.utils';
 
 export type LabelsPosition = 'inside' | 'outside';
 
@@ -51,11 +50,6 @@ type Slice = {
   selector: DataSelector;
   stacked?: boolean;
   stack?: { selector: DataSelector; color: string }[];
-};
-
-type Selector = {
-  selector: number[];
-  color: string;
 };
 
 export const HOVER_RADIUS = 5;
@@ -140,7 +134,6 @@ export const generateCircularChart = ({
   treshold,
 }: Options) => {
   let slices: Slice[] = [];
-  const dataKeys: Record<string, any>[] = [];
 
   const { width, height } = dimension;
   const radius =
@@ -201,9 +194,9 @@ export const generateCircularChart = ({
     return [x, y];
   };
 
-  const stackedLabels: string[] = [];
-
   const arcs: Arc[] = [];
+
+  const stackedElem: string[] = [];
 
   createPie(slices as any).forEach(
     ({ startAngle, endAngle, value, index, data: sliceData }) => {
@@ -216,9 +209,8 @@ export const generateCircularChart = ({
       });
 
       if (stacked) {
-        stack.forEach((el: Selector) => {
-          const { name } = getFromPath(data, el.selector);
-          stackedLabels.push(name);
+        stack.forEach((el: { selector: DataSelector; color: string }) => {
+          stackedElem.push(getFromPath(data, el.selector)[labelSelector]);
         });
       }
 
@@ -240,21 +232,10 @@ export const generateCircularChart = ({
     }
   );
 
-  data.forEach(({ name }: { name: string }) => {
-    if (!stackedLabels.includes(name)) {
-      dataKeys.push({ [labelSelector]: name });
-    }
-  });
-
-  stackedLabels.length &&
-    dataKeys.push({
-      [labelSelector]: stackedLabels,
-    });
-
   return {
     total,
     arcs,
-    dataKeys,
+    stackedElem,
     drawArc: arc()
       .padAngle(padAngle)
       .innerRadius(relativeInnerRadius)

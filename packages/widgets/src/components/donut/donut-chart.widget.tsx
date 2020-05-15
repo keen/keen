@@ -35,7 +35,7 @@ export const DonutChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
-  const [dataKeys, setDataKeys] = useState([]);
+  const [stackedElem, setStackedElem] = useState([]);
 
   return (
     <ChartWidget
@@ -55,9 +55,10 @@ export const DonutChartWidget: FC<Props> = ({
             {...legend}
             onClick={updateKeys}
             labels={createLegendLabels(
-              dataKeys,
+              props.data,
               theme.colors,
-              props.labelSelector
+              props.labelSelector,
+              stackedElem
             )}
           />
         </LegendSocket>
@@ -67,7 +68,7 @@ export const DonutChartWidget: FC<Props> = ({
           {(width: number, height: number) => (
             <DonutChart
               {...props}
-              onChange={res => setDataKeys(res)}
+              onDataStack={res => setStackedElem(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
               theme={theme}
