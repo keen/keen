@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.14.0...@keen.io/ui-core@0.15.0) (2020-05-18)
+
+
+### Features
+
+* 🎸 add variant for Toggle ([3b1dba5](https://github.com/keen/keen/commit/3b1dba581d4ea0936af40100fd6573527d8dec81))
+
+
+
+
+
 # [0.14.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.13.0...@keen.io/ui-core@0.14.0) (2020-05-18)
 
 
