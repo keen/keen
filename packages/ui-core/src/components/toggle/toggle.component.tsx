@@ -1,6 +1,8 @@
 import React, { FC, useCallback } from 'react';
 import { colors } from '@keen.io/colors';
 
+import { ToggleVariant } from './types';
+
 import {
   ToggleWrapper,
   Track,
@@ -12,10 +14,16 @@ import {
 type Props = {
   isOn?: boolean;
   isDisabled?: boolean;
+  variant?: ToggleVariant;
   onChange?: (res: boolean) => void;
 };
 
-const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
+const Toggle: FC<Props> = ({
+  isOn = false,
+  isDisabled = false,
+  variant = 'primary',
+  onChange,
+}) => {
   const onClick = useCallback(() => onChange(!isOn), [isOn]);
 
   const switcherVariants = {
@@ -28,6 +36,9 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
     off: { scaleX: 0 },
   };
 
+  const labelColor =
+    variant === 'primary' ? colors.black['100'] : colors.black['300'];
+
   const labelVariants = {
     on: {
       justifyContent: 'flex-start',
@@ -35,7 +46,7 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
     },
     off: {
       justifyContent: 'flex-end',
-      color: colors.black['100'],
+      color: labelColor,
     },
   };
 
@@ -51,8 +62,9 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
 
   return (
     <ToggleWrapper isDisabled={isDisabled} onClick={onClick}>
-      <Track>
+      <Track variant={variant}>
         <TrackMotion
+          variant={variant}
           variants={trackVariants}
           initial={isOn ? 'on' : 'off'}
           animate={isOn ? 'on' : 'off'}
@@ -68,6 +80,7 @@ const Toggle: FC<Props> = ({ isOn = false, isDisabled = false, onChange }) => {
         {isOn ? 'on' : 'off'}
       </LabelMotion>
       <SwitcherMotion
+        variant={variant}
         variants={switcherVariants}
         initial={isOn ? 'on' : 'off'}
         animate={isOn ? 'on' : 'off'}

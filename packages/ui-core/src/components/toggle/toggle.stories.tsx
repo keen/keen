@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
-import Toggle from './toggle.component';
+import Toggle, { ToggleVariant } from './toggle.component';
 
 const Wrapper = styled.div`
   width: 600px;
@@ -20,6 +20,8 @@ export default {
   },
 };
 
+const toggleVariants = ['primary', 'secondary'];
+
 export const withKnobs = () => {
   const [toggle, setToggle] = React.useState(false);
   return (
@@ -28,6 +30,14 @@ export const withKnobs = () => {
         isOn={toggle}
         onChange={setToggle}
         isDisabled={boolean('Disable toggle', false, 'Toggle')}
+        variant={
+          select(
+            'Variant',
+            toggleVariants,
+            toggleVariants[0],
+            'Toggle'
+          ) as ToggleVariant
+        }
       />
     </Wrapper>
   );
