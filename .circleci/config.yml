@@ -71,6 +71,7 @@ workflows:
       - build:
           filters:
             branches:
-              only: /.*/
+              ignore:
+                - gh-pages
             tags:
               ignore: /.*/
