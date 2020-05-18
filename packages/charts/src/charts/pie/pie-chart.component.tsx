@@ -71,11 +71,10 @@ export const PieChart: FC<Props> = ({
   stackTreshold = 4,
   onDataStack,
 }) => {
-  const [treshold, setTreshold] = useState(0);
-  if (!treshold && stackTreshold) {
+  const [treshold] = useState(() => {
     const total = calculateTotalValue(data, labelSelector, keys);
-    setTreshold(total * (stackTreshold / 100));
-  }
+    return total * (stackTreshold / 100);
+  });
 
   const { arcs, drawArc, stackedElem } = generateCircularChart({
     data,
