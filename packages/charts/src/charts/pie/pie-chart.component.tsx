@@ -72,6 +72,7 @@ export const PieChart: FC<Props> = ({
   onDataStack,
 }) => {
   const [treshold] = useState(() => {
+    if (!stackTreshold) return 0;
     const total = calculateTotalValue(data, labelSelector, keys);
     return total * (stackTreshold / 100);
   });
