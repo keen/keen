@@ -1,6 +1,8 @@
 import React, { FC, useCallback } from 'react';
 import { colors } from '@keen.io/colors';
 
+import { ToggleVariant } from './types';
+
 import {
   ToggleWrapper,
   Track,
@@ -8,8 +10,6 @@ import {
   LabelMotion,
   SwitcherMotion,
 } from './toggle.component.styles';
-
-export type ToggleVariant = 'primary' | 'secondary';
 
 type Props = {
   isOn?: boolean;

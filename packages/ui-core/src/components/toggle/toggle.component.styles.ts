@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { ToggleVariant } from './toggle.component';
+import { ToggleVariant } from './types';
 
 export const ToggleWrapper = styled.div<{ isDisabled: boolean }>`
   width: 60px;
