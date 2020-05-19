@@ -8,13 +8,13 @@ export const createLegendLabels = (
   stackElem: string[]
 ) => {
   const labels = data
-    .filter(item => !stackElem.includes(item.name))
     .map((item, idx) => ({
       name: item[labelSelector],
       color: colors[idx],
-    }));
+    }))
+    .filter(item => !stackElem.includes(item.name));
 
-  if (stackElem) {
+  if (stackElem.length) {
     labels.push({
       name: OTHERS_DATA_KEY,
       color: pallete.gray[500],

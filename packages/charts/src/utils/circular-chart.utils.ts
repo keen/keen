@@ -168,7 +168,7 @@ export const generateCircularChart = ({
 
   const tresholdPercent = calculateTresholdPercent(total, treshold);
 
-  if (treshold > 0 && tresholdPercent < 100) {
+  if (treshold > 0) {
     slices = createStackedSlice({
       slices,
       treshold: tresholdPercent,
