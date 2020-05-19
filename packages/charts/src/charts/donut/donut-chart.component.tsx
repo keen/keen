@@ -102,7 +102,7 @@ export const DonutChart: FC<Props> = ({
   });
 
   useEffect(() => {
-    onDataStack(stackedElem);
+    onDataStack && onDataStack(stackedElem);
   }, []);
 
   const svgElement = useRef(null);

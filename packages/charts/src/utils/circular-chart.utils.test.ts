@@ -73,7 +73,7 @@ describe('@keen/charts - circular chart utils', () => {
   });
 
   describe('calculateTotalValue()', () => {
-    it('should return ', () => {
+    it('should return 166', () => {
       const result = calculateTotalValue(
         pieChart.data,
         pieChart.labelSelector,
