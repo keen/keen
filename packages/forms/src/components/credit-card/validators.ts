@@ -5,6 +5,6 @@ export const validationErrors: Record<CreditCardFields, string> = {
   month: 'Please enter a valid exp. date',
   year: 'Please enter a valid exp. date',
   cvv: 'Please enter a valid CVV code',
-  lastName: 'Please enter a valid first name',
-  firstName: ' Please enter a valid last name',
+  lastName: 'Please enter a valid last name',
+  firstName: ' Please enter a valid first name',
 };
