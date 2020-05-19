@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/keen/keen/compare/@keen.io/forms@0.3.3...@keen.io/forms@0.3.4) (2020-05-19)
+
+
+### Bug Fixes
+
+* 🐛 card validators ([5094b2b](https://github.com/keen/keen/commit/5094b2bb9b19b16d5ab97962f1f0c4a836ec9e13))
+
+
+
+
+
+## [0.3.3](https://github.com/keen/keen/compare/@keen.io/forms@0.3.2...@keen.io/forms@0.3.3) (2020-05-18)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [0.3.2](https://github.com/keen/keen/compare/@keen.io/forms@0.3.1...@keen.io/forms@0.3.2) (2020-05-18)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
 ## [0.3.1](https://github.com/keen/keen/compare/@keen.io/forms@0.3.0...@keen.io/forms@0.3.1) (2020-05-15)
 
 **Note:** Version bump only for package @keen.io/forms
