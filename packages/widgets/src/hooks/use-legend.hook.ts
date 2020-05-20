@@ -5,9 +5,9 @@ export const useLegend = () => {
 
   const updateKeys = (key: string, disabled: boolean) => {
     if (disabled) {
-      setKeys([...keys, key]);
+      setKeys(keys => [...keys, key]);
     } else {
-      setKeys(keys.filter(keyName => keyName !== key));
+      setKeys(keys => keys.filter(keyName => keyName !== key));
     }
   };
 
