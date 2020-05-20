@@ -1,4 +1,3 @@
-import { AnimationProps } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 
 import { GroupMode } from '../../../types';
@@ -19,9 +18,8 @@ export const createBarMotion = ({
   width,
   x,
   y,
-}: BarMotionProps): AnimationProps => {
+}: BarMotionProps) => {
   const motion = {
-    initial: {},
     exit: {
       opacity: 0,
     },
@@ -38,24 +36,31 @@ export const createBarMotion = ({
   };
 
   if (groupMode === 'grouped') {
-    motion.initial = {
-      opacity: 0,
-
-      ...(layout === 'vertical'
-        ? {
-            x,
-            y: height + y,
-            height: 0,
-          }
-        : { y, x, width: 0 }),
+    return {
+      ...motion,
+      initial: {
+        opacity: 0,
+        ...(layout === 'vertical'
+          ? {
+              x,
+              y: height + y,
+              height: 0,
+            }
+          : {
+              y,
+              x,
+              width: 0,
+            }),
+      },
     };
   } else {
-    motion.initial = {
-      opacity: 0,
-      x,
-      y,
+    return {
+      ...motion,
+      initial: {
+        opacity: 0,
+        x,
+        y,
+      },
     };
   }
-
-  return motion;
 };
