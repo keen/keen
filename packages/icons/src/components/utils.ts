@@ -28,6 +28,9 @@ import ChurnSolid from './churn-solid.component';
 import MoneyOutline from './money-outline.component';
 import MoneySolid from './money-solid.component';
 import Info from './info.component';
+import LockOpen from './lock-open.component';
+import LockClosed from './lock-closed.component';
+import Temperature from './temperature.component';
 
 import { IconType } from '../types';
 
@@ -93,5 +96,11 @@ export const getIcon = (type: IconType) => {
       return MoneyOutline;
     case 'money-solid':
       return MoneySolid;
+    case 'lock-open':
+      return LockOpen;
+    case 'lock-closed':
+      return LockClosed;
+    case 'temperature':
+      return Temperature;
   }
 };

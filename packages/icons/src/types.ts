@@ -35,4 +35,7 @@ export type IconType =
   | 'churn-outline'
   | 'churn-solid'
   | 'money-outline'
-  | 'money-solid';
+  | 'money-solid'
+  | 'lock-open'
+  | 'lock-closed'
+  | 'temperature';
