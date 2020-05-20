@@ -23,6 +23,8 @@ type Props = {
   card: CardSettings;
   /** Handler for item click event */
   onClick: (key: string, disabled: boolean, index: number) => void;
+  /** Information if there are stacked elements */
+  stackedElem?: boolean;
 };
 
 export const SeriesLegend: FC<Props> = ({
@@ -32,6 +34,7 @@ export const SeriesLegend: FC<Props> = ({
   typography,
   card,
   onClick,
+  stackedElem,
 }) => {
   const items = labels.map(({ name, color }: DataSerie, idx: number) => (
     <SingleSerie key={name}>
@@ -48,6 +51,7 @@ export const SeriesLegend: FC<Props> = ({
     typography,
     position,
     card,
+    stackedElem,
   };
 
   return (

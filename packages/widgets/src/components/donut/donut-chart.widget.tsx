@@ -67,6 +67,7 @@ export const DonutChartWidget: FC<Props> = ({
               props.labelSelector,
               stackedElem
             )}
+            stackedElem={!!stackedElem.length}
           />
         </LegendSocket>
       )}
