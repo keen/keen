@@ -13,7 +13,12 @@ import {
   hoverBarKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
-import { theme as keenTheme } from '@keen.io/charts';
+import {
+  theme as keenTheme,
+  GroupMode,
+  StackMode,
+  CurveType,
+} from '@keen.io/charts';
 
 import { timeFormat } from 'd3-time-format';
 

@@ -13,6 +13,7 @@ import { MetricChart } from './metric-chart.component';
 import { chartData } from './metric-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
+import { Theme } from '../../types';
 
 export default {
   title: 'Visualizations|Metric Chart|Plot',
@@ -80,9 +81,9 @@ export const plot = () => {
       <MetricChart
         labelSelector="day"
         caption={text('Caption', 'Metric caption', 'Chart')}
-        type={metricTypeKnobs('Chart')}
+        type={metricTypeKnobs('Chart') as any}
         keys={['users']}
-        theme={theme}
+        theme={theme as Theme}
         data={chartData}
       />
     </div>

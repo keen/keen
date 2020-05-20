@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "composite": false,
+  },
+  "include": ["**/src/**/*"],
+  "exclude": [
+    "**/dist",
+    "webpack.**.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}
