@@ -13,12 +13,6 @@ import { calculateMarkPosition, setMarkSize } from './utils/mark.utils';
 import { Bar } from './types';
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
-const barMotion = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
 export type Props = {
   bars: Bar[];
   onBarMouseEnter: (
@@ -57,9 +51,8 @@ const Bars = ({
     <>
       <AnimatePresence>
         {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (
-          <motion.g
+          <g
             key={key}
-            {...barMotion}
             onMouseEnter={e => {
               const markPosition = calculateMarkPosition({
                 layout,
@@ -78,6 +71,8 @@ const Bars = ({
           >
             <BarComponent
               key={key}
+              layout={layout}
+              groupMode={groupMode}
               x={x}
               y={y}
               height={height}
@@ -91,7 +86,7 @@ const Bars = ({
                 groupMode,
               })}
             />
-          </motion.g>
+          </g>
         ))}
       </AnimatePresence>
       {showValues && <BarValues bars={bars} autocolor={valuesAutocolor} />}

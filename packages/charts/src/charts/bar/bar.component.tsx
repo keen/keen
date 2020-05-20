@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { motion } from 'framer-motion';
+import { Layout } from '@keen.io/ui-core';
+
+import { createBarMotion } from './utils/animate.utils';
+
+import { GroupMode } from '../../types';
 
 const transitionStyle = { transition: 'fill .2s ease-in' };
-
-const rectMotion = {
-  initial: false,
-  transition: { ease: 'easeOut', duration: 0.25 },
-};
 
 type Props = {
   x: number;
@@ -14,6 +14,8 @@ type Props = {
   height: number;
   width: number;
   color: string;
+  layout: Layout;
+  groupMode: GroupMode;
   animate?: boolean;
 };
 
@@ -23,6 +25,8 @@ export const Bar: FC<Props> = ({
   width,
   height,
   color,
+  layout,
+  groupMode,
   animate = true,
 }) => {
   const commonProps = {
@@ -35,15 +39,7 @@ export const Bar: FC<Props> = ({
   return animate ? (
     <motion.rect
       {...commonProps}
-      {...rectMotion}
-      animate={{
-        width,
-        height,
-        x,
-        y,
-      }}
-      x={0}
-      y={0}
+      {...createBarMotion({ layout, groupMode, width, height, x, y })}
     />
   ) : (
     <rect {...commonProps} x={x} y={y} />

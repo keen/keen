@@ -1,9 +1,21 @@
 import React, { FC, useContext } from 'react';
+import { motion } from 'framer-motion';
 import { ColorAdjuster } from '@keen.io/ui-core';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
 import { Bar } from './types';
+
+export const createTextMotion = (x: number, y: number) => ({
+  initial: { opacity: 0, x, y },
+  animate: {
+    opacity: 1,
+    x,
+    y,
+  },
+  transition: { duration: 0.4 },
+  exit: {},
+});
 
 type Props = {
   bars: Bar[];
@@ -14,32 +26,42 @@ const BarValues: FC<Props> = ({ bars, autocolor }) => {
   const {
     theme: { bar },
   } = useContext(ChartContext) as ChartContextType;
+
   const { fontColor, ...typography } = bar.values.typography;
+  const textProps = {
+    pointerEvents: 'none',
+    textAnchor: 'middle',
+    dominantBaseline: 'middle',
+    style: typography,
+  };
 
   return (
     <>
-      {bars.map(({ key, x, y, width, height, value, color }, idx) => {
-        const textProps = {
-          pointerEvents: 'none',
-          textAnchor: 'middle',
-          dominantBaseline: 'middle',
-          style: typography,
-          x: x + width / 2,
-          y: y + height / 2,
-        };
+      {bars.map(({ key, x, y, width, height, value, color }) => {
+        const textMotion = createTextMotion(x + width / 2, y + height / 2);
 
         return autocolor ? (
-          <ColorAdjuster key={`${key}-${idx}`} baseColor={color}>
+          <ColorAdjuster key={key} baseColor={color}>
             {adjustedColor => (
-              <text fill={adjustedColor} {...textProps}>
+              <motion.text
+                key={key}
+                fill={adjustedColor}
+                {...textProps}
+                {...textMotion}
+              >
                 {value}
-              </text>
+              </motion.text>
             )}
           </ColorAdjuster>
         ) : (
-          <text fill={fontColor} key={`${key}-${idx}`} {...textProps}>
+          <motion.text
+            fill={fontColor}
+            key={key}
+            {...textProps}
+            {...textMotion}
+          >
             {value}
-          </text>
+          </motion.text>
         );
       })}
     </>

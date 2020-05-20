@@ -189,7 +189,7 @@ export const MultipleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '700px', height: '200px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '400px' }} ref={container} />;
 };
 
 MultipleResults.story = {
