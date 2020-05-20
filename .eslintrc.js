@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   ignorePatterns: ['dist/'],
   parser: '@typescript-eslint/parser',
@@ -10,6 +12,7 @@ module.exports = {
   plugins: ['react-hooks', '@typescript-eslint'],
   parserOptions: {
     ecmaVersion: 2018,
+    project: path.resolve(__dirname, '/packages/**/tsconfig.json'),
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,

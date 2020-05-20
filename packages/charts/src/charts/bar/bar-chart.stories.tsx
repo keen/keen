@@ -15,7 +15,7 @@ import { chartData } from './bar-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
 
-import { GroupMode, StackMode } from '../../types';
+import { Theme, GroupMode, StackMode } from '../../types';
 
 export default {
   title: 'Visualizations|Bar Chart|Plot',
@@ -69,7 +69,7 @@ export const plot = () => (
         { top: 50, right: 20, bottom: 60, left: 65 },
         'Chart'
       )}
-      theme={createThemeKnobs()}
+      theme={createThemeKnobs() as Theme}
       data={chartData}
     />
   </div>

@@ -12,6 +12,7 @@ import Heatmap from './heatmap-chart.component';
 import { chartData } from './heatmap-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
+import { Theme } from '../../types';
 
 export default {
   title: 'Visualizations|Heatmap Chart|Plot',
@@ -52,7 +53,7 @@ export const plot = () => {
           { top: 20, right: 30, bottom: 50, left: 100 },
           'Chart'
         )}
-        theme={createThemeKnobs()}
+        theme={createThemeKnobs() as Theme}
         data={chartData}
       />
     </div>

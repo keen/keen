@@ -16,7 +16,7 @@ import { chartData } from '../line/line-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
 import { CurveType } from '../line/types';
-import { GroupMode, StackMode } from '../../types';
+import { GroupMode, StackMode, Theme } from '../../types';
 
 export default {
   title: 'Visualizations|Area Chart|Plot',
@@ -73,7 +73,7 @@ export const plot = () => {
           { top: 50, right: 30, bottom: 60, left: 60 },
           'Chart'
         )}
-        theme={createThemeKnobs()}
+        theme={createThemeKnobs() as Theme}
         data={chartData}
       />
     </div>

@@ -11,6 +11,8 @@ describe('@keen.io/embedded-registration - utils', () => {
         lastName: 'Doe',
         email: 'john.doe@keen.io',
         password: '$TrongPss4rw',
+        companyDisclaimer: true,
+        companyName: '',
       };
 
       const result = transformPayload(values, offerHandle);
