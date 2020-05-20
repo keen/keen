@@ -19,7 +19,7 @@ const barMotion = {
   exit: { opacity: 0 },
 };
 
-type Props = {
+export type Props = {
   bars: Bar[];
   onBarMouseEnter: (
     e: React.MouseEvent<SVGGElement, MouseEvent>,

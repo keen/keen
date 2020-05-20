@@ -11,6 +11,8 @@ module.exports = {
     },
   },
 
+ testEnvironment: 'jest-environment-jsdom-sixteen',
+
   moduleNameMapper: {
    '^@keen.io/(.*)$': '<rootDir>/../$1/src',
   },
