@@ -13,14 +13,14 @@ type Props = {
   typography: Typography;
   card: CardSettings;
   position: Position;
-  stackedElem?: boolean;
+  labelsLenght?: number;
 };
 
 const SeriesHorizontal: FC<Props> = ({
   card,
   position,
   children,
-  stackedElem,
+  labelsLenght,
 }) => {
   const element = useRef(null);
   const { mode } = useRenderMode(
@@ -28,7 +28,7 @@ const SeriesHorizontal: FC<Props> = ({
     'horizontal',
     position,
     'list',
-    stackedElem
+    labelsLenght
   );
 
   const renderSlider = mode === 'slider';

@@ -14,7 +14,7 @@ type Props = {
   card: CardSettings;
   adaptiveHeight: boolean;
   position: Position;
-  stackedElem?: boolean;
+  labelsLenght?: number;
 };
 
 const SeriesVertical: FC<Props> = ({
@@ -22,7 +22,7 @@ const SeriesVertical: FC<Props> = ({
   position,
   adaptiveHeight,
   children,
-  stackedElem,
+  labelsLenght,
 }) => {
   const [fullDimension, setFullDimension] = useState(true);
   const element = useRef(null);
@@ -31,7 +31,7 @@ const SeriesVertical: FC<Props> = ({
     'vertical',
     position,
     'list',
-    stackedElem
+    labelsLenght
   );
 
   const renderSlider = mode === 'slider';
