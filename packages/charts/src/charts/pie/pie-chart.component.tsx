@@ -45,7 +45,7 @@ export type Props = {
   /** Stack the arcs if percent value is lower than provided treshold */
   stackTreshold?: number;
   /** Return dataKeys after stacking */
-  onDataStack?: (res: any) => void;
+  onDataStack?: (keys: string[]) => void;
 } & CommonChartSettings;
 
 export const tooltipMotion = {
