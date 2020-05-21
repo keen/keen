@@ -94,4 +94,20 @@ describe('@keen.io/charts - <MetricChart />', () => {
       background: metric.excerpt.backgroundColor,
     });
   });
+
+  it('should render prefix if provided', () => {
+    const text = 'prefix';
+    const prefix = () => <span>{text}</span>;
+    const { wrapper } = setup({ valuePrefix: prefix() });
+
+    expect(wrapper.find('span').text()).toEqual(text);
+  });
+
+  it('should render suffix if provided', () => {
+    const text = 'suffix';
+    const suffix = () => <span>{text}</span>;
+    const { wrapper } = setup({ valueSuffix: suffix() });
+
+    expect(wrapper.find('span').text()).toEqual(text);
+  });
 });
