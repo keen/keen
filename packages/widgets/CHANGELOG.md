@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/keen/keen/compare/@keen.io/widgets@0.6.3...@keen.io/widgets@0.7.0) (2020-05-22)
+
+
+### Features
+
+* 🎸 Other slice legend ([112231b](https://github.com/keen/keen/commit/112231b2bc7101f803281e94cd3d73f6a0ce65b1))
+
+
+
+
+
 ## [0.6.3](https://github.com/keen/keen/compare/@keen.io/widgets@0.6.2...@keen.io/widgets@0.6.3) (2020-05-18)
 
 **Note:** Version bump only for package @keen.io/widgets
