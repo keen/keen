@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/keen/keen/compare/@keen.io/charts@0.6.3...@keen.io/charts@0.7.0) (2020-05-22)
+
+
+### Features
+
+* 🎸 extend pre/suffix with theming ([56c632b](https://github.com/keen/keen/commit/56c632b31c2c39f9b14830937648db9c94443fea))
+* 🎸 Other slice legend ([112231b](https://github.com/keen/keen/commit/112231b2bc7101f803281e94cd3d73f6a0ce65b1))
+* 🎸 pre/suffix for metric chart ([632720a](https://github.com/keen/keen/commit/632720a35606d417eb053cc1f8ed8569606b4ef6))
+
+
+
+
+
 ## [0.6.3](https://github.com/keen/keen/compare/@keen.io/charts@0.6.2...@keen.io/charts@0.6.3) (2020-05-18)
 
 **Note:** Version bump only for package @keen.io/charts

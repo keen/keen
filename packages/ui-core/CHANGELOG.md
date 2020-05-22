@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.15.0...@keen.io/ui-core@0.15.1) (2020-05-22)
+
+
+### Bug Fixes
+
+* 🐛 select typings ([80f8cdf](https://github.com/keen/keen/commit/80f8cdf325d21dc65b94fa92b85757f0b5edab31))
+
+
+
+
+
 # [0.15.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.14.0...@keen.io/ui-core@0.15.0) (2020-05-18)
 
 
