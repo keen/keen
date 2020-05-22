@@ -23,6 +23,8 @@ const setup = (overProps: any = {}) => {
     findExcerptContainer: () =>
       wrapper.find('[data-test="metric-excerpt-container"]'),
     findExcerpt: () => wrapper.find('[data-test="metric-excerpt-value"]'),
+    findPrefix: () => wrapper.find('[data-test="metric-prefix"]'),
+    findSuffix: () => wrapper.find('[data-test="metric-suffix"]'),
   };
 };
 
@@ -92,6 +94,44 @@ describe('@keen.io/charts - <MetricChart />', () => {
 
     expect(excerptContainer.props()).toMatchObject({
       background: metric.excerpt.backgroundColor,
+    });
+  });
+
+  it('should render prefix if provided', () => {
+    const valuePrefix = 'prefix';
+    const { findPrefix } = setup({ valuePrefix });
+    const prefix = findPrefix().first();
+
+    expect(prefix.text()).toEqual(valuePrefix);
+  });
+
+  it('should apply "fontSize" property on prefix', () => {
+    const valuePrefix = 'prefix';
+    const { findPrefix } = setup({ valuePrefix });
+    const prefix = findPrefix().first();
+    const { metric } = defaultTheme;
+
+    expect(prefix.props()).toMatchObject({
+      fontSize: metric.prefix.typography.fontSize,
+    });
+  });
+
+  it('should render suffix if provided', () => {
+    const valueSuffix = 'suffix';
+    const { findSuffix } = setup({ valueSuffix });
+    const suffix = findSuffix().first();
+
+    expect(suffix.text()).toEqual(valueSuffix);
+  });
+
+  it('should apply "fontSize" property on suffix', () => {
+    const valueSuffix = 'suffix';
+    const { findSuffix } = setup({ valueSuffix });
+    const suffix = findSuffix().first();
+    const { metric } = defaultTheme;
+
+    expect(suffix.props()).toMatchObject({
+      fontSize: metric.suffix.typography.fontSize,
     });
   });
 });

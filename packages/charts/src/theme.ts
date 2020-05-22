@@ -104,6 +104,24 @@ export const theme: Theme = {
         fontColor: colors.blue['500'],
       },
     },
+    prefix: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 20,
+        fontFamily: 'Lato Light, sans-serif',
+        fontColor: colors.blue['500'],
+      },
+    },
+    suffix: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 20,
+        fontFamily: 'Lato Light, sans-serif',
+        fontColor: colors.blue['500'],
+      },
+    },
     icon: {
       enabled: false,
       position: 'top',

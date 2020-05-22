@@ -7,6 +7,7 @@ import MetricIcon from './metric-icon.component';
 import {
   Excerpt,
   Wrapper,
+  TextWrapper,
   ValueContainer,
   IconWrapper,
   Layout,
@@ -50,6 +51,10 @@ export type Props = {
   labelSelector?: string;
   /** Keys picked from data object used to create metric */
   keys?: string[];
+  /** Prefix for value */
+  valuePrefix?: React.ReactNode;
+  /** Suffix for value */
+  valueSuffix?: React.ReactNode;
   /** Value format function */
   formatValue?: (value: string | number) => React.ReactNode;
   /** Metric type */
@@ -59,6 +64,8 @@ export type Props = {
 export const MetricChart: FC<Props> = ({
   data,
   caption,
+  valuePrefix,
+  valueSuffix,
   formatValue,
   labelSelector = 'name',
   theme = defaultTheme,
@@ -73,7 +80,14 @@ export const MetricChart: FC<Props> = ({
   });
 
   const {
-    metric: { excerpt, caption: captionSettings, value: valueSettings, icon },
+    metric: {
+      excerpt,
+      caption: captionSettings,
+      value: valueSettings,
+      icon,
+      prefix,
+      suffix,
+    },
   } = theme;
 
   const statusIcon = {
@@ -87,9 +101,21 @@ export const MetricChart: FC<Props> = ({
       <ValueContainer>
         <AnimatePresence>
           <motion.div {...textMotion}>
-            <Text data-test="metric-value" {...valueSettings.typography}>
-              {formatValue ? formatValue(value) : value}
-            </Text>
+            <TextWrapper>
+              {valuePrefix && (
+                <Text data-test="metric-prefix" {...prefix.typography}>
+                  {valuePrefix}
+                </Text>
+              )}
+              <Text data-test="metric-value" {...valueSettings.typography}>
+                {formatValue ? formatValue(value) : value}
+              </Text>
+              {valueSuffix && (
+                <Text data-test="metric-suffix" {...suffix.typography}>
+                  {valueSuffix}
+                </Text>
+              )}
+            </TextWrapper>
           </motion.div>
         </AnimatePresence>
         {caption && <Text {...captionSettings.typography}>{caption}</Text>}
