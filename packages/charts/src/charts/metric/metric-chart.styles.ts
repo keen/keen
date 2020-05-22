@@ -33,3 +33,8 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+`;

@@ -7,6 +7,7 @@ import MetricIcon from './metric-icon.component';
 import {
   Excerpt,
   Wrapper,
+  TextWrapper,
   ValueContainer,
   IconWrapper,
   Layout,
@@ -79,7 +80,14 @@ export const MetricChart: FC<Props> = ({
   });
 
   const {
-    metric: { excerpt, caption: captionSettings, value: valueSettings, icon },
+    metric: {
+      excerpt,
+      caption: captionSettings,
+      value: valueSettings,
+      icon,
+      prefix,
+      suffix,
+    },
   } = theme;
 
   const statusIcon = {
@@ -93,11 +101,21 @@ export const MetricChart: FC<Props> = ({
       <ValueContainer>
         <AnimatePresence>
           <motion.div {...textMotion}>
-            <Text data-test="metric-value" {...valueSettings.typography}>
-              {valuePrefix}
-              {formatValue ? formatValue(value) : value}
-              {valueSuffix}
-            </Text>
+            <TextWrapper>
+              {valuePrefix && (
+                <Text data-test="metric-prefix" {...prefix.typography}>
+                  {valuePrefix}
+                </Text>
+              )}
+              <Text data-test="metric-value" {...valueSettings.typography}>
+                {formatValue ? formatValue(value) : value}
+              </Text>
+              {valueSuffix && (
+                <Text data-test="metric-suffix" {...suffix.typography}>
+                  {valueSuffix}
+                </Text>
+              )}
+            </TextWrapper>
           </motion.div>
         </AnimatePresence>
         {caption && <Text {...captionSettings.typography}>{caption}</Text>}
