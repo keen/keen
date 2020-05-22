@@ -14,6 +14,7 @@ const setup = (overProps: any = {}) => {
       width: 100,
       height: 100,
       color: 'black',
+      key: 'marketing',
       value: 20,
     },
   ];
@@ -21,6 +22,8 @@ const setup = (overProps: any = {}) => {
   const props = {
     autocolor: false,
     bars,
+    groupMode: 'grouped',
+    layout: 'vertical',
     ...overProps,
   };
 

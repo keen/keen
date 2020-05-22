@@ -327,7 +327,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
               "makeTargetAnimatable": [Function],
               "overrides": Array [],
               "props": Object {
-                "children": <ForwardRef(styled.div)
+                "children": <styled.div
                   dragDirection="x"
                 >
                   <React.Fragment>
@@ -348,7 +348,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                       <AnimatePresence />
                     </TooltipPosition>
                   </React.Fragment>
-                </ForwardRef(styled.div)>,
+                </styled.div>,
                 "drag": "x",
                 "dragConstraints": Object {
                   "bottom": 0,

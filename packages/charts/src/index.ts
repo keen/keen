@@ -23,6 +23,7 @@ import {
   GaugeChartSettings,
   TableChart,
   TableChartSettings,
+  CurveType,
   fetchMapTopology,
   sortAreaKeys,
 } from './charts';
@@ -36,7 +37,15 @@ import {
 
 import { theme, margins } from './theme';
 
-import { Theme, TimePrecision, ScaleSettings } from './types';
+import {
+  Theme,
+  TimePrecision,
+  ScaleSettings,
+  StackMode,
+  GroupMode,
+} from './types';
+
+import { OTHERS_DATA_KEY } from './utils';
 
 export {
   Theme,
@@ -68,10 +77,14 @@ export {
   TableChartSettings,
   ResponsiveWrapper,
   SeriesLegend,
+  StackMode,
+  GroupMode,
+  CurveType,
   LegendBase,
   BubbleLegend,
   fetchMapTopology,
   sortAreaKeys,
   theme,
   margins,
+  OTHERS_DATA_KEY,
 };

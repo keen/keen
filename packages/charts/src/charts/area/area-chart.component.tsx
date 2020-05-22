@@ -46,7 +46,7 @@ export type Props = {
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {
-  return <LineChart {...props} areaMode={true} />;
+  return <LineChart {...props} areaMode />;
 };
 
 export default AreaChart;

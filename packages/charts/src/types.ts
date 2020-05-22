@@ -77,6 +77,12 @@ export type Metric = {
   value: {
     typography: Typography;
   };
+  prefix: {
+    typography: Typography;
+  };
+  suffix: {
+    typography: Typography;
+  };
   caption: {
     typography: Typography;
   };

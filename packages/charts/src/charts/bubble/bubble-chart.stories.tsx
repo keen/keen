@@ -7,6 +7,7 @@ import { BubbleChart } from './bubble-chart.component';
 import { chartData } from './bubble-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
+import { Theme } from '../../types';
 
 export default {
   title: 'Visualizations|Bubble Chart|Plot',
@@ -58,7 +59,7 @@ export const plot = () => (
         { top: 50, right: 20, bottom: 60, left: 80 },
         'Chart'
       )}
-      theme={createThemeKnobs()}
+      theme={createThemeKnobs() as Theme}
       data={chartData}
     />
   </div>

@@ -5,6 +5,7 @@ import { object, number } from '@storybook/addon-knobs';
 import { geoProjectionKnobs, colorModeKnobs } from '@keen.io/storybook-utils';
 
 import { ChoroplethChart } from './choropleth-chart.component';
+import { Projection } from './types';
 
 import { theme as keenTheme } from '../../theme';
 
@@ -59,7 +60,7 @@ export const plot = () => {
           { range: true, min: 0, max: 500 },
           'Projection'
         )}
-        projection={geoProjectionKnobs('Projection')}
+        projection={geoProjectionKnobs('Projection') as Projection}
         projectionTranslation={[
           number('Translate X', 0, {}, 'Projection'),
           number('Translate Y', 0, {}, 'Projection'),

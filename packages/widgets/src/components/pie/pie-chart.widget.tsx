@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   PieChart,
   PieChartSettings,
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
+  OTHERS_DATA_KEY,
 } from '@keen.io/charts';
 
 import WidgetHeading from '../widget-heading.component';
@@ -35,6 +36,8 @@ export const PieChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
+  const [stackedElem, setStackedElem] = useState([]);
+
   return (
     <ChartWidget
       cardSettings={card}
@@ -51,11 +54,18 @@ export const PieChartWidget: FC<Props> = ({
         <LegendSocket>
           <SeriesLegend
             {...legend}
-            onClick={updateKeys}
+            onClick={(key, disabled) => {
+              if (key === OTHERS_DATA_KEY) {
+                stackedElem.forEach(el => updateKeys(el, disabled));
+              } else {
+                updateKeys(key, disabled);
+              }
+            }}
             labels={createLegendLabels(
               props.data,
               theme.colors,
-              props.labelSelector
+              props.labelSelector,
+              stackedElem
             )}
           />
         </LegendSocket>
@@ -65,6 +75,7 @@ export const PieChartWidget: FC<Props> = ({
           {(width: number, height: number) => (
             <PieChart
               {...props}
+              onDataStack={res => setStackedElem(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
               theme={theme}
