@@ -8,7 +8,7 @@ import { colors } from '@keen.io/colors';
 import { Indicator, createStyles } from './select.styles';
 
 export type Props = {
-  options: Record<string, string>[];
+  options: Record<string, any>[];
   placeholder: string;
   value: any;
   onChange: (value: any, meta: ActionMeta<any>) => void;
