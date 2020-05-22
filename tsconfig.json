@@ -3,6 +3,9 @@
   "compilerOptions": {
     "noImplicitAny": false,
     "composite": false,
-    "declaration": false
+    "declaration": false,
+    "jsx": "react",
+    "isolatedModules": false,
+    "noEmit": false
   },
 }
