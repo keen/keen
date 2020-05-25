@@ -48,6 +48,7 @@ export const SeriesLegend: FC<Props> = ({
     typography,
     position,
     card,
+    labelsLength: labels.length,
   };
 
   return (
