@@ -19,7 +19,7 @@ module.exports = ({ config }: { config: any }) => {
         loader: require.resolve('ts-loader'),
         options: {
           /** Do not perform type checking during build - only transpile files */
-          transpileOnly: false,
+          transpileOnly: process.env.NODE_ENV === 'development',
         },
       },
       require.resolve('react-docgen-typescript-loader'),
@@ -55,18 +55,20 @@ module.exports = ({ config }: { config: any }) => {
     ],
   });
 
-  // /** Start type checking in separate process */
-  // config.plugins.push(
-  //   new ForkTsCheckerWebpackPlugin({
-  //     eslint: false,
-  //     async: true,
-  //     checkSyntacticErrors: true,
-  //     tsconfig: path.resolve(__dirname, '../tsconfig.checker.json'),
-  //   })
-  // );
-  //
-  // /** Show type check notifications */
-  // config.plugins.push(new ForkTsCheckerNotifierWebpackPlugin());
+  if (process.env.NODE_ENV === 'development') {
+    /** Start type checking in separate process */
+    config.plugins.push(
+      new ForkTsCheckerWebpackPlugin({
+        eslint: false,
+        async: true,
+        checkSyntacticErrors: true,
+        tsconfig: path.resolve(__dirname, '../tsconfig.checker.json'),
+      })
+    );
+
+    /** Show type check notifications */
+    config.plugins.push(new ForkTsCheckerNotifierWebpackPlugin());
+  }
 
   config.resolve.extensions.push('.ts', '.tsx', '.mdx');
 
