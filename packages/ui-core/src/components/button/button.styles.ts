@@ -6,7 +6,7 @@ import { colors } from '@keen.io/colors';
 import { ButtonVariant, ButtonSize, ButtonType } from './types';
 
 const createOutlineButton = (baseColor: string) => ({
-  backgroundColor: colors.white['500'],
+  backgroundColor: 'transparent',
   border: `solid 1px ${baseColor}`,
   color: baseColor,
   boxShadow: `0 2px 4px 0 ${transparentize(0.85, colors.black['500'])}`,

@@ -24,7 +24,7 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   background-color: #F0AB30;
   border-color: #F0AB30;
   color: #1D2729;
-  height: 42px;
+  height: 37px;
 }
 
 .c0:focus {
@@ -40,6 +40,7 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   variant="primary"
 >
   <styled.button
+    body="solid"
     isDisabled={false}
     onClick={[Function]}
     size="default"
