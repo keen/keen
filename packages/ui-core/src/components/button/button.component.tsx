@@ -2,38 +2,41 @@ import React, { FC } from 'react';
 
 import { StyledButton, StyledAnchor, IconSocket } from './button.styles';
 
-import { ButtonVariant, ButtonSize } from './types';
+import { ButtonVariant, ButtonSize, ButtonType } from './types';
 
 type Props = {
+  /** Component React.Children nodes */
   children: React.ReactNode;
+  /** Type of button */
   variant?: ButtonVariant;
+  /** Button size */
   size?: ButtonSize;
+  /** Button style */
+  style?: ButtonType;
+  /** Disabled state */
   isDisabled?: boolean;
+  /** Anchor element href property */
   href?: string;
+  /** Anchor element target property */
   target?: string;
+  /** HTML button element type */
   htmlType?: 'button' | 'submit' | 'reset';
+  /** Click event handler */
   onClick?: (e: React.SyntheticEvent) => void;
+  /** Icon component */
   icon?: JSX.Element;
 };
 
 export const Button: FC<Props> = ({
-  /** Component React.Children nodes */
   children,
-  /** Type of button */
   variant = 'primary',
-  /** Click event handler */
   onClick,
-  /** Anchor element href property */
   href,
-  /** Anchor element target property */
   target = '_blank',
-  /** Disabled state */
   isDisabled = false,
-  /** HTML button element type */
   htmlType = 'button',
-  /** Button size */
   size = 'default',
-  /** Icon render handler */
+  style = 'solid',
   icon,
 }) => {
   if (href) {
@@ -43,6 +46,7 @@ export const Button: FC<Props> = ({
         variant={variant}
         size={size}
         href={href}
+        body={style}
         target={target}
         onClick={(e: React.MouseEvent<HTMLElement>) =>
           !isDisabled && onClick && onClick(e)
@@ -59,6 +63,7 @@ export const Button: FC<Props> = ({
       isDisabled={isDisabled}
       type={htmlType}
       variant={variant}
+      body={style}
       size={size}
       onClick={(e: React.MouseEvent<HTMLElement>) =>
         !isDisabled && onClick && onClick(e)

@@ -48,8 +48,20 @@ export const secondary = () => (
   </Button>
 );
 
-export const success = () => (
+export const successOutline = () => (
+  <Button onClick={action('click')} variant="success" style="outline">
+    Button
+  </Button>
+);
+
+export const successSolid = () => (
   <Button onClick={action('click')} variant="success">
+    Button
+  </Button>
+);
+
+export const dangerOutline = () => (
+  <Button onClick={action('click')} variant="danger" style="outline">
     Button
   </Button>
 );

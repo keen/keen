@@ -21,7 +21,8 @@ export const useRenderMode = (
   element: React.MutableRefObject<HTMLElement>,
   layout: Layout,
   position: Position,
-  initialMode: RenderMode
+  initialMode: RenderMode,
+  labelsLength?: number
 ) => {
   const [mode, setMode] = useState<RenderMode>(initialMode);
   const [initialDimension, setDimension] = useState<ContentDimension>({
@@ -31,7 +32,7 @@ export const useRenderMode = (
 
   useEffect(() => {
     setMode(initialMode);
-  }, [layout, position, initialMode]);
+  }, [layout, position, initialMode, labelsLength]);
 
   useEffect(() => {
     const hasOverflow = hasContentOverflow(layout, element.current);
@@ -63,7 +64,7 @@ export const useRenderMode = (
           break;
       }
     }
-  }, [mode, layout, element]);
+  }, [mode, layout, element, labelsLength]);
 
   return { mode, initialDimension };
 };
