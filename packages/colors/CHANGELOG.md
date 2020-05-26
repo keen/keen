@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/keen/keen/compare/@keen.io/colors@0.1.2...@keen.io/colors@0.2.0) (2020-05-26)
+
+
+### Features
+
+* 🎸 buttons ([33c14d6](https://github.com/keen/keen/commit/33c14d68d53ef9374ee8f28ec7d50dbf0f8c98e9))
+
+
+
+
+
 ## [0.1.2](https://github.com/keen/keen/compare/@keen.io/colors@0.1.1...@keen.io/colors@0.1.2) (2020-04-27)
 
 **Note:** Version bump only for package @keen.io/colors
