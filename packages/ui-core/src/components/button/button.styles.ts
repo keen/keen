@@ -3,9 +3,31 @@ import { variant } from 'styled-system';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { ButtonVariant, ButtonSize } from './types';
+import { ButtonVariant, ButtonSize, ButtonType } from './types';
 
-const themeVariants = {
+const createOutlineButton = (baseColor: string) => ({
+  backgroundColor: 'transparent',
+  border: `solid 1px ${baseColor}`,
+  color: baseColor,
+  boxShadow: `0 2px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+  '&:hover': {
+    boxShadow: 'none',
+    color: colors.white['500'],
+    backgroundColor: baseColor,
+  },
+});
+
+const outlineVariants = {
+  prop: 'variant',
+  variants: {
+    primary: createOutlineButton(colors.yellow['400']),
+    success: createOutlineButton(colors.green['300']),
+    secondary: createOutlineButton(colors.blue['500']),
+    danger: createOutlineButton(colors.red['500']),
+  },
+};
+
+const solidVariants = {
   prop: 'variant',
   variants: {
     primary: {
@@ -24,10 +46,20 @@ const themeVariants = {
       backgroundColor: colors.blue['500'],
       borderColor: colors.blue['500'],
       color: colors.white['500'],
-      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      boxShadow: `0 2px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
       '&:hover': {
         boxShadow: 'none',
         backgroundColor: colors.blue['400'],
+      },
+    },
+    danger: {
+      backgroundColor: colors.red['300'],
+      borderColor: colors.red['300'],
+      color: colors.white['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: colors.red['400'],
       },
     },
     success: {
@@ -47,10 +79,10 @@ const sizeVariants = {
   prop: 'size',
   variants: {
     default: {
-      height: '42px',
+      height: '37px',
     },
     large: {
-      height: '48px',
+      height: '45px',
     },
   },
 };
@@ -74,25 +106,26 @@ const buttonMixin = () => css`
     -webkit-box-shadow 0.15s ease-in-out;
 `;
 
-export const StyledButton = styled.button<{
+type Props = {
   variant: ButtonVariant;
+  body: ButtonType;
   size: ButtonSize;
   isDisabled: boolean;
-}>`
+};
+
+export const StyledButton = styled.button<Props>`
   display: flex;
   ${buttonMixin()};
-  ${variant(themeVariants)};
+  ${props => props.body === 'solid' && variant(solidVariants)}
+  ${props => props.body === 'outline' && variant(outlineVariants)}
   ${variant(sizeVariants)};
 `;
 
-export const StyledAnchor = styled.a<{
-  variant: ButtonVariant;
-  size: ButtonSize;
-  isDisabled: boolean;
-}>`
+export const StyledAnchor = styled.a<Props>`
   display: inline-flex;
   ${buttonMixin()}
-  ${variant(themeVariants)}
+  ${props => props.body === 'solid' && variant(solidVariants)}
+  ${props => props.body === 'outline' && variant(outlineVariants)}
   ${variant(sizeVariants)};
 `;
 
