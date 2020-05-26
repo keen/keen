@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/keen/keen/compare/@keen.io/charts@0.7.0...@keen.io/charts@0.7.1) (2020-05-26)
+
+
+### Bug Fixes
+
+* 🐛 Rerender legend if labels are stacked ([f624afc](https://github.com/keen/keen/commit/f624afc323eba8d2a75c7c70d225b0d8cff6d62e))
+
+
+
+
+
 # [0.7.0](https://github.com/keen/keen/compare/@keen.io/charts@0.6.3...@keen.io/charts@0.7.0) (2020-05-22)
 
 
