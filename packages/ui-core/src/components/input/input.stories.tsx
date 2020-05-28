@@ -12,19 +12,31 @@ export default {
   },
 };
 
-export const basic = () => (
+export const outline = () => (
   <div style={{ width: '250px' }}>
     <Input type="text" defaultValue="keen.io" />
   </div>
 );
 
-export const error = () => (
+export const solid = () => (
+  <div style={{ width: '250px' }}>
+    <Input type="text" variant="solid" defaultValue="keen.io" />
+  </div>
+);
+
+export const errorSolid = () => (
+  <div style={{ width: '250px' }}>
+    <Input hasError type="text" variant="solid" defaultValue="keen.io" />
+  </div>
+);
+
+export const errorOutline = () => (
   <div style={{ width: '250px' }}>
     <Input hasError type="text" defaultValue="keen.io" />
   </div>
 );
 
-export const withIcon = () => (
+export const outlineWithIcon = () => (
   <div style={{ width: '250px' }}>
     <Input
       type="text"
@@ -41,7 +53,7 @@ export const withIcon = () => (
   </div>
 );
 
-error.story = {
+errorSolid.story = {
   parameters: {
     docs: {
       storyDescription: 'Input with error state.',
