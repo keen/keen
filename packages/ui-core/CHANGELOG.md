@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.16.0...@keen.io/ui-core@0.17.0) (2020-05-28)
+
+
+### Features
+
+* 🎸 input variants ([94442bb](https://github.com/keen/keen/commit/94442bb7da874f3bb3f3bec060ef35c13826e56d))
+
+
+
+
+
 # [0.16.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.15.1...@keen.io/ui-core@0.16.0) (2020-05-26)
 
 
