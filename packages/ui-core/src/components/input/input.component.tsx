@@ -8,7 +8,7 @@ export type Props = {
   /** Render error state indicator */
   hasError?: boolean;
   /** Input component variant */
-  variant?: () => InputVariant;
+  variant?: InputVariant;
   /** Icon render handler */
   renderIcon?: () => JSX.Element;
 } & React.InputHTMLAttributes<HTMLInputElement>;
