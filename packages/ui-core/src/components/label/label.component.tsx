@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 
 import { StyledLabel } from './label.styles';
 
+import { LabelVariant } from './types';
+
 type Props = {
   /** Component children */
   children: React.ReactNode;
@@ -11,15 +13,23 @@ type Props = {
   disabled?: boolean;
   /** HTML input element reference */
   htmlFor?: string;
+  /** Variant for label componet */
+  variant?: LabelVariant;
 };
 
 export const Label: FC<Props> = ({
   htmlFor,
   hasError = false,
   disabled = false,
+  variant = 'primary',
   children,
 }) => (
-  <StyledLabel hasError={hasError} disabled={disabled} htmlFor={htmlFor}>
+  <StyledLabel
+    hasError={hasError}
+    variant={variant}
+    disabled={disabled}
+    htmlFor={htmlFor}
+  >
     {children}
   </StyledLabel>
 );

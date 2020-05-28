@@ -7,13 +7,23 @@ import { colors } from '@keen.io/colors';
 
 import { Indicator, createStyles } from './select.styles';
 
+import { SelectVariant } from './types';
+
 export type Props = {
+  /** Collection of options */
   options: Record<string, any>[];
+  /** Select element placeholder */
   placeholder: string;
+  /** Select value */
   value: any;
+  /** Change event handler */
   onChange: (value: any, meta: ActionMeta<any>) => void;
+  /** Blur event handler */
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void;
+  /** Error indicator */
   hasError?: boolean;
+  /** Select component variant */
+  variant?: SelectVariant;
 };
 
 export const Select: FC<Props> = ({
@@ -23,13 +33,19 @@ export const Select: FC<Props> = ({
   onChange,
   onBlur,
   hasError,
+  variant = 'outline',
 }) => (
   <ReactSelect
     components={{
       IndicatorSeparator: () => null,
       IndicatorsContainer: () => (
         <Indicator>
-          <Icon type="caret-down" fill={colors.blue['200']} />
+          <Icon
+            type="caret-down"
+            fill={
+              variant === 'outline' ? colors.blue['200'] : colors.blue['500']
+            }
+          />
         </Indicator>
       ),
     }}
@@ -38,7 +54,7 @@ export const Select: FC<Props> = ({
     onChange={onChange}
     onBlur={onBlur}
     options={options}
-    styles={createStyles(hasError)}
+    styles={createStyles(variant, hasError)}
   />
 );
 

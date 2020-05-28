@@ -47,6 +47,35 @@ export const error = () => (
   </div>
 );
 
+export const basicSolid = () => {
+  const [country, setCountry] = React.useState(null);
+
+  return (
+    <div style={{ width: '250px' }}>
+      <Select
+        placeholder="Search or select country"
+        value={country}
+        variant="solid"
+        onChange={value => setCountry(value)}
+        options={countries}
+      />
+    </div>
+  );
+};
+
+export const errorSolid = () => (
+  <div style={{ width: '250px' }}>
+    <Select
+      hasError
+      placeholder="Search or select country"
+      value={null}
+      variant="solid"
+      onChange={(value, meta) => console.log({ value, meta })}
+      options={[]}
+    />
+  </div>
+);
+
 error.story = {
   parameters: {
     docs: {

@@ -1,7 +1,33 @@
 import styled, { css } from 'styled-components';
+import { variant } from 'styled-system';
 import { transparentize } from 'polished';
-
 import { colors } from '@keen.io/colors';
+
+import { InputVariant } from './types';
+
+const inputVariants = {
+  prop: 'variant',
+  variants: {
+    solid: {
+      borderRadius: '4px',
+      background: transparentize(0.95, colors.blue['100']),
+      border: `solid 1px ${transparentize(0.85, colors.blue['100'])}`,
+      '&:focus': {
+        background: transparentize(0.9, colors.blue['100']),
+      },
+    },
+    outline: {
+      border: 'none',
+      borderBottom: `solid 1px ${colors.blue['400']}`,
+      '&:focus': {
+        background: transparentize(0.9, colors.blue['100']),
+      },
+      '&:disabled': {
+        borderBottom: `solid 1px ${colors.gray['500']}`,
+      },
+    },
+  },
+};
 
 export const Container = styled.div`
   box-sizing: border-box;
@@ -23,12 +49,12 @@ export const Suffix = styled.div`
 
 export const StyledInput = styled.input<{
   hasError: boolean;
+  variant: InputVariant;
 }>`
   width: 100%;
   height: 40px;
   padding: 0 16px;
-  border: none;
-  border-bottom: solid 1px ${colors.blue['400']};
+
   box-sizing: border-box;
   grid-area: input;
   grid-column: 1 / span 3;
@@ -40,19 +66,22 @@ export const StyledInput = styled.input<{
   line-height: 20px;
   font-weight: normal;
 
+  ${variant(inputVariants)}
+
   ${props =>
     props.hasError &&
+    props.variant === 'outline' &&
     css`
       border-bottom: solid 2px ${colors.orange['300']};
     `}
 
-  &:focus {
-    background: ${transparentize(0.9, colors.blue['100'])};
-  }
+  ${props =>
+    props.hasError &&
+    props.variant === 'solid' &&
+    css`
+      border-color: ${colors.red['100']};
+    `}
 
-  &:disabled {
-    border-bottom: solid 1px ${colors.gray['500']};
-  }
 
   &::-webkit-credentials-auto-fill-button {
     display: none !important;
