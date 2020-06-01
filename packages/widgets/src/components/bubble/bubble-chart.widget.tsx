@@ -57,6 +57,8 @@ export const BubbleChartWidget: FC<Props> = ({
   const layout = series.enabled ? series.layout : bubble.layout;
 
   const { minAreaRadius, maxAreaRadius } = props;
+
+  const maxHeight = bubble.enabled ? 50 : 100;
   return (
     <ChartWidget
       cardSettings={card}
@@ -70,7 +72,7 @@ export const BubbleChartWidget: FC<Props> = ({
         <WidgetHeading title={title} subtitle={subtitle} />
       </TitleSocket>
       <LegendSocket>
-        <LegendContainer position={position}>
+        <LegendContainer position={position} maxHeight={maxHeight}>
           {series.enabled && (
             <SeriesLegend
               {...series}
