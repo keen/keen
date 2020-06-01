@@ -27,6 +27,11 @@ exports[`@keen.io/ui-core - <Button /> should apply styles for button with "prim
   height: 37px;
 }
 
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c0:focus {
   box-shadow: 0 0 0 0.2rem rgba(218,165,80,.5);
 }
