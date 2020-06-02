@@ -26,8 +26,10 @@ export const Container = styled.div<{
 export const PositionContainer = styled.div<{
   position: string;
   type: Layout;
+  pointer: boolean;
 }>`
   position: absolute;
+  cursor: ${props => props.pointer && 'pointer'};
 
   ${props =>
     props.type === 'horizontal' &&

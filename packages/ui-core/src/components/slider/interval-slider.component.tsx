@@ -163,7 +163,11 @@ export const IntervalSlider: FC<Props> = ({
   return (
     <div
       ref={slider}
-      style={{ height: `${controlSettings.size}px`, position: 'relative' }}
+      style={{
+        height: `${controlSettings.size}px`,
+        position: 'relative',
+        cursor: 'pointer',
+      }}
       onClick={handleClick}
     >
       <Rail
