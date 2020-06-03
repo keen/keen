@@ -54,6 +54,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
     onClick={[Function]}
     style={
       Object {
+        "cursor": "pointer",
         "height": "15px",
         "position": "relative",
       }

@@ -35,6 +35,7 @@ export const Ruler: FC<Props> = ({
               type={layout}
               position={position}
               onClick={() => onClick && onClick(position)}
+              pointer={!!onClick}
             >
               {renderLabel(label, layout)}
             </PositionContainer>
