@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.17.1...@keen.io/ui-core@0.18.0) (2020-06-03)
+
+
+### Bug Fixes
+
+* 🐛 Pricing calculator - button hover state changes ([7f8587b](https://github.com/keen/keen/commit/7f8587b11dc4ad8a953a32b5541f8355a22fac62))
+
+
+### Features
+
+* 🎸 Active elements pointer ([a546e23](https://github.com/keen/keen/commit/a546e23f02a495878139dc324bd0098c515699bd))
+
+
+
+
+
 ## [0.17.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.17.0...@keen.io/ui-core@0.17.1) (2020-05-28)
 
 
