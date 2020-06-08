@@ -1,5 +1,5 @@
 import React, { FC, useContext, useState } from 'react';
-import { Loader } from '@keen.io/ui-core';
+import { Loader } from '../../components';
 
 import { CDNContext } from '../../context';
 
