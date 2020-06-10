@@ -24,6 +24,10 @@ export type Props = {
   hasError?: boolean;
   /** Select component variant */
   variant?: SelectVariant;
+  /** Select name */
+  name?: string;
+  /** Input identifier */
+  inputId?: string;
 };
 
 export const Select: FC<Props> = ({
@@ -33,6 +37,8 @@ export const Select: FC<Props> = ({
   onChange,
   onBlur,
   hasError,
+  name,
+  inputId,
   variant = 'outline',
 }) => (
   <ReactSelect
@@ -54,6 +60,8 @@ export const Select: FC<Props> = ({
     onChange={onChange}
     onBlur={onBlur}
     options={options}
+    name={name}
+    inputId={inputId}
     styles={createStyles(variant, hasError)}
   />
 );

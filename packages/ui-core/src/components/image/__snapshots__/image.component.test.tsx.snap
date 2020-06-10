@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/ui-core - <Image /> should render image 1`] = `
+<Component
+  name="test"
+>
+  <img
+    onLoad={[Function]}
+    src="/test"
+  />
+</Component>
+`;
