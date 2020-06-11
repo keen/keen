@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.18.0...@keen.io/ui-core@0.19.0) (2020-06-10)
+
+
+### Features
+
+* 🎸 extend select component ([f5ddaca](https://github.com/keen/keen/commit/f5ddacad84421811ddc994b39387e3e300b4604b))
+* 🎸 image component enhancements ([049216d](https://github.com/keen/keen/commit/049216dc16025a2b63ef8b0a4eb9b1614e36e3e1))
+
+
+
+
+
 # [0.18.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.17.1...@keen.io/ui-core@0.18.0) (2020-06-03)
 
 
