@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.19.0...@keen.io/ui-core@0.20.0) (2020-06-15)
+
+
+### Features
+
+* 🎸 Brand component ([a9ef013](https://github.com/keen/keen/commit/a9ef0131c44349967104d78499a8658ca0af6281))
+
+
+
+
+
 # [0.19.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.18.0...@keen.io/ui-core@0.19.0) (2020-06-10)
 
 
