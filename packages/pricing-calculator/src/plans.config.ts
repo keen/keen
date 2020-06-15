@@ -10,7 +10,7 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
     components: ['25 Access Keys', '5 Cached Queries', '5 Cached Datasets'],
     ctaLabel: 'Start Your Free Trial',
     ctaUrl:
-      'https://keen.io/users/signup?ref=eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJLZWVuVXNlck1hbmFnZW1lbnRTZXJ2aWNlLXByb2QiLCJhdWQiOiJrZWVuLmlvIiwiaWF0IjoxNTg4MDg4NDAzLCJpbnZpdGVlX25hbWUiOm51bGwsIm9mZmVyX2hhbmRsZSI6InB1YmxpYy10cmlhbC12MiJ9.39QEry1_aLV5VclTVdRPdvdbeqX9yw7Ggwcm5GuCkHFVCkYWSFIUKResFo19l20b3QERByr6tWk9r7s7Ep22kA',
+      'https://keen.io/users/signup?ref=eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJLZWVuVXNlck1hbmFnZW1lbnRTZXJ2aWNlLXByb2QiLCJhdWQiOiJrZWVuLmlvIiwiaWF0IjoxNTkyMjA5OTU1LCJpbnZpdGVlX25hbWUiOm51bGwsIm9mZmVyX2hhbmRsZSI6InB1YmxpYy1mcmVlLXYyIn0.JPMnmLuExwl7oPll-0y1fLKjDi233B7dsJ-ukrS8NMKgof4c3PxEWrEkSsyN--7FZ6wb1H_UH5yO-9piF84wMQ',
     detailsUrl: 'https://keen.io/pricing/#keenBlockPlansCompare',
   },
   business: {
