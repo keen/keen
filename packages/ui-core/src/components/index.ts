@@ -40,6 +40,8 @@ import {
   TableCell,
 } from './table';
 
+import { Brand } from './brand';
+
 export { ARROW_SIZE, RESIZE_ELEMENT_WIDTH };
 
 export {
@@ -81,4 +83,5 @@ export {
   TagManager,
   DragLine,
   TableCell,
+  Brand,
 };
