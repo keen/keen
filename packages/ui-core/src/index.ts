@@ -55,6 +55,7 @@ import {
   Sticky,
   TagManager,
   TableCell,
+  Brand,
 } from './components';
 
 export {
@@ -112,4 +113,5 @@ export {
   Sticky,
   ARROW_SIZE,
   RESIZE_ELEMENT_WIDTH,
+  Brand,
 };
