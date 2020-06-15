@@ -12,9 +12,9 @@ import { Content } from './funnel-chart.widget.styles';
 
 import { legendSettings } from '../../widget-settings';
 
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & FunnelChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & FunnelChartSettings;
 
 /** Funnel Chart widget integrated with other components */
 export const FunnelChartWidget: FC<Props> = ({

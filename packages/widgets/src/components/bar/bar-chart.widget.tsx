@@ -19,9 +19,9 @@ import {
 import { useLegend } from '../../hooks';
 
 import { legendSettings } from '../../widget-settings';
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & BarChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & BarChartSettings;
 
 /** Bar Chart widget integrated with other components */
 export const BarChartWidget: FC<Props> = ({

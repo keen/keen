@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { text, object, number, boolean, select } from '@storybook/addon-knobs';
-import { cardKnobs, typographyKnobs } from '@keen.io/storybook-utils';
+import {
+  cardKnobs,
+  typographyKnobs,
+  layoutKnobs,
+} from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
 import { colors } from '@keen.io/colors';
@@ -22,7 +26,7 @@ const createThemeKnobs = () => ({
   ...keenTheme,
 });
 
-const legendTypography = {
+const bubbleLegendTypography = {
   fontSize: 12,
   fontFamily: 'Lato Bold',
   fontStyle: 'normal',
@@ -62,26 +66,43 @@ export const widget = () => (
       }}
       card={cardKnobs('Card')}
       legend={{
-        enabled: boolean('Enabled', true, 'Legend'),
         position: select(
           'Position',
           positionOptions,
-          positionOptions.right,
+          positionOptions.left,
           'Legend'
         ) as any,
-        alignment: select(
-          'Alignment',
-          alignmentOptions,
-          alignmentOptions.right,
-          'Legend'
-        ),
-        typography: typographyKnobs('Legend', { fontSize: 12 }),
-        title: {
-          value: text('Title', 'Legend Subtitle', 'Legend Title'),
-          typography: typographyKnobs(
-            'Legend Title',
-            legendTypography as Typography
+        series: {
+          enabled: boolean('Enabled', true, 'Series Legend'),
+          layout: layoutKnobs('Series Legend', 'vertical'),
+          alignment: select(
+            'Alignment',
+            alignmentOptions,
+            alignmentOptions.center,
+            'Series Legend'
           ),
+          typography: typographyKnobs('Series Legend', { fontSize: 10 }),
+        },
+        bubble: {
+          enabled: boolean('Enabled', true, 'Bubble Legend'),
+          alignment: select(
+            'Alignment',
+            alignmentOptions,
+            alignmentOptions.right,
+            'Bubble Legend'
+          ),
+          typography: typographyKnobs('Bubble Legend', { fontSize: 12 }),
+          title: {
+            value: text(
+              'Title',
+              'Bubble Legend Subtitle',
+              'Bubble Legend Title'
+            ),
+            typography: typographyKnobs(
+              'Bubble Legend Title',
+              bubbleLegendTypography as Typography
+            ),
+          },
         },
       }}
       labelSelector="channel"

@@ -47,6 +47,8 @@ import {
 
 import { OTHERS_DATA_KEY } from './utils';
 
+import { bubbleColorScale } from './utils';
+
 export {
   Theme,
   TimePrecision,
@@ -87,4 +89,5 @@ export {
   theme,
   margins,
   OTHERS_DATA_KEY,
+  bubbleColorScale,
 };

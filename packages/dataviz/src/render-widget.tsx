@@ -13,6 +13,8 @@ import {
   GaugeChartWidget,
   WidgetSettings,
   TableChartWidget,
+  LegendSettings,
+  BubbleWidgetLegendSettings,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts';
 
@@ -45,6 +47,7 @@ type Options = {
   scaleSettings: Partial<ScaleSettings>;
   componentSettings?: ComponentSettings;
   widgetSettings?: WidgetSettings;
+  legend?: LegendSettings | BubbleWidgetLegendSettings;
 };
 
 export const renderWidget = ({
@@ -54,6 +57,7 @@ export const renderWidget = ({
   scaleSettings,
   componentSettings,
   widgetSettings,
+  legend,
 }: Options) => {
   const config = {
     keys,
@@ -73,6 +77,7 @@ export const renderWidget = ({
           xDomainKey={xDomainKey}
           yDomainKey={yDomainKey}
           valueKey={bubbleValueKey}
+          legend={legend as BubbleWidgetLegendSettings}
           {...config}
         />
       );
@@ -81,25 +86,39 @@ export const renderWidget = ({
         <ChoroplethChartWidget
           geoKey={config.labelSelector}
           valueKey={valueKey}
+          legend={legend as LegendSettings}
           {...config}
         />
       );
     case 'gauge':
-      return <GaugeChartWidget valueKey={valueKey} {...config} />;
+      return (
+        <GaugeChartWidget
+          valueKey={valueKey}
+          legend={legend as LegendSettings}
+          {...config}
+        />
+      );
     case 'funnel':
-      return <FunnelChartWidget valueKey={valueKey} {...config} />;
+      return (
+        <FunnelChartWidget
+          valueKey={valueKey}
+          legend={legend as LegendSettings}
+          {...config}
+        />
+      );
     case 'metric':
       return <MetricChartWidget {...config} />;
     case 'pie':
-      return <PieChartWidget {...config} />;
+      return <PieChartWidget legend={legend as LegendSettings} {...config} />;
     case 'donut':
-      return <DonutChartWidget {...config} />;
+      return <DonutChartWidget legend={legend as LegendSettings} {...config} />;
     case 'table':
       return <TableChartWidget color={colors.blue[500]} {...config} />;
     case 'bar':
       return (
         <BarChartWidget
           xScaleSettings={{ type: 'band', ...scaleSettings }}
+          legend={legend as LegendSettings}
           {...config}
         />
       );
@@ -110,6 +129,7 @@ export const renderWidget = ({
             type: 'band',
             ...scaleSettings,
           }}
+          legend={legend as LegendSettings}
           {...config}
         />
       );
@@ -121,6 +141,7 @@ export const renderWidget = ({
             precision: DEFAULT_TIME_PRECISION,
             ...scaleSettings,
           }}
+          legend={legend as LegendSettings}
           {...config}
         />
       );
@@ -132,6 +153,7 @@ export const renderWidget = ({
             precision: DEFAULT_TIME_PRECISION,
             ...scaleSettings,
           }}
+          legend={legend as LegendSettings}
           {...config}
         />
       );

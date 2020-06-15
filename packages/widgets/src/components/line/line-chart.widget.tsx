@@ -19,9 +19,9 @@ import {
 import { useLegend } from '../../hooks';
 
 import { legendSettings } from '../../widget-settings';
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & LineChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & LineChartSettings;
 
 /** Line Chart widget integrated with other components */
 export const LineChartWidget: FC<Props> = ({
