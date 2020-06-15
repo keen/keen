@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/dataviz",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "Keen data visualizer",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -28,9 +28,9 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "@keen.io/charts": "^0.7.5",
-    "@keen.io/parser": "^0.2.23",
-    "@keen.io/widgets": "^0.7.5",
+    "@keen.io/charts": "^0.7.6",
+    "@keen.io/parser": "^0.2.24",
+    "@keen.io/widgets": "^0.7.6",
     "deepmerge": "4.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
