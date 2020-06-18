@@ -23,14 +23,17 @@ import {
   PasswordHints,
 } from './form.styles';
 
-import { schema } from './schema';
+import { schema, emailIdentityError } from './schema';
+import { EMAIL_SPAM } from './constants';
 
-import { FormValues, User } from './types';
+import { FormValues, SignupError } from './types';
 
 type Props = {
   buttonLabel: string;
   apiUrl: string;
-  onSignup: (values: FormValues) => Promise<User>;
+  onSignup: (
+    values: FormValues
+  ) => Promise<{ organizationId: string } | { errors: Record<string, string> }>;
   onSuccess: (organizationId: string, companyDisclaimer: boolean) => void;
   onError: (error: { status: number; message: string }) => void;
 };
@@ -55,12 +58,19 @@ export const RegisterForm: FC<Props> = ({
     onSubmit={(values: FormValues, actions) => {
       actions.setSubmitting(true);
       onSignup(values)
-        .then(({ organizationId }) => {
-          onSuccess(organizationId, values.companyDisclaimer);
+        .then(user => {
+          if ('organizationId' in user) {
+            const { organizationId } = user;
+            onSuccess(organizationId, values.companyDisclaimer);
+          }
         })
-        .catch(err => {
+        .catch(({ status, message, data }: SignupError) => {
           actions.setSubmitting(false);
-          onError(err);
+          if (data?.errors && data.errors?.email === EMAIL_SPAM) {
+            actions.setFieldError('email', emailIdentityError);
+          }
+
+          onError({ status, message });
         });
     }}
   >

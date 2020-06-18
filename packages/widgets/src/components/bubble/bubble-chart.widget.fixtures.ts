@@ -15,4 +15,7 @@ export const chartData = [
   { channel: 'Others', cost: 140, conversion: 45, users: 12 },
   { channel: 'Others', cost: 12, conversion: 23, users: 23 },
   { channel: 'Others', cost: 34, conversion: 54, users: 76 },
+  { channel: 'O22thers', cost: 140, conversion: 45, users: 12 },
+  { channel: 'O21221thers', cost: 12, conversion: 23, users: 23 },
+  { channel: 'Oth1321ers', cost: 34, conversion: 54, users: 76 },
 ];
