@@ -17,8 +17,16 @@ export const transformPayload = (
   };
 };
 
-export const transformSignupResponse = ({
-  organization_id,
-}: SignupResponse) => ({
-  organizationId: organization_id,
-});
+export const transformSignupResponse = (response: SignupResponse) => {
+  if ('field_errors' in response) {
+    const { field_errors } = response;
+    return {
+      errors: field_errors,
+    };
+  }
+
+  const { organization_id } = response;
+  return {
+    organizationId: organization_id,
+  };
+};

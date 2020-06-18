@@ -165,6 +165,34 @@ describe('@keen.io/embedded-registration - <RegisterForm />', () => {
     });
   });
 
+  it('should show "email" categorized as spam error', async () => {
+    const onSignup = jest.fn().mockRejectedValue({
+      message: 'error',
+      data: {
+        errors: {
+          email: 'SPAM',
+        },
+      },
+    });
+
+    const { wrapper } = setup({ onSignup });
+    fields.forEach(({ name, value }) => {
+      const input = wrapper.find(`input[name="${name}"]`);
+      updateField(input, name, value);
+    });
+
+    wrapper.find('button[type="button"]').simulate('click');
+
+    await waitFor(() => {
+      wrapper.update();
+      const error = wrapper.find('div[data-error="email"]');
+
+      expect(error.first().text()).toMatchInlineSnapshot(
+        `"Sorry, the email you have entered has been categorized as possible spam. Use a different email address, or contact us at team@keen.io"`
+      );
+    });
+  });
+
   it('should call "onError" handler', async () => {
     const onSignup = jest.fn().mockRejectedValue({
       message: 'error',
