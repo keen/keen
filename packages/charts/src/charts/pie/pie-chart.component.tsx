@@ -98,7 +98,7 @@ export const PieChart: FC<Props> = ({
     onDataStack && onDataStack(stackedElem);
   }, []);
 
-  const svgElement = useRef(null);
+  const svgElement = useRef<SVGSVGElement>(null);
 
   const {
     tooltipVisible,
