@@ -14,7 +14,6 @@ export const Description = styled.div`
 `;
 
 export const Close = styled.div`
-  margin-left: 25px;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -22,4 +21,8 @@ export const Close = styled.div`
 
 export const Footer = styled.div`
   display: flex;
+
+  button {
+    margin-right: 25px;
+  }
 `;

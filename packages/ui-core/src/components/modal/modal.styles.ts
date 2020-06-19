@@ -3,9 +3,16 @@ import { motion } from 'framer-motion';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const Close = styled.div`
   align-self: flex-end;
   cursor: pointer;
+  margin-left: 20px;
 `;
 
 export const FadeMask = styled.div`

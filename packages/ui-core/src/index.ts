@@ -56,10 +56,9 @@ import {
   TagManager,
   TableCell,
   Brand,
-  Confirmation,
+  ModalContent,
   LoadingScreen,
   SuccessNotification,
-  ErrorModal,
 } from './components';
 
 export {
@@ -118,8 +117,7 @@ export {
   ARROW_SIZE,
   RESIZE_ELEMENT_WIDTH,
   Brand,
-  Confirmation,
+  ModalContent,
   LoadingScreen,
   SuccessNotification,
-  ErrorModal,
 };

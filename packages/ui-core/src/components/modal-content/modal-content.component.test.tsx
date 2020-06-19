@@ -1,27 +1,25 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
-import Confirmation from './confirmation.component';
+import ModalContent from './modal-content.component';
 
 const children = 'Description';
 
-test('shows children and title in the component', () => {
-  const title = 'Confirmation';
+test('shows children in the component', () => {
   render(
-    <Confirmation onConfirm={jest.fn()} onCancel={jest.fn()} title={title}>
+    <ModalContent onConfirm={jest.fn()} onCancel={jest.fn()}>
       {children}
-    </Confirmation>
+    </ModalContent>
   );
 
   expect(screen.getByText(children)).toBeInTheDocument();
-  expect(screen.getByText(title)).toBeInTheDocument();
 });
 
 test('shows custom text in buttons', () => {
   const confirmText = 'Yes';
   const cancelText = 'No';
   render(
-    <Confirmation
+    <ModalContent
       onConfirm={jest.fn()}
       onCancel={jest.fn()}
       confirmText={confirmText}
@@ -36,9 +34,9 @@ test('shows custom text in buttons', () => {
 test('allows users to confirm', () => {
   const mockFn = jest.fn();
   const { container } = render(
-    <Confirmation onConfirm={mockFn} onCancel={jest.fn()}>
+    <ModalContent onConfirm={mockFn} onCancel={jest.fn()}>
       {children}
-    </Confirmation>
+    </ModalContent>
   );
 
   const button = container.querySelector('button');
@@ -50,9 +48,9 @@ test('allows users to confirm', () => {
 test('allows users to cancel', () => {
   const mockFn = jest.fn();
   const { container } = render(
-    <Confirmation onConfirm={jest.fn()} onCancel={mockFn}>
+    <ModalContent onConfirm={jest.fn()} onCancel={mockFn}>
       {children}
-    </Confirmation>
+    </ModalContent>
   );
 
   const button = container.querySelector('a');
