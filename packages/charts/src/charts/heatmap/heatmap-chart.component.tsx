@@ -92,7 +92,7 @@ export const HeatmapChart: FC<Props> = ({
     yAxisTitle,
   });
 
-  const svgElement = useRef(null);
+  const svgElement = useRef<SVGSVGElement>(null);
 
   const {
     tooltipVisible,

@@ -21,9 +21,9 @@ import {
 import { useSlider } from '../../hooks/use-slider.hook';
 
 import { legendSettings } from '../../widget-settings';
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & HeatmapChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & HeatmapChartSettings;
 
 /** Heatmap Chart widget integrated with other components */
 export const HeatmapChartWidget: FC<Props> = ({

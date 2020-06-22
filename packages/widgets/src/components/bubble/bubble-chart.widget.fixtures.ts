@@ -10,4 +10,9 @@ export const chartData = [
   { channel: 'Youtube', cost: 120, conversion: 45, users: 210 },
   { channel: 'Youtube', cost: 160, conversion: 49, users: 190 },
   { channel: 'Linkedin', cost: 210, conversion: 52, users: 195 },
+  { channel: 'Youtube', cost: 160, conversion: 49, users: 190 },
+  { channel: 'Linkedin', cost: 210, conversion: 52, users: 195 },
+  { channel: 'Others', cost: 140, conversion: 45, users: 12 },
+  { channel: 'Others', cost: 12, conversion: 23, users: 23 },
+  { channel: 'Others', cost: 34, conversion: 54, users: 76 },
 ];

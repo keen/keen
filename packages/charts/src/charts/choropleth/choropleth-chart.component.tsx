@@ -68,7 +68,7 @@ export const ChoroplethChart: FC<Props> = ({
   valueKey = 'value',
   data,
 }) => {
-  const svgElement = useRef(null);
+  const svgElement = useRef<SVGSVGElement>(null);
   const [projectionState, setProjectionState] = useState<ProjectionState>({
     rotation: projectionRotation,
     scale: projectionScale,

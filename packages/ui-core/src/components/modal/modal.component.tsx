@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { colors } from '@keen.io/colors';
 import { Icon } from '@keen.io/icons';
 
-import { MotionContainer, FadeMask, Close } from './modal.styles';
+import { MotionContainer, FadeMask, Close, Header } from './modal.styles';
 
 import Card from '../card';
 
@@ -17,6 +17,8 @@ const modalMotion = {
 };
 
 type Props = {
+  /** Title */
+  renderTitle?: () => React.ReactNode;
   /** Modal visibility */
   isOpen: boolean;
   /** Children nodes renderer */
@@ -28,6 +30,7 @@ type Props = {
 };
 
 export const Modal: FC<Props> = ({
+  renderTitle,
   children,
   onClose,
   isOpen,
@@ -66,12 +69,15 @@ export const Modal: FC<Props> = ({
         {isOpen && (
           <MotionContainer {...modalMotion}>
             <Card>
-              <Close onClick={closeHandler}>
-                <Icon
-                  type="close"
-                  fill={transparentize(0.7, colors.blue['500'])}
-                />
-              </Close>
+              <Header>
+                <div>{renderTitle && renderTitle()}</div>
+                <Close onClick={closeHandler}>
+                  <Icon
+                    type="close"
+                    fill={transparentize(0.7, colors.blue['500'])}
+                  />
+                </Close>
+              </Header>
               {children(closableIndicator)}
             </Card>
           </MotionContainer>

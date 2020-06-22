@@ -17,7 +17,12 @@ import {
   TableChartWidget,
 } from './components';
 
-import { LegendSettings, WidgetSettings, TextSettings } from './types';
+import {
+  LegendSettings,
+  WidgetSettings,
+  TextSettings,
+  BubbleWidgetLegendSettings,
+} from './types';
 
 export {
   MetricChartWidget,
@@ -40,4 +45,5 @@ export {
   legendSettings,
   HeatmapChartWidget,
   TableChartWidget,
+  BubbleWidgetLegendSettings,
 };

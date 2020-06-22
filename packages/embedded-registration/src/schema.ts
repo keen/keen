@@ -21,3 +21,6 @@ export const schema = Yup.object().shape({
     .email('Please enter your email in format: username@example.com')
     .required('Please enter your email'),
 });
+
+export const emailIdentityError =
+  'Sorry, the email you have entered has been categorized as possible spam. Use a different email address, or contact us at team@keen.io';

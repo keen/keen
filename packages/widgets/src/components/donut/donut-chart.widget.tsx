@@ -21,9 +21,9 @@ import { createLegendLabels } from './donut-chart.widget.utils';
 import { legendSettings } from '../../widget-settings';
 import { useLegend } from '../../hooks';
 
-import { WidgetSettings } from '../../types';
+import { WidgetSettings, LegendSettings } from '../../types';
 
-type Props = WidgetSettings & DonutChartSettings;
+type Props = { legend: LegendSettings } & WidgetSettings & DonutChartSettings;
 
 /** Donut Chart widget integrated with other components */
 export const DonutChartWidget: FC<Props> = ({

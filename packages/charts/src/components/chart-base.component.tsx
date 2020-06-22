@@ -1,4 +1,4 @@
-import React, { FC, MutableRefObject, forwardRef } from 'react';
+import React, { FC, Ref, forwardRef } from 'react';
 
 import { ChartContext } from '../contexts';
 
@@ -11,7 +11,7 @@ type Props = {
   children: React.ReactNode;
   yScaleSettings?: ScaleSettings;
   xScaleSettings?: ScaleSettings;
-  ref?: MutableRefObject<SVGSVGElement>;
+  ref?: Ref<SVGSVGElement>;
 };
 
 const ChartBase: FC<Props> = forwardRef(

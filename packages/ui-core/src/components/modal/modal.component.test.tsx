@@ -7,10 +7,25 @@ import Modal from './modal.component';
 describe('@keen.io/ui-core - <Modal />', () => {
   let onClose;
   let children;
+  let renderTitle;
 
   beforeEach(() => {
     onClose = jest.fn();
     children = jest.fn();
+    renderTitle = jest.fn();
+  });
+
+  it('should call "renderTitle" renderer', () => {
+    mount(
+      <Modal
+        isOpen={true}
+        onClose={onClose}
+        children={children}
+        renderTitle={renderTitle}
+      />
+    );
+
+    expect(renderTitle).toHaveBeenCalled();
   });
 
   it('should call "children" renderer', () => {
