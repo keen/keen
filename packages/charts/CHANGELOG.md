@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/keen/keen/compare/@keen.io/charts@0.7.6...@keen.io/charts@0.8.0) (2020-06-22)
+
+
+### Features
+
+* 🎸 bubble series legend ([6b8eab3](https://github.com/keen/keen/commit/6b8eab3d5e957f6bcff4a85a5ae171cfce9a5576))
+
+
+
+
+
 ## [0.7.6](https://github.com/keen/keen/compare/@keen.io/charts@0.7.5...@keen.io/charts@0.7.6) (2020-06-15)
 
 **Note:** Version bump only for package @keen.io/charts
