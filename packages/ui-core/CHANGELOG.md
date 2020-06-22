@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.20.0...@keen.io/ui-core@0.21.0) (2020-06-22)
+
+
+### Features
+
+* 🎸 New components added ([332db41](https://github.com/keen/keen/commit/332db41a0c823cc1ad11141c5f9f90854759d553))
+* 🎸 Refactor components ([4341be1](https://github.com/keen/keen/commit/4341be123419a5fc9c3e1b39fb84341eb584d9ce))
+
+
+
+
+
 # [0.20.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.19.0...@keen.io/ui-core@0.20.0) (2020-06-15)
 
 

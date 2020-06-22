@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/embedded-registration@0.2.17...@keen.io/embedded-registration@0.3.0) (2020-06-22)
+
+
+### Features
+
+* 🎸 email spam detection ([d379774](https://github.com/keen/keen/commit/d379774c16334f3c82add415366a5e444d9fdc94))
+* 🎸 email verification ([647f843](https://github.com/keen/keen/commit/647f843ca86dbcb2f7f5033289d303fcc02cb06e))
+
+
+
+
+
 ## [0.2.17](https://github.com/keen/keen/compare/@keen.io/embedded-registration@0.2.16...@keen.io/embedded-registration@0.2.17) (2020-06-15)
 
 **Note:** Version bump only for package @keen.io/embedded-registration
