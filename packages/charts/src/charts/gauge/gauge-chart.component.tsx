@@ -95,7 +95,7 @@ export const GaugeChart: FC<Props> = ({
     colors: theme.colors,
   });
 
-  const svgElement = useRef(null);
+  const svgElement = useRef<SVGSVGElement>(null);
   const tooltipTimeout = useRef(null);
 
   const {

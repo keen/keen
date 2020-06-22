@@ -42,6 +42,10 @@ import {
 
 import { Brand } from './brand';
 
+import ModalContent from './modal-content';
+import LoadingScreen from './loading-screen';
+import SuccessNotification from './success-notification';
+
 export { ARROW_SIZE, RESIZE_ELEMENT_WIDTH };
 
 export {
@@ -84,4 +88,7 @@ export {
   DragLine,
   TableCell,
   Brand,
+  ModalContent,
+  LoadingScreen,
+  SuccessNotification,
 };

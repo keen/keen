@@ -103,7 +103,7 @@ export const LineChart: FC<Props> = ({
     groupMode,
     areaMode,
   });
-  const svgElement = useRef(null);
+  const svgElement = useRef<SVGSVGElement>(null);
   const computeTooltipRelative = !stepMode;
 
   const {

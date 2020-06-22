@@ -4,6 +4,8 @@ import * as React from 'react';
 import Button from '../button';
 import { Modal } from './modal.component';
 
+import { Title } from '../../typography';
+
 export default {
   title: 'Components|Modal',
   parameters: {
@@ -17,7 +19,11 @@ export const basic = () => {
   return (
     <>
       <Button onClick={() => setOpen(true)}>Open</Button>
-      <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setOpen(false)}
+        renderTitle={() => <Title variant="h3">Title</Title>}
+      >
         {() => <div>Modal content</div>}
       </Modal>
     </>

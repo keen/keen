@@ -76,7 +76,7 @@ export const BubbleChart: FC<Props> = ({
     colors: theme.colors,
   });
 
-  const svgElement = useRef(null);
+  const svgElement = useRef<SVGSVGElement>(null);
 
   const {
     tooltipVisible,
