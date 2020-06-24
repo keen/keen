@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { max, min } from 'd3-array';
 import {
   BubbleChart,
   BubbleChartSettings,
@@ -7,6 +8,7 @@ import {
   SeriesLegend,
   theme as defaultTheme,
   bubbleColorScale,
+  getValues,
 } from '@keen.io/charts';
 
 import { LegendContainer } from './bubble-chart.styles';
@@ -26,9 +28,6 @@ import { useLegend } from '../../hooks';
 
 import { bubbleLegendSettings } from './widget-settings';
 import { WidgetSettings, BubbleWidgetLegendSettings } from '../../types';
-
-import { getValues } from '../../../../charts/src/utils/data.utils';
-import { max, min } from 'd3-array';
 
 export type Props = { legend: BubbleWidgetLegendSettings } & WidgetSettings &
   BubbleChartSettings;
