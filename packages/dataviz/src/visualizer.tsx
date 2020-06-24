@@ -60,6 +60,14 @@ class Visualizer {
     return extendWidgetSettings(this.widgetSettings, this.type);
   }
 
+  destroy() {
+    const container =
+      this.container instanceof HTMLElement
+        ? this.container
+        : document.querySelector(this.container);
+    ReactDOM.unmountComponentAtNode(container);
+  }
+
   render(input: VisualizationInput | VisualizationInput[] = {}) {
     const container =
       this.container instanceof HTMLElement

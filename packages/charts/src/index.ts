@@ -45,9 +45,7 @@ import {
   GroupMode,
 } from './types';
 
-import { OTHERS_DATA_KEY } from './utils';
-
-import { bubbleColorScale } from './utils';
+import { OTHERS_DATA_KEY, getValues, bubbleColorScale } from './utils';
 
 export {
   Theme,
@@ -86,6 +84,7 @@ export {
   BubbleLegend,
   fetchMapTopology,
   sortAreaKeys,
+  getValues,
   theme,
   margins,
   OTHERS_DATA_KEY,
