@@ -5,6 +5,8 @@ import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
 import { getTooltipContent } from './tooltip.utils';
 import { bubbleColorScale } from './scale.utils';
 
+import { getValues } from './data.utils';
+
 import {
   generateCircularChart,
   LabelsPosition,
@@ -18,6 +20,7 @@ export {
   calculateHypotenuseHeight,
   formatNumber,
   getFromPath,
+  getValues,
   createArcTween,
   animateArcPath,
   getTooltipContent,
