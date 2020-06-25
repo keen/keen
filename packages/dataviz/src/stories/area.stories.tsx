@@ -236,3 +236,57 @@ export const StackedNormalStep = () => {
 
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
+
+export const ImageExport = () => {
+  const container = React.useRef(null);
+  const dataviz = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    dataviz.current = new KeenDataViz({
+      type: 'area',
+      container: container.current,
+      widget: {
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Stacked results',
+        },
+      },
+      settings: {
+        curve: 'step',
+        groupMode: 'stacked',
+        stackMode: 'normal',
+        margins: { top: 20, left: 45, right: 15, bottom: 30 },
+        theme: {
+          axisY: {
+            tickPadding: 13,
+          },
+        },
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2018-01-01T00:00:00.000-00:00',
+          end: '2020-02-10T00:00:00.000-00:00',
+        },
+        group_by: ['author', 'name'],
+        interval: 'yearly',
+      })
+      .then((res: any) => dataviz.current.render(res));
+  }, []);
+
+  return (
+    <>
+      <div style={{ width: '700px', height: '500px' }} ref={container} />
+      <button onClick={() => dataviz.current.exportImage()}>
+        Export to image
+      </button>
+    </>
+  );
+};
