@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/keen/keen/compare/@keen.io/dataviz@0.5.12...@keen.io/dataviz@0.6.0) (2020-06-25)
+
+
+### Features
+
+* 🎸 add image export to dataviz ([44301a0](https://github.com/keen/keen/commit/44301a0dc80844a66b6174586e0eb48519d61c36))
+
+
+
+
+
 ## [0.5.12](https://github.com/keen/keen/compare/@keen.io/dataviz@0.5.11...@keen.io/dataviz@0.5.12) (2020-06-24)
 
 **Note:** Version bump only for package @keen.io/dataviz
