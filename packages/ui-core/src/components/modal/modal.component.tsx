@@ -27,6 +27,8 @@ type Props = {
   onClose?: () => void;
   /** Use modal mask indicator */
   useMask?: boolean;
+  /** Allow scroll when modal is open */
+  blockScrollOnOpen?: boolean;
 };
 
 export const Modal: FC<Props> = ({
@@ -35,8 +37,10 @@ export const Modal: FC<Props> = ({
   onClose,
   isOpen,
   useMask = true,
+  blockScrollOnOpen = true,
 }) => {
   const [closeable, setClosable] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
   const closableIndicator = useCallback(
     (isClosable: boolean) => setClosable(isClosable),
     []
@@ -47,18 +51,46 @@ export const Modal: FC<Props> = ({
   }, [closeable]);
 
   useEffect(() => {
+    const preventDefault = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const keysArray = [33, 34, 38, 40];
+
     const keyboardHandler = (keyEvent: KeyboardEvent) => {
+      if (
+        keysArray.includes(keyEvent.charCode) ||
+        keysArray.includes(keyEvent.keyCode)
+      ) {
+        keyEvent.preventDefault();
+      }
       if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
         closeHandler();
       }
     };
 
-    document.addEventListener('keydown', keyboardHandler, false);
+    if (blockScrollOnOpen && isOpen) {
+      document.addEventListener('wheel', preventDefault, { passive: false });
+      document.addEventListener('mousewheel', preventDefault, {
+        passive: false,
+      });
+      document.addEventListener('DOMMouseScroll', preventDefault, {
+        passive: false,
+      });
+      document.addEventListener('keydown', keyboardHandler, false);
+    }
 
     return () => {
+      document.removeEventListener('wheel', preventDefault, false);
+      document.removeEventListener('mousewheel', preventDefault, false);
+      document.removeEventListener('DOMMouseScroll', preventDefault, false);
       document.removeEventListener('keydown', keyboardHandler, false);
     };
-  }, []);
+  }, [isOpen]);
+
+  useEffect(() => {
+    setScrollY(window.scrollY);
+  }, [window.scrollY]);
 
   const showMask = useMask && isOpen;
 
@@ -67,7 +99,7 @@ export const Modal: FC<Props> = ({
       {showMask && <FadeMask onClick={closeHandler} />}
       <AnimatePresence>
         {isOpen && (
-          <MotionContainer {...modalMotion}>
+          <MotionContainer {...modalMotion} scrollY={scrollY}>
             <Card>
               <Header>
                 <div>{renderTitle && renderTitle()}</div>
