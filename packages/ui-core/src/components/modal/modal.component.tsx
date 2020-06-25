@@ -8,6 +8,8 @@ import { MotionContainer, FadeMask, Close, Header } from './modal.styles';
 
 import Card from '../card';
 
+import { KEYS_ARRAY } from './constants';
+
 import { ClosableIndicator } from './types';
 
 const modalMotion = {
@@ -27,7 +29,7 @@ type Props = {
   onClose?: () => void;
   /** Use modal mask indicator */
   useMask?: boolean;
-  /** Allow scroll when modal is open */
+  /** Disable scroll when modal is open */
   blockScrollOnOpen?: boolean;
 };
 
@@ -50,25 +52,23 @@ export const Modal: FC<Props> = ({
     if (closeable && onClose) onClose();
   }, [closeable]);
 
+  const keyboardHandler = useCallback((keyEvent: KeyboardEvent) => {
+    if (
+      KEYS_ARRAY.includes(keyEvent.charCode) ||
+      KEYS_ARRAY.includes(keyEvent.keyCode)
+    ) {
+      keyEvent.preventDefault();
+    }
+    if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
+      closeHandler();
+    }
+  }, []);
+
+  const preventDefault = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+  }, []);
+
   useEffect(() => {
-    const preventDefault = (e: MouseEvent) => {
-      e.preventDefault();
-    };
-
-    const keysArray = [33, 34, 38, 40];
-
-    const keyboardHandler = (keyEvent: KeyboardEvent) => {
-      if (
-        keysArray.includes(keyEvent.charCode) ||
-        keysArray.includes(keyEvent.keyCode)
-      ) {
-        keyEvent.preventDefault();
-      }
-      if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
-        closeHandler();
-      }
-    };
-
     if (blockScrollOnOpen && isOpen) {
       document.addEventListener('wheel', preventDefault, { passive: false });
       document.addEventListener('mousewheel', preventDefault, {
