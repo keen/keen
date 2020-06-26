@@ -10,9 +10,9 @@ export const Header = styled.div`
 `;
 
 export const Close = styled.div`
-  align-self: flex-end;
   cursor: pointer;
   margin-left: 20px;
+  align-items: flex-start;
 `;
 
 export const FadeMask = styled.div`
@@ -25,10 +25,12 @@ export const FadeMask = styled.div`
   background: ${transparentize(0.7, colors.black['500'])};
 `;
 
-export const MotionContainer = styled(motion.div)`
+export const MotionContainer = styled(motion.div)<{
+  scrollY: number;
+}>`
   position: absolute;
   left: 50%;
-  top: 60px;
+  top: ${props => 60 + props.scrollY}px;
 
   display: flex;
   flex-direction: column;

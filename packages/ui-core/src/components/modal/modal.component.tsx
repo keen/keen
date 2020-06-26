@@ -8,6 +8,8 @@ import { MotionContainer, FadeMask, Close, Header } from './modal.styles';
 
 import Card from '../card';
 
+import { KEYS_ARRAY } from './constants';
+
 import { ClosableIndicator } from './types';
 
 const modalMotion = {
@@ -27,6 +29,8 @@ type Props = {
   onClose?: () => void;
   /** Use modal mask indicator */
   useMask?: boolean;
+  /** Disable scroll when modal is open */
+  blockScrollOnOpen?: boolean;
 };
 
 export const Modal: FC<Props> = ({
@@ -35,8 +39,10 @@ export const Modal: FC<Props> = ({
   onClose,
   isOpen,
   useMask = true,
+  blockScrollOnOpen = true,
 }) => {
   const [closeable, setClosable] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
   const closableIndicator = useCallback(
     (isClosable: boolean) => setClosable(isClosable),
     []
@@ -46,19 +52,45 @@ export const Modal: FC<Props> = ({
     if (closeable && onClose) onClose();
   }, [closeable]);
 
-  useEffect(() => {
-    const keyboardHandler = (keyEvent: KeyboardEvent) => {
-      if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
-        closeHandler();
-      }
-    };
+  const keyboardHandler = useCallback((keyEvent: KeyboardEvent) => {
+    if (
+      KEYS_ARRAY.includes(keyEvent.charCode) ||
+      KEYS_ARRAY.includes(keyEvent.keyCode)
+    ) {
+      keyEvent.preventDefault();
+    }
+    if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
+      closeHandler();
+    }
+  }, []);
 
-    document.addEventListener('keydown', keyboardHandler, false);
+  const preventDefault = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+  }, []);
+
+  useEffect(() => {
+    if (blockScrollOnOpen && isOpen) {
+      document.addEventListener('wheel', preventDefault, { passive: false });
+      document.addEventListener('mousewheel', preventDefault, {
+        passive: false,
+      });
+      document.addEventListener('DOMMouseScroll', preventDefault, {
+        passive: false,
+      });
+      document.addEventListener('keydown', keyboardHandler, false);
+    }
 
     return () => {
+      document.removeEventListener('wheel', preventDefault, false);
+      document.removeEventListener('mousewheel', preventDefault, false);
+      document.removeEventListener('DOMMouseScroll', preventDefault, false);
       document.removeEventListener('keydown', keyboardHandler, false);
     };
-  }, []);
+  }, [isOpen]);
+
+  useEffect(() => {
+    setScrollY(window.scrollY);
+  }, [window.scrollY]);
 
   const showMask = useMask && isOpen;
 
@@ -67,7 +99,7 @@ export const Modal: FC<Props> = ({
       {showMask && <FadeMask onClick={closeHandler} />}
       <AnimatePresence>
         {isOpen && (
-          <MotionContainer {...modalMotion}>
+          <MotionContainer {...modalMotion} scrollY={scrollY}>
             <Card>
               <Header>
                 <div>{renderTitle && renderTitle()}</div>
