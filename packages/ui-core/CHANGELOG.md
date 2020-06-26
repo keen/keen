@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.21.0...@keen.io/ui-core@0.22.0) (2020-06-26)
+
+
+### Features
+
+* 🎸 fix modal test ([e2b84f7](https://github.com/keen/keen/commit/e2b84f768282a198e204491951a74517c8585d8e))
+
+
+
+
+
 # [0.21.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.20.0...@keen.io/ui-core@0.21.0) (2020-06-22)
 
 
