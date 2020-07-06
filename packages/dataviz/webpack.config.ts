@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
+import webpack from 'webpack';
 import path from 'path';
 
 import TerserPlugin from 'terser-webpack-plugin';
@@ -59,6 +60,11 @@ export default {
       },
     ],
   },
+  plugins: [
+    new webpack.EnvironmentPlugin({
+      SC_ATTR: 'keen-dataviz',
+    }),
+  ],
   optimization: {
     minimize: true,
     minimizer: [
