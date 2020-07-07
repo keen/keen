@@ -6,10 +6,10 @@ import { colors } from '@keen.io/colors';
 import { StyledLabel, Wrapper, Circle } from './label.styles';
 
 type Props = {
-  text: string;
   typography: Typography;
   markColor: string;
   onClick: (disabled: boolean) => void;
+  text?: string;
   truncate?: number;
 };
 
@@ -36,7 +36,9 @@ const Label: FC<Props> = ({
       >
         <Circle background={disabled ? colors.gray[400] : markColor} />
         <Text {...typography}>
-          {text.length > truncate ? `${text.slice(0, truncate)}...` : text}
+          {text && text.length > truncate
+            ? `${text.slice(0, truncate)}...`
+            : text}
         </Text>
       </Wrapper>
     </StyledLabel>
