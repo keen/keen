@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.3](https://github.com/keen/keen/compare/@keen.io/charts@0.8.2...@keen.io/charts@0.8.3) (2020-07-07)
+
+
+### Bug Fixes
+
+* 🐛 text truncate ([8660490](https://github.com/keen/keen/commit/866049043aed53f8733a20373512032cfe1bbd25))
+* 🐛 text truncate ([25e3831](https://github.com/keen/keen/commit/25e3831e337931d9f65fc1e03ccf302b0369e87e))
+
+
+
+
+
 ## [0.8.2](https://github.com/keen/keen/compare/@keen.io/charts@0.8.1...@keen.io/charts@0.8.2) (2020-06-26)
 
 **Note:** Version bump only for package @keen.io/charts
