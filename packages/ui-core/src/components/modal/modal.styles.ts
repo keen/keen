@@ -9,6 +9,10 @@ export const Header = styled.div`
   justify-content: space-between;
 `;
 
+export const TitleContainer = styled.div`
+  width: 100%;
+`;
+
 export const Close = styled.div`
   cursor: pointer;
   margin-left: 20px;

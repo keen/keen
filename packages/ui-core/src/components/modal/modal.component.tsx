@@ -4,7 +4,13 @@ import { AnimatePresence } from 'framer-motion';
 import { colors } from '@keen.io/colors';
 import { Icon } from '@keen.io/icons';
 
-import { MotionContainer, FadeMask, Close, Header } from './modal.styles';
+import {
+  MotionContainer,
+  FadeMask,
+  Close,
+  Header,
+  TitleContainer,
+} from './modal.styles';
 
 import Card from '../card';
 
@@ -102,7 +108,7 @@ export const Modal: FC<Props> = ({
           <MotionContainer {...modalMotion} scrollY={scrollY}>
             <Card>
               <Header>
-                <div>{renderTitle && renderTitle()}</div>
+                <TitleContainer>{renderTitle && renderTitle()}</TitleContainer>
                 <Close onClick={closeHandler}>
                   <Icon
                     type="close"
