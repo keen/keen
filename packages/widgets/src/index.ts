@@ -15,6 +15,7 @@ import {
   choroplethWidgetSettings,
   metricWidgetSettings,
   TableChartWidget,
+  ErrorWidget,
 } from './components';
 
 import {
@@ -45,5 +46,6 @@ export {
   legendSettings,
   HeatmapChartWidget,
   TableChartWidget,
+  ErrorWidget,
   BubbleWidgetLegendSettings,
 };

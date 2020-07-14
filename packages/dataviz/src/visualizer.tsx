@@ -1,5 +1,6 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { WidgetSettings } from '@keen.io/widgets';
+import { ErrorWidget, WidgetSettings } from '@keen.io/widgets';
 import { colors } from '@keen.io/colors';
 
 import { renderWidget, Widgets } from './render-widget';
@@ -88,6 +89,13 @@ class Visualizer {
   destroy() {
     const container = this.getContainerNode();
     ReactDOM.unmountComponentAtNode(container);
+  }
+
+  error(message: string) {
+    const container = this.getContainerNode();
+    const settings = this.setWidgetSettings();
+
+    ReactDOM.render(<ErrorWidget message={message} {...settings} />, container);
   }
 
   render(input: VisualizationInput | VisualizationInput[] = {}) {

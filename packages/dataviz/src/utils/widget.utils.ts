@@ -13,7 +13,7 @@ import { VisualizerWidgetSettings } from '../types';
 
 export const extendWidgetSettings = (
   customSettings: Partial<VisualizerWidgetSettings> = {},
-  type: Widgets
+  type?: Widgets
 ): WidgetSettings => {
   switch (type) {
     case 'choropleth':
