@@ -8,6 +8,7 @@
     "noUnusedParameters": false,
     "noUnusedLocals": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "importHelpers": true,
     "removeComments": true,
     "declaration": true,

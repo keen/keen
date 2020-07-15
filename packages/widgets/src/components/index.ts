@@ -12,6 +12,7 @@ import MetricChartWidget, { metricWidgetSettings } from './metric';
 import HeatmapChartWidget from './heatmap';
 import GaugeChartWidget from './gauge';
 import TableChartWidget from './table';
+import ErrorWidget from './error';
 
 import { LegendSocket, ContentSocket } from './widget-sockets.component';
 
@@ -34,4 +35,5 @@ export {
   choroplethWidgetSettings,
   HeatmapChartWidget,
   TableChartWidget,
+  ErrorWidget,
 };

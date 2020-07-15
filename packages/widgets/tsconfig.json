@@ -9,5 +9,5 @@
     { "path": "../ui-core" },
     { "path": "../colors" }
   ],
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/**/*.json"]
 }
