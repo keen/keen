@@ -1,6 +1,6 @@
 module.exports = {
   transform: {
-    '.(ts|tsx)': 'ts-jest',
+    "^.+\\.[t|j]sx?$": "ts-jest"
   },
 
   verbose: true,
@@ -17,7 +17,14 @@ module.exports = {
    '^@keen.io/(.*)$': '<rootDir>/../$1/src',
   },
 
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  moduleFileExtensions: [
+    "js",
+    "json",
+    "jsx",
+    "ts",
+    "tsx",
+    "node"
+  ],
 
   coverageThreshold: {
     global: {

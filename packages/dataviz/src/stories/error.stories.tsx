@@ -16,7 +16,7 @@ const analysisConfig = {
   readKey: 'FB952962910C97DE3E1C6A25EB2FC6B22FDB1ACA9D572948EA18227287BC4E12',
 };
 
-export const simple = () => {
+export const invalidQuery = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
@@ -42,10 +42,7 @@ export const simple = () => {
         steps: [],
       })
       .then(res => dataviz.render(res))
-      .catch(err => {
-        console.log(err, 'lalal');
-        dataviz.error(err.body);
-      });
+      .catch(err => dataviz.error(err.body));
   }, []);
 
   return <div style={{ width: '600px', height: '400px' }} ref={container} />;
