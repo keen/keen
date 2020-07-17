@@ -77,6 +77,7 @@ export const BubbleChart: FC<Props> = ({
   });
 
   const svgElement = useRef<SVGSVGElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
 
   const {
     tooltipVisible,
@@ -84,7 +85,7 @@ export const BubbleChart: FC<Props> = ({
     tooltipSelectors,
     updateTooltipPosition,
     hideTooltip,
-  } = useTooltip(svgElement);
+  } = useTooltip(svgElement, false, tooltipRef);
 
   const { tooltip: tooltipSettings } = theme;
 
@@ -104,6 +105,7 @@ export const BubbleChart: FC<Props> = ({
               position: 'absolute',
               pointerEvents: 'none',
             }}
+            ref={tooltipRef}
           >
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (

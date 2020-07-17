@@ -4,7 +4,8 @@ import { TooltipState, DataSelector } from '../types';
 
 export const useTooltip = (
   container: MutableRefObject<any>,
-  computeRelativeToTarget?: boolean
+  computeRelativeToTarget?: boolean,
+  tooltipRef?: MutableRefObject<any>
 ) => {
   const tooltipUpdate = useRef(null);
 
@@ -28,8 +29,13 @@ export const useTooltip = (
       e.persist();
       const {
         top,
+        bottom,
         left,
+        right,
+        width,
+        height,
       }: ClientRect = container.current.getBoundingClientRect();
+
       let tooltipX = e.pageX - left - window.scrollX;
       let tooltipY = e.pageY - top - window.scrollY;
 
@@ -39,6 +45,23 @@ export const useTooltip = (
 
         tooltipX = Math.abs(left - targetRect.left) + targetRect.width / 2;
         tooltipY = Math.abs(top - targetRect.top) + targetRect.height / 2;
+      }
+
+      if (tooltipRef?.current) {
+        const {
+          right: tooltipRight,
+          width: tooltipWidth,
+          height: tooltipHeight,
+          bottom: tooltipBottom,
+        }: ClientRect = tooltipRef.current.getBoundingClientRect();
+
+        if (tooltipRight > right) {
+          tooltipX = width - tooltipWidth;
+        }
+
+        if (tooltipBottom > bottom) {
+          tooltipY = height - tooltipHeight;
+        }
       }
 
       tooltipUpdate.current = requestAnimationFrame(() => {
