@@ -30,15 +30,7 @@ import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
 import Error from './error';
 
-import {
-  Ceil,
-  HeaderCeil,
-  SortArrows,
-  RESIZE_ELEMENT_WIDTH,
-  Sticky,
-  DragLine,
-  TableCell,
-} from './table';
+import { TableCell, TableRow, TableHeader, CellValue } from './table';
 
 import { Brand } from './brand';
 
@@ -46,7 +38,7 @@ import ModalContent from './modal-content';
 import LoadingScreen from './loading-screen';
 import SuccessNotification from './success-notification';
 
-export { ARROW_SIZE, RESIZE_ELEMENT_WIDTH };
+export { ARROW_SIZE };
 
 export {
   Alert,
@@ -59,6 +51,7 @@ export {
   Checkbox,
   ColorAdjuster,
   ContentSeparator,
+  CellValue,
   Error,
   FakeInput,
   FadeLoader,
@@ -80,13 +73,10 @@ export {
   PasswordValidator,
   Ruler,
   RulerTick,
-  Ceil,
-  HeaderCeil,
-  SortArrows,
-  Sticky,
   TagManager,
-  DragLine,
   TableCell,
+  TableRow,
+  TableHeader,
   Brand,
   ModalContent,
   LoadingScreen,

@@ -1,11 +1,9 @@
 import { SortByType } from '@keen.io/ui-core';
-import { FormatFunction, ValueFormatter } from './types';
 import { isObject } from 'util';
-import { HeaderCeilType } from './types';
 
-export const firstCapital = (str: string) => {
-  return str.replace(/^\w/, (c: string) => c.toUpperCase());
-};
+import { firstCapital } from '../../utils/text';
+
+import { FormatFunction, ValueFormatter, HeaderCell } from './types';
 
 export const sortData = (data: Record<string, any>, sortBy: SortByType) => {
   return data.sort((a: any, b: any) => {
@@ -17,20 +15,11 @@ export const sortData = (data: Record<string, any>, sortBy: SortByType) => {
   });
 };
 
-export const copyToClipboard = (value: any) => {
-  const placeholder = document.createElement('input');
-  placeholder.value = value;
-  document.body.appendChild(placeholder);
-  placeholder.select();
-  document.execCommand('copy');
-  document.body.removeChild(placeholder);
-};
-
 export const generateHeader = (
   data: Record<string, any>,
   format: Record<string, FormatFunction>
 ) => {
-  const header = [] as HeaderCeilType[];
+  const header: HeaderCell[] = [];
   Object.keys(data).map((key: string) => {
     const formatFunc =
       isObject(format) && format[key]

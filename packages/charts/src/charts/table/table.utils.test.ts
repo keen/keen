@@ -1,25 +1,6 @@
-import {
-  firstCapital,
-  sortData,
-  generateHeader,
-  generateTable,
-} from './table.utils';
+import { sortData, generateHeader, generateTable } from './table.utils';
 
 describe('<TableChart />', () => {
-  describe('firstCapital()', () => {
-    it('should return John', () => {
-      const result = firstCapital('john');
-      expect(result).toEqual('John');
-    });
-    it('should return Smith', () => {
-      const result = firstCapital('smith');
-      expect(result).toEqual('Smith');
-    });
-    it('should return Cracow', () => {
-      const result = firstCapital('cracow');
-      expect(result).toEqual('Cracow');
-    });
-  });
   describe('sortData()', () => {
     const data = [
       { name: 'Krzys', age: 31 },

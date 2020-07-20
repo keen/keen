@@ -20,8 +20,6 @@ export type RangeType = {
   max?: number;
 };
 
-export type CeilType = string | number | Date;
-
 export type SortMode = 'ascending' | 'descending';
 
 export type SortByType = {
