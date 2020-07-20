@@ -29,13 +29,13 @@ export const useTooltip = (
       e.persist();
       const {
         top,
-        bottom,
         left,
-        right,
         width,
         height,
       }: ClientRect = container.current.getBoundingClientRect();
 
+      let maxOffsetX = width;
+      let maxOffsetY = height;
       let tooltipX = e.pageX - left - window.scrollX;
       let tooltipY = e.pageY - top - window.scrollY;
 
@@ -49,19 +49,19 @@ export const useTooltip = (
 
       if (tooltipRef?.current) {
         const {
-          right: tooltipRight,
           width: tooltipWidth,
           height: tooltipHeight,
-          bottom: tooltipBottom,
         }: ClientRect = tooltipRef.current.getBoundingClientRect();
+        maxOffsetX = width - tooltipWidth;
+        maxOffsetY = height - tooltipHeight;
+      }
 
-        if (tooltipRight > right) {
-          tooltipX = width - tooltipWidth;
-        }
+      if (tooltipX > maxOffsetX) {
+        tooltipX = maxOffsetX;
+      }
 
-        if (tooltipBottom > bottom) {
-          tooltipY = height - tooltipHeight;
-        }
+      if (tooltipY > maxOffsetY) {
+        tooltipY = maxOffsetY;
       }
 
       tooltipUpdate.current = requestAnimationFrame(() => {
@@ -74,7 +74,7 @@ export const useTooltip = (
         });
       });
     },
-    [container, computeRelativeToTarget]
+    [container, computeRelativeToTarget, tooltipRef]
   );
 
   const hideTooltip = useCallback(() => {
