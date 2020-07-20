@@ -213,7 +213,9 @@ test('horizontal overflow', () => {
     },
   };
 
-  const { result } = renderHook(() => useTooltip(container, false, tooltip));
+  const { result } = renderHook(() =>
+    useTooltip(container, false, false, tooltip)
+  );
   const event = {
     persist: jest.fn(),
     pageX: 200,
@@ -264,7 +266,9 @@ test('vertical overflow', () => {
     },
   };
 
-  const { result } = renderHook(() => useTooltip(container, false, tooltip));
+  const { result } = renderHook(() =>
+    useTooltip(container, false, false, tooltip)
+  );
   const event = {
     persist: jest.fn(),
     pageX: 0,
@@ -289,4 +293,44 @@ test('vertical overflow', () => {
       "y": 190,
     }
   `);
+});
+
+it('it should throw an error once tooltipRef is not provided', () => {
+  window.requestAnimationFrame = callback => {
+    callback(null);
+    return null;
+  };
+  const container = {
+    current: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        top: 0,
+        left: 0,
+        width: 200,
+        height: 200,
+      }),
+    },
+  };
+
+  try {
+    const { result } = renderHook(() => useTooltip(container, false, false));
+    const event = {
+      persist: jest.fn(),
+      pageX: 0,
+      pageY: 200,
+      target: {
+        getBoundingClientRect: jest.fn().mockReturnValue({
+          width: 10,
+          height: 10,
+          top: 190,
+          left: 10,
+        }),
+      },
+    };
+
+    act(() => {
+      result.current.updateTooltipPosition(event);
+    });
+  } catch (error) {
+    expect(error).toEqual(Error('@keen.io/dataviz - tooltipRef is required'));
+  }
 });

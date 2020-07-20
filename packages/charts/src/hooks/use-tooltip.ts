@@ -2,9 +2,12 @@ import React, { MutableRefObject, useRef, useState, useCallback } from 'react';
 
 import { TooltipState, DataSelector } from '../types';
 
+const PREFIX = '@keen.io/dataviz';
+
 export const useTooltip = (
   container: MutableRefObject<any>,
   computeRelativeToTarget?: boolean,
+  allowContainerOverflow = true,
   tooltipRef?: MutableRefObject<any>
 ) => {
   const tooltipUpdate = useRef(null);
@@ -47,7 +50,11 @@ export const useTooltip = (
         tooltipY = Math.abs(top - targetRect.top) + targetRect.height / 2;
       }
 
-      if (tooltipRef?.current) {
+      if (!allowContainerOverflow && !tooltipRef) {
+        throw new Error(`${PREFIX} - tooltipRef is required`);
+      }
+
+      if (!allowContainerOverflow && tooltipRef?.current) {
         const {
           width: tooltipWidth,
           height: tooltipHeight,

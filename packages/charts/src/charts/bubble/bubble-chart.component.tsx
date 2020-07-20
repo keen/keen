@@ -85,7 +85,7 @@ export const BubbleChart: FC<Props> = ({
     tooltipSelectors,
     updateTooltipPosition,
     hideTooltip,
-  } = useTooltip(svgElement, false, tooltipRef);
+  } = useTooltip(svgElement, false, false, tooltipRef);
 
   const { tooltip: tooltipSettings } = theme;
 
