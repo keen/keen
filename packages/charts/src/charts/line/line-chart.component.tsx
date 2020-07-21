@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
 
-import { generateLines } from './line-chart.utils';
+import { generateLines, showAllMarks } from './line-chart.utils';
 
 import Lines from './lines.component';
 import Tooltip from './tooltip.component';
@@ -104,8 +104,7 @@ export const LineChart: FC<Props> = ({
     areaMode,
   });
   const svgElement = useRef<SVGSVGElement>(null);
-  const computeTooltipRelative =
-    !stepMode && marks[0].radius > lines[0].strokeWidth / 2;
+  const computeTooltipRelative = !showAllMarks(stepMode, marks, lines);
 
   const {
     tooltipVisible,

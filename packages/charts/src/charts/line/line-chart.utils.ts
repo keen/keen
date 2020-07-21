@@ -499,3 +499,13 @@ export const generateLines = (options: Options) => {
     ? generateGroupedLines(newOptions)
     : generateStackLines(newOptions);
 };
+
+export const showAllMarks = (
+  stepMode: boolean,
+  marks: Mark[],
+  lines: Line[]
+) => {
+  if (marks.length && lines.length)
+    return stepMode || marks[0].radius <= lines[0].strokeWidth / 2;
+  return false;
+};

@@ -3,7 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import Marks from './marks.component';
 import Step from './step.component';
-import { groupMarksByPosition, findMarksInCluster } from './line-chart.utils';
+import {
+  groupMarksByPosition,
+  findMarksInCluster,
+  showAllMarks,
+} from './line-chart.utils';
 
 import { HoverBar, hoverBarMotion } from '../../components';
 
@@ -85,7 +89,7 @@ const Lines = ({
   } = useContext(ChartContext) as ChartContextType;
 
   const groupedMarks = useMemo(() => groupMarksByPosition(marks), [marks]);
-  const showAllMarks = stepMode || marks[0].radius <= lines[0].strokeWidth / 2;
+  const allMarks = showAllMarks(stepMode, marks, lines);
 
   return (
     <>
@@ -150,7 +154,7 @@ const Lines = ({
         marks={groupedMarks}
         onMouseEnter={(e, mark) => {
           if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
-          showAllMarks &&
+          allMarks &&
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
@@ -159,7 +163,7 @@ const Lines = ({
         }}
         onMouseMove={(e, mark) => {
           if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
-          showAllMarks &&
+          allMarks &&
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
@@ -176,7 +180,7 @@ const Lines = ({
           }, HOVER_BAR_HIDE_TIME);
         }}
       />
-      {!showAllMarks && (
+      {!allMarks && (
         <Marks
           marks={marks}
           curve={curve}

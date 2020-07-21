@@ -1,4 +1,8 @@
-import { generateGroupedLines, generateStackLines } from './line-chart.utils';
+import {
+  generateGroupedLines,
+  generateStackLines,
+  showAllMarks,
+} from './line-chart.utils';
 
 import { lineChart } from './line-chart.fixtures';
 
@@ -104,6 +108,65 @@ describe('@keen/charts', () => {
         ];
 
         expect(lines).toMatchObject(result);
+      });
+    });
+    describe('showAllMarks', () => {
+      const mark = {
+        key: '1qw',
+        color: 'grey',
+        x: 10,
+        y: 20,
+        selector: ['selector'],
+      };
+      const line = {
+        key: '2as',
+        d: 'M12 L23',
+        selector: ['selector'],
+        color: 'black',
+      };
+      it('should return false when marks and lines empty', () => {
+        const stepMode = false;
+
+        const result = showAllMarks(
+          stepMode,
+          [{ ...mark, radius: 2 }],
+          [{ ...line, strokeWidth: 2 }]
+        );
+
+        expect(result).toBe(false);
+      });
+      it('should return false when stepMode is false and marksRadius is smaller then lines strokeWidth/2', () => {
+        const stepMode = false;
+
+        const result = showAllMarks(
+          stepMode,
+          [{ ...mark, radius: 2 }],
+          [{ ...line, strokeWidth: 2 }]
+        );
+
+        expect(result).toBe(false);
+      });
+      it('should return true when stepMode is true', () => {
+        const stepMode = true;
+
+        const result = showAllMarks(
+          stepMode,
+          [{ ...mark, radius: 2 }],
+          [{ ...line, strokeWidth: 2 }]
+        );
+
+        expect(result).toBe(true);
+      });
+      it('should return true when marksRadius is smaller then lines strokeWidth/2', () => {
+        const stepMode = false;
+
+        const result = showAllMarks(
+          stepMode,
+          [{ ...mark, radius: 1 }],
+          [{ ...line, strokeWidth: 2 }]
+        );
+
+        expect(result).toBe(true);
       });
     });
   });
