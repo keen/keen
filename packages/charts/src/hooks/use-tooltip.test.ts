@@ -188,3 +188,149 @@ test('calculates tooltip position relative to event target', () => {
     }
   `);
 });
+
+test('horizontal overflow', () => {
+  window.requestAnimationFrame = callback => {
+    callback(null);
+    return null;
+  };
+  const container = {
+    current: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        top: 0,
+        left: 0,
+        width: 200,
+        height: 200,
+      }),
+    },
+  };
+  const tooltip = {
+    current: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        width: 10,
+        height: 10,
+      }),
+    },
+  };
+
+  const { result } = renderHook(() =>
+    useTooltip(container, false, false, tooltip)
+  );
+  const event = {
+    persist: jest.fn(),
+    pageX: 200,
+    pageY: 0,
+    target: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        width: 10,
+        height: 10,
+        top: 10,
+        left: 190,
+      }),
+    },
+  };
+
+  act(() => {
+    result.current.updateTooltipPosition(event);
+  });
+
+  expect(result.current.tooltipPosition).toMatchInlineSnapshot(`
+    Object {
+      "x": 190,
+      "y": 0,
+    }
+  `);
+});
+
+test('vertical overflow', () => {
+  window.requestAnimationFrame = callback => {
+    callback(null);
+    return null;
+  };
+  const container = {
+    current: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        top: 0,
+        left: 0,
+        width: 200,
+        height: 200,
+      }),
+    },
+  };
+  const tooltip = {
+    current: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        width: 10,
+        height: 10,
+      }),
+    },
+  };
+
+  const { result } = renderHook(() =>
+    useTooltip(container, false, false, tooltip)
+  );
+  const event = {
+    persist: jest.fn(),
+    pageX: 0,
+    pageY: 200,
+    target: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        width: 10,
+        height: 10,
+        top: 190,
+        left: 10,
+      }),
+    },
+  };
+
+  act(() => {
+    result.current.updateTooltipPosition(event);
+  });
+
+  expect(result.current.tooltipPosition).toMatchInlineSnapshot(`
+    Object {
+      "x": 0,
+      "y": 190,
+    }
+  `);
+});
+
+it('it should throw an error once tooltipRef is not provided', () => {
+  window.requestAnimationFrame = callback => {
+    callback(null);
+    return null;
+  };
+  const container = {
+    current: {
+      getBoundingClientRect: jest.fn().mockReturnValue({
+        top: 0,
+        left: 0,
+        width: 200,
+        height: 200,
+      }),
+    },
+  };
+
+  try {
+    const { result } = renderHook(() => useTooltip(container, false, false));
+    const event = {
+      persist: jest.fn(),
+      pageX: 0,
+      pageY: 200,
+      target: {
+        getBoundingClientRect: jest.fn().mockReturnValue({
+          width: 10,
+          height: 10,
+          top: 190,
+          left: 10,
+        }),
+      },
+    };
+
+    act(() => {
+      result.current.updateTooltipPosition(event);
+    });
+  } catch (error) {
+    expect(error).toEqual(Error('@keen.io/dataviz - tooltipRef is required'));
+  }
+});
