@@ -104,7 +104,8 @@ export const LineChart: FC<Props> = ({
     areaMode,
   });
   const svgElement = useRef<SVGSVGElement>(null);
-  const computeTooltipRelative = !stepMode;
+  const computeTooltipRelative =
+    !stepMode && marks[0].radius > lines[0].strokeWidth / 2;
 
   const {
     tooltipVisible,

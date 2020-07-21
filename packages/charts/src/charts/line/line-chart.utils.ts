@@ -320,7 +320,7 @@ export const generateGroupedLines = ({
     );
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
-      if (stepMode && idx === 0)
+      if (idx === 0)
         steps.push(
           ...generateSteps(data, xScale, yScale, labelSelector, keys[0])
         );

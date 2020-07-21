@@ -85,6 +85,7 @@ const Lines = ({
   } = useContext(ChartContext) as ChartContextType;
 
   const groupedMarks = useMemo(() => groupMarksByPosition(marks), [marks]);
+  const showAllMarks = stepMode || marks[0].radius <= lines[0].strokeWidth / 2;
 
   return (
     <>
@@ -144,37 +145,38 @@ const Lines = ({
           </motion.g>
         )}
       </AnimatePresence>
-      {stepMode ? (
-        <Step
-          steps={steps}
-          marks={groupedMarks}
-          onMouseEnter={(e, mark) => {
-            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+      <Step
+        steps={steps}
+        marks={groupedMarks}
+        onMouseEnter={(e, mark) => {
+          if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+          showAllMarks &&
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
-            setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
-          }}
-          onMouseMove={(e, mark) => {
-            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+          setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+        }}
+        onMouseMove={(e, mark) => {
+          if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+          showAllMarks &&
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
-            setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
-          }}
-          onMouseLeave={e => {
-            onMarkMouseLeave(e);
-            hideHoverBar.current = setTimeout(() => {
-              setHoverBar({
-                visible: false,
-                x: 0,
-              });
-            }, HOVER_BAR_HIDE_TIME);
-          }}
-        />
-      ) : (
+          setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+        }}
+        onMouseLeave={e => {
+          onMarkMouseLeave(e);
+          hideHoverBar.current = setTimeout(() => {
+            setHoverBar({
+              visible: false,
+              x: 0,
+            });
+          }, HOVER_BAR_HIDE_TIME);
+        }}
+      />
+      {!showAllMarks && (
         <Marks
           marks={marks}
           curve={curve}

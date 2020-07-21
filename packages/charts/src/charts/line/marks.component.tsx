@@ -14,15 +14,6 @@ const pointMotion = {
   transition: { delay: 1.2, duration: 0.3 },
 };
 
-const getRadius = (radius: number) => {
-  return radius === 0
-    ? {
-        r: 1,
-        fillOpacity: 0,
-      }
-    : { r: radius };
-};
-
 type Props = {
   marks: Mark[];
   steps: StepType[];
@@ -65,7 +56,6 @@ const Marks = ({
               cy={y}
               r={radius}
               fill={color}
-              {...getRadius(radius)}
               {...pointMotion}
             />
             <AnimatePresence>
