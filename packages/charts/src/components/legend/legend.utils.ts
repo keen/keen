@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import { Layout, Position } from '@keen.io/ui-core';
+
+import { hasOverflow } from '../../utils/elements';
 
 export type RenderMode = 'list' | 'group' | 'slider';
 
@@ -8,14 +9,6 @@ export type ContentDimension = {
   offset: number;
   scroll: number;
 };
-
-export const hasContentOverflow = (
-  layout: Layout,
-  { offsetHeight, offsetWidth, scrollHeight, scrollWidth }: HTMLElement
-) =>
-  layout === 'horizontal'
-    ? offsetWidth < scrollWidth
-    : offsetHeight < scrollHeight;
 
 export const useRenderMode = (
   element: React.MutableRefObject<HTMLElement>,
@@ -35,7 +28,7 @@ export const useRenderMode = (
   }, [layout, position, initialMode, labelsLength]);
 
   useEffect(() => {
-    const hasOverflow = hasContentOverflow(layout, element.current);
+    const contentOverflow = hasOverflow(layout, element.current);
 
     const {
       offsetHeight,
@@ -44,7 +37,7 @@ export const useRenderMode = (
       scrollWidth,
     } = element.current;
 
-    if (hasOverflow && layout === 'horizontal') {
+    if (contentOverflow && layout === 'horizontal') {
       switch (mode) {
         case 'list':
           setDimension({ offset: offsetWidth, scroll: scrollWidth });
@@ -56,7 +49,7 @@ export const useRenderMode = (
       }
     }
 
-    if (hasOverflow && layout === 'vertical') {
+    if (contentOverflow && layout === 'vertical') {
       switch (mode) {
         case 'list':
           setDimension({ offset: offsetHeight, scroll: scrollHeight });

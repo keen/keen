@@ -4,6 +4,7 @@
     "noImplicitAny": false,
     "composite": false,
     "declaration": false,
+    "resolveJsonModule": true,
     "jsx": "react",
     "isolatedModules": false,
     "noEmit": false

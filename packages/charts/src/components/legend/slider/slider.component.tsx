@@ -7,7 +7,8 @@ import { Slider, SliderItem, SliderLayout, ScrollMask } from './slider.styles';
 import Button from './button.component';
 
 import { sliderSettings } from './slider.settings';
-import { getIconColor, getElementOffset } from '../utils';
+import { getIconColor } from '../utils';
+import { getElementOffset } from '../../../utils/elements';
 
 type Props = {
   children: React.ReactNode;

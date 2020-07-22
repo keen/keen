@@ -1,10 +1,14 @@
 import React, { MutableRefObject, useRef, useState, useCallback } from 'react';
 
-import { TooltipState, DataSelector } from './types';
+import { TooltipState, DataSelector } from '../types';
+
+const PREFIX = '@keen.io/dataviz';
 
 export const useTooltip = (
   container: MutableRefObject<any>,
-  computeRelativeToTarget?: boolean
+  computeRelativeToTarget?: boolean,
+  allowContainerOverflow = true,
+  tooltipRef?: MutableRefObject<any>
 ) => {
   const tooltipUpdate = useRef(null);
 
@@ -29,7 +33,12 @@ export const useTooltip = (
       const {
         top,
         left,
+        width,
+        height,
       }: ClientRect = container.current.getBoundingClientRect();
+
+      let maxOffsetX = width;
+      let maxOffsetY = height;
       let tooltipX = e.pageX - left - window.scrollX;
       let tooltipY = e.pageY - top - window.scrollY;
 
@@ -39,6 +48,27 @@ export const useTooltip = (
 
         tooltipX = Math.abs(left - targetRect.left) + targetRect.width / 2;
         tooltipY = Math.abs(top - targetRect.top) + targetRect.height / 2;
+      }
+
+      if (!allowContainerOverflow && !tooltipRef) {
+        throw new Error(`${PREFIX} - tooltipRef is required`);
+      }
+
+      if (!allowContainerOverflow && tooltipRef?.current) {
+        const {
+          width: tooltipWidth,
+          height: tooltipHeight,
+        }: ClientRect = tooltipRef.current.getBoundingClientRect();
+        maxOffsetX = width - tooltipWidth;
+        maxOffsetY = height - tooltipHeight;
+      }
+
+      if (tooltipX > maxOffsetX) {
+        tooltipX = maxOffsetX;
+      }
+
+      if (tooltipY > maxOffsetY) {
+        tooltipY = maxOffsetY;
       }
 
       tooltipUpdate.current = requestAnimationFrame(() => {
@@ -51,7 +81,7 @@ export const useTooltip = (
         });
       });
     },
-    [container, computeRelativeToTarget]
+    [container, computeRelativeToTarget, tooltipRef]
   );
 
   const hideTooltip = useCallback(() => {

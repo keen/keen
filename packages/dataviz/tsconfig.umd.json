@@ -4,7 +4,7 @@
     "declaration": false,
     "composite": false
   },
-  "include": ["./src/**/*"],
+  "include": ["src/**/*", "typings/*.d.ts"],
   "references": [
     { "path": "../parser" },
     { "path": "../widgets" },

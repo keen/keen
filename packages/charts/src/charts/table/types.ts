@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type HeaderCeilType = {
+export type HeaderCell = {
   key: string;
   value: React.ReactNode;
 };

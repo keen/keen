@@ -9,7 +9,7 @@ const pointMotion = {
   initial: 'hidden',
   animate: 'show',
   variants: { hidden: { opacity: 0 }, show: { opacity: 1 } },
-  transition: { delay: 0.1, duration: 0.3 },
+  transition: { ease: 'easeInOut', delay: 0.1, duration: 0.3 },
 };
 
 type Props = {

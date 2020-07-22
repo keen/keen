@@ -31,8 +31,8 @@
   "dependencies": {
     "@keen.io/colors": "^0.2.0",
     "@keen.io/icons": "^0.4.2",
+    "framer-motion": "^1.11.1",
     "@keen.io/ui-core": "^0.23.0",
-    "framer-motion": "^1.10.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",

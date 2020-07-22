@@ -3,7 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import Marks from './marks.component';
 import Step from './step.component';
-import { groupMarksByPosition, findMarksInCluster } from './line-chart.utils';
+import {
+  groupMarksByPosition,
+  findMarksInCluster,
+  showAllMarks,
+} from './line-chart.utils';
 
 import { HoverBar, hoverBarMotion } from '../../components';
 
@@ -85,6 +89,7 @@ const Lines = ({
   } = useContext(ChartContext) as ChartContextType;
 
   const groupedMarks = useMemo(() => groupMarksByPosition(marks), [marks]);
+  const allMarks = showAllMarks(stepMode, marks, lines);
 
   return (
     <>
@@ -144,37 +149,38 @@ const Lines = ({
           </motion.g>
         )}
       </AnimatePresence>
-      {stepMode ? (
-        <Step
-          steps={steps}
-          marks={groupedMarks}
-          onMouseEnter={(e, mark) => {
-            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+      <Step
+        steps={steps}
+        marks={groupedMarks}
+        onMouseEnter={(e, mark) => {
+          if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+          allMarks &&
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
-            setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
-          }}
-          onMouseMove={(e, mark) => {
-            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+          setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+        }}
+        onMouseMove={(e, mark) => {
+          if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+          allMarks &&
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
-            setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
-          }}
-          onMouseLeave={e => {
-            onMarkMouseLeave(e);
-            hideHoverBar.current = setTimeout(() => {
-              setHoverBar({
-                visible: false,
-                x: 0,
-              });
-            }, HOVER_BAR_HIDE_TIME);
-          }}
-        />
-      ) : (
+          setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+        }}
+        onMouseLeave={e => {
+          onMarkMouseLeave(e);
+          hideHoverBar.current = setTimeout(() => {
+            setHoverBar({
+              visible: false,
+              x: 0,
+            });
+          }, HOVER_BAR_HIDE_TIME);
+        }}
+      />
+      {!allMarks && (
         <Marks
           marks={marks}
           curve={curve}

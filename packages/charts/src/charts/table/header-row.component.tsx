@@ -1,43 +1,55 @@
-import React, { useState } from 'react';
-import { HeaderCeil, SortMode, SortByType, Typography } from '@keen.io/ui-core';
-import { HeaderCeilType } from './types';
-import { Header } from './table.styles';
+import React from 'react';
+import {
+  TableHeader,
+  SortMode,
+  SortByType,
+  Typography,
+} from '@keen.io/ui-core';
+
+import { HeaderCell } from './types';
+
+import { Container, StickyCell } from './header-row.styles';
 
 type Props = {
-  data: HeaderCeilType[];
+  /* Header data */
+  data: HeaderCell[];
+  /** Header background color */
   color: string;
-  onClick?: (res: { property: string; sort: SortMode }) => void;
-  sorting?: SortByType;
-  onResize?: (res: { property: string; width: number }) => void;
+  /** Header labels typography */
   typography: Typography;
+  /** Sort settings */
+  sortOptions?: SortByType;
+  /** Column drag indicator */
+  isColumnDragged: boolean;
+  /** Column sort event handler */
+  onSort?: (sortMeta: { propertyName: string; sortMode: SortMode }) => void;
 };
 
 export const HeaderRow = ({
   data,
   color,
-  onClick,
-  sorting,
-  onResize,
+  onSort,
+  sortOptions,
+  isColumnDragged,
   typography,
-}: Props) => {
-  const [dragged, setDragged] = useState(false);
-
-  return (
-    <Header color={color} typography={typography}>
-      {data.map((item: HeaderCeilType) => (
-        <HeaderCeil
-          key={`${item.key}`}
-          onClick={onClick}
-          sorting={sorting}
-          dragged={dragged}
-          setDragged={setDragged}
-          onResize={onResize}
-          value={item.value}
-          property={item.key}
-        />
+}: Props) => (
+  <thead>
+    <Container color={color} typography={typography}>
+      {data.map(({ key, value }: HeaderCell) => (
+        <StickyCell key={key}>
+          <TableHeader
+            propertyName={key}
+            backgroundColor={color}
+            sortOptions={sortOptions}
+            isColumnDragged={isColumnDragged}
+            onSort={onSort}
+          >
+            {value}
+          </TableHeader>
+        </StickyCell>
       ))}
-    </Header>
-  );
-};
+    </Container>
+  </thead>
+);
 
 export default HeaderRow;
