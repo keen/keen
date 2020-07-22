@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.22.0...@keen.io/ui-core@0.23.0) (2020-07-09)
+
+
+### Features
+
+* 🎸 Modal title container width set to 100% ([01142ae](https://github.com/keen/keen/commit/01142aeb852e5394606f9c0c641945685c599561))
+
+
+
+
+
 # [0.22.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.21.0...@keen.io/ui-core@0.22.0) (2020-06-26)
 
 
