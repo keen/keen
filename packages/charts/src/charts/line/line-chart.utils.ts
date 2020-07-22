@@ -320,7 +320,7 @@ export const generateGroupedLines = ({
     );
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
-      if (stepMode && idx === 0)
+      if (idx === 0)
         steps.push(
           ...generateSteps(data, xScale, yScale, labelSelector, keys[0])
         );
@@ -498,4 +498,14 @@ export const generateLines = (options: Options) => {
     (stackMode === 'normal' || stackMode === 'percent')
     ? generateGroupedLines(newOptions)
     : generateStackLines(newOptions);
+};
+
+export const showAllMarks = (
+  stepMode: boolean,
+  marks: Mark[],
+  lines: Line[]
+) => {
+  if (marks.length && lines.length)
+    return stepMode || marks[0].radius <= lines[0].strokeWidth / 2;
+  return false;
 };
