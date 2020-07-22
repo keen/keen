@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/keen/keen/compare/@keen.io/dataviz@0.7.1...@keen.io/dataviz@0.8.0) (2020-07-22)
+
+
+### Features
+
+* 🎸 add dataviz errors handler ([93e9d7d](https://github.com/keen/keen/commit/93e9d7d734756249cbe5a8c3aaad55628b0f0b95))
+* 🎸 error widget component ([99e8451](https://github.com/keen/keen/commit/99e845176c56384ce1c8b689fd9e238c2919c65d))
+
+
+
+
+
 ## [0.7.1](https://github.com/keen/keen/compare/@keen.io/dataviz@0.7.0...@keen.io/dataviz@0.7.1) (2020-07-09)
 
 **Note:** Version bump only for package @keen.io/dataviz
