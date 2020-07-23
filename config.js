@@ -42,3 +42,7 @@ const setStories = () => {
 }
 
 configure(setStories(), module);
+
+module.exports = {
+  addons: ['storybook-addon-performance/register'],
+};
