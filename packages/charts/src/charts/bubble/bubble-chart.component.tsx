@@ -115,6 +115,8 @@ export const BubbleChart: FC<Props> = ({
                   selectors={tooltipSelectors}
                   valueKey={valueKey}
                   typography={tooltipSettings.labels.typography}
+                  yScaleSettings={yScaleSettings}
+                  yDomainKey={yDomainKey}
                 />
               )}
             </Tooltip>

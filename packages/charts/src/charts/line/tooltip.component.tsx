@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import { BulletList } from '@keen.io/ui-core';
 
-import { getFromPath } from '../../utils/selectors.utils';
+import { getFromPath, formatTooltipValue } from '../../utils';
 
 import { DataSelector } from '../../types';
 
@@ -15,13 +15,17 @@ type Props = {
 const Tooltip: FC<Props> = ({ data, selectors }) => {
   const {
     theme: { tooltip },
+    yScaleSettings: scaleSettings,
   } = useContext(ChartContext) as ChartContextType;
 
   return (
     <BulletList
       typography={tooltip.labels.typography}
       list={selectors.map(({ color, selector }) => ({
-        value: getFromPath(data, selector),
+        value: formatTooltipValue(
+          getFromPath(data, selector),
+          scaleSettings?.formatLabel
+        ),
         color,
       }))}
     />
