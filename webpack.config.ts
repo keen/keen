@@ -72,5 +72,7 @@ module.exports = ({ config }: { config: any }) => {
 
   config.resolve.extensions.push('.ts', '.tsx', '.mdx');
 
+  config.addons.push('storybook-addon-performance/register');
+
   return config;
 };
