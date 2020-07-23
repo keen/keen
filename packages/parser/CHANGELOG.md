@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keen/keen/compare/@keen.io/parser@0.2.30...@keen.io/parser@0.3.0) (2020-07-23)
+
+
+### Features
+
+* 🎸 support for custom interval ([9063e66](https://github.com/keen/keen/commit/9063e66b477077bab9aca3495d56d8d3d697f51e))
+
+
+
+
+
 ## [0.2.30](https://github.com/keen/keen/compare/@keen.io/parser@0.2.29...@keen.io/parser@0.2.30) (2020-07-22)
 
 **Note:** Version bump only for package @keen.io/parser
