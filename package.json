@@ -95,6 +95,7 @@
     "rimraf": "^3.0.0",
     "storybook": "^5.1.11",
     "storybook-addon-jsx": "^7.1.13",
+    "storybook-addon-performance": "^0.11.0",
     "terser-webpack-plugin": "^2.3.5",
     "to-string-loader": "^1.1.6",
     "ts-jest": "^26.1.2",
