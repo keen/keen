@@ -10,7 +10,7 @@ type Props = {
   /** Disabled state */
   isDisabled?: boolean;
   /** Click event handler */
-  onClick?: (e: React.SyntheticEvent, type: any) => void;
+  onClick?: (e: React.SyntheticEvent, type: ButtonAction) => void;
 };
 
 export const ActionButton: FC<Props> = ({
