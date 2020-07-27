@@ -2,6 +2,7 @@ import Alert from './alert';
 import Anchor from './anchor';
 import Badge from './badge';
 import Button from './button';
+import MoreButton from './more-button';
 import BulletList from './bullet-list';
 import Card, { CardSettings } from './card';
 import Checkbox from './checkbox';
@@ -45,6 +46,7 @@ export {
   Anchor,
   Badge,
   Button,
+  MoreButton,
   BulletList,
   Card,
   CardSettings,
