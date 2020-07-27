@@ -2,6 +2,7 @@ import React, { FC, useContext } from 'react';
 import { Text, BulletList } from '@keen.io/ui-core';
 
 import { getLabel } from './utils/tooltip.utils';
+import { formatTooltipValue } from '../../utils/tooltip.utils';
 import { getFromPath } from '../../utils/selectors.utils';
 import { getKeysDifference, normalizeToPercent } from '../../utils/data.utils';
 
@@ -30,6 +31,7 @@ const BarTooltip: FC<Props> = ({
 }) => {
   const {
     theme: { tooltip },
+    yScaleSettings: scaleSettings,
   } = useContext(ChartContext) as ChartContextType;
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
@@ -51,7 +53,10 @@ const BarTooltip: FC<Props> = ({
         <>
           {selectors.map(({ selector, color }) => (
             <Text {...tooltip.labels.typography} key={color}>
-              {getFromPath(data, selector)}
+              {formatTooltipValue(
+                getFromPath(data, selector),
+                scaleSettings?.formatLabel
+              )}
             </Text>
           ))}
         </>
