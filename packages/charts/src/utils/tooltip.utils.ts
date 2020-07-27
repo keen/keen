@@ -76,3 +76,13 @@ export const getCircularChartTooltipContent = ({
 
   return content;
 };
+
+export const formatTooltipValue = (
+  label: any,
+  formatLabel?: (label: string | number | Date) => string | number
+) => {
+  if (formatLabel && (typeof label === 'string' || typeof label === 'number')) {
+    return formatLabel(label);
+  }
+  return label;
+};

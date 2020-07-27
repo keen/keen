@@ -2,7 +2,7 @@ import { calculateHypotenuse, calculateHypotenuseHeight } from './math.utils';
 import { formatNumber } from './format.utils';
 import { getFromPath } from './selectors.utils';
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
-import { getTooltipContent } from './tooltip.utils';
+import { getTooltipContent, formatTooltipValue } from './tooltip.utils';
 import { bubbleColorScale } from './scale.utils';
 
 import { getValues } from './data.utils';
@@ -24,6 +24,7 @@ export {
   createArcTween,
   animateArcPath,
   getTooltipContent,
+  formatTooltipValue,
   ArcProperties,
   LabelsPosition,
   CircularChart,

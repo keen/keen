@@ -15,7 +15,6 @@ export default {
 export const primary = () => (
   <ActionButton
     onClick={action('click')}
-    isDisabled
     action={select(
       'Action Type',
       { create: 'create', remove: 'remove' },
