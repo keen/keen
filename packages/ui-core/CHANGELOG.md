@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.23.1...@keen.io/ui-core@0.24.0) (2020-07-28)
+
+
+### Features
+
+* 🎸 action-button ([a6ae028](https://github.com/keen/keen/commit/a6ae028085913c03576dbaf554180cfc5fa60f73))
+* 🎸 more-button ([e332363](https://github.com/keen/keen/commit/e332363a000cdd601229fffdde1134ab16fea3a6))
+
+
+
+
+
 ## [0.23.1](https://github.com/keen/keen/compare/@keen.io/ui-core@0.23.0...@keen.io/ui-core@0.23.1) (2020-07-22)
 
 **Note:** Version bump only for package @keen.io/ui-core

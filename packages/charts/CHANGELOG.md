@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/keen/keen/compare/@keen.io/charts@0.9.0...@keen.io/charts@0.10.0) (2020-07-28)
+
+
+### Features
+
+* 🎸 format tooltip value ([a97826e](https://github.com/keen/keen/commit/a97826e4c89847df7c3671ec1c8ceb626359c4fd))
+
+
+
+
+
 # [0.9.0](https://github.com/keen/keen/compare/@keen.io/charts@0.8.4...@keen.io/charts@0.9.0) (2020-07-22)
 
 
