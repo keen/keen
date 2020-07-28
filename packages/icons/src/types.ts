@@ -38,4 +38,5 @@ export type IconType =
   | 'money-solid'
   | 'lock-open'
   | 'lock-closed'
-  | 'temperature';
+  | 'temperature'
+  | 'search';

@@ -3,8 +3,9 @@ import { Typography } from '@keen.io/ui-core';
 
 import Correlation from './correlation.component';
 import { getFromPath } from '../../utils/selectors.utils';
+import { formatTooltipValue } from '../../utils/tooltip.utils';
 
-import { DataSelector } from '../../types';
+import { DataSelector, ScaleSettings } from '../../types';
 
 type Props = {
   data: Record<string, any>[];
@@ -12,6 +13,8 @@ type Props = {
   labelSelector: string;
   valueKey: string;
   selectors: { selector: DataSelector; color: string }[];
+  yScaleSettings?: ScaleSettings;
+  yDomainKey?: string;
 };
 
 export const TooltipContent: FC<Props> = ({
@@ -20,6 +23,8 @@ export const TooltipContent: FC<Props> = ({
   labelSelector,
   selectors,
   valueKey,
+  yScaleSettings,
+  yDomainKey,
 }) => {
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
@@ -36,7 +41,13 @@ export const TooltipContent: FC<Props> = ({
               ...acc,
               {
                 name: keyName,
-                value: selectorData[keyName],
+                value:
+                  keyName === yDomainKey
+                    ? formatTooltipValue(
+                        selectorData[keyName],
+                        yScaleSettings?.formatLabel
+                      )
+                    : selectorData[keyName],
               },
             ];
           }

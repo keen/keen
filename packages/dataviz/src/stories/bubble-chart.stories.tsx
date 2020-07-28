@@ -28,7 +28,7 @@ export const simple = () => {
       },
       widget: {
         title: {
-          content: 'Ad Campaing',
+          content: 'Ad Campaign',
         },
         subtitle: {
           content: 'Correlation between views, conversion and cost',
