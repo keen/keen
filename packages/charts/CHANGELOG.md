@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/keen/keen/compare/@keen.io/charts@0.9.0...@keen.io/charts@0.10.0) (2020-07-28)
+
+
+### Features
+
+* 🎸 format tooltip value ([a97826e](https://github.com/keen/keen/commit/a97826e4c89847df7c3671ec1c8ceb626359c4fd))
+
+
+
+
+
+# [0.9.0](https://github.com/keen/keen/compare/@keen.io/charts@0.8.4...@keen.io/charts@0.9.0) (2020-07-22)
+
+
+### Bug Fixes
+
+* 🐛 dataviz colors ([19168c6](https://github.com/keen/keen/commit/19168c66df651436fd596b3d2a0a651f347f9ed9))
+* 🐛 enable tooltip for markRadius equals to 0 ([ee8e4ea](https://github.com/keen/keen/commit/ee8e4eab509e2b79643da84e81827e0865238a20))
+* 🐛 position of floating tooltip ([4be9c66](https://github.com/keen/keen/commit/4be9c660cab50dc32a0ea6c05ff8d7cef9a274ac))
+* 🐛 remove flickering ([14aa68c](https://github.com/keen/keen/commit/14aa68c6f62737fdc2726ed9f5462e5a30d6fd2a))
+
+
+### Features
+
+* 🎸 Line/area chart hover behaviour improvement ([d1310cf](https://github.com/keen/keen/commit/d1310cf3e42b1b593f3033a73af9e1437f3b5bde))
+
+
+
+
+
 ## [0.8.4](https://github.com/keen/keen/compare/@keen.io/charts@0.8.3...@keen.io/charts@0.8.4) (2020-07-09)
 
 **Note:** Version bump only for package @keen.io/charts
