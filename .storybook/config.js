@@ -2,10 +2,12 @@ import React from 'react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withPerformance } from 'storybook-addon-performance';
 
 import theme from './theme';
 
 addDecorator(withKnobs);
+addDecorator(withPerformance);
 
 addParameters({
   docs: {
