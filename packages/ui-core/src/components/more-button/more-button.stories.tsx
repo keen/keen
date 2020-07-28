@@ -11,6 +11,4 @@ export default {
   },
 };
 
-export const primary = () => (
-  <MoreButton onClick={action('click')} isDisabled />
-);
+export const primary = () => <MoreButton onClick={action('click')} />;
