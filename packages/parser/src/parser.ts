@@ -4,6 +4,7 @@ import {
   transformFromNumber,
   transformFunnel,
   transformExtraction,
+  fillWithEmptyKeys,
 } from './utils/transform.utils';
 
 import {
@@ -16,8 +17,8 @@ import {
 import { KEEN_KEY, KEEN_VALUE } from './constants';
 
 export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
-  const keys: Set<string> = new Set();
-  const results: Record<string, any>[] = [];
+  let keys: Set<string> = new Set();
+  let results: Record<string, any>[] = [];
 
   if (steps && Array.isArray(result)) {
     const funnelResults = result as number[];
@@ -27,6 +28,8 @@ export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
   if (typeof result === 'number') {
     return transformFromNumber(result);
   }
+
+  let extractionKeys: string[] = [];
 
   Array.isArray(result) &&
     result.forEach((partialResult: number | IntervalResult | AtomicResult) => {
@@ -62,16 +65,28 @@ export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
           results.push({ [KEEN_KEY]: property, [KEEN_VALUE]: result });
         });
       }
-
       if (
         typeof partialResult !== 'number' &&
         !('value' in partialResult) &&
         !('timeframe' in partialResult) &&
         !('result' in partialResult)
       ) {
-        results.push(transformExtraction(partialResult));
+        if (Object.keys(partialResult).length != 0) {
+          const transformedResult = transformExtraction(partialResult);
+          extractionKeys = [
+            ...extractionKeys,
+            ...Object.keys(transformedResult),
+          ];
+          results.push(transformedResult);
+        }
       }
     });
+
+  //double mapping for extraction
+  if (extractionKeys.length) {
+    keys = new Set(extractionKeys);
+    results = fillWithEmptyKeys(keys, results);
+  }
 
   return {
     keys: [...keys],
