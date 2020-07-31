@@ -3,7 +3,7 @@ import { PlanDetails, PlanId } from './types';
 export const plansConfig: Record<PlanId, PlanDetails> = {
   team: {
     title: 'Team Plan',
-    basePrice: 299,
+    basePrice: 149,
     events: 250000,
     queries: 5000,
     priceTreshold: 0,
@@ -15,10 +15,10 @@ export const plansConfig: Record<PlanId, PlanDetails> = {
   },
   business: {
     title: 'Business Plan',
-    basePrice: 999,
-    events: 5000000,
-    queries: 25000,
-    priceTreshold: 800,
+    basePrice: 699,
+    events: 3500000,
+    queries: 20000,
+    priceTreshold: 550,
     components: ['50 Access Keys', '50 Cached Queries', '50 Cached Datasets'],
     ctaLabel: 'Request a Demo',
     ctaUrl: 'https://try.keen.io/contact',
