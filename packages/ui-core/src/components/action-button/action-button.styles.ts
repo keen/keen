@@ -5,23 +5,33 @@ import { colors } from '@keen.io/colors';
 import { ButtonAction } from './types';
 
 type ButtonProps = {
-  isDisabled: boolean;
+  isDisabled?: boolean;
+  borderRadius?: string;
+  disableBackground?: boolean;
 };
 
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: ${props => (props.borderRadius ? props.borderRadius : '4px')};
   padding: 5px 11px;
   width: 37px;
   height: 37px;
-  background-color: ${transparentize(0.85, colors.blue['100'])};
   outline: none;
   border: none;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.15s ease-in-out;
+
+  ${props =>
+    props.disableBackground
+      ? css`
+          background: none;
+        `
+      : `
+    background-color: ${transparentize(0.85, colors.blue['100'])};
+    transition: background-color 0.15s ease-in-out;
+  `}
 
   ${props =>
     props.isDisabled &&
@@ -31,7 +41,13 @@ export const StyledButton = styled.button<ButtonProps>`
     `}
   &:hover {
     text-decoration: none;
-    background-color: ${transparentize(0.75, colors.blue['100'])};
+    ${props =>
+      props.disableBackground
+        ? css`
+            background: none;
+          `
+        : `
+    background-color: ${transparentize(0.75, colors.blue['100'])};`}
   }
 `;
 

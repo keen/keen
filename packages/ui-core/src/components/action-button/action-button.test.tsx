@@ -68,4 +68,22 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
 
     expect(nodeText).toEqual('×');
   });
+
+  test('should render custom border radius', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ borderRadius: '0' });
+    const element = getByTestId('action-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
+  test('should not render background', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ disableBackground: true });
+    const element = getByTestId('action-icon');
+
+    expect(element).toMatchSnapshot();
+  });
 });
