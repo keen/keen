@@ -13,6 +13,8 @@ type Props = {
   borderRadius?: string;
   /** Custom background */
   background?: string;
+  /** Custom class name */
+  className?: string;
   /** Click event handler */
   onClick?: (e: React.SyntheticEvent, type: ButtonAction) => void;
 };
@@ -23,10 +25,12 @@ export const ActionButton: FC<Props> = ({
   action,
   borderRadius,
   background,
+  className,
 }) => {
   return (
     <StyledButton
       data-testid="action-button"
+      className={className}
       isDisabled={isDisabled}
       borderRadius={borderRadius}
       background={background}

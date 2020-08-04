@@ -86,4 +86,13 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
 
     expect(element).toMatchSnapshot();
   });
+
+  test('should add custom class', () => {
+    const { container } = rtlRender(
+      <ActionButton className="custom-button" action="create" />
+    );
+    const element = container.querySelector('.custom-button');
+
+    expect(element).toBeInTheDocument();
+  });
 });
