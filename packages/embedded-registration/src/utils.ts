@@ -30,3 +30,17 @@ export const transformSignupResponse = (response: SignupResponse) => {
     organizationId: organization_id,
   };
 };
+
+export const setUtmSourceCookie = (): void => {
+  const utmSource = new URL(location.href).searchParams.get('utm_source');
+  const date = new Date();
+  const hours = date.getHours();
+
+  date.setHours(hours + 1);
+
+  if (utmSource) {
+    document.cookie = `keen=${JSON.stringify({
+      utm_source: utmSource,
+    })}; expires=${date.toUTCString()}; domain=.keen.io`;
+  }
+};
