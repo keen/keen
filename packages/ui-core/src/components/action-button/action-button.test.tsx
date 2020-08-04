@@ -81,7 +81,7 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
   test('should not render background', () => {
     const {
       wrapper: { getByTestId },
-    } = render({ disableBackground: true });
+    } = render({ background: 'red' });
     const element = getByTestId('action-icon');
 
     expect(element).toMatchSnapshot();

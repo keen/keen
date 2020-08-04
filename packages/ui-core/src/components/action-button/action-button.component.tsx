@@ -11,8 +11,8 @@ type Props = {
   isDisabled?: boolean;
   /** Custom styles for border-radius */
   borderRadius?: string;
-  /** Remove background */
-  disableBackground?: boolean;
+  /** Custom background */
+  background?: string;
   /** Click event handler */
   onClick?: (e: React.SyntheticEvent, type: ButtonAction) => void;
 };
@@ -22,14 +22,14 @@ export const ActionButton: FC<Props> = ({
   isDisabled = false,
   action,
   borderRadius,
-  disableBackground,
+  background,
 }) => {
   return (
     <StyledButton
       data-testid="action-button"
       isDisabled={isDisabled}
       borderRadius={borderRadius}
-      disableBackground={disableBackground}
+      background={background}
       type="button"
       onClick={(e: React.MouseEvent<HTMLElement>) =>
         !isDisabled && onClick && onClick(e, action)

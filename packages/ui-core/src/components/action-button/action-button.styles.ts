@@ -7,13 +7,17 @@ import { ButtonAction } from './types';
 type ButtonProps = {
   isDisabled?: boolean;
   borderRadius?: string;
-  disableBackground?: boolean;
+  background?: string;
 };
 
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   text-decoration: none;
   border-radius: ${props => (props.borderRadius ? props.borderRadius : '4px')};
+  background-color: ${props =>
+    props.background
+      ? props.background
+      : transparentize(0.85, colors.blue['100'])};
   padding: 5px 11px;
   width: 37px;
   height: 37px;
@@ -22,16 +26,7 @@ export const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
   align-items: center;
   justify-content: center;
-
-  ${props =>
-    props.disableBackground
-      ? css`
-          background: none;
-        `
-      : `
-    background-color: ${transparentize(0.85, colors.blue['100'])};
-    transition: background-color 0.15s ease-in-out;
-  `}
+  transition: background-color 0.15s ease-in-out;
 
   ${props =>
     props.isDisabled &&
@@ -39,15 +34,13 @@ export const StyledButton = styled.button<ButtonProps>`
       opacity: 0.5;
       pointer-events: none;
     `}
+
   &:hover {
     text-decoration: none;
-    ${props =>
-      props.disableBackground
-        ? css`
-            background: none;
-          `
-        : `
-    background-color: ${transparentize(0.75, colors.blue['100'])};`}
+    background-color: ${props =>
+      props.background
+        ? transparentize(0.75, props.background)
+        : transparentize(0.75, colors.blue['100'])};
   }
 `;
 

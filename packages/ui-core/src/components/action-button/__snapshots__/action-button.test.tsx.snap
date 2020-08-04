@@ -24,6 +24,7 @@ exports[`@keen.io/ui-core - <ActionButton /> should render custom border radius 
   -webkit-text-decoration: none;
   text-decoration: none;
   border-radius: 0;
+  background-color: rgba(119,163,187,0.15);
   padding: 5px 11px;
   width: 37px;
   height: 37px;
@@ -38,7 +39,6 @@ exports[`@keen.io/ui-core - <ActionButton /> should render custom border radius 
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: rgba(119,163,187,0.15);
   -webkit-transition: background-color 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out;
 }
