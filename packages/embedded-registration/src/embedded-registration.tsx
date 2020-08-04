@@ -4,6 +4,8 @@ import { RestfulProvider } from 'restful-react';
 
 import { App } from './app.component';
 
+import { setUtmSourceCookie } from './utils';
+
 import { Options } from './types';
 
 class EmbeddedRegistration {
@@ -37,6 +39,8 @@ class EmbeddedRegistration {
   }
 
   render() {
+    setUtmSourceCookie();
+
     const container =
       this.container instanceof HTMLElement
         ? this.container
@@ -46,6 +50,7 @@ class EmbeddedRegistration {
       <RestfulProvider
         base={this.apiUrl}
         requestOptions={() => ({
+          credentials: 'include',
           headers: { Accept: 'application/json' },
         })}
       >
