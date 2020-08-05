@@ -6,7 +6,7 @@ export const getErrorMessage = (statusCode: number) => {
     case FORBIDDEN:
       return (
         <span>
-          There is another active user session in the broswer. Please logout and
+          There is another active user session in the browser. Please logout and
           try again.
         </span>
       );
