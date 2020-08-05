@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/keen/keen/compare/@keen.io/embedded-registration@0.3.4...@keen.io/embedded-registration@0.4.0) (2020-08-04)
+
+
+### Features
+
+* 🎸 Utm source cookie ([9d28164](https://github.com/keen/keen/commit/9d28164b0dfac2f3c49c86ba9adbe0005733df4e))
+
+
+
+
+
 ## [0.3.4](https://github.com/keen/keen/compare/@keen.io/embedded-registration@0.3.3...@keen.io/embedded-registration@0.3.4) (2020-07-28)
 
 **Note:** Version bump only for package @keen.io/embedded-registration

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/keen/keen/compare/@keen.io/parser@0.3.1...@keen.io/parser@0.3.2) (2020-08-04)
+
+
+### Bug Fixes
+
+* 🐛 Fix for missing table header when data is partialy empty ([3116231](https://github.com/keen/keen/commit/3116231d8549837e014f8e7afe7e4a92a22541b7))
+
+
+
+
+
 ## [0.3.1](https://github.com/keen/keen/compare/@keen.io/parser@0.3.0...@keen.io/parser@0.3.1) (2020-07-28)
 
 **Note:** Version bump only for package @keen.io/parser
