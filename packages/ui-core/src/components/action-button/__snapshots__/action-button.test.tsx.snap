@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/ui-core - <ActionButton /> should not render background 1`] = `
+.c0 {
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+<span
+  class="c0"
+  data-testid="action-icon"
+>
+  ×
+</span>
+`;
+
+exports[`@keen.io/ui-core - <ActionButton /> should render custom border radius 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 0;
+  background-color: rgba(119,163,187,0.15);
+  padding: 5px 11px;
+  width: 37px;
+  height: 37px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(119,163,187,0.25);
+}
+
+.c1 {
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+<button
+  class="c0"
+  data-testid="action-button"
+  type="button"
+>
+  <span
+    class="c1"
+    data-testid="action-icon"
+  >
+    ×
+  </span>
+</button>
+`;

@@ -68,4 +68,31 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
 
     expect(nodeText).toEqual('×');
   });
+
+  test('should render custom border radius', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ borderRadius: '0' });
+    const element = getByTestId('action-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
+  test('should not render background', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ background: 'red' });
+    const element = getByTestId('action-icon');
+
+    expect(element).toMatchSnapshot();
+  });
+
+  test('should add custom class', () => {
+    const { container } = rtlRender(
+      <ActionButton className="custom-button" action="create" />
+    );
+    const element = container.querySelector('.custom-button');
+
+    expect(element).toBeInTheDocument();
+  });
 });
