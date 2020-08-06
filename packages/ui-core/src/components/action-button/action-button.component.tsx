@@ -13,6 +13,8 @@ type Props = {
   borderRadius?: string;
   /** Custom background */
   background?: string;
+  /** Custom hover background */
+  backgroundHover?: string;
   /** Custom class name */
   className?: string;
   /** Click event handler */
@@ -25,6 +27,7 @@ export const ActionButton: FC<Props> = ({
   action,
   borderRadius,
   background,
+  backgroundHover,
   className,
 }) => {
   return (
@@ -34,6 +37,7 @@ export const ActionButton: FC<Props> = ({
       isDisabled={isDisabled}
       borderRadius={borderRadius}
       background={background}
+      backgroundHover={backgroundHover}
       type="button"
       onClick={(e: React.MouseEvent<HTMLElement>) =>
         !isDisabled && onClick && onClick(e, action)
