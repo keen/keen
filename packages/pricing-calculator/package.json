@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/pricing-calculator",
-  "version": "0.2.26",
+  "version": "0.3.0",
   "description": "Pricing calculator for Keen.io plan recommendation",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
