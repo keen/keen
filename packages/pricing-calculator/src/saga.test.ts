@@ -44,7 +44,7 @@ describe('@keen.io/pricing-calculator - saga()', () => {
         },
         calculator: {
           events: 300,
-          queries: 14000,
+          queries: 11000,
           services: {
             s3Streaming: false,
             customSSL: false,
