@@ -8,6 +8,7 @@ type ButtonProps = {
   isDisabled?: boolean;
   borderRadius?: string;
   background?: string;
+  backgroundHover?: string;
 };
 
 export const StyledButton = styled.button<ButtonProps>`
@@ -38,8 +39,8 @@ export const StyledButton = styled.button<ButtonProps>`
   &:hover {
     text-decoration: none;
     background-color: ${props =>
-      props.background
-        ? transparentize(0.75, props.background)
+      props.backgroundHover
+        ? props.backgroundHover
         : transparentize(0.75, colors.blue['100'])};
   }
 `;
