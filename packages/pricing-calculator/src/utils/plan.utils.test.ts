@@ -71,7 +71,7 @@ describe('@keen.io/pricing-calculator - utils', () => {
 
       const { total } = calculateCost(properties);
 
-      expect(total).toMatchInlineSnapshot(`409`);
+      expect(total).toMatchInlineSnapshot(`259`);
     });
 
     it('should calculate total cost without overages', () => {
