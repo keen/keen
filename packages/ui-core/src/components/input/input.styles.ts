@@ -9,21 +9,34 @@ const inputVariants = {
   prop: 'variant',
   variants: {
     solid: {
+      padding: '10px 14px',
+      height: '37px',
+      border: `1px solid ${transparentize(0.5, colors.black[500])}`,
       borderRadius: '4px',
-      background: transparentize(0.95, colors.blue['100']),
-      border: `solid 1px ${transparentize(0.85, colors.blue['100'])}`,
+      color: colors.blue[500],
       '&:focus': {
-        background: transparentize(0.9, colors.blue['100']),
+        boxShadow: '0 0 3px 1px rgba(119, 163, 187, 0.5)',
+      },
+      '&:disabled': {
+        border: `1px solid ${transparentize(0.5, colors.blue[500])}`,
+        background: colors.white[500],
+      },
+      '&:disabled::placeholder': {
+        color: `${transparentize(0.6, colors.black[400])}`,
       },
     },
     outline: {
+      height: '40px',
+      padding: '0 16px',
       border: 'none',
-      borderBottom: `solid 1px ${colors.blue['400']}`,
+      fontSize: '16px',
+      lineHeight: '20px',
+      borderBottom: `solid 1px ${colors.blue[400]}`,
       '&:focus': {
-        background: transparentize(0.9, colors.blue['100']),
+        background: transparentize(0.9, colors.blue[100]),
       },
       '&:disabled': {
-        borderBottom: `solid 1px ${colors.gray['500']}`,
+        borderBottom: `solid 1px ${colors.gray[500]}`,
       },
     },
   },
@@ -52,8 +65,6 @@ export const StyledInput = styled.input<{
   variant: InputVariant;
 }>`
   width: 100%;
-  height: 40px;
-  padding: 0 16px;
 
   box-sizing: border-box;
   grid-area: input;
@@ -61,9 +72,6 @@ export const StyledInput = styled.input<{
 
   font-family: 'Lato Regular', sans-serif;
   outline: none;
-
-  font-size: 16px;
-  line-height: 20px;
   font-weight: normal;
 
   ${variant(inputVariants)}
@@ -72,14 +80,14 @@ export const StyledInput = styled.input<{
     props.hasError &&
     props.variant === 'outline' &&
     css`
-      border-bottom: solid 2px ${colors.orange['300']};
+      border-bottom: solid 2px ${colors.red[500]};
     `}
 
   ${props =>
     props.hasError &&
     props.variant === 'solid' &&
     css`
-      border-color: ${colors.red['100']};
+      border-color: ${colors.red[500]};
     `}
 
 

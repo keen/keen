@@ -37,6 +37,8 @@ import { TableCell, TableRow, TableHeader, CellValue } from './table';
 import { Brand } from './brand';
 
 import ModalContent from './modal-content';
+import ModalHeader from './modal-header';
+import ModalFooter from './modal-footer';
 import LoadingScreen from './loading-screen';
 import SuccessNotification from './success-notification';
 
@@ -83,6 +85,8 @@ export {
   TableHeader,
   Brand,
   ModalContent,
+  ModalHeader,
+  ModalFooter,
   LoadingScreen,
   SuccessNotification,
 };
