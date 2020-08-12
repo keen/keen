@@ -9,7 +9,7 @@
       "conventionalCommits": true
     },
     "version": {
-      "allowBranch": "master",
+      "allowBranch": "develop",
       "message": "chore(release): Publish [skip ci]",
       "conventionalCommits": true
     }
