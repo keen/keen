@@ -31,12 +31,12 @@ const inputVariants = {
       border: 'none',
       fontSize: '16px',
       lineHeight: '20px',
-      borderBottom: `solid 1px ${colors.blue['400']}`,
+      borderBottom: `solid 1px ${colors.blue[400]}`,
       '&:focus': {
-        background: transparentize(0.9, colors.blue['100']),
+        background: transparentize(0.9, colors.blue[100]),
       },
       '&:disabled': {
-        borderBottom: `solid 1px ${colors.gray['500']}`,
+        borderBottom: `solid 1px ${colors.gray[500]}`,
       },
     },
   },
@@ -80,14 +80,14 @@ export const StyledInput = styled.input<{
     props.hasError &&
     props.variant === 'outline' &&
     css`
-      border-bottom: solid 2px ${colors.red['500']};
+      border-bottom: solid 2px ${colors.red[500]};
     `}
 
   ${props =>
     props.hasError &&
     props.variant === 'solid' &&
     css`
-      border-color: ${colors.red['500']};
+      border-color: ${colors.red[500]};
     `}
 
 
