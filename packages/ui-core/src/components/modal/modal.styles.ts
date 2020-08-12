@@ -3,22 +3,6 @@ import { motion } from 'framer-motion';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-export const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const TitleContainer = styled.div`
-  width: 100%;
-`;
-
-export const Close = styled.div`
-  cursor: pointer;
-  margin-left: 20px;
-  align-items: flex-start;
-`;
-
 export const FadeMask = styled.div`
   position: fixed;
   top: 0;

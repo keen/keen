@@ -3,8 +3,8 @@ import * as React from 'react';
 
 import Button from '../button';
 import { Modal } from './modal.component';
-
-import { Title } from '../../typography';
+import ModalHeader from '../modal-header';
+import ModalFooter from '../modal-footer';
 
 export default {
   title: 'Components|Modal',
@@ -19,12 +19,14 @@ export const basic = () => {
   return (
     <>
       <Button onClick={() => setOpen(true)}>Open</Button>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setOpen(false)}
-        renderTitle={() => <Title variant="h3">Title</Title>}
-      >
-        {() => <div>Modal content</div>}
+      <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+        {() => (
+          <div>
+            <ModalHeader title="Title" onClose={() => setOpen(false)} />
+            <div style={{ padding: '20px 25px', width: '300px' }}>Content</div>
+            <ModalFooter>Footer</ModalFooter>
+          </div>
+        )}
       </Modal>
     </>
   );

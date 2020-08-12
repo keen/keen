@@ -5,7 +5,7 @@ export const Error = styled.div`
   font-family: 'Lato Regular', sans-serif;
   font-size: 12px;
   line-height: 14px;
-  color: ${colors.orange['300']};
+  color: ${colors.red['500']};
 `;
 
 export default Error;

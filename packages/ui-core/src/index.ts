@@ -55,6 +55,8 @@ import {
   CellValue,
   Brand,
   ModalContent,
+  ModalHeader,
+  ModalFooter,
   LoadingScreen,
   SuccessNotification,
 } from './components';
@@ -114,6 +116,8 @@ export {
   ARROW_SIZE,
   Brand,
   ModalContent,
+  ModalHeader,
+  ModalFooter,
   LoadingScreen,
   SuccessNotification,
 };

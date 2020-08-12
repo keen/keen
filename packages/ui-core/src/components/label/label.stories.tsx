@@ -12,6 +12,16 @@ export default {
 
 export const basic = () => <Label>Label</Label>;
 
+export const secondary = () => <Label variant="secondary">Label</Label>;
+
+secondary.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Label used in platform.',
+    },
+  },
+};
+
 export const error = () => <Label hasError>Error</Label>;
 
 error.story = {

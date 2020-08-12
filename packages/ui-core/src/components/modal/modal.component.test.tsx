@@ -1,58 +1,39 @@
 /* eslint-disable react/no-children-prop */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 
 import Modal from './modal.component';
 
-describe('@keen.io/ui-core - <Modal />', () => {
-  let onClose;
-  let children;
-  let renderTitle;
+test('renders children nodes', () => {
+  const children = 'content';
+  const { getByText } = render(
+    <Modal isOpen={true}>{() => <div>{children}</div>}</Modal>
+  );
 
-  beforeEach(() => {
-    onClose = jest.fn();
-    children = jest.fn();
-    renderTitle = jest.fn();
-  });
+  expect(getByText(children)).toBeInTheDocument();
+});
 
-  it('should call "renderTitle" renderer', () => {
-    mount(
-      <Modal
-        isOpen={true}
-        onClose={onClose}
-        children={children}
-        renderTitle={renderTitle}
-      />
-    );
+test('renders fade mask', () => {
+  const children = 'content';
+  const { getByTestId } = render(
+    <Modal isOpen={true}>{() => <div>{children}</div>}</Modal>
+  );
 
-    expect(renderTitle).toHaveBeenCalled();
-  });
+  expect(getByTestId('fade-mask')).toBeInTheDocument();
+});
 
-  it('should call "children" renderer', () => {
-    mount(<Modal isOpen={true} onClose={onClose} children={children} />);
+test('allows user to close modal by pressing "ESC" key', () => {
+  const children = 'content';
+  const mockFn = jest.fn();
 
-    expect(children).toHaveBeenCalled();
-  });
+  const { getByTestId } = render(
+    <Modal isOpen={true} onClose={mockFn}>
+      {() => <div>{children}</div>}
+    </Modal>
+  );
 
-  it('should call "onClose" handler for "ESC" key press', () => {
-    const eventsMap: any = {};
-    document.addEventListener = jest.fn().mockImplementation((event, cb) => {
-      eventsMap[event] = cb;
-    });
+  const element = getByTestId('modal-container');
+  fireEvent.keyDown(element, { keyCode: 27 });
 
-    mount(<Modal isOpen={true} onClose={onClose} children={children} />);
-
-    eventsMap.keydown({ key: 'ESC', keyCode: 27 });
-
-    expect(onClose).toHaveBeenCalled();
-  });
-
-  it('should call "onClose" handler', () => {
-    const wrapper = mount(
-      <Modal isOpen={true} onClose={onClose} children={children} />
-    );
-    wrapper.find('svg').simulate('click');
-
-    expect(onClose).toHaveBeenCalled();
-  });
+  expect(mockFn).toHaveBeenCalled();
 });
