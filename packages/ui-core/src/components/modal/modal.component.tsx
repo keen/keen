@@ -47,7 +47,7 @@ export const Modal: FC<Props> = ({
 
   const closeHandler = useCallback(() => {
     if (closeable && onClose) onClose();
-  }, [closeable]);
+  }, [closeable, onClose]);
 
   const keyboardHandler = useCallback((keyEvent: KeyboardEvent) => {
     if (
