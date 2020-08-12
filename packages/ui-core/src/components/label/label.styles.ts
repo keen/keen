@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
+import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
 import { LabelVariant } from './types';
@@ -9,32 +10,44 @@ const labelVariants = {
   variants: {
     primary: {
       color: colors.blue[500],
+      fontFamily: 'Lato Regular, sans-serif',
+      lineHeight: '16px',
     },
     secondary: {
-      color: colors.black[500],
+      color: colors.black[100],
+      fontFamily: 'Lato Bold, sans-serif',
+      lineHeight: '17px',
     },
   },
 };
 
 export const StyledLabel = styled.label<{
-  hasError: boolean;
-  disabled: boolean;
+  hasError?: boolean;
+  disabled?: boolean;
   variant: LabelVariant;
 }>`
-  font-family: 'Lato Regular', sans-serif;
   font-size: 14px;
-  line-height: 16px;
   ${variant(labelVariants)}
 
   ${props =>
     props.disabled &&
+    props.variant === 'secondary' &&
+    css`
+      color: ${transparentize(0.5, colors.black[100])};
+      cursor: not-allowed;
+    `};
+
+  ${props =>
+    props.disabled &&
+    props.variant === 'primary' &&
     css`
       opacity: 0.5;
+      cursor: not-allowed;
     `};
 
   ${props =>
     props.hasError &&
     css`
-      color: ${colors.orange[300]};
+      color: ${colors.red[500]};
     `}
 `;

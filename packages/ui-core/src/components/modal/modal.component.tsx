@@ -1,16 +1,7 @@
 import React, { FC, useState, useCallback, useEffect } from 'react';
-import { transparentize } from 'polished';
 import { AnimatePresence } from 'framer-motion';
-import { colors } from '@keen.io/colors';
-import { Icon } from '@keen.io/icons';
 
-import {
-  MotionContainer,
-  FadeMask,
-  Close,
-  Header,
-  TitleContainer,
-} from './modal.styles';
+import { MotionContainer, FadeMask } from './modal.styles';
 
 import Card from '../card';
 
@@ -25,12 +16,13 @@ const modalMotion = {
 };
 
 type Props = {
-  /** Title */
-  renderTitle?: () => React.ReactNode;
   /** Modal visibility */
   isOpen: boolean;
   /** Children nodes renderer */
-  children: (setClosable: ClosableIndicator) => React.ReactNode;
+  children: (
+    setClosable: ClosableIndicator,
+    closeHandler: () => void
+  ) => React.ReactNode;
   /** Close event handler */
   onClose?: () => void;
   /** Use modal mask indicator */
@@ -40,7 +32,6 @@ type Props = {
 };
 
 export const Modal: FC<Props> = ({
-  renderTitle,
   children,
   onClose,
   isOpen,
@@ -102,21 +93,16 @@ export const Modal: FC<Props> = ({
 
   return (
     <>
-      {showMask && <FadeMask onClick={closeHandler} />}
+      {showMask && <FadeMask onClick={closeHandler} data-testid="fade-mask" />}
       <AnimatePresence>
         {isOpen && (
-          <MotionContainer {...modalMotion} scrollY={scrollY}>
-            <Card>
-              <Header>
-                <TitleContainer>{renderTitle && renderTitle()}</TitleContainer>
-                <Close onClick={closeHandler}>
-                  <Icon
-                    type="close"
-                    fill={transparentize(0.7, colors.blue['500'])}
-                  />
-                </Close>
-              </Header>
-              {children(closableIndicator)}
+          <MotionContainer
+            {...modalMotion}
+            scrollY={scrollY}
+            data-testid="modal-container"
+          >
+            <Card hasPadding={false}>
+              {children(closableIndicator, closeHandler)}
             </Card>
           </MotionContainer>
         )}
