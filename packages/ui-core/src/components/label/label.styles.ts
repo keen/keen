@@ -14,6 +14,7 @@ const labelVariants = {
       lineHeight: '16px',
     },
     secondary: {
+      display: 'inline-block',
       color: colors.black[100],
       fontFamily: 'Lato Bold, sans-serif',
       lineHeight: '17px',
