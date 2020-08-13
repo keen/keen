@@ -14,7 +14,7 @@ const toastVariants = {
     success: {
       background: 'green',
     },
-    warining: {
+    warning: {
       background: 'yellow',
     },
   },
