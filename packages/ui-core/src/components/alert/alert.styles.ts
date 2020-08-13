@@ -16,7 +16,7 @@ const alertVariants = {
     error: {
       color: colors.red['500'],
       borderColor: colors.red['500'],
-      background: transparentize(0.5, colors.pink['100']),
+      background: transparentize(0.6, colors.red['100']),
     },
   },
 };
