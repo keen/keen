@@ -81,6 +81,7 @@ export const StyledInput = styled.input<{
     props.variant === 'outline' &&
     css`
       border-bottom: solid 2px ${colors.red[500]};
+      color: ${colors.red[500]};
     `}
 
   ${props =>
@@ -88,6 +89,7 @@ export const StyledInput = styled.input<{
     props.variant === 'solid' &&
     css`
       border-color: ${colors.red[500]};
+      color: ${colors.red[500]};
     `}
 
 
