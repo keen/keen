@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { StyledLabel } from './label.styles';
+import { StyledLabel, Asterisk } from './label.styles';
 
 import { LabelVariant } from './types';
 
@@ -11,6 +11,8 @@ type Props = {
   hasError?: boolean;
   /** Render disable state indicator */
   disabled?: boolean;
+  /** Renders asteriks indictor */
+  showAsterisk?: boolean;
   /** HTML input element reference */
   htmlFor?: string;
   /** Variant for label componet */
@@ -22,6 +24,7 @@ export const Label: FC<Props> = ({
   hasError = false,
   disabled = false,
   variant = 'primary',
+  showAsterisk,
   children,
 }) => (
   <StyledLabel
@@ -30,7 +33,10 @@ export const Label: FC<Props> = ({
     disabled={disabled}
     htmlFor={htmlFor}
   >
-    {children}
+    <>
+      {children}
+      {showAsterisk && <Asterisk> *</Asterisk>}
+    </>
   </StyledLabel>
 );
 
