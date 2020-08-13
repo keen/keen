@@ -1,13 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Label from './label.component';
 
-describe('@keen.io/ui-core - <Label />', () => {
-  it('should render children', () => {
-    const text = 'email';
-    const wrapper = mount(<Label hasError={false}>{text}</Label>);
+test('renders children nodes', () => {
+  const children = 'login';
+  const { getByText } = render(<Label>{children}</Label>);
 
-    expect(wrapper.text()).toEqual(text);
-  });
+  expect(getByText(children)).toBeInTheDocument();
+});
+
+test('renders asterisk indicator', () => {
+  const { getByText } = render(<Label showAsterisk>label</Label>);
+
+  expect(getByText('*')).toBeInTheDocument();
 });

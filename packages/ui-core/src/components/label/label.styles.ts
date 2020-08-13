@@ -17,6 +17,7 @@ const labelVariants = {
       color: colors.black[100],
       fontFamily: 'Lato Bold, sans-serif',
       lineHeight: '17px',
+      marginBottom: '3px',
     },
   },
 };
@@ -50,4 +51,8 @@ export const StyledLabel = styled.label<{
     css`
       color: ${colors.red[500]};
     `}
+`;
+
+export const Asterisk = styled.span`
+  color: ${colors.red[500]};
 `;
