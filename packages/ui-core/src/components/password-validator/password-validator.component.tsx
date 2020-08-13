@@ -20,10 +20,7 @@ export const PasswordValidator: FC<Props> = ({ password, touched }) => (
         : colors.black['300'];
 
       return (
-        <Item
-          key={idx}
-          color={touched && !active ? colors.orange['300'] : color}
-        >
+        <Item key={idx} color={touched && !active ? colors.red['500'] : color}>
           <IconSocket>
             {active ? (
               <Icon
