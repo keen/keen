@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.25.0...@keen.io/ui-core@0.26.0) (2020-08-12)
+
+
+### Bug Fixes
+
+* 🐛 fix modal useCallback close method ([da713d4](https://github.com/keen/keen/commit/da713d4d1fb085f0e759398f8777fe00109ad45c))
+
+
+### chore
+
+* 🤖 readme update ([2f4c659](https://github.com/keen/keen/commit/2f4c6590f481e684bc6752083987774bd3746af6))
+
+
+### BREAKING CHANGES
+
+* contract
+
+
+
+
+
 # [0.25.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.24.2...@keen.io/ui-core@0.25.0) (2020-08-12)
 
 
