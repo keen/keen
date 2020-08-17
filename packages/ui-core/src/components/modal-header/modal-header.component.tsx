@@ -5,15 +5,15 @@ import { Icon } from '@keen.io/icons';
 import { Container, Title, Close } from './modal-header.styles';
 
 type Props = {
-  /** Modal title */
-  title: string;
+  /** React children node */
+  children: React.ReactNode;
   /** Close event handler */
   onClose?: () => void;
 };
 
-const ModalHeader: FC<Props> = ({ title, onClose }) => (
+const ModalHeader: FC<Props> = ({ children, onClose }) => (
   <Container>
-    <Title>{title}</Title>
+    <Title>{children}</Title>
     {onClose && (
       <Close onClick={onClose} data-testid="modal-close">
         <Icon type="close" width={16} height={16} fill={colors.gray[500]} />
