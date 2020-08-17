@@ -6,15 +6,16 @@ import ModalHeader from './modal-header.component';
 
 test('renders children nodes', () => {
   const title = 'title';
-  const { getByText } = render(<ModalHeader title={title} />);
+  const { getByText } = render(<ModalHeader>{title}</ModalHeader>);
 
   expect(getByText(title)).toBeInTheDocument();
 });
 
 test('renders children nodes', () => {
   const mockFn = jest.fn();
+  const title = 'title';
   const { getByTestId } = render(
-    <ModalHeader title="title" onClose={mockFn} />
+    <ModalHeader onClose={mockFn}>{title}</ModalHeader>
   );
 
   const closeElement = getByTestId('modal-close');
