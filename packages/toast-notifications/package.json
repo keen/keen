@@ -1,0 +1,49 @@
+{
+  "name": "@keen.io/toast-notifications",
+  "version": "0.0.1",
+  "description": "Keen.io wrapper for react-toast-notifications",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "dependencies": {
+    "@keen.io/colors": "^0.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "polished": "^3.4.4",
+    "framer-motion": "^1.11.1",
+    "react-toast-notifications": "^2.4.0",
+    "styled-components": "5.1.0",
+    "styled-system": "5.1.5"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.3.0",
+    "@types/react-toast-notifications": "^2.4.0",
+    "@types/styled-components": "5.1.0",
+    "@types/styled-system": "5.1.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
