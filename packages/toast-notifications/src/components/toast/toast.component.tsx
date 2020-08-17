@@ -41,7 +41,7 @@ const Toast: FC<Props> = ({
     animate={toastMotion[transitionState]}
     transition={{ duration: transitionDuration / 1000 }}
   >
-    <Container appearance={appearance}>
+    <Container appearance={appearance} onClick={onDismiss}>
       <ContentContainer>
         <Content>{children}</Content>
         {showDismissButton && (
