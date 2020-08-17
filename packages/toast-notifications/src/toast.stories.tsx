@@ -7,7 +7,7 @@ export default {
   title: 'Components|Toast Notifications',
   parameters: {
     component: ToastProvider,
-    componentSubtitle: 'Alert component for displaying message.',
+    componentSubtitle: 'Toast Notification component for displaying message.',
   },
 };
 
@@ -15,19 +15,39 @@ const Notifications = () => {
   const { addToast } = useToasts();
 
   return (
-    <button
-      onClick={() => {
-        addToast('error message', {
-          appearance: 'error',
-          showDismissButton: true,
-          onDismiss: () => {
-            alert(1);
-          },
-        });
-      }}
-    >
-      Error
-    </button>
+    <>
+      <button
+        onClick={() => {
+          addToast('We cannot save the query. There is a problem on our end.', {
+            appearance: 'error',
+            showDismissButton: true,
+          });
+        }}
+      >
+        Error
+      </button>
+      <button
+        onClick={() => {
+          addToast('Query has been removed', {
+            appearance: 'info',
+            autoDismiss: true,
+          });
+        }}
+      >
+        Info
+      </button>
+      <button
+        onClick={() => {
+          addToast('Query has been saved', {
+            appearance: 'success',
+            autoDismiss: true,
+            showDismissButton: true,
+          });
+        }}
+      >
+        Success
+      </button>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
-# `@keen.io/ui-core`
+# `@keen.io/toast-notifications`
 
-[![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg?targetFile=packages/ui-core/package.json)](https://snyk.io/test/github/keen/keen?targetFile=packages/ui-core/package.json)
+[![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg?targetFile=packages/toast-notifications/package.json)](https://snyk.io/test/github/keen/keen?targetFile=packages/toast-notifications/package.json)
 
-Set of reusable visual `React` components used in `keen.io` projects
+`keen.io` wrapper for `react-toast-notifications` package.
