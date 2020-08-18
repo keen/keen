@@ -14,8 +14,8 @@ const DismissTimer: FC<Props> = ({ dismissTime, appearance }) => (
   <Progress
     data-testid="dismiss-timer"
     appearance={appearance}
-    initial={{ width: '0%' }}
-    animate={{ width: '100%' }}
+    initial={{ width: '100%' }}
+    animate={{ width: '0%' }}
     transition={{
       ease: 'linear',
       duration: dismissTime,
