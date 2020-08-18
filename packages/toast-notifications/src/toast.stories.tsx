@@ -28,7 +28,7 @@ const Notifications = () => {
       </button>
       <button
         onClick={() => {
-          addToast('Query has been removed', {
+          addToast('Query has been removed.', {
             appearance: 'info',
             autoDismiss: true,
           });

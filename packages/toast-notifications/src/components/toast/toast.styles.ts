@@ -22,6 +22,7 @@ const toastVariants = {
 export const Container = styled.div<{ appearance: AppearanceTypes }>`
   display: inline-block;
   margin-bottom: 10px;
+  max-width: 500px;
   box-shadow: rgba(0, 0, 0, 0.176) 0px 3px 8px;
   ${variant(toastVariants)};
 `;
@@ -30,15 +31,15 @@ export const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 30px;
-  height: 59px;
+  min-height: 59px;
 `;
 
 export const Content = styled.div`
+  padding: 10px 0;
   font-family: 'Lato Regular', sans-serif;
   font-size: 16px;
   line-height: 19px;
   color: ${colors.white[500]};
-  white-space: nowrap;
 `;
 
 export const DismissButton = styled.div`
