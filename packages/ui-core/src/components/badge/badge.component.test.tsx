@@ -14,8 +14,19 @@ test('renders children nodes', () => {
 test('should call "onClick" handler', () => {
   const children = 'Badge';
   const onClick = jest.fn();
+  const { getByText } = render(<Badge onClick={onClick}>{children}</Badge>);
+
+  const element = getByText(children);
+  fireEvent.click(element);
+
+  expect(onClick).toHaveBeenCalled();
+});
+
+test('should call "onRemove" handler', () => {
+  const children = 'Badge';
+  const onRemove = jest.fn();
   const { getByTestId } = render(
-    <Badge removable onClick={onClick}>
+    <Badge removable onRemove={onRemove}>
       {children}
     </Badge>
   );
@@ -23,5 +34,5 @@ test('should call "onClick" handler', () => {
   const element = getByTestId('badge-remove');
   fireEvent.click(element);
 
-  expect(onClick).toHaveBeenCalled();
+  expect(onRemove).toHaveBeenCalled();
 });

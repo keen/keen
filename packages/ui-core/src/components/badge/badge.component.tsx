@@ -11,6 +11,7 @@ type Props = {
   children: React.ReactNode;
   removable?: boolean;
   onClick?: () => void;
+  onRemove?: () => void;
 };
 
 export const Badge: FC<Props> = ({
@@ -18,6 +19,7 @@ export const Badge: FC<Props> = ({
   variant = 'purple',
   removable,
   onClick,
+  onRemove,
 }) => {
   const bgColor =
     variant === 'white' ? colors[variant][200] : colors[variant][100];
@@ -28,13 +30,14 @@ export const Badge: FC<Props> = ({
         bgColor={bgColor}
         textColor={textColor}
         removable={removable}
+        onClick={onClick}
       >
         {children}
       </TextWrapper>
       {removable && (
         <IconWrapper
           bgColor={bgColor}
-          onClick={onClick}
+          onClick={onRemove}
           data-testid="badge-remove"
         >
           <Icon
