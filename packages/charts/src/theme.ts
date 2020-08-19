@@ -72,7 +72,7 @@ export const theme: Theme = {
     header: {
       badge: {
         enabled: true,
-        backgroundColor: null,
+        variant: 'black',
         typography: {
           fontStyle: 'normal',
           fontWeight: 'normal',

@@ -189,6 +189,8 @@ type IconType =
 `Object` used to describe `funnel` chart theme.
 
 ```typescript
+type Variant = "black" | "red" | "white" | "purple" | "orange" | "yellow" | "green" | "gray" | "pink" | "lightBlue" | "blue";
+
 type Funnel = {
   header: {
     value: {
@@ -201,6 +203,7 @@ type Funnel = {
     badge: {
       enabled: boolean;
       typography: Typography;
+      variant: Variant;
     };
     backgroundColor: string;
   };
