@@ -15,9 +15,8 @@ export const StyledButton = styled.button<Props>`
   width: 37px;
   height: 37px;
 
-  background-color: ${colors.blue['500']};
-  border-color: ${colors.blue['500']};
-  color: ${colors.white['500']};
+  background-color: ${colors.blue[500]};
+  border-color: ${colors.blue[500]};
   boxshadow: 0 2px 4px 0 ${transparentize(0.85, colors.black['500'])};
 
   outline: none;
@@ -41,6 +40,11 @@ export const StyledButton = styled.button<Props>`
   &:hover {
     text-decoration: none;
     box-shadow: 'none';
-    background-color: ${colors.blue['400']};
+    background-color: ${colors.blue[400]};
   }
+`;
+
+export const IconSocket = styled.div`
+  display: flex;
+  align-items: center;
 `;
