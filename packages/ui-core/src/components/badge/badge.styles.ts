@@ -1,42 +1,57 @@
 import styled, { css } from 'styled-components';
-import { variant } from 'styled-system';
-import { colors } from '@keen.io/colors';
+import { transparentize } from 'polished';
 
-export type BadgeType = 'dark' | 'light' | 'danger' | 'success';
+export const Container = styled.div`
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: center;
 
-export const StyledBadge = styled.div<{
-  type: BadgeType;
-  backgroundColor?: string;
-}>`
-  display: inline-block;
-  border-radius: 4px;
-  padding: 4px 5px;
+  cursor: pointer;
+`;
 
-  ${variant({
-    prop: 'type',
-    variants: {
-      dark: {
-        color: colors.white['500'],
-        backgroundColor: colors.black['200'],
-      },
-      danger: {
-        color: colors.white['500'],
-        backgroundColor: colors.orange['500'],
-      },
-      success: {
-        color: colors.white['500'],
-        backgroundColor: colors.green['500'],
-      },
-      light: {
-        color: colors.black['500'],
-        backgroundColor: colors.white['400'],
-      },
-    },
-  })}
+const backgroundMixin = (baseColor: string) => css`
+  background-color: ${transparentize(0.7, baseColor)};
 
-  ${props =>
-    props.backgroundColor &&
-    css`
-      background: ${props.backgroundColor};
-    `}
+  transition: background-color 0.3s ease-in-out;
+
+  ${Container}:hover & {
+    background-color: ${transparentize(0.4, baseColor)};
+  }
+`;
+
+type TextWrapperProps = {
+  bgColor: string;
+  textColor: string;
+  removable?: boolean;
+};
+
+export const TextWrapper = styled.span<TextWrapperProps>`
+  display: block;
+  padding: 2px 4px;
+
+  font-family: 'Lato Bold', sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  color: ${props => props.textColor};
+
+  border-radius: ${props => (props.removable ? '2px 0 0 2px' : '2px')};
+
+  ${props => backgroundMixin(props.bgColor)}
+`;
+
+type IconWrapperProps = {
+  bgColor: string;
+};
+
+export const IconWrapper = styled.div<IconWrapperProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2px 4px;
+  margin-left: 1px;
+
+  border-radius: 0 2px 2px 0;
+
+  ${props => backgroundMixin(props.bgColor)}
 `;

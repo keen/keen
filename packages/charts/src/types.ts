@@ -1,5 +1,6 @@
 import { Typography, TooltipMode, Position } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
+import { colors } from '@keen.io/colors';
 
 export type Dimension = {
   width: number;
@@ -109,6 +110,8 @@ export type Bar = {
   };
 };
 
+type BadgeVariant = keyof typeof colors;
+
 export type Funnel = {
   header: {
     value: {
@@ -120,7 +123,7 @@ export type Funnel = {
     };
     badge: {
       enabled: boolean;
-      backgroundColor?: string;
+      variant?: BadgeVariant;
       typography: Typography;
     };
     backgroundColor: string;
