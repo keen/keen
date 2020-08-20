@@ -2,15 +2,10 @@ import React from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
-import MoreButton from './more-button.component';
+import CircleButton from './circle-button.component';
 
-const render = (overProps: any = {}) => {
-  const props = {
-    htmlType: 'button',
-    ...overProps,
-  };
-
-  const wrapper = rtlRender(<MoreButton {...props} />);
+const render = (props: any = {}) => {
+  const wrapper = rtlRender(<CircleButton {...props} />);
 
   return {
     wrapper,
@@ -18,12 +13,12 @@ const render = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/ui-core - <MoreButton />', () => {
-  test('should render more button component', () => {
+describe('@keen.io/ui-core - <CircleButton />', () => {
+  test('should render CircleButton component', () => {
     const {
       wrapper: { getByTestId },
     } = render();
-    const element = getByTestId('more-button');
+    const element = getByTestId('circle-button');
 
     expect(element).toBeInTheDocument();
   });
@@ -33,7 +28,7 @@ describe('@keen.io/ui-core - <MoreButton />', () => {
     const {
       wrapper: { getByTestId },
     } = render({ onClick: mockFn });
-    const element = getByTestId('more-button');
+    const element = getByTestId('circle-button');
     fireEvent.click(element);
 
     expect(mockFn).toHaveBeenCalled();
@@ -44,7 +39,7 @@ describe('@keen.io/ui-core - <MoreButton />', () => {
     const {
       wrapper: { getByTestId },
     } = render({ onClick: mockFn, isDisabled: true });
-    const element = getByTestId('more-button');
+    const element = getByTestId('circle-button');
     fireEvent.click(element);
 
     expect(mockFn).not.toHaveBeenCalled();
