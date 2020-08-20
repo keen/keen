@@ -1,30 +1,38 @@
+/* eslint-disable react/no-children-prop */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 
 import Badge from './badge.component';
 
-const setup = (overProps: any = {}) => {
-  const props = {
-    type: 'dark',
-    ...overProps,
-  };
+test('renders children nodes', () => {
+  const children = 'Badge';
+  const { getByText } = render(<Badge>{children}</Badge>);
 
-  const wrapper = mount(<Badge {...props} />);
+  expect(getByText(children)).toBeInTheDocument();
+});
 
-  return {
-    wrapper,
-    props,
-  };
-};
+test('should call "onClick" handler', () => {
+  const children = 'Badge';
+  const onClick = jest.fn();
+  const { getByText } = render(<Badge onClick={onClick}>{children}</Badge>);
 
-describe('@keen.io/ui-core - <Badge />', () => {
-  it('should render render children', () => {
-    const children = 'text';
-    const { wrapper } = setup({
-      children,
-    });
+  const element = getByText(children);
+  fireEvent.click(element);
 
-    expect(wrapper.text()).toEqual(children);
-    expect(wrapper.props().children).toEqual(children);
-  });
+  expect(onClick).toHaveBeenCalled();
+});
+
+test('should call "onRemove" handler', () => {
+  const children = 'Badge';
+  const onRemove = jest.fn();
+  const { getByTestId } = render(
+    <Badge removable onRemove={onRemove}>
+      {children}
+    </Badge>
+  );
+
+  const element = getByTestId('badge-remove');
+  fireEvent.click(element);
+
+  expect(onRemove).toHaveBeenCalled();
 });

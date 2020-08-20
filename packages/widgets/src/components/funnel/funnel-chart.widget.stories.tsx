@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { text, color, boolean, object } from '@storybook/addon-knobs';
+import { text, color, boolean, object, select } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   layoutKnobs,
   typographyKnobs,
 } from '@keen.io/storybook-utils';
+import { colors } from '@keen.io/colors';
 import { Typography, Layout } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
 
@@ -39,6 +40,12 @@ const createThemeKnobs = () => ({
       ),
       badge: {
         enabled: boolean('On / Off', true, 'Badge'),
+        variant: select(
+          'Color Variants',
+          Object.keys(colors),
+          keenTheme.funnel.header.badge.variant,
+          'Badge'
+        ),
         typography: typographyKnobs(
           'Badge',
           keenTheme.funnel.header.badge.typography
