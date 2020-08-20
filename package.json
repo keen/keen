@@ -15,7 +15,7 @@
     "browsers": "browserslist",
     "test": "jest",
     "test:cov": "jest --coverage",
-    "test:ci": "jest --coverage -w 3",
+    "test:ci": "jest --coverage -w 2",
     "update-packages": "lernaupdate",
     "storybook": "start-storybook -p 3000 -s .storybook",
     "build-storybook": "build-storybook -c .storybook -s .storybook -o dist",
