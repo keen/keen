@@ -13,13 +13,15 @@ import {
 
 import { CDNContext } from './context';
 
+import { useSearch } from './hooks';
+
 import {
   Anchor,
   Alert,
   Badge,
   Button,
   ActionButton,
-  MoreButton,
+  CircleButton,
   BulletList,
   Group,
   Card,
@@ -67,7 +69,7 @@ export {
   Badge,
   Button,
   ActionButton,
-  MoreButton,
+  CircleButton,
   Alignment,
   BulletList,
   ColorAdjuster,
@@ -120,4 +122,5 @@ export {
   ModalFooter,
   LoadingScreen,
   SuccessNotification,
+  useSearch,
 };
