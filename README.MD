@@ -17,21 +17,23 @@ All documentation, including charts, widgets and dataviz can be found at [Storyb
 
 This is an open source project and we love involvement from the community! Hit us up with pull requests and issues.
 
-### Project structure
+## Visualizations
 
-    .
-    ├── ...
-    ├── packages            
-    │   ├── charts    
-    │   ├── widgets
-    │   ├── dataviz
-    │   ├── parser
-    │   ├── ui-core
-    │   ├── colors
-    │   ├── embedded-registration   
-    │   ├── tracking-lite
-    │   └── storybook-utils
-    └── ...
+<img width="100%" alt="widgets" src="https://user-images.githubusercontent.com/7753369/90902582-f87d0d80-e3cc-11ea-8ebf-9fbd33e535d4.png">
+
+## Packages
+
+##### @keen.io/charts
+
+Set of reusable plots components built with `React` and `D3`.
+
+##### @keen.io/widgets
+
+Higher visualization layer that connects `@keen.io/charts` with other components that could be used to interact with charts plots.
+
+##### @keen.io/dataviz
+
+The DataViz is abstraction layer that connects **Keen Analytics API** with visualization components. It allows to seamlessly embed and deliver metrics within your user interface with minimal effort.
 
 ### npm scripts
 
@@ -75,3 +77,9 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org) to
 ### deployments
 
 The all commits pushed into master branch will be picked by CircleCI workflow that perform npm packages version and publish.
+
+### license
+
+MIT
+
+Copyright (c) 2019-2020 Keen.io.
