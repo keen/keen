@@ -17,9 +17,21 @@ All documentation, including charts, widgets and dataviz can be found at [Storyb
 
 This is an open source project and we love involvement from the community! Hit us up with pull requests and issues.
 
-## Visualizations
+## Examples
+
+Example dashboards build with `keen.io` visualization libraries.
+
+#### Smart Home Monitoring
 
 <img width="100%" alt="widgets" src="https://user-images.githubusercontent.com/7753369/90902582-f87d0d80-e3cc-11ea-8ebf-9fbd33e535d4.png">
+
+[Smart Home Dashboard](https://static.keen.io/dashboard/iot/index.html)
+
+#### Marketing performance dashboard
+
+<img width="1401" alt="widgets2" src="https://user-images.githubusercontent.com/7753369/90903382-26af1d00-e3ce-11ea-8096-778938061a8e.png">
+
+[Smart Home Dashboard](https://static.keen.io/dashboard/marketing/index.html)
 
 ## Packages
 
@@ -29,7 +41,7 @@ Set of reusable plots components built with `React` and `D3`.
 
 ##### @keen.io/widgets
 
-Higher visualization layer that connects `@keen.io/charts` with other components that could be used to interact with charts plots.
+Higher visualization layer that connects `@keen.io/charts` with other `React` components that could be used to interact with charts plots.
 
 ##### @keen.io/dataviz
 
