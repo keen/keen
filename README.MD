@@ -31,7 +31,7 @@ Example dashboards build with `keen.io` visualization libraries.
 
 <img width="1401" alt="widgets2" src="https://user-images.githubusercontent.com/7753369/90903382-26af1d00-e3ce-11ea-8096-778938061a8e.png">
 
-[Smart Home Dashboard](https://static.keen.io/dashboard/marketing/index.html)
+[Marketing Dashboard](https://static.keen.io/dashboard/marketing/index.html)
 
 ## Packages
 
