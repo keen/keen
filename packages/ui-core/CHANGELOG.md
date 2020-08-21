@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.6](https://github.com/keen/keen/compare/@keen.io/ui-core@0.26.5...@keen.io/ui-core@0.26.6) (2020-08-21)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
 ## [0.26.5](https://github.com/keen/keen/compare/@keen.io/ui-core@0.26.4...@keen.io/ui-core@0.26.5) (2020-08-20)
 
 **Note:** Version bump only for package @keen.io/ui-core
