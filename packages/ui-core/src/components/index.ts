@@ -10,6 +10,7 @@ import Checkbox from './checkbox';
 import ColorAdjuster from './color-adjuster';
 import ColorScale from './color-scale';
 import ContentSeparator from './content-separator';
+import Dropdown from './dropdown';
 import Group from './group';
 import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
 
@@ -58,6 +59,7 @@ export {
   ColorAdjuster,
   ContentSeparator,
   CellValue,
+  Dropdown,
   Error,
   FakeInput,
   FadeLoader,
