@@ -13,6 +13,8 @@ import {
 
 import { CDNContext } from './context';
 
+import { useSearch } from './hooks';
+
 import {
   Anchor,
   Alert,
@@ -120,4 +122,5 @@ export {
   ModalFooter,
   LoadingScreen,
   SuccessNotification,
+  useSearch,
 };
