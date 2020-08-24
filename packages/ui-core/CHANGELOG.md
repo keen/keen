@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.26.6...@keen.io/ui-core@0.27.0) (2020-08-24)
+
+
+### Features
+
+* 🎸 Secondary checkbox variant ([59cd5c9](https://github.com/keen/keen/commit/59cd5c912b8a80ce37862b6634c7d0c114a2c899))
+
+
+
+
+
 ## [0.26.6](https://github.com/keen/keen/compare/@keen.io/ui-core@0.26.5...@keen.io/ui-core@0.26.6) (2020-08-21)
 
 **Note:** Version bump only for package @keen.io/ui-core
