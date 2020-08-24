@@ -32,6 +32,8 @@ import LockOpen from './lock-open.component';
 import LockClosed from './lock-closed.component';
 import Temperature from './temperature.component';
 import Search from './search.component';
+import Actions from './actions.component';
+import Settings from './settings.component';
 
 import { IconType } from '../types';
 
@@ -105,5 +107,9 @@ export const getIcon = (type: IconType) => {
       return Temperature;
     case 'search':
       return Search;
+    case 'actions':
+      return Actions;
+    case 'settings':
+      return Settings;
   }
 };
