@@ -2,8 +2,25 @@
   "name": "keen",
   "private": true,
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
-  "homepage": "https://github.com/keen/keen#readme",
   "license": "MIT",
+  "homepage": "https://keen.io",
+  "keywords": [
+    "d3",
+    "Analytics",
+    "Stats",
+    "Statistics",
+    "Visualization",
+    "Visualizations",
+    "Data Visualization",
+    "Chart",
+    "Charts",
+    "Charting",
+    "Svg",
+    "Dataviz",
+    "Plots",
+    "Graphs",
+    "Funnels"
+  ],
   "workspaces": [
     "packages/*"
   ],
