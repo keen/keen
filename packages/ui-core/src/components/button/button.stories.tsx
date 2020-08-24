@@ -8,7 +8,7 @@ export default {
   title: 'Components|Button',
   parameters: {
     component: Button,
-    componentSubtitle: 'Displays customized button',
+    componentSubtitle: 'Displays a customized button',
   },
 };
 
