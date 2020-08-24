@@ -1,29 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Card from './card.component';
 
-const setup = (overProps: any = {}) => {
-  const props = {
-    ...overProps,
-  };
+test('renders children nodes', () => {
+  const children = 'content';
+  const { getByText } = render(<Card>{children}</Card>);
 
-  const wrapper = mount(<Card {...props} />);
-
-  return {
-    wrapper,
-    props,
-  };
-};
-
-describe('@keen.io/ui-core - <Card />', () => {
-  it('should render render children', () => {
-    const children = 'text';
-    const { wrapper } = setup({
-      children,
-    });
-
-    expect(wrapper.text()).toEqual(children);
-    expect(wrapper.props().children).toEqual(children);
-  });
+  expect(getByText(children)).toBeInTheDocument();
 });

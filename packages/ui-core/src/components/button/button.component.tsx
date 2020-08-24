@@ -42,6 +42,7 @@ export const Button: FC<Props> = ({
   if (href) {
     return (
       <StyledAnchor
+        data-testid="button"
         isDisabled={isDisabled}
         variant={variant}
         size={size}
@@ -60,6 +61,7 @@ export const Button: FC<Props> = ({
 
   return (
     <StyledButton
+      data-testid="button"
       isDisabled={isDisabled}
       type={htmlType}
       variant={variant}
@@ -70,7 +72,7 @@ export const Button: FC<Props> = ({
       }
     >
       {children}
-      {icon && <IconSocket>{icon}</IconSocket>}
+      {icon && <IconSocket data-testid="button-icon-socket">{icon}</IconSocket>}
     </StyledButton>
   );
 };

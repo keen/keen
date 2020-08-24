@@ -1,54 +1,53 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import 'jest-styled-components';
+import { render, fireEvent } from '@testing-library/react';
 
 import Button from './button.component';
 
-describe('@keen.io/ui-core - <Button />', () => {
-  const children = <span>Sign up</span>;
+test('renders children nodes', () => {
+  const children = 'Sign up';
+  const { getByText } = render(<Button>{children}</Button>);
 
-  it('should render children', () => {
-    const wrapper = mount(<Button>{children}</Button>);
+  expect(getByText(children)).toBeInTheDocument();
+});
 
-    expect(wrapper.contains(children)).toBeTruthy();
-  });
+test('renders HTML anchor element', () => {
+  const { container } = render(<Button href="https://keen.io">Button</Button>);
 
-  it('should render "anchor" element', () => {
-    const wrapper = mount(<Button href="https://keen.io">{children}</Button>);
+  expect(container.querySelector('a')).toBeInTheDocument();
+});
 
-    expect(wrapper.find('a').length).toBeTruthy();
-  });
+test('renders "button" element with proper htmlType', () => {
+  const { getByTestId } = render(<Button htmlType="reset">Button</Button>);
 
-  it('should call "onClick" handler', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(<Button onClick={mockFn}>{children}</Button>);
-    wrapper.simulate('click');
+  expect(getByTestId('button')).toHaveAttribute('type', 'reset');
+});
 
-    expect(mockFn).toHaveBeenCalled();
-  });
+test('renders "button" with icon', () => {
+  const { getByText } = render(<Button icon={<i>icon</i>}>Button</Button>);
 
-  it('should not call "onClick" handler for disable state', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Button isDisabled={true} onClick={mockFn}>
-        {children}
-      </Button>
-    );
-    wrapper.simulate('click');
+  expect(getByText('icon')).toBeInTheDocument();
+});
 
-    expect(mockFn).not.toHaveBeenCalled();
-  });
+test('calls "onClick" event handler', () => {
+  const mockFn = jest.fn();
+  const { getByTestId } = render(<Button onClick={mockFn}>Button</Button>);
 
-  it('should apply styles for button with "primary" variant', () => {
-    const wrapper = mount(<Button variant="primary">{children}</Button>);
+  const element = getByTestId('button');
+  fireEvent.click(element);
 
-    expect(wrapper).toMatchSnapshot();
-  });
+  expect(mockFn).toHaveBeenCalled();
+});
 
-  it('should render "button" element with proper type', () => {
-    const htmlType = 'reset';
-    const wrapper = mount(<Button htmlType={htmlType}>{children}</Button>);
+test('do not calls "onClick" handler for disabled state', () => {
+  const mockFn = jest.fn();
+  const { getByTestId } = render(
+    <Button isDisabled onClick={mockFn}>
+      Button
+    </Button>
+  );
 
-    expect(wrapper.find('button').props().type).toEqual(htmlType);
-  });
+  const element = getByTestId('button');
+  fireEvent.click(element);
+
+  expect(mockFn).not.toHaveBeenCalled();
 });
