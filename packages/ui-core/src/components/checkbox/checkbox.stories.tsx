@@ -12,9 +12,18 @@ export default {
   },
 };
 
-export const checked = () => (
+export const primary = () => (
   <Checkbox
     id="checkbox"
+    onChange={action('onChange')}
+    checked={boolean('Checked', false)}
+  />
+);
+
+export const secondary = () => (
+  <Checkbox
+    id="checkbox"
+    type="secondary"
     onChange={action('onChange')}
     checked={boolean('Checked', false)}
   />

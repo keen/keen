@@ -10,6 +10,8 @@ import {
   HiddenInput,
 } from './checkbox.styles';
 
+import { Variant } from './types';
+
 const checkMotion = {
   initial: { opacity: 0 },
   transition: { duration: 0.2 },
@@ -19,22 +21,35 @@ const checkMotion = {
 
 type Props = {
   id: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: Variant;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checked?: boolean;
+  disabled?: boolean;
 };
 
-export const Checkbox: FC<Props> = ({ id, onChange, checked = false }) => {
+export const Checkbox: FC<Props> = ({
+  id,
+  type = 'primary',
+  onChange,
+  checked = false,
+  disabled = false,
+}) => {
   return (
     <Container>
-      <HiddenInput id={id} checked={checked} onChange={onChange} />
-      <StyledCheckbox checked={checked}>
+      <HiddenInput
+        id={id}
+        checked={checked}
+        disabled={disabled}
+        onChange={e => onChange && onChange(e)}
+      />
+      <StyledCheckbox checked={checked} type={type}>
         <AnimatePresence>
           {checked && (
-            <IconSocket {...checkMotion}>
+            <IconSocket type={type} {...checkMotion}>
               <Icon
                 type="check"
-                width={15}
-                height={15}
+                width={type === 'primary' ? 15 : 13}
+                height={type === 'primary' ? 15 : 13}
                 fill={colors.green['400']}
               />
             </IconSocket>
