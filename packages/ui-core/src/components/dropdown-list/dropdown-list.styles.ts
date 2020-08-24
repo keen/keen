@@ -17,7 +17,7 @@ export const ListItem = styled.li<{
   justify-content: space-between;
 
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato Regular', sans-serif;
   color: ${colors.blue[500]};
 
   cursor: pointer;
