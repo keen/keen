@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/pricing-calculator",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "description": "Pricing calculator for Keen.io plan recommendation",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@keen.io/colors": "^0.2.0",
     "@keen.io/icons": "^0.4.3",
-    "@keen.io/ui-core": "^0.27.0",
+    "@keen.io/ui-core": "^0.27.1",
     "framer-motion": "^1.11.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
