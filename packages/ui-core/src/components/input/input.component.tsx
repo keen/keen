@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import { StyledInput, Suffix, Container } from './input.styles';
 
@@ -13,20 +13,23 @@ export type Props = {
   renderIcon?: () => JSX.Element;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: FC<Props> = ({
-  hasError = false,
-  variant = 'outline',
-  renderIcon,
-  ...props
-}) => (
-  <Container>
-    <StyledInput
-      hasError={hasError}
-      variant={variant as InputVariant}
-      {...props}
-    />
-    {renderIcon && <Suffix>{renderIcon()}</Suffix>}
-  </Container>
+export const Input = forwardRef(
+  (
+    { hasError = false, variant = 'outline', renderIcon, ...props }: Props,
+    ref: React.MutableRefObject<HTMLInputElement>
+  ) => (
+    <Container>
+      <StyledInput
+        ref={ref}
+        hasError={hasError}
+        variant={variant as InputVariant}
+        {...props}
+      />
+      {renderIcon && <Suffix>{renderIcon()}</Suffix>}
+    </Container>
+  )
 );
+
+Input.displayName = 'Input';
 
 export default Input;

@@ -39,4 +39,6 @@ export type IconType =
   | 'lock-open'
   | 'lock-closed'
   | 'temperature'
-  | 'search';
+  | 'search'
+  | 'actions'
+  | 'settings';
