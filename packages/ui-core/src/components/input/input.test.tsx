@@ -10,7 +10,9 @@ test('renders HTML input element', () => {
 });
 
 test('renders "icon" component', () => {
-  const { getByTestId } = render(<Input icon={<div data-testid="icon" />} />);
+  const { getByTestId } = render(
+    <Input renderIcon={() => <div data-testid="icon" />} />
+  );
 
   expect(getByTestId('icon')).toBeInTheDocument();
 });
