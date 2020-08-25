@@ -7,7 +7,7 @@ import { Icon, IconType } from '@keen.io/icons';
 import CircleButton from './circle-button.component';
 
 export default {
-  title: 'Components|Circle-Button',
+  title: 'Styleguide | Circle Button',
   parameters: {
     component: CircleButton,
     componentSubtitle: 'Displays customized CircleButton',

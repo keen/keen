@@ -8,7 +8,7 @@ import DropdownList from '../dropdown-list';
 import Button from '../button';
 
 export default {
-  title: 'Components|Dropdown',
+  title: 'Styleguide | Dropdown',
   parameters: {
     component: Dropdown,
     componentSubtitle: 'Dropdown component with customized motion properties',
