@@ -11,6 +11,7 @@ import ColorAdjuster from './color-adjuster';
 import ColorScale from './color-scale';
 import ContentSeparator from './content-separator';
 import Dropdown from './dropdown';
+import DropdownMenu from './dropdown-menu';
 import DropdownList from './dropdown-list';
 import Group from './group';
 import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
@@ -61,6 +62,7 @@ export {
   ContentSeparator,
   CellValue,
   Dropdown,
+  DropdownMenu,
   DropdownList,
   Error,
   FakeInput,

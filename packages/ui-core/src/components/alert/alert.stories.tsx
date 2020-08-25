@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Alert } from './alert.component';
 
 export default {
-  title: 'Components|Alert',
+  title: 'Styleguide | Alert',
   parameters: {
     component: Alert,
     componentSubtitle: 'Alert component for displaying message.',
