@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.27.2...@keen.io/ui-core@0.28.0) (2020-08-25)
+
+
+### Features
+
+* 🎸 dropdown menu component ([1b71502](https://github.com/keen/keen/commit/1b715023ba48255e25711be346176458dc049b9b))
+
+
+
+
+
 ## [0.27.2](https://github.com/keen/keen/compare/@keen.io/ui-core@0.27.1...@keen.io/ui-core@0.27.2) (2020-08-24)
 
 **Note:** Version bump only for package @keen.io/ui-core
