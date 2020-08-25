@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 5px 15px;
 
   color: ${colors.blue[500]};
-  font-family: 'Lato regular', sans-serif;
+  font-family: 'Lato Regular', sans-serif;
   font-size: 14px;
 
   cursor: pointer;
