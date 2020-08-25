@@ -5,10 +5,10 @@ import { action } from '@storybook/addon-actions';
 import { Button } from './button.component';
 
 export default {
-  title: 'Components|Button',
+  title: 'Styleguide | Button',
   parameters: {
     component: Button,
-    componentSubtitle: 'Displays a customized button',
+    componentSubtitle: 'Displays a customized button component',
   },
 };
 
