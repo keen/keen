@@ -19,7 +19,7 @@ const iconSocketVariants = {
     },
     secondary: {
       left: '1px',
-      bottom: '-4px',
+      bottom: '-3px',
     },
   },
 };
