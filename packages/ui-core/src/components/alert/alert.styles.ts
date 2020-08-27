@@ -18,6 +18,11 @@ const alertVariants = {
       borderColor: colors.red['500'],
       background: transparentize(0.6, colors.red['100']),
     },
+    info: {
+      color: colors.blue['500'],
+      borderColor: colors.blue['500'],
+      background: transparentize(0.6, colors.blue['100']),
+    },
   },
 };
 
