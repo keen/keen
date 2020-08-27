@@ -1,1 +1,1 @@
-export type Variant = 'success' | 'error';
+export type Variant = 'success' | 'error' | 'info';

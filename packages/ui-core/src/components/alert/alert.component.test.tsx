@@ -1,14 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import Alert from './alert.component';
 
-describe('@keen.io/ui-core - <Alert />', () => {
-  const children = <span>Message</span>;
+test('renders children nodes', () => {
+  const children = 'message';
+  const { getByText } = render(<Alert type="error">{children}</Alert>);
 
-  it('should render children', () => {
-    const wrapper = mount(<Alert type="error">{children}</Alert>);
-
-    expect(wrapper.contains(children)).toBeTruthy();
-  });
+  expect(getByText(children)).toBeInTheDocument();
 });
