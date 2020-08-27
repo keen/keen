@@ -12,7 +12,9 @@ type Props = {
 };
 
 export const Alert: FC<Props> = ({ type, children }) => (
-  <StyledAlert type={type}>{children}</StyledAlert>
+  <StyledAlert role="alert" type={type}>
+    {children}
+  </StyledAlert>
 );
 
 export default Alert;
