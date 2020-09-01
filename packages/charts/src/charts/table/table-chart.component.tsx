@@ -172,42 +172,44 @@ export const TableChart = ({
               sortOptions={sort && sort}
               typography={header.typography}
             />
-            {sortedData.map((el: any, idx: number) => (
-              <TableRow
-                key={`${idx}-${el[0]}`}
-                data={el}
-                backgroundColor={color}
-                onCellClick={(e, value) => {
-                  if (tooltipHide.current) clearTimeout(tooltipHide.current);
-                  copyToClipboard(value);
+            <tbody>
+              {sortedData.map((el: any, idx: number) => (
+                <TableRow
+                  key={`${idx}-${el[0]}`}
+                  data={el}
+                  backgroundColor={color}
+                  onCellClick={(e, value) => {
+                    if (tooltipHide.current) clearTimeout(tooltipHide.current);
+                    copyToClipboard(value);
 
-                  const {
-                    top,
-                    left,
-                  }: ClientRect = containerRef.current.getBoundingClientRect();
-                  const tooltipX = e.pageX - left - window.scrollX;
-                  const tooltipY = e.pageY - top - window.scrollY;
+                    const {
+                      top,
+                      left,
+                    }: ClientRect = containerRef.current.getBoundingClientRect();
+                    const tooltipX = e.pageX - left - window.scrollX;
+                    const tooltipY = e.pageY - top - window.scrollY;
 
-                  setTooltip(state => ({
-                    ...state,
-                    visible: true,
-                    x: tooltipX,
-                    y: tooltipY,
-                  }));
-
-                  tooltipHide.current = setTimeout(() => {
                     setTooltip(state => ({
                       ...state,
-                      visible: false,
-                      x: 0,
-                      y: 0,
+                      visible: true,
+                      x: tooltipX,
+                      y: tooltipY,
                     }));
-                  }, TOOLTIP_HIDE);
-                }}
-                isColumnDragged={isColumnDragged}
-                typography={body.typography}
-              />
-            ))}
+
+                    tooltipHide.current = setTimeout(() => {
+                      setTooltip(state => ({
+                        ...state,
+                        visible: false,
+                        x: 0,
+                        y: 0,
+                      }));
+                    }, TOOLTIP_HIDE);
+                  }}
+                  isColumnDragged={isColumnDragged}
+                  typography={body.typography}
+                />
+              ))}
+            </tbody>
           </Table>
         </TableContainer>
         {overflowLeft && <LeftOverflow />}
