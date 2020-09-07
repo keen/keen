@@ -20,8 +20,8 @@ const alertVariants = {
     },
     info: {
       color: colors.blue['500'],
-      borderColor: colors.blue['500'],
-      background: transparentize(0.6, colors.blue['100']),
+      borderColor: colors.blue['200'],
+      background: transparentize(0.6, colors.lightBlue['300']),
     },
   },
 };
