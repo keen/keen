@@ -55,10 +55,10 @@ export const createStyles = (variant: SelectVariant, hasError: boolean) =>
           border: 'none',
           boxShadow: 'none',
           borderBottom: hasError
-            ? `solid 2px ${colors.orange['300']}`
+            ? `solid 2px ${colors.red['500']}`
             : `solid 1px ${colors.blue['400']}`,
           borderColor: `${
-            hasError ? colors.orange['300'] : colors.blue['400']
+            hasError ? colors.red['500'] : colors.blue['400']
           }!important`,
           background: isFocused
             ? transparentize(0.9, colors.blue['100'])
