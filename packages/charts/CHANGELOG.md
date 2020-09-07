@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.16](https://github.com/keen/keen/compare/@keen.io/charts@0.10.15...@keen.io/charts@0.10.16) (2020-09-07)
+
+
+### Bug Fixes
+
+* 🐛 add tbody to table chart ([ddfc6a4](https://github.com/keen/keen/commit/ddfc6a44ade1c3e7398f0e4d030651d5910b6072))
+
+
+
+
+
 ## [0.10.15](https://github.com/keen/keen/compare/@keen.io/charts@0.10.14...@keen.io/charts@0.10.15) (2020-08-27)
 
 **Note:** Version bump only for package @keen.io/charts
