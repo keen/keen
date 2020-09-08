@@ -53,13 +53,13 @@ const solidVariants = {
       },
     },
     danger: {
-      backgroundColor: colors.red['300'],
-      borderColor: colors.red['300'],
+      backgroundColor: colors.red['500'],
+      borderColor: colors.red['500'],
       color: colors.white['500'],
       boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
       '&:hover': {
         boxShadow: 'none',
-        backgroundColor: colors.red['400'],
+        backgroundColor: colors.red['300'],
       },
     },
     success: {
