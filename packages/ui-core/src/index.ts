@@ -14,6 +14,7 @@ import {
 import { CDNContext } from './context';
 
 import { useSearch } from './hooks';
+import { screenBreakpoints } from './screen';
 
 import {
   Anchor,
@@ -129,4 +130,5 @@ export {
   LoadingScreen,
   SuccessNotification,
   useSearch,
+  screenBreakpoints,
 };
