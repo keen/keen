@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/keen/keen/compare/@keen.io/ui-core@0.28.3...@keen.io/ui-core@0.29.0) (2020-09-08)
+
+
+### Features
+
+* 🎸 screen breakpoints ([e90dbb8](https://github.com/keen/keen/commit/e90dbb8db099bb140cff81215026c98b7174df60))
+
+
+
+
+
 ## [0.28.3](https://github.com/keen/keen/compare/@keen.io/ui-core@0.28.2...@keen.io/ui-core@0.28.3) (2020-09-07)
 
 **Note:** Version bump only for package @keen.io/ui-core
