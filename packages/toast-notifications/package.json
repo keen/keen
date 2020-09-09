@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/toast-notifications",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Keen.io wrapper for react-toast-notifications",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",

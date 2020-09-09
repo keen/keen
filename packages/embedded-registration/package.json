@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/embedded-registration",
-  "version": "0.4.19",
+  "version": "0.4.20",
   "description": "Embeddable registration component for HubSpot integration",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -41,9 +41,9 @@
   },
   "dependencies": {
     "@keen.io/colors": "^0.2.0",
-    "@keen.io/forms": "^0.3.34",
-    "@keen.io/icons": "^0.4.4",
-    "@keen.io/ui-core": "^0.29.0",
+    "@keen.io/forms": "^0.3.35",
+    "@keen.io/icons": "^0.4.5",
+    "@keen.io/ui-core": "^0.29.1",
     "formik": "^2.1.4",
     "http-status-codes": "^1.4.0",
     "react": "^16.12.0",
