@@ -11,7 +11,7 @@ const progressVariants = {
       background: colors.red[100],
     },
     info: {
-      background: colors.blue[100],
+      background: colors.lightBlue[400],
     },
     success: {
       background: colors.green[100],
