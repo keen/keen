@@ -11,7 +11,7 @@ const toastVariants = {
       background: transparentize(0.05, colors.red[500]),
     },
     info: {
-      background: transparentize(0.05, colors.blue[500]),
+      background: transparentize(0.05, colors.blue[200]),
     },
     success: {
       background: transparentize(0.05, colors.green[500]),

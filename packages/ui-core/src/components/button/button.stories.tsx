@@ -66,6 +66,12 @@ export const dangerOutline = () => (
   </Button>
 );
 
+export const dangerSolid = () => (
+  <Button onClick={action('click')} variant="danger" style="solid">
+    Button
+  </Button>
+);
+
 export const secondaryWithIcon = () => (
   <Button
     onClick={action('click')}
