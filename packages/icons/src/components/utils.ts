@@ -1,6 +1,7 @@
 import ArrowUp from './arrow-up.component';
 import ArrowDown from './arrow-down.component';
 import ButtonArrow from './button-arrow.component';
+import ButtonArrowLeft from './button-arrow-left.component';
 import Brand from './brand.component';
 import CaretLeft from './caret-left.component';
 import CaretRight from './caret-right.component';
@@ -45,6 +46,8 @@ export const getIcon = (type: IconType) => {
       return ArrowUp;
     case 'button-arrow':
       return ButtonArrow;
+    case 'button-arrow-left':
+      return ButtonArrowLeft;
     case 'caret-down':
       return CaretDown;
     case 'caret-up':
