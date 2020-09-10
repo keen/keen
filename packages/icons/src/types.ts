@@ -9,6 +9,7 @@ export type IconType =
   | 'arrow-up'
   | 'arrow-down'
   | 'button-arrow'
+  | 'button-arrow-left'
   | 'brand'
   | 'check'
   | 'close'
