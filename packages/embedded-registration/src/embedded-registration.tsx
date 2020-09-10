@@ -4,8 +4,9 @@ import { RestfulProvider } from 'restful-react';
 
 import { App } from './app.component';
 
-import { setUtmSourceCookie } from './utils';
+import { setUtmCookie } from './utils';
 
+import { UTM_COOKIES } from './constants';
 import { Options } from './types';
 
 class EmbeddedRegistration {
@@ -39,7 +40,7 @@ class EmbeddedRegistration {
   }
 
   render() {
-    setUtmSourceCookie();
+    setUtmCookie(UTM_COOKIES);
 
     const container =
       this.container instanceof HTMLElement
