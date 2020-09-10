@@ -4,6 +4,7 @@ export type Options = {
   ctaLabel: string;
   apiUrl: string;
   onSuccess: () => void;
+  utmCookies?: string[];
 };
 
 export type FormValues = {

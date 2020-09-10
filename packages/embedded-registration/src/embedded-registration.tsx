@@ -6,7 +6,6 @@ import { App } from './app.component';
 
 import { setUtmCookie } from './utils';
 
-import { UTM_COOKIES } from './constants';
 import { Options } from './types';
 
 class EmbeddedRegistration {
@@ -25,22 +24,27 @@ class EmbeddedRegistration {
   /** Success callback handler  */
   private onSuccess: () => void;
 
+  /** URL params for cookies to track registration sources etc. */
+  private utmCookies: string[];
+
   constructor({
     container,
     offerHandle,
     ctaLabel,
     apiUrl,
     onSuccess,
+    utmCookies,
   }: Options) {
     this.container = container;
     this.offerHandle = offerHandle;
     this.ctaLabel = ctaLabel;
     this.apiUrl = apiUrl;
     this.onSuccess = onSuccess;
+    this.utmCookies = utmCookies;
   }
 
   render() {
-    setUtmCookie(UTM_COOKIES);
+    setUtmCookie(this.utmCookies);
 
     const container =
       this.container instanceof HTMLElement
