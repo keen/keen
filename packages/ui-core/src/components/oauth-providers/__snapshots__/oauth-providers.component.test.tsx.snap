@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OAuthProviders /> should redirect to Github OAuth page 1`] = `"https://github.com/login/oauth/authorize?scope=user%3Aemail&client_id=keen-client-id&state=invite"`;
+
+exports[`<OAuthProviders /> should redirect to Google OAuth page 1`] = `"http://google?scope=email%20profile&include_granted_scopes=true&response_type=code&redirect_uri=https%2F%2Fkeen-test.io%2Fkeen-redirect%3Fsource%3Dinvite&client_id=keen-client-id"`;

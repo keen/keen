@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonInverse /> should render button correctly 1`] = `
+<div>
+  <div
+    class="sc-AxjAm kxAyDr"
+  >
+    <span>
+      Sign up
+    </span>
+  </div>
+</div>
+`;
