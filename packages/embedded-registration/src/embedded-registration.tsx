@@ -33,7 +33,7 @@ class EmbeddedRegistration {
     ctaLabel,
     apiUrl,
     onSuccess,
-    utmCookies,
+    utmCookies = ['utm_source', 'utm_campaign'],
   }: Options) {
     this.container = container;
     this.offerHandle = offerHandle;
