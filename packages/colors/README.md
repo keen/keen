@@ -2,7 +2,7 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg?targetFile=packages/colors/package.json)](https://snyk.io/test/github/keen/keen?targetFile=packages/colors/package.json)
 
-Basic color palette used in `keen.io` front-end projects.
+Basic color palette used in `keen.io` projects.
 
 ## Installing
 

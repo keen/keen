@@ -11,13 +11,3 @@ For Front-End applications use standard `npm` or [yarn](https://yarnpkg.com/lang
 ```sh
 yarn install @keen.io/toast-notifications
 ```
-
-## Examples
-
-```js
-import { ToastProvider } from '@keen.io/toast-notifications';
-
-<ToastProvider>
-  <App />
-</ToastProvider>
-```
