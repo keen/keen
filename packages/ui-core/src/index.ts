@@ -65,6 +65,7 @@ import {
   ModalFooter,
   LoadingScreen,
   SuccessNotification,
+  OAuthProviders,
 } from './components';
 
 export {
@@ -131,4 +132,5 @@ export {
   SuccessNotification,
   useSearch,
   screenBreakpoints,
+  OAuthProviders,
 };

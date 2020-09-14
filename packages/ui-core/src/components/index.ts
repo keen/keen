@@ -44,6 +44,7 @@ import ModalHeader from './modal-header';
 import ModalFooter from './modal-footer';
 import LoadingScreen from './loading-screen';
 import SuccessNotification from './success-notification';
+import OAuthProviders from './oauth-providers';
 
 export { ARROW_SIZE };
 
@@ -95,4 +96,5 @@ export {
   ModalFooter,
   LoadingScreen,
   SuccessNotification,
+  OAuthProviders,
 };
