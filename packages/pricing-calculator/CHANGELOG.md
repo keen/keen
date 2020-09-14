@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.20...@keen.io/pricing-calculator@1.0.0) (2020-09-14)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
 ## [0.3.20](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.19...@keen.io/pricing-calculator@0.3.20) (2020-09-14)
 
 **Note:** Version bump only for package @keen.io/pricing-calculator
