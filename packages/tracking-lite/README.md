@@ -2,7 +2,7 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg?targetFile=packages/tracking-lite/package.json)](https://snyk.io/test/github/keen/keen?targetFile=packages/tracking-lite/package.json)
 
-Light version on Keen Tracking library - used for integration with `Google Tag Manager`.
+Light and simple version on Keen Tracking library - used for integration with `Google Tag Manager`.
 
 ## Installing
 
@@ -24,7 +24,7 @@ KeenTrackingLite.sendEvent(projectId, authorizationKey, eventCollection, eventPa
 
 List of useful commands that could be used by developers. Execution in the command-line interface should be prefixed with `yarn` package manager.
 
-| Command               | Description                                                                       |
-| --------------------- | --------------------------------------------------------------------------------- |
-| `start`               | run application on `localhost:3000`.                                              |
-| `build`               | build the application UMD distribution.                                           |
+| Command | Description                             |
+| ------- | --------------------------------------- |
+| `start` | run application on `localhost:3000`.    |
+| `build` | build the application UMD distribution. |

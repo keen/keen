@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/keen/keen/compare/@keen.io/pubsub@0.2.0...@keen.io/pubsub@1.0.0) (2020-09-14)
+
+
+### Features
+
+* 🎸 docs update ([cc30cd4](https://github.com/keen/keen/commit/cc30cd4f87c8721bed166afb7a77b56b113de3d6))
+
+
+
+
+
 # [0.2.0](https://github.com/keen/keen/compare/@keen.io/pubsub@0.1.0...@keen.io/pubsub@0.2.0) (2020-06-22)
 
 

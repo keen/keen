@@ -2,7 +2,7 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg?targetFile=packages/icons/package.json)](https://snyk.io/test/github/keen/keen?targetFile=packages/icons/package.json)
 
-Set of reusable icons for `React` ecosystem - used in `keen.io` projects.
+Set of reusable icons for `React` ecosystem - used in `keen.io` front-end projects.
 
 ## Installing
 
@@ -13,7 +13,6 @@ yarn install @keen.io/icons
 ```
 
 ## Examples
-
 
 ```js
 import { Icon } from '@keen.io/icons';
