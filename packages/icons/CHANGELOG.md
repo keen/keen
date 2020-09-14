@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/keen/keen/compare/@keen.io/icons@1.0.0...@keen.io/icons@1.1.0) (2020-09-14)
+
+
+### Features
+
+* 🎸 update readmes ([b2f70be](https://github.com/keen/keen/commit/b2f70bec7c7e73c4fd8012e7ce3b847d316e71a8))
+
+
+
+
+
 # [1.0.0](https://github.com/keen/keen/compare/@keen.io/icons@0.4.6...@keen.io/icons@1.0.0) (2020-09-14)
 
 
