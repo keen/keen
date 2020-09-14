@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import { generateBlocks } from './heatmap-chart.utils';
 
@@ -8,7 +9,6 @@ import Heatmap from './heatmap.component';
 
 import { Tooltip } from '@keen.io/ui-core';
 import TooltipContent from './tooltip-content.component';
-import { useTooltip } from '../../hooks';
 
 import ShadowFilter from './shadow-filter.component';
 import { ChartBase, Axes } from '../../components';

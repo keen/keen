@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import { ChartBase, Grid, Axes } from '../../components';
 
@@ -8,7 +9,6 @@ import Bubbles from './bubbles.component';
 import TooltipContent from './tooltip-content.component';
 import { generateBubbles } from './utils/chart.utils';
 
-import { useTooltip } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings, ScaleSettings } from '../../types';

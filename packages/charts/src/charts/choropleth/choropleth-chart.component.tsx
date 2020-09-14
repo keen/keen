@@ -3,13 +3,13 @@ import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Tooltip, ColorMode, BulletList, RangeType } from '@keen.io/ui-core';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import Map from './map.component';
 
 import { ChartBase } from '../../components';
 import { generateChoropleth } from './utils';
 
-import { useTooltip } from '../../hooks';
 import { useZoom, useDragHandlers } from './hooks';
 
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';

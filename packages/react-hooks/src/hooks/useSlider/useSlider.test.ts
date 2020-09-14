@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useSlider } from './use-slider.hook';
+import { useSlider } from './useSlider';
 
 test('calculates mininum and maximum values', () => {
   const data = [

@@ -7,6 +7,7 @@ import {
   SeriesLegend,
   theme as defaultTheme,
 } from '@keen.io/charts';
+import { useLegend } from '@keen.io/react-hooks';
 
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
@@ -15,8 +16,6 @@ import {
   LegendSocket,
   TitleSocket,
 } from '../widget-sockets.component';
-
-import { useLegend } from '../../hooks';
 
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
