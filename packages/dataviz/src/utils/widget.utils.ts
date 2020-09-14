@@ -1,13 +1,12 @@
 import deepMerge from 'deepmerge';
 import {
   WidgetSettings,
+  Widgets,
   widgetSettings as defaultWidgetSettings,
   metricWidgetSettings as defaultMetricWidgetSettings,
   choroplethWidgetSettings as defaultChoroplethWidgetSettings,
   bubbleWidgetSettings as defaultBubbleWidgetSettings,
 } from '@keen.io/widgets';
-
-import { Widgets } from '../render-widget';
 
 import { VisualizerWidgetSettings } from '../types';
 

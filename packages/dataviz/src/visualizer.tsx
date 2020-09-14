@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ErrorWidget, WidgetSettings } from '@keen.io/widgets';
+import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
+import { colors } from '@keen.io/colors';
 
-import { renderWidget, Widgets } from './render-widget';
+import { renderWidget } from './render-widget';
 
 import {
   extendTheme,

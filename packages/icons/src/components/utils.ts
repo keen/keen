@@ -3,6 +3,8 @@ import ArrowDown from './arrow-down.component';
 import ButtonArrow from './button-arrow.component';
 import ButtonArrowLeft from './button-arrow-left.component';
 import Brand from './brand.component';
+import BarHorizontal from './bar-horizontal.component';
+import BarVertical from './bar-vertical.component';
 import CaretLeft from './caret-left.component';
 import CaretRight from './caret-right.component';
 import CaretUp from './caret-up.component';
@@ -12,6 +14,7 @@ import QuestionMark from './question-mark.component';
 import EyeSolid from './eye-solid.component';
 import EyeOutline from './eye-outline.component';
 import EyeSlashSolid from './eye-slash-solid.component';
+import FunnelVertical from './funnel-vertical.component';
 import UserSolid from './user-solid.component';
 import UserOutline from './user-outline.component';
 import UsersSolid from './users-solid.component';
@@ -44,6 +47,10 @@ export const getIcon = (type: IconType) => {
       return ArrowDown;
     case 'arrow-up':
       return ArrowUp;
+    case 'bar-horizontal':
+      return BarHorizontal;
+    case 'bar-vertical':
+      return BarVertical;
     case 'button-arrow':
       return ButtonArrow;
     case 'button-arrow-left':
@@ -82,6 +89,8 @@ export const getIcon = (type: IconType) => {
       return EyeOutline;
     case 'eye-slash-solid':
       return EyeSlashSolid;
+    case 'funnel-vertical':
+      return FunnelVertical;
     case 'user-solid':
       return UserSolid;
     case 'user-outline':

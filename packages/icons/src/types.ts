@@ -8,6 +8,8 @@ export type IconProps = {
 export type IconType =
   | 'arrow-up'
   | 'arrow-down'
+  | 'bar-horizontal'
+  | 'bar-vertical'
   | 'button-arrow'
   | 'button-arrow-left'
   | 'brand'
@@ -25,6 +27,7 @@ export type IconType =
   | 'eye-solid'
   | 'eye-outline'
   | 'eye-slash-solid'
+  | 'funnel-vertical'
   | 'user-solid'
   | 'user-outline'
   | 'users-solid'
