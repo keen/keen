@@ -4,7 +4,7 @@ import { RestfulProvider } from 'restful-react';
 
 import { App } from './app.component';
 
-import { setUtmSourceCookie } from './utils';
+import { setUtmCookie } from './utils';
 
 import { Options } from './types';
 
@@ -24,22 +24,27 @@ class EmbeddedRegistration {
   /** Success callback handler  */
   private onSuccess: () => void;
 
+  /** URL params for cookies to track registration sources etc. */
+  private utmCookies: string[];
+
   constructor({
     container,
     offerHandle,
     ctaLabel,
     apiUrl,
     onSuccess,
+    utmCookies = ['utm_source', 'utm_campaign'],
   }: Options) {
     this.container = container;
     this.offerHandle = offerHandle;
     this.ctaLabel = ctaLabel;
     this.apiUrl = apiUrl;
     this.onSuccess = onSuccess;
+    this.utmCookies = utmCookies;
   }
 
   render() {
-    setUtmSourceCookie();
+    setUtmCookie(this.utmCookies);
 
     const container =
       this.container instanceof HTMLElement

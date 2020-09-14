@@ -31,16 +31,27 @@ export const transformSignupResponse = (response: SignupResponse) => {
   };
 };
 
-export const setUtmSourceCookie = (): void => {
-  const utmSource = new URL(location.href).searchParams.get('utm_source');
-  const date = new Date();
-  const hours = date.getHours();
+export const setUtmCookie = (cookieList: string[]) => {
+  let cookies: {
+    [index: string]: string;
+  } = {};
 
-  date.setHours(hours + 1);
+  cookieList.map(cookie => {
+    const utmCookie = new URL(location.href).searchParams.get(cookie);
+    if (utmCookie) {
+      cookies = {
+        ...cookies,
+        [cookie]: utmCookie,
+      };
+    }
+  });
+  if (Object.entries(cookies).length) {
+    const date = new Date();
+    const hours = date.getHours();
 
-  if (utmSource) {
-    document.cookie = `keen=${JSON.stringify({
-      utm_source: utmSource,
-    })}; expires=${date.toUTCString()}; domain=.keen.io`;
+    date.setHours(hours + 1);
+    document.cookie = `keen=${JSON.stringify(
+      cookies
+    )}; expires=${date.toUTCString()}; domain=.keen.io`;
   }
 };
