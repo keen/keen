@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.20](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.19...@keen.io/pricing-calculator@0.3.20) (2020-09-14)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.19](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.18...@keen.io/pricing-calculator@0.3.19) (2020-09-10)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.18](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.17...@keen.io/pricing-calculator@0.3.18) (2020-09-09)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.17](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.16...@keen.io/pricing-calculator@0.3.17) (2020-09-08)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.16](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.15...@keen.io/pricing-calculator@0.3.16) (2020-09-07)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.15](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.14...@keen.io/pricing-calculator@0.3.15) (2020-09-07)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.14](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.13...@keen.io/pricing-calculator@0.3.14) (2020-08-27)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.13](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.12...@keen.io/pricing-calculator@0.3.13) (2020-08-25)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.12](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.11...@keen.io/pricing-calculator@0.3.12) (2020-08-24)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.11](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.10...@keen.io/pricing-calculator@0.3.11) (2020-08-24)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.10](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.9...@keen.io/pricing-calculator@0.3.10) (2020-08-24)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.9](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.8...@keen.io/pricing-calculator@0.3.9) (2020-08-21)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
+## [0.3.8](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.7...@keen.io/pricing-calculator@0.3.8) (2020-08-20)
+
+**Note:** Version bump only for package @keen.io/pricing-calculator
+
+
+
+
+
 ## [0.3.7](https://github.com/keen/keen/compare/@keen.io/pricing-calculator@0.3.6...@keen.io/pricing-calculator@0.3.7) (2020-08-17)
 
 **Note:** Version bump only for package @keen.io/pricing-calculator

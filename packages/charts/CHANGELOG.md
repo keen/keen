@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.21](https://github.com/keen/keen/compare/@keen.io/charts@0.10.20...@keen.io/charts@0.10.21) (2020-09-14)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.20](https://github.com/keen/keen/compare/@keen.io/charts@0.10.19...@keen.io/charts@0.10.20) (2020-09-10)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.19](https://github.com/keen/keen/compare/@keen.io/charts@0.10.18...@keen.io/charts@0.10.19) (2020-09-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.18](https://github.com/keen/keen/compare/@keen.io/charts@0.10.17...@keen.io/charts@0.10.18) (2020-09-08)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.17](https://github.com/keen/keen/compare/@keen.io/charts@0.10.16...@keen.io/charts@0.10.17) (2020-09-07)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.16](https://github.com/keen/keen/compare/@keen.io/charts@0.10.15...@keen.io/charts@0.10.16) (2020-09-07)
+
+
+### Bug Fixes
+
+* 🐛 add tbody to table chart ([ddfc6a4](https://github.com/keen/keen/commit/ddfc6a44ade1c3e7398f0e4d030651d5910b6072))
+
+
+
+
+
+## [0.10.15](https://github.com/keen/keen/compare/@keen.io/charts@0.10.14...@keen.io/charts@0.10.15) (2020-08-27)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.14](https://github.com/keen/keen/compare/@keen.io/charts@0.10.13...@keen.io/charts@0.10.14) (2020-08-25)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.13](https://github.com/keen/keen/compare/@keen.io/charts@0.10.12...@keen.io/charts@0.10.13) (2020-08-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.12](https://github.com/keen/keen/compare/@keen.io/charts@0.10.11...@keen.io/charts@0.10.12) (2020-08-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.11](https://github.com/keen/keen/compare/@keen.io/charts@0.10.10...@keen.io/charts@0.10.11) (2020-08-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.10](https://github.com/keen/keen/compare/@keen.io/charts@0.10.9...@keen.io/charts@0.10.10) (2020-08-21)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [0.10.9](https://github.com/keen/keen/compare/@keen.io/charts@0.10.8...@keen.io/charts@0.10.9) (2020-08-20)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [0.10.8](https://github.com/keen/keen/compare/@keen.io/charts@0.10.7...@keen.io/charts@0.10.8) (2020-08-17)
 
 **Note:** Version bump only for package @keen.io/charts
