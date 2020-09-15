@@ -3,29 +3,34 @@ import { Widgets } from '@keen.io/widgets';
 import { Layout } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 
-export type Settings = {
+export type PickerWidgets = Widgets | 'json';
+
+export type ChartSettings = {
   groupMode?: GroupMode;
   stackMode?: StackMode;
   layout?: Layout;
   curve?: CurveType;
   areaMode?: boolean;
+  type?: 'percent' | 'difference' | 'compare';
 };
 
-export type ChartSettingsOption = {
+export type ChartOptionItem = {
   label: string;
-  defaultSettings: Settings;
-  isActive: (settings: Settings) => boolean;
+  defaultSettings: ChartSettings;
+  isActive: (settings: ChartSettings) => boolean;
+};
+
+export type ChartOptions = {
+  label: string;
+  id: string;
+  settings: ChartOptionItem[];
 };
 
 export type Widget = {
   id: string;
   icon: IconType;
-  widget: Widgets;
-  defaultSettings: Settings;
-  isActive: (widget: Widgets, settings: Settings) => boolean;
-  chartOptions?: Array<{
-    id: string;
-    label: string;
-    settings: ChartSettingsOption[];
-  }>;
+  widget: PickerWidgets;
+  defaultSettings: ChartSettings;
+  isActive: (widget: PickerWidgets, settings: ChartSettings) => boolean;
+  chartOptions?: Array<ChartOptions>;
 };

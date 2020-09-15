@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
+import { motion } from 'framer-motion';
 import { colors } from '@keen.io/colors';
 
 export const Container = styled.div<{ isActive?: boolean }>`
+  position: relative;
   background: ${transparentize(0.9, colors.white[500])};
   border: solid 1px ${colors.gray[300]};
   border-radius: 2px;
@@ -26,4 +28,28 @@ export const Container = styled.div<{ isActive?: boolean }>`
   }
 
   transition: background 0.2s linear;
+`;
+
+export const MotionChartSettings = styled(motion.div)`
+  padding: 10px;
+  border: solid 1px ${colors.gray[200]};
+  background: ${colors.white[500]};
+
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  top: 0;
+  transform: translateX(100%);
+`;
+
+export const SettingsContainer = styled.div`
+  height: 14px;
+  width: 14px;
+  display: flex;
+  aling-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;

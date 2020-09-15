@@ -5,6 +5,10 @@ export const Option = styled.div`
 `;
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 46px;
+
   ${Option} + ${Option} {
     margin-top: 2px;
   }

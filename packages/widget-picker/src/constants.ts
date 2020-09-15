@@ -1,10 +1,6 @@
-import { Widget, ChartSettingsOption } from './types';
+import { Widget, ChartOptions } from './types';
 
-export const MODE_OPTIONS: {
-  label: string;
-  id: string;
-  settings: ChartSettingsOption[];
-} = {
+export const MODE_OPTIONS: ChartOptions = {
   label: 'Mode',
   id: 'mode',
   settings: [
@@ -37,11 +33,7 @@ export const MODE_OPTIONS: {
   ],
 };
 
-export const LINE_CURVE_OPTIONS: {
-  label: string;
-  id: string;
-  settings: ChartSettingsOption[];
-} = {
+export const LINE_CURVE_OPTIONS: ChartOptions = {
   label: 'Shape',
   id: 'line-shape',
   settings: [
@@ -71,8 +63,29 @@ export const LINE_CURVE_OPTIONS: {
 
 export const WIDGETS: Widget[] = [
   {
+    id: 'table',
+    icon: 'table-widget',
+    widget: 'table',
+    isActive: widget => widget === 'table',
+    defaultSettings: {},
+  },
+  {
+    id: 'json',
+    icon: 'json',
+    widget: 'json',
+    isActive: widget => widget === 'json',
+    defaultSettings: {},
+  },
+  {
+    id: 'metric',
+    icon: 'metric-widget',
+    widget: 'metric',
+    isActive: widget => widget === 'metric',
+    defaultSettings: {},
+  },
+  {
     id: 'bar-vertical',
-    icon: 'bar-vertical',
+    icon: 'bar-widget-vertical',
     widget: 'bar',
     chartOptions: [MODE_OPTIONS],
     isActive: (widget, { layout }) => widget === 'bar' && layout === 'vertical',
@@ -83,8 +96,9 @@ export const WIDGETS: Widget[] = [
   },
   {
     id: 'bar-horizontal',
-    icon: 'bar-horizontal',
+    icon: 'bar-widget-horizontal',
     widget: 'bar',
+    chartOptions: [MODE_OPTIONS],
     isActive: (widget, { layout }) =>
       widget === 'bar' && layout === 'horizontal',
     defaultSettings: {
@@ -93,8 +107,22 @@ export const WIDGETS: Widget[] = [
     },
   },
   {
+    id: 'donut',
+    icon: 'donut-widget',
+    widget: 'donut',
+    isActive: widget => widget === 'donut',
+    defaultSettings: {},
+  },
+  {
+    id: 'pie',
+    icon: 'pie-widget',
+    widget: 'pie',
+    isActive: widget => widget === 'pie',
+    defaultSettings: {},
+  },
+  {
     id: 'line',
-    icon: 'line',
+    icon: 'line-widget',
     widget: 'line',
     chartOptions: [LINE_CURVE_OPTIONS, MODE_OPTIONS],
     isActive: (widget, { areaMode }) => widget === 'line' && !areaMode,
@@ -104,5 +132,25 @@ export const WIDGETS: Widget[] = [
       stackMode: 'normal',
       groupMode: 'grouped',
     },
+  },
+  {
+    id: 'area',
+    icon: 'area-widget',
+    widget: 'line',
+    chartOptions: [LINE_CURVE_OPTIONS, MODE_OPTIONS],
+    isActive: (widget, { areaMode }) => widget === 'line' && areaMode,
+    defaultSettings: {
+      curve: 'linear',
+      areaMode: true,
+      stackMode: 'normal',
+      groupMode: 'grouped',
+    },
+  },
+  {
+    id: 'heatmap',
+    icon: 'heatmap-widget',
+    widget: 'heatmap',
+    isActive: widget => widget === 'heatmap',
+    defaultSettings: {},
   },
 ];

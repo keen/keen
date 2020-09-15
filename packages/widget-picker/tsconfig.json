@@ -6,6 +6,7 @@
   },
   "references": [
     { "path": "../charts" },
+    { "path": "../widgets" },
     { "path": "../ui-core" },
     { "path": "../colors" }
   ],

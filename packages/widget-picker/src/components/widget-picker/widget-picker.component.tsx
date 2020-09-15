@@ -1,76 +1,58 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC } from 'react';
-import { Widgets } from '@keen.io/widgets';
 
 import { Container, Option } from './widget-picker.styles';
 
-import ChartSettings from '../chart-settings';
 import WidgetItem from '../widget-item';
 
 import { WIDGETS } from '../../constants';
-
-import { Settings } from '../../types';
+import { ChartSettings, PickerWidgets } from '../../types';
 
 type Props = {
   /** Widgets available to select */
-  availableWidgets: Widgets[];
+  widgets: PickerWidgets[];
   /** Curent selected widget */
-  currentWidget: Widgets;
-  /** Chart settings */
-  chartSettings: Settings;
+  currentWidget: PickerWidgets;
+  /** Current chart settings */
+  chartSettings: ChartSettings;
   /** Click event handler */
-  onUpdateWidget: (widget: Widgets, settings: Settings) => void;
+  onUpdateWidgetSettings: (
+    widget: PickerWidgets,
+    chartSettings: ChartSettings
+  ) => void;
 };
 
 export const WidgetPicker: FC<Props> = ({
+  widgets,
   currentWidget,
   chartSettings,
-  availableWidgets,
-  onUpdateWidget,
-}) => {
-  return (
-    <Container>
-      {WIDGETS.map(
-        ({ id, icon, widget, defaultSettings, chartOptions, isActive }) => {
-          const isWidgetActive = isActive(currentWidget, chartSettings);
+  onUpdateWidgetSettings,
+}) => (
+  <Container>
+    {WIDGETS.map(
+      ({ id, icon, widget, defaultSettings, chartOptions, isActive }) => {
+        const isWidgetActive = isActive(currentWidget, chartSettings);
 
-          return (
-            <Option key={id}>
-              <WidgetItem
-                isActive={isWidgetActive}
-                onClick={() => onUpdateWidget(widget, defaultSettings)}
-                settings={chartSettings}
-                icon={icon}
-              />
-              <div>
-                {chartOptions &&
-                  chartOptions.map(options => (
-                    <ChartSettings
-                      key={options.id}
-                      id={id}
-                      isWidgetActive={isWidgetActive}
-                      onClick={(_e, id, settings) => {
-                        // @TODO: Get value from array to merge
-                        const option = chartOptions.filter(
-                          op => op.id !== options.id
-                        );
-
-                        onUpdateWidget(widget, {
-                          ...defaultSettings,
-                          ...settings,
-                        });
-                      }}
-                      settings={chartSettings}
-                      options={options.settings}
-                    />
-                  ))}
-              </div>
-            </Option>
-          );
-        }
-      )}
-    </Container>
-  );
-};
+        return (
+          <Option key={id} data-testid={`${id}-widget-option`}>
+            <WidgetItem
+              icon={icon}
+              isActive={isWidgetActive}
+              onClick={() => onUpdateWidgetSettings(widget, defaultSettings)}
+              settings={chartSettings}
+              chartConfigurationOptions={chartOptions}
+              onUpdateSettings={settings =>
+                onUpdateWidgetSettings(widget, {
+                  ...defaultSettings,
+                  ...settings,
+                })
+              }
+            />
+          </Option>
+        );
+      }
+    )}
+  </Container>
+);
 
 export default WidgetPicker;
