@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { RangeSlider } from '@keen.io/ui-core';
+import { useSlider } from '@keen.io/react-hooks';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
@@ -18,7 +19,6 @@ import {
   LegendSocket,
   TitleSocket,
 } from '../widget-sockets.component';
-import { useSlider } from '../../hooks/use-slider.hook';
 
 import { choroplethLegendSettings } from './widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';

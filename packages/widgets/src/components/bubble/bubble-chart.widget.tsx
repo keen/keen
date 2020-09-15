@@ -10,6 +10,7 @@ import {
   bubbleColorScale,
   getValues,
 } from '@keen.io/charts';
+import { useLegend } from '@keen.io/react-hooks';
 
 import { LegendContainer } from './bubble-chart.styles';
 
@@ -23,8 +24,6 @@ import {
 } from '../widget-sockets.component';
 
 import { createLegendLabels } from './bubble-chart.widget.utils';
-
-import { useLegend } from '../../hooks';
 
 import { bubbleLegendSettings } from './widget-settings';
 import { WidgetSettings, BubbleWidgetLegendSettings } from '../../types';

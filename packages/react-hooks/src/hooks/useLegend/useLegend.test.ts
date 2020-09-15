@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useLegend } from './use-legend.hook';
+import { useLegend } from './useLegend';
 
 test('allows to set a disabled key', () => {
   const { result } = renderHook(() => useLegend());

@@ -39,13 +39,61 @@ Example dashboards build with `keen.io` visualization libraries.
 
 Set of reusable plots components built with `React` and `D3`.
 
-##### @keen.io/widgets
+##### @keen.io/colors
 
-Higher visualization layer that connects `@keen.io/charts` with other `React` components that could be used to interact with charts plots.
+Color palette used by Keen.
 
 ##### @keen.io/dataviz
 
 The DataViz is abstraction layer that connects **Keen Analytics API** with visualization components. It allows to seamlessly embed and deliver metrics within your user interface with minimal effort.
+
+##### @keen.io/embedded-registration
+
+Embeddable registration component used by `keen.io` for HubSpot integration.
+
+##### @keen.io/forms
+
+Set of form helpers used in `keen.io` projects.
+
+##### @keen.io/icons
+
+Set of icons used in `keen.io` projects.
+
+##### @keen.io/parser
+
+Set of parsers that are used internally to transform Keen API responses into `@keen.io/charts` friendly format.
+
+##### @keen.io/pricing-calculator
+
+Codebase for `keen.io` pricing calculator.
+
+##### @keen.io/pubsub
+
+Implementation of `PubSub` messaging service.
+
+##### @keen.io/react-hooks
+
+Custom hooks used in `keen.io` projects.
+
+##### @keen.io/storybook-utils
+
+Helper functions used internally in Keen [Storybook](https://keen.github.io/keen/).
+
+##### @keen.io/toast-notifications
+
+`keen.io` wrapper for `react-toast-notifications` package.
+
+##### @keen.io/tracking-lite
+
+Light and simple version on Keen Tracking library - used for integration with `Google Tag Manager`.
+
+##### @keen.io/ui-core
+
+Set of reusable visual `React` components used in `keen.io` Front-End projects.
+
+##### @keen.io/widgets
+
+Higher visualization layer that connects `@keen.io/charts` with other `React` components that could be used to interact with charts plots.
 
 ### npm scripts
 

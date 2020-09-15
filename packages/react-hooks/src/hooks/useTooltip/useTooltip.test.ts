@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useTooltip } from './use-tooltip';
+import { useTooltip } from './useTooltip';
 
 test('set tooltip visibility', () => {
   window.requestAnimationFrame = callback => {

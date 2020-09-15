@@ -9,6 +9,7 @@ import {
 } from '@keen.io/charts';
 
 import { RangeSlider } from '@keen.io/ui-core';
+import { useSlider } from '@keen.io/react-hooks';
 
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
@@ -17,8 +18,6 @@ import {
   LegendSocket,
   TitleSocket,
 } from '../widget-sockets.component';
-
-import { useSlider } from '../../hooks/use-slider.hook';
 
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';

@@ -1,6 +1,7 @@
 import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import {
   generateCircularChart,
@@ -15,7 +16,6 @@ import ShadowFilter from '../../components/shadow-filter.component';
 import { ChartBase, Delayed } from '../../components';
 import DonutTotal from './donut-total.component';
 
-import { useTooltip } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';

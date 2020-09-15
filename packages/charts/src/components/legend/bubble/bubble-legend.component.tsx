@@ -1,8 +1,7 @@
 import React, { FC, useRef, useEffect, useState } from 'react';
 import { RefText } from '@keen.io/ui-core';
 import { motion, AnimatePresence } from 'framer-motion';
-
-import { useTooltip } from '../../../hooks';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import { Wrapper, LegendWrapper, TitleWrapper } from './bubble-legend.styles';
 
