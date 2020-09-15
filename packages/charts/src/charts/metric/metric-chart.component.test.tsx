@@ -36,11 +36,14 @@ describe('@keen.io/charts - <MetricChart />', () => {
     const label = findValue().first();
 
     expect(mockFn).toHaveBeenCalled();
-    expect(label.text()).toMatchInlineSnapshot(`"Total 3281"`);
+    expect(label.text()).toMatchInlineSnapshot(`"Total 2200"`);
   });
 
   it('should render <Excerpt /> component with percent difference', () => {
-    const { findExcerpt } = setup({ type: 'percent' });
+    const { findExcerpt } = setup({
+      type: 'difference',
+      usePercentDifference: true,
+    });
     const excerpt = findExcerpt().first();
 
     expect(excerpt.text()).toMatchInlineSnapshot(`"49.14%"`);
@@ -53,11 +56,11 @@ describe('@keen.io/charts - <MetricChart />', () => {
     expect(excerpt.text()).toMatchInlineSnapshot(`"1.1k"`);
   });
 
-  it('should render <Excerpt /> component with previous metric value', () => {
-    const { findExcerpt } = setup();
+  it('should render <Excerpt /> component with compared value', () => {
+    const { findExcerpt } = setup({ type: 'comparison' });
     const excerpt = findExcerpt().first();
 
-    expect(excerpt.text()).toMatchInlineSnapshot(`"2.2k"`);
+    expect(excerpt.text()).toMatchInlineSnapshot(`"1.1k"`);
   });
 
   it('should not render <Excerpt /> component for metric with single data serie', () => {
@@ -80,7 +83,7 @@ describe('@keen.io/charts - <MetricChart />', () => {
   });
 
   it('should apply "typography" theming properties on excerpt label', () => {
-    const { findExcerpt } = setup();
+    const { findExcerpt } = setup({ type: 'difference' });
     const excerpt = findExcerpt().first();
     const { metric } = defaultTheme;
 
@@ -88,7 +91,7 @@ describe('@keen.io/charts - <MetricChart />', () => {
   });
 
   it('should apply "backgroundColor" property on "excerpt" container', () => {
-    const { findExcerptContainer } = setup();
+    const { findExcerptContainer } = setup({ type: 'difference' });
     const excerptContainer = findExcerptContainer().first();
     const { metric } = defaultTheme;
 

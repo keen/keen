@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { text, color } from '@storybook/addon-knobs';
+import { text, color, boolean } from '@storybook/addon-knobs';
 
 import {
   metricTypeKnobs,
@@ -82,6 +82,9 @@ export const plot = () => {
         labelSelector="day"
         caption={text('Caption', 'Metric caption', 'Chart')}
         type={metricTypeKnobs('Chart') as any}
+        usePercentDifference={
+          boolean('usePercentDifference', false, 'Chart') as boolean
+        }
         keys={['users']}
         theme={theme as Theme}
         data={chartData}

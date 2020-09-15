@@ -13,7 +13,7 @@ import {
   Layout,
 } from './metric-chart.styles';
 
-import { generateMetric } from './utils';
+import { generateMetric, MetricType } from './utils';
 import { formatNumber } from '../../utils/format.utils';
 import { createMargins } from '../../utils/element.utils';
 
@@ -58,7 +58,9 @@ export type Props = {
   /** Value format function */
   formatValue?: (value: string | number) => React.ReactNode;
   /** Metric type */
-  type?: 'percent' | 'difference' | 'compare';
+  type?: MetricType;
+  /** Use percentage difference */
+  usePercentDifference?: boolean;
 } & CommonChartSettings;
 
 export const MetricChart: FC<Props> = ({
@@ -70,13 +72,15 @@ export const MetricChart: FC<Props> = ({
   labelSelector = 'name',
   theme = defaultTheme,
   keys = ['value'],
-  type = 'compare',
+  type = 'simple',
+  usePercentDifference = false,
 }) => {
   const { value, difference } = generateMetric({
     labelSelector,
     keys,
     data,
     type,
+    usePercentDifference,
   });
 
   const {
@@ -126,7 +130,7 @@ export const MetricChart: FC<Props> = ({
               background={excerpt.backgroundColor}
             >
               <Wrapper>
-                {type !== 'compare' && difference.status !== 'static' && (
+                {type !== 'comparison' && difference.status !== 'static' && (
                   <AnimatePresence>
                     <motion.div
                       {...(difference.status === 'increase'
@@ -140,7 +144,7 @@ export const MetricChart: FC<Props> = ({
                   </AnimatePresence>
                 )}
                 <Text data-test="metric-excerpt-value" {...excerpt.typography}>
-                  {type === 'percent'
+                  {type === 'difference' && usePercentDifference
                     ? `${difference.value}%`
                     : formatNumber(difference.value)}
                 </Text>
