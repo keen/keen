@@ -7,6 +7,7 @@ import {
   theme as defaultTheme,
   OTHERS_DATA_KEY,
 } from '@keen.io/charts';
+import { useLegend } from '@keen.io/react-hooks';
 
 import WidgetHeading from '../widget-heading.component';
 import ChartWidget from '../chart-widget.component';
@@ -19,7 +20,6 @@ import {
 import { createLegendLabels } from './donut-chart.widget.utils';
 
 import { legendSettings } from '../../widget-settings';
-import { useLegend } from '../../hooks';
 
 import { WidgetSettings, LegendSettings } from '../../types';
 

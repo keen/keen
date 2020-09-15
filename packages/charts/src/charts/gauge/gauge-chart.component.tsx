@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip, Text, ColorMode } from '@keen.io/ui-core';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import GaugeProgress from './gauge-progress.component';
 import GaugeLabels from './gauge-labels.component';
@@ -8,7 +9,6 @@ import GaugeLabels from './gauge-labels.component';
 import { generateGauge } from './utils';
 
 import { ChartBase } from '../../components';
-import { useTooltip } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
 import { TOOLTIP_TIMEOUT } from './constants';

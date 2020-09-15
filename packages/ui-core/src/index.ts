@@ -13,7 +13,6 @@ import {
 
 import { CDNContext } from './context';
 
-import { useSearch } from './hooks';
 import { screenBreakpoints } from './screen';
 
 import {
@@ -130,7 +129,6 @@ export {
   ModalFooter,
   LoadingScreen,
   SuccessNotification,
-  useSearch,
   screenBreakpoints,
   OAuthProviders,
 };

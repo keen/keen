@@ -1,6 +1,6 @@
 import React, { MutableRefObject, useRef, useState, useCallback } from 'react';
 
-import { TooltipState, DataSelector } from '../types';
+import { TooltipState, DataSelector } from './types';
 
 const PREFIX = '@keen.io/dataviz';
 

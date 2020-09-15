@@ -1,0 +1,41 @@
+{
+  "name": "@keen.io/react-hooks",
+  "version": "1.0.0",
+  "description": "Keen custom hooks for React",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "dependencies": {
+    "d3-array": "^2.7.1",
+    "fuse.js": "^6.4.1",
+    "react": "^16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^3.4.1",
+    "@types/d3-array": "^2.0.0"
+  }
+}

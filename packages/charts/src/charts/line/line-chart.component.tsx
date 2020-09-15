@@ -1,11 +1,10 @@
 import React, { FC, useRef } from 'react';
+import { useTooltip } from '@keen.io/react-hooks';
 
 import { generateLines, showAllMarks } from './line-chart.utils';
 
 import Lines from './lines.component';
 import Tooltip from './tooltip.component';
-
-import { useTooltip } from '../../hooks';
 
 import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
