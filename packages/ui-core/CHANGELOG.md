@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.0.3...@keen.io/ui-core@2.1.0) (2020-09-16)
+
+
+### Features
+
+* 🎸 darkBlue variant for Toggle component ([0d3d157](https://github.com/keen/keen/commit/0d3d15793b977540b5a82875a4c336c8f330d8de))
+
+
+
+
+
 ## [2.0.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.0.2...@keen.io/ui-core@2.0.3) (2020-09-15)
 
 **Note:** Version bump only for package @keen.io/ui-core
