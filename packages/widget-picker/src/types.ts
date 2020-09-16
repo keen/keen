@@ -14,9 +14,14 @@ export type ChartSettings = {
   type?: 'percent' | 'difference' | 'compare';
 };
 
+export type WidgetSettings = {
+  geographicArea?: 'us' | 'world';
+};
+
 export type ChartOptionItem = {
   label: string;
-  defaultSettings: ChartSettings;
+  defaultChartSettings?: ChartSettings;
+  defaultWidgetSettings?: WidgetSettings;
   isActive: (settings: ChartSettings) => boolean;
 };
 
@@ -30,7 +35,8 @@ export type Widget = {
   id: string;
   icon: IconType;
   widget: PickerWidgets;
-  defaultSettings: ChartSettings;
+  defaultChartSettings: ChartSettings;
+  defaultWidgetSettings: WidgetSettings;
   isActive: (widget: PickerWidgets, settings: ChartSettings) => boolean;
   chartOptions?: Array<ChartOptions>;
 };

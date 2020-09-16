@@ -6,17 +6,19 @@ import { Container, Option } from './widget-picker.styles';
 import WidgetItem from '../widget-item';
 
 import { WIDGETS } from '../../constants';
-import { ChartSettings, PickerWidgets } from '../../types';
+import { ChartSettings, WidgetSettings, PickerWidgets } from '../../types';
 
 type Props = {
   /** Widgets available to select */
   widgets: PickerWidgets[];
   /** Curent selected widget */
   currentWidget: PickerWidgets;
-  /** Current chart settings */
+  /** Chart settings */
   chartSettings: ChartSettings;
+  /** Widget settings */
+  widgetSettings: WidgetSettings;
   /** Click event handler */
-  onUpdateWidgetSettings: (
+  onUpdateSettings: (
     widget: PickerWidgets,
     chartSettings: ChartSettings
   ) => void;
@@ -26,24 +28,23 @@ export const WidgetPicker: FC<Props> = ({
   widgets,
   currentWidget,
   chartSettings,
-  onUpdateWidgetSettings,
+  onUpdateSettings,
 }) => (
   <Container>
-    {WIDGETS.map(
-      ({ id, icon, widget, defaultSettings, chartOptions, isActive }) => {
-        const isWidgetActive = isActive(currentWidget, chartSettings);
-
+    {WIDGETS.filter(({ widget }) => widgets.includes(widget)).map(
+      ({ id, icon, widget, defaultChartSettings, chartOptions, isActive }) => {
+        const isActiveWidget = isActive(currentWidget, chartSettings);
         return (
           <Option key={id} data-testid={`${id}-widget-option`}>
             <WidgetItem
               icon={icon}
-              isActive={isWidgetActive}
-              onClick={() => onUpdateWidgetSettings(widget, defaultSettings)}
+              isActive={isActiveWidget}
+              onClick={() => onUpdateSettings(widget, defaultChartSettings)}
               settings={chartSettings}
               chartConfigurationOptions={chartOptions}
               onUpdateSettings={settings =>
-                onUpdateWidgetSettings(widget, {
-                  ...defaultSettings,
+                onUpdateSettings(widget, {
+                  ...defaultChartSettings,
                   ...settings,
                 })
               }

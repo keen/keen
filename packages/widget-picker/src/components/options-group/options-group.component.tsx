@@ -34,11 +34,11 @@ const OptionsGroup: FC<Props> = ({
   <Container>
     <Title>{title}</Title>
     <Group>
-      {options.map(({ label, isActive, defaultSettings }) => (
+      {options.map(({ label, isActive, defaultChartSettings }) => (
         <OptionItem
           key={label}
           isActive={isActiveOption && isActive(settings)}
-          onClick={e => onClick(e, id, defaultSettings)}
+          onClick={e => onClick(e, id, defaultChartSettings)}
         >
           {label}
         </OptionItem>

@@ -2,7 +2,13 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-export const Title = styled.div``;
+export const Title = styled.div`
+  color: ${colors.black[100]};
+  font-family: 'Lato Bold', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 4px;
+`;
 
 export const OptionItem = styled.div<{ isActive: boolean }>`
   cursor: pointer;

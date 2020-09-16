@@ -14,16 +14,18 @@ export default {
 
 export const basic = () => {
   const [widget, setWidget] = React.useState<PickerWidgets>('bar');
-  const [settings, setWidgetSettings] = React.useState({});
+  const [chartSettings, setChartSettings] = React.useState({});
+  const [widgetSettings] = React.useState({});
 
   return (
     <WidgetPicker
       currentWidget={widget}
-      chartSettings={settings}
-      widgets={['bar', 'line']}
-      onUpdateWidgetSettings={(widget, settings) => {
+      chartSettings={chartSettings}
+      widgetSettings={widgetSettings}
+      widgets={['bar', 'line', 'choropleth']}
+      onUpdateSettings={(widget, settings) => {
         setWidget(widget);
-        setWidgetSettings(settings);
+        setChartSettings(settings);
         console.log(widget, settings);
       }}
     />

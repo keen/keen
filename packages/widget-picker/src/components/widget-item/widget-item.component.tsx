@@ -7,6 +7,7 @@ import {
   Container,
   SettingsContainer,
   MotionChartSettings,
+  OptionsWrapper,
 } from './widget-item.styles';
 
 import OptionsGroup from '../options-group';
@@ -23,7 +24,7 @@ type Props = {
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
   /** Update chart settings event handler */
   onUpdateSettings: (settings: ChartSettings) => void;
-  /** Current widget settings */
+  /** Current chart settings */
   settings: ChartSettings;
   /** Chart options */
   chartConfigurationOptions?: ChartOptions[];
@@ -92,26 +93,27 @@ const WidgetItem: FC<Props> = ({
           >
             {chartConfigurationOptions &&
               chartConfigurationOptions.map(options => (
-                <OptionsGroup
-                  key={options.id}
-                  id={options.id}
-                  title={options.label}
-                  isActiveOption={isActive}
-                  onClick={(_e, id, optionSettings) => {
-                    const optionsGroup = mergeChartOptions(
-                      id,
-                      chartConfigurationOptions,
-                      settings
-                    );
+                <OptionsWrapper key={options.id}>
+                  <OptionsGroup
+                    id={options.id}
+                    title={options.label}
+                    isActiveOption={isActive}
+                    onClick={(_e, id, optionSettings) => {
+                      const optionsGroup = mergeChartOptions(
+                        id,
+                        chartConfigurationOptions,
+                        settings
+                      );
 
-                    onUpdateSettings({
-                      ...optionsGroup,
-                      ...optionSettings,
-                    });
-                  }}
-                  settings={settings}
-                  options={options.settings}
-                />
+                      onUpdateSettings({
+                        ...optionsGroup,
+                        ...optionSettings,
+                      });
+                    }}
+                    settings={settings}
+                    options={options.settings}
+                  />
+                </OptionsWrapper>
               ))}
           </MotionChartSettings>
         )}
