@@ -16,7 +16,6 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   height: 22px;
   border-radius: 22px;
   overflow: hidden;
-  background-color: #CDCFD3;
   background-color: rgba(225,226,228,0.7);
 }
 
@@ -31,7 +30,6 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   -webkit-transform-origin: left center;
   -ms-transform-origin: left center;
   transform-origin: left center;
-  background-color: #85B4C3;
   background-color: #6C9A74;
 }
 
@@ -63,8 +61,6 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   width: 22px;
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: #F5F5F5;
-  border: 2px solid #44748C;
   background-color: #FFFFFF;
   border: 2px solid #487650;
 }
@@ -159,7 +155,6 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   -webkit-transform-origin: left center;
   -ms-transform-origin: left center;
   transform-origin: left center;
-  background-color: #85B4C3;
   background-color: #6C9A74;
 }
 
@@ -743,8 +738,6 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   width: 22px;
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: #F5F5F5;
-  border: 2px solid #44748C;
   background-color: #FFFFFF;
   border: 2px solid #487650;
 }
