@@ -27,15 +27,19 @@ export const Track = styled.div<{ variant: ToggleVariant }>`
   height: 22px;
   border-radius: 22px;
   overflow: hidden;
+  background-color: ${colors.gray['500']};
 
   ${props =>
-    props.variant === 'primary'
-      ? css`
-          background-color: ${transparentize(0.3, colors.gray['400'])};
-        `
-      : css`
-          background-color: ${colors.gray['500']};
-        `}
+    props.variant === 'primary' &&
+    css`
+      background-color: ${transparentize(0.3, colors.gray['400'])};
+    `}
+
+  ${props =>
+    props.variant === 'darkBlue' &&
+    css`
+      background-color: ${transparentize(0.4, colors.blue['200'])};
+    `}
 `;
 
 export const TrackMotion = styled(motion.div)<{ variant: ToggleVariant }>`
@@ -47,15 +51,19 @@ export const TrackMotion = styled(motion.div)<{ variant: ToggleVariant }>`
   border-radius: 22px;
   box-sizing: border-box;
   transform-origin: left center;
+  background-color: ${colors.lightBlue['500']};
 
   ${props =>
-    props.variant === 'primary'
-      ? css`
-          background-color: ${colors.green['300']};
-        `
-      : css`
-          background-color: ${colors.lightBlue['500']};
-        `}
+    props.variant === 'primary' &&
+    css`
+      background-color: ${colors.green['300']};
+    `}
+
+  ${props =>
+    props.variant === 'darkBlue' &&
+    css`
+      background-color: ${colors.lightBlue['500']};
+    `}
 `;
 
 export const LabelMotion = styled(motion.div)`
@@ -80,15 +88,20 @@ export const SwitcherMotion = styled(motion.div)<{ variant: ToggleVariant }>`
   width: 22px;
   border-radius: 50%;
   box-sizing: border-box;
+  background-color: ${colors.gray['100']};
+  border: 2px solid ${colors.blue['300']};
 
   ${props =>
-    props.variant === 'primary'
-      ? css`
-          background-color: ${colors.white['500']};
-          border: 2px solid ${colors.green['500']};
-        `
-      : css`
-          background-color: ${colors.gray['100']};
-          border: 2px solid ${colors.blue['300']};
-        `}
+    props.variant === 'primary' &&
+    css`
+      background-color: ${colors.white['500']};
+      border: 2px solid ${colors.green['500']};
+    `}
+
+  ${props =>
+    props.variant === 'darkBlue' &&
+    css`
+      background-color: ${colors.white['500']};
+      border: 2px solid ${colors.white['500']};
+    `}
 `;

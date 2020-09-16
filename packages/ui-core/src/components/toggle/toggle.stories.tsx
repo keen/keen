@@ -20,7 +20,7 @@ export default {
   },
 };
 
-const toggleVariants = ['primary', 'secondary'];
+const toggleVariants = ['primary', 'secondary', 'darkBlue'];
 
 export const withKnobs = () => {
   const [toggle, setToggle] = React.useState(false);
