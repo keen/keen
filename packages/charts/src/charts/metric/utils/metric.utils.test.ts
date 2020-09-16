@@ -9,7 +9,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
     it('should create metric for single data series', () => {
       const data = [{ name: 'Unique visitors', value: 100 }];
       const result = generateMetric({
-        type: 'compare',
+        type: 'comparison',
         keys: ['value'],
         labelSelector: 'name',
         data,
@@ -28,7 +28,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         { name: 'Febuary', value: 120 },
       ];
       const result = generateMetric({
-        type: 'compare',
+        type: 'comparison',
         keys: ['value'],
         labelSelector: 'name',
         data,
@@ -51,7 +51,8 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         { name: 'Febuary', value: 20 },
       ];
       const result = generateMetric({
-        type: 'percent',
+        type: 'difference',
+        usePercentDifference: true,
         keys: ['value'],
         labelSelector: 'name',
         data,
@@ -84,7 +85,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         Object {
           "difference": Object {
             "status": "increase",
-            "value": 90,
+            "value": 100,
           },
           "value": 190,
         }

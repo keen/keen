@@ -29,13 +29,22 @@ export const Track = styled.div<{ variant: ToggleVariant }>`
   overflow: hidden;
 
   ${props =>
-    props.variant === 'primary'
-      ? css`
-          background-color: ${transparentize(0.3, colors.gray['400'])};
-        `
-      : css`
-          background-color: ${colors.gray['500']};
-        `}
+    props.variant === 'primary' &&
+    css`
+      background-color: ${transparentize(0.3, colors.gray['400'])};
+    `}
+
+    ${props =>
+      props.variant === 'secondary' &&
+      css`
+        background-color: ${colors.gray['500']};
+      `}
+
+  ${props =>
+    props.variant === 'darkBlue' &&
+    css`
+      background-color: ${transparentize(0.4, colors.blue['200'])};
+    `}
 `;
 
 export const TrackMotion = styled(motion.div)<{ variant: ToggleVariant }>`
@@ -49,13 +58,22 @@ export const TrackMotion = styled(motion.div)<{ variant: ToggleVariant }>`
   transform-origin: left center;
 
   ${props =>
-    props.variant === 'primary'
-      ? css`
-          background-color: ${colors.green['300']};
-        `
-      : css`
-          background-color: ${colors.lightBlue['500']};
-        `}
+    props.variant === 'primary' &&
+    css`
+      background-color: ${colors.green['300']};
+    `}
+    
+    ${props =>
+      props.variant === 'secondary' &&
+      css`
+        background-color: ${colors.lightBlue['500']};
+      `}
+
+  ${props =>
+    props.variant === 'darkBlue' &&
+    css`
+      background-color: ${colors.lightBlue['500']};
+    `}
 `;
 
 export const LabelMotion = styled(motion.div)`
@@ -82,13 +100,23 @@ export const SwitcherMotion = styled(motion.div)<{ variant: ToggleVariant }>`
   box-sizing: border-box;
 
   ${props =>
-    props.variant === 'primary'
-      ? css`
-          background-color: ${colors.white['500']};
-          border: 2px solid ${colors.green['500']};
-        `
-      : css`
-          background-color: ${colors.gray['100']};
-          border: 2px solid ${colors.blue['300']};
-        `}
+    props.variant === 'primary' &&
+    css`
+      background-color: ${colors.white['500']};
+      border: 2px solid ${colors.green['500']};
+    `}
+
+    ${props =>
+      props.variant === 'secondary' &&
+      css`
+        background-color: ${colors.gray['100']};
+        border: 2px solid ${colors.blue['300']};
+      `}
+
+  ${props =>
+    props.variant === 'darkBlue' &&
+    css`
+      background-color: ${colors.white['500']};
+      border: 2px solid ${colors.white['500']};
+    `}
 `;

@@ -87,7 +87,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
               Object {
                 "duration": 0.3,
                 "ease": Array [
-                  0.68,
+                  0.69,
                   -0.55,
                   0.27,
                   1.55,
@@ -114,7 +114,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 Object {
                   "duration": 0.3,
                   "ease": Array [
-                    0.68,
+                    0.69,
                     -0.55,
                     0.27,
                     1.55,
@@ -209,7 +209,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                     "defaultTransition": Object {
                       "duration": 0.3,
                       "ease": Array [
-                        0.68,
+                        0.69,
                         -0.55,
                         0.27,
                         1.55,
@@ -226,7 +226,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                       "transition": Object {
                         "duration": 0.3,
                         "ease": Array [
-                          0.68,
+                          0.69,
                           -0.55,
                           0.27,
                           1.55,
@@ -291,7 +291,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                   Object {
                     "duration": 0.3,
                     "ease": Array [
-                      0.68,
+                      0.69,
                       -0.55,
                       0.27,
                       1.55,
@@ -673,7 +673,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           Object {
             "duration": 0.3,
             "ease": Array [
-              0.68,
+              0.69,
               -0.55,
               0.27,
               1.55,
@@ -684,10 +684,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
         variants={
           Object {
             "off": Object {
-              "x": 0,
+              "x": -1,
             },
             "on": Object {
-              "x": 38,
+              "x": 39,
             },
           }
         }
@@ -700,7 +700,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
             Object {
               "duration": 0.3,
               "ease": Array [
-                0.68,
+                0.69,
                 -0.55,
                 0.27,
                 1.55,
@@ -711,10 +711,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
           variants={
             Object {
               "off": Object {
-                "x": 0,
+                "x": -1,
               },
               "on": Object {
-                "x": 38,
+                "x": 39,
               },
             }
           }
@@ -723,7 +723,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
             className="c4"
             style={
               Object {
-                "transform": "none",
+                "transform": "translateX(-1px) translateZ(0)",
               }
             }
           />
@@ -744,7 +744,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
 
 <div
                   class="c0"
-                  style="transform: none;"
+                  style="transform: translateX(-1px) translateZ(0);"
                 />,
               }
             }
@@ -760,7 +760,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 "values": Map {
                   "x" => MotionValue {
                     "canTrackVelocity": true,
-                    "current": 0,
+                    "current": -1,
                     "lastUpdated": 0,
                     "notifySubscriber": [Function],
                     "parent": undefined,
@@ -788,12 +788,12 @@ exports[`<Toggle /> should render Toggle component 1`] = `
               ValueAnimationControls {
                 "activeOverrides": Set {},
                 "baseTarget": Object {
-                  "x": 0,
+                  "x": -1,
                 },
                 "defaultTransition": Object {
                   "duration": 0.3,
                   "ease": Array [
-                    0.68,
+                    0.69,
                     -0.55,
                     0.27,
                     1.55,
@@ -810,7 +810,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                   "transition": Object {
                     "duration": 0.3,
                     "ease": Array [
-                      0.68,
+                      0.69,
                       -0.55,
                       0.27,
                       1.55,
@@ -819,10 +819,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                   "variant": "primary",
                   "variants": Object {
                     "off": Object {
-                      "x": 0,
+                      "x": -1,
                     },
                     "on": Object {
-                      "x": 38,
+                      "x": 39,
                     },
                   },
                 },
@@ -838,7 +838,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                   "values": Map {
                     "x" => MotionValue {
                       "canTrackVelocity": true,
-                      "current": 0,
+                      "current": -1,
                       "lastUpdated": 0,
                       "notifySubscriber": [Function],
                       "parent": undefined,
@@ -860,10 +860,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 },
                 "variants": Object {
                   "off": Object {
-                    "x": 0,
+                    "x": -1,
                   },
                   "on": Object {
-                    "x": 38,
+                    "x": 39,
                   },
                 },
               }
@@ -875,7 +875,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
               Object {
                 "duration": 0.3,
                 "ease": Array [
-                  0.68,
+                  0.69,
                   -0.55,
                   0.27,
                   1.55,
@@ -893,7 +893,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 "values": Map {
                   "x" => MotionValue {
                     "canTrackVelocity": true,
-                    "current": 0,
+                    "current": -1,
                     "lastUpdated": 0,
                     "notifySubscriber": [Function],
                     "parent": undefined,
@@ -917,10 +917,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
             variants={
               Object {
                 "off": Object {
-                  "x": 0,
+                  "x": -1,
                 },
                 "on": Object {
-                  "x": 38,
+                  "x": 39,
                 },
               }
             }

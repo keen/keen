@@ -1,1 +1,1 @@
-export type ToggleVariant = 'primary' | 'secondary';
+export type ToggleVariant = 'primary' | 'secondary' | 'darkBlue';
