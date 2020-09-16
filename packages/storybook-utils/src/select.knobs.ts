@@ -50,14 +50,14 @@ export const groupModeKnobs = (
 ) => select('Group mode', groupModeOptions, defaultValue, namespace);
 
 const metricTypeOptions = {
-  percent: 'percent',
+  simple: 'simple',
   difference: 'difference',
-  compare: 'compare',
+  comparison: 'comparison',
 };
 
 export const metricTypeKnobs = (
   namespace: string,
-  defaultValue: string = metricTypeOptions.compare
+  defaultValue: string = metricTypeOptions.simple
 ) => select('Metric type', metricTypeOptions, defaultValue, namespace);
 
 const lineStackModeOptions = {
