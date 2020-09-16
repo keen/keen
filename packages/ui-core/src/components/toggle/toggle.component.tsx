@@ -27,8 +27,8 @@ const Toggle: FC<Props> = ({
   const onClick = useCallback(() => onChange(!isOn), [isOn]);
 
   const switcherVariants = {
-    on: { x: 38 },
-    off: { x: 0 },
+    on: { x: 39 },
+    off: { x: -1 },
   };
 
   const trackVariants = {
@@ -36,22 +36,25 @@ const Toggle: FC<Props> = ({
     off: { scaleX: 0 },
   };
 
-  const labelColor =
-    variant === 'primary' ? colors.black['100'] : colors.black['300'];
+  const labelColor = (variant: ToggleVariant) => {
+    if (variant === 'primary') return colors.black['100'];
+    if (variant === 'secondary') return colors.black['300'];
+    if (variant === 'darkBlue') return colors.white['500'];
+  };
 
   const labelVariants = {
     on: {
       justifyContent: 'flex-start',
-      color: colors.white['500'],
+      color: variant === 'darkBlue' ? colors.blue['500'] : colors.white['500'],
     },
     off: {
       justifyContent: 'flex-end',
-      color: labelColor,
+      color: labelColor(variant),
     },
   };
 
   const switcherTransition = {
-    ease: [0.68, -0.55, 0.27, 1.55],
+    ease: [0.69, -0.55, 0.27, 1.55],
     duration: 0.3,
   };
 
