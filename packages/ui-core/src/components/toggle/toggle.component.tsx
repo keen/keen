@@ -38,8 +38,8 @@ const Toggle: FC<Props> = ({
 
   const labelColor = (variant: ToggleVariant) => {
     if (variant === 'primary') return colors.black['100'];
+    if (variant === 'secondary') return colors.black['300'];
     if (variant === 'darkBlue') return colors.white['500'];
-    return colors.black['300'];
   };
 
   const labelVariants = {
