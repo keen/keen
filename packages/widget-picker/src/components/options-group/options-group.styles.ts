@@ -10,7 +10,7 @@ export const Title = styled.div`
   margin-bottom: 4px;
 `;
 
-export const OptionItem = styled.div<{ isActive: boolean }>`
+export const Item = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   width: 110px;
   height: 37px;
@@ -41,7 +41,7 @@ export const OptionItem = styled.div<{ isActive: boolean }>`
 `;
 
 export const Group = styled.div`
-  ${OptionItem + OptionItem} {
+  ${Item + Item} {
     margin-top: 3px;
   }
 `;

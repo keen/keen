@@ -3,7 +3,7 @@ import { LineChart, LineChartSettings, CurveType, sortAreaKeys } from './line';
 import { AreaChart, AreaChartSettings } from './area';
 import { PieChart, PieChartSettings } from './pie';
 import { DonutChart, DonutChartSettings } from './donut';
-import { MetricChart, MetricChartSettings } from './metric';
+import { MetricChart, MetricChartSettings, MetricType } from './metric';
 import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
 import { BubbleChart, BubbleChartSettings } from './bubble';
@@ -34,6 +34,7 @@ export {
   DonutChartSettings,
   MetricChart,
   MetricChartSettings,
+  MetricType,
   FunnelChart,
   FunnelChartSettings,
   HeatmapChart,

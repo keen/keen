@@ -1,3 +1,4 @@
 import { getAvailableWidgets } from './get-available-widgets';
+import { mergeOptions } from './merge-options';
 
-export { getAvailableWidgets };
+export { mergeOptions, getAvailableWidgets };

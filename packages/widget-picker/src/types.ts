@@ -1,4 +1,4 @@
-import { GroupMode, StackMode, CurveType } from '@keen.io/charts';
+import { GroupMode, StackMode, CurveType, MetricType } from '@keen.io/charts';
 import { Widgets } from '@keen.io/widgets';
 import { Layout } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
@@ -11,24 +11,26 @@ export type ChartSettings = {
   layout?: Layout;
   curve?: CurveType;
   areaMode?: boolean;
-  type?: 'percent' | 'difference' | 'compare';
+  usePercentDifference?: boolean;
+  type?: MetricType;
 };
 
 export type WidgetSettings = {
   geographicArea?: 'us' | 'world';
 };
 
-export type ChartOptionItem = {
+export type OptionValue = ChartSettings | WidgetSettings;
+
+export type OptionItem = {
   label: string;
-  defaultChartSettings?: ChartSettings;
-  defaultWidgetSettings?: WidgetSettings;
-  isActive: (settings: ChartSettings) => boolean;
+  defaultValue: OptionValue;
+  isActive: (settings: ChartSettings | WidgetSettings) => boolean;
 };
 
-export type ChartOptions = {
+export type OptionsGroup = {
   label: string;
   id: string;
-  settings: ChartOptionItem[];
+  settings: OptionItem[];
 };
 
 export type Widget = {
@@ -37,6 +39,10 @@ export type Widget = {
   widget: PickerWidgets;
   defaultChartSettings: ChartSettings;
   defaultWidgetSettings: WidgetSettings;
-  isActive: (widget: PickerWidgets, settings: ChartSettings) => boolean;
-  chartOptions?: Array<ChartOptions>;
+  isActive: (
+    widget: PickerWidgets,
+    settings: ChartSettings | WidgetSettings
+  ) => boolean;
+  chartOptions?: Array<OptionsGroup>;
+  widgetOptions?: Array<OptionsGroup>;
 };

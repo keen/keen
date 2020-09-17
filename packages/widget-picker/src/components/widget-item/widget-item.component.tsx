@@ -7,29 +7,21 @@ import {
   Container,
   SettingsContainer,
   MotionChartSettings,
-  OptionsWrapper,
 } from './widget-item.styles';
 
-import OptionsGroup from '../options-group';
-import { mergeChartOptions } from './utils';
-
 import { HIDE_TIME } from './constants';
-
-import { ChartSettings, ChartOptions } from '../../types';
 
 type Props = {
   /** Icon type */
   icon: IconType;
   /** Click event handler */
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
-  /** Update chart settings event handler */
-  onUpdateSettings: (settings: ChartSettings) => void;
-  /** Current chart settings */
-  settings: ChartSettings;
-  /** Chart options */
-  chartConfigurationOptions?: ChartOptions[];
   /** Active indicator */
   isActive?: boolean;
+  /** Widget options indicator */
+  hasOptions: boolean;
+  /** React children nodes */
+  children?: React.ReactNode;
 };
 
 const settingsMotion = {
@@ -41,10 +33,9 @@ const settingsMotion = {
 const WidgetItem: FC<Props> = ({
   icon,
   onClick,
-  onUpdateSettings,
-  chartConfigurationOptions,
-  settings,
   isActive,
+  hasOptions,
+  children,
 }) => {
   const [settingsVisible, setSettingsVisibility] = useState(false);
   const hideTrigger = useRef(null);
@@ -61,17 +52,13 @@ const WidgetItem: FC<Props> = ({
     setSettingsVisibility(true);
   }, []);
 
-  const hasChartConfiguration = !!(
-    chartConfigurationOptions && chartConfigurationOptions.length
-  );
-
   return (
     <Container
       isActive={isActive || settingsVisible}
       onClick={e => !isActive && onClick(e)}
     >
       <Icon width={18} height={18} type={icon} fill={colors.blue[500]} />
-      {hasChartConfiguration && (
+      {hasOptions && (
         <SettingsContainer
           onMouseEnter={() => showSettings()}
           onMouseLeave={() => hideSettings()}
@@ -91,30 +78,7 @@ const WidgetItem: FC<Props> = ({
             onMouseEnter={() => showSettings()}
             onMouseLeave={() => hideSettings()}
           >
-            {chartConfigurationOptions &&
-              chartConfigurationOptions.map(options => (
-                <OptionsWrapper key={options.id}>
-                  <OptionsGroup
-                    id={options.id}
-                    title={options.label}
-                    isActiveOption={isActive}
-                    onClick={(_e, id, optionSettings) => {
-                      const optionsGroup = mergeChartOptions(
-                        id,
-                        chartConfigurationOptions,
-                        settings
-                      );
-
-                      onUpdateSettings({
-                        ...optionsGroup,
-                        ...optionSettings,
-                      });
-                    }}
-                    settings={settings}
-                    options={options.settings}
-                  />
-                </OptionsWrapper>
-              ))}
+            {children}
           </MotionChartSettings>
         )}
       </AnimatePresence>

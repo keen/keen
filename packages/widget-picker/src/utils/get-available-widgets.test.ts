@@ -80,6 +80,7 @@ test('returns widgets for groupBy', () => {
     ]
   `);
 });
+
 test('fallbacks to default widgets', () => {
   const query: Record<string, any> = {
     analysis_type: 'count',

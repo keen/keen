@@ -1,16 +1,17 @@
-import { ChartOptions, ChartSettings } from '../../../types';
+import { OptionsGroup, ChartSettings, WidgetSettings } from '../types';
 
-export const mergeChartOptions = (
+export const mergeOptions = (
   id: string,
-  chartOptions: ChartOptions[],
-  settings: ChartSettings
+  chartOptions: OptionsGroup[],
+  settings: ChartSettings | WidgetSettings
 ) => {
   const options = chartOptions.filter(group => group.id !== id);
+
   const mergedSettings = options.reduce((acc, item) => {
     let groupSettings = {};
-    item.settings.forEach(({ isActive, defaultSettings }) => {
+    item.settings.forEach(({ isActive, defaultValue }) => {
       if (isActive(settings)) {
-        groupSettings = defaultSettings;
+        groupSettings = defaultValue;
       }
     });
 

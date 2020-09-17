@@ -30,23 +30,14 @@ export const Container = styled.div<{ isActive?: boolean }>`
   transition: background 0.2s linear;
 `;
 
-export const OptionsWrapper = styled.div``;
-
 export const MotionChartSettings = styled(motion.div)`
   padding: 10px;
   border: solid 1px ${colors.gray[200]};
   background: ${colors.white[500]};
 
-  display: flex;
-  flex-direction: row;
-
   position: absolute;
   top: 0;
   transform: translateX(100%);
-
-  ${OptionsWrapper} + ${OptionsWrapper} {
-    margin-left: 10px;
-  }
 `;
 
 export const SettingsContainer = styled.div`

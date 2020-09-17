@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
-import { Container, Group, Title, OptionItem } from './options-group.styles';
+import { Container, Group, Title, Item } from './options-group.styles';
 
-import { ChartOptionItem, ChartSettings } from '../../types';
+import { OptionItem, OptionValue } from '../../types';
 
 type Props = {
   /** Options group identifier */
@@ -10,14 +10,14 @@ type Props = {
   /** Options group title */
   title: string;
   /** Collection of options related with chart */
-  options: ChartOptionItem[];
+  options: OptionItem[];
   /** Current chart settings */
-  settings: ChartSettings;
+  settings: OptionValue;
   /** Select option event handler */
   onClick: (
     e: React.MouseEvent<HTMLDivElement>,
     id: string,
-    settings: ChartSettings
+    settings: OptionValue
   ) => void;
   /** Parent option group active indicator */
   isActiveOption: boolean;
@@ -34,14 +34,14 @@ const OptionsGroup: FC<Props> = ({
   <Container>
     <Title>{title}</Title>
     <Group>
-      {options.map(({ label, isActive, defaultChartSettings }) => (
-        <OptionItem
+      {options.map(({ label, isActive, defaultValue }) => (
+        <Item
           key={label}
           isActive={isActiveOption && isActive(settings)}
-          onClick={e => onClick(e, id, defaultChartSettings)}
+          onClick={e => onClick(e, id, defaultValue)}
         >
           {label}
-        </OptionItem>
+        </Item>
       ))}
     </Group>
   </Container>

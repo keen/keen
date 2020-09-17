@@ -2,7 +2,7 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/keen/keen/badge.svg?targetFile=packages/widget-picker/package.json)](https://snyk.io/test/github/keen/keen?targetFile=packages/widget-picker/package.json)
 
-Widget picker component - responsible for rendering user interface that allows user to select and configure visualization widget based on `keen.io` query definition.
+Widget picker - component responsible for rendering user interface that allows user to select and configure visualization widget.
 
 ## Installing
 
