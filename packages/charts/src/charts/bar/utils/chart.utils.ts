@@ -86,7 +86,7 @@ export const generateHorizontalGroupedBars = ({
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          x: value < 0 ? xScale(value) : Math.abs(xScale(0)),
+          x: value > 0 ? Math.abs(xScale(0)) : xScale(value),
           y: yScale(data[index][labelSelector]) + barHeight * yCounter,
           width: Math.abs(xScale(value) - xScale(0)),
           height: barHeight,
@@ -157,7 +157,7 @@ export const generateVerticalGroupedBars = ({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
           x: xScale(data[index][labelSelector]) + barWidth * xCounter,
-          y: value < 0 ? yScale(0) : yScale(value),
+          y: value > 0 ? yScale(value) : yScale(0),
           width: barWidth,
           height: Math.abs(yScale(value) - yScale(0)),
           color: colors[idx],
@@ -274,12 +274,10 @@ export const generateVerticalStackedBars = ({
     .keys(filteredKeys)
     .offset(stackOffsetDiverging)(normalizedData);
 
-  const { minimum, maximum } = calculateStackedRange(
-    normalizedData,
-    minValue,
-    maxValue,
-    filteredKeys
-  );
+  const { minimum, maximum } =
+    stackMode === 'normal'
+      ? calculateStackedRange(normalizedData, minValue, maxValue, filteredKeys)
+      : { minimum: 0, maximum: 100 };
 
   const xScale = scaleBand()
     .range([margins.left, dimension.width - margins.right])
