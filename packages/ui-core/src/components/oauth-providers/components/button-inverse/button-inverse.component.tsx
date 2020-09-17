@@ -9,6 +9,7 @@ export const ButtonInverse = styled.div`
   justify-content: center;
 
   border-radius: 5rem;
+  border: 1px solid ${colors.white['300']};
   cursor: pointer;
 
   font-family: 'Lato', sans-serif;
