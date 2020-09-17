@@ -3,12 +3,14 @@
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale x 1`] = `
 Array [
   Object {
+    "stroke": undefined,
     "x1": 25,
     "x2": 25,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 75,
     "x2": 75,
     "y1": 10,
@@ -32,24 +34,28 @@ Array [
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale y 1`] = `
 Array [
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 25,
     "y2": 25,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 75,
     "y2": 75,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 125,
     "y2": 125,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 175,
@@ -73,54 +79,63 @@ Array [
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale x 1`] = `
 Array [
   Object {
+    "stroke": undefined,
     "x1": 0,
     "x2": 0,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 12.5,
     "x2": 12.5,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 25,
     "x2": 25,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 37.5,
     "x2": 37.5,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 50,
     "x2": 50,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 62.5,
     "x2": 62.5,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 75,
     "x2": 75,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 87.5,
     "x2": 87.5,
     "y1": 10,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 100,
     "x2": 100,
     "y1": 10,
@@ -132,66 +147,77 @@ Array [
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale y 1`] = `
 Array [
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 0,
     "y2": 0,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 10,
     "y2": 10,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 20,
     "y2": 20,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 30,
     "y2": 30,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 40,
     "y2": 40,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 50,
     "y2": 50,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 60,
     "y2": 60,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 70,
     "y2": 70,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 80,
     "y2": 80,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 90,
     "y2": 90,
   },
   Object {
+    "stroke": undefined,
     "x1": 10,
     "x2": 90,
     "y1": 100,

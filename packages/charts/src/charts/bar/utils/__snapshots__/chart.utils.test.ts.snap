@@ -11,7 +11,7 @@ Array [
       "sale",
     ],
     "value": -3,
-    "width": 0,
+    "width": 76,
     "x": 10,
     "y": 147.5,
   },
@@ -24,8 +24,8 @@ Array [
       "sale",
     ],
     "value": 12,
-    "width": 380,
-    "x": 10,
+    "width": 304,
+    "x": 86,
     "y": 15,
   },
   Object {
@@ -37,8 +37,8 @@ Array [
       "buy",
     ],
     "value": 11,
-    "width": 354.6666666666667,
-    "x": 10,
+    "width": 278.6666666666667,
+    "x": 86,
     "y": 213.5,
   },
   Object {
@@ -50,8 +50,8 @@ Array [
       "buy",
     ],
     "value": 3,
-    "width": 152,
-    "x": 10,
+    "width": 76,
+    "x": 86,
     "y": 81,
   },
 ]
@@ -61,7 +61,7 @@ exports[`@keen.io/charts <BarChart /> - utils generateVerticalGroupedBars() shou
 Array [
   Object {
     "color": "red",
-    "height": 0,
+    "height": 33.636363636363626,
     "key": "0.sale",
     "selector": Array [
       0,
@@ -70,11 +70,11 @@ Array [
     "value": -3,
     "width": 80,
     "x": 10,
-    "y": 380,
+    "y": 346.3636363636364,
   },
   Object {
     "color": "red",
-    "height": 168.18181818181822,
+    "height": 134.5454545454546,
     "key": "1.sale",
     "selector": Array [
       1,
@@ -87,7 +87,7 @@ Array [
   },
   Object {
     "color": "blue",
-    "height": 156.969696969697,
+    "height": 123.33333333333337,
     "key": "0.buy",
     "selector": Array [
       0,
@@ -100,7 +100,7 @@ Array [
   },
   Object {
     "color": "blue",
-    "height": 67.27272727272731,
+    "height": 33.63636363636368,
     "key": "1.buy",
     "selector": Array [
       1,
@@ -113,7 +113,7 @@ Array [
   },
   Object {
     "color": "green",
-    "height": 370,
+    "height": 336.3636363636364,
     "key": "0.revenue",
     "selector": Array [
       0,
@@ -126,7 +126,7 @@ Array [
   },
   Object {
     "color": "green",
-    "height": 269.0909090909091,
+    "height": 235.45454545454547,
     "key": "1.revenue",
     "selector": Array [
       1,
