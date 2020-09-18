@@ -5,7 +5,7 @@ import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
 import { getTooltipContent, formatTooltipValue } from './tooltip.utils';
 import { bubbleColorScale } from './scale.utils';
 
-import { getValues } from './data.utils';
+import { getValues } from './data';
 
 import {
   generateCircularChart,

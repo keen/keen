@@ -2,7 +2,7 @@ import { scaleBand } from 'd3-scale';
 import { Options, BlockType } from './types';
 
 import { calculateColorScale } from '../../utils/colors.utils';
-import { calculateRange } from '../../utils/data.utils';
+import { calculateRange } from '../../utils/data';
 
 export const generateVerticalBlocks = ({
   data,
