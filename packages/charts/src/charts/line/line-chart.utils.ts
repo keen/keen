@@ -10,7 +10,8 @@ import {
 import { getKeysDifference, normalizeToPercent } from '../../utils/data.utils';
 import { calculateScaleDomain } from '../../utils/scale.utils';
 
-import { calculateRange, calculateStackedRange } from '../../utils/data.utils';
+import { calculateStackedRange } from '../../utils/data.utils';
+import { calculateRange } from '../../utils/data';
 
 import { Options, Mark, Line, StepType, CurveType, AreaType } from './types';
 
