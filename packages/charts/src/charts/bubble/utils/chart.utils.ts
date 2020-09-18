@@ -1,7 +1,7 @@
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 
 import { calculateScaleDomain } from '../../../utils/scale.utils';
-import { calculateRange } from '../../../utils/data.utils';
+import { calculateRange } from '../../../utils/data';
 
 import { Dimension, Margins } from '../../../types';
 

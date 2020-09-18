@@ -7,9 +7,9 @@ import { getKeysDifference } from '../../../utils/data.utils';
 import { calculateScaleDomain } from '../../../utils/scale.utils';
 import {
   normalizeToPercent,
-  calculateRange,
   calculateStackedRange,
 } from '../../../utils/data.utils';
+import { calculateRange } from '../../../utils/data';
 
 import { Bar } from '../types';
 import {
