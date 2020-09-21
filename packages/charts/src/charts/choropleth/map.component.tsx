@@ -75,10 +75,11 @@ export const Map: FC<Props> = ({
       <AnimatePresence>
         {features.map((geometry, idx) => {
           const {
-            properties: { name },
+            properties: { name, iso_3166_2: iso3166 },
           } = geometry;
 
-          const geometryProperties = geoData.get(name) || defaultGeometry;
+          const geometryProperties =
+            geoData.get(name) || geoData.get(iso3166) || defaultGeometry;
           const value = geometryProperties.data[valueKey] || 0;
           const inRange = valuesRange
             ? value >= valuesRange.min && value <= valuesRange.max
