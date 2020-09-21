@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/keen/keen/compare/@keen.io/charts@2.0.5...@keen.io/charts@2.1.0) (2020-09-18)
+
+
+### Features
+
+* 🎸 support negative values for scale range ([59313e9](https://github.com/keen/keen/commit/59313e9ede5b1aade4b595d2cc0d95ae50646f02))
+
+
+
+
+
+## [2.0.5](https://github.com/keen/keen/compare/@keen.io/charts@2.0.4...@keen.io/charts@2.0.5) (2020-09-17)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.0.4](https://github.com/keen/keen/compare/@keen.io/charts@2.0.3...@keen.io/charts@2.0.4) (2020-09-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.0.3](https://github.com/keen/keen/compare/@keen.io/charts@2.0.2...@keen.io/charts@2.0.3) (2020-09-15)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.0.2](https://github.com/keen/keen/compare/@keen.io/charts@2.0.1...@keen.io/charts@2.0.2) (2020-09-14)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.0.1](https://github.com/keen/keen/compare/@keen.io/charts@2.0.0...@keen.io/charts@2.0.1) (2020-09-14)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 # [2.0.0](https://github.com/keen/keen/compare/@keen.io/charts@1.0.0...@keen.io/charts@2.0.0) (2020-09-14)
 
 **Note:** Version bump only for package @keen.io/charts
