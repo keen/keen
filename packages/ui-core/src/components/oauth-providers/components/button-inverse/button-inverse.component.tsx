@@ -12,7 +12,7 @@ export const ButtonInverse = styled.div`
   border: 1px solid ${colors.white['300']};
   cursor: pointer;
 
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato Regular', sans-serif;
 
   box-shadow: 0 1px 4px 0 ${transparentize(0.85, colors.black['500'])};
 

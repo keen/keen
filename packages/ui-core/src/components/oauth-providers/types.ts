@@ -1,10 +1,4 @@
-export enum OAuthSource {
-  REGISTER = 'signup',
-  LOGIN = 'login',
-  ACCEPT_INVITE = 'invite',
-}
-
-export type OAuthProvidersConfig = {
+export type OAuthConfig = {
   googleOAuth: {
     label: string;
     url: string;
@@ -18,5 +12,17 @@ export type OAuthProvidersConfig = {
     scope: string;
     clientId: string;
   };
-  host: string;
+};
+
+export enum OAuthUserAction {
+  REGISTER = 'signup',
+  LOGIN = 'login',
+  ACCEPT_INVITE = 'invite',
+}
+
+export type OAuthState = {
+  /* OAuth flow action */
+  action: OAuthUserAction;
+  /* The URL of OAuth flow initiator */
+  requestInitiatorUrl: string;
 };

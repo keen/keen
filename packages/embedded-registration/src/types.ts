@@ -1,10 +1,19 @@
+import { OAuthConfig } from '@keen.io/ui-core';
+
+export type OAuthSignUpConfig = {
+  callbackHandlerHost: string;
+  requestInitiatorUrl: string;
+} & OAuthConfig;
+
 export type Options = {
   container: HTMLElement | string;
   offerHandle: string;
   ctaLabel: string;
   apiUrl: string;
   onSuccess: () => void;
+  useOAuthProviders?: boolean;
   utmCookies?: string[];
+  oauthConfig?: OAuthSignUpConfig;
 };
 
 export type FormValues = {
