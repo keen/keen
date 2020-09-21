@@ -8,6 +8,7 @@
     { "path": "../colors" },
     { "path": "../icons" },
     { "path": "../ui-core" },
+    { "path": "../react-hooks" },
     { "path": "../storybook-utils" }
   ],
   "include": ["src/**/*", "src/**/*.json", "typings/*.d.ts"]
