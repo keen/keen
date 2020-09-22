@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.0.5...@keen.io/embedded-registration@2.1.0) (2020-09-22)
+
+
+### Features
+
+* 🎸 sso in embedded registration ([8900b17](https://github.com/keen/keen/commit/8900b17e019cbd050e438ca1f5b9e50eb2e40f90))
+* 🎸 support sso in embedded registration ([4951f44](https://github.com/keen/keen/commit/4951f44a69f9df28901a75e4a107e6ff08b3515c))
+
+
+
+
+
 ## [2.0.5](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.0.4...@keen.io/embedded-registration@2.0.5) (2020-09-17)
 
 **Note:** Version bump only for package @keen.io/embedded-registration
