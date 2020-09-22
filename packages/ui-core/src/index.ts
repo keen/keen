@@ -65,6 +65,8 @@ import {
   LoadingScreen,
   SuccessNotification,
   OAuthProviders,
+  OAuthUserAction,
+  OAuthConfig,
 } from './components';
 
 export {
@@ -131,4 +133,6 @@ export {
   SuccessNotification,
   screenBreakpoints,
   OAuthProviders,
+  OAuthConfig,
+  OAuthUserAction,
 };

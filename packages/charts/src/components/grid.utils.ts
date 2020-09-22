@@ -83,12 +83,14 @@ export const generateGridLines = ({
       const y1 = 0 + margins.top;
       const y2 = dimension.height - margins.bottom;
       const x = calculatePosition(value);
+      const isZero = value === 0;
 
       lines.push({
         x1: x,
         y1,
         x2: x,
         y2,
+        stroke: isZero ? 2 : undefined,
       });
     });
 
@@ -96,11 +98,14 @@ export const generateGridLines = ({
   } else {
     values.forEach((value: string | number | Date) => {
       const y = calculatePosition(value);
+      const isZero = value === 0;
+
       lines.push({
         x1: margins.left,
         y1: y,
         x2: dimension.width - margins.right,
         y2: y,
+        stroke: isZero ? 2 : undefined,
       });
     });
 

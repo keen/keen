@@ -84,8 +84,8 @@ describe('@keen/charts', () => {
 
         expect(yScale.domain()).toMatchInlineSnapshot(`
           Array [
-            0,
-            40,
+            -5,
+            45,
           ]
         `);
       });

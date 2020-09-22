@@ -1,3 +1,5 @@
 import ServiceTerms from './service-terms';
+import RegistrationForm from './registration-form';
+import OAuthComplete from './oauth-complete';
 
-export { ServiceTerms };
+export { RegistrationForm, OAuthComplete, ServiceTerms };

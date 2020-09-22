@@ -2,28 +2,35 @@
 import React, { FC } from 'react';
 import { GoogleIcon, GitHubIcon } from './icons';
 
-import { Container, Separator, IconWrapper } from './oauth-providers.styles';
+import { Container, Separator, IconContainer } from './oauth-providers.styles';
 import { ButtonInverse } from './components/';
 
 import { serializeToQuery } from './utils';
 
-import { OAuthSource, OAuthProvidersConfig } from './types';
+import { OAuthUserAction, OAuthConfig } from './types';
 
 type Props = {
-  config: OAuthProvidersConfig;
-  source?: OAuthSource;
+  /** OAuth apps configuration */
+  config: OAuthConfig;
+  /* The URL of OAuth flow initiator */
+  requestInitiatorUrl: string;
+  /** The callback URL used by OAuth provider */
+  callbackHandlerHost: string;
+  /* OAuth flow action */
+  action?: OAuthUserAction;
 };
 
 const OAuthProviders: FC<Props> = ({
   config,
-  source = OAuthSource.REGISTER,
+  requestInitiatorUrl,
+  callbackHandlerHost,
+  action = OAuthUserAction.REGISTER,
 }: Props) => {
   const {
     googleOAuth,
     googleOAuth: { label: googleLabel },
     gitHubOAuth,
     gitHubOAuth: { label: githubLabel },
-    host,
   } = config;
 
   return (
@@ -35,15 +42,17 @@ const OAuthProviders: FC<Props> = ({
             scope: googleOAuth.scope,
             include_granted_scopes: true,
             response_type: 'code',
-            redirect_uri: `${host}/${googleOAuth.redirectUri}?source=${source}`,
+            state: JSON.stringify({ action, requestInitiatorUrl }),
             client_id: googleOAuth.clientId,
+            redirect_uri: `${callbackHandlerHost}/${googleOAuth.redirectUri}`,
           });
+
           window.location.replace(`${googleOAuth.url}?${googleOauthParams}`);
         }}
       >
-        <IconWrapper>
+        <IconContainer>
           <GoogleIcon />
-        </IconWrapper>
+        </IconContainer>
         {googleLabel}
       </ButtonInverse>
       <Separator />
@@ -53,14 +62,15 @@ const OAuthProviders: FC<Props> = ({
           const gitHubOauthParams = serializeToQuery({
             scope: gitHubOAuth.scope,
             client_id: gitHubOAuth.clientId,
-            state: source,
+            state: JSON.stringify({ action, requestInitiatorUrl }),
           });
+
           window.location.replace(`${gitHubOAuth.url}?${gitHubOauthParams}`);
         }}
       >
-        <IconWrapper>
+        <IconContainer>
           <GitHubIcon />
-        </IconWrapper>
+        </IconContainer>
         {githubLabel}
       </ButtonInverse>
     </Container>

@@ -17,6 +17,14 @@ export const transformPayload = (
   };
 };
 
+export const transformOAuthPayload = (
+  userToken: string,
+  offerHandle: string
+) => ({
+  user_token: userToken,
+  offer_handle: offerHandle,
+});
+
 export const transformSignupResponse = (response: SignupResponse) => {
   if ('field_errors' in response) {
     const { field_errors } = response;

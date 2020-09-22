@@ -15,30 +15,36 @@ import { Icon } from '@keen.io/icons';
 import { Form, InputGroup, FieldGroup, ErrorContainer } from '@keen.io/forms';
 import { colors } from '@keen.io/colors';
 
-import { ServiceTerms } from './components';
+import ServiceTerms from '../service-terms';
 import {
   Footer,
   CompanyMessage,
   CompanyDisclaimer,
   PasswordHints,
-} from './form.styles';
+} from './registration-form.styles';
+import text from './text.json';
 
-import { schema, emailIdentityError } from './schema';
-import { EMAIL_SPAM } from './constants';
+import { schema, emailIdentityError } from '../../schema';
+import { EMAIL_SPAM } from '../../constants';
 
-import { FormValues, SignupError } from './types';
+import { FormValues, SignupError } from '../../types';
 
 type Props = {
+  /** CTA button label */
   buttonLabel: string;
+  /** Keen API url */
   apiUrl: string;
+  /** Sign up event handler */
   onSignup: (
     values: FormValues
   ) => Promise<{ organizationId: string } | { errors: Record<string, string> }>;
+  /** Success event handler */
   onSuccess: (organizationId: string, companyDisclaimer: boolean) => void;
+  /** Error event handler */
   onError: (error: { status: number; message: string }) => void;
 };
 
-export const RegisterForm: FC<Props> = ({
+export const RegisterationForm: FC<Props> = ({
   buttonLabel,
   apiUrl,
   onSignup,
@@ -119,9 +125,7 @@ export const RegisterForm: FC<Props> = ({
                 setFieldValue('companyDisclaimer', !values.companyDisclaimer)
               }
             />
-            <CompanyMessage>
-              I am not associated with any company
-            </CompanyMessage>
+            <CompanyMessage>{text.companyDisclaimer}</CompanyMessage>
           </CompanyDisclaimer>
           <ErrorContainer>
             <ErrorMessage
@@ -159,7 +163,7 @@ export const RegisterForm: FC<Props> = ({
         <Footer>
           <Button
             htmlType="button"
-            data-button="submit"
+            data-testid="submit"
             isDisabled={isSubmitting}
             onClick={submitForm}
             icon={
@@ -175,7 +179,7 @@ export const RegisterForm: FC<Props> = ({
               )
             }
           >
-            {isSubmitting ? 'Checking your data' : buttonLabel}
+            {isSubmitting ? text.submitProcess : buttonLabel}
           </Button>
         </Footer>
       </Form>
@@ -183,4 +187,4 @@ export const RegisterForm: FC<Props> = ({
   </Formik>
 );
 
-export default RegisterForm;
+export default RegisterationForm;

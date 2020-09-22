@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { Container, Content, Line } from './content-separator.styles';
 
 type Props = {
+  /** React children nodes */
   children: React.ReactNode;
 };
 

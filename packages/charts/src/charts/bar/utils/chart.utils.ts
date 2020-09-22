@@ -86,9 +86,9 @@ export const generateHorizontalGroupedBars = ({
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          x: 0 + margins.left,
+          x: value > 0 ? Math.abs(xScale(0)) : xScale(value),
           y: yScale(data[index][labelSelector]) + barHeight * yCounter,
-          width: xScale(value) - margins.left,
+          width: Math.abs(xScale(value) - xScale(0)),
           height: barHeight,
           color: colors[idx],
           value,
@@ -157,9 +157,9 @@ export const generateVerticalGroupedBars = ({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
           x: xScale(data[index][labelSelector]) + barWidth * xCounter,
-          y: yScale(value),
+          y: value > 0 ? yScale(value) : yScale(0),
           width: barWidth,
-          height: dimension.height - margins.bottom - yScale(value),
+          height: Math.abs(yScale(value) - yScale(0)),
           color: colors[idx],
           value,
         };

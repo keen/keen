@@ -17,6 +17,24 @@
        ctaLabel: 'Register for Free',
        offerHandle: 'public-free-v1',
        apiUrl: 'https://staging.keen.io',
+       useOAuthProviders: true,
+       oauthConfig: {
+         callbackHandlerHost: 'http://localhost:8080',
+         requestInitiatorUrl: 'http://localhost:8000',
+         googleOAuth: {
+           label: 'Sign up with Google',
+           url: 'https://accounts.google.com/o/oauth2/v2/auth',
+           clientId: '523990476424-01cune2p85o2ccl0e869n59p5eq9aag0.apps.googleusercontent.com',
+           redirectUri: 'oauth-local-test',
+           scope: 'profile email'
+         },
+         gitHubOAuth: {
+           label: 'Sign up with GitHub',
+           url: 'https://github.com/login/oauth/authorize',
+           scope: 'user:email',
+           clientId: '1d2ac6d167ab81805691'
+         },
+       },
        onSuccess: function() {
          console.log('success');
        },
