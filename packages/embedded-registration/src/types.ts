@@ -1,10 +1,19 @@
+import { OAuthConfig } from '@keen.io/ui-core';
+
+export type OAuthSignUpConfig = {
+  callbackHandlerHost: string;
+  requestInitiatorUrl: string;
+} & OAuthConfig;
+
 export type Options = {
   container: HTMLElement | string;
   offerHandle: string;
   ctaLabel: string;
   apiUrl: string;
   onSuccess: () => void;
+  useOAuthProviders?: boolean;
   utmCookies?: string[];
+  oauthConfig?: OAuthSignUpConfig;
 };
 
 export type FormValues = {
@@ -27,6 +36,12 @@ export type ErrorResponse = {
   field_errors: Record<string, string>;
   status_code: number;
 };
+
+export enum OAuthError {
+  OAUTH_401 = 'oauth_401',
+  OAUTH_409 = 'oauth_409',
+  OAUTH_500 = 'oauth_500',
+}
 
 export type SignupResponse = SuccessResponse | ErrorResponse;
 

@@ -10,7 +10,7 @@ export const Separator = styled.div`
   flex-shrink: 0;
 `;
 
-export const IconWrapper = styled.div`
+export const IconContainer = styled.div`
   padding-top: 2px;
   margin-right: 10px;
 `;

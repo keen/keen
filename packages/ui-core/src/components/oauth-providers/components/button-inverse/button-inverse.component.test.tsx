@@ -1,5 +1,7 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
+import 'jest-styled-components';
+
 import { ButtonInverse } from './button-inverse.component';
 
 const render = (children: React.ReactNode) => {
