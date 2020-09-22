@@ -2,14 +2,14 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { stack, stackOffsetDiverging } from 'd3-shape';
 
 import { Layout } from '@keen.io/ui-core';
-
-import { getKeysDifference } from '../../../utils/data.utils';
-import { calculateScaleDomain } from '../../../utils/scale.utils';
 import {
-  normalizeToPercent,
+  calculateRange,
   calculateStackedRange,
-} from '../../../utils/data.utils';
-import { calculateRange } from '../../../utils/data';
+  getKeysDifference,
+} from '@keen.io/utils';
+
+import { calculateScaleDomain } from '../../../utils/scale.utils';
+import { normalizeToPercent } from '../../../utils/data.utils';
 
 import { Bar } from '../types';
 import {

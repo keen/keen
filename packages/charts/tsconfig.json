@@ -7,6 +7,7 @@
   "references": [
     { "path": "../colors" },
     { "path": "../icons" },
+    { "path": "../utils" },
     { "path": "../ui-core" },
     { "path": "../react-hooks" },
     { "path": "../storybook-utils" }

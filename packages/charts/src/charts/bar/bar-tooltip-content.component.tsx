@@ -1,10 +1,10 @@
 import React, { FC, useContext } from 'react';
 import { Text, BulletList } from '@keen.io/ui-core';
+import { getFromPath, getKeysDifference } from '@keen.io/utils';
 
 import { getLabel } from './utils/tooltip.utils';
 import { formatTooltipValue } from '../../utils/tooltip.utils';
-import { getFromPath } from '../../utils/selectors.utils';
-import { getKeysDifference, normalizeToPercent } from '../../utils/data.utils';
+import { normalizeToPercent } from '../../utils/data.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 

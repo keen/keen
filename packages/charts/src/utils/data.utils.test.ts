@@ -1,4 +1,4 @@
-import { getKeysDifference, normalizeToPercent } from './data.utils';
+import { normalizeToPercent } from './data.utils';
 
 describe('@keen.io/charts - data utils', () => {
   describe('normalizeToPercent()', () => {
@@ -21,20 +21,6 @@ describe('@keen.io/charts - data utils', () => {
             "man": 50,
             "woman": 50,
           },
-        ]
-      `);
-    });
-  });
-
-  describe('getKeysDifference()', () => {
-    it('should return difference "array" collection', () => {
-      const keys = ['books', 'cars', 'phones', 'names'];
-      const disabledKeys = ['phones', 'names'];
-
-      expect(getKeysDifference(keys, disabledKeys)).toMatchInlineSnapshot(`
-        Array [
-          "books",
-          "cars",
         ]
       `);
     });
