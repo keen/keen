@@ -25,21 +25,37 @@ export const normalizeToPercent = (data: object[], keys: string[]) => {
   return normalized;
 };
 
+type StackedItemRange = {
+  minimum: number;
+  maximum: number;
+};
+
 export const calculateStackedRange = (
   data: object[],
   minValue: number | 'auto',
   maxValue: number | 'auto',
   keys: string[]
 ) => {
-  const values: number[] = data.map((item: Record<string, number>) =>
-    keys.reduce((acc: number, keyName: string) => {
-      const value = item[keyName];
-      return acc + value;
-    }, 0)
-  );
+  let minimumRange = 0;
+  let maximumRange = 0;
 
-  const minimum = minValue === 'auto' ? 0 : minValue;
-  const maximum = maxValue === 'auto' ? max(values) : maxValue;
+  data.forEach((item: Record<string, number>) => {
+    const itemRange: StackedItemRange = keys.reduce(
+      (acc: StackedItemRange, keyName: string) => {
+        const value = item[keyName];
+        if (value >= 0) acc.maximum += value;
+        if (value < 0) acc.minimum += value;
+        return acc;
+      },
+      { minimum: 0, maximum: 0 }
+    );
+
+    if (itemRange.minimum < minimumRange) minimumRange = itemRange.minimum;
+    if (itemRange.maximum > maximumRange) maximumRange = itemRange.maximum;
+  });
+
+  const minimum = minValue === 'auto' ? minimumRange : minValue;
+  const maximum = maxValue === 'auto' ? maximumRange : maxValue;
 
   return {
     minimum,
