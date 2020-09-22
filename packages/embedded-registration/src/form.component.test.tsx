@@ -5,7 +5,7 @@ import { waitFor } from '@testing-library/react';
 
 import RegisterForm from './form.component';
 
-export const updateField = (
+const updateField = (
   input: ReactWrapper,
   name: string,
   value: string | number
