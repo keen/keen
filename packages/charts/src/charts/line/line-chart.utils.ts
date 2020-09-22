@@ -222,7 +222,7 @@ const calculateNormalStackArea = (
       return yScale(d[keyName]);
     })
     .y0(function() {
-      return yScale(0);
+      return yScale(yScale.ticks()[0]);
     });
 };
 
