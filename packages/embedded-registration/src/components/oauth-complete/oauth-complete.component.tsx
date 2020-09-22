@@ -1,11 +1,13 @@
 import React, { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { parse } from 'query-string';
 import { Title, FadeLoader } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
 import { Container, Content } from './oauth-complete.styles';
 import text from './text.json';
 
+import { OAuthLocationParams } from './types';
 import { SignupError } from '../../types';
 
 type Props = {
@@ -20,21 +22,28 @@ type Props = {
 };
 
 const OAuthComplete: FC<Props> = ({ onSignup, onSuccess, onError }) => {
-  const locationParams = useLocation();
+  const { search: locationParams } = useLocation();
 
   useEffect(() => {
-    const userToken = locationParams.token;
-    onSignup({ userToken })
-      .then(() => {
-        onSuccess('companyName', false);
-      })
-      .catch(({ status, message }: SignupError) => {
-        onError({ status, message });
-      });
-  }, [onError, onSuccess]);
+    if (locationParams) {
+      const { token } = parse(locationParams) as OAuthLocationParams;
+      if (token) {
+        onSignup(token)
+          .then(user => {
+            if ('organizationId' in user) {
+              const { organizationId } = user;
+              onSuccess(organizationId, false);
+            }
+          })
+          .catch(({ status, message }: SignupError) => {
+            onError({ status, message });
+          });
+      }
+    }
+  }, [locationParams, onError, onSuccess]);
 
   return (
-    <Container>
+    <Container data-testid="oauth-complete">
       <Title variant="h3" color={colors.blue['500']}>
         {text.title}
       </Title>

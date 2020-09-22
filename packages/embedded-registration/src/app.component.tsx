@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useState, useCallback, useEffect } from 'react';
 import { useMutate } from 'restful-react';
+import { useLocation } from 'react-router-dom';
+import { parse } from 'query-string';
 import {
   Alert,
   Loader,
@@ -21,9 +23,8 @@ import {
   transformSignupResponse,
 } from './utils';
 
-import { FormValues, OAuthSignUpConfig } from './types';
-
-const REDIRECT_TIME = 4000;
+import { REDIRECT_TIME } from './constants';
+import { FormValues, OAuthError, OAuthSignUpConfig } from './types';
 
 type Props = {
   /** Keen API url */
@@ -51,7 +52,8 @@ const App: FC<Props> = ({
   oauthConfig,
   onSuccessCallback,
 }) => {
-  const [errorCode, setErrorCode] = useState(null);
+  const { search: locationParams } = useLocation();
+  const [errorCode, setErrorCode] = useState<number | OAuthError>(null);
   const [successRegistration, setSuccessRegistration] = useState(false);
   const [registrationMeta, setRegistrationMeta] = useState({
     organizationId: null,
@@ -93,10 +95,17 @@ const App: FC<Props> = ({
     [offerHandle]
   );
 
+  useEffect(() => {
+    if (locationParams) {
+      const { error } = parse(locationParams) as { error?: OAuthError };
+      if (error) setErrorCode(error);
+    }
+  }, []);
+
   return (
     <>
       {errorCode && (
-        <Notification>
+        <Notification data-testid="error-notification">
           <Alert type="error">{getErrorMessage(errorCode)}</Alert>
         </Notification>
       )}

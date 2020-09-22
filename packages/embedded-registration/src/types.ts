@@ -37,6 +37,12 @@ export type ErrorResponse = {
   status_code: number;
 };
 
+export enum OAuthError {
+  OAUTH_401 = 'oauth_401',
+  OAUTH_409 = 'oauth_409',
+  OAUTH_500 = 'oauth_500',
+}
+
 export type SignupResponse = SuccessResponse | ErrorResponse;
 
 export type SignupError = {

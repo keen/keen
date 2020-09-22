@@ -46,6 +46,7 @@
     "@keen.io/icons": "^1.1.0",
     "@keen.io/ui-core": "^2.1.1",
     "formik": "^2.1.4",
+    "history": "^4.7.2",
     "http-status-codes": "^1.4.0",
     "query-string": "^6.13.2",
     "react": "^16.12.0",
