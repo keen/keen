@@ -2,8 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { interpolateNumber } from 'd3-interpolate';
 import { useMotionValue, useSpring } from 'framer-motion';
 import { Typography } from '@keen.io/ui-core';
-
-import { formatNumber } from '../../utils/format.utils';
+import { formatNumber } from '@keen.io/charts-utils';
 
 const springMotion = {
   from: 0,

@@ -12,9 +12,10 @@ import { getElementOffset, hasContentOverflow } from './elements';
 import { copyToClipboard } from './text';
 
 import {
-  getScaleValues,
-  formatScaleLabel,
   calculateScaleDomain,
+  formatScaleLabel,
+  getScaleValues,
+  getScaleCenterPosition,
 } from './scale';
 
 import {
@@ -23,6 +24,8 @@ import {
   calculateHypotenuse,
   calculateHypotenuseHeight,
 } from './math';
+
+import { formatNumber } from './number';
 
 import { TimePrecision, ScaleSettings } from './types';
 
@@ -38,10 +41,12 @@ export {
   calculateStackedRange,
   copyToClipboard,
   formatScaleLabel,
+  formatNumber,
   getElementOffset,
   getValues,
   getKeysDifference,
   getScaleValues,
+  getScaleCenterPosition,
   getFromPath,
   hasContentOverflow,
   transformToPercent,

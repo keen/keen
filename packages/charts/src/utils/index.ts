@@ -1,4 +1,3 @@
-import { formatNumber } from './format.utils';
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
 import { getTooltipContent, formatTooltipValue } from './tooltip.utils';
 import { bubbleColorScale } from './scale.utils';
@@ -12,7 +11,6 @@ import {
 } from './circular-chart.utils';
 
 export {
-  formatNumber,
   createArcTween,
   animateArcPath,
   getTooltipContent,
