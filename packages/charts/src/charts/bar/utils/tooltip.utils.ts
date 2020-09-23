@@ -1,4 +1,4 @@
-import { getFromPath } from '@keen.io/utils';
+import { getFromPath } from '@keen.io/charts-utils';
 
 import { DataSelector, GroupMode, StackMode } from '../../../types';
 

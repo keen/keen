@@ -6,12 +6,13 @@ import {
   stack,
   area,
 } from 'd3-shape';
-
-import { getKeysDifference, normalizeToPercent } from '../../utils/data.utils';
-import { calculateScaleDomain } from '../../utils/scale.utils';
-
-import { calculateStackedRange } from '../../utils/data.utils';
-import { calculateRange } from '../../utils/data';
+import {
+  calculateRange,
+  calculateStackedRange,
+  calculateScaleDomain,
+  getKeysDifference,
+  transformToPercent,
+} from '@keen.io/charts-utils';
 
 import { Options, Mark, Line, StepType, CurveType, AreaType } from './types';
 
@@ -389,7 +390,7 @@ export const generateStackLines = ({
 
   const normalizeData =
     groupMode === 'stacked' && stackMode === 'percent'
-      ? normalizeToPercent(data, filteredKeys)
+      ? transformToPercent(data, filteredKeys)
       : data;
 
   const newData = calculateStackData(

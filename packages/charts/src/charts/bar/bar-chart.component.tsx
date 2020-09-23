@@ -1,5 +1,6 @@
 import React, { useState, useRef, FC } from 'react';
 import { Layout } from '@keen.io/ui-core';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateBars } from './utils/chart.utils';
 import { getSelectors } from './utils/tooltip.utils';
@@ -16,7 +17,6 @@ import { TOOLTIP_HIDE_TIME } from '../../constants';
 import {
   CommonChartSettings,
   TooltipState,
-  ScaleSettings,
   GroupMode,
   StackMode,
 } from '../../types';

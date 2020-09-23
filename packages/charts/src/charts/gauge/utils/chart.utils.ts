@@ -1,8 +1,8 @@
 import { arc, DefaultArcObject } from 'd3-shape';
 import { min, sum } from 'd3-array';
 import { ColorMode } from '@keen.io/ui-core';
+import { convertDegreesToRadians } from '@keen.io/charts-utils';
 
-import { convertDegreesToRadians } from '../../../utils/math.utils';
 import { calculateColorScale } from '../../../utils/colors.utils';
 
 import {

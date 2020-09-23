@@ -1,5 +1,6 @@
 import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { Text, Tick, Line } from './elements';
 import { Group } from './ruler.styles';
@@ -7,7 +8,7 @@ import AxisTitle from './axis-title.component';
 
 import { createRuler, rotateLabel } from './ruler.utils';
 
-import { Axis, Tick as RulerTick, Orientation, ScaleSettings } from '../types';
+import { Axis, Tick as RulerTick, Orientation } from '../types';
 
 const TEXT_CENTER = '0.32em';
 

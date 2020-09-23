@@ -1,7 +1,5 @@
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
-
-import { calculateScaleDomain } from '../../../utils/scale.utils';
-import { calculateRange } from '../../../utils/data';
+import { calculateRange, calculateScaleDomain } from '@keen.io/charts-utils';
 
 import { Dimension, Margins } from '../../../types';
 

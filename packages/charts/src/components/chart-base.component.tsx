@@ -1,8 +1,9 @@
 import React, { FC, Ref, forwardRef } from 'react';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { ChartContext } from '../contexts';
 
-import { Margins, Dimension, Theme, ScaleSettings } from '../types';
+import { Margins, Dimension, Theme } from '../types';
 
 type Props = {
   svgDimensions: Dimension;

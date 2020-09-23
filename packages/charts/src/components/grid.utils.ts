@@ -1,8 +1,9 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
+import { getScaleValues, ScaleSettings } from '@keen.io/charts-utils';
 
-import { getScaleValues, getCenterPosition } from '../utils/scale.utils';
+import { getCenterPosition } from '../utils/scale.utils';
 
-import { Dimension, Margins, Line, ScaleSettings } from '../types';
+import { Dimension, Margins, Line } from '../types';
 
 export enum AxisType {
   X = 'x',

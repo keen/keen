@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
+import { getFromPath } from '@keen.io/charts-utils';
 import { Text, Typography } from '@keen.io/ui-core';
-
-import { getFromPath } from '../../utils/selectors.utils';
 
 import { DataSelector } from '../../types';
 

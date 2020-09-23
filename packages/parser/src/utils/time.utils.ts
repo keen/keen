@@ -1,4 +1,4 @@
-import { TimePrecision } from '@keen.io/charts';
+import { TimePrecision } from '@keen.io/charts-utils';
 
 const INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
   minutely: 'minute',

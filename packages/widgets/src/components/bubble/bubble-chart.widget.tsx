@@ -8,8 +8,8 @@ import {
   SeriesLegend,
   theme as defaultTheme,
   bubbleColorScale,
-  getValues,
 } from '@keen.io/charts';
+import { getValues } from '@keen.io/charts-utils';
 import { useLegend } from '@keen.io/react-hooks';
 
 import { LegendContainer } from './bubble-chart.styles';

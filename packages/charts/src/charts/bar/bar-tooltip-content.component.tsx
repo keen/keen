@@ -1,22 +1,32 @@
 import React, { FC, useContext } from 'react';
 import { Text, BulletList } from '@keen.io/ui-core';
-import { getFromPath, getKeysDifference } from '@keen.io/utils';
+import {
+  getFromPath,
+  getKeysDifference,
+  transformToPercent,
+} from '@keen.io/charts-utils';
 
 import { getLabel } from './utils/tooltip.utils';
 import { formatTooltipValue } from '../../utils/tooltip.utils';
-import { normalizeToPercent } from '../../utils/data.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
+  /** Data series */
   data: object[];
+  /** Collection of all keys used from data series */
   keys: string[];
+  /** Collection of disabled keys */
   disabledKeys: string[];
+  /** Selectors used to pick data from series */
   selectors: { selector: DataSelector; color: string }[];
+  /** Group mode configuration */
   groupMode: GroupMode;
+  /** Stack mode configuration */
   stackMode: StackMode;
+  /** List indicator */
   isList: boolean;
 };
 
@@ -36,7 +46,7 @@ const BarTooltip: FC<Props> = ({
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
-    ? normalizeToPercent(data, getKeysDifference(keys, disabledKeys))
+    ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
     : [];
 
   return (

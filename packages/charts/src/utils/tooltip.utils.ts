@@ -1,5 +1,5 @@
 import { colors } from '@keen.io/colors';
-import { getFromPath } from './selectors.utils';
+import { getFromPath } from '@keen.io/charts-utils';
 import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
