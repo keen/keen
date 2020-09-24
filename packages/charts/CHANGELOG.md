@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/keen/keen/compare/@keen.io/charts@2.1.1...@keen.io/charts@2.1.2) (2020-09-22)
+
+
+### Bug Fixes
+
+* 🐛 Gradient minValue fix ([4546ef1](https://github.com/keen/keen/commit/4546ef12cde71e1779327731be2f454ab90dfc2f))
+* 🐛 support negative values in charts ([b551bf3](https://github.com/keen/keen/commit/b551bf3c8a33e2ebd0ba647ade5b4dea9fee53eb))
+
+
+
+
+
+## [2.1.1](https://github.com/keen/keen/compare/@keen.io/charts@2.1.0...@keen.io/charts@2.1.1) (2020-09-21)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 # [2.1.0](https://github.com/keen/keen/compare/@keen.io/charts@2.0.5...@keen.io/charts@2.1.0) (2020-09-18)
 
 
