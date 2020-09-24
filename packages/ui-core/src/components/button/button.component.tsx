@@ -25,6 +25,8 @@ type Props = {
   onClick?: (e: React.SyntheticEvent) => void;
   /** Icon component */
   icon?: JSX.Element;
+  /** Fit width to parent container */
+  fullWidth?: boolean;
 };
 
 export const Button: FC<Props> = ({
@@ -38,6 +40,7 @@ export const Button: FC<Props> = ({
   size = 'default',
   style = 'solid',
   icon,
+  fullWidth = false,
 }) => {
   if (href) {
     return (
@@ -49,6 +52,7 @@ export const Button: FC<Props> = ({
         href={href}
         body={style}
         target={target}
+        fullWidth={fullWidth}
         onClick={(e: React.MouseEvent<HTMLElement>) =>
           !isDisabled && onClick && onClick(e)
         }
@@ -67,6 +71,7 @@ export const Button: FC<Props> = ({
       variant={variant}
       body={style}
       size={size}
+      fullWidth={fullWidth}
       onClick={(e: React.MouseEvent<HTMLElement>) =>
         !isDisabled && onClick && onClick(e)
       }
