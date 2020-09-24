@@ -133,7 +133,8 @@ export const StyledButton = styled.button<Props>`
 `;
 
 export const StyledAnchor = styled.a<Props>`
-  display: inline-flex;${props =>
+  display: inline-flex;
+  ${props =>
     props.fullWidth &&
     css`
       width: 100%;
