@@ -1,6 +1,7 @@
-import { Layout, ColorMode } from '@keen.io/ui-core';
-import { RangeType } from '@keen.io/ui-core';
-import { Dimension, Margins, ScaleSettings } from '../../types';
+import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
+import { ScaleSettings } from '@keen.io/charts-utils';
+
+import { Dimension, Margins } from '../../types';
 
 export type Options = {
   data: any[];

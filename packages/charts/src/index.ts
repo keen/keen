@@ -37,20 +37,12 @@ import {
 
 import { theme, margins } from './theme';
 
-import {
-  Theme,
-  TimePrecision,
-  ScaleSettings,
-  StackMode,
-  GroupMode,
-} from './types';
+import { Theme, StackMode, GroupMode } from './types';
 
-import { OTHERS_DATA_KEY, getValues, bubbleColorScale } from './utils';
+import { OTHERS_DATA_KEY, bubbleColorScale } from './utils';
 
 export {
   Theme,
-  TimePrecision,
-  ScaleSettings,
   BarChart,
   BarChartSettings,
   BubbleChart,
@@ -84,7 +76,6 @@ export {
   BubbleLegend,
   fetchMapTopology,
   sortAreaKeys,
-  getValues,
   theme,
   margins,
   OTHERS_DATA_KEY,

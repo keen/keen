@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform series values to percents 1`] = `
+Array [
+  Object {
+    "day": "Monday",
+    "man": 33.33333333333333,
+    "woman": 66.66666666666666,
+  },
+  Object {
+    "day": "Tuesday",
+    "man": 50,
+    "woman": 50,
+  },
+]
+`;

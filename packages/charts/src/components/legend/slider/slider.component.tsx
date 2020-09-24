@@ -2,13 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useMotionValue, useSpring } from 'framer-motion';
 import { Group } from '@keen.io/ui-core';
 import { Icon } from '@keen.io/icons';
+import { getElementOffset } from '@keen.io/charts-utils';
 
 import { Slider, SliderItem, SliderLayout, ScrollMask } from './slider.styles';
 import Button from './button.component';
 
 import { sliderSettings } from './slider.settings';
 import { getIconColor } from '../utils';
-import { getElementOffset } from '../../../utils/elements';
 
 type Props = {
   children: React.ReactNode;

@@ -1,6 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
+import { ScaleSettings } from '@keen.io/charts-utils';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import { ChartBase, Grid, Axes } from '../../components';
@@ -11,7 +12,7 @@ import { generateBubbles } from './utils/chart.utils';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ScaleSettings } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },

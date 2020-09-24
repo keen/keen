@@ -1,7 +1,8 @@
 import React, { FC, useContext } from 'react';
 import { BulletList } from '@keen.io/ui-core';
+import { getFromPath } from '@keen.io/charts-utils';
 
-import { getFromPath, formatTooltipValue } from '../../utils';
+import { formatTooltipValue } from '../../utils';
 
 import { DataSelector } from '../../types';
 

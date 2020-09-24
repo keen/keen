@@ -1,6 +1,17 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { IntervalResult, Step } from './types';
 
+export const selectUnique = {
+  query: {
+    analysis_type: 'select_unique',
+    event_collection: 'mmr_change',
+    target_property: 'department',
+    timezone: 'UTC',
+    timeframe: 'this_14_days',
+  },
+  result: ['Marketing', 'IT', null],
+};
+
 export const funnelAnalysis = {
   steps: [
     {

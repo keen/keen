@@ -1,6 +1,7 @@
 import React from 'react';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
-import { Dimension, Margins, Theme, ScaleSettings } from '../types';
+import { Dimension, Margins, Theme } from '../types';
 
 export type ChartContextType = {
   theme: Theme;

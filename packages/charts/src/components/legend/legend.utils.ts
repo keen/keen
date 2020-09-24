@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Position } from '@keen.io/ui-core';
-
-import { hasOverflow } from '../../utils/elements';
+import { hasContentOverflow } from '@keen.io/charts-utils';
 
 export type RenderMode = 'list' | 'group' | 'slider';
 
@@ -28,7 +27,7 @@ export const useRenderMode = (
   }, [layout, position, initialMode, labelsLength]);
 
   useEffect(() => {
-    const contentOverflow = hasOverflow(layout, element.current);
+    const contentOverflow = hasContentOverflow(layout, element.current);
 
     const {
       offsetHeight,

@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@keen.io/charts": "^2.1.2",
+    "@keen.io/charts-utils": "^1.0.0",
     "@types/d3-time-format": "^2.1.1"
   }
 }

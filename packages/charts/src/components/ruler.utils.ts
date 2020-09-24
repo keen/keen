@@ -1,8 +1,9 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateTicks } from '../utils/scale.utils';
 
-import { Orientation, ScaleSettings, LabelRotation } from '../types';
+import { Orientation, LabelRotation } from '../types';
 
 type Options = {
   x: number;

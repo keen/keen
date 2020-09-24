@@ -1,4 +1,4 @@
-import { getFromPath } from '../../../utils/selectors.utils';
+import { getFromPath } from '@keen.io/charts-utils';
 
 export type MetricType = 'difference' | 'comparison' | 'simple';
 

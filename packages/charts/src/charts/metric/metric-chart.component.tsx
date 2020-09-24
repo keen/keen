@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 import { Text } from '@keen.io/ui-core';
+import { formatNumber } from '@keen.io/charts-utils';
 
 import MetricIcon from './metric-icon.component';
 import {
@@ -14,7 +15,6 @@ import {
 } from './metric-chart.styles';
 
 import { generateMetric, MetricType } from './utils';
-import { formatNumber } from '../../utils/format.utils';
 import { createMargins } from '../../utils/element.utils';
 
 import { theme as defaultTheme } from '../../theme';

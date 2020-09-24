@@ -16,8 +16,7 @@ import {
   LegendSettings,
   BubbleWidgetLegendSettings,
 } from '@keen.io/widgets';
-import { ScaleSettings } from '@keen.io/charts';
-
+import { ScaleSettings } from '@keen.io/charts-utils';
 import { colors } from '@keen.io/colors';
 
 import { KEEN_KEY } from '@keen.io/parser';

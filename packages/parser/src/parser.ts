@@ -32,55 +32,75 @@ export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
   let extractionKeys: string[] = [];
 
   Array.isArray(result) &&
-    result.forEach((partialResult: number | IntervalResult | AtomicResult) => {
-      if (
-        typeof partialResult !== 'number' &&
-        'value' in partialResult &&
-        'timeframe' in partialResult
-      ) {
-        const { value, timeframe } = partialResult as IntervalResult;
-
-        if (Array.isArray(value)) {
-          const { data, keys: dataSetKeys } = transformIntervalsFromArray(
-            value
-          );
-          results.push({ [KEEN_KEY]: timeframe.start, ...data });
-          dataSetKeys.forEach(key => keys.add(key));
+    result.forEach(
+      (partialResult: null | number | IntervalResult | AtomicResult) => {
+        if (
+          typeof partialResult === 'number' ||
+          typeof partialResult === 'string' ||
+          partialResult === null
+        ) {
+          keys.add(KEEN_VALUE);
+          results.push({ [KEEN_VALUE]: partialResult });
         }
 
-        if (typeof value === 'number') {
+        if (
+          typeof partialResult === 'object' &&
+          partialResult !== null &&
+          'value' in partialResult &&
+          'timeframe' in partialResult
+        ) {
+          const { value, timeframe } = partialResult as IntervalResult;
+
+          if (Array.isArray(value)) {
+            const { data, keys: dataSetKeys } = transformIntervalsFromArray(
+              value
+            );
+            results.push({ [KEEN_KEY]: timeframe.start, ...data });
+            dataSetKeys.forEach(key => keys.add(key));
+          }
+
+          if (typeof value === 'number') {
+            keys.add(KEEN_VALUE);
+            results.push({
+              [KEEN_KEY]: timeframe.start,
+              [KEEN_VALUE]: value,
+            });
+          }
+        }
+
+        if (
+          typeof partialResult === 'object' &&
+          partialResult !== null &&
+          'result' in partialResult
+        ) {
+          const { result, ...properties } = transformAtomicResult(
+            partialResult
+          );
           keys.add(KEEN_VALUE);
-          results.push({
-            [KEEN_KEY]: timeframe.start,
-            [KEEN_VALUE]: value,
+
+          Object.values(properties).forEach(property => {
+            results.push({ [KEEN_KEY]: property, [KEEN_VALUE]: result });
           });
         }
-      }
 
-      if (typeof partialResult !== 'number' && 'result' in partialResult) {
-        const { result, ...properties } = transformAtomicResult(partialResult);
-        keys.add(KEEN_VALUE);
-
-        Object.values(properties).forEach(property => {
-          results.push({ [KEEN_KEY]: property, [KEEN_VALUE]: result });
-        });
-      }
-      if (
-        typeof partialResult !== 'number' &&
-        !('value' in partialResult) &&
-        !('timeframe' in partialResult) &&
-        !('result' in partialResult)
-      ) {
-        if (Object.keys(partialResult).length != 0) {
-          const transformedResult = transformExtraction(partialResult);
-          extractionKeys = [
-            ...extractionKeys,
-            ...Object.keys(transformedResult),
-          ];
-          results.push(transformedResult);
+        if (
+          typeof partialResult === 'object' &&
+          partialResult !== null &&
+          !('value' in partialResult) &&
+          !('timeframe' in partialResult) &&
+          !('result' in partialResult)
+        ) {
+          if (Object.keys(partialResult).length != 0) {
+            const transformedResult = transformExtraction(partialResult);
+            extractionKeys = [
+              ...extractionKeys,
+              ...Object.keys(transformedResult),
+            ];
+            results.push(transformedResult);
+          }
         }
       }
-    });
+    );
 
   //double mapping for extraction
   if (extractionKeys.length) {

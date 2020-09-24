@@ -1,6 +1,7 @@
 import { ARROW_SIZE } from '@keen.io/ui-core';
+import { calculateHypotenuseHeight } from '@keen.io/charts-utils';
+
 import { Margins, Dimension } from '../../types';
-import { calculateHypotenuseHeight } from '../../utils';
 
 type Options = {
   x: number;

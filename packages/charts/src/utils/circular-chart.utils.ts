@@ -1,11 +1,9 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
 import { colors } from '@keen.io/colors';
-
-import { calculateHypotenuse } from './math.utils';
+import { getFromPath, calculateHypotenuse } from '@keen.io/charts-utils';
 
 import { Dimension, Margins, DataSelector } from '../types';
-import { getFromPath } from './selectors.utils';
 
 export type LabelsPosition = 'inside' | 'outside';
 

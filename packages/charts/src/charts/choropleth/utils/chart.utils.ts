@@ -12,10 +12,10 @@ import {
   GeoProjection,
   ExtendedFeatureCollection,
 } from 'd3-geo';
+import { calculateRange } from '@keen.io/charts-utils';
 import { ColorMode } from '@keen.io/ui-core';
 
 import { calculateColorScale } from '../../../utils/colors.utils';
-import { calculateRange } from '../../../utils/data';
 
 import { NOT_SUPPORT_ROTATION } from '../constants';
 
