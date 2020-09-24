@@ -137,3 +137,22 @@ Object {
   ],
 }
 `;
+
+exports[`@keen.io/parser - parseQuery() should create structure for select_unique analysis 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.value": "Marketing",
+    },
+    Object {
+      "keen.value": "IT",
+    },
+    Object {
+      "keen.value": null,
+    },
+  ],
+}
+`;
