@@ -115,10 +115,17 @@ type Props = {
   body: ButtonType;
   size: ButtonSize;
   isDisabled: boolean;
+  fullWidth?: boolean;
 };
 
 export const StyledButton = styled.button<Props>`
   display: flex;
+  ${props =>
+    props.fullWidth &&
+    css`
+      width: 100%;
+      justify-content: center;
+    `}
   ${buttonMixin()};
   ${props => props.body === 'solid' && variant(solidVariants)}
   ${props => props.body === 'outline' && variant(outlineVariants)}
@@ -127,6 +134,12 @@ export const StyledButton = styled.button<Props>`
 
 export const StyledAnchor = styled.a<Props>`
   display: inline-flex;
+  ${props =>
+    props.fullWidth &&
+    css`
+      width: 100%;
+      justify-content: center;
+    `}
   ${buttonMixin()}
   ${props => props.body === 'solid' && variant(solidVariants)}
   ${props => props.body === 'outline' && variant(outlineVariants)}
