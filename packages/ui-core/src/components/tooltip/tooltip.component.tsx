@@ -13,6 +13,9 @@ type Props = Partial<Typography> & {
   mode?: TooltipMode;
   backgroundColor?: string;
   borderRadius?: string;
+  fontFamily?: string;
+  fontSize?: number;
+  fontColor?: string;
   hasShadow?: boolean;
   hasArrow?: boolean;
   arrowDirection?: Position;
@@ -137,6 +140,8 @@ const Tooltip = ({ children, mode, arrowDirection, ...props }: Props) => {
 Tooltip.defaultProps = {
   backgroundColor: colors.white['500'],
   fontColor: colors.black['200'],
+  fontSize: 14,
+  fontFamily: "'Lato Regular',sans-serif",
   mode: 'light',
   borderRadius: '0px',
   hasShadow: true,

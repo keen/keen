@@ -6,7 +6,8 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
   box-sizing: border-box;
   background-color: #FFFFFF;
   border-radius: 0px;
-  font-size: undefinedpx;
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 14px;
   color: #3A494D;
   box-shadow: none;
   position: relative;
@@ -37,6 +38,8 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
   backgroundColor="#FFFFFF"
   borderRadius="0px"
   fontColor="#3A494D"
+  fontFamily="'Lato Regular',sans-serif"
+  fontSize={14}
   hasArrow={true}
   hasShadow={false}
   mode="light"
@@ -46,12 +49,16 @@ exports[`<Tooltip /> should not render box shadow 1`] = `
     backgroundColor="#FFFFFF"
     borderRadius="0px"
     fontColor="#3A494D"
+    fontFamily="'Lato Regular',sans-serif"
+    fontSize={14}
     hasArrow={true}
     hasShadow={false}
     mode="light"
   >
     <div
       className="c0"
+      fontFamily="'Lato Regular',sans-serif"
+      fontSize={14}
       mode="light"
     >
       tooltip
@@ -66,7 +73,8 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
   box-sizing: border-box;
   background-color: #FFFFFF;
   border-radius: 0px;
-  font-size: undefinedpx;
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 14px;
   color: #3A494D;
   box-shadow: 0 10px 24px 0 rgba(29,39,41,0.15);
   position: relative;
@@ -97,6 +105,8 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
   backgroundColor="#FFFFFF"
   borderRadius="0px"
   fontColor="#3A494D"
+  fontFamily="'Lato Regular',sans-serif"
+  fontSize={14}
   hasArrow={true}
   hasShadow={true}
   mode="dark"
@@ -106,12 +116,16 @@ exports[`<Tooltip /> should render \`dark-mode\` 1`] = `
     backgroundColor="#FFFFFF"
     borderRadius="0px"
     fontColor="#3A494D"
+    fontFamily="'Lato Regular',sans-serif"
+    fontSize={14}
     hasArrow={true}
     hasShadow={true}
     mode="dark"
   >
     <div
       className="c0"
+      fontFamily="'Lato Regular',sans-serif"
+      fontSize={14}
       mode="dark"
     >
       tooltip
