@@ -4,6 +4,19 @@ import getScaleValues from './get-scale-values';
 
 const domain = ['Sales', 'Marketing', 'E-commerce'];
 
+const RealDate = Date;
+
+beforeAll(() => {
+  global.Date = jest.fn().mockImplementation(date => new RealDate(date));
+  global.Date.UTC = jest
+    .fn()
+    .mockImplementation(date => new RealDate(date).getUTCDate());
+});
+
+afterAll(() => {
+  global.Date = RealDate;
+});
+
 const firstDate = new Date('2020-01-01T00:00:00.000Z');
 const lastDate = new Date('2020-06-01T00:00:00.000Z');
 
