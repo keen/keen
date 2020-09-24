@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings } from '@keen.io/widgets';
-import { colors } from '@keen.io/colors';
 
 import { renderWidget, Widgets } from './render-widget';
 
@@ -10,12 +9,10 @@ import {
   extendWidgetSettings,
   prepareVisualization,
   validateOptions,
-  exportToSvg,
 } from './utils';
 
 import {
   Options,
-  ImageExportOptions,
   VisualizerWidgetSettings,
   VisualizationInput,
   ComponentSettings,
@@ -68,22 +65,6 @@ class Visualizer {
 
   private setWidgetSettings(): WidgetSettings {
     return extendWidgetSettings(this.widgetSettings, this.type);
-  }
-
-  exportImage(
-    exportOptions: ImageExportOptions = {
-      quality: 1,
-      backgroundColor: colors.white[500],
-    }
-  ) {
-    try {
-      exportToSvg({
-        ...exportOptions,
-        node: this.getContainerNode(),
-      });
-    } catch (err) {
-      console.error(err);
-    }
   }
 
   destroy() {
