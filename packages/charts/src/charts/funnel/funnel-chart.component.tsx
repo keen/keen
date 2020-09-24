@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Layout } from '@keen.io/ui-core';
+import { formatNumber } from '@keen.io/charts-utils';
 
 import { theme as defaultTheme } from '../../theme';
 
@@ -7,7 +8,6 @@ import FunnelStep from './funnel-step.component';
 import { FunnelContainer } from './funnel-chart.styles';
 
 import { generateFunnel } from './utils';
-import { formatNumber } from '../../utils/format.utils';
 
 import { CommonChartSettings } from '../../types';
 

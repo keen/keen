@@ -1,5 +1,5 @@
 import { timeFormat } from 'd3-time-format';
-import { TimePrecision } from '@keen.io/charts';
+import { TimePrecision } from '@keen.io/charts-utils';
 
 const DATE_FORMATS: Record<TimePrecision, string> = {
   minute: '%I:%M:%S %p',

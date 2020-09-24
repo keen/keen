@@ -1,6 +1,6 @@
-import { DataSelector, GroupMode, StackMode } from '../../../types';
+import { getFromPath } from '@keen.io/charts-utils';
 
-import { getFromPath } from '../../../utils/selectors.utils';
+import { DataSelector, GroupMode, StackMode } from '../../../types';
 
 export const getLabel = ({
   isPercentage,

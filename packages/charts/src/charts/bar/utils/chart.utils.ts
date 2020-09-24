@@ -2,23 +2,17 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { stack, stackOffsetDiverging } from 'd3-shape';
 
 import { Layout } from '@keen.io/ui-core';
-
-import { getKeysDifference } from '../../../utils/data.utils';
-import { calculateScaleDomain } from '../../../utils/scale.utils';
 import {
-  normalizeToPercent,
+  calculateRange,
   calculateStackedRange,
-} from '../../../utils/data.utils';
-import { calculateRange } from '../../../utils/data';
+  calculateScaleDomain,
+  getKeysDifference,
+  transformToPercent,
+  ScaleSettings,
+} from '@keen.io/charts-utils';
 
 import { Bar } from '../types';
-import {
-  Dimension,
-  Margins,
-  ScaleSettings,
-  GroupMode,
-  StackMode,
-} from '../../../types';
+import { Dimension, Margins, GroupMode, StackMode } from '../../../types';
 
 type Options = {
   data: Record<string, any>[];
@@ -197,7 +191,7 @@ export const generateHorizontalStackedBars = ({
   const filteredKeys = getKeysDifference(keys, disabledKeys);
 
   const normalizedData =
-    stackMode === 'normal' ? data : normalizeToPercent(data, filteredKeys);
+    stackMode === 'normal' ? data : transformToPercent(data, filteredKeys);
 
   const stackedData = stack()
     .keys(filteredKeys)
@@ -268,7 +262,7 @@ export const generateVerticalStackedBars = ({
   const filteredKeys = getKeysDifference(keys, disabledKeys);
 
   const normalizedData =
-    stackMode === 'normal' ? data : normalizeToPercent(data, filteredKeys);
+    stackMode === 'normal' ? data : transformToPercent(data, filteredKeys);
 
   const stackedData = stack()
     .keys(filteredKeys)

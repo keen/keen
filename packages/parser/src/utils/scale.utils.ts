@@ -1,4 +1,4 @@
-import { ScaleSettings } from '@keen.io/charts';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { getPrecisionForInterval } from './time.utils';
 import { createLabelFormatter } from './date.utils';

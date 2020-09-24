@@ -1,11 +1,6 @@
 import { scaleBand, scaleLinear, scaleUtc } from 'd3-scale';
 
-import {
-  generateTicks,
-  getScaleValues,
-  getCenterPosition,
-  EDGE_TICK_ALIGN,
-} from './scale.utils';
+import { generateTicks, EDGE_TICK_ALIGN } from './scale.utils';
 
 import { Orientation } from '../types';
 
@@ -22,96 +17,6 @@ describe('@keen.io/charts - scale utils', () => {
 
   afterAll(() => {
     global.Date = RealDate;
-  });
-
-  describe('getScaleValues()', () => {
-    const firstDate = new Date('2020-01-01T00:00:00.000Z');
-    const lastDate = new Date('2020-06-01T00:00:00.000Z');
-
-    it('should return domain for band scale', () => {
-      const scale = scaleBand().domain(domain);
-
-      expect(getScaleValues(scale)).toEqual(domain);
-    });
-
-    it('should return ticks for linear scale', () => {
-      const scale = scaleLinear()
-        .range([0, 10])
-        .domain([0, 10]);
-
-      expect(getScaleValues(scale)).toMatchSnapshot();
-    });
-
-    it('should apply "timeModifier" for month precision', () => {
-      const scale = scaleUtc()
-        .range([0, 10])
-        .domain([firstDate, lastDate]);
-
-      expect(
-        getScaleValues(scale, { type: 'time', precision: 'month' })
-      ).toMatchSnapshot();
-    });
-
-    it('should apply "timeModifier" for minute precision', () => {
-      const scale = scaleUtc()
-        .range([0, 10])
-        .domain([
-          new Date('2020-01-06T15:00:00.000Z'),
-          new Date('2020-01-06T15:10:00.000Z'),
-        ]);
-
-      expect(
-        getScaleValues(scale, { type: 'time', precision: 'minute' })
-      ).toMatchSnapshot();
-    });
-
-    it('should apply "timeModifier" for week precision', () => {
-      const scale = scaleUtc()
-        .range([0, 10])
-        .domain([
-          new Date('2020-01-01T15:00:00.000Z'),
-          new Date('2020-01-30T15:00:00.000Z'),
-        ]);
-
-      expect(
-        getScaleValues(scale, { type: 'time', precision: 'week' })
-      ).toMatchSnapshot();
-    });
-
-    it('should apply "timeModifier" for year precision', () => {
-      const scale = scaleUtc()
-        .range([0, 10])
-        .domain([
-          new Date('2015-01-01T00:00:00.000Z'),
-          new Date('2020-06-01T00:00:00.000Z'),
-        ]);
-
-      expect(
-        getScaleValues(scale, { type: 'time', precision: 'year' })
-      ).toMatchSnapshot();
-    });
-
-    it('should return ticks for UTC scale without applying time precision', () => {
-      const scale = scaleUtc()
-        .range([0, 10])
-        .domain([firstDate, lastDate]);
-
-      expect(getScaleValues(scale)).toMatchSnapshot();
-    });
-  });
-
-  describe('getCenterPosition()', () => {
-    it('should calculate center position for element in scale', () => {
-      const scale = scaleBand()
-        .range([0, 120])
-        .domain(domain);
-
-      const positionCalculator = getCenterPosition(scale);
-
-      expect(positionCalculator('Sales')).toEqual(20);
-      expect(positionCalculator('Marketing')).toEqual(60);
-      expect(positionCalculator('E-commerce')).toEqual(100);
-    });
   });
 
   describe('generateTicks()', () => {

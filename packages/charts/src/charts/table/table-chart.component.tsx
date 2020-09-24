@@ -2,13 +2,16 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import ColumnResizer from 'column-resizer';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TableRow, Tooltip, Text } from '@keen.io/ui-core';
+import {
+  getElementOffset,
+  hasContentOverflow,
+  copyToClipboard,
+} from '@keen.io/charts-utils';
 import { colors } from '@keen.io/colors';
 
 import HeaderRow from './header-row.component';
 
 import { generateHeader, generateTable, sortData } from './table.utils';
-import { getElementOffset, hasOverflow } from '../../utils/elements';
-import { copyToClipboard } from '../../utils/text';
 
 import {
   Container,
@@ -124,8 +127,8 @@ export const TableChart = ({
   }, [onResize, calculateMaxScroll]);
 
   useEffect(() => {
-    const hasContentOverflow = hasOverflow('horizontal', containerRef.current);
-    if (hasContentOverflow) {
+    const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
+    if (hasOverflow) {
       setOverflow(state => ({
         ...state,
         overflowRight: true,

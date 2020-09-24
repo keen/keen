@@ -5,6 +5,7 @@
     "outDir": "./dist"
   },
   "references": [
+    { "path": "../charts-utils" },
     { "path": "../colors" },
     { "path": "../icons" },
     { "path": "../ui-core" },

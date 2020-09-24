@@ -1,11 +1,11 @@
 import React, { FC, useMemo } from 'react';
 import { Typography } from '@keen.io/ui-core';
+import { getFromPath, ScaleSettings } from '@keen.io/charts-utils';
 
 import Correlation from './correlation.component';
-import { getFromPath } from '../../utils/selectors.utils';
 import { formatTooltipValue } from '../../utils/tooltip.utils';
 
-import { DataSelector, ScaleSettings } from '../../types';
+import { DataSelector } from '../../types';
 
 type Props = {
   data: Record<string, any>[];

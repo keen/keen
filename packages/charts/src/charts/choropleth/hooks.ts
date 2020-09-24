@@ -4,7 +4,7 @@ import { drag } from 'd3-drag';
 import { zoom } from 'd3-zoom';
 import { select, mouse, event } from 'd3-selection';
 
-import { calculateEulerAngles } from '../../utils/math.utils';
+import { calculateEulerAngles } from '@keen.io/charts-utils';
 
 import { ProjectionState } from './types';
 

@@ -232,20 +232,6 @@ export type TooltipState = {
   y: number;
 };
 
-export type TimePrecision =
-  | 'minute'
-  | 'hour'
-  | 'day'
-  | 'week'
-  | 'month'
-  | 'year';
-
-export type ScaleSettings = {
-  type: 'time' | 'band' | 'linear';
-  formatLabel?: (label: string | number | Date) => string | number;
-  precision?: TimePrecision;
-};
-
 export type Motion = {
   enabled: boolean;
 };

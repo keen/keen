@@ -2,6 +2,7 @@ import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateBlocks } from './heatmap-chart.utils';
 
@@ -14,7 +15,7 @@ import ShadowFilter from './shadow-filter.component';
 import { ChartBase, Axes } from '../../components';
 import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
-import { ScaleSettings, CommonChartSettings } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },

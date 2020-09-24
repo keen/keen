@@ -1,11 +1,6 @@
-import { calculateHypotenuse, calculateHypotenuseHeight } from './math.utils';
-import { formatNumber } from './format.utils';
-import { getFromPath } from './selectors.utils';
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
 import { getTooltipContent, formatTooltipValue } from './tooltip.utils';
 import { bubbleColorScale } from './scale.utils';
-
-import { getValues } from './data';
 
 import {
   generateCircularChart,
@@ -16,11 +11,6 @@ import {
 } from './circular-chart.utils';
 
 export {
-  calculateHypotenuse,
-  calculateHypotenuseHeight,
-  formatNumber,
-  getFromPath,
-  getValues,
   createArcTween,
   animateArcPath,
   getTooltipContent,
