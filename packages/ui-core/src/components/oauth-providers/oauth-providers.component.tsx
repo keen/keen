@@ -42,7 +42,10 @@ const OAuthProviders: FC<Props> = ({
             scope: googleOAuth.scope,
             include_granted_scopes: true,
             response_type: 'code',
-            state: JSON.stringify({ action, requestInitiatorUrl }),
+            state: JSON.stringify({
+              action,
+              request_initiator_url: requestInitiatorUrl,
+            }),
             client_id: googleOAuth.clientId,
             redirect_uri: `${callbackHandlerHost}/${googleOAuth.redirectUri}`,
           });
@@ -62,7 +65,10 @@ const OAuthProviders: FC<Props> = ({
           const gitHubOauthParams = serializeToQuery({
             scope: gitHubOAuth.scope,
             client_id: gitHubOAuth.clientId,
-            state: JSON.stringify({ action, requestInitiatorUrl }),
+            state: JSON.stringify({
+              action,
+              request_initiator_url: requestInitiatorUrl,
+            }),
           });
 
           window.location.replace(`${gitHubOAuth.url}?${gitHubOauthParams}`);
