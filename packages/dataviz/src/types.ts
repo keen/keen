@@ -50,8 +50,3 @@ export type Options = {
   widget?: Partial<VisualizerWidgetSettings>;
   settings?: ComponentSettings;
 };
-
-export type ImageExportOptions = {
-  backgroundColor: string;
-  quality: number;
-};
