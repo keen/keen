@@ -19,7 +19,7 @@ describe('@keen.io/parser - parseQuery()', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it.only('should create structure for select_unique analysis', () => {
+  it('should create structure for select_unique analysis', () => {
     const result = parseQuery(selectUnique);
 
     expect(result).toMatchSnapshot();
