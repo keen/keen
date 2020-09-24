@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should redirect to Github OAuth page 1`] = `"gitHubUrl?scope=gitHubScope&client_id=gitHubClientId&state=%7B%22action%22%3A%22login%22%2C%22requestInitiatorUrl%22%3A%22requestInitiatorUrl%22%7D"`;
+exports[`should redirect to Github OAuth page 1`] = `"gitHubUrl?scope=gitHubScope&client_id=gitHubClientId&state=%7B%22action%22%3A%22login%22%2C%22request_initiator_url%22%3A%22requestInitiatorUrl%22%7D"`;
 
-exports[`should redirect to Google OAuth page 1`] = `"googleUrl?scope=googleScope&include_granted_scopes=true&response_type=code&state=%7B%22action%22%3A%22login%22%2C%22requestInitiatorUrl%22%3A%22requestInitiatorUrl%22%7D&client_id=googleClientId&redirect_uri=callbackHandlerHost%2FgoogleOAuthRedirectUri"`;
+exports[`should redirect to Google OAuth page 1`] = `"googleUrl?scope=googleScope&include_granted_scopes=true&response_type=code&state=%7B%22action%22%3A%22login%22%2C%22request_initiator_url%22%3A%22requestInitiatorUrl%22%7D&client_id=googleClientId&redirect_uri=callbackHandlerHost%2FgoogleOAuthRedirectUri"`;
