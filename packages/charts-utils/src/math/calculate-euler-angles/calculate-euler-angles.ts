@@ -11,7 +11,7 @@ import { Vector, Quaternion, EulerAngles } from '../../types';
  * Used by choropleth three dimension visualizations.
  *
  * @param v0 - vector
- * @param v0 - vector
+ * @param v1 - vector
  * @return euler angles
  *
  */

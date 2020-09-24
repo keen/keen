@@ -4,7 +4,7 @@ import { CartesianCords } from '../../types';
  * Calculates cross based on provided cartesian coordinates.
  *
  * @param v0 - cartesian coordinates
- * @param v0 - cartesian coordinates
+ * @param v1 - cartesian coordinates
  * @return cartesian cords for cross
  *
  */
