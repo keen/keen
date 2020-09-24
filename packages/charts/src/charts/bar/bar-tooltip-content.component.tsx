@@ -15,7 +15,7 @@ import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
   /** Data series */
-  data: object[];
+  data: Record<string, any>[];
   /** Collection of all keys used from data series */
   keys: string[];
   /** Collection of disabled keys */

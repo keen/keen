@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { Separator } from './divider.styles';
 
-const DropdownMenuSeparator: FC<{}> = () => <Separator />;
+const DropdownMenuSeparator = () => <Separator />;
 
 export default DropdownMenuSeparator;

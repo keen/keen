@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 
 export const analysisConfig = {
   projectId: '5e429d77c9e77c0001a35cf1',

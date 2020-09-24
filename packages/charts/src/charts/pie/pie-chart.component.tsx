@@ -21,7 +21,7 @@ import { CommonChartSettings } from '../../types';
 
 export type Props = {
   /** Chart data */
-  data: object[];
+  data: Record<string, any>[];
   /** Name of data object property used to create series */
   labelSelector?: string;
   /** Keys picked from data object used to genrate slices */

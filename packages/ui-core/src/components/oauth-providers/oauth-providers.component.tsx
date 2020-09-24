@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, { FC } from 'react';
 import { GoogleIcon, GitHubIcon } from './icons';
 

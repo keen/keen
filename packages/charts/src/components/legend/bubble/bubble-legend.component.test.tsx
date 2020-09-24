@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import BubbleLegend from './bubble-legend.component';
 
-const setup = (overProps: object = {}) => {
+const setup = (overProps: Record<string, any> = {}) => {
   const props = {
     typography: {
       fontSize: 12,

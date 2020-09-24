@@ -17,7 +17,7 @@ import { CommonChartSettings } from '../../types';
 
 export type Props = {
   /** Chart data */
-  data: object[];
+  data: Record<string, any>[];
   /** Name of data object property used to create labels */
   labelSelector: string;
   /** Key used to calculate the gauge progress */

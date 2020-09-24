@@ -41,7 +41,7 @@ export type ComponentSettings =
   | HeatmapChartSettings
   | ChoroplethChartSettings
   | BubbleChartSettings
-  | {};
+  | Record<string, any>;
 
 export type Options = {
   container: HTMLElement | string;

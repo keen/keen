@@ -9,7 +9,7 @@ import { DataSelector } from '../../types';
 import { ChartContext, ChartContextType } from '../../contexts';
 
 type Props = {
-  data: object[];
+  data: Record<string, any>[];
   selectors: { selector: DataSelector; color: string }[];
 };
 

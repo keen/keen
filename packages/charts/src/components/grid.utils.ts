@@ -61,6 +61,12 @@ export const calculateHorizontalLines = (
   },
 ];
 
+type Center = (value: string) => number;
+type CalculatePosition =
+  | ScaleLinear<number, number>
+  | ScaleTime<number, number>
+  | Center;
+
 export const generateGridLines = ({
   scale,
   scaleSettings,
@@ -69,20 +75,24 @@ export const generateGridLines = ({
   axisType,
 }: Options) => {
   let closeLines = false;
-  let calculatePosition: Function;
+  let calculatePosition: CalculatePosition;
   const values = getScaleValues(scale, scaleSettings);
 
   if ('bandwidth' in scale) {
-    calculatePosition = getScaleCenterPosition(scale);
+    calculatePosition = getScaleCenterPosition(scale) as (
+      value: string
+    ) => number;
     closeLines = true;
   } else {
-    calculatePosition = scale;
+    calculatePosition = scale as
+      | ScaleLinear<number, number>
+      | ScaleTime<number, number>;
   }
 
   const lines: Line[] = [];
 
   if (axisType === AxisType.X) {
-    values.forEach((value: string | number | Date) => {
+    values.forEach((value: any) => {
       const y1 = 0 + margins.top;
       const y2 = dimension.height - margins.bottom;
       const x = calculatePosition(value);
@@ -99,7 +109,7 @@ export const generateGridLines = ({
 
     closeLines && lines.push(...calculateVerticalLines(dimension, margins));
   } else {
-    values.forEach((value: string | number | Date) => {
+    values.forEach((value: any) => {
       const y = calculatePosition(value);
       const isZero = value === 0;
 

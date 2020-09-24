@@ -10,7 +10,7 @@
  *
  */
 const calculateStackedRange = (
-  data: object[],
+  data: Record<string, any>[],
   minValue: number | 'auto',
   maxValue: number | 'auto',
   keys: string[]

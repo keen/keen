@@ -16,7 +16,7 @@ import { CurveType } from './types';
 
 export type Props = {
   /** chart data */
-  data: object[];
+  data: Record<string, any>[];
   /** Name of data object property used to create labels on axis */
   labelSelector: string;
   /** Minimum value for axis */

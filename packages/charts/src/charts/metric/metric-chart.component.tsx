@@ -44,7 +44,7 @@ export const increaseMotion = {
 
 export type Props = {
   /** Chart data */
-  data: object[];
+  data: Record<string, any>[];
   /** Caption for describing metric */
   caption?: string;
   /** Name of data object property used to create label */
