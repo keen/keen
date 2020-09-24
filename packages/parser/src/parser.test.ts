@@ -9,11 +9,18 @@ import {
   countAnalysisGroupByWithInterval,
   countAnalysisDoubleGroupBy,
   funnelAnalysis,
+  selectUnique,
 } from './api.fixtures';
 
 describe('@keen.io/parser - parseQuery()', () => {
   it('should create structure for "funnel" analysis', () => {
     const result = parseQuery(funnelAnalysis);
+
+    expect(result).toMatchSnapshot();
+  });
+
+  it.only('should create structure for select_unique analysis', () => {
+    const result = parseQuery(selectUnique);
 
     expect(result).toMatchSnapshot();
   });
