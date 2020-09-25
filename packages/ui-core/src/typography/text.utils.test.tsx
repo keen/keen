@@ -11,7 +11,7 @@ jest.mock('./font-loader', () => ({
 
 describe('@keen/ui-core - <Text /> utils', () => {
   describe('useFontLoader', () => {
-    const testHook = (runHook: Function) => {
+    const testHook = (runHook: () => any) => {
       const HookWrapper = () => <div hook-result={runHook()} />;
 
       const wrapper = mount(<HookWrapper />);

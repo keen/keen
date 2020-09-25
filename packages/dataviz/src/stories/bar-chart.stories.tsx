@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks, @typescript-eslint/camelcase */
+/* eslint-disable react-hooks/rules-of-hooks, @typescript-eslint/naming-convention */
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 import { colors } from '@keen.io/colors';

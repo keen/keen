@@ -1,4 +1,4 @@
 module.exports = {
   rootDir: '.',
-  projects: ['<rootDir>/packages/*/jest.config.js'],
+  projects: ['<rootDir>/packages/*/jest.config.js']
 };

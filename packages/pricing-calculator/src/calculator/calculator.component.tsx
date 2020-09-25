@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '@keen.io/colors';
 import { IntervalSlider, Ruler } from '@keen.io/ui-core';
@@ -33,7 +33,7 @@ import { getCalculatorState } from './selectors';
 
 import { convertPositionToValue } from '../utils';
 
-const Calculator: FC<{}> = () => {
+const Calculator = () => {
   const dispatch = useDispatch();
   const device = useSelector(getDevice);
   const { events, queries } = useSelector(getCalculatorState);

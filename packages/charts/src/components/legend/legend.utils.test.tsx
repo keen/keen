@@ -6,7 +6,7 @@ import { useRenderMode } from './legend.utils';
 
 describe('@keen.io/charts - <Legend /> utils', () => {
   describe('useRenderMode()', () => {
-    const testHook = (runHook: Function) => {
+    const testHook = (runHook: any) => {
       const HookWrapper = () => <div hook-result={runHook()} />;
 
       const wrapper = mount(<HookWrapper />);

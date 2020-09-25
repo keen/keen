@@ -9,7 +9,7 @@ export type ChartContextType = {
   margins: Margins;
   xScaleSettings: ScaleSettings;
   yScaleSettings: ScaleSettings;
-  data: object[];
+  data: Record<string, any>[];
 };
 
 const ChartContext = React.createContext({});

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-as-const */
 import { TextVariant, Typography } from './types';
 
 export const textVariants: Record<TextVariant, Partial<Typography>> = {
