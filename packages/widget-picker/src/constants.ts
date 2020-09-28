@@ -153,7 +153,7 @@ export const WIDGETS: Widget[] = [
     defaultWidgetSettings: {},
   },
   {
-    id: 'bar-vertical',
+    id: 'bar',
     icon: 'bar-widget-vertical',
     widget: 'bar',
     chartOptions: [MODE_OPTIONS],
@@ -166,7 +166,7 @@ export const WIDGETS: Widget[] = [
     defaultWidgetSettings: {},
   },
   {
-    id: 'bar-horizontal',
+    id: 'bar',
     icon: 'bar-widget-horizontal',
     widget: 'bar',
     chartOptions: [MODE_OPTIONS],
@@ -234,7 +234,7 @@ export const WIDGETS: Widget[] = [
   },
   {
     id: 'choropleth',
-    icon: 'close',
+    icon: 'choropleth-widget',
     widget: 'choropleth',
     widgetOptions: [GEOGRAPHIC_AREA_OPTIONS],
     isActive: widget => widget === 'choropleth',

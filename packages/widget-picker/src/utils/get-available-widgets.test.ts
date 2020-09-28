@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import { getAvailableWidgets } from './get-available-widgets';
 
-test('return widgets for extraction', () => {
+test('returns widgets for extraction', () => {
   const query: Record<string, any> = {
     analysis_type: 'extraction',
     event_collection: 'Clicks',
@@ -17,7 +16,7 @@ test('return widgets for extraction', () => {
   `);
 });
 
-test('return widgets for funnel', () => {
+test('returns widgets for funnel', () => {
   const query: Record<string, any> = {
     analysis_type: 'funnel',
     event_collection: 'Clicks',
@@ -38,7 +37,7 @@ test('return widgets for funnel', () => {
   `);
 });
 
-test('return widgets for interval', () => {
+test('returns widgets for interval', () => {
   const query: Record<string, any> = {
     analysis_type: 'count',
     event_collection: 'Clicks',

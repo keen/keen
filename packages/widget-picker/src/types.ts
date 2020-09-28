@@ -34,7 +34,7 @@ export type OptionsGroup = {
 };
 
 export type Widget = {
-  id: string;
+  id: PickerWidgets;
   icon: IconType;
   widget: PickerWidgets;
   defaultChartSettings: ChartSettings;

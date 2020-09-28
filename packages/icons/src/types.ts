@@ -21,6 +21,7 @@ export type IconType =
   | 'caret-left'
   | 'caret-right'
   | 'corner-tick'
+  | 'choropleth-widget'
   | 'question-mark'
   | 'cursor-solid'
   | 'cursor-outline'

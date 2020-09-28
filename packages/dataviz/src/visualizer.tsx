@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
-import { colors } from '@keen.io/colors';
 
 import { renderWidget } from './render-widget';
 

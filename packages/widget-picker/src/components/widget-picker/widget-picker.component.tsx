@@ -43,20 +43,26 @@ export const WidgetPicker: FC<Props> = ({
   disabledWidgetOptions = [],
 }) => (
   <Container>
-    {WIDGETS.filter(({ widget }) => widgets.includes(widget)).map(
-      ({
-        id,
-        icon,
-        widget,
-        defaultChartSettings,
-        defaultWidgetSettings,
-        chartOptions,
-        widgetOptions,
-        isActive,
-      }) => {
+    {WIDGETS.filter(({ id }) => widgets.includes(id)).map(
+      (
+        {
+          id,
+          icon,
+          widget,
+          defaultChartSettings,
+          defaultWidgetSettings,
+          chartOptions,
+          widgetOptions,
+          isActive,
+        },
+        idx
+      ) => {
         const isActiveWidget = isActive(currentWidget, chartSettings);
         return (
-          <WidgetContainer key={id} data-testid={`${id}-widget-container`}>
+          <WidgetContainer
+            key={`${id}-${idx}`}
+            data-testid={`${id}-widget-container`}
+          >
             <WidgetItem
               icon={icon}
               hasOptions={

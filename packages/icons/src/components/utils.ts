@@ -12,6 +12,7 @@ import CaretUp from './caret-up.component';
 import CaretDown from './caret-down.component';
 import Close from './close.component';
 import CornerTick from './corner-tick.component';
+import ChoroplethWidget from './choropleth-widget.component';
 import DonutWidget from './donut-widget.component';
 import QuestionMark from './question-mark.component';
 import EyeSolid from './eye-solid.component';
@@ -80,6 +81,8 @@ export const getIcon = (type: IconType) => {
       return Check;
     case 'close':
       return Close;
+    case 'choropleth-widget':
+      return ChoroplethWidget;
     case 'donut-widget':
       return DonutWidget;
     case 'line':

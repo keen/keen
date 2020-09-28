@@ -7,6 +7,10 @@ export const getAvailableWidgets = (
     return ['table', 'json'];
   }
 
+  if (query.analysis_type === 'select_unique') {
+    return ['table', 'json', 'table'];
+  }
+
   if (query.analysis_type === 'funnel') {
     return ['table', 'json', 'bar', 'area', 'line', 'funnel', 'table'];
   }

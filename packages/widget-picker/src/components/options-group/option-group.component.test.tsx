@@ -49,3 +49,13 @@ test('calls "onClick" handler', () => {
   fireEvent.click(element);
   expect(props.onClick).toHaveBeenCalled();
 });
+
+test('renders group title', () => {
+  const {
+    wrapper: { getByText },
+    props,
+  } = render();
+  const element = getByText(props.title);
+
+  expect(element).toBeInTheDocument();
+});
