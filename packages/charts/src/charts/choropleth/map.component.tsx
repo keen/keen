@@ -60,8 +60,6 @@ export const Map: FC<Props> = ({
   } = useContext(ChartContext) as ChartContextType;
   const { features } = topology;
 
-  console.log(geoData, 'sa');
-
   return (
     <>
       {sphereSettings.enabled && (
