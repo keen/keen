@@ -37,7 +37,7 @@ export const MotionChartSettings = styled(motion.div)`
 
   position: absolute;
   top: 0;
-  transform: translateX(100%);
+  right: 0;
 `;
 
 export const SettingsContainer = styled.div`

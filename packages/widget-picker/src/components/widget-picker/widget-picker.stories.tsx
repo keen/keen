@@ -35,7 +35,6 @@ export const basic = () => {
         setWidget(widget);
         setChartSettings(chartSettings);
         setWidgetSettings(widgetSettings);
-        console.log(widget, chartSettings, widgetSettings);
       }}
     />
   );

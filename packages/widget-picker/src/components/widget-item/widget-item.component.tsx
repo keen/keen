@@ -25,9 +25,9 @@ type Props = {
 };
 
 const settingsMotion = {
-  initial: { right: -15, opacity: 0 },
-  animate: { right: -3, opacity: 1 },
-  exit: { right: -30, opacity: 0 },
+  initial: { transform: `translateX(calc(100% + 15px))`, opacity: 0 },
+  animate: { transform: `translateX(calc(100% + 3px))`, opacity: 1 },
+  exit: { transform: `translateX(calc(100% + 30px))`, opacity: 0 },
 };
 
 const WidgetItem: FC<Props> = ({
