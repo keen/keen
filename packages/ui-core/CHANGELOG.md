@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.1...@keen.io/ui-core@2.3.2) (2020-09-28)
+
+
+### Bug Fixes
+
+* 🐛 fix icon overflow in IE11 ([4b1555b](https://github.com/keen/keen/commit/4b1555b0b7042b7327a47fcade51ca0bd86ef1d7))
+
+
+
+
+
 ## [2.3.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.0...@keen.io/ui-core@2.3.1) (2020-09-24)
 
 **Note:** Version bump only for package @keen.io/ui-core

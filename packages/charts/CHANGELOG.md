@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/keen/keen/compare/@keen.io/charts@2.1.4...@keen.io/charts@2.2.0) (2020-09-28)
+
+
+### Features
+
+* 🎸 widget picker component ([4a77ac7](https://github.com/keen/keen/commit/4a77ac70627baff2137cb7ffca1ee16dea48fc69))
+
+
+
+
+
 ## [2.1.4](https://github.com/keen/keen/compare/@keen.io/charts@2.1.3...@keen.io/charts@2.1.4) (2020-09-24)
 
 **Note:** Version bump only for package @keen.io/charts

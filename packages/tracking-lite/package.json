@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/tracking-lite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Light version of tracking for Google Tag manager",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
