@@ -12,6 +12,7 @@ export const IconSocket = styled.div`
   margin-right: 7px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 `;
 
 export const Item = styled.li<{
