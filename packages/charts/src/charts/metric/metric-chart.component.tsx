@@ -14,11 +14,12 @@ import {
   Layout,
 } from './metric-chart.styles';
 
-import { generateMetric, MetricType } from './utils';
+import { generateMetric } from './utils';
 import { createMargins } from '../../utils/element.utils';
 
 import { theme as defaultTheme } from '../../theme';
 
+import { MetricType } from './types';
 import { CommonChartSettings } from '../../types';
 
 export const textMotion = {

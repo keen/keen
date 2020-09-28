@@ -15,6 +15,7 @@ import {
   TableChartWidget,
   LegendSettings,
   BubbleWidgetLegendSettings,
+  Widgets,
 } from '@keen.io/widgets';
 import { ScaleSettings } from '@keen.io/charts-utils';
 import { colors } from '@keen.io/colors';
@@ -24,20 +25,6 @@ import { KEEN_KEY } from '@keen.io/parser';
 import { DEFAULT_TIME_PRECISION } from './constants';
 
 import { ComponentSettings } from './types';
-
-export type Widgets =
-  | 'bar'
-  | 'line'
-  | 'area'
-  | 'pie'
-  | 'donut'
-  | 'gauge'
-  | 'metric'
-  | 'funnel'
-  | 'choropleth'
-  | 'bubble'
-  | 'heatmap'
-  | 'table';
 
 type Options = {
   type: Widgets;

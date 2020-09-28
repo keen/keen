@@ -1,6 +1,6 @@
 import { getFromPath } from '@keen.io/charts-utils';
 
-export type MetricType = 'difference' | 'comparison' | 'simple';
+import { MetricType } from '../types';
 
 type Options = {
   data: Readonly<Record<string, any>[]>;
