@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import Text from './text.component';
 
-const setup = (overProps: object = {}) => {
+const setup = (overProps: Record<string, any> = {}) => {
   const props = {
     ...overProps,
     dx: 0,

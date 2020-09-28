@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Calculator } from '../calculator';
@@ -9,7 +9,7 @@ import { getDevice } from './selectors';
 
 import { Layout, Content, OffsetCard, Aside } from './app.styles';
 
-const App: FC<{}> = () => {
+const App = () => {
   const device = useSelector(getDevice);
 
   return (

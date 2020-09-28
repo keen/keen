@@ -12,9 +12,7 @@ import {
 } from '@keen.io/charts';
 import { Query, Step, AnalysisResult } from '@keen.io/parser';
 import { CardSettings } from '@keen.io/ui-core';
-import { TextSettings, LegendSettings } from '@keen.io/widgets';
-
-import { Widgets } from './render-widget';
+import { TextSettings, LegendSettings, Widgets } from '@keen.io/widgets';
 
 export type VisualizationInput = Partial<{
   query: Query;
@@ -41,7 +39,7 @@ export type ComponentSettings =
   | HeatmapChartSettings
   | ChoroplethChartSettings
   | BubbleChartSettings
-  | {};
+  | Record<string, any>;
 
 export type Options = {
   container: HTMLElement | string;

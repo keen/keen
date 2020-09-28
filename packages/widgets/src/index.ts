@@ -20,6 +20,7 @@ import {
 
 import {
   LegendSettings,
+  Widgets,
   WidgetSettings,
   TextSettings,
   BubbleWidgetLegendSettings,
@@ -48,4 +49,5 @@ export {
   TableChartWidget,
   ErrorWidget,
   BubbleWidgetLegendSettings,
+  Widgets,
 };

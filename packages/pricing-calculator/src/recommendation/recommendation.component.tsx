@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from '@keen.io/ui-core';
 
@@ -19,7 +19,7 @@ import { plansConfig } from '../plans.config';
 
 import { calculateCost } from '../utils';
 
-const Recommendation: FC<{}> = () => {
+const Recommendation = () => {
   const planId = useSelector(getCurrentPlan);
   const { queries, events, services } = useSelector(getCalculatorState);
   const { basePrice } = plansConfig[planId];

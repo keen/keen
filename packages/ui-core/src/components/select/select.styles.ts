@@ -9,29 +9,29 @@ export const Indicator = styled.div`
 `;
 
 const commonStyles = {
-  noOptionsMessage: (provided: object) => ({
+  noOptionsMessage: (provided: Record<string, any>) => ({
     ...provided,
     fontFamily: "'Lato Regular', sans-serif",
   }),
-  option: (provided: object) => ({
+  option: (provided: Record<string, any>) => ({
     ...provided,
     fontSize: '16px',
     fontFamily: "'Lato Regular', sans-serif",
   }),
-  singleValue: (provided: object) => ({
+  singleValue: (provided: Record<string, any>) => ({
     ...provided,
     fontSize: '16px',
     padding: '0 8px',
     fontFamily: "'Lato Regular', sans-serif",
   }),
-  placeholder: (provided: object) => ({
+  placeholder: (provided: Record<string, any>) => ({
     ...provided,
     fontSize: '16px',
     padding: '0 8px',
     color: '#ccc',
     fontFamily: "'Lato Regular', sans-serif",
   }),
-  input: (provided: object) => ({
+  input: (provided: Record<string, any>) => ({
     ...provided,
     margin: '0 8px',
     fontFamily: "'Lato Regular', sans-serif",
@@ -42,7 +42,7 @@ export const createStyles = (variant: SelectVariant, hasError: boolean) =>
   variant === 'outline'
     ? {
         control: (
-          provided: object,
+          provided: Record<string, any>,
           {
             isFocused,
           }: {
@@ -68,7 +68,7 @@ export const createStyles = (variant: SelectVariant, hasError: boolean) =>
       }
     : {
         control: (
-          provided: object,
+          provided: Record<string, any>,
           {
             isFocused,
           }: {

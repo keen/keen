@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { AtomicResult, Step } from '../types';
 
 import { DEFAULT_NAME, KEEN_KEY, KEEN_VALUE } from '../constants';

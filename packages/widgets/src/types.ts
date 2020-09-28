@@ -6,6 +6,20 @@ import {
   CardSettings,
 } from '@keen.io/ui-core';
 
+export type Widgets =
+  | 'bar'
+  | 'line'
+  | 'area'
+  | 'pie'
+  | 'donut'
+  | 'gauge'
+  | 'metric'
+  | 'funnel'
+  | 'choropleth'
+  | 'bubble'
+  | 'heatmap'
+  | 'table';
+
 export type LegendSettings = {
   enabled: boolean;
   position: Position;

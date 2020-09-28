@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { mapKeys } from './keys.utils';
 
 describe('@keen.io/parser - mappings', () => {
