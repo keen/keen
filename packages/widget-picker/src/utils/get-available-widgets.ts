@@ -12,15 +12,15 @@ export const getAvailableWidgets = (
   }
 
   if (query.analysis_type === 'funnel') {
-    return ['table', 'json', 'bar', 'area', 'line', 'funnel', 'table'];
+    return ['funnel', 'table', 'json', 'bar', 'table'];
   }
 
   if (query.group_by && !query.interval) {
-    return ['table', 'json', 'bar', 'pie', 'donut', 'heatmap', 'choropleth'];
+    return ['bar', 'table', 'json', 'pie', 'donut', 'heatmap', 'choropleth'];
   }
 
   if (query.interval) {
-    return ['table', 'json', 'metric', 'bar', 'area', 'line', 'heatmap'];
+    return ['line', 'table', 'json', 'metric', 'bar', 'area', 'heatmap'];
   }
 
   return ['table', 'json', 'metric'];

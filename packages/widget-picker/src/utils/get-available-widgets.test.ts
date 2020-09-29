@@ -26,12 +26,10 @@ test('returns widgets for funnel', () => {
   const result = getAvailableWidgets(query);
   expect(result).toMatchInlineSnapshot(`
     Array [
+      "funnel",
       "table",
       "json",
       "bar",
-      "area",
-      "line",
-      "funnel",
       "table",
     ]
   `);
@@ -48,12 +46,12 @@ test('returns widgets for interval', () => {
   const result = getAvailableWidgets(query);
   expect(result).toMatchInlineSnapshot(`
     Array [
+      "line",
       "table",
       "json",
       "metric",
       "bar",
       "area",
-      "line",
       "heatmap",
     ]
   `);
@@ -70,9 +68,9 @@ test('returns widgets for groupBy', () => {
   const result = getAvailableWidgets(query);
   expect(result).toMatchInlineSnapshot(`
     Array [
+      "bar",
       "table",
       "json",
-      "bar",
       "pie",
       "donut",
       "heatmap",
