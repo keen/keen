@@ -20,8 +20,8 @@ export const getAvailableWidgets = (
   }
 
   if (query.interval) {
-    return ['table', 'json', 'bar', 'area', 'line', 'heatmap'];
+    return ['table', 'json', 'metric', 'bar', 'area', 'line', 'heatmap'];
   }
 
-  return ['table', 'json'];
+  return ['table', 'json', 'metric'];
 };
