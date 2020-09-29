@@ -50,6 +50,7 @@ test('returns widgets for interval', () => {
     Array [
       "table",
       "json",
+      "metric",
       "bar",
       "area",
       "line",
@@ -92,6 +93,7 @@ test('fallbacks to default widgets', () => {
     Array [
       "table",
       "json",
+      "metric",
     ]
   `);
 });
