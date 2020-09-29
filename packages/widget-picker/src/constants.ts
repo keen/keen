@@ -228,7 +228,6 @@ export const WIDGETS: Widget[] = [
     id: 'funnel',
     icon: 'funnel-widget-vertical',
     widget: 'funnel',
-    chartOptions: [],
     isActive: (widget, { layout }: ChartSettings) =>
       widget === 'funnel' && layout === 'vertical',
     defaultChartSettings: {
@@ -240,7 +239,6 @@ export const WIDGETS: Widget[] = [
     id: 'funnel',
     icon: 'funnel-widget-horizontal',
     widget: 'funnel',
-    chartOptions: [],
     isActive: (widget, { layout }: ChartSettings) =>
       widget === 'funnel' && layout === 'horizontal',
     defaultChartSettings: {
