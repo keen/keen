@@ -231,17 +231,21 @@ export const WIDGETS: Widget[] = [
     chartOptions: [],
     isActive: (widget, { layout }: ChartSettings) =>
       widget === 'funnel' && layout === 'vertical',
-    defaultChartSettings: {},
+    defaultChartSettings: {
+      layout: 'vertical',
+    },
     defaultWidgetSettings: {},
   },
   {
     id: 'funnel',
-    icon: 'funnel-widget-vertical',
+    icon: 'funnel-widget-horizontal',
     widget: 'funnel',
     chartOptions: [],
     isActive: (widget, { layout }: ChartSettings) =>
-      widget === 'funnel' && layout === 'vertical',
-    defaultChartSettings: {},
+      widget === 'funnel' && layout === 'horizontal',
+    defaultChartSettings: {
+      layout: 'horizontal',
+    },
     defaultWidgetSettings: {},
   },
   {
