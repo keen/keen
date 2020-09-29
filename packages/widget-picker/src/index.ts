@@ -1,10 +1,11 @@
 import { WidgetPicker } from './components';
 import { ChartSettings, WidgetSettings, PickerWidgets } from './types';
-import { getAvailableWidgets } from './utils';
+import { getAvailableWidgets, getSimpleOptionsWidgets } from './utils';
 
 export {
   WidgetPicker,
   getAvailableWidgets,
+  getSimpleOptionsWidgets,
   ChartSettings,
   WidgetSettings,
   PickerWidgets,
