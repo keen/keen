@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.1.2...@keen.io/widget-picker@1.2.0) (2020-09-29)
+
+
+### Features
+
+* 🎸 get widgets without advanced options ([d7bd85f](https://github.com/keen/keen/commit/d7bd85fdbc3574c440efe801c596a829943e99c4))
+
+
+
+
+
 ## [1.1.2](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.1.1...@keen.io/widget-picker@1.1.2) (2020-09-29)
 
 **Note:** Version bump only for package @keen.io/widget-picker
