@@ -48,6 +48,7 @@ import OAuthProviders, {
   OAuthUserAction,
   OAuthConfig,
 } from './oauth-providers';
+import Portal from './portal';
 
 export { ARROW_SIZE };
 
@@ -102,4 +103,5 @@ export {
   OAuthProviders,
   OAuthConfig,
   OAuthUserAction,
+  Portal,
 };
