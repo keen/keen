@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.0.10...@keen.io/storybook-utils@2.0.11) (2020-10-01)
+
+
+### Bug Fixes
+
+* 🐛 replace map effect for choropleth widget ([74787e6](https://github.com/keen/keen/commit/74787e6801ec2d73bdb25f6a7a86220fd6e16965))
+
+
+
+
+
 ## [2.0.10](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.0.9...@keen.io/storybook-utils@2.0.10) (2020-09-30)
 
 **Note:** Version bump only for package @keen.io/storybook-utils
