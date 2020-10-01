@@ -3,6 +3,7 @@ import { getGoogleFonts } from './storybook.utils';
 import typographyKnobs from './typography.knobs';
 import {
   geoProjectionKnobs,
+  geographicAreaKnobs,
   stackModeKnobs,
   groupModeKnobs,
   layoutKnobs,
@@ -31,6 +32,7 @@ export {
   typographyKnobs,
   stackModeKnobs,
   geoProjectionKnobs,
+  geographicAreaKnobs,
   groupModeKnobs,
   metricTypeKnobs,
   cardKnobs,
