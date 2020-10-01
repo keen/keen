@@ -4,6 +4,7 @@ import {
   cardKnobs,
   typographyKnobs,
   colorModeKnobs,
+  geographicAreaKnobs,
   geoProjectionKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
@@ -62,6 +63,7 @@ export const widget = () => (
         'Projection'
       )}
       projection={geoProjectionKnobs('Projection')}
+      geographicArea={geographicAreaKnobs('Projection')}
       projectionTranslation={[
         number('Translate X', 0, {}, 'Projection'),
         number('Translate Y', 0, {}, 'Projection'),

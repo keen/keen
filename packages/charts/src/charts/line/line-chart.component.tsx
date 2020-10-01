@@ -136,6 +136,7 @@ export const LineChart: FC<Props> = ({
         gradient={gradient}
         groupMode={groupMode}
         stackMode={stackMode}
+        areaMode={areaMode}
         stepMode={stepMode}
         onMarkMouseEnter={(e, selectors) => {
           if (tooltipSettings.enabled) {

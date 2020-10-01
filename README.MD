@@ -63,10 +63,6 @@ Set of icons used in `keen.io` projects.
 
 Set of parsers that are used internally to transform Keen API responses into `@keen.io/charts` friendly format.
 
-##### @keen.io/pricing-calculator
-
-Codebase for `keen.io` pricing calculator.
-
 ##### @keen.io/pubsub
 
 Implementation of `PubSub` messaging service.
