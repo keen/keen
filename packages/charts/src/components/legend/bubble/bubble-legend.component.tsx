@@ -16,6 +16,8 @@ import { CommonChartSettings } from '../../../types';
 
 import { isTruncated } from './bubble-legend.utils';
 
+import { TOOLTIP_MOTION } from '../../constants';
+
 type Props = {
   /** typography styles */
   typography: Typography;
@@ -30,11 +32,6 @@ type Props = {
     typography?: Typography;
   };
 } & CommonChartSettings;
-
-export const tooltipMotion = {
-  transition: { duration: 0.3 },
-  exit: { opacity: 0 },
-};
 
 export const BubbleLegend: FC<Props> = ({
   theme = defaultTheme,
@@ -70,7 +67,7 @@ export const BubbleLegend: FC<Props> = ({
       <AnimatePresence>
         {tooltipVisible && truncate && (
           <motion.div
-            {...tooltipMotion}
+            {...TOOLTIP_MOTION}
             initial={{ opacity: 0, x: tooltipPosition.x, y: tooltipPosition.y }}
             animate={{
               x: tooltipPosition.x,
