@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 
-import { Container } from './table-cell.styles';
+import { Container, StyledCell } from './table-cell.styles';
 
 import { Text } from '../../typography';
 
@@ -26,13 +26,11 @@ const TableCell: FC<Props> = ({ typography, onClick, value }) => {
   }, [value]);
 
   return (
-    <Container
-      data-testid="table-cell"
-      textAlignment={textAlignment}
-      onClick={e => onClick(e, value)}
-    >
-      <Text {...typography}>{value}</Text>
-    </Container>
+    <StyledCell data-testid="table-cell" onClick={e => onClick(e, value)}>
+      <Container textAlignment={textAlignment}>
+        <Text {...typography}>{value}</Text>
+      </Container>
+    </StyledCell>
   );
 };
 
