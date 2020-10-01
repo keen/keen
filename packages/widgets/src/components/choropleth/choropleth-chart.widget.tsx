@@ -87,7 +87,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
       )}
       <ContentSocket>
         {loading && <WidgetLoader />}
-        {topology && (
+        {topology && !loading && (
           <ResponsiveWrapper>
             {(width: number, height: number) => (
               <ChoroplethChart

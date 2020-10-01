@@ -1,5 +1,15 @@
 import { select } from '@storybook/addon-knobs';
 
+const geographicAreaOptions = {
+  world: 'world',
+  us: 'us',
+};
+
+export const geographicAreaKnobs = (
+  namespace: string,
+  defaultValue: string = geographicAreaOptions['world']
+) => select('Map', geographicAreaOptions, defaultValue, namespace);
+
 const geoProjectionOptions = {
   mercator: 'mercator',
   equalEarth: 'equalEarth',
