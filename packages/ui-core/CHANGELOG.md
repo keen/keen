@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.4.0...@keen.io/ui-core@2.4.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* 🐛 squashed table cells issue ([75dfbe5](https://github.com/keen/keen/commit/75dfbe5bde018caa99157c43f7f6165994003aa2))
+
+
+
+
+
 # [2.4.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.2...@keen.io/ui-core@2.4.0) (2020-09-30)
 
 
