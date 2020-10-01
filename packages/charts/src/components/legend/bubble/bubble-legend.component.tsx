@@ -16,7 +16,7 @@ import { CommonChartSettings } from '../../../types';
 
 import { isTruncated } from './bubble-legend.utils';
 
-import { TOOLTIP_MOTION } from '../../constants';
+import { TOOLTIP_MOTION } from '../../../constants';
 
 type Props = {
   /** typography styles */
