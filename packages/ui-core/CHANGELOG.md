@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.2...@keen.io/ui-core@2.4.0) (2020-09-30)
+
+
+### Features
+
+* 🎸 portal component ([3fc6347](https://github.com/keen/keen/commit/3fc6347011aa2fecce9404ecdd73610afecd0476))
+
+
+
+
+
+## [2.3.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.1...@keen.io/ui-core@2.3.2) (2020-09-28)
+
+
+### Bug Fixes
+
+* 🐛 fix icon overflow in IE11 ([4b1555b](https://github.com/keen/keen/commit/4b1555b0b7042b7327a47fcade51ca0bd86ef1d7))
+
+
+
+
+
+## [2.3.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.0...@keen.io/ui-core@2.3.1) (2020-09-24)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.3.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.2.0...@keen.io/ui-core@2.3.0) (2020-09-24)
+
+
+### Bug Fixes
+
+* 🐛 set default props for tooltip ([a1d427b](https://github.com/keen/keen/commit/a1d427ba58906301ce14e6e26fb685b3a864df67))
+
+
+### Features
+
+* 🎸 fullWidth option for buttons ([3c11f35](https://github.com/keen/keen/commit/3c11f35d0f961d146f543f454fc4921e466e19e7))
+
+
+
+
+
 # [2.2.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.1.1...@keen.io/ui-core@2.2.0) (2020-09-22)
 
 

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.0...@keen.io/widgets@2.1.1) (2020-09-30)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.1.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.0.10...@keen.io/widgets@2.1.0) (2020-09-28)
+
+
+### Features
+
+* 🎸 widget picker ([0c08cc9](https://github.com/keen/keen/commit/0c08cc992d999238710f960b600f3bf09b3d0ecb))
+
+
+
+
+
+## [2.0.10](https://github.com/keen/keen/compare/@keen.io/widgets@2.0.9...@keen.io/widgets@2.0.10) (2020-09-24)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.0.9](https://github.com/keen/keen/compare/@keen.io/widgets@2.0.8...@keen.io/widgets@2.0.9) (2020-09-24)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.0.8](https://github.com/keen/keen/compare/@keen.io/widgets@2.0.7...@keen.io/widgets@2.0.8) (2020-09-22)
 
 **Note:** Version bump only for package @keen.io/widgets
