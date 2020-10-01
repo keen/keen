@@ -14,7 +14,6 @@ import { HoverBar, hoverBarMotion } from '../../components';
 import { ChartContext, ChartContextType } from '../../contexts';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
-
 import { Mark, Line, CurveType, StepType, AreaType } from './types';
 
 import GradientFilter from './gradient-filter.component';
@@ -52,6 +51,7 @@ type Props = {
   curve: CurveType;
   groupMode?: GroupMode;
   stackMode?: StackMode;
+  areaMode: boolean;
   stepMode: boolean;
   areas?: AreaType[];
   gradient?: boolean;
@@ -69,6 +69,7 @@ const Lines = ({
   areas,
   curve,
   stackMode,
+  areaMode,
   groupMode,
   stepMode,
   gradient,
@@ -96,7 +97,9 @@ const Lines = ({
       {lines.map(({ key, d, color, strokeWidth }: Line, idx) => (
         <g key={key}>
           <motion.path
-            key={`${key}-${curve}-${stackMode}-${groupMode}`}
+            key={`${key}-${curve}-${stackMode}-${groupMode}-${
+              areaMode ? 'area' : 'line'
+            }`}
             d={d}
             variants={createLineMotion(color)}
             transition={lineTransition}
@@ -117,7 +120,7 @@ const Lines = ({
                 />
               )}
               <motion.path
-                key={`${key}-${curve}-${stackMode}-${groupMode}`}
+                key={`${key}-${curve}-${stackMode}-${groupMode}-area-gradient`}
                 d={areas[idx].d}
                 fill={gradient ? `url(#id-${color})` : color}
                 variants={createAreaMotion()}
