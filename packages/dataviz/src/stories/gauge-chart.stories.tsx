@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Gauge Chart/Dataviz',
+  title: 'Visualizations/Gauge Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Gauge charts created with @keen.io/dataviz library',
   },

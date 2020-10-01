@@ -16,7 +16,7 @@ import { theme as keenTheme } from '../../theme';
 import { Theme } from '../../types';
 
 export default {
-  title: 'Visualizations|Metric Chart|Plot',
+  title: 'Visualizations/Metric Chart',
   parameters: {
     component: MetricChart,
     componentSubtitle: 'Metric Chart plot',

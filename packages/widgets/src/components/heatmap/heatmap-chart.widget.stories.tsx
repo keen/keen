@@ -18,7 +18,7 @@ import { chartData } from './heatmap-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Heatmap Chart|Widget',
+  title: 'Visualizations/Heatmap Chart ',
   parameters: {
     component: HeatmapChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

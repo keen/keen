@@ -126,7 +126,7 @@ const tableChartData = [
 ];
 
 export default {
-  title: 'Chart List',
+  title: 'Others/Chart List',
 };
 
 export const barChartPlot = () => (

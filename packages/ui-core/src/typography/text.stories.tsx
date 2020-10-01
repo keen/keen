@@ -9,7 +9,7 @@ import { useFontLoader } from './text.utils';
 import { textVariants } from '../theme';
 
 export default {
-  title: 'Components|Typography',
+  title: 'Others/Components/Typography',
   decorators: [withKnobs],
 };
 
@@ -38,6 +38,4 @@ export const TextKnobs = () => {
   );
 };
 
-TextKnobs.story = {
-  name: 'Text',
-};
+TextKnobs.storyName = 'Text';

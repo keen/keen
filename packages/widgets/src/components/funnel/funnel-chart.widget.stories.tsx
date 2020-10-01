@@ -15,7 +15,7 @@ import { chartData } from './funnel-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Funnel Chart|Widget',
+  title: 'Visualizations/Funnel Chart ',
   parameters: {
     component: FunnelChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

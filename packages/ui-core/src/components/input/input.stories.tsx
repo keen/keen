@@ -5,7 +5,7 @@ import { colors } from '@keen.io/colors';
 import { Input } from './input.component';
 
 export default {
-  title: 'Components| Forms / Input',
+  title: 'Others/Components/ Forms / Input',
   parameters: {
     component: Input,
     componentSubtitle: 'Simple input component',
@@ -53,10 +53,8 @@ export const outlineWithIcon = () => (
   </div>
 );
 
-errorSolid.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Input with error state.',
-    },
+errorSolid.parameters = {
+  docs: {
+    storyDescription: 'Input with error state.',
   },
 };

@@ -4,7 +4,7 @@ import { useToasts } from 'react-toast-notifications';
 import { ToastProvider } from './components';
 
 export default {
-  title: 'Components|Toast Notifications',
+  title: 'Others/Components/Toast Notifications',
   parameters: {
     component: ToastProvider,
     componentSubtitle: 'Toast Notification component for displaying message.',

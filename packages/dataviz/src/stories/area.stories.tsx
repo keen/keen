@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Area Chart/Dataviz',
+  title: 'Visualizations/Area Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Area charts created with @keen.io/dataviz library',
   },

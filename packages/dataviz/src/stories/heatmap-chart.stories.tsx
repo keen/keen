@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Heatmap Chart/Dataviz',
+  title: 'Visualizations/Heatmap Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Heatmap created with @keen.io/dataviz library',
   },

@@ -10,7 +10,7 @@ import { chartData } from './table-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Table Chart|Widget',
+  title: 'Visualizations/Table Chart ',
   parameters: {
     component: TableChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

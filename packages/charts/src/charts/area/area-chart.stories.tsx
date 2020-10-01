@@ -19,7 +19,7 @@ import { CurveType } from '../line/types';
 import { GroupMode, StackMode, Theme } from '../../types';
 
 export default {
-  title: 'Visualizations|Area Chart|Plot',
+  title: 'Visualizations/Area Chart',
   parameters: {
     component: AreaChart,
     componentSubtitle: 'Area Chart plot',

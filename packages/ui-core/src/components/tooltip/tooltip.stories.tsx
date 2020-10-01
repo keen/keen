@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components|Tooltip',
+  title: 'Others/Components/Tooltip',
   parameters: {
     component: Tooltip,
     componentSubtitle: 'Displays customized tooltip',
@@ -88,11 +88,9 @@ export const LightMode = () => (
   </Wrapper>
 );
 
-LightMode.story = {
-  parameters: {
-    docs: {
-      storyDesciption: 'Tooltip displayed in `light mode`',
-    },
+LightMode.parameters = {
+  docs: {
+    storyDesciption: 'Tooltip displayed in `light mode`',
   },
 };
 
@@ -102,11 +100,9 @@ export const DarkMode = () => (
   </Wrapper>
 );
 
-DarkMode.story = {
-  parameters: {
-    docs: {
-      storyDesciption: 'Tooltip displayed in `dark mode`',
-    },
+DarkMode.parameters = {
+  docs: {
+    storyDesciption: 'Tooltip displayed in `dark mode`',
   },
 };
 
@@ -118,10 +114,8 @@ export const BulletPoints = () => (
   </Wrapper>
 );
 
-BulletPoints.story = {
-  parameters: {
-    docs: {
-      storyDesciption: 'Tooltip with bullet points',
-    },
+BulletPoints.parameters = {
+  docs: {
+    storyDesciption: 'Tooltip with bullet points',
   },
 };

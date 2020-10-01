@@ -15,7 +15,7 @@ import { theme as keenTheme } from '../../theme';
 import { Theme } from '../../types';
 
 export default {
-  title: 'Visualizations|Heatmap Chart|Plot',
+  title: 'Visualizations/Heatmap Chart',
   parameters: {
     component: Heatmap,
     componentSubtitle: 'Heatmap plot',

@@ -7,7 +7,7 @@ import { Icon, IconType } from '@keen.io/icons';
 import CircleButton from './circle-button.component';
 
 export default {
-  title: 'Styleguide | Circle Button',
+  title: 'Others/Components/Circle Button',
   parameters: {
     component: CircleButton,
     componentSubtitle: 'Displays customized CircleButton',
@@ -55,10 +55,8 @@ export const button = () => (
   />
 );
 
-button.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'CircleButton with custom icon',
-    },
+button.parameters = {
+  docs: {
+    storyDescription: 'CircleButton with custom icon',
   },
 };

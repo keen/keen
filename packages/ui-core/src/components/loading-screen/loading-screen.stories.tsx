@@ -3,7 +3,7 @@ import * as React from 'react';
 import LoadingScreen from './loading-screen.component';
 
 export default {
-  title: 'Components|Loading Screen',
+  title: 'Others/Components/Loading Screen',
   parameters: {
     component: LoadingScreen,
     componentSubtitle: 'Loading Screen component',

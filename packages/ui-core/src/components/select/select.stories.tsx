@@ -4,7 +4,7 @@ import * as React from 'react';
 import Select from './select.component';
 
 export default {
-  title: 'Components| Forms / Select',
+  title: 'Others/Components/ Forms / Select',
   parameters: {
     component: Select,
     componentSubtitle: 'Simple select component',
@@ -76,10 +76,8 @@ export const errorSolid = () => (
   </div>
 );
 
-error.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Select with error state.',
-    },
+error.parameters = {
+  docs: {
+    storyDescription: 'Select with error state.',
   },
 };

@@ -5,7 +5,7 @@ import { RangeSlider } from './range-slider.component';
 import Ruler from '../ruler';
 
 export default {
-  title: 'Components|Range Slider',
+  title: 'Others/Components/Range Slider',
   parameters: {
     component: RangeSlider,
     componentSubtitle: 'Slider that operates on range custom range values',
@@ -42,11 +42,9 @@ export const horizontalWithRuler = () => (
   </div>
 );
 
-horizontalWithRuler.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Range slider integrated with `<Ruler />` component',
-    },
+horizontalWithRuler.parameters = {
+  docs: {
+    storyDescription: 'Range slider integrated with `<Ruler />` component',
   },
 };
 
@@ -89,10 +87,8 @@ export const verticalWithRuler = () => (
   </div>
 );
 
-verticalWithRuler.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Range slider integrated with `<Ruler />` component',
-    },
+verticalWithRuler.parameters = {
+  docs: {
+    storyDescription: 'Range slider integrated with `<Ruler />` component',
   },
 };

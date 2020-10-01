@@ -8,7 +8,7 @@ import { Badge } from './badge.component';
 import { Variant } from './types';
 
 export default {
-  title: 'Styleguide | Badge',
+  title: 'Others/Components/Badge',
   parameters: {
     component: Badge,
     componentSubtitle: 'Displays simple badge with color variants support',

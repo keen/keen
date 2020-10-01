@@ -8,7 +8,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Bar Chart/Dataviz',
+  title: 'Visualizations/Bar Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Bar charts created with @keen.io/dataviz library',
   },
@@ -85,12 +85,10 @@ export const SimpleResults = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-SimpleResults.story = {
-  parameters: {
-    docs: {
-      storyDescription:
-        'Results displayed "horizontally" with disabled legend component',
-    },
+SimpleResults.parameters = {
+  docs: {
+    storyDescription:
+      'Results displayed "horizontally" with disabled legend component',
   },
 };
 
@@ -144,11 +142,9 @@ export const MultipleResultsPlot = () => {
   return <div style={{ width: '800px', height: '400px' }} ref={container} />;
 };
 
-MultipleResultsPlot.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Multiple results displayed as customized widget',
-    },
+MultipleResultsPlot.parameters = {
+  docs: {
+    storyDescription: 'Multiple results displayed as customized widget',
   },
 };
 
@@ -192,12 +188,10 @@ export const MultipleResults = () => {
   return <div style={{ width: '700px', height: '400px' }} ref={container} />;
 };
 
-MultipleResults.story = {
-  parameters: {
-    docs: {
-      storyDescription:
-        'Multiple results displayed in bar groups with custom padding and X scale label formatter',
-    },
+MultipleResults.parameters = {
+  docs: {
+    storyDescription:
+      'Multiple results displayed in bar groups with custom padding and X scale label formatter',
   },
 };
 
@@ -241,12 +235,10 @@ export const StackedNormal = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-StackedNormal.story = {
-  parameters: {
-    docs: {
-      storyDescription:
-        'Stacked results with custom colors and tooltip in "light" mode.',
-    },
+StackedNormal.parameters = {
+  docs: {
+    storyDescription:
+      'Stacked results with custom colors and tooltip in "light" mode.',
   },
 };
 
@@ -286,12 +278,10 @@ export const StackedPercentage = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-StackedPercentage.story = {
-  parameters: {
-    docs: {
-      storyDescription:
-        'Results stacked percentage with custom Y scale label formatter',
-    },
+StackedPercentage.parameters = {
+  docs: {
+    storyDescription:
+      'Results stacked percentage with custom Y scale label formatter',
   },
 };
 
@@ -321,11 +311,9 @@ export const Grouped = () => {
   return <div style={{ width: '600px', height: '300px' }} ref={container} />;
 };
 
-Grouped.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Results grouped by specific property',
-    },
+Grouped.parameters = {
+  docs: {
+    storyDescription: 'Results grouped by specific property',
   },
 };
 
@@ -376,10 +364,8 @@ export const DoubleGrouped = () => {
   return <div style={{ width: '650px', height: '400px' }} ref={container} />;
 };
 
-DoubleGrouped.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Results grouped by two properties',
-    },
+DoubleGrouped.parameters = {
+  docs: {
+    storyDescription: 'Results grouped by two properties',
   },
 };

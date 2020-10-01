@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components|Toggle',
+  title: 'Others/Components/Toggle',
   parameters: {
     component: Toggle,
     componentSubtitle: 'Displays customized toggle',

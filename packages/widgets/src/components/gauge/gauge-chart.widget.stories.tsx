@@ -14,7 +14,7 @@ import { chartData } from './gauge-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Gauge Chart|Widget',
+  title: 'Visualizations/Gauge Chart ',
   parameters: {
     component: GaugeChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

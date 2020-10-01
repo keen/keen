@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { InputGroup } from './input-group.component';
 
 export default {
-  title: 'Forms| Input Group',
+  title: 'Forms/ Input Group',
   parameters: {
     component: InputGroup,
     componentSubtitle: 'Group of input components integrated with Formik',

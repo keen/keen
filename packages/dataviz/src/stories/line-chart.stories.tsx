@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Line Chart/Dataviz',
+  title: 'Visualizations/Line Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Line charts created with @keen.io/dataviz library',
   },

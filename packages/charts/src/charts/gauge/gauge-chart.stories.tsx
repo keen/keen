@@ -7,7 +7,7 @@ import { chartData } from './gauge-chart.fixtures';
 import { GaugeChart } from './gauge-chart.component';
 
 export default {
-  title: 'Visualizations|Gauge Chart|Plot',
+  title: 'Visualizations/Gauge Chart',
   parameters: {
     component: GaugeChart,
     componentSubtitle: 'Gauge Chart plot',

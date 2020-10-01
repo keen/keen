@@ -10,7 +10,7 @@ import { theme as keenTheme } from '../../theme';
 import { Theme } from '../../types';
 
 export default {
-  title: 'Visualizations|Bubble Chart|Plot',
+  title: 'Visualizations/Bubble Chart',
   parameters: {
     component: BubbleChart,
     componentSubtitle: 'Bubble Chart plot',

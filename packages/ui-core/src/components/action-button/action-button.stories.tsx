@@ -5,7 +5,7 @@ import { select, text } from '@storybook/addon-knobs';
 import { ActionButton } from './action-button.component';
 
 export default {
-  title: 'Components|Action-Button',
+  title: 'Others/Components/Action-Button',
   parameters: {
     component: ActionButton,
     componentSubtitle: 'Displays customized action-button',

@@ -14,7 +14,7 @@ import { chartData } from './donut-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Donut Chart|Widget',
+  title: 'Visualizations/Donut Chart ',
   parameters: {
     component: DonutChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

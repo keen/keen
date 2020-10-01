@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Brand from './brand.component';
 
 export default {
-  title: 'Components|Brand',
+  title: 'Others/Components/Brand',
   parameters: {
     component: Brand,
   },

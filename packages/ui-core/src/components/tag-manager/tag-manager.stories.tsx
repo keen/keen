@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { TagManager } from './tag-manager.component';
 
 export default {
-  title: 'Components|Tag Manager',
+  title: 'Others/Components/Tag Manager',
   parameters: {
     component: TagManager,
     componentSubtitle: 'Displays tag manager wizard',

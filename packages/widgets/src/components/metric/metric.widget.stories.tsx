@@ -13,7 +13,7 @@ import { MetricChartWidget } from './metric.widget';
 import { chartData } from './metric.widget.fixtures';
 
 export default {
-  title: 'Visualizations|Metric Chart|Widget',
+  title: 'Visualizations/Metric Chart ',
   parameters: {
     component: MetricChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

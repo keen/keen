@@ -14,7 +14,7 @@ import { chartData } from './pie-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Pie Chart|Widget',
+  title: 'Visualizations/Pie Chart ',
   parameters: {
     component: PieChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

@@ -19,7 +19,7 @@ const legendTypography = {
 };
 
 export default {
-  title: 'Components / Legend',
+  title: 'Others/Components/Legend',
   parameters: {
     component: SeriesLegend,
     componentSubtitle: 'Displays information about chart data series',
@@ -52,11 +52,9 @@ export const Group = () => (
   </div>
 );
 
-Group.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Grouped data series.',
-    },
+Group.parameters = {
+  docs: {
+    storyDescription: 'Grouped data series.',
   },
 };
 
@@ -73,11 +71,9 @@ export const GroupSlider = () => (
   </div>
 );
 
-GroupSlider.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Grouped data series displayed as slider.',
-    },
+GroupSlider.parameters = {
+  docs: {
+    storyDescription: 'Grouped data series displayed as slider.',
   },
 };
 
@@ -94,11 +90,9 @@ export const Column = () => (
   </div>
 );
 
-Column.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Data series displayed in single column.',
-    },
+Column.parameters = {
+  docs: {
+    storyDescription: 'Data series displayed in single column.',
   },
 };
 
@@ -115,12 +109,10 @@ export const ColumnSlider = () => (
   </div>
 );
 
-ColumnSlider.story = {
-  parameters: {
-    docs: {
-      storyDescription:
-        'Vertical `layout` with data series displayed as column slider.',
-    },
+ColumnSlider.parameters = {
+  docs: {
+    storyDescription:
+      'Vertical `layout` with data series displayed as column slider.',
   },
 };
 
@@ -144,11 +136,9 @@ export const ValuesSlider = () => (
   </div>
 );
 
-ValuesSlider.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Legend series displayed as range slider.',
-    },
+ValuesSlider.parameters = {
+  docs: {
+    storyDescription: 'Legend series displayed as range slider.',
   },
 };
 
@@ -167,10 +157,8 @@ export const Bubble = () => (
   </div>
 );
 
-Bubble.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Displays information about bubble chart data series',
-    },
+Bubble.parameters = {
+  docs: {
+    storyDescription: 'Displays information about bubble chart data series',
   },
 };

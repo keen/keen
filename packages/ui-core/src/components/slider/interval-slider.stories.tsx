@@ -27,7 +27,7 @@ const rulerSettings = [
 const dimension = 300;
 
 export default {
-  title: 'Components|Interval Slider',
+  title: 'Others/Components/Interval Slider',
   parameters: {
     component: IntervalSlider,
     componentSubtitle: 'Slider that operates on custom intervals and steps',
@@ -75,10 +75,8 @@ export const withRuler = () => {
   );
 };
 
-withRuler.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Slider integrated with `<Ruler />` component',
-    },
+withRuler.parameters = {
+  docs: {
+    storyDescription: 'Slider integrated with `<Ruler />` component',
   },
 };

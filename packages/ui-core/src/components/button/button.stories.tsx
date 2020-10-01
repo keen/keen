@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { Button } from './button.component';
 
 export default {
-  title: 'Styleguide | Button',
+  title: 'Others/Components/Button',
   parameters: {
     component: Button,
     componentSubtitle: 'Displays a customized button component',
@@ -20,11 +20,9 @@ export const primaryLarge = () => (
   </Button>
 );
 
-primaryLarge.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Displays button with increased size.',
-    },
+primaryLarge.parameters = {
+  docs: {
+    storyDescription: 'Displays button with increased size.',
   },
 };
 
@@ -34,11 +32,9 @@ export const primaryButtonLink = () => (
   </Button>
 );
 
-primaryButtonLink.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Displays button as `anchor` HTML element.',
-    },
+primaryButtonLink.parameters = {
+  docs: {
+    storyDescription: 'Displays button as `anchor` HTML element.',
   },
 };
 
@@ -82,11 +78,9 @@ export const secondaryWithIcon = () => (
   </Button>
 );
 
-secondaryWithIcon.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Displays button with `<Icon />` component.',
-    },
+secondaryWithIcon.parameters = {
+  docs: {
+    storyDescription: 'Displays button with `<Icon />` component.',
   },
 };
 

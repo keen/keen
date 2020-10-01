@@ -15,7 +15,7 @@ import { chartData } from './bubble-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Bubble Chart|Widget',
+  title: 'Visualizations/Bubble Chart ',
   parameters: {
     component: BubbleChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',
