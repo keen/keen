@@ -25,11 +25,13 @@ export const TableChartWidget: FC<Props> = ({
 }) => {
   return (
     <Card {...card} hasPadding={false}>
-      <TitleSocket>
-        <HeaderContainer>
-          <WidgetHeading title={title} subtitle={subtitle} />
-        </HeaderContainer>
-      </TitleSocket>
+      {(title.content || subtitle.content) && (
+        <TitleSocket>
+          <HeaderContainer>
+            <WidgetHeading title={title} subtitle={subtitle} />
+          </HeaderContainer>
+        </TitleSocket>
+      )}
       <ContentSocket>
         <TableChart {...props} theme={theme} />
       </ContentSocket>
