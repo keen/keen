@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import ColumnResizer from 'column-resizer';
 import { AnimatePresence, motion } from 'framer-motion';
-import { TableRow, Tooltip, Text } from '@keen.io/ui-core';
+import { TableRow, Tooltip, Text, SortMode } from '@keen.io/ui-core';
 import {
   getElementOffset,
   hasContentOverflow,
@@ -9,8 +9,7 @@ import {
 } from '@keen.io/charts-utils';
 import { colors } from '@keen.io/colors';
 
-import HeaderRow from './header-row.component';
-
+import { HeaderRow } from './components';
 import { generateHeader, generateTable, sortData } from './table.utils';
 
 import {
@@ -136,7 +135,7 @@ export const TableChart = ({
 
   return (
     <>
-      <Container>
+      <Container data-testid="table-chart-plot">
         <TableContainer ref={containerRef} onScroll={scrollHandler}>
           <AnimatePresence>
             {tooltip.visible && (
@@ -166,9 +165,13 @@ export const TableChart = ({
               data={generateHeader(data[0], formatHeader)}
               isColumnDragged={isColumnDragged}
               color={color}
-              onSort={({ propertyName, sortMode }) =>
-                setSort({ property: propertyName, sort: sortMode })
-              }
+              onSort={({
+                propertyName,
+                sortMode,
+              }: {
+                propertyName: string;
+                sortMode: SortMode;
+              }) => setSort({ property: propertyName, sort: sortMode })}
               sortOptions={sort && sort}
               typography={header.typography}
             />

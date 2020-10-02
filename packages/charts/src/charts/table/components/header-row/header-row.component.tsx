@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@keen.io/ui-core';
 
-import { HeaderCell } from './types';
+import { HeaderCell } from '../../types';
 
 import { Container, StickyCell } from './header-row.styles';
 
@@ -34,7 +34,11 @@ export const HeaderRow = ({
   typography,
 }: Props) => (
   <thead>
-    <Container color={color} typography={typography}>
+    <Container
+      color={color}
+      typography={typography}
+      data-testid="header-row-container"
+    >
       {data.map(({ key, value }: HeaderCell) => (
         <StickyCell key={key}>
           <TableHeader
