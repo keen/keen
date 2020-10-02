@@ -28,6 +28,8 @@ import { DRAG_CLASS, TOOLTIP_HIDE } from './constants';
 import { FormatFunction, ValueFormatter } from './types';
 import { TooltipState, CommonChartSettings } from '../../types';
 
+import { TOOLTIP_MOTION } from '../../constants';
+
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
@@ -40,11 +42,6 @@ export type Props = {
   /** Resize table layout event handler */
   onResize?: () => void;
 } & CommonChartSettings;
-
-export const tooltipMotion = {
-  transition: { duration: 0.3 },
-  exit: { opacity: 0 },
-};
 
 export const TableChart = ({
   data,
@@ -144,7 +141,7 @@ export const TableChart = ({
           <AnimatePresence>
             {tooltip.visible && (
               <motion.div
-                {...tooltipMotion}
+                {...TOOLTIP_MOTION}
                 initial={{ opacity: 0, x: tooltip.x, y: tooltip.y }}
                 animate={{
                   x: tooltip.x,
