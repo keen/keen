@@ -38,7 +38,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         Object {
           "difference": Object {
             "status": "increase",
-            "value": 100,
+            "value": 20,
           },
           "value": 120,
         }
@@ -85,7 +85,31 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
         Object {
           "difference": Object {
             "status": "increase",
-            "value": 100,
+            "value": 90,
+          },
+          "value": 190,
+        }
+      `);
+    });
+
+    it('should create "difference" metric with 0 difference value when previous result is 0', () => {
+      const data = [
+        { name: 'January', value: 0 },
+        { name: 'Febuary', value: 190 },
+      ];
+      const result = generateMetric({
+        type: 'difference',
+        usePercentDifference: true,
+        keys: ['value'],
+        labelSelector: 'name',
+        data,
+      });
+
+      expect(result).toMatchInlineSnapshot(`
+        Object {
+          "difference": Object {
+            "status": "increase",
+            "value": 0,
           },
           "value": 190,
         }

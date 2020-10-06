@@ -18,22 +18,19 @@ export type Difference = {
 export const calculatePercentDifference = (
   previousValue: number,
   currentValue: number
-) => (currentValue / previousValue) * 100 - 100;
+) => (previousValue === 0 ? 0 : (currentValue / previousValue) * 100 - 100);
 
 export const calculateDifference = (
   previousValue: number,
   currentValue: number,
   usePercentage: boolean
 ) => {
-  switch (true) {
-    case usePercentage === true:
-      const value = calculatePercentDifference(previousValue, currentValue);
-      return value % 1 === 0 ? value : Number(value.toFixed(2));
-    case usePercentage === false:
-      return previousValue - currentValue;
-    default:
-      return previousValue;
+  if (usePercentage) {
+    const value = calculatePercentDifference(previousValue, currentValue);
+    return value % 1 === 0 ? value : Number(value.toFixed(2));
   }
+
+  return currentValue - previousValue;
 };
 
 export const setStatus = (previousValue: number, currentValue: number) => {
