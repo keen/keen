@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders widget subtitle 1`] = `
+.c0 {
+  font-size: 14px;
+  font-family: Lato Regular,sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #1D2729;
+  margin: 0;
+  padding: 0;
+}
+
+<div
+  class="c0"
+  font-family="Lato Regular, sans-serif"
+  font-size="14"
+  font-style="normal"
+  font-weight="normal"
+>
+  subtitle
+</div>
+`;
+
+exports[`renders widget title 1`] = `
+.c0 {
+  font-size: 20px;
+  font-family: Gangster Grotesk Regular,sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #27566D;
+  margin: 0;
+  padding: 0;
+}
+
+<div
+  class="c0"
+  font-family="Gangster Grotesk Regular, sans-serif"
+  font-size="20"
+  font-style="normal"
+  font-weight="normal"
+>
+  title
+</div>
+`;

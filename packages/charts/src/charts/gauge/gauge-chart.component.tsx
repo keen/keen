@@ -15,6 +15,8 @@ import { TOOLTIP_TIMEOUT } from './constants';
 
 import { CommonChartSettings } from '../../types';
 
+import { TOOLTIP_MOTION } from '../../constants';
+
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
@@ -39,11 +41,6 @@ export type Props = {
   /** Progress type */
   progressType?: 'normal' | 'percent';
 } & CommonChartSettings;
-
-export const tooltipMotion = {
-  transition: { duration: 0.3 },
-  exit: { opacity: 0 },
-};
 
 const createArcMotion = (index: number) => ({
   initial: { opacity: 0 },
@@ -113,7 +110,7 @@ export const GaugeChart: FC<Props> = ({
       <AnimatePresence>
         {tooltipVisible && (
           <motion.div
-            {...tooltipMotion}
+            {...TOOLTIP_MOTION}
             initial={{ opacity: 0, x: tooltipPosition.x, y: tooltipPosition.y }}
             animate={{
               x: tooltipPosition.x,

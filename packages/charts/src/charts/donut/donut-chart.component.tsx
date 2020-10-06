@@ -20,6 +20,8 @@ import { theme as defaultTheme } from '../../theme';
 
 import { CommonChartSettings } from '../../types';
 
+import { TOOLTIP_MOTION } from '../../constants';
+
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
@@ -48,11 +50,6 @@ export type Props = {
   /** Return dataKeys after stacking */
   onDataStack?: (keys: string[]) => void;
 } & CommonChartSettings;
-
-export const tooltipMotion = {
-  transition: { duration: 0.3 },
-  exit: { opacity: 0 },
-};
 
 export const DonutChart: FC<Props> = ({
   data,
@@ -126,7 +123,7 @@ export const DonutChart: FC<Props> = ({
       <AnimatePresence>
         {tooltipVisible && (
           <motion.div
-            {...tooltipMotion}
+            {...TOOLTIP_MOTION}
             initial={{ opacity: 0, x: tooltipPosition.x, y: tooltipPosition.y }}
             animate={{
               x: tooltipPosition.x,
