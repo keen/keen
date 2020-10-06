@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 1`] = `
+"keen.key,keen.value
+Result,7436
+"
+`;
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 2`] = `
+"keen.key,keen.value
+2019-11-01T00:00:00.000Z,436
+2019-12-01T00:00:00.000Z,333
+2020-01-01T00:00:00.000Z,2991
+2020-02-01T00:00:00.000Z,59
+"
+`;
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 3`] = `
+"keen.key,Edwidge Danticat Love, Anger, Madness,George R. R. Martin Game of Thrones,J.K. Rowling Harry Potter,Stephen King It,Stephen King The Shining
+2020-01-01T00:00:00.000Z,95,719,112,2059,6
+2020-02-01T00:00:00.000Z,2,11,1,45,0
+"
+`;
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 4`] = `
+"keen.key,keen.value
+Game of Thrones,730
+Harry Potter,113
+It,2104
+\\"Love, Anger, Madness\\",97
+The Shining,6
+"
+`;
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 5`] = `
+"keen.key,keen.value
+\\"Love, Anger, Madness Edwidge Danticat\\",97
+Game of Thrones George R. R. Martin,730
+Harry Potter J.K. Rowling,113
+It Stephen King,2104
+The Shining Stephen King,6
+"
+`;
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 6`] = `
+"keen.key,keen.value
+pageviews,1128
+signups,317
+purchases,89
+"
+`;
+
+exports[`@keen.io/parser - convertToCSV() should convert query results to csv format 7`] = `
+"keen.value
+Marketing
+IT
+null
+"
+`;
