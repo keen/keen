@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.4](https://github.com/keen/keen/compare/@keen.io/charts@2.2.3...@keen.io/charts@2.2.4) (2020-10-06)
+
+
+### Bug Fixes
+
+* 🐛 metric difference ([610aef0](https://github.com/keen/keen/commit/610aef097c6ec2dcdd6080dac256cab04fe5c312))
+
+
+
+
+
 ## [2.2.3](https://github.com/keen/keen/compare/@keen.io/charts@2.2.2...@keen.io/charts@2.2.3) (2020-10-01)
 
 **Note:** Version bump only for package @keen.io/charts

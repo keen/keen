@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.3...@keen.io/widgets@2.1.4) (2020-10-06)
+
+
+### Bug Fixes
+
+* 🐛 render [sub]title when content is provided ([0d267c4](https://github.com/keen/keen/commit/0d267c4d99aa7d16c06033332bfa0898e837fa90))
+
+
+
+
+
 ## [2.1.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.2...@keen.io/widgets@2.1.3) (2020-10-01)
 
 **Note:** Version bump only for package @keen.io/widgets
