@@ -8,11 +8,11 @@ type Props = {
 };
 
 export const ScrollWrapper: FC<Props> = ({ children }) => {
-  const { innerHeight } = window;
   const wrapper = useRef(null);
   const [maxHeight, setMaxHeight] = useState(0);
 
   useEffect(() => {
+    const { innerHeight } = window;
     const { top, height } =
       wrapper.current && wrapper.current.getBoundingClientRect();
     if (height > innerHeight - top) setMaxHeight(innerHeight - top);
