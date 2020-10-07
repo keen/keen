@@ -69,6 +69,7 @@ import {
   OAuthProviders,
   OAuthUserAction,
   OAuthConfig,
+  ScrollWrapper,
 } from './components';
 
 export {
@@ -139,4 +140,5 @@ export {
   OAuthProviders,
   OAuthConfig,
   OAuthUserAction,
+  ScrollWrapper,
 };

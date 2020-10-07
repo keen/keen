@@ -50,6 +50,7 @@ import OAuthProviders, {
   OAuthConfig,
 } from './oauth-providers';
 import Portal from './portal';
+import ScrollWrapper from './scroll-wrapper';
 
 export { ARROW_SIZE };
 
@@ -106,4 +107,5 @@ export {
   OAuthConfig,
   OAuthUserAction,
   Portal,
+  ScrollWrapper,
 };
