@@ -28,6 +28,7 @@ import Label from './label';
 import FakeInput from './fake-input';
 import Input from './input';
 import Select from './select';
+import RadioGroup from './radio-group';
 import Image from './image';
 
 import PasswordInput from './password-input';
@@ -77,6 +78,7 @@ export {
   Group,
   Input,
   Select,
+  RadioGroup,
   Image,
   Tooltip,
   Modal,
