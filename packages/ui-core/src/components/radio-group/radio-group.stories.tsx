@@ -8,7 +8,6 @@ export default {
   title: 'Components|RadioGroup',
   parameters: {
     component: RadioGroup,
-    componentSubtitle: 'Displays animated brand loader',
   },
 };
 
