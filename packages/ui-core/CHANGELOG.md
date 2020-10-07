@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.4.1...@keen.io/ui-core@2.5.0) (2020-10-07)
+
+
+### Bug Fixes
+
+* 🐛 innerHeight moved to useEffect function ([ce26abb](https://github.com/keen/keen/commit/ce26abbb57d96d6e97be4a729ffe3bce9e74eefa))
+
+
+### Features
+
+* 🎸 radio group component ([e0dff35](https://github.com/keen/keen/commit/e0dff35fcf3d28ae03567f9079fe6508cc069550))
+* 🎸 ScrollWrapper component ([942457a](https://github.com/keen/keen/commit/942457af91f777a7afe450aba70760a2c36446b5))
+
+
+
+
+
 ## [2.4.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.4.0...@keen.io/ui-core@2.4.1) (2020-10-01)
 
 

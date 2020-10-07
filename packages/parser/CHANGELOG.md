@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/keen/keen/compare/@keen.io/parser@2.0.15...@keen.io/parser@2.1.0) (2020-10-07)
+
+
+### Features
+
+* 🎸 convertToCSV ([bb832d0](https://github.com/keen/keen/commit/bb832d02b2a953239f091a5afed32a05b298d3c6))
+
+
+
+
+
 ## [2.0.15](https://github.com/keen/keen/compare/@keen.io/parser@2.0.14...@keen.io/parser@2.0.15) (2020-10-06)
 
 **Note:** Version bump only for package @keen.io/parser
