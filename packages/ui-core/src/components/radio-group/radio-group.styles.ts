@@ -29,7 +29,7 @@ export const Item = styled.div<{
   ${props =>
     props.isActive &&
     css`
-      box-shadow: 0 2px 4px 0 rgba(29, 39, 41, 0.15);
+      box-shadow: 0 2px 4px 0 ${transparentize(0.85, colors.black[500])};
       background: ${transparentize(0.08, colors.green[100])};
     `}
 `;
