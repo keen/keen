@@ -12,10 +12,14 @@ export const ScrollWrapper: FC<Props> = ({ children }) => {
   const [maxHeight, setMaxHeight] = useState(0);
 
   useEffect(() => {
-    const { innerHeight } = window;
+    const { offsetHeight } = document.body;
+    const { scrollY, innerHeight } = window;
     const { top, height } =
       wrapper.current && wrapper.current.getBoundingClientRect();
-    if (height > innerHeight - top) setMaxHeight(innerHeight - top);
+    const topPosition = top + scrollY;
+    const fullHeight = offsetHeight > innerHeight ? offsetHeight : innerHeight;
+    if (height > fullHeight - topPosition)
+      setMaxHeight(fullHeight - topPosition);
   }, [wrapper]);
 
   return (
