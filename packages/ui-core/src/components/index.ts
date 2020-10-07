@@ -28,6 +28,7 @@ import Label from './label';
 import FakeInput from './fake-input';
 import Input from './input';
 import Select from './select';
+import RadioGroup from './radio-group';
 import Image from './image';
 
 import PasswordInput from './password-input';
@@ -49,6 +50,7 @@ import OAuthProviders, {
   OAuthConfig,
 } from './oauth-providers';
 import Portal from './portal';
+import ScrollWrapper from './scroll-wrapper';
 
 export { ARROW_SIZE };
 
@@ -77,6 +79,7 @@ export {
   Group,
   Input,
   Select,
+  RadioGroup,
   Image,
   Tooltip,
   Modal,
@@ -104,4 +107,5 @@ export {
   OAuthConfig,
   OAuthUserAction,
   Portal,
+  ScrollWrapper,
 };

@@ -53,6 +53,7 @@ import {
   PasswordValidator,
   Ruler,
   RulerTick,
+  RadioGroup,
   ARROW_SIZE,
   TagManager,
   TableCell,
@@ -68,6 +69,7 @@ import {
   OAuthProviders,
   OAuthUserAction,
   OAuthConfig,
+  ScrollWrapper,
 } from './components';
 
 export {
@@ -118,6 +120,7 @@ export {
   RangeType,
   Ruler,
   RulerTick,
+  RadioGroup,
   TableCell,
   TableHeader,
   TableRow,
@@ -137,4 +140,5 @@ export {
   OAuthProviders,
   OAuthConfig,
   OAuthUserAction,
+  ScrollWrapper,
 };
