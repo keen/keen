@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.1...@keen.io/ui-core@2.5.2) (2020-10-12)
+
+
+### Bug Fixes
+
+* 🐛 add zIndex for <Modal/> ([628cc9f](https://github.com/keen/keen/commit/628cc9f6890aa8efbb50f6fa7448a7a171bd72b4))
+
+
+
+
+
 ## [2.5.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.0...@keen.io/ui-core@2.5.1) (2020-10-07)
 
 **Note:** Version bump only for package @keen.io/ui-core
