@@ -9,6 +9,7 @@ export const FadeMask = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 10;
 
   background: ${transparentize(0.7, colors.black['500'])};
 `;
@@ -19,6 +20,7 @@ export const MotionContainer = styled(motion.div)<{
   position: absolute;
   left: 50%;
   top: ${props => 60 + props.scrollY}px;
+  z-index: 20;
 
   display: flex;
   flex-direction: column;
