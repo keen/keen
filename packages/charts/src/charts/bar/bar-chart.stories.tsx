@@ -66,7 +66,7 @@ export const plot = () => (
       )}
       margins={object(
         'Margins',
-        { top: 50, right: 20, bottom: 60, left: 65 },
+        { top: 0, right: 0, bottom: 0, left: 0 },
         'Chart'
       )}
       theme={createThemeKnobs() as Theme}
