@@ -35,6 +35,7 @@ export const gridKnobs = (namespace: string) => ({
 export const axisXKnobs = (namespace: string) => ({
   enabled: boolean('Enabled', true, namespace),
   tickSize: number('Tick Size', 10, {}, namespace),
+  padding: number('Padding', 5, {}, namespace),
   tickPadding: number('Tick Padding', 10, {}, namespace),
   stroke: number('Stroke', 1, {}, namespace),
   color: color('Line Color', colors.blue['100'], namespace),
@@ -44,6 +45,7 @@ export const axisXKnobs = (namespace: string) => ({
     radiusAngle: select('Radius angle', radiusAngleOptions, 0, namespace),
   },
   title: {
+    padding: number('Padding', 20, {}, `${namespace} Title`),
     alignment: select(
       'Title Alignment',
       xAxisTitleAlignment,
@@ -61,6 +63,7 @@ export const axisXKnobs = (namespace: string) => ({
 export const axisYKnobs = (namespace: string) => ({
   enabled: boolean('Enabled', true, namespace),
   tickSize: number('Tick Size', 0, {}, namespace),
+  padding: number('Padding', 5, {}, namespace),
   tickPadding: number('Tick Padding', 10, {}, namespace),
   stroke: number('Stroke', 0, {}, namespace),
   color: color('Line Color', colors.blue['100'], namespace),
@@ -70,6 +73,7 @@ export const axisYKnobs = (namespace: string) => ({
     radiusAngle: select('Radius angle', radiusAngleOptions, 0, namespace),
   },
   title: {
+    padding: number('Padding', 20, {}, `${namespace} Title`),
     alignment: select(
       'Title Alignment',
       yAxisTitleAlignment,

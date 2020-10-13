@@ -51,12 +51,14 @@ export type Tooltip = {
 export type AxisTitle = {
   alignment?: Position | 'center';
   typography?: Typography;
+  padding: number;
 };
 
 export type Axis = {
   enabled: boolean;
   tickSize: number;
   tickPadding: number;
+  padding: number;
   stroke?: number;
   color?: string;
   labels?: Labels;

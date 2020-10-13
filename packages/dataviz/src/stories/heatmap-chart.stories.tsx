@@ -29,9 +29,6 @@ export const simpleResults = () => {
           content: 'hourly',
         },
       },
-      settings: {
-        margins: { top: 30, left: 60, right: 30, bottom: 60 },
-      },
     });
 
     client
@@ -67,7 +64,6 @@ export const multipleResults = () => {
         },
       },
       settings: {
-        margins: { top: 20, left: 60, right: 15, bottom: 30 },
         curve: 'spline',
         theme: {
           axisY: {

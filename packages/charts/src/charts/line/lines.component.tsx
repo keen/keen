@@ -152,38 +152,38 @@ const Lines = ({
           </motion.g>
         )}
       </AnimatePresence>
-      <Step
-        steps={steps}
-        marks={groupedMarks}
-        onMouseEnter={(e, mark) => {
-          if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
-          allMarks &&
+      {allMarks ? (
+        <Step
+          steps={steps}
+          marks={groupedMarks}
+          onMouseEnter={(e, mark) => {
+            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
-          setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
-        }}
-        onMouseMove={(e, mark) => {
-          if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
-          allMarks &&
+            setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+          }}
+          onMouseMove={(e, mark) => {
+            if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
             onMarkMouseEnter(
               e,
               findMarksInCluster(mark, groupedMarks, mark.height)
             );
-          setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
-        }}
-        onMouseLeave={e => {
-          onMarkMouseLeave(e);
-          hideHoverBar.current = setTimeout(() => {
-            setHoverBar({
-              visible: false,
-              x: 0,
-            });
-          }, HOVER_BAR_HIDE_TIME);
-        }}
-      />
-      {!allMarks && (
+            setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
+          }}
+          onMouseLeave={e => {
+            onMarkMouseLeave(e);
+            hideHoverBar.current = setTimeout(() => {
+              setHoverBar({
+                visible: false,
+                x: 0,
+              });
+            }, HOVER_BAR_HIDE_TIME);
+          }}
+        />
+      ) : (
         <Marks
           marks={marks}
           curve={curve}

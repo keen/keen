@@ -8,7 +8,10 @@ import Lines from './lines.component';
 import Tooltip from './tooltip.component';
 
 import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
-import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
+import { useDynamicChartLayout } from '../../hooks';
+
+import { theme as defaultTheme } from '../../theme';
+import { DEFAULT_MARGINS } from './constants';
 
 import { CommonChartSettings, GroupMode, StackMode } from '../../types';
 
@@ -49,14 +52,17 @@ export type Props = {
   areaMode?: boolean;
   /** Gradient on/off */
   gradient?: boolean;
+  /** Automatically adjusts margins for visualization */
+  useDynamicLayout?: boolean;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
   data,
   svgDimensions,
   labelSelector,
+  useDynamicLayout = true,
   theme = defaultTheme,
-  margins = defaultMargins,
+  margins = DEFAULT_MARGINS,
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
@@ -74,6 +80,13 @@ export const LineChart: FC<Props> = ({
   yAxisTitle,
 }) => {
   const {
+    layoutMargins,
+    layoutReady,
+    setLayoutReady,
+    setLayoutMargins,
+  } = useDynamicChartLayout(useDynamicLayout, margins);
+
+  const {
     lines,
     marks,
     xScale,
@@ -83,7 +96,7 @@ export const LineChart: FC<Props> = ({
     areas,
   } = generateLines({
     data,
-    margins,
+    margins: layoutMargins,
     dimension: svgDimensions,
     labelSelector,
     keys,
@@ -118,44 +131,54 @@ export const LineChart: FC<Props> = ({
       xScaleSettings={xScaleSettings}
       yScaleSettings={yScaleSettings}
       svgDimensions={svgDimensions}
-      margins={margins}
+      margins={layoutMargins}
     >
-      <Grid xScale={xScale} yScale={yScale} />
       <Axes
+        useDynamicLayout={useDynamicLayout}
+        initialMargins={margins}
+        onComputeLayout={margins => {
+          setLayoutMargins(margins);
+          setLayoutReady(true);
+        }}
         xScale={xScale}
         yScale={yScale}
         xTitle={xAxisTitle}
         yTitle={yAxisTitle}
       />
-      <Lines
-        lines={lines}
-        marks={marks}
-        steps={steps}
-        areas={areas}
-        curve={curve}
-        gradient={gradient}
-        groupMode={groupMode}
-        stackMode={stackMode}
-        areaMode={areaMode}
-        stepMode={stepMode}
-        onMarkMouseEnter={(e, selectors) => {
-          if (tooltipSettings.enabled) {
-            updateTooltipPosition(e, selectors);
-          }
-        }}
-        onMarkMouseLeave={() => {
-          hideTooltip();
-        }}
-      />
-      <ChartTooltip
-        visible={tooltipVisible}
-        x={tooltipPosition.x}
-        y={tooltipPosition.y}
-      >
-        {tooltipSelectors && (
-          <Tooltip data={data} selectors={tooltipSelectors} />
-        )}
-      </ChartTooltip>
+      {layoutReady && (
+        <>
+          <Grid xScale={xScale} yScale={yScale} />
+          <Lines
+            lines={lines}
+            marks={marks}
+            steps={steps}
+            areas={areas}
+            curve={curve}
+            gradient={gradient}
+            groupMode={groupMode}
+            stackMode={stackMode}
+            areaMode={areaMode}
+            stepMode={stepMode}
+            onMarkMouseEnter={(e, selectors) => {
+              if (tooltipSettings.enabled) {
+                updateTooltipPosition(e, selectors);
+              }
+            }}
+            onMarkMouseLeave={() => {
+              hideTooltip();
+            }}
+          />
+          <ChartTooltip
+            visible={tooltipVisible}
+            x={tooltipPosition.x}
+            y={tooltipPosition.y}
+          >
+            {tooltipSelectors && (
+              <Tooltip data={data} selectors={tooltipSelectors} />
+            )}
+          </ChartTooltip>
+        </>
+      )}
     </ChartBase>
   );
 };

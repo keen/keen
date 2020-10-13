@@ -30,6 +30,7 @@ const Step = ({
   const [activeStep, setActiveStep] = useState(null);
   const filteredMarks =
     activeStep && findMarksInCluster(activeStep, marks, activeStep.height);
+
   return (
     <>
       {filteredMarks &&

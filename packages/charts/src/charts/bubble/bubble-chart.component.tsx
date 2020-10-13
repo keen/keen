@@ -8,9 +8,12 @@ import { ChartBase, Grid, Axes } from '../../components';
 
 import Bubbles from './bubbles.component';
 import TooltipContent from './tooltip-content.component';
+
 import { generateBubbles } from './utils/chart.utils';
+import { useDynamicChartLayout } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
+import { DEFAULT_MARGINS } from './constants';
 
 import { CommonChartSettings } from '../../types';
 
@@ -44,18 +47,21 @@ export type Props = {
   minAreaRadius?: number;
   /** Maximum area radius */
   maxAreaRadius?: number;
+  /** Automatically adjusts margins for visualization */
+  useDynamicLayout?: boolean;
 } & CommonChartSettings;
 
 export const BubbleChart: FC<Props> = ({
   data,
   svgDimensions,
+  useDynamicLayout = true,
   xDomainKey,
   yDomainKey,
   labelSelector,
   disabledKeys = [],
   valueKey,
   theme = defaultTheme,
-  margins = { top: 20, right: 20, bottom: 25, left: 30 },
+  margins = DEFAULT_MARGINS,
   maxAreaRadius = 40,
   minAreaRadius = 5,
   xScaleSettings = { type: 'linear' },
@@ -63,9 +69,16 @@ export const BubbleChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
 }) => {
+  const {
+    layoutMargins,
+    layoutReady,
+    setLayoutReady,
+    setLayoutMargins,
+  } = useDynamicChartLayout(useDynamicLayout, margins);
+
   const { bubbles, xScale, yScale, middlePoint } = generateBubbles({
     data,
-    margins,
+    margins: layoutMargins,
     maxAreaRadius,
     minAreaRadius,
     valueKey,
@@ -128,29 +141,39 @@ export const BubbleChart: FC<Props> = ({
         ref={svgElement}
         theme={theme}
         svgDimensions={svgDimensions}
-        margins={margins}
+        margins={layoutMargins}
         xScaleSettings={xScaleSettings}
         yScaleSettings={yScaleSettings}
       >
-        <Grid xScale={xScale} yScale={yScale} />
         <Axes
+          useDynamicLayout={useDynamicLayout}
+          initialMargins={margins}
+          onComputeLayout={margins => {
+            setLayoutMargins(margins);
+            setLayoutReady(true);
+          }}
           xScale={xScale}
           yScale={yScale}
           xTitle={xAxisTitle}
           yTitle={yAxisTitle}
         />
-        <Bubbles
-          bubbles={bubbles}
-          middlePoint={middlePoint}
-          onMouseEnter={(e, selectors) => {
-            if (tooltipSettings.enabled) {
-              updateTooltipPosition(e, selectors);
-            }
-          }}
-          onMouseLeave={() => {
-            hideTooltip();
-          }}
-        />
+        {layoutReady && (
+          <>
+            <Grid xScale={xScale} yScale={yScale} />
+            <Bubbles
+              bubbles={bubbles}
+              middlePoint={middlePoint}
+              onMouseEnter={(e, selectors) => {
+                if (tooltipSettings.enabled) {
+                  updateTooltipPosition(e, selectors);
+                }
+              }}
+              onMouseLeave={() => {
+                hideTooltip();
+              }}
+            />
+          </>
+        )}
       </ChartBase>
     </>
   );

@@ -9,6 +9,8 @@ import {
 } from '@keen.io/storybook-utils';
 
 import Heatmap from './heatmap-chart.component';
+import { DEFAULT_MARGINS } from './constants';
+
 import { chartData } from './heatmap-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
@@ -48,11 +50,7 @@ export const plot = () => {
           },
           'Chart'
         )}
-        margins={object(
-          'Margins',
-          { top: 20, right: 30, bottom: 50, left: 100 },
-          'Chart'
-        )}
+        margins={object('Margins', DEFAULT_MARGINS, 'Chart')}
         theme={createThemeKnobs() as Theme}
         data={chartData}
       />

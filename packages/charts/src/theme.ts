@@ -278,6 +278,7 @@ export const theme: Theme = {
   },
   axisX: {
     enabled: true,
+    padding: 5,
     tickSize: 10,
     tickPadding: 10,
     stroke: 1,
@@ -295,6 +296,7 @@ export const theme: Theme = {
     },
     title: {
       alignment: 'center',
+      padding: 20,
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
@@ -306,6 +308,7 @@ export const theme: Theme = {
   },
   axisY: {
     enabled: true,
+    padding: 5,
     tickSize: 0,
     tickPadding: 5,
     stroke: 0,
@@ -323,6 +326,7 @@ export const theme: Theme = {
     },
     title: {
       alignment: 'center',
+      padding: 20,
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',

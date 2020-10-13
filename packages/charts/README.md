@@ -27,7 +27,7 @@ const chartData = [
   { name: 'Android', users: 3, licenses: 15, shops: 30 },
 ];
 
-<BarChart data={chartData} labelSelector="name" keys={['users', 'licenses', 'shops']} />
+<BarChart data={chartData} useDynamicLayout labelSelector="name" keys={['users', 'licenses', 'shops']} />
 ```
 
 For more examples check the Keen [Storybook](https://keen.github.io/keen/).

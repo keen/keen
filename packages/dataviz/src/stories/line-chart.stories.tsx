@@ -30,7 +30,6 @@ export const simpleResults = () => {
         },
       },
       settings: {
-        margins: { top: 30, left: 45, right: 30, bottom: 60 },
         theme: {
           axisX: {
             labels: {
@@ -74,7 +73,6 @@ export const multipleResultsSpline = () => {
         },
       },
       settings: {
-        margins: { top: 20, left: 45, right: 15, bottom: 30 },
         curve: 'spline',
         theme: {
           axisY: {
@@ -187,7 +185,6 @@ export const multipleResultsStep = () => {
         },
       },
       settings: {
-        margins: { top: 20, left: 45, right: 15, bottom: 30 },
         curve: 'step',
         theme: {
           axisY: {
@@ -231,7 +228,6 @@ export const StackedNormalSpline = () => {
         },
       },
       settings: {
-        margins: { top: 20, left: 45, right: 25, bottom: 30 },
         curve: 'spline',
         groupMode: 'stacked',
         stackMode: 'normal',
@@ -280,7 +276,6 @@ export const StackedNormalStep = () => {
         curve: 'step',
         groupMode: 'stacked',
         stackMode: 'normal',
-        margins: { top: 20, left: 45, right: 15, bottom: 30 },
         theme: {
           axisY: {
             tickPadding: 13,
