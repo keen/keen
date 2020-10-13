@@ -31,7 +31,7 @@ jobs:
           command: npx lerna run build
       - run:
           name: Bump version of changed packages
-          command: npx lerna version --no-push --yes
+          command: npx lerna version --conventional-commits --no-push --yes
       - run:
           name: Publish
           command: npx lerna publish from-git --yes
