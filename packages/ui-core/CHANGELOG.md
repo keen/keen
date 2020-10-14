@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.5...@keen.io/ui-core@2.5.6) (2020-10-14)
+
+
+### Bug Fixes
+
+* 🐛 Add forwardRef to dropdown ([fc4e9e8](https://github.com/keen/keen/commit/fc4e9e859b95b8308e0ddd7adaf4584f4715d797))
+
+
+
+
+
 ## [2.5.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.4...@keen.io/ui-core@2.5.5) (2020-10-14)
 
 **Note:** Version bump only for package @keen.io/ui-core
