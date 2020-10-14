@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import { AnimatePresence, MotionProps } from 'framer-motion';
 
 import { Wrapper, Container } from './dropdown.styles';
@@ -20,21 +20,20 @@ const dropdownMotion: MotionProps = {
   exit: { opacity: 0, top: 30 },
 };
 
-export const Dropdown: FC<Props> = ({
-  isOpen,
-  children,
-  fullWidth = true,
-  motion = dropdownMotion,
-}) => (
-  <Wrapper>
-    <AnimatePresence>
-      {isOpen && (
-        <Container {...motion} fullWidth={fullWidth}>
-          {children}
-        </Container>
-      )}
-    </AnimatePresence>
-  </Wrapper>
+const Dropdown = forwardRef<HTMLDivElement, Props>(
+  ({ isOpen, children, fullWidth = true, motion = dropdownMotion }, ref) => (
+    <Wrapper>
+      <AnimatePresence>
+        {isOpen && (
+          <Container ref={ref} {...motion} fullWidth={fullWidth}>
+            {children}
+          </Container>
+        )}
+      </AnimatePresence>
+    </Wrapper>
+  )
 );
+
+Dropdown.displayName = 'Dropdown';
 
 export default Dropdown;
