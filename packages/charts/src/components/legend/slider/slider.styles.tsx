@@ -26,6 +26,7 @@ export const Slider = styled(motion.div)<{
 export const ScrollMask = styled(motion.div)`
   height: 100%;
   overflow: scroll;
+  scrollbar-width: none;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
