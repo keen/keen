@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.10](https://github.com/keen/keen/compare/@keen.io/charts@2.2.9...@keen.io/charts@2.2.10) (2020-10-14)
+
+
+### Bug Fixes
+
+* 🐛 equal size of funnel steps ([8a32a43](https://github.com/keen/keen/commit/8a32a43ef1a7887ca5a3221ef98c827ceef3ad2f))
+* 🐛 hide scrollbar in FF ([d435a3b](https://github.com/keen/keen/commit/d435a3b58a7feab252fe32165f766ec6408b1c6d))
+
+
+
+
+
 ## [2.2.9](https://github.com/keen/keen/compare/@keen.io/charts@2.2.8...@keen.io/charts@2.2.9) (2020-10-13)
 
 **Note:** Version bump only for package @keen.io/charts
