@@ -27,7 +27,7 @@ export const Step = styled.div<{
   stepsCount: number;
 }>`
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   box-sizing: border-box;
 
   ${props => {
