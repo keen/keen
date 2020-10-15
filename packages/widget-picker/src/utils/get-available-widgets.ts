@@ -8,11 +8,11 @@ export const getAvailableWidgets = (
   }
 
   if (query.analysis_type === 'select_unique') {
-    return ['table', 'json', 'table'];
+    return ['table', 'json'];
   }
 
   if (query.analysis_type === 'funnel') {
-    return ['funnel', 'table', 'json', 'bar', 'table'];
+    return ['funnel', 'table', 'json', 'bar'];
   }
 
   if (query.group_by && !query.interval) {

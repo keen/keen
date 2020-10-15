@@ -30,7 +30,6 @@ test('returns widgets for funnel', () => {
       "table",
       "json",
       "bar",
-      "table",
     ]
   `);
 });
