@@ -4,6 +4,8 @@ import { object, number, text } from '@storybook/addon-knobs';
 import { axisXKnobs, axisYKnobs, gridKnobs } from '@keen.io/storybook-utils';
 
 import { BubbleChart } from './bubble-chart.component';
+import { DEFAULT_MARGINS } from './constants';
+
 import { chartData } from './bubble-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
@@ -54,11 +56,7 @@ export const plot = () => (
         },
         'Chart'
       )}
-      margins={object(
-        'Margins',
-        { top: 50, right: 20, bottom: 60, left: 80 },
-        'Chart'
-      )}
+      margins={object('Margins', DEFAULT_MARGINS, 'Chart')}
       theme={createThemeKnobs() as Theme}
       data={chartData}
     />

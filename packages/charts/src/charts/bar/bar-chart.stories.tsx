@@ -10,7 +10,10 @@ import {
   layoutKnobs,
   typographyKnobs,
 } from '@keen.io/storybook-utils';
+
 import { BarChart } from './bar-chart.component';
+import { DEFAULT_MARGINS } from './constants';
+
 import { chartData } from './bar-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
@@ -64,11 +67,7 @@ export const plot = () => (
         },
         'Chart'
       )}
-      margins={object(
-        'Margins',
-        { top: 50, right: 20, bottom: 60, left: 65 },
-        'Chart'
-      )}
+      margins={object('Margins', DEFAULT_MARGINS, 'Chart')}
       theme={createThemeKnobs() as Theme}
       data={chartData}
     />

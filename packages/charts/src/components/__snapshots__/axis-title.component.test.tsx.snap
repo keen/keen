@@ -22,6 +22,7 @@ exports[`<AxisTitle /> should render AxisTitle 1`] = `
     titleSettings={
       Object {
         "alignment": "center",
+        "padding": 20,
         "typography": Object {
           "fontColor": "#27566D",
           "fontFamily": "Lato Bold, sans-serif",

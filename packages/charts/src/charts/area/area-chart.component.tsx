@@ -40,6 +40,8 @@ export type Props = {
   stackMode?: StackMode;
   /** Gradient on/off */
   gradient?: boolean;
+  /** Automatically adjusts margins for visualization */
+  useDynamicLayout?: boolean;
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {

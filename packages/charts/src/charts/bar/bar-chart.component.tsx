@@ -9,9 +9,11 @@ import Bars from './bars.component';
 import BarTooltipContent from './bar-tooltip-content.component';
 
 import { ChartBase, ChartTooltip, Grid, Axes } from '../../components';
+import { useDynamicChartLayout } from '../../hooks';
 
-import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
+import { theme as defaultTheme } from '../../theme';
 
+import { DEFAULT_MARGINS } from './constants';
 import { TOOLTIP_HIDE_TIME } from '../../constants';
 
 import {
@@ -42,6 +44,8 @@ export type Props = {
   disabledKeys?: string[];
   /** Layout applied on chart bars */
   layout?: Layout;
+  /** Automatically adjusts margins for visualization */
+  useDynamicLayout?: boolean;
   /** X Scale settings */
   xScaleSettings?: ScaleSettings;
   /** Y Scale settings */
@@ -61,8 +65,9 @@ export const BarChart: FC<Props> = ({
   svgDimensions,
   labelSelector,
   theme = defaultTheme,
-  margins = defaultMargins,
+  margins = DEFAULT_MARGINS,
   layout = 'vertical',
+  useDynamicLayout = true,
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
@@ -78,6 +83,13 @@ export const BarChart: FC<Props> = ({
   yAxisTitle,
 }) => {
   const {
+    layoutMargins,
+    layoutReady,
+    setLayoutReady,
+    setLayoutMargins,
+  } = useDynamicChartLayout(useDynamicLayout, margins);
+
+  const {
     bars,
     xScale,
     yScale,
@@ -85,7 +97,7 @@ export const BarChart: FC<Props> = ({
     settings: { xAxisTitle: xTitle, yAxisTitle: yTitle },
   } = generateBars({
     data,
-    margins,
+    margins: layoutMargins,
     dimension: svgDimensions,
     labelSelector,
     barPadding,
@@ -118,58 +130,74 @@ export const BarChart: FC<Props> = ({
       <ChartBase
         theme={theme}
         svgDimensions={svgDimensions}
-        margins={margins}
+        margins={layoutMargins}
         {...settings}
       >
-        <Grid xScale={xScale} yScale={yScale} />
-        <Axes xScale={xScale} yScale={yScale} xTitle={xTitle} yTitle={yTitle} />
-        <Bars
-          bars={bars}
-          stackMode={stackMode}
-          groupMode={groupMode}
+        <Axes
           layout={layout}
-          showValues={showValues}
-          valuesAutocolor={valuesAutocolor}
-          onBarMouseEnter={(_e, _key, selector, { x, y }) => {
-            if (clearTooltip.current) clearTimeout(clearTooltip.current);
-            if (tooltipSettings.enabled) {
-              const selectors = getSelectors({
-                stackMode,
-                groupMode,
-                keys,
-                disabledKeys,
-                colors: theme.colors,
-                selector,
-              });
-              setTooltip({ visible: true, x, y, selectors });
-            }
+          useDynamicLayout={useDynamicLayout}
+          initialMargins={margins}
+          onComputeLayout={margins => {
+            setLayoutMargins(margins);
+            setLayoutReady(true);
           }}
-          onBarMouseLeave={() => {
-            if (tooltipSettings.enabled) {
-              clearTooltip.current = setTimeout(() => {
-                setTooltip({
-                  selectors: null,
-                  visible: false,
-                  x: 0,
-                  y: 0,
-                });
-              }, TOOLTIP_HIDE_TIME);
-            }
-          }}
+          xScale={xScale}
+          yScale={yScale}
+          xTitle={xTitle}
+          yTitle={yTitle}
         />
-        <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
-          {tooltip.selectors && (
-            <BarTooltipContent
-              data={data}
-              keys={keys}
-              disabledKeys={disabledKeys}
+        {layoutReady && (
+          <>
+            <Grid xScale={xScale} yScale={yScale} />
+            <Bars
+              bars={bars}
               stackMode={stackMode}
               groupMode={groupMode}
-              selectors={tooltip.selectors}
-              isList={tooltip.selectors.length > 1}
+              layout={layout}
+              showValues={showValues}
+              valuesAutocolor={valuesAutocolor}
+              onBarMouseEnter={(_e, _key, selector, { x, y }) => {
+                if (clearTooltip.current) clearTimeout(clearTooltip.current);
+                if (tooltipSettings.enabled) {
+                  const selectors = getSelectors({
+                    stackMode,
+                    groupMode,
+                    keys,
+                    disabledKeys,
+                    colors: theme.colors,
+                    selector,
+                  });
+                  setTooltip({ visible: true, x, y, selectors });
+                }
+              }}
+              onBarMouseLeave={() => {
+                if (tooltipSettings.enabled) {
+                  clearTooltip.current = setTimeout(() => {
+                    setTooltip({
+                      selectors: null,
+                      visible: false,
+                      x: 0,
+                      y: 0,
+                    });
+                  }, TOOLTIP_HIDE_TIME);
+                }
+              }}
             />
-          )}
-        </ChartTooltip>
+            <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
+              {tooltip.selectors && (
+                <BarTooltipContent
+                  data={data}
+                  keys={keys}
+                  disabledKeys={disabledKeys}
+                  stackMode={stackMode}
+                  groupMode={groupMode}
+                  selectors={tooltip.selectors}
+                  isList={tooltip.selectors.length > 1}
+                />
+              )}
+            </ChartTooltip>
+          </>
+        )}
       </ChartBase>
     </>
   );

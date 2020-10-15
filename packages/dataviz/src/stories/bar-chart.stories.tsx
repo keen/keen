@@ -64,7 +64,6 @@ export const SimpleResults = () => {
         },
       },
       settings: {
-        margins: { top: 10, left: 50, bottom: 40, right: 10 },
         layout: 'vertical',
       },
     });
@@ -112,7 +111,6 @@ export const MultipleResultsPlot = () => {
       },
       settings: {
         barPadding: 0,
-        margins: { top: 15, left: 0, right: 0, bottom: 30 },
         theme: {
           colors: ['#DBD56E', '#88AB75', '#2D93AD', '#2D93AD', '#DE8F6E'],
           axisX: { enabled: false },
@@ -171,7 +169,6 @@ export const MultipleResults = () => {
       },
       settings: {
         barPadding: 0.1,
-        margins: { top: 10, bottom: 30, left: 30, right: 0 },
       },
     });
 
@@ -213,7 +210,6 @@ export const StackedNormal = () => {
         groupMode: 'stacked',
         stackMode: 'normal',
         barPadding: 0.3,
-        margins: { top: 20, bottom: 30, left: 45, right: 10 },
         theme: {
           colors: ['#84DCC6', '#D6EDFF', '#ACD7EC', '#8B95C9', '#478978'],
           tooltip: {
@@ -262,7 +258,6 @@ export const StackedPercentage = () => {
         groupMode: 'stacked',
         stackMode: 'percent',
         barPadding: 0.3,
-        margins: { top: 20, bottom: 30, left: 45, right: 10 },
         yScaleSettings: {
           formatLabel: (value: number) => `${value}%`,
         },
@@ -349,7 +344,6 @@ export const DoubleGrouped = () => {
         },
       },
       settings: {
-        margins: { bottom: 110, top: 20, left: 120, right: 20 },
         theme: {
           axisX: {
             labels: {

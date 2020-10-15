@@ -39,12 +39,17 @@ const Ruler = ({
   axisTitle,
 }: Props) => {
   const groupElement = useRef(null);
-  const [groupBox, setGroupBox] = useState({ x: 0, y: 0, height: 0 });
+  const [groupBox, setGroupBox] = useState<Partial<DOMRect>>({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     if (groupElement.current) {
-      const { x, y, height } = groupElement.current.getBBox();
-      setGroupBox({ x, y, height });
+      const bbox = groupElement.current.getBBox();
+      setGroupBox(bbox);
     }
   }, [groupElement, x, y, axisTitle]);
 
@@ -82,7 +87,12 @@ const Ruler = ({
 
   return (
     <>
-      <Group color={fontColor} style={{ ...rest }} ref={groupElement}>
+      <Group
+        color={fontColor}
+        style={{ ...rest }}
+        ref={groupElement}
+        data-testid={`ruler-${orientation}`}
+      >
         <Line {...line} color={color} stroke={stroke} />
         {ticks.map(({ x, y, size, text }: RulerTick, idx: number) => (
           <Tick

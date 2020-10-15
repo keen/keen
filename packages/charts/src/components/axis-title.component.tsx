@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Orientation, Line as LineType } from '../types';
+import { Orientation, Line } from '../types';
 
 import {
   getTextAnchor,
@@ -10,21 +10,13 @@ import {
 
 import { AxisTitle } from '../types';
 
-type GroupBox = {
-  x: number;
-  y: number;
-  height: number;
-};
-
 type Props = {
-  children: string;
+  children: React.ReactNode;
   orientation: Orientation;
-  line: LineType;
-  groupBox: GroupBox;
+  line: Line;
+  groupBox: Partial<DOMRect>;
   titleSettings: AxisTitle;
 };
-
-const AXIS_TITLE_PADDING = 20;
 
 const AxisTitle = ({
   children,
@@ -33,7 +25,7 @@ const AxisTitle = ({
   groupBox,
   titleSettings,
 }: Props) => {
-  const { alignment, typography } = titleSettings;
+  const { alignment, typography, padding } = titleSettings;
   const { fontColor, ...typographyProps } = typography;
   const { x, y, height } = groupBox;
 
@@ -46,8 +38,8 @@ const AxisTitle = ({
         : getVerticalPosition(alignment, line),
     y:
       orientation === Orientation.HORIZONTAL
-        ? y + height + AXIS_TITLE_PADDING
-        : x - AXIS_TITLE_PADDING,
+        ? y + height + padding
+        : x - padding,
     style:
       orientation === Orientation.HORIZONTAL
         ? {}

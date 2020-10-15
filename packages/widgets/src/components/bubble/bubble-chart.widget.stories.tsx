@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { text, object, number, boolean, select } from '@storybook/addon-knobs';
+import { text, number, boolean, select } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   typographyKnobs,
@@ -118,11 +118,6 @@ export const widget = () => (
       )}
       xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
       yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
-      margins={object(
-        'Margins',
-        { top: 20, right: 20, bottom: 60, left: 60 },
-        'Chart'
-      )}
       theme={createThemeKnobs()}
       data={chartData}
     />

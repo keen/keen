@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { number, text, object } from '@storybook/addon-knobs';
+import { number, text } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   axisXKnobs,
@@ -79,11 +79,6 @@ export const widget = () => {
         stackMode={lineStackModeKnobs('Chart') as StackMode}
         xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
         yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
-        margins={object(
-          'Margins',
-          { top: 30, right: 20, bottom: 50, left: 40 },
-          'Chart'
-        )}
         theme={createThemeKnobs()}
         data={chartData}
       />

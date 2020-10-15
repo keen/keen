@@ -12,6 +12,8 @@ import {
 } from '@keen.io/storybook-utils';
 
 import { AreaChart } from './area-chart.component';
+import { DEFAULT_MARGINS } from '../line/constants';
+
 import { chartData } from '../line/line-chart.fixtures';
 
 import { theme as keenTheme } from '../../theme';
@@ -68,11 +70,7 @@ export const plot = () => {
           },
           'Chart'
         )}
-        margins={object(
-          'Margins',
-          { top: 50, right: 30, bottom: 60, left: 60 },
-          'Chart'
-        )}
+        margins={object('Margins', DEFAULT_MARGINS, 'Chart')}
         theme={createThemeKnobs() as Theme}
         data={chartData}
       />
