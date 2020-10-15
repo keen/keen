@@ -30,8 +30,14 @@ jobs:
           name: Build packages
           command: npx lerna run build
       - run:
+          name: Bump version of changed packages
+          command: npx lerna version --conventional-commits --no-push --yes
+      - run:
           name: Publish
-          command: npx lerna publish --conventional-commits --yes
+          command: npx lerna publish from-git --yes
+      - run:
+          name: Push changes
+          command: git push --follow-tags --no-verify origin master
   build:
     executor: nodejs
     working_directory: ~/tmp
