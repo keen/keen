@@ -151,7 +151,7 @@ export const rotateLabel = (
     }
   }
   return {
-    anchor: 'middle',
+    anchor: orientation === Orientation.HORIZONTAL ? 'middle' : 'end',
     radius: 0,
     translateX: 0,
     translateY: 0,
