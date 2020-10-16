@@ -67,11 +67,13 @@ exports[`<Toggle /> should render Toggle component 1`] = `
 
 <Toggle>
   <styled.div
+    data-testid="toggle"
     isDisabled={false}
     onClick={[Function]}
   >
     <div
       className="c0"
+      data-testid="toggle"
       onClick={[Function]}
     >
       <styled.div
