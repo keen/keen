@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.12](https://github.com/keen/keen/compare/@keen.io/charts@2.2.11...@keen.io/charts@2.2.12) (2020-10-16)
+
+
+### Bug Fixes
+
+* 🐛 axis label rotation ([24d6509](https://github.com/keen/keen/commit/24d6509e8ed2bb43f7ff3eec18a9981dc0d15907))
+* 🐛 funnel steps overflow in FF ([b198f31](https://github.com/keen/keen/commit/b198f31b5870c7d98305fd6df851d4a7d5c70ddf))
+* 🐛 z-index for table header added ([51d5ea7](https://github.com/keen/keen/commit/51d5ea78802188718f3317c6ef54ed498fb33318))
+
+
+
+
+
 ## [2.2.11](https://github.com/keen/keen/compare/@keen.io/charts@2.2.10...@keen.io/charts@2.2.11) (2020-10-14)
 
 **Note:** Version bump only for package @keen.io/charts

@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/charts",
-  "version": "2.2.11",
+  "version": "2.2.12",
   "description": "Keen charts",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -51,7 +51,7 @@
     "use-debounce": "^3.3.0"
   },
   "devDependencies": {
-    "@keen.io/storybook-utils": "^2.0.19",
+    "@keen.io/storybook-utils": "^2.0.20",
     "@types/d3-array": "^2.0.0",
     "@types/d3-axis": "^1.0.12",
     "@types/d3-drag": "^1.2.3",
