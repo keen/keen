@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/charts",
-  "version": "2.2.13",
+  "version": "2.2.14",
   "description": "Keen charts",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -26,8 +26,8 @@
   "dependencies": {
     "@keen.io/charts-utils": "^1.0.2",
     "@keen.io/colors": "^1.1.0",
-    "@keen.io/react-hooks": "^1.0.2",
-    "@keen.io/ui-core": "^2.5.6",
+    "@keen.io/react-hooks": "^1.0.3",
+    "@keen.io/ui-core": "^2.5.7",
     "column-resizer": "^1.3.5",
     "d3-array": "^2.4.0",
     "d3-axis": "^1.0.12",
@@ -51,7 +51,7 @@
     "use-debounce": "^3.3.0"
   },
   "devDependencies": {
-    "@keen.io/storybook-utils": "^2.0.20",
+    "@keen.io/storybook-utils": "^2.0.21",
     "@types/d3-array": "^2.0.0",
     "@types/d3-axis": "^1.0.12",
     "@types/d3-drag": "^1.2.3",
