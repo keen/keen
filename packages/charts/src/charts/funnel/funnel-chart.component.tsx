@@ -16,6 +16,8 @@ export type Props = {
   data: Record<string, any>[];
   /** Name of data object property used to create labels */
   labelSelector: string;
+  /** Custom labels for funnel steps */
+  stepLabels?: string[];
   /** Layout applied on chart steps */
   layout?: Layout;
   /** Key used to pick value property from data */
@@ -27,6 +29,7 @@ export type Props = {
 export const FunnelChart: FC<Props> = ({
   data,
   labelSelector,
+  stepLabels = [],
   valueKey = 'value',
   layout = 'horizontal',
   theme = defaultTheme,
@@ -48,7 +51,7 @@ export const FunnelChart: FC<Props> = ({
         ) => (
           <FunnelStep
             key={idx}
-            label={data[index][labelSelector]}
+            label={stepLabels[idx] || data[index][labelSelector]}
             theme={theme}
             stepsCount={steps.length}
             index={idx}
