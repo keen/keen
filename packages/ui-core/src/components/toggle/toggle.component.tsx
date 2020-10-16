@@ -64,7 +64,11 @@ const Toggle: FC<Props> = ({
   };
 
   return (
-    <ToggleWrapper isDisabled={isDisabled} onClick={onClick}>
+    <ToggleWrapper
+      isDisabled={isDisabled}
+      onClick={onClick}
+      data-testid="toggle"
+    >
       <Track variant={variant}>
         <TrackMotion
           variant={variant}

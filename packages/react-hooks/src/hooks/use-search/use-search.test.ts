@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import { useSearch } from './useSearch';
+import { useSearch } from './use-search';
 
 const collection = [
   { label: 'Category', value: 'category' },
