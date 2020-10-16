@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { number, text, object } from '@storybook/addon-knobs';
+import { number, text } from '@storybook/addon-knobs';
 import {
   cardKnobs,
   axisXKnobs,
@@ -58,11 +58,6 @@ export const widget = () => (
       layout={layoutKnobs('Chart') as any}
       xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
       yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
-      margins={object(
-        'Margins',
-        { top: 30, right: 20, bottom: 50, left: 100 },
-        'Chart'
-      )}
       theme={createThemeKnobs()}
       data={chartData}
     />

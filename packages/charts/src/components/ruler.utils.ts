@@ -65,30 +65,29 @@ export const rotateLabel = (
   tickPadding: number,
   tickSize: number
 ): LabelRotation => {
-  const labelTransform = {
-    anchor: radiusAngle > 0 ? 'start' : 'end',
-    radius: radiusAngle,
-  };
   if (radiusAngle) {
     if (orientation === Orientation.VERTICAL) {
       switch (radiusAngle) {
         case 90:
           return {
-            ...labelTransform,
+            anchor: 'middle',
+            radius: radiusAngle,
             translateX: -tickPadding + 5,
             translateY: tickPadding / 2,
           };
 
         case -90:
           return {
-            ...labelTransform,
+            anchor: 'middle',
+            radius: radiusAngle,
             translateX: -tickPadding / 2,
             translateY: -tickPadding - 5,
           };
 
         case -60:
           return {
-            ...labelTransform,
+            anchor: 'end',
+            radius: radiusAngle,
             translateX: tickPadding / 2 - 2,
             translateY: -tickPadding,
           };
@@ -96,12 +95,14 @@ export const rotateLabel = (
         default:
           return radiusAngle < 0
             ? {
-                ...labelTransform,
+                anchor: 'end',
+                radius: radiusAngle,
                 translateX: tickPadding / 2,
                 translateY: -tickPadding / 2 - 2,
               }
             : {
-                ...labelTransform,
+                anchor: 'end',
+                radius: radiusAngle,
                 translateX: -tickPadding + 5,
                 translateY: 0,
               };
@@ -110,21 +111,24 @@ export const rotateLabel = (
       switch (radiusAngle) {
         case 90:
           return {
-            ...labelTransform,
+            anchor: 'start',
+            radius: radiusAngle,
             translateX: tickPadding + tickSize - 4,
             translateY: tickPadding + tickSize - 2,
           };
 
         case -90:
           return {
-            ...labelTransform,
+            anchor: 'end',
+            radius: radiusAngle,
             translateX: -(tickPadding + tickSize) + 2,
             translateY: tickPadding + tickSize - 5,
           };
 
         case -25:
           return {
-            ...labelTransform,
+            anchor: 'end',
+            radius: radiusAngle,
             translateX: -tickPadding + 5,
             translateY: tickPadding - 5,
           };
@@ -132,12 +136,14 @@ export const rotateLabel = (
         default:
           return radiusAngle < 0
             ? {
-                ...labelTransform,
+                anchor: 'end',
+                radius: radiusAngle,
                 translateX: -tickPadding,
                 translateY: tickPadding - 5,
               }
             : {
-                ...labelTransform,
+                anchor: 'start',
+                radius: radiusAngle,
                 translateX: tickPadding - 5,
                 translateY: tickPadding - 5,
               };
@@ -145,7 +151,7 @@ export const rotateLabel = (
     }
   }
   return {
-    anchor: orientation === Orientation.HORIZONTAL ? 'middle' : 'end',
+    anchor: 'middle',
     radius: 0,
     translateX: 0,
     translateY: 0,

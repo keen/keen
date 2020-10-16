@@ -1,19 +1,20 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
+import { Layout, Tooltip, ColorMode, RangeType } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
+import Heatmap from './heatmap.component';
+import TooltipContent from './tooltip-content.component';
+import ShadowFilter from './shadow-filter.component';
+
+import { ChartBase, Axes } from '../../components';
+import { useDynamicChartLayout } from '../../hooks';
+
 import { generateBlocks } from './heatmap-chart.utils';
 
-import Heatmap from './heatmap.component';
-
-import { Tooltip } from '@keen.io/ui-core';
-import TooltipContent from './tooltip-content.component';
-
-import ShadowFilter from './shadow-filter.component';
-import { ChartBase, Axes } from '../../components';
-import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
+import { theme as defaultTheme } from '../../theme';
+import { DEFAULT_MARGINS } from './constants';
 
 import { CommonChartSettings } from '../../types';
 
@@ -33,6 +34,8 @@ export type Props = {
   maxValue?: number | 'auto';
   /** Keys picked from data object used to generate blocks */
   keys?: string[];
+  /** Automatically adjusts margins for visualization */
+  useDynamicLayout?: boolean;
   /** Layout applied on chart blocks */
   layout?: Layout;
   /** Color mode */
@@ -58,11 +61,12 @@ export const HeatmapChart: FC<Props> = ({
   svgDimensions,
   labelSelector,
   theme = defaultTheme,
-  margins = defaultMargins,
+  margins = DEFAULT_MARGINS,
   minValue = 'auto',
   maxValue = 'auto',
   keys = ['value'],
   layout = 'vertical',
+  useDynamicLayout = true,
   colorMode = 'continuous',
   steps = 2,
   xScaleSettings = { type: 'band' },
@@ -73,13 +77,20 @@ export const HeatmapChart: FC<Props> = ({
   yAxisTitle,
 }) => {
   const {
+    layoutMargins,
+    layoutReady,
+    setLayoutReady,
+    setLayoutMargins,
+  } = useDynamicChartLayout(useDynamicLayout, margins);
+
+  const {
     blocks,
     xScale,
     yScale,
     settings: { xAxisTitle: xTitle, yAxisTitle: yTitle },
   } = generateBlocks({
     data,
-    margins,
+    margins: layoutMargins,
     dimension: svgDimensions,
     labelSelector,
     keys,
@@ -140,23 +151,39 @@ export const HeatmapChart: FC<Props> = ({
         xScaleSettings={xScaleSettings}
         yScaleSettings={yScaleSettings}
         svgDimensions={svgDimensions}
-        margins={margins}
+        margins={layoutMargins}
       >
-        <Axes xScale={xScale} yScale={yScale} xTitle={xTitle} yTitle={yTitle} />
-        <ShadowFilter />
-        <Heatmap
-          blocks={blocks}
-          padding={padding}
+        <Axes
           layout={layout}
-          onMouseEnter={(e, selectors) => {
-            if (tooltipSettings.enabled) {
-              updateTooltipPosition(e, [selectors]);
-            }
+          useDynamicLayout={useDynamicLayout}
+          initialMargins={margins}
+          onComputeLayout={margins => {
+            setLayoutMargins(margins);
+            setLayoutReady(true);
           }}
-          onMouseLeave={() => {
-            hideTooltip();
-          }}
+          xScale={xScale}
+          yScale={yScale}
+          xTitle={xTitle}
+          yTitle={yTitle}
         />
+        {layoutReady && (
+          <>
+            <ShadowFilter />
+            <Heatmap
+              blocks={blocks}
+              padding={padding}
+              layout={layout}
+              onMouseEnter={(e, selectors) => {
+                if (tooltipSettings.enabled) {
+                  updateTooltipPosition(e, [selectors]);
+                }
+              }}
+              onMouseLeave={() => {
+                hideTooltip();
+              }}
+            />
+          </>
+        )}
       </ChartBase>
     </>
   );
