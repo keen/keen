@@ -13,7 +13,7 @@ export const PasswordInput: FC<InputProps> = props => {
     <Input
       {...props}
       type={inputType}
-      renderIcon={() => (
+      renderSuffix={() => (
         <Wrapper onClick={() => setVisibility(!visible)}>
           <Icon
             height={22}

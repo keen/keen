@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { StyledInput, Suffix, Container } from './input.styles';
+import { StyledInput, Suffix, Prefix, Container } from './input.styles';
 
 import { InputVariant } from './types';
 
@@ -9,22 +9,41 @@ export type Props = {
   hasError?: boolean;
   /** Input component variant */
   variant?: InputVariant;
-  /** Icon render handler */
+  /** Icon render handler  - @deprecated use renderSuffix instead */
   renderIcon?: () => JSX.Element;
+  /** Render prefix elements handler */
+  renderPrefix?: () => JSX.Element;
+  /** Render suffix elements handler */
+  renderSuffix?: () => JSX.Element;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Input = forwardRef(
   (
-    { hasError = false, variant = 'outline', renderIcon, ...props }: Props,
+    {
+      hasError = false,
+      variant = 'outline',
+      renderIcon,
+      renderPrefix,
+      renderSuffix,
+      ...props
+    }: Props,
     ref: React.MutableRefObject<HTMLInputElement>
   ) => (
     <Container>
       <StyledInput
         ref={ref}
         hasError={hasError}
-        variant={variant as InputVariant}
+        hasPrefix={!!renderPrefix}
+        hasSuffix={!!renderSuffix}
+        variant={variant}
         {...props}
       />
+      {renderPrefix && (
+        <Prefix data-testid="input-prefix">{renderPrefix()}</Prefix>
+      )}
+      {renderSuffix && (
+        <Suffix data-testid="input-suffix">{renderSuffix()}</Suffix>
+      )}
       {renderIcon && <Suffix>{renderIcon()}</Suffix>}
     </Container>
   )

@@ -41,13 +41,16 @@ export const outlineWithIcon = () => (
     <Input
       type="text"
       defaultValue="keen.io"
-      renderIcon={() => (
+      renderSuffix={() => (
         <Icon
           type="eye-solid"
           width={16}
           height={16}
           fill={colors.blue['400']}
         />
+      )}
+      renderPrefix={() => (
+        <Icon type="search" width={16} height={16} fill={colors.blue['400']} />
       )}
     />
   </div>
