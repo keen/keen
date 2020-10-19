@@ -36,7 +36,7 @@ export const InputGroup = ({
         hasError={hasError}
         type={type}
         id={props.name}
-        renderIcon={renderIcon}
+        renderSuffix={renderIcon}
         {...field}
       />
       <ErrorContainer>
