@@ -9,10 +9,14 @@ test('renders HTML input element', () => {
   expect(container.querySelector('input')).toBeInTheDocument();
 });
 
-test('renders "icon" component', () => {
-  const { getByTestId } = render(
-    <Input renderIcon={() => <div data-testid="icon" />} />
-  );
+test('renders "prefix" elements', () => {
+  const { getByTestId } = render(<Input renderPrefix={() => <div />} />);
 
-  expect(getByTestId('icon')).toBeInTheDocument();
+  expect(getByTestId('input-prefix')).toBeInTheDocument();
+});
+
+test('renders "suffix" elements', () => {
+  const { getByTestId } = render(<Input renderSuffix={() => <div />} />);
+
+  expect(getByTestId('input-suffix')).toBeInTheDocument();
 });

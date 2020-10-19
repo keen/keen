@@ -46,22 +46,36 @@ export const Container = styled.div`
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  grid-template-columns: 1fr auto 8px;
+  grid-template-columns: 40px auto 40px;
   display: grid;
 `;
 
 export const Suffix = styled.div`
   display: flex;
+  justify-content: center;
   align-self: center;
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
   grid-area: input;
-  grid-column: 2;
+  grid-column: 3;
+`;
+
+export const Prefix = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  grid-area: input;
+  grid-column: 1;
 `;
 
 export const StyledInput = styled.input<{
   hasError: boolean;
+  hasPrefix: boolean;
+  hasSuffix: boolean;
   variant: InputVariant;
 }>`
   width: 100%;
@@ -75,6 +89,18 @@ export const StyledInput = styled.input<{
   font-weight: normal;
 
   ${variant(inputVariants)}
+
+  ${props =>
+    props.hasPrefix &&
+    css`
+      padding-left: 35px;
+    `}
+
+  ${props =>
+    props.hasSuffix &&
+    css`
+      padding-right: 35px;
+    `}
 
   ${props =>
     props.hasError &&
