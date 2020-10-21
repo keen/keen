@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
+    "@keen.io/ui-core": "^2.4.0",
     "framer-motion": "^1.11.1",
     "polished": "^3.4.4",
     "react": "^16.12.0",

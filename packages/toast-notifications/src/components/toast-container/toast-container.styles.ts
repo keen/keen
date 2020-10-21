@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { variant } from 'styled-system';
 import { Placement } from 'react-toast-notifications';
 
+import { UI_LAYERS } from '@keen.io/ui-core';
+
 const containerVariants = {
   prop: 'placement',
   variants: {
@@ -28,6 +30,7 @@ export const Container = styled.div<{ placement: Placement }>`
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
+  z-index: ${UI_LAYERS.notification};
 
   ${variant(containerVariants)};
 `;
