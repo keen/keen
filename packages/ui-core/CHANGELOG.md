@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.9](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.8...@keen.io/ui-core@2.5.9) (2020-10-21)
+
+
+### Bug Fixes
+
+* 🐛 embed registration cookie path ([0e32d1b](https://github.com/keen/keen/commit/0e32d1b35ce5f7d10d2e6889970eae4cf7c52b89))
+
+
+
+
+
 ## [2.5.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.7...@keen.io/ui-core@2.5.8) (2020-10-19)
 
 **Note:** Version bump only for package @keen.io/ui-core
