@@ -9,8 +9,6 @@ export type Props = {
   hasError?: boolean;
   /** Input component variant */
   variant?: InputVariant;
-  /** Icon render handler  - @deprecated use renderSuffix instead */
-  renderIcon?: () => JSX.Element;
   /** Render prefix elements handler */
   renderPrefix?: () => JSX.Element;
   /** Render suffix elements handler */
@@ -22,7 +20,6 @@ export const Input = forwardRef(
     {
       hasError = false,
       variant = 'outline',
-      renderIcon,
       renderPrefix,
       renderSuffix,
       ...props
@@ -44,7 +41,6 @@ export const Input = forwardRef(
       {renderSuffix && (
         <Suffix data-testid="input-suffix">{renderSuffix()}</Suffix>
       )}
-      {renderIcon && <Suffix>{renderIcon()}</Suffix>}
     </Container>
   )
 );

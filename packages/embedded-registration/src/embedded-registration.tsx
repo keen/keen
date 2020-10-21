@@ -42,7 +42,7 @@ class EmbeddedRegistration {
     onSuccess,
     oauthConfig,
     useOAuthProviders = false,
-    utmCookies = ['utm_source', 'utm_campaign'],
+    utmCookies = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term'],
   }: Options) {
     this.container = container;
     this.offerHandle = offerHandle;
