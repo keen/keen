@@ -72,6 +72,8 @@ import {
   ScrollWrapper,
 } from './components';
 
+import { UI_LAYERS } from './constants';
+
 export {
   Anchor,
   Alert,
@@ -141,4 +143,5 @@ export {
   OAuthConfig,
   OAuthUserAction,
   ScrollWrapper,
+  UI_LAYERS,
 };
