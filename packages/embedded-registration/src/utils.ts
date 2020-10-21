@@ -60,6 +60,6 @@ export const setUtmCookie = (cookieList: string[]) => {
     date.setHours(hours + 1);
     document.cookie = `keen=${JSON.stringify(
       cookies
-    )}; expires=${date.toUTCString()}; domain=.keen.io`;
+    )}; expires=${date.toUTCString()}; domain=.keen.io; path=/`;
   }
 };

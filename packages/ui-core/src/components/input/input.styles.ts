@@ -46,13 +46,13 @@ export const Container = styled.div`
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  grid-template-columns: 40px auto 40px;
+  grid-template-columns: auto 1fr auto;
   display: grid;
 `;
 
 export const Suffix = styled.div`
   display: flex;
-  justify-content: center;
+  padding-right: 10px;
   align-self: center;
   box-sizing: border-box;
   margin: 0;
@@ -63,7 +63,7 @@ export const Suffix = styled.div`
 
 export const Prefix = styled.div`
   display: flex;
-  justify-content: center;
+  padding-left: 10px;
   align-self: center;
   box-sizing: border-box;
   margin: 0;
