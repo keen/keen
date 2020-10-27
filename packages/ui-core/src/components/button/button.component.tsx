@@ -15,6 +15,8 @@ type Props = {
   style?: ButtonType;
   /** Disabled state */
   isDisabled?: boolean;
+  /** Active state */
+  isActive?: boolean;
   /** Anchor element href property */
   href?: string;
   /** Anchor element target property */
@@ -36,6 +38,7 @@ export const Button: FC<Props> = ({
   href,
   target = '_blank',
   isDisabled = false,
+  isActive = false,
   htmlType = 'button',
   size = 'default',
   style = 'solid',
@@ -47,6 +50,7 @@ export const Button: FC<Props> = ({
       <StyledAnchor
         data-testid="button"
         isDisabled={isDisabled}
+        isActive={isActive}
         variant={variant}
         size={size}
         href={href}
@@ -67,6 +71,7 @@ export const Button: FC<Props> = ({
     <StyledButton
       data-testid="button"
       isDisabled={isDisabled}
+      isActive={isActive}
       type={htmlType}
       variant={variant}
       body={style}

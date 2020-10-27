@@ -20,7 +20,7 @@ const dropdownMotion: MotionProps = {
   exit: { opacity: 0, top: 30 },
 };
 
-const Dropdown = forwardRef<HTMLDivElement, Props>(
+export const Dropdown = forwardRef<HTMLDivElement, Props>(
   ({ isOpen, children, fullWidth = true, motion = dropdownMotion }, ref) => (
     <Wrapper>
       <AnimatePresence>

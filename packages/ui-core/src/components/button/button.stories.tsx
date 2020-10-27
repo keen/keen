@@ -72,6 +72,12 @@ export const dangerSolid = () => (
   </Button>
 );
 
+export const blankSolid = () => (
+  <Button onClick={action('click')} variant="blank" style="solid">
+    Button
+  </Button>
+);
+
 export const secondaryWithIcon = () => (
   <Button
     onClick={action('click')}
