@@ -49,17 +49,20 @@ export const Modal: FC<Props> = ({
     if (closeable && onClose) onClose();
   }, [closeable, onClose]);
 
-  const keyboardHandler = useCallback((keyEvent: KeyboardEvent) => {
-    if (
-      KEYS_ARRAY.includes(keyEvent.charCode) ||
-      KEYS_ARRAY.includes(keyEvent.keyCode)
-    ) {
-      keyEvent.preventDefault();
-    }
-    if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
-      closeHandler();
-    }
-  }, []);
+  const keyboardHandler = useCallback(
+    (keyEvent: KeyboardEvent) => {
+      if (
+        KEYS_ARRAY.includes(keyEvent.charCode) ||
+        KEYS_ARRAY.includes(keyEvent.keyCode)
+      ) {
+        keyEvent.preventDefault();
+      }
+      if ((keyEvent.charCode || keyEvent.keyCode) === 27) {
+        closeHandler();
+      }
+    },
+    [onClose]
+  );
 
   const preventDefault = useCallback((e: MouseEvent) => {
     e.preventDefault();
