@@ -72,6 +72,15 @@ const solidVariants = {
         backgroundColor: colors.green['400'],
       },
     },
+    blank: {
+      backgroundColor: colors.white['500'],
+      color: colors.blue['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: transparentize(0.8, colors.blue['100']),
+      },
+    },
   },
 };
 
@@ -83,6 +92,16 @@ const sizeVariants = {
     },
     large: {
       height: '45px',
+    },
+  },
+};
+
+const activeVariants = {
+  prop: 'variant',
+  variants: {
+    blank: {
+      boxShadow: 'none',
+      backgroundColor: transparentize(0.8, colors.blue['100']),
     },
   },
 };
@@ -115,6 +134,7 @@ type Props = {
   body: ButtonType;
   size: ButtonSize;
   isDisabled: boolean;
+  isActive: boolean;
   fullWidth?: boolean;
 };
 
@@ -129,6 +149,7 @@ export const StyledButton = styled.button<Props>`
   ${buttonMixin()};
   ${props => props.body === 'solid' && variant(solidVariants)}
   ${props => props.body === 'outline' && variant(outlineVariants)}
+  ${props => props.isActive && variant(activeVariants)}
   ${variant(sizeVariants)};
 `;
 

@@ -1,4 +1,9 @@
-export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'blank';
 
 export type ButtonSize = 'default' | 'large';
 
