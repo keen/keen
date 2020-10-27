@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.10](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.9...@keen.io/ui-core@2.5.10) (2020-10-27)
+
+
+### Bug Fixes
+
+* 🐛 modal close handler ([958314d](https://github.com/keen/keen/commit/958314d95d63dcee7ac628ec8a2183715b1032ff))
+
+
+
+
+
 ## [2.5.9](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.8...@keen.io/ui-core@2.5.9) (2020-10-21)
 
 
