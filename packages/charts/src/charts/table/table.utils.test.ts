@@ -1,4 +1,9 @@
-import { sortData, generateHeader, generateTable } from './table.utils';
+import {
+  sortData,
+  generateHeader,
+  generateTable,
+  setColumnsOrder,
+} from './table.utils';
 
 describe('<TableChart />', () => {
   describe('sortData()', () => {
@@ -118,6 +123,35 @@ describe('<TableChart />', () => {
             "city": "Viva Houston",
             "name": "Bartek",
           },
+        ]
+      `);
+    });
+  });
+  describe('setColumnsOrder()', () => {
+    it('should set columns order for data', () => {
+      const data = [
+        {
+          price: 0.5,
+          province: 'Liaoning',
+          city: 'Shenyang',
+          country: 'China',
+        },
+        {
+          price: 0.5,
+          province: 'West Virginia',
+          city: 'Parsons',
+          country: 'United States',
+        },
+      ];
+      const order = ['city', 'province', 'country', 'invalid-key-name'];
+      const formattedData = setColumnsOrder(order, data);
+      console.log(Object.keys(formattedData[0]));
+      expect(Object.keys(formattedData[0])).toMatchInlineSnapshot(`
+        Array [
+          "city",
+          "province",
+          "country",
+          "price",
         ]
       `);
     });
