@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
-import { Query } from '@keen.io/parser';
 
 import { renderWidget } from './render-widget';
 
@@ -10,6 +9,7 @@ import {
   extendWidgetSettings,
   prepareVisualization,
   validateOptions,
+  setChartSettings,
 } from './utils';
 
 import {
@@ -52,28 +52,24 @@ class Visualizer {
       : document.querySelector(this.container);
   }
 
-  private setComponentSettings(query: Query): ComponentSettings {
+  private setComponentSettings(
+    input: VisualizationInput | VisualizationInput[] = {},
+    type: Widgets
+  ): ComponentSettings {
+    let componentSettings = { ...this.componentSettings };
+
     if ('theme' in this.componentSettings) {
       const { theme } = this.componentSettings;
-      return {
-        ...this.componentSettings,
-        theme: extendTheme(theme),
-      };
+      componentSettings = { ...componentSettings, theme: extendTheme(theme) };
     }
 
-    if (
-      query &&
-      query.analysis_type === 'extraction' &&
-      'property_names' in query
-    ) {
-      const { property_names } = query;
-      return {
-        ...this.componentSettings,
-        columnsOrder: property_names,
+    if (input) {
+      componentSettings = {
+        ...componentSettings,
+        ...setChartSettings(input, type),
       };
     }
-
-    return this.componentSettings;
+    return componentSettings;
   }
 
   private setWidgetSettings(): WidgetSettings {
@@ -94,12 +90,6 @@ class Visualizer {
 
   render(input: VisualizationInput | VisualizationInput[] = {}) {
     const container = this.getContainerNode();
-
-    let query;
-    if (!Array.isArray(input)) {
-      query = input.query;
-    }
-
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
     let scaleSettings = {};
@@ -119,7 +109,7 @@ class Visualizer {
       renderWidget({
         type: this.type,
         widgetSettings: this.setWidgetSettings(),
-        componentSettings: this.setComponentSettings(query),
+        componentSettings: this.setComponentSettings(input, this.type),
         data: results,
         scaleSettings,
         keys,

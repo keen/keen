@@ -145,7 +145,7 @@ describe('<TableChart />', () => {
       ];
       const order = ['city', 'province', 'country', 'invalid-key-name'];
       const formattedData = setColumnsOrder(order, data);
-      console.log(Object.keys(formattedData[0]));
+
       expect(Object.keys(formattedData[0])).toMatchInlineSnapshot(`
         Array [
           "city",
