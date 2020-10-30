@@ -23,5 +23,5 @@ export const getAvailableWidgets = (
     return ['line', 'table', 'json', 'metric', 'bar', 'area', 'heatmap'];
   }
 
-  return ['table', 'json', 'metric'];
+  return ['metric', 'table', 'json'];
 };
