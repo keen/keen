@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
+import { Query } from '@keen.io/parser';
 
 import { renderWidget } from './render-widget';
 
@@ -51,12 +52,24 @@ class Visualizer {
       : document.querySelector(this.container);
   }
 
-  private setComponentSettings(): ComponentSettings {
+  private setComponentSettings(query: Query): ComponentSettings {
     if ('theme' in this.componentSettings) {
       const { theme } = this.componentSettings;
       return {
         ...this.componentSettings,
         theme: extendTheme(theme),
+      };
+    }
+
+    if (
+      query &&
+      query.analysis_type === 'extraction' &&
+      'property_names' in query
+    ) {
+      const { property_names } = query;
+      return {
+        ...this.componentSettings,
+        columnsOrder: property_names,
       };
     }
 
@@ -82,6 +95,11 @@ class Visualizer {
   render(input: VisualizationInput | VisualizationInput[] = {}) {
     const container = this.getContainerNode();
 
+    let query;
+    if (!Array.isArray(input)) {
+      query = input.query;
+    }
+
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
     let scaleSettings = {};
@@ -101,7 +119,7 @@ class Visualizer {
       renderWidget({
         type: this.type,
         widgetSettings: this.setWidgetSettings(),
-        componentSettings: this.setComponentSettings(),
+        componentSettings: this.setComponentSettings(query),
         data: results,
         scaleSettings,
         keys,
