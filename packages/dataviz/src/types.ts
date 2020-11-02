@@ -9,6 +9,7 @@ import {
   ChoroplethChartSettings,
   BubbleChartSettings,
   GaugeChartSettings,
+  TableChartSettings,
 } from '@keen.io/charts';
 import { Query, Step, AnalysisResult } from '@keen.io/parser';
 import { CardSettings } from '@keen.io/ui-core';
@@ -29,6 +30,7 @@ export type VisualizerWidgetSettings = {
 };
 
 export type ComponentSettings =
+  | BubbleChartSettings
   | BarChartSettings
   | LineChartSettings
   | GaugeChartSettings
@@ -37,9 +39,8 @@ export type ComponentSettings =
   | MetricChartSettings
   | FunnelChartSettings
   | HeatmapChartSettings
-  | ChoroplethChartSettings
-  | BubbleChartSettings
-  | Record<string, any>;
+  | TableChartSettings
+  | ChoroplethChartSettings;
 
 export type Options = {
   container: HTMLElement | string;
