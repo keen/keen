@@ -55,8 +55,8 @@ describe('@keen.io/charts', () => {
 
         expect(yScale.domain()).toMatchInlineSnapshot(`
           Array [
-            "January",
             "February",
+            "January",
           ]
         `);
       });

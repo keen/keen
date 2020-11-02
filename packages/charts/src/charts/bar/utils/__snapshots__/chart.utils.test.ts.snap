@@ -13,7 +13,7 @@ Array [
     "value": -3,
     "width": 76,
     "x": 10,
-    "y": 147.5,
+    "y": 15,
   },
   Object {
     "color": "red",
@@ -26,7 +26,7 @@ Array [
     "value": 12,
     "width": 304,
     "x": 86,
-    "y": 15,
+    "y": 147.5,
   },
   Object {
     "color": "green",
@@ -39,7 +39,7 @@ Array [
     "value": 11,
     "width": 278.6666666666667,
     "x": 86,
-    "y": 213.5,
+    "y": 81,
   },
   Object {
     "color": "green",
@@ -52,7 +52,7 @@ Array [
     "value": 3,
     "width": 76,
     "x": 86,
-    "y": 81,
+    "y": 213.5,
   },
 ]
 `;
