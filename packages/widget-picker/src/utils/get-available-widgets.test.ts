@@ -88,9 +88,9 @@ test('fallbacks to default widgets', () => {
   const result = getAvailableWidgets(query);
   expect(result).toMatchInlineSnapshot(`
     Array [
+      "metric",
       "table",
       "json",
-      "metric",
     ]
   `);
 });
