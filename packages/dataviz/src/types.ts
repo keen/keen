@@ -40,7 +40,8 @@ export type ComponentSettings =
   | FunnelChartSettings
   | HeatmapChartSettings
   | TableChartSettings
-  | ChoroplethChartSettings;
+  | ChoroplethChartSettings
+  | Record<string, any>;
 
 export type Options = {
   container: HTMLElement | string;

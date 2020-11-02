@@ -8,8 +8,8 @@ import {
   extendTheme,
   extendWidgetSettings,
   prepareVisualization,
+  createSettingsFromQuery,
   validateOptions,
-  inheritSettingsFromQuery,
 } from './utils';
 
 import {
@@ -67,14 +67,14 @@ class Visualizer {
     if (!Array.isArray(input) && input.query) {
       const { query } = input;
       componentSettings = {
-        ...inheritSettingsFromQuery({ query, widgetType, keys }),
+        ...createSettingsFromQuery({ query, widgetType, keys }),
         ...componentSettings,
       };
     } else if (Array.isArray(input) && input[0]?.query) {
       const [firstQuery] = input;
       const { query } = firstQuery;
       componentSettings = {
-        ...inheritSettingsFromQuery({ query, widgetType, keys }),
+        ...createSettingsFromQuery({ query, widgetType, keys }),
         ...componentSettings,
       };
     }

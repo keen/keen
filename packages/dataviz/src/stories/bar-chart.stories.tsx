@@ -54,7 +54,7 @@ export const SimpleResults = () => {
       container: container.current,
       widget: {
         legend: {
-          enabled: false,
+          enabled: true,
         },
         title: {
           content: 'Book purchases',
@@ -64,7 +64,7 @@ export const SimpleResults = () => {
         },
       },
       settings: {
-        layout: 'horizontal',
+        layout: 'vertical',
       },
     });
 

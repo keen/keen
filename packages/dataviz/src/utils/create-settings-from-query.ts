@@ -19,14 +19,15 @@ type Options = {
 };
 
 /**
- * Determines visualization settings based on query definition.
+ * Determines visualization settings based on query
+ * definition and parser results.
  *
  * @param query - Query settings
  * @param widgetType - type of widget
  * @return chart settings
  *
  */
-export const inheritSettingsFromQuery = ({
+export const createSettingsFromQuery = ({
   query,
   widgetType,
   keys,
