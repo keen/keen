@@ -55,3 +55,16 @@ export const generateTable = (
     });
     return table;
   });
+
+export const setColumnsOrder = (
+  order: string[],
+  data: Record<string, any>[]
+) => {
+  const dataKeys = Object.keys(data[0]);
+  const filteredOrder = order.filter(o => dataKeys.includes(o));
+  const columnsOrder = [...new Set([...filteredOrder, ...dataKeys])];
+
+  return data.map(item =>
+    columnsOrder.reduce((acc, key) => ({ ...acc, [key]: item[key] }), {})
+  );
+};
