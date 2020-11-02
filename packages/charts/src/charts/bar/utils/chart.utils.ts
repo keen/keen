@@ -46,6 +46,8 @@ export const generateHorizontalGroupedBars = ({
   labelSelector,
   colors,
 }: Options) => {
+  console.log(data, 'test');
+
   const filteredKeys = getKeysDifference(keys, disabledKeys);
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
 
@@ -57,7 +59,7 @@ export const generateHorizontalGroupedBars = ({
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain(data.map((item: any) => item[labelSelector]))
+    .domain(data.map((item: any) => item[labelSelector]).reverse())
     .padding(barPadding);
 
   const yGroupScale = scaleBand()
