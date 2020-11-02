@@ -25,9 +25,10 @@ export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
 export type Query = {
   interval?: string;
   group_by?: string | string[];
-  target_property: string;
+  target_property?: string;
   event_collection: string;
   analysis_type: Analysis;
+  property_names?: string[];
 };
 
 export type AtomicResult = { [key: string]: string | number } & {

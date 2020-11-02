@@ -9,6 +9,7 @@ import {
   extendWidgetSettings,
   prepareVisualization,
   validateOptions,
+  setChartSettings,
 } from './utils';
 
 import {
@@ -51,16 +52,24 @@ class Visualizer {
       : document.querySelector(this.container);
   }
 
-  private setComponentSettings(): ComponentSettings {
+  private setComponentSettings(
+    input: VisualizationInput | VisualizationInput[] = {},
+    type: Widgets
+  ): ComponentSettings {
+    let componentSettings = { ...this.componentSettings };
+
     if ('theme' in this.componentSettings) {
       const { theme } = this.componentSettings;
-      return {
-        ...this.componentSettings,
-        theme: extendTheme(theme),
-      };
+      componentSettings = { ...componentSettings, theme: extendTheme(theme) };
     }
 
-    return this.componentSettings;
+    if (input) {
+      componentSettings = {
+        ...componentSettings,
+        ...setChartSettings(input, type),
+      };
+    }
+    return componentSettings;
   }
 
   private setWidgetSettings(): WidgetSettings {
@@ -81,7 +90,6 @@ class Visualizer {
 
   render(input: VisualizationInput | VisualizationInput[] = {}) {
     const container = this.getContainerNode();
-
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
     let scaleSettings = {};
@@ -101,7 +109,7 @@ class Visualizer {
       renderWidget({
         type: this.type,
         widgetSettings: this.setWidgetSettings(),
-        componentSettings: this.setComponentSettings(),
+        componentSettings: this.setComponentSettings(input, this.type),
         data: results,
         scaleSettings,
         keys,
