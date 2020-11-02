@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo,
+} from 'react';
 import ColumnResizer from 'column-resizer';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TableRow, Tooltip, Text, SortMode } from '@keen.io/ui-core';
@@ -105,9 +111,13 @@ export const TableChart = ({
     [maxScroll, overflowLeft, overflowRight]
   );
 
-  const data = columnsOrder?.length
-    ? setColumnsOrder(columnsOrder, tableData)
-    : tableData;
+  const data = useMemo(
+    () =>
+      columnsOrder?.length
+        ? setColumnsOrder(columnsOrder, tableData)
+        : tableData,
+    [columnsOrder]
+  );
   const formatData = formatValue ? generateTable(data, formatValue) : data;
   const sortedData = sort ? sortData(formatData, sort) : formatData;
 
