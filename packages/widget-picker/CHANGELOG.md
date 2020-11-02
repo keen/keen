@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.19](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.18...@keen.io/widget-picker@1.2.19) (2020-11-02)
+
+
+### Bug Fixes
+
+* 🐛 set metric as a default chart ([775b751](https://github.com/keen/keen/commit/775b751f455bea2574c61ee21636a3994880ce31))
+
+
+
+
+
 ## [1.2.18](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.17...@keen.io/widget-picker@1.2.18) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/widget-picker
