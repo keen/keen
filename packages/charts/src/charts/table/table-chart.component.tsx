@@ -110,7 +110,7 @@ export const TableChart = ({
     },
     [maxScroll, overflowLeft, overflowRight]
   );
-  console.log({ tableData });
+
   const data = useMemo(
     () =>
       columnsOrder?.length
