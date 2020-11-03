@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.1.17...@keen.io/dataviz@2.2.0) (2020-11-03)
+
+
+### Features
+
+* 🎸 bars order logic ([e7fa5f7](https://github.com/keen/keen/commit/e7fa5f76d3a0c4afcfe947843dba82b8bd7148cb))
+
+
+
+
+
 ## [2.1.17](https://github.com/keen/keen/compare/@keen.io/dataviz@2.1.16...@keen.io/dataviz@2.1.17) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/dataviz

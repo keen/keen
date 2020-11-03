@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/keen/keen/compare/@keen.io/charts@2.2.17...@keen.io/charts@2.3.0) (2020-11-03)
+
+
+### Bug Fixes
+
+* 🐛 longest label dimension calculation ([1b0d331](https://github.com/keen/keen/commit/1b0d33118e81a9151043c220a56cbf29232ebdc2))
+
+
+### Features
+
+* 🎸 bars order logic ([e7fa5f7](https://github.com/keen/keen/commit/e7fa5f76d3a0c4afcfe947843dba82b8bd7148cb))
+* 🎸 table columns order ([c998898](https://github.com/keen/keen/commit/c9988980823e2fd4cd9fc5e2937526c5353661a5))
+
+
+
+
+
 ## [2.2.17](https://github.com/keen/keen/compare/@keen.io/charts@2.2.16...@keen.io/charts@2.2.17) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/charts
