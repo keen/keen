@@ -1,7 +1,7 @@
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { stack, stackOffsetDiverging } from 'd3-shape';
 
-import { Layout } from '@keen.io/ui-core';
+import { Layout, SortMode } from '@keen.io/ui-core';
 import {
   calculateRange,
   calculateStackedRange,
@@ -32,6 +32,7 @@ type Options = {
   yScaleSettings: ScaleSettings;
   xAxisTitle?: string;
   yAxisTitle?: string;
+  barsOrder?: SortMode;
 };
 
 export const generateHorizontalGroupedBars = ({
@@ -43,6 +44,7 @@ export const generateHorizontalGroupedBars = ({
   minValue,
   maxValue,
   barPadding,
+  barsOrder,
   labelSelector,
   colors,
 }: Options) => {
@@ -57,7 +59,7 @@ export const generateHorizontalGroupedBars = ({
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain(data.map((item: any) => item[labelSelector]))
+    .domain(data.map((item: any) => item[labelSelector]).reverse())
     .padding(barPadding);
 
   const yGroupScale = scaleBand()
@@ -66,22 +68,43 @@ export const generateHorizontalGroupedBars = ({
 
   const barHeight = yGroupScale.bandwidth();
   const range = new Array(yScale.domain().length).fill(true);
+
   let yCounter = 0;
+  const keysOrder: Record<number, any> = {};
+
+  if (barsOrder) {
+    data.forEach((_item: Record<string, any>, idx: number) => {
+      yGroupScale
+        .domain()
+        .sort((a, b) => {
+          if (barsOrder === 'descending') {
+            return data[idx]?.[b] - data[idx]?.[a];
+          } else {
+            return data[idx]?.[a] - data[idx]?.[b];
+          }
+        })
+        .forEach((keyName, index) => {
+          if (!keysOrder[idx]) keysOrder[idx] = {};
+          keysOrder[idx][keyName] = index;
+        });
+    });
+  }
 
   const bars = keys.reduce((acc, keyName: string, idx: number) => {
     const barsGroup = [] as Bar[];
     const isDisabled =
-      keyName !== labelSelector && !disabledKeys.includes(keyName);
+      keyName === labelSelector || disabledKeys.includes(keyName);
 
     range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
 
-      if (value && isDisabled) {
+      if (value && !isDisabled) {
+        const orderPosition = barsOrder ? keysOrder[index][keyName] : yCounter;
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
           x: value > 0 ? Math.abs(xScale(0)) : xScale(value),
-          y: yScale(data[index][labelSelector]) + barHeight * yCounter,
+          y: yScale(data[index][labelSelector]) + barHeight * orderPosition,
           width: Math.abs(xScale(value) - xScale(0)),
           height: barHeight,
           color: colors[idx],
@@ -92,7 +115,7 @@ export const generateHorizontalGroupedBars = ({
       }
     });
 
-    if (!disabledKeys.includes(keyName)) yCounter++;
+    if (!barsOrder && !disabledKeys.includes(keyName)) yCounter++;
 
     return [...acc, ...barsGroup];
   }, []);
@@ -111,6 +134,7 @@ export const generateVerticalGroupedBars = ({
   minValue,
   maxValue,
   barPadding,
+  barsOrder,
   keys,
   disabledKeys,
   colors,
@@ -136,21 +160,42 @@ export const generateVerticalGroupedBars = ({
 
   const barWidth = xGroupScale.bandwidth();
   const range = new Array(xScale.domain().length).fill(true);
+
   let xCounter = 0;
+  const keysOrder: Record<number, any> = {};
+
+  if (barsOrder) {
+    data.forEach((_item: Record<string, any>, idx: number) => {
+      xGroupScale
+        .domain()
+        .sort((a, b) => {
+          if (barsOrder === 'descending') {
+            return data[idx]?.[b] - data[idx]?.[a];
+          } else {
+            return data[idx]?.[a] - data[idx]?.[b];
+          }
+        })
+        .forEach((keyName, index) => {
+          if (!keysOrder[idx]) keysOrder[idx] = {};
+          keysOrder[idx][keyName] = index;
+        });
+    });
+  }
 
   const bars = keys.reduce((acc, keyName: string, idx: number) => {
     const barsGroup = [] as Bar[];
     const isDisabled =
-      keyName !== labelSelector && !disabledKeys.includes(keyName);
+      keyName === labelSelector || disabledKeys.includes(keyName);
 
     range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
 
-      if (value && isDisabled) {
+      if (value && !isDisabled) {
+        const orderPosition = barsOrder ? keysOrder[index][keyName] : xCounter;
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          x: xScale(data[index][labelSelector]) + barWidth * xCounter,
+          x: xScale(data[index][labelSelector]) + barWidth * orderPosition,
           y: value > 0 ? yScale(value) : yScale(0),
           width: barWidth,
           height: Math.abs(yScale(value) - yScale(0)),
@@ -162,7 +207,7 @@ export const generateVerticalGroupedBars = ({
       }
     });
 
-    if (!disabledKeys.includes(keyName)) xCounter++;
+    if (!barsOrder && !disabledKeys.includes(keyName)) xCounter++;
 
     return [...acc, ...barsGroup];
   }, []);

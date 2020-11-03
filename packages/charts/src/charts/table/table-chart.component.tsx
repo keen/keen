@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo,
+} from 'react';
 import ColumnResizer from 'column-resizer';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TableRow, Tooltip, Text, SortMode } from '@keen.io/ui-core';
@@ -10,7 +16,12 @@ import {
 import { colors } from '@keen.io/colors';
 
 import { HeaderRow } from './components';
-import { generateHeader, generateTable, sortData } from './table.utils';
+import {
+  generateHeader,
+  generateTable,
+  sortData,
+  setColumnsOrder,
+} from './table.utils';
 
 import {
   Container,
@@ -36,6 +47,8 @@ export type Props = {
   color: string;
   /** Object of functions to format headers separately */
   formatHeader?: Record<string, FormatFunction>;
+  /** Columns order */
+  columnsOrder?: string[];
   /** Format function for values, or object of functions to format values separately */
   formatValue?: ValueFormatter;
   /** Resize table layout event handler */
@@ -43,9 +56,10 @@ export type Props = {
 } & CommonChartSettings;
 
 export const TableChart = ({
-  data,
+  data: tableData,
   color = colors.blue['500'],
   formatHeader,
+  columnsOrder,
   formatValue,
   onResize,
   theme = defaultTheme,
@@ -97,6 +111,13 @@ export const TableChart = ({
     [maxScroll, overflowLeft, overflowRight]
   );
 
+  const data = useMemo(
+    () =>
+      columnsOrder?.length
+        ? setColumnsOrder(columnsOrder, tableData)
+        : tableData,
+    [columnsOrder, tableData]
+  );
   const formatData = formatValue ? generateTable(data, formatValue) : data;
   const sortedData = sort ? sortData(formatData, sort) : formatData;
 

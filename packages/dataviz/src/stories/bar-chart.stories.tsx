@@ -54,7 +54,7 @@ export const SimpleResults = () => {
       container: container.current,
       widget: {
         legend: {
-          enabled: false,
+          enabled: true,
         },
         title: {
           content: 'Book purchases',
@@ -64,7 +64,7 @@ export const SimpleResults = () => {
         },
       },
       settings: {
-        layout: 'vertical',
+        layout: 'horizontal',
       },
     });
 
@@ -76,12 +76,14 @@ export const SimpleResults = () => {
           start: '2019-01-01T00:00:00.000-00:00',
           end: '2019-05-01T16:00:00.000-00:00',
         },
+        group_by: ['author'],
+        orderBy: { property_name: 'result', direction: 'ASC' },
         interval: 'monthly',
       })
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '400px' }} ref={container} />;
 };
 
 SimpleResults.story = {

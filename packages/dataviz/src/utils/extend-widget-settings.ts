@@ -10,11 +10,20 @@ import {
 
 import { VisualizerWidgetSettings } from '../types';
 
+/**
+ * Extends widget settings with custom configuration
+ * dedicated for specific visualization.
+ *
+ * @param customSettings - Query settings
+ * @param widgetType - type of widget
+ * @return widget settings
+ *
+ */
 export const extendWidgetSettings = (
   customSettings: Partial<VisualizerWidgetSettings> = {},
-  type?: Widgets
+  widgetType: Widgets
 ): WidgetSettings => {
-  switch (type) {
+  switch (widgetType) {
     case 'choropleth':
       return deepMerge(
         defaultChoroplethWidgetSettings,

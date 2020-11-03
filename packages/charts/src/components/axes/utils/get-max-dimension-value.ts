@@ -18,15 +18,16 @@ const getMaxDimensionValue = (
     | ScaleTime<number, number>,
   settings?: ScaleSettings
 ) => {
-  let values: string[] = (scale.domain() as ScaleValues).map(v => v.toString());
+  let values = (scale.domain() as ScaleValues).filter(v => v !== null);
+
   if (settings && settings.formatLabel) {
-    values = (scale.domain() as string[]).map(v =>
-      settings.formatLabel(v).toString()
-    );
+    values = values.map(v => settings.formatLabel(v));
   }
 
   if (values.length) {
-    return values.reduce((a, b) => (a.length > b.length ? a : b));
+    return values
+      .map(v => v.toString())
+      .reduce((a, b) => (a.length > b.length ? a : b));
   }
 
   return '';

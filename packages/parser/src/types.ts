@@ -22,12 +22,23 @@ export type Intervals =
 
 export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
 
+export type Direction = 'ASC' | 'DESC';
+
+export type OrderByProperty = {
+  propertyName: string;
+  direction: Direction;
+};
+
+export type OrderBy = string | OrderByProperty | OrderByProperty[];
+
 export type Query = {
   interval?: string;
   group_by?: string | string[];
-  target_property: string;
+  target_property?: string;
   event_collection: string;
   analysis_type: Analysis;
+  order_by: OrderBy;
+  property_names?: string[];
 };
 
 export type AtomicResult = { [key: string]: string | number } & {

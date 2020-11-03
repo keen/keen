@@ -8,6 +8,7 @@ import {
   extendTheme,
   extendWidgetSettings,
   prepareVisualization,
+  createSettingsFromQuery,
   validateOptions,
 } from './utils';
 
@@ -51,16 +52,34 @@ class Visualizer {
       : document.querySelector(this.container);
   }
 
-  private setComponentSettings(): ComponentSettings {
+  private setComponentSettings(
+    input: VisualizationInput | VisualizationInput[] = {},
+    widgetType: Widgets,
+    keys: string[]
+  ) {
+    let componentSettings = { ...this.componentSettings };
+
     if ('theme' in this.componentSettings) {
       const { theme } = this.componentSettings;
-      return {
-        ...this.componentSettings,
-        theme: extendTheme(theme),
+      componentSettings = { ...componentSettings, theme: extendTheme(theme) };
+    }
+
+    if (!Array.isArray(input) && input.query) {
+      const { query } = input;
+      componentSettings = {
+        ...createSettingsFromQuery({ query, widgetType, keys }),
+        ...componentSettings,
+      };
+    } else if (Array.isArray(input) && input[0]?.query) {
+      const [firstQuery] = input;
+      const { query } = firstQuery;
+      componentSettings = {
+        ...createSettingsFromQuery({ query, widgetType, keys }),
+        ...componentSettings,
       };
     }
 
-    return this.componentSettings;
+    return componentSettings;
   }
 
   private setWidgetSettings(): WidgetSettings {
@@ -81,10 +100,8 @@ class Visualizer {
 
   render(input: VisualizationInput | VisualizationInput[] = {}) {
     const container = this.getContainerNode();
-
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
-    let scaleSettings = {};
 
     if (arguments.length) {
       const parser = prepareVisualization(
@@ -92,7 +109,6 @@ class Visualizer {
         this.mappings,
         this.componentSettings
       );
-      scaleSettings = parser.scaleSettings;
       keys = parser.keys;
       results = parser.results;
     }
@@ -101,9 +117,8 @@ class Visualizer {
       renderWidget({
         type: this.type,
         widgetSettings: this.setWidgetSettings(),
-        componentSettings: this.setComponentSettings(),
+        componentSettings: this.setComponentSettings(input, this.type, keys),
         data: results,
-        scaleSettings,
         keys,
       }),
       container

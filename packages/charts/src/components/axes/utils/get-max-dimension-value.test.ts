@@ -4,7 +4,7 @@ import { ScaleSettings } from '@keen.io/charts-utils';
 import getMaxDimensionValue from './get-max-dimension-value';
 
 test('returns the longest label from scale domain', () => {
-  const scale = scaleBand().domain(['Marketing', 'IT', 'Sales']);
+  const scale = scaleBand().domain(['Marketing', 'IT', null, 'Sales']);
   const result = getMaxDimensionValue(scale);
 
   expect(result).toEqual('Marketing');
