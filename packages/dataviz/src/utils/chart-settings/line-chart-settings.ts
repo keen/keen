@@ -14,7 +14,7 @@ export const setChartSettings = ({
       ...settings,
       xScaleSettings: {
         type: 'time',
-        ...createScaleSettings(query),
+        ...createScaleSettings(interval),
       },
     };
   }

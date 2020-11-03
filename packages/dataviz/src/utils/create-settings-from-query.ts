@@ -13,7 +13,7 @@ import {
 } from './chart-settings';
 
 type Options = {
-  query: Query;
+  query: Partial<Query>;
   widgetType: Widgets;
   keys: string[];
 };
