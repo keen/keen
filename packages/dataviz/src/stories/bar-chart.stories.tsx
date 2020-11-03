@@ -64,7 +64,7 @@ export const SimpleResults = () => {
         },
       },
       settings: {
-        layout: 'vertical',
+        layout: 'horizontal',
       },
     });
 
@@ -77,13 +77,13 @@ export const SimpleResults = () => {
           end: '2019-05-01T16:00:00.000-00:00',
         },
         group_by: ['author'],
-        orderBy: { property_name: 'result', direction: 'DESC' },
+        orderBy: { property_name: 'result', direction: 'ASC' },
         interval: 'monthly',
       })
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '700px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '400px' }} ref={container} />;
 };
 
 SimpleResults.story = {
