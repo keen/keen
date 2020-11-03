@@ -64,8 +64,10 @@ class Visualizer {
       componentSettings = { ...componentSettings, theme: extendTheme(theme) };
     }
 
-    if (!Array.isArray(input) && input.query) {
-      const { query } = input;
+    if (!Array.isArray(input) && (input.query || input.steps)) {
+      let query = {};
+      if (input.query) query = input.query;
+
       componentSettings = {
         ...createSettingsFromQuery({ query, widgetType, keys }),
         ...componentSettings,
