@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.0...@keen.io/dataviz@2.2.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* 🐛 dataviz funnel settings ([503b82c](https://github.com/keen/keen/commit/503b82ca18c746638eb490c2e87661d25f820f93))
+* 🐛 funnel settings fix ([860ef8a](https://github.com/keen/keen/commit/860ef8af322e61590420eecc945b8a9fe51aa610))
+
+
+
+
+
 # [2.2.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.1.17...@keen.io/dataviz@2.2.0) (2020-11-03)
 
 
