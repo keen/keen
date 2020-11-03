@@ -12,7 +12,7 @@ export const setChartSettings = ({
   if (interval) {
     settings = {
       ...settings,
-      xScaleSettings: { type: 'band', ...createScaleSettings(query) },
+      xScaleSettings: { type: 'band', ...createScaleSettings(interval) },
     };
   }
 
