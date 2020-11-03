@@ -1,5 +1,5 @@
 import React, { useState, useRef, FC } from 'react';
-import { Layout } from '@keen.io/ui-core';
+import { Layout, SortMode } from '@keen.io/ui-core';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateBars } from './utils/chart.utils';
@@ -58,6 +58,8 @@ export type Props = {
   groupMode?: GroupMode;
   /** Stack mode */
   stackMode?: StackMode;
+  /** Type of ordering applied on bars */
+  barsOrder?: SortMode;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -79,6 +81,7 @@ export const BarChart: FC<Props> = ({
   barPadding = 0.1,
   showValues = false,
   valuesAutocolor = true,
+  barsOrder,
   xAxisTitle,
   yAxisTitle,
 }) => {
@@ -101,6 +104,7 @@ export const BarChart: FC<Props> = ({
     dimension: svgDimensions,
     labelSelector,
     barPadding,
+    barsOrder,
     layout,
     keys,
     disabledKeys,

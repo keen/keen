@@ -8,8 +8,8 @@ import {
   extendTheme,
   extendWidgetSettings,
   prepareVisualization,
+  createSettingsFromQuery,
   validateOptions,
-  setChartSettings,
 } from './utils';
 
 import {
@@ -54,8 +54,9 @@ class Visualizer {
 
   private setComponentSettings(
     input: VisualizationInput | VisualizationInput[] = {},
-    type: Widgets
-  ): ComponentSettings {
+    widgetType: Widgets,
+    keys: string[]
+  ) {
     let componentSettings = { ...this.componentSettings };
 
     if ('theme' in this.componentSettings) {
@@ -63,12 +64,21 @@ class Visualizer {
       componentSettings = { ...componentSettings, theme: extendTheme(theme) };
     }
 
-    if (input) {
+    if (!Array.isArray(input) && input.query) {
+      const { query } = input;
       componentSettings = {
+        ...createSettingsFromQuery({ query, widgetType, keys }),
         ...componentSettings,
-        ...setChartSettings(input, type),
+      };
+    } else if (Array.isArray(input) && input[0]?.query) {
+      const [firstQuery] = input;
+      const { query } = firstQuery;
+      componentSettings = {
+        ...createSettingsFromQuery({ query, widgetType, keys }),
+        ...componentSettings,
       };
     }
+
     return componentSettings;
   }
 
@@ -92,7 +102,6 @@ class Visualizer {
     const container = this.getContainerNode();
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
-    let scaleSettings = {};
 
     if (arguments.length) {
       const parser = prepareVisualization(
@@ -100,7 +109,6 @@ class Visualizer {
         this.mappings,
         this.componentSettings
       );
-      scaleSettings = parser.scaleSettings;
       keys = parser.keys;
       results = parser.results;
     }
@@ -109,9 +117,8 @@ class Visualizer {
       renderWidget({
         type: this.type,
         widgetSettings: this.setWidgetSettings(),
-        componentSettings: this.setComponentSettings(input, this.type),
+        componentSettings: this.setComponentSettings(input, this.type, keys),
         data: results,
-        scaleSettings,
         keys,
       }),
       container

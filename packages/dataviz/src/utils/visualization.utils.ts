@@ -2,7 +2,6 @@ import {
   parseQuery,
   parseMultipleQueries,
   mergeResults,
-  createScaleSettings,
   mapKeys,
   KEEN_KEY,
   Query,
@@ -19,7 +18,6 @@ export const prepareVisualization = (
 ) => {
   let keys: string[] = [];
   let results: Record<string, any>[] = [];
-  let scaleSettings = {};
 
   if (Array.isArray(input)) {
     const analysisCollection = input as {
@@ -28,10 +26,6 @@ export const prepareVisualization = (
       result: AnalysisResult;
     }[];
 
-    const [firstAnalysys] = input;
-    if (firstAnalysys.query)
-      scaleSettings = createScaleSettings(firstAnalysys.query);
-
     const parsedQueries = parseMultipleQueries(analysisCollection);
     const mergedResults = mergeResults(analysisCollection, parsedQueries);
 
@@ -39,7 +33,6 @@ export const prepareVisualization = (
     results = mergedResults.results;
   } else {
     const parser = parseQuery(input as any);
-    if (input.query) scaleSettings = createScaleSettings(input.query);
     keys = parser.keys;
     results = parser.results;
   }
@@ -58,6 +51,5 @@ export const prepareVisualization = (
   return {
     keys,
     results,
-    scaleSettings,
   };
 };

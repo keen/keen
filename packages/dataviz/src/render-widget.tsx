@@ -17,21 +17,29 @@ import {
   BubbleWidgetLegendSettings,
   Widgets,
 } from '@keen.io/widgets';
-import { ScaleSettings } from '@keen.io/charts-utils';
-import { colors } from '@keen.io/colors';
+
+import {
+  FunnelChartSettings,
+  GaugeChartSettings,
+  ChoroplethChartSettings,
+  BubbleChartSettings,
+  MetricChartSettings,
+  PieChartSettings,
+  DonutChartSettings,
+  TableChartSettings,
+  BarChartSettings,
+  LineChartSettings,
+  AreaChartSettings,
+  HeatmapChartSettings,
+} from '@keen.io/charts';
 
 import { KEEN_KEY } from '@keen.io/parser';
-
-import { DEFAULT_TIME_PRECISION } from './constants';
-
-import { ComponentSettings } from './types';
 
 type Options = {
   type: Widgets;
   keys: string[];
-  data: any[];
-  scaleSettings: Partial<ScaleSettings>;
-  componentSettings?: ComponentSettings;
+  data: Record<string, any>[];
+  componentSettings?: Record<string, any>;
   widgetSettings?: WidgetSettings;
   legend?: LegendSettings | BubbleWidgetLegendSettings;
 };
@@ -40,107 +48,110 @@ export const renderWidget = ({
   type,
   keys,
   data,
-  scaleSettings,
   componentSettings,
   widgetSettings,
   legend,
 }: Options) => {
-  const config = {
+  const chartSettings: unknown = {
     keys,
     data,
     labelSelector: KEEN_KEY,
     ...componentSettings,
-    ...widgetSettings,
   };
-
-  const [valueKey] = keys;
 
   switch (type) {
     case 'bubble':
-      const [xDomainKey, yDomainKey, bubbleValueKey] = keys;
       return (
         <BubbleChartWidget
-          xDomainKey={xDomainKey}
-          yDomainKey={yDomainKey}
-          valueKey={bubbleValueKey}
           legend={legend as BubbleWidgetLegendSettings}
-          {...config}
+          {...(chartSettings as BubbleChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'choropleth':
       return (
         <ChoroplethChartWidget
-          geoKey={config.labelSelector}
-          valueKey={valueKey}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as ChoroplethChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'gauge':
       return (
         <GaugeChartWidget
-          valueKey={valueKey}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as GaugeChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'funnel':
       return (
         <FunnelChartWidget
-          valueKey={valueKey}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as FunnelChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'metric':
-      return <MetricChartWidget {...config} />;
+      return (
+        <MetricChartWidget
+          {...(chartSettings as MetricChartSettings)}
+          {...widgetSettings}
+        />
+      );
     case 'pie':
-      return <PieChartWidget legend={legend as LegendSettings} {...config} />;
+      return (
+        <PieChartWidget
+          legend={legend as LegendSettings}
+          {...(chartSettings as PieChartSettings)}
+          {...widgetSettings}
+        />
+      );
     case 'donut':
-      return <DonutChartWidget legend={legend as LegendSettings} {...config} />;
+      return (
+        <DonutChartWidget
+          legend={legend as LegendSettings}
+          {...(chartSettings as DonutChartSettings)}
+          {...widgetSettings}
+        />
+      );
     case 'table':
-      return <TableChartWidget color={colors.blue[500]} {...config} />;
+      return (
+        <TableChartWidget
+          {...(chartSettings as TableChartSettings)}
+          {...widgetSettings}
+        />
+      );
     case 'bar':
       return (
         <BarChartWidget
-          xScaleSettings={{ type: 'band', ...scaleSettings }}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as BarChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'heatmap':
       return (
         <HeatmapChartWidget
-          yScaleSettings={{
-            type: 'band',
-            ...scaleSettings,
-          }}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as HeatmapChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'line':
       return (
         <LineChartWidget
-          xScaleSettings={{
-            type: 'time',
-            precision: DEFAULT_TIME_PRECISION,
-            ...scaleSettings,
-          }}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as LineChartSettings)}
+          {...widgetSettings}
         />
       );
     case 'area':
       return (
         <AreaChartWidget
-          xScaleSettings={{
-            type: 'time',
-            precision: DEFAULT_TIME_PRECISION,
-            ...scaleSettings,
-          }}
           legend={legend as LegendSettings}
-          {...config}
+          {...(chartSettings as AreaChartSettings)}
+          {...widgetSettings}
         />
       );
   }
