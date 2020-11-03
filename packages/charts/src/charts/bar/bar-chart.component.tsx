@@ -129,8 +129,6 @@ export const BarChart: FC<Props> = ({
     y: 0,
   });
 
-  console.log(barsOrder, 'sa');
-
   return (
     <>
       <ChartBase
