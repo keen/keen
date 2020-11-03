@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/keen/keen/compare/@keen.io/icons@1.2.0...@keen.io/icons@1.2.1) (2020-10-14)
+
+
+### Bug Fixes
+
+* 🐛 add support for svg transform in Safari ([8a5ac74](https://github.com/keen/keen/commit/8a5ac74eb1066eedce550d0f620bdeea19d8d9a5))
+
+
+
+
+
 # [1.2.0](https://github.com/keen/keen/compare/@keen.io/icons@1.1.0...@keen.io/icons@1.2.0) (2020-09-28)
 
 

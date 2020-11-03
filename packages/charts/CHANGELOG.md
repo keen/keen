@@ -3,6 +3,152 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.17](https://github.com/keen/keen/compare/@keen.io/charts@2.2.16...@keen.io/charts@2.2.17) (2020-10-27)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.16](https://github.com/keen/keen/compare/@keen.io/charts@2.2.15...@keen.io/charts@2.2.16) (2020-10-21)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.15](https://github.com/keen/keen/compare/@keen.io/charts@2.2.14...@keen.io/charts@2.2.15) (2020-10-19)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.14](https://github.com/keen/keen/compare/@keen.io/charts@2.2.13...@keen.io/charts@2.2.14) (2020-10-16)
+
+
+### Bug Fixes
+
+* 🐛 funnel steps labels ([d02d5af](https://github.com/keen/keen/commit/d02d5af1bea9fb0a30aa1a619a8e7557fba2bb85))
+
+
+
+
+
+## [2.2.13](https://github.com/keen/keen/compare/@keen.io/charts@2.2.12...@keen.io/charts@2.2.13) (2020-10-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.12](https://github.com/keen/keen/compare/@keen.io/charts@2.2.11...@keen.io/charts@2.2.12) (2020-10-16)
+
+
+### Bug Fixes
+
+* 🐛 axis label rotation ([24d6509](https://github.com/keen/keen/commit/24d6509e8ed2bb43f7ff3eec18a9981dc0d15907))
+* 🐛 funnel steps overflow in FF ([b198f31](https://github.com/keen/keen/commit/b198f31b5870c7d98305fd6df851d4a7d5c70ddf))
+* 🐛 z-index for table header added ([51d5ea7](https://github.com/keen/keen/commit/51d5ea78802188718f3317c6ef54ed498fb33318))
+
+
+
+
+
+## [2.2.11](https://github.com/keen/keen/compare/@keen.io/charts@2.2.10...@keen.io/charts@2.2.11) (2020-10-14)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.10](https://github.com/keen/keen/compare/@keen.io/charts@2.2.9...@keen.io/charts@2.2.10) (2020-10-14)
+
+
+### Bug Fixes
+
+* 🐛 equal size of funnel steps ([8a32a43](https://github.com/keen/keen/commit/8a32a43ef1a7887ca5a3221ef98c827ceef3ad2f))
+* 🐛 hide scrollbar in FF ([d435a3b](https://github.com/keen/keen/commit/d435a3b58a7feab252fe32165f766ec6408b1c6d))
+
+
+
+
+
+## [2.2.9](https://github.com/keen/keen/compare/@keen.io/charts@2.2.8...@keen.io/charts@2.2.9) (2020-10-13)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.8](https://github.com/keen/keen/compare/@keen.io/charts@2.2.7...@keen.io/charts@2.2.8) (2020-10-13)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.7](https://github.com/keen/keen/compare/@keen.io/charts@2.2.6...@keen.io/charts@2.2.7) (2020-10-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.6](https://github.com/keen/keen/compare/@keen.io/charts@2.2.5...@keen.io/charts@2.2.6) (2020-10-07)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.5](https://github.com/keen/keen/compare/@keen.io/charts@2.2.4...@keen.io/charts@2.2.5) (2020-10-07)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.4](https://github.com/keen/keen/compare/@keen.io/charts@2.2.3...@keen.io/charts@2.2.4) (2020-10-06)
+
+
+### Bug Fixes
+
+* 🐛 metric difference ([610aef0](https://github.com/keen/keen/commit/610aef097c6ec2dcdd6080dac256cab04fe5c312))
+
+
+
+
+
+## [2.2.3](https://github.com/keen/keen/compare/@keen.io/charts@2.2.2...@keen.io/charts@2.2.3) (2020-10-01)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.2.2](https://github.com/keen/keen/compare/@keen.io/charts@2.2.1...@keen.io/charts@2.2.2) (2020-10-01)
+
+
+### Bug Fixes
+
+* 🐛 fix issue with area chart key uniqueness ([afbbe8d](https://github.com/keen/keen/commit/afbbe8d922382933ec049ebb8d551d852e078c29))
+
+
+
+
+
 ## [2.2.1](https://github.com/keen/keen/compare/@keen.io/charts@2.2.0...@keen.io/charts@2.2.1) (2020-09-30)
 
 **Note:** Version bump only for package @keen.io/charts

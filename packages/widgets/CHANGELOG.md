@@ -3,6 +3,140 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.17](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.16...@keen.io/widgets@2.1.17) (2020-10-27)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.16](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.15...@keen.io/widgets@2.1.16) (2020-10-21)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.15](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.14...@keen.io/widgets@2.1.15) (2020-10-19)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.14](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.13...@keen.io/widgets@2.1.14) (2020-10-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.13](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.12...@keen.io/widgets@2.1.13) (2020-10-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.12](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.11...@keen.io/widgets@2.1.12) (2020-10-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.11](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.10...@keen.io/widgets@2.1.11) (2020-10-14)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.10](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.9...@keen.io/widgets@2.1.10) (2020-10-14)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.9](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.8...@keen.io/widgets@2.1.9) (2020-10-13)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.8](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.7...@keen.io/widgets@2.1.8) (2020-10-13)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.6...@keen.io/widgets@2.1.7) (2020-10-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.5...@keen.io/widgets@2.1.6) (2020-10-07)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.4...@keen.io/widgets@2.1.5) (2020-10-07)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.3...@keen.io/widgets@2.1.4) (2020-10-06)
+
+
+### Bug Fixes
+
+* 🐛 render [sub]title when content is provided ([0d267c4](https://github.com/keen/keen/commit/0d267c4d99aa7d16c06033332bfa0898e837fa90))
+
+
+
+
+
+## [2.1.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.2...@keen.io/widgets@2.1.3) (2020-10-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.1...@keen.io/widgets@2.1.2) (2020-10-01)
+
+
+### Bug Fixes
+
+* 🐛 replace map effect for choropleth widget ([74787e6](https://github.com/keen/keen/commit/74787e6801ec2d73bdb25f6a7a86220fd6e16965))
+
+
+
+
+
 ## [2.1.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.0...@keen.io/widgets@2.1.1) (2020-09-30)
 
 **Note:** Version bump only for package @keen.io/widgets

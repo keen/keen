@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.10](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.9...@keen.io/ui-core@2.5.10) (2020-10-27)
+
+
+### Bug Fixes
+
+* 🐛 modal close handler ([958314d](https://github.com/keen/keen/commit/958314d95d63dcee7ac628ec8a2183715b1032ff))
+
+
+
+
+
+## [2.5.9](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.8...@keen.io/ui-core@2.5.9) (2020-10-21)
+
+
+### Bug Fixes
+
+* 🐛 embed registration cookie path ([0e32d1b](https://github.com/keen/keen/commit/0e32d1b35ce5f7d10d2e6889970eae4cf7c52b89))
+
+
+
+
+
+## [2.5.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.7...@keen.io/ui-core@2.5.8) (2020-10-19)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.5.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.6...@keen.io/ui-core@2.5.7) (2020-10-16)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.5.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.5...@keen.io/ui-core@2.5.6) (2020-10-14)
+
+
+### Bug Fixes
+
+* 🐛 Add forwardRef to dropdown ([fc4e9e8](https://github.com/keen/keen/commit/fc4e9e859b95b8308e0ddd7adaf4584f4715d797))
+
+
+
+
+
+## [2.5.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.4...@keen.io/ui-core@2.5.5) (2020-10-14)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.5.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.3...@keen.io/ui-core@2.5.4) (2020-10-13)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.5.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.2...@keen.io/ui-core@2.5.3) (2020-10-13)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.5.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.1...@keen.io/ui-core@2.5.2) (2020-10-12)
+
+
+### Bug Fixes
+
+* 🐛 add zIndex for <Modal/> ([628cc9f](https://github.com/keen/keen/commit/628cc9f6890aa8efbb50f6fa7448a7a171bd72b4))
+
+
+
+
+
+## [2.5.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.0...@keen.io/ui-core@2.5.1) (2020-10-07)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.4.1...@keen.io/ui-core@2.5.0) (2020-10-07)
+
+
+### Bug Fixes
+
+* 🐛 innerHeight moved to useEffect function ([ce26abb](https://github.com/keen/keen/commit/ce26abbb57d96d6e97be4a729ffe3bce9e74eefa))
+
+
+### Features
+
+* 🎸 radio group component ([e0dff35](https://github.com/keen/keen/commit/e0dff35fcf3d28ae03567f9079fe6508cc069550))
+* 🎸 ScrollWrapper component ([942457a](https://github.com/keen/keen/commit/942457af91f777a7afe450aba70760a2c36446b5))
+
+
+
+
+
+## [2.4.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.4.0...@keen.io/ui-core@2.4.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* 🐛 squashed table cells issue ([75dfbe5](https://github.com/keen/keen/commit/75dfbe5bde018caa99157c43f7f6165994003aa2))
+
+
+
+
+
 # [2.4.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.3.2...@keen.io/ui-core@2.4.0) (2020-09-30)
 
 
