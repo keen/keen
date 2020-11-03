@@ -7,11 +7,15 @@ import {
 } from '@keen.io/charts-utils';
 
 import { getLabel } from './utils/tooltip.utils';
-import { formatTooltipValue } from '../../utils/tooltip.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-import { DataSelector, GroupMode, StackMode } from '../../types';
+import {
+  DataSelector,
+  GroupMode,
+  StackMode,
+  TooltipFormatter,
+} from '../../types';
 
 type Props = {
   /** Data series */
@@ -28,6 +32,8 @@ type Props = {
   stackMode: StackMode;
   /** List indicator */
   isList: boolean;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 };
 
 const BarTooltip: FC<Props> = ({
@@ -38,10 +44,10 @@ const BarTooltip: FC<Props> = ({
   stackMode,
   groupMode,
   isList,
+  formatTooltip,
 }) => {
   const {
     theme: { tooltip },
-    yScaleSettings: scaleSettings,
   } = useContext(ChartContext) as ChartContextType;
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
@@ -55,7 +61,13 @@ const BarTooltip: FC<Props> = ({
         <BulletList
           typography={tooltip.labels.typography}
           list={selectors.map(({ color, selector }) => ({
-            value: getLabel({ data, selector, percentageData, isPercentage }),
+            value: getLabel({
+              data,
+              selector,
+              percentageData,
+              isPercentage,
+              formatTooltip,
+            }),
             color,
           }))}
         />
@@ -63,10 +75,9 @@ const BarTooltip: FC<Props> = ({
         <>
           {selectors.map(({ selector, color }) => (
             <Text {...tooltip.labels.typography} key={color}>
-              {formatTooltipValue(
-                getFromPath(data, selector),
-                scaleSettings?.formatLabel
-              )}
+              {formatTooltip
+                ? formatTooltip(getFromPath(data, selector))
+                : getFromPath(data, selector)}
             </Text>
           ))}
         </>

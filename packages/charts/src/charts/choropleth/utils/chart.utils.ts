@@ -42,7 +42,7 @@ type Options = {
   data: Record<string, any>[];
 };
 
-export type GeoPropety = {
+export type GeoProperty = {
   index: number;
   data: Record<string, any>;
 };
@@ -65,7 +65,7 @@ export const generateChoropleth = ({
   dimension,
   topology,
 }: Options) => {
-  const geoData = new Map<string, GeoPropety>();
+  const geoData = new Map<string, GeoProperty>();
   const { width, height } = dimension;
   const { translation, rotation, scale, type } = projection;
   const { mode, colors, steps } = colorScale;

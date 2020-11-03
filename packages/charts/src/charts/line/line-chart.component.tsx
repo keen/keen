@@ -13,7 +13,12 @@ import { useDynamicChartLayout } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings, GroupMode, StackMode } from '../../types';
+import {
+  CommonChartSettings,
+  GroupMode,
+  StackMode,
+  TooltipFormatter,
+} from '../../types';
 
 import { CurveType } from './types';
 
@@ -54,6 +59,8 @@ export type Props = {
   gradient?: boolean;
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -78,6 +85,7 @@ export const LineChart: FC<Props> = ({
   gradient = true,
   xAxisTitle,
   yAxisTitle,
+  formatTooltip,
 }) => {
   const {
     layoutMargins,
@@ -174,7 +182,11 @@ export const LineChart: FC<Props> = ({
             y={tooltipPosition.y}
           >
             {tooltipSelectors && (
-              <Tooltip data={data} selectors={tooltipSelectors} />
+              <Tooltip
+                data={data}
+                selectors={tooltipSelectors}
+                formatTooltip={formatTooltip}
+              />
             )}
           </ChartTooltip>
         </>

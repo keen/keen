@@ -1,4 +1,4 @@
 import { fetchMapTopology, MapType } from './map.utils';
-import { generateChoropleth, GeoPropety } from './chart.utils';
+import { generateChoropleth, GeoProperty } from './chart.utils';
 
-export { fetchMapTopology, generateChoropleth, MapType, GeoPropety };
+export { fetchMapTopology, generateChoropleth, MapType, GeoProperty };

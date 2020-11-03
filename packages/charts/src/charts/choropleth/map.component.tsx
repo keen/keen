@@ -11,7 +11,7 @@ import { RangeType } from '@keen.io/ui-core';
 import Graticule from './graticule.component';
 import Sphere from './sphere.component';
 import MapPath from './map-path.component';
-import { GeoPropety } from './utils/chart.utils';
+import { GeoProperty } from './utils/chart.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
@@ -30,7 +30,7 @@ type Props = {
   onMouseLeave: (e: React.MouseEvent) => void;
   drawPath: GeoPath<any, GeoPermissibleObjects>;
   graticule: GeoGraticuleGenerator;
-  geoData: Map<string, GeoPropety>;
+  geoData: Map<string, GeoProperty>;
   geoKey: string;
   getColor: (value: number) => string;
   valuesRange?: RangeType;

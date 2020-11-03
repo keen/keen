@@ -16,7 +16,7 @@ import { generateBlocks } from './heatmap-chart.utils';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipFormatter } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -54,6 +54,8 @@ export type Props = {
   padding?: number;
   /** Range for filtering map values */
   range?: RangeType;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const HeatmapChart: FC<Props> = ({
@@ -75,6 +77,7 @@ export const HeatmapChart: FC<Props> = ({
   range,
   xAxisTitle,
   yAxisTitle,
+  formatTooltip,
 }) => {
   const {
     layoutMargins,
@@ -139,6 +142,7 @@ export const HeatmapChart: FC<Props> = ({
                   typography={tooltipSettings.labels.typography}
                   data={data}
                   selectors={tooltipSelectors}
+                  formatTooltip={formatTooltip}
                 />
               )}
             </Tooltip>

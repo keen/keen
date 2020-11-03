@@ -1,26 +1,33 @@
 import { getFromPath } from '@keen.io/charts-utils';
 
-import { DataSelector, GroupMode, StackMode } from '../../../types';
+import {
+  DataSelector,
+  GroupMode,
+  StackMode,
+  TooltipFormatter,
+} from '../../../types';
 
 export const getLabel = ({
   isPercentage,
   selector,
   data,
   percentageData,
+  formatTooltip,
 }: {
   selector: DataSelector;
   isPercentage: boolean;
   data: Record<string, any>[];
   percentageData: Record<string, any>[];
+  formatTooltip?: TooltipFormatter;
 }) => {
+  const value = formatTooltip
+    ? formatTooltip(getFromPath(data, selector))
+    : getFromPath(data, selector);
   if (isPercentage) {
-    return `${getFromPath(data, selector)} (${getFromPath(
-      percentageData,
-      selector
-    ).toFixed(2)}%)`;
+    return `${value} (${getFromPath(percentageData, selector).toFixed(2)}%)`;
   }
 
-  return getFromPath(data, selector);
+  return value;
 };
 
 export const getSelectors = ({

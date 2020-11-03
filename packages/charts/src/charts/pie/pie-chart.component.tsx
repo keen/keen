@@ -17,7 +17,7 @@ import { ChartBase, Delayed } from '../../components';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipFormatter } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -48,6 +48,8 @@ export type Props = {
   stackTreshold?: number;
   /** Return dataKeys after stacking */
   onDataStack?: (keys: string[]) => void;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const PieChart: FC<Props> = ({
@@ -67,6 +69,7 @@ export const PieChart: FC<Props> = ({
   labelsAutocolor = true,
   stackTreshold = 4,
   onDataStack,
+  formatTooltip,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -133,6 +136,7 @@ export const PieChart: FC<Props> = ({
                     labelSelector,
                     selectors: tooltipSelectors,
                     disabledLabels,
+                    formatTooltip,
                   })}
                   typography={tooltipSettings.labels.typography}
                 />

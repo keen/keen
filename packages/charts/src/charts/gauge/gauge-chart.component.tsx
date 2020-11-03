@@ -13,7 +13,7 @@ import { ChartBase } from '../../components';
 import { theme as defaultTheme } from '../../theme';
 import { TOOLTIP_TIMEOUT } from './constants';
 
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipFormatter } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -40,6 +40,8 @@ export type Props = {
   formatValue?: (value: string | number) => React.ReactNode;
   /** Progress type */
   progressType?: 'normal' | 'percent';
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 const createArcMotion = (index: number) => ({
@@ -70,6 +72,7 @@ export const GaugeChart: FC<Props> = ({
   minValue = 'auto',
   maxValue = 'auto',
   formatValue,
+  formatTooltip,
 }) => {
   const {
     progressValue,
@@ -124,7 +127,9 @@ export const GaugeChart: FC<Props> = ({
           >
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               <Text {...tooltipSettings.labels.typography}>
-                {tooltipMeta.value}
+                {formatTooltip
+                  ? formatTooltip(tooltipMeta.value)
+                  : tooltipMeta.value}
               </Text>
             </Tooltip>
           </motion.div>
