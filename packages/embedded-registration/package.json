@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/embedded-registration",
-  "version": "2.1.16",
+  "version": "2.1.17",
   "description": "Embeddable registration component",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -41,9 +41,9 @@
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
-    "@keen.io/forms": "^2.0.22",
-    "@keen.io/icons": "^1.2.1",
-    "@keen.io/ui-core": "^2.5.10",
+    "@keen.io/forms": "^2.0.23",
+    "@keen.io/icons": "^1.2.2",
+    "@keen.io/ui-core": "^2.5.11",
     "formik": "^2.1.4",
     "history": "^4.7.2",
     "http-status-codes": "^1.4.0",
