@@ -40,9 +40,8 @@ test('allows user to select visualization type with default settings', () => {
   fireEvent.click(element);
 
   expect(props.onUpdateSettings).toHaveBeenCalledWith(
-    'line',
+    'area',
     {
-      areaMode: true,
       curve: 'linear',
       groupMode: 'grouped',
       stackMode: 'normal',
