@@ -199,8 +199,7 @@ export const WIDGETS: Widget[] = [
     icon: 'line-widget',
     widget: 'line',
     chartOptions: [LINE_CURVE_OPTIONS, MODE_OPTIONS],
-    isActive: (widget, { areaMode }: ChartSettings) =>
-      widget === 'line' && !areaMode,
+    isActive: widget => widget === 'line',
     defaultChartSettings: {
       curve: 'linear',
       areaMode: false,
@@ -212,13 +211,11 @@ export const WIDGETS: Widget[] = [
   {
     id: 'area',
     icon: 'area-widget',
-    widget: 'line',
+    widget: 'area',
     chartOptions: [LINE_CURVE_OPTIONS, MODE_OPTIONS],
-    isActive: (widget, { areaMode }: ChartSettings) =>
-      widget === 'line' && areaMode,
+    isActive: widget => widget === 'area',
     defaultChartSettings: {
       curve: 'linear',
-      areaMode: true,
       stackMode: 'normal',
       groupMode: 'grouped',
     },
