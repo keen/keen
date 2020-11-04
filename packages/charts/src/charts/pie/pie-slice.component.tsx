@@ -83,6 +83,7 @@ const PieSlice: FC<Props> = ({
 
   return (
     <motion.g
+      data-testid={`pie-slice-${label}`}
       variants={sliceVariants}
       initial="hidden"
       animate="show"

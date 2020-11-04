@@ -56,7 +56,7 @@ const BarTooltip: FC<Props> = ({
     : [];
 
   return (
-    <>
+    <div data-testid="bar-tooltip">
       {isList ? (
         <BulletList
           typography={tooltip.labels.typography}
@@ -82,7 +82,7 @@ const BarTooltip: FC<Props> = ({
           ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 

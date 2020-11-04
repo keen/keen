@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formats tooltip value 1`] = `
+<div
+  data-testid="tooltip-content"
+>
+  <div
+    class="sc-AxjAm ldjeaj"
+  >
+    <div
+      class="sc-fzocqA fPCMGP"
+    >
+      <div
+        class="sc-fzqKxP jHiXAe"
+        color="#487650"
+      />
+      Facebook
+    </div>
+    <div
+      class="sc-fzonZV ksMmQR"
+    >
+      <div>
+        conversion
+      </div>
+      <div
+        class="sc-fzqyOu gZubFk"
+      >
+        352 Y
+      </div>
+    </div>
+    <div
+      class="sc-fzonZV ksMmQR"
+    >
+      <div>
+        users
+      </div>
+      <div
+        class="sc-fzqyOu gZubFk"
+      >
+        500 X
+      </div>
+    </div>
+    <div
+      class="sc-pANHa fwrvOa"
+    >
+      <div>
+        cost
+      </div>
+      <div
+        class="sc-fzqyOu gZubFk"
+      >
+        310 value
+      </div>
+    </div>
+  </div>
+</div>
+`;

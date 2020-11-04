@@ -20,8 +20,6 @@ import { TOOLTIP_MOTION } from '../../constants';
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
-  /** Name of data object property used to create labels */
-  labelSelector: string;
   /** Key used to calculate the gauge progress */
   valueKey: string;
   /** Arc start angle */

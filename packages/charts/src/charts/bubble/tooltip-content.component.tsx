@@ -67,7 +67,7 @@ export const TooltipContent: FC<Props> = ({
   }, [index]);
 
   return (
-    <>
+    <div data-testid="tooltip-content">
       {series.map(({ title, correlations, color }, idx) => (
         <Correlation
           key={`${title}-${idx}`}
@@ -78,7 +78,7 @@ export const TooltipContent: FC<Props> = ({
           valueKey={valueKey}
         />
       ))}
-    </>
+    </div>
   );
 };
 

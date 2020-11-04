@@ -83,6 +83,7 @@ const DonutSlice: FC<Props> = ({
       initial="hidden"
       animate="show"
       exit="remove"
+      data-testid={`donut-slice-${label}`}
     >
       <motion.g
         onMouseMove={onMouseMove}
