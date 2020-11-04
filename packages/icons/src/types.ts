@@ -55,6 +55,7 @@ export type IconType =
   | 'table-widget'
   | 'temperature'
   | 'pie-widget'
+  | 'plus'
   | 'search'
   | 'actions'
   | 'settings';

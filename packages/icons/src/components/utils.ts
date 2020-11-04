@@ -47,6 +47,7 @@ import LockClosed from './lock-closed.component';
 import Table from './table.component';
 import Temperature from './temperature.component';
 import PieWidget from './pie-widget.component';
+import Plus from './plus.component';
 import Search from './search.component';
 import Actions from './actions.component';
 import Settings from './settings.component';
@@ -147,6 +148,8 @@ export const getIcon = (type: IconType) => {
       return LockOpen;
     case 'lock-closed':
       return LockClosed;
+    case 'plus':
+      return Plus;
     case 'pie-widget':
       return PieWidget;
     case 'temperature':
