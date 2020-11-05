@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis grouped by two properties 1`] = `
+exports[`creates structure for "count" analysis grouped by two properties 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -30,7 +30,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval 1`] = `
+exports[`creates structure for "count" analysis with interval 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -56,7 +56,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by single property 1`] = `
+exports[`creates structure for "count" analysis with interval and group by single property 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -86,7 +86,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by two properties 1`] = `
+exports[`creates structure for "count" analysis with interval and group by two properties 1`] = `
 Object {
   "keys": Array [
     "Edwidge Danticat Love, Anger, Madness",
@@ -116,7 +116,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "funnel" analysis 1`] = `
+exports[`creates structure for "funnel" analysis 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -138,7 +138,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for select_unique analysis 1`] = `
+exports[`creates structure for select_unique analysis 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -152,6 +152,29 @@ Object {
     },
     Object {
       "keen.value": null,
+    },
+  ],
+}
+`;
+
+exports[`creates structure for select_unique analysis and group by single property 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.key": "AL",
+      "keen.value": Array [
+        "e55a71d6-f5b7-48b0-9c9b-d2d7a944113f",
+      ],
+    },
+    Object {
+      "keen.key": "CD",
+      "keen.value": Array [
+        "53942361-cf2b-47f1-abfc-c0c665ada812",
+        "f70f377a-5a16-470f-924c-6d9afa3f30eb",
+      ],
     },
   ],
 }

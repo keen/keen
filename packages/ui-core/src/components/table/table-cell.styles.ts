@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { colors } from '@keen.io/colors';
 
+import { CellTextAlignment } from './types';
+
 export const StyledCell = styled.td`
   padding: 0;
   border-right: 1px solid ${colors.gray[200]};
@@ -11,7 +13,7 @@ export const StyledCell = styled.td`
 `;
 
 export const Container = styled.div<{
-  textAlignment: 'left' | 'right';
+  textAlignment: CellTextAlignment;
 }>`
   padding: 15px;
   text-align: ${props => props.textAlignment};
