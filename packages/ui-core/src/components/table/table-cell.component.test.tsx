@@ -43,6 +43,16 @@ test('shows the value', () => {
   expect(getByText(props.value)).toBeInTheDocument();
 });
 
+test('separates collection of values with comma delimeter', () => {
+  const {
+    wrapper: { getByText },
+  } = render({
+    value: ['marketing', 'sales'],
+  });
+
+  expect(getByText('marketing, sales')).toBeInTheDocument();
+});
+
 test('calls "onClick" handler', () => {
   const {
     wrapper: { getByText },

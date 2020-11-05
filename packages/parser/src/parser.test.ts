@@ -10,6 +10,7 @@ import {
   countAnalysisDoubleGroupBy,
   funnelAnalysis,
   selectUnique,
+  selectUniqueGroupBy,
 } from './api.fixtures';
 
 describe('@keen.io/parser - parseQuery()', () => {
@@ -21,6 +22,12 @@ describe('@keen.io/parser - parseQuery()', () => {
 
   it('should create structure for select_unique analysis', () => {
     const result = parseQuery(selectUnique);
+
+    expect(result).toMatchSnapshot();
+  });
+
+  it('should create structure for select_unique analysis and group by single property', () => {
+    const result = parseQuery(selectUniqueGroupBy);
 
     expect(result).toMatchSnapshot();
   });

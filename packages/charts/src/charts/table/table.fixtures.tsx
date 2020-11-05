@@ -1,6 +1,6 @@
 export const data = [
   {
-    platform: 'Web',
+    platform: ['Web', 'Mobile', 'Tablet'],
     referrer: 'google/ads',
     price: 0.5,
     province: 'Liaoning',
