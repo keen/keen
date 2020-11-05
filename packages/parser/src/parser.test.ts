@@ -10,51 +10,56 @@ import {
   countAnalysisDoubleGroupBy,
   funnelAnalysis,
   selectUnique,
+  selectUniqueGroupBy,
 } from './api.fixtures';
 
-describe('@keen.io/parser - parseQuery()', () => {
-  it('should create structure for "funnel" analysis', () => {
-    const result = parseQuery(funnelAnalysis);
+test('creates structure for "funnel" analysis', () => {
+  const result = parseQuery(funnelAnalysis);
 
-    expect(result).toMatchSnapshot();
+  expect(result).toMatchSnapshot();
+});
+
+test('creates structure for select_unique analysis', () => {
+  const result = parseQuery(selectUnique);
+
+  expect(result).toMatchSnapshot();
+});
+
+test('creates structure for select_unique analysis and group by single property', () => {
+  const result = parseQuery(selectUniqueGroupBy);
+
+  expect(result).toMatchSnapshot();
+});
+
+test('creates structure for "count" analysis', () => {
+  const result = parseQuery(countAnalysis as any);
+
+  expect(result).toEqual({
+    keys: [KEEN_VALUE],
+    results: [{ [KEEN_KEY]: 'Result', [KEEN_VALUE]: 7436 }],
   });
+});
 
-  it('should create structure for select_unique analysis', () => {
-    const result = parseQuery(selectUnique);
+test('creates structure for "count" analysis with interval', () => {
+  const result = parseQuery(countAnalysisWithInterval);
 
-    expect(result).toMatchSnapshot();
-  });
+  expect(result).toMatchSnapshot();
+});
 
-  it('should create structure for "count" analysis', () => {
-    const result = parseQuery(countAnalysis as any);
+test('creates structure for "count" analysis with interval and group by two properties', () => {
+  const result = parseQuery(countAnalysisDoubleGroupByWithInterval);
 
-    expect(result).toEqual({
-      keys: [KEEN_VALUE],
-      results: [{ [KEEN_KEY]: 'Result', [KEEN_VALUE]: 7436 }],
-    });
-  });
+  expect(result).toMatchSnapshot();
+});
 
-  it('should create structure for "count" analysis with interval', () => {
-    const result = parseQuery(countAnalysisWithInterval);
+test('creates structure for "count" analysis with interval and group by single property', () => {
+  const result = parseQuery(countAnalysisGroupByWithInterval);
 
-    expect(result).toMatchSnapshot();
-  });
+  expect(result).toMatchSnapshot();
+});
 
-  it('should create structure for "count" analysis with interval and group by two properties', () => {
-    const result = parseQuery(countAnalysisDoubleGroupByWithInterval);
+test('creates structure for "count" analysis grouped by two properties', () => {
+  const result = parseQuery(countAnalysisDoubleGroupBy);
 
-    expect(result).toMatchSnapshot();
-  });
-
-  it('should create structure for "count" analysis with interval and group by single property', () => {
-    const result = parseQuery(countAnalysisGroupByWithInterval);
-
-    expect(result).toMatchSnapshot();
-  });
-
-  it('should create structure for "count" analysis grouped by two properties', () => {
-    const result = parseQuery(countAnalysisDoubleGroupBy);
-
-    expect(result).toMatchSnapshot();
-  });
+  expect(result).toMatchSnapshot();
 });

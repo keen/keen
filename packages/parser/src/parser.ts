@@ -1,11 +1,12 @@
 import {
-  transformIntervalsFromArray,
   transformAtomicResult,
-  transformFromNumber,
+  transformIntervalsFromArray,
   transformFunnel,
   transformExtraction,
-  fillWithEmptyKeys,
-} from './utils/transform.utils';
+  transformFromNumber,
+} from './transformations';
+
+import { fillWithEmptyKeys } from './utils/transform.utils';
 
 import {
   ParserInput,

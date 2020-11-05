@@ -12,6 +12,30 @@ export const selectUnique = {
   result: ['Marketing', 'IT', null],
 };
 
+export const selectUniqueGroupBy = {
+  query: {
+    analysis_type: 'select_unique',
+    event_collection: 'pageviews',
+    target_property: 'user.id',
+    group_by: ['user.countryCode'],
+    timezone: 'UTC',
+    timeframe: 'this_14_days',
+  },
+  result: [
+    {
+      'user.countryCode': 'AL',
+      result: ['e55a71d6-f5b7-48b0-9c9b-d2d7a944113f'],
+    },
+    {
+      'user.countryCode': 'CD',
+      result: [
+        '53942361-cf2b-47f1-abfc-c0c665ada812',
+        'f70f377a-5a16-470f-924c-6d9afa3f30eb',
+      ],
+    },
+  ],
+};
+
 export const funnelAnalysis = {
   steps: [
     {
