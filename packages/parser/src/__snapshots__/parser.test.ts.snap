@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis grouped by two properties 1`] = `
+exports[`creates structure for "count" analysis grouped by two properties 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -30,7 +30,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval 1`] = `
+exports[`creates structure for "count" analysis with interval 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -56,7 +56,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by single property 1`] = `
+exports[`creates structure for "count" analysis with interval and group by single property 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -86,7 +86,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "count" analysis with interval and group by two properties 1`] = `
+exports[`creates structure for "count" analysis with interval and group by two properties 1`] = `
 Object {
   "keys": Array [
     "Edwidge Danticat Love, Anger, Madness",
@@ -116,7 +116,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for "funnel" analysis 1`] = `
+exports[`creates structure for "funnel" analysis 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -138,7 +138,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for select_unique analysis 1`] = `
+exports[`creates structure for select_unique analysis 1`] = `
 Object {
   "keys": Array [
     "keen.value",
@@ -157,7 +157,7 @@ Object {
 }
 `;
 
-exports[`@keen.io/parser - parseQuery() should create structure for select_unique analysis and group by single property 1`] = `
+exports[`creates structure for select_unique analysis and group by single property 1`] = `
 Object {
   "keys": Array [
     "keen.value",
