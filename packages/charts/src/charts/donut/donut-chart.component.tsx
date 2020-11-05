@@ -186,7 +186,7 @@ export const DonutChart: FC<Props> = ({
                 }) => (
                   <DonutSlice
                     key={dataKey}
-                    testId={dataKey}
+                    id={dataKey}
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}

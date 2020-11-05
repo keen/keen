@@ -14,11 +14,11 @@ type Props = {
   valueKey: string;
   xDomainKey: string;
   yDomainKey: string;
-  formatValue?: {
-    xKey?: TooltipFormatter;
-    yKey?: TooltipFormatter;
-    valueKey?: TooltipFormatter;
-  };
+  formatValue?: Partial<{
+    xKey: TooltipFormatter;
+    yKey: TooltipFormatter;
+    valueKey: TooltipFormatter;
+  }>;
 };
 
 export const TooltipContent: FC<Props> = ({

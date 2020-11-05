@@ -175,7 +175,7 @@ export const PieChart: FC<Props> = ({
                 }) => (
                   <PieSlice
                     key={dataKey}
-                    testId={dataKey}
+                    id={dataKey}
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}
