@@ -108,16 +108,17 @@ const render = (overProps: any = {}) => {
 test('formats tooltip value', async () => {
   const {
     wrapper: { getByText, container },
-    props: { data, formatTooltip },
+    props: { data, geoKey, formatTooltip },
   } = render();
 
   const choroplethChart = container.querySelector('svg');
   fireEvent.mouseOver(choroplethChart.querySelector('path'));
 
   const [firstSeries] = data;
+  const key = firstSeries[geoKey];
   const { result } = firstSeries;
 
   await waitFor(() => {
-    expect(getByText(`Poland - ${formatTooltip(result)}`)).toBeInTheDocument();
+    expect(getByText(`${key} - ${formatTooltip(result)}`)).toBeInTheDocument();
   });
 });

@@ -174,6 +174,7 @@ export const GaugeChart: FC<Props> = ({
             {innerArcs.map(({ path, value, color }, idx) => (
               <motion.path
                 key={idx}
+                data-testid={`path-${idx}`}
                 d={path}
                 fill={color}
                 {...createArcMotion(idx)}

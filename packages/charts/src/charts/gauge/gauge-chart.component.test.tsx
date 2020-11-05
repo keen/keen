@@ -52,13 +52,14 @@ const render = (overProps: any = {}) => {
 
 test('formats tooltip value', async () => {
   const {
-    wrapper: { container },
+    wrapper: { getByTestId, getByText },
+    props: { formatTooltip },
   } = render();
 
-  const chart = container.querySelector('svg');
-  fireEvent.mouseEnter(chart.querySelector('path'));
+  const path = getByTestId('path-0');
+  fireEvent.mouseEnter(path);
 
   await waitFor(() => {
-    // expect(getByText(/\$0/i)).toBeInTheDocument();
+    expect(getByText(formatTooltip('0'))).toBeInTheDocument();
   });
 });
