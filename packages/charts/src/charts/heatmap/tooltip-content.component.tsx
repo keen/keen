@@ -8,19 +8,19 @@ type Props = {
   data: Record<string, any>[];
   typography: Typography;
   selectors: { selector: DataSelector; color: string }[];
-  formatTooltip?: TooltipFormatter;
+  formatValue?: TooltipFormatter;
 };
 
 export const TooltipContent: FC<Props> = ({
   data,
   typography,
   selectors,
-  formatTooltip,
+  formatValue,
 }) => {
   const value = getFromPath(data, selectors[0].selector);
 
   return (
-    <Text {...typography}>{formatTooltip ? formatTooltip(value) : value}</Text>
+    <Text {...typography}>{formatValue ? formatValue(value) : value}</Text>
   );
 };
 

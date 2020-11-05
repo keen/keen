@@ -12,16 +12,16 @@ export const getLabel = ({
   selector,
   data,
   percentageData,
-  formatTooltip,
+  formatValue,
 }: {
   selector: DataSelector;
   isPercentage: boolean;
   data: Record<string, any>[];
   percentageData: Record<string, any>[];
-  formatTooltip?: TooltipFormatter;
+  formatValue?: TooltipFormatter;
 }) => {
-  const value = formatTooltip
-    ? formatTooltip(getFromPath(data, selector))
+  const value = formatValue
+    ? formatValue(getFromPath(data, selector))
     : getFromPath(data, selector);
   if (isPercentage) {
     return `${value} (${getFromPath(percentageData, selector).toFixed(2)}%)`;

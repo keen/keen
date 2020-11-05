@@ -138,7 +138,7 @@ export const BubbleChart: FC<Props> = ({
                   valueKey={valueKey}
                   xDomainKey={xDomainKey}
                   yDomainKey={yDomainKey}
-                  formatTooltip={formatTooltip}
+                  formatValue={formatTooltip}
                 />
               )}
             </Tooltip>

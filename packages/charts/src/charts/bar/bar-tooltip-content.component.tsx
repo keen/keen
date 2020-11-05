@@ -33,7 +33,7 @@ type Props = {
   /** List indicator */
   isList: boolean;
   /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  formatValue?: TooltipFormatter;
 };
 
 const BarTooltip: FC<Props> = ({
@@ -44,7 +44,7 @@ const BarTooltip: FC<Props> = ({
   stackMode,
   groupMode,
   isList,
-  formatTooltip,
+  formatValue,
 }) => {
   const {
     theme: { tooltip },
@@ -66,7 +66,7 @@ const BarTooltip: FC<Props> = ({
               selector,
               percentageData,
               isPercentage,
-              formatTooltip,
+              formatValue,
             }),
             color,
           }))}
@@ -75,8 +75,8 @@ const BarTooltip: FC<Props> = ({
         <>
           {selectors.map(({ selector, color }) => (
             <Text {...tooltip.labels.typography} key={color}>
-              {formatTooltip
-                ? formatTooltip(getFromPath(data, selector))
+              {formatValue
+                ? formatValue(getFromPath(data, selector))
                 : getFromPath(data, selector)}
             </Text>
           ))}

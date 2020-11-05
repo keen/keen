@@ -201,7 +201,7 @@ export const BarChart: FC<Props> = ({
                   groupMode={groupMode}
                   selectors={tooltip.selectors}
                   isList={tooltip.selectors.length > 1}
-                  formatTooltip={formatTooltip}
+                  formatValue={formatTooltip}
                 />
               )}
             </ChartTooltip>

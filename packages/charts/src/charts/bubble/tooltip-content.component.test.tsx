@@ -12,7 +12,7 @@ const render = (overProps: any = {}) => {
   const valueKey = 'cost';
   const xDomainKey = 'users';
   const yDomainKey = 'conversion';
-  const formatTooltip = {
+  const formatValue = {
     xKey: value => `${value} X`,
     yKey: value => `${value} Y`,
     valueKey: value => `${value} value`,
@@ -25,7 +25,7 @@ const render = (overProps: any = {}) => {
     valueKey,
     xDomainKey,
     yDomainKey,
-    formatTooltip,
+    formatValue,
     ...overProps,
   };
 
@@ -39,9 +39,14 @@ const render = (overProps: any = {}) => {
 
 test('formats tooltip value', () => {
   const {
-    wrapper: { getByTestId },
+    wrapper: { getByText },
+    props: { data, formatValue },
   } = render();
-  const tooltipContent = getByTestId('tooltip-content');
 
-  expect(tooltipContent).toMatchSnapshot();
+  const [firstSeries] = data;
+  const { cost, conversion, users } = firstSeries;
+
+  expect(getByText(formatValue.xKey(users))).toBeInTheDocument();
+  expect(getByText(formatValue.yKey(conversion))).toBeInTheDocument();
+  expect(getByText(formatValue.valueKey(cost))).toBeInTheDocument();
 });

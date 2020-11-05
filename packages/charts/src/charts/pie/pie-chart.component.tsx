@@ -136,7 +136,7 @@ export const PieChart: FC<Props> = ({
                     labelSelector,
                     selectors: tooltipSelectors,
                     disabledLabels,
-                    formatTooltip,
+                    formatValue: formatTooltip,
                   })}
                   typography={tooltipSettings.labels.typography}
                 />
@@ -175,6 +175,7 @@ export const PieChart: FC<Props> = ({
                 }) => (
                   <PieSlice
                     key={dataKey}
+                    testId={dataKey}
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}

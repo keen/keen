@@ -12,7 +12,7 @@ type Options = {
   labelSelector: string;
   selectors: { selector: DataSelector; color: string }[];
   disabledLabels?: string[];
-  formatTooltip?: TooltipFormatter;
+  formatValue?: TooltipFormatter;
 };
 
 export const getTooltipContent = ({
@@ -41,7 +41,7 @@ export const getCircularChartTooltipContent = ({
   labelSelector,
   selectors,
   disabledLabels,
-  formatTooltip,
+  formatValue,
 }: Options) => {
   const content: { color: string; value: string }[] = [];
 
@@ -53,7 +53,7 @@ export const getCircularChartTooltipContent = ({
     const total = keys.reduce((acc, keyName) => {
       return acc + item[keyName];
     }, 0);
-    const formattedTotal = formatTooltip ? formatTooltip(total) : total;
+    const formattedTotal = formatValue ? formatValue(total) : total;
 
     let value = `${item[labelSelector]} - ${formattedTotal}`;
     let newColor = color;

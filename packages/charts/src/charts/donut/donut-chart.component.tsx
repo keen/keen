@@ -147,7 +147,7 @@ export const DonutChart: FC<Props> = ({
                     labelSelector,
                     selectors: tooltipSelectors,
                     disabledLabels,
-                    formatTooltip,
+                    formatValue: formatTooltip,
                   })}
                   typography={tooltipSettings.labels.typography}
                 />
@@ -186,6 +186,7 @@ export const DonutChart: FC<Props> = ({
                 }) => (
                   <DonutSlice
                     key={dataKey}
+                    testId={dataKey}
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}

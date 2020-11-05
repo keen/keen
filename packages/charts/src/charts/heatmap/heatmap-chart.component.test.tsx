@@ -3,18 +3,13 @@ import {
   render as rtlRender,
   fireEvent,
   waitFor,
-  act,
 } from '@testing-library/react';
+
+import { chartData as data } from './heatmap-chart.fixtures';
 
 import HeatmapChart from './heatmap-chart.component';
 
 const render = (overProps: any = {}) => {
-  const data = [
-    { name: 'Windows XP 2013', users: 3, licenses: 52, shops: 12 },
-    { name: 'MacOS', users: 19, licenses: 82, shops: 15 },
-    { name: 'Linux', users: 20, licenses: 15, shops: 23 },
-    { name: 'Android', users: 3, licenses: 15, shops: 30 },
-  ];
   const labelSelector = 'name';
   const keys = ['users', 'licenses', 'shops'];
   const svgDimensions = { width: 700, height: 500 };
@@ -69,15 +64,16 @@ const render = (overProps: any = {}) => {
 test('formats tooltip value', async () => {
   const {
     wrapper: { getByText, container },
+    props: { data, formatTooltip, keys },
   } = render();
 
-  const chart = await waitFor(() => container.querySelector('svg'));
+  const chart = container.querySelector('svg');
+  fireEvent.mouseOver(chart.querySelector('rect'));
 
-  act(() => {
-    fireEvent.mouseOver(chart.querySelector('rect'));
-  });
+  const [firstSeries] = data;
+  const result = firstSeries[keys[0]];
 
   await waitFor(() => {
-    expect(getByText(/\$3/i)).toBeInTheDocument();
+    expect(getByText(formatTooltip(result))).toBeInTheDocument();
   });
 });

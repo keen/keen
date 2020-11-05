@@ -185,7 +185,7 @@ export const LineChart: FC<Props> = ({
               <Tooltip
                 data={data}
                 selectors={tooltipSelectors}
-                formatTooltip={formatTooltip}
+                formatValue={formatTooltip}
               />
             )}
           </ChartTooltip>

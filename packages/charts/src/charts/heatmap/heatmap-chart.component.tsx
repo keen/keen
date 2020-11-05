@@ -142,7 +142,7 @@ export const HeatmapChart: FC<Props> = ({
                   typography={tooltipSettings.labels.typography}
                   data={data}
                   selectors={tooltipSelectors}
-                  formatTooltip={formatTooltip}
+                  formatValue={formatTooltip}
                 />
               )}
             </Tooltip>

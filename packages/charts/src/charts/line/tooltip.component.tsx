@@ -9,10 +9,10 @@ import { ChartContext, ChartContextType } from '../../contexts';
 type Props = {
   data: Record<string, any>[];
   selectors: { selector: DataSelector; color: string }[];
-  formatTooltip?: TooltipFormatter;
+  formatValue?: TooltipFormatter;
 };
 
-const Tooltip: FC<Props> = ({ data, selectors, formatTooltip }) => {
+const Tooltip: FC<Props> = ({ data, selectors, formatValue }) => {
   const {
     theme: { tooltip },
   } = useContext(ChartContext) as ChartContextType;
@@ -21,8 +21,8 @@ const Tooltip: FC<Props> = ({ data, selectors, formatTooltip }) => {
     <BulletList
       typography={tooltip.labels.typography}
       list={selectors.map(({ color, selector }) => ({
-        value: formatTooltip
-          ? formatTooltip(getFromPath(data, selector))
+        value: formatValue
+          ? formatValue(getFromPath(data, selector))
           : getFromPath(data, selector),
         color,
       }))}

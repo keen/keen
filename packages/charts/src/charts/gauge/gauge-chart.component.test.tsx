@@ -3,15 +3,14 @@ import {
   render as rtlRender,
   fireEvent,
   waitFor,
-  act,
 } from '@testing-library/react';
 
 import GaugeChart from './gauge-chart.component';
 
 const render = (overProps: any = {}) => {
-  const data = [{ 'keen.key': 'Result', 'keen.value': 190 }];
+  const data = [{ 'keen.key': 'Result', 'keen.value': 100 }];
   const valueKey = 'keen.value';
-  const svgDimensions = { width: 700, height: 500 };
+  const svgDimensions = { width: 100, height: 100 };
   const theme = {
     colors: ['#85B4C3', '#CB5623', '#E29B1E'],
     gauge: {
@@ -23,6 +22,12 @@ const render = (overProps: any = {}) => {
       },
       total: {
         enabled: false,
+      },
+    },
+    tooltip: {
+      enabled: true,
+      labels: {
+        typography: {},
       },
     },
   };
@@ -50,11 +55,8 @@ test('formats tooltip value', async () => {
     wrapper: { container },
   } = render();
 
-  const chart = await waitFor(() => container.querySelector('svg'));
-
-  act(() => {
-    fireEvent.mouseOver(chart.querySelector('path'));
-  });
+  const chart = container.querySelector('svg');
+  fireEvent.mouseEnter(chart.querySelector('path'));
 
   await waitFor(() => {
     // expect(getByText(/\$0/i)).toBeInTheDocument();

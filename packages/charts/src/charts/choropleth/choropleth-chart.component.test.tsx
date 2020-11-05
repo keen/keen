@@ -3,7 +3,6 @@ import {
   render as rtlRender,
   fireEvent,
   waitFor,
-  act,
 } from '@testing-library/react';
 
 import ChoroplethChart from './choropleth-chart.component';
@@ -109,15 +108,16 @@ const render = (overProps: any = {}) => {
 test('formats tooltip value', async () => {
   const {
     wrapper: { getByText, container },
+    props: { data, formatTooltip },
   } = render();
 
-  const choroplethChart = await waitFor(() => container.querySelector('svg'));
+  const choroplethChart = container.querySelector('svg');
+  fireEvent.mouseOver(choroplethChart.querySelector('path'));
 
-  act(() => {
-    fireEvent.mouseOver(choroplethChart.querySelector('path'));
-  });
+  const [firstSeries] = data;
+  const { result } = firstSeries;
 
   await waitFor(() => {
-    expect(getByText(/Poland - \$1230/i)).toBeInTheDocument();
+    expect(getByText(`Poland - ${formatTooltip(result)}`)).toBeInTheDocument();
   });
 });

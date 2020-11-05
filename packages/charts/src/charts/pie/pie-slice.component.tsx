@@ -33,6 +33,7 @@ type Props = {
   activePosition: [number, number];
   label: string;
   background: string;
+  testId?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
@@ -46,6 +47,7 @@ const PieSlice: FC<Props> = ({
   startAngle,
   endAngle,
   labelPosition,
+  testId,
   onMouseLeave,
   onMouseMove,
 }) => {
@@ -83,7 +85,7 @@ const PieSlice: FC<Props> = ({
 
   return (
     <motion.g
-      data-testid={`pie-slice-${label}`}
+      data-testid={testId}
       variants={sliceVariants}
       initial="hidden"
       animate="show"

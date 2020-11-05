@@ -14,7 +14,7 @@ type Props = {
   valueKey: string;
   xDomainKey: string;
   yDomainKey: string;
-  formatTooltip?: {
+  formatValue?: {
     xKey?: TooltipFormatter;
     yKey?: TooltipFormatter;
     valueKey?: TooltipFormatter;
@@ -29,7 +29,7 @@ export const TooltipContent: FC<Props> = ({
   valueKey,
   xDomainKey,
   yDomainKey,
-  formatTooltip,
+  formatValue,
 }) => {
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
@@ -43,12 +43,12 @@ export const TooltipContent: FC<Props> = ({
         correlations: Object.keys(selectorData).reduce((acc, keyName) => {
           let value = selectorData[keyName];
 
-          if (formatTooltip?.xKey && keyName === xDomainKey)
-            value = formatTooltip.xKey(selectorData[keyName]);
-          if (formatTooltip?.yKey && keyName === yDomainKey)
-            value = formatTooltip.yKey(selectorData[keyName]);
-          if (formatTooltip?.valueKey && keyName === valueKey)
-            value = formatTooltip.valueKey(selectorData[keyName]);
+          if (formatValue?.xKey && keyName === xDomainKey)
+            value = formatValue.xKey(selectorData[keyName]);
+          if (formatValue?.yKey && keyName === yDomainKey)
+            value = formatValue.yKey(selectorData[keyName]);
+          if (formatValue?.valueKey && keyName === valueKey)
+            value = formatValue.valueKey(selectorData[keyName]);
 
           if (keyName !== labelSelector) {
             return [
@@ -67,7 +67,7 @@ export const TooltipContent: FC<Props> = ({
   }, [index]);
 
   return (
-    <div data-testid="tooltip-content">
+    <>
       {series.map(({ title, correlations, color }, idx) => (
         <Correlation
           key={`${title}-${idx}`}
@@ -78,7 +78,7 @@ export const TooltipContent: FC<Props> = ({
           valueKey={valueKey}
         />
       ))}
-    </div>
+    </>
   );
 };
 
