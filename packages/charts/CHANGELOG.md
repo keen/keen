@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/keen/keen/compare/@keen.io/charts@2.3.1...@keen.io/charts@2.3.2) (2020-11-05)
+
+
+### Bug Fixes
+
+* 🐛 select unique values in table ([6182c95](https://github.com/keen/keen/commit/6182c95a6d27860a162aafd8aef5b191521616d2))
+
+
+
+
+
 ## [2.3.1](https://github.com/keen/keen/compare/@keen.io/charts@2.3.0...@keen.io/charts@2.3.1) (2020-11-04)
 
 **Note:** Version bump only for package @keen.io/charts

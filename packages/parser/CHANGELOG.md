@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/keen/keen/compare/@keen.io/parser@2.2.2...@keen.io/parser@2.2.3) (2020-11-05)
+
+
+### Bug Fixes
+
+* 🐛 select unique values in table ([6182c95](https://github.com/keen/keen/commit/6182c95a6d27860a162aafd8aef5b191521616d2))
+
+
+
+
+
 ## [2.2.2](https://github.com/keen/keen/compare/@keen.io/parser@2.2.1...@keen.io/parser@2.2.2) (2020-11-04)
 
 **Note:** Version bump only for package @keen.io/parser
