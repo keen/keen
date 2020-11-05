@@ -6,7 +6,6 @@ import { AtomicResult } from '../../types';
  * Transforms array of interval values
  *
  * @param values - collection of Keen API atomic results
- * @param useGroupsSeparator - use comma as group separator
  * @return transformed atomic results
  *
  */
