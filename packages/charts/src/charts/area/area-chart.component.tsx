@@ -3,7 +3,12 @@ import { ScaleSettings } from '@keen.io/charts-utils';
 
 import LineChart from '../line/line-chart.component';
 
-import { CommonChartSettings, GroupMode, StackMode } from '../../types';
+import {
+  CommonChartSettings,
+  GroupMode,
+  StackMode,
+  TooltipFormatter,
+} from '../../types';
 
 import { CurveType } from '../line/types';
 
@@ -42,6 +47,8 @@ export type Props = {
   gradient?: boolean;
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {

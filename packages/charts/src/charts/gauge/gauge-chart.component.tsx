@@ -13,15 +13,13 @@ import { ChartBase } from '../../components';
 import { theme as defaultTheme } from '../../theme';
 import { TOOLTIP_TIMEOUT } from './constants';
 
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipFormatter } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
-  /** Name of data object property used to create labels */
-  labelSelector: string;
   /** Key used to calculate the gauge progress */
   valueKey: string;
   /** Arc start angle */
@@ -40,6 +38,8 @@ export type Props = {
   formatValue?: (value: string | number) => React.ReactNode;
   /** Progress type */
   progressType?: 'normal' | 'percent';
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 const createArcMotion = (index: number) => ({
@@ -70,6 +70,7 @@ export const GaugeChart: FC<Props> = ({
   minValue = 'auto',
   maxValue = 'auto',
   formatValue,
+  formatTooltip,
 }) => {
   const {
     progressValue,
@@ -124,7 +125,9 @@ export const GaugeChart: FC<Props> = ({
           >
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               <Text {...tooltipSettings.labels.typography}>
-                {tooltipMeta.value}
+                {formatTooltip
+                  ? formatTooltip(tooltipMeta.value)
+                  : tooltipMeta.value}
               </Text>
             </Tooltip>
           </motion.div>
@@ -171,6 +174,7 @@ export const GaugeChart: FC<Props> = ({
             {innerArcs.map(({ path, value, color }, idx) => (
               <motion.path
                 key={idx}
+                data-testid={`path-${idx}`}
                 d={path}
                 fill={color}
                 {...createArcMotion(idx)}

@@ -15,7 +15,7 @@ import { useDynamicChartLayout } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipFormatter } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -49,6 +49,12 @@ export type Props = {
   maxAreaRadius?: number;
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
+  /** Tooltip formatter */
+  formatTooltip?: {
+    xKey?: TooltipFormatter;
+    yKey?: TooltipFormatter;
+    valueKey?: TooltipFormatter;
+  };
 } & CommonChartSettings;
 
 export const BubbleChart: FC<Props> = ({
@@ -68,6 +74,7 @@ export const BubbleChart: FC<Props> = ({
   yScaleSettings = { type: 'linear' },
   xAxisTitle,
   yAxisTitle,
+  formatTooltip,
 }) => {
   const {
     layoutMargins,
@@ -127,10 +134,11 @@ export const BubbleChart: FC<Props> = ({
                   data={data}
                   labelSelector={labelSelector}
                   selectors={tooltipSelectors}
-                  valueKey={valueKey}
                   typography={tooltipSettings.labels.typography}
-                  yScaleSettings={yScaleSettings}
+                  valueKey={valueKey}
+                  xDomainKey={xDomainKey}
                   yDomainKey={yDomainKey}
+                  formatValue={formatTooltip}
                 />
               )}
             </Tooltip>

@@ -4,7 +4,7 @@ import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
 
-import { DataSelector } from '../types';
+import { DataSelector, TooltipFormatter } from '../types';
 
 type Options = {
   data: Record<string, any>[];
@@ -12,6 +12,7 @@ type Options = {
   labelSelector: string;
   selectors: { selector: DataSelector; color: string }[];
   disabledLabels?: string[];
+  formatValue?: TooltipFormatter;
 };
 
 export const getTooltipContent = ({
@@ -40,6 +41,7 @@ export const getCircularChartTooltipContent = ({
   labelSelector,
   selectors,
   disabledLabels,
+  formatValue,
 }: Options) => {
   const content: { color: string; value: string }[] = [];
 
@@ -51,8 +53,9 @@ export const getCircularChartTooltipContent = ({
     const total = keys.reduce((acc, keyName) => {
       return acc + item[keyName];
     }, 0);
+    const formattedTotal = formatValue ? formatValue(total) : total;
 
-    let value = `${item[labelSelector]} - ${total}`;
+    let value = `${item[labelSelector]} - ${formattedTotal}`;
     let newColor = color;
 
     if (selectors.length > 1) {
@@ -67,7 +70,7 @@ export const getCircularChartTooltipContent = ({
       const valuePercent = String(
         `${(Math.round(total * 100) / allValuesTotal).toFixed(1)}%`
       );
-      value = `${item[labelSelector]} - ${total} (${valuePercent})`;
+      value = `${item[labelSelector]} - ${formattedTotal} (${valuePercent})`;
       newColor = 'rgba(0, 0, 0, 0)';
     }
 
@@ -75,14 +78,4 @@ export const getCircularChartTooltipContent = ({
   });
 
   return content;
-};
-
-export const formatTooltipValue = (
-  label: any,
-  formatLabel?: (label: string | number | Date) => string | number
-) => {
-  if (formatLabel && (typeof label === 'string' || typeof label === 'number')) {
-    return formatLabel(label);
-  }
-  return label;
 };
