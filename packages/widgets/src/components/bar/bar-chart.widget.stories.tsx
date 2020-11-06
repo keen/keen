@@ -31,6 +31,20 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  // axisX: {
+  //   ...keenTheme.axisX,
+  //   labels: {
+  //     ...keenTheme.axisX.labels,
+  //     radiusAngle: 0,
+  //   },
+  // },
+  // axisY: {
+  //   ...keenTheme.axisY,
+  //   labels: {
+  //     ...keenTheme.axisY.labels,
+  //     radiusAngle: 0,
+  //   },
+  // },
 });
 
 export const widget = () => (

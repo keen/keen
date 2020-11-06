@@ -1,4 +1,5 @@
 import getTextBBox from './get-text-bbox';
+import getRotatedDimension from './get-rotated-dimension';
 
 import { Axis, Orientation } from '../../../types';
 
@@ -28,6 +29,7 @@ const calculateAxisDimension = ({
     labels: {
       enabled: labelsEnabled,
       typography: { fontSize, fontFamily },
+      radiusAngle,
     },
   } = axisTheme;
 
@@ -42,7 +44,11 @@ const calculateAxisDimension = ({
           height: 0,
         };
 
-  let dimension = textDimension;
+  let dimension = { width: 0, height: 0 };
+
+  if (axisEnabled && labelsEnabled) {
+    dimension = getRotatedDimension({ radiusAngle, dimension: textDimension });
+  }
 
   if (axisTitle) {
     const titleBbox = getTextBBox(axisTitle, {

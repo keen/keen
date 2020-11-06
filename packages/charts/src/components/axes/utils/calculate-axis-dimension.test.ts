@@ -31,6 +31,27 @@ test('calculates dimension for vertical axis', () => {
   `);
 });
 
+test('calculates dimension for vertical axis with rotated labels', () => {
+  const result = calculateAxisDimension({
+    axisTheme: {
+      ...theme.axisY,
+      labels: {
+        ...theme.axisY.labels,
+        radiusAngle: 45,
+      },
+    },
+    orientation: Orientation.VERTICAL,
+    label: 'Marketing',
+  });
+
+  expect(result).toMatchInlineSnapshot(`
+    Object {
+      "height": 14.142135623730951,
+      "width": 24.14213562373095,
+    }
+  `);
+});
+
 test('calculates dimension for vertical axis with title', () => {
   const {
     axisY: {
@@ -68,6 +89,27 @@ test('calculates dimension for horizontal axis', () => {
     Object {
       "height": 25,
       "width": 10,
+    }
+  `);
+});
+
+test('calculates dimension for horizontal axis with rotated labels', () => {
+  const result = calculateAxisDimension({
+    axisTheme: {
+      ...theme.axisX,
+      labels: {
+        ...theme.axisX.labels,
+        radiusAngle: 45,
+      },
+    },
+    orientation: Orientation.VERTICAL,
+    label: 'Marketing',
+  });
+
+  expect(result).toMatchInlineSnapshot(`
+    Object {
+      "height": 14.142135623730951,
+      "width": 39.14213562373095,
     }
   `);
 });
