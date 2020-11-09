@@ -27,7 +27,7 @@ test('allows user to close modal by pressing "ESC" key', () => {
   const mockFn = jest.fn();
 
   const { getByTestId } = render(
-    <Modal isOpen={true} onClose={mockFn}>
+    <Modal isOpen={true} onClose={mockFn} blockScrollOnOpen>
       {() => <div>{children}</div>}
     </Modal>
   );
