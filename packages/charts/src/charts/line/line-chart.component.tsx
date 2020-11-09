@@ -134,6 +134,7 @@ export const LineChart: FC<Props> = ({
       margins={layoutMargins}
     >
       <Axes
+        svgElement={svgElement}
         useDynamicLayout={useDynamicLayout}
         initialMargins={margins}
         onComputeLayout={margins => {
