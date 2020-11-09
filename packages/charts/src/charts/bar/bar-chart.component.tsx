@@ -21,6 +21,7 @@ import {
   TooltipState,
   GroupMode,
   StackMode,
+  TooltipFormatter,
 } from '../../types';
 
 export type Props = {
@@ -60,6 +61,8 @@ export type Props = {
   stackMode?: StackMode;
   /** Type of ordering applied on bars */
   barsOrder?: SortMode;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -84,6 +87,7 @@ export const BarChart: FC<Props> = ({
   barsOrder,
   xAxisTitle,
   yAxisTitle,
+  formatTooltip,
 }) => {
   const {
     layoutMargins,
@@ -197,6 +201,7 @@ export const BarChart: FC<Props> = ({
                   groupMode={groupMode}
                   selectors={tooltip.selectors}
                   isList={tooltip.selectors.length > 1}
+                  formatValue={formatTooltip}
                 />
               )}
             </ChartTooltip>

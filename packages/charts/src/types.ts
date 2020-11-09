@@ -250,3 +250,7 @@ export type LabelRotation = {
 export type GroupMode = 'grouped' | 'stacked';
 
 export type StackMode = 'normal' | 'percent';
+
+export type TooltipFormatter = (
+  element: number | string | Date
+) => React.ReactNode;

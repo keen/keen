@@ -1,20 +1,24 @@
 import React, { FC, useMemo } from 'react';
 import { Typography } from '@keen.io/ui-core';
-import { getFromPath, ScaleSettings } from '@keen.io/charts-utils';
+import { getFromPath } from '@keen.io/charts-utils';
 
 import Correlation from './correlation.component';
-import { formatTooltipValue } from '../../utils/tooltip.utils';
 
-import { DataSelector } from '../../types';
+import { DataSelector, TooltipFormatter } from '../../types';
 
 type Props = {
   data: Record<string, any>[];
   typography: Typography;
   labelSelector: string;
-  valueKey: string;
   selectors: { selector: DataSelector; color: string }[];
-  yScaleSettings?: ScaleSettings;
-  yDomainKey?: string;
+  valueKey: string;
+  xDomainKey: string;
+  yDomainKey: string;
+  formatValue?: Partial<{
+    xKey: TooltipFormatter;
+    yKey: TooltipFormatter;
+    valueKey: TooltipFormatter;
+  }>;
 };
 
 export const TooltipContent: FC<Props> = ({
@@ -23,8 +27,9 @@ export const TooltipContent: FC<Props> = ({
   labelSelector,
   selectors,
   valueKey,
-  yScaleSettings,
+  xDomainKey,
   yDomainKey,
+  formatValue,
 }) => {
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
@@ -36,18 +41,21 @@ export const TooltipContent: FC<Props> = ({
         title: selectorData[labelSelector],
         color,
         correlations: Object.keys(selectorData).reduce((acc, keyName) => {
+          let value = selectorData[keyName];
+
+          if (formatValue?.xKey && keyName === xDomainKey)
+            value = formatValue.xKey(selectorData[keyName]);
+          if (formatValue?.yKey && keyName === yDomainKey)
+            value = formatValue.yKey(selectorData[keyName]);
+          if (formatValue?.valueKey && keyName === valueKey)
+            value = formatValue.valueKey(selectorData[keyName]);
+
           if (keyName !== labelSelector) {
             return [
               ...acc,
               {
                 name: keyName,
-                value:
-                  keyName === yDomainKey
-                    ? formatTooltipValue(
-                        selectorData[keyName],
-                        yScaleSettings?.formatLabel
-                      )
-                    : selectorData[keyName],
+                value,
               },
             ];
           }

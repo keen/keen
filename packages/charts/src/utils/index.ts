@@ -1,5 +1,5 @@
 import { createArcTween, animateArcPath, ArcProperties } from './animate.utils';
-import { getTooltipContent, formatTooltipValue } from './tooltip.utils';
+import { getTooltipContent } from './tooltip.utils';
 import { bubbleColorScale } from './scale.utils';
 
 import {
@@ -14,7 +14,6 @@ export {
   createArcTween,
   animateArcPath,
   getTooltipContent,
-  formatTooltipValue,
   ArcProperties,
   LabelsPosition,
   CircularChart,

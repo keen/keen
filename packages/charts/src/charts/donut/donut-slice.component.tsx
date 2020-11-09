@@ -33,6 +33,7 @@ type Props = {
   activePosition: [number, number];
   label: string;
   background: string;
+  id: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
@@ -45,6 +46,7 @@ const DonutSlice: FC<Props> = ({
   startAngle,
   endAngle,
   labelPosition,
+  id,
   onMouseLeave,
   onMouseMove,
 }) => {
@@ -83,6 +85,7 @@ const DonutSlice: FC<Props> = ({
       initial="hidden"
       animate="show"
       exit="remove"
+      data-testid={id}
     >
       <motion.g
         onMouseMove={onMouseMove}

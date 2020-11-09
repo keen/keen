@@ -17,7 +17,7 @@ import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 import { THREE_DIMENSION_PROJECTIONS } from './constants';
 
 import { Projection, ProjectionState } from './types';
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipFormatter } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -49,6 +49,8 @@ export type Props = {
   colorSteps?: number;
   /** Range for filtering map values */
   valuesRange?: RangeType;
+  /** Tooltip formatter */
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const ChoroplethChart: FC<Props> = ({
@@ -67,6 +69,7 @@ export const ChoroplethChart: FC<Props> = ({
   projectionRotation = [0, 0, 0],
   valueKey = 'value',
   data,
+  formatTooltip,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
   const [projectionState, setProjectionState] = useState<ProjectionState>({
@@ -147,7 +150,11 @@ export const ChoroplethChart: FC<Props> = ({
                   list={[
                     {
                       color: tooltipMeta.color,
-                      value: `${tooltipMeta.label} - ${tooltipMeta.value}`,
+                      value: `${tooltipMeta.label} - ${
+                        formatTooltip
+                          ? formatTooltip(tooltipMeta.value)
+                          : tooltipMeta.value
+                      }`,
                     },
                   ]}
                   typography={tooltipSettings.labels.typography}
