@@ -2,8 +2,10 @@ import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
-import { Text, Tick, Line } from './elements';
+import { Tick, Line } from './elements';
 import { Group } from './ruler.styles';
+
+import RulerLabel from './ruler-label';
 import AxisTitle from './axis-title.component';
 
 import { createRuler, rotateLabel } from './ruler.utils';
@@ -20,6 +22,8 @@ type Props = {
   orientation: Orientation;
   x: number;
   y: number;
+  /** Maximum single label dimension */
+  labelDimension?: number;
   scaleSettings?: ScaleSettings;
   axisTitle?: string;
 } & Axis;
@@ -37,6 +41,7 @@ const Ruler = ({
   color,
   scaleSettings,
   axisTitle,
+  labelDimension,
 }: Props) => {
   const groupElement = useRef(null);
   const [groupBox, setGroupBox] = useState<Partial<DOMRect>>({
@@ -108,7 +113,13 @@ const Ruler = ({
                 textAnchor={anchor}
                 transform={`translate(${translateX}, ${translateY}) rotate(${radius})`}
               >
-                <Text {...textPosition}>{text}</Text>
+                <RulerLabel
+                  orientation={orientation}
+                  maxDimension={labelDimension}
+                  {...textPosition}
+                >
+                  {text}
+                </RulerLabel>
               </g>
             )}
           </Tick>

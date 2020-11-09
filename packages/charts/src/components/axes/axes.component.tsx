@@ -1,4 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, {
+  MutableRefObject,
+  useContext,
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { Layout } from '@keen.io/ui-core';
 
@@ -6,11 +12,17 @@ import Ruler from '../ruler.component';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-import { calculateAxisDimension, getMaxDimensionValue } from './utils';
+import {
+  setXLabelsDimension,
+  setYLabelsDimension,
+  calculateAxisDimension,
+} from './utils';
 
 import { Orientation, Margins } from '../../types';
 
 type Props = {
+  /* Root visualization element */
+  svgElement?: MutableRefObject<SVGElement>;
   /* X scale definition */
   xScale:
     | ScaleBand<string>
@@ -40,6 +52,7 @@ const Axes = ({
   layout,
   onComputeLayout,
   initialMargins,
+  svgElement,
   useDynamicLayout = false,
 }: Props) => {
   const {
@@ -49,31 +62,70 @@ const Axes = ({
     xScaleSettings,
     yScaleSettings,
   } = useContext(ChartContext) as ChartContextType;
+  const computeLayoutFrame = useRef(null);
 
-  useEffect(() => {
-    if (useDynamicLayout) {
-      const sizeAxisX = calculateAxisDimension({
-        label: getMaxDimensionValue(xScale, xScaleSettings),
+  const xLabelsDimension = theme.axisY.enabled
+    ? setXLabelsDimension({
+        scale: xScale,
         axisTheme: theme.axisX,
-        orientation: Orientation.HORIZONTAL,
-        axisTitle: xTitle,
-      });
+        svgDimensions,
+      })
+    : null;
 
-      const sizeAxisY = calculateAxisDimension({
-        label: getMaxDimensionValue(yScale, yScaleSettings),
-        axisTheme: theme.axisY,
-        orientation: Orientation.VERTICAL,
-        axisTitle: yTitle,
-      });
+  const yLabelsDimension = theme.axisY.enabled
+    ? setYLabelsDimension({
+        scale: yScale,
+        axisTheme: theme.axisX,
+        svgDimensions,
+      })
+    : null;
 
+  const computeLayout = useCallback(() => {
+    const sizeAxisX = calculateAxisDimension({
+      svgElement: svgElement.current,
+      axisTheme: theme.axisX,
+      orientation: Orientation.HORIZONTAL,
+      axisTitle: xTitle,
+    });
+
+    const sizeAxisY = calculateAxisDimension({
+      svgElement: svgElement.current,
+      axisTheme: theme.axisY,
+      orientation: Orientation.VERTICAL,
+      axisTitle: yTitle,
+    });
+
+    if (computeLayoutFrame.current)
+      cancelAnimationFrame(computeLayoutFrame.current);
+    computeLayoutFrame.current = requestAnimationFrame(() => {
       onComputeLayout({
         top: initialMargins.top,
         right: initialMargins.right,
         left: initialMargins.left + sizeAxisY.width,
         bottom: initialMargins.bottom + sizeAxisX.height,
       });
+    });
+  }, [xTitle, yTitle, theme, initialMargins]);
+
+  useEffect(() => {
+    if (useDynamicLayout) {
+      computeLayout();
     }
-  }, [useDynamicLayout, layout, initialMargins, xTitle, yTitle]);
+
+    return () => {
+      if (computeLayoutFrame.current) {
+        cancelAnimationFrame(computeLayoutFrame.current);
+      }
+    };
+  }, [
+    useDynamicLayout,
+    xLabelsDimension,
+    yLabelsDimension,
+    layout,
+    initialMargins,
+    xTitle,
+    yTitle,
+  ]);
 
   const axisX = theme.axisX.enabled && {
     x: 0,
@@ -82,6 +134,7 @@ const Axes = ({
     scaleSettings: xScaleSettings,
     orientation: Orientation.HORIZONTAL,
     axisTitle: xTitle,
+    labelDimension: xLabelsDimension,
   };
 
   const axisY = theme.axisY.enabled && {
@@ -91,6 +144,7 @@ const Axes = ({
     scaleSettings: yScaleSettings,
     orientation: Orientation.VERTICAL,
     axisTitle: yTitle,
+    labelDimension: yLabelsDimension,
   };
 
   return (

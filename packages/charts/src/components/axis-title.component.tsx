@@ -49,7 +49,11 @@ const AxisTitle = ({
   };
 
   return (
-    <text {...textSettings} {...typographyProps}>
+    <text
+      {...textSettings}
+      {...typographyProps}
+      data-elementid={`${orientation}-axis-title`}
+    >
       {children}
     </text>
   );

@@ -31,20 +31,6 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
-  // axisX: {
-  //   ...keenTheme.axisX,
-  //   labels: {
-  //     ...keenTheme.axisX.labels,
-  //     radiusAngle: 0,
-  //   },
-  // },
-  // axisY: {
-  //   ...keenTheme.axisY,
-  //   labels: {
-  //     ...keenTheme.axisY.labels,
-  //     radiusAngle: 0,
-  //   },
-  // },
 });
 
 export const widget = () => (
@@ -71,7 +57,7 @@ export const widget = () => (
       showValues={boolean('Show Values', false, 'Chart')}
       valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['people', 'licenses', 'cars', 'documents']}
-      layout={layoutKnobs('Chart') as any}
+      layout={layoutKnobs('Chart')}
       xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
       yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
       theme={createThemeKnobs()}

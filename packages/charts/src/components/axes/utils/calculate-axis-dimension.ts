@@ -1,11 +1,13 @@
-import getTextBBox from './get-text-bbox';
+import { select } from 'd3-selection';
+
 import getRotatedDimension from './get-rotated-dimension';
+import createElementIdSelector from './create-element-id-selector';
 
 import { Axis, Orientation } from '../../../types';
 
 type Options = {
-  /** The longest formatted label */
-  label: string;
+  /** Root visualization element */
+  svgElement: SVGElement;
   /** Axis theme settings */
   axisTheme: Axis;
   /** Axis orientation */
@@ -14,10 +16,20 @@ type Options = {
   axisTitle?: string;
 };
 
+/**
+ * Calculates computed dimension of all axis elements.
+ *
+ * @param svgElement - root svg element
+ * @param axisTheme - axis theming
+ * @param orientation - axis orientation
+ * @param axisTitle - axis title
+ * @return width and height of axis elements group
+ *
+ */
 const calculateAxisDimension = ({
-  label,
   axisTheme,
   axisTitle,
+  svgElement,
   orientation,
 }: Options): Partial<DOMRect> => {
   const {
@@ -25,24 +37,37 @@ const calculateAxisDimension = ({
     padding,
     tickSize,
     tickPadding,
-    title: { typography: titleTypography, padding: titlePadding },
-    labels: {
-      enabled: labelsEnabled,
-      typography: { fontSize, fontFamily },
-      radiusAngle,
-    },
+    title: { padding: titlePadding },
+    labels: { enabled: labelsEnabled, radiusAngle },
   } = axisTheme;
 
-  const textDimension =
-    axisEnabled && labelsEnabled
-      ? getTextBBox(label, {
-          fontSize,
-          fontFamily,
-        })
-      : {
-          width: 0,
-          height: 0,
-        };
+  const rootContainer = select(svgElement);
+
+  const labelsSelector = createElementIdSelector(`${orientation}-ruler-label`);
+  const titleSelector = createElementIdSelector(`${orientation}-axis-title`);
+
+  let maxLabel = '';
+  let longestNode: SVGTextElement = null;
+
+  rootContainer
+    .selectAll(labelsSelector)
+    .nodes()
+    .forEach(node => {
+      const labelElement = select(node);
+      const text = labelElement.text();
+
+      if (text.length > maxLabel.length) {
+        maxLabel = text;
+        longestNode = node as SVGTextElement;
+      }
+    });
+
+  const textDimension = longestNode
+    ? longestNode.getBBox()
+    : {
+        width: 0,
+        height: 0,
+      };
 
   let dimension = { width: 0, height: 0 };
 
@@ -51,10 +76,13 @@ const calculateAxisDimension = ({
   }
 
   if (axisTitle) {
-    const titleBbox = getTextBBox(axisTitle, {
-      fontSize: titleTypography.fontSize,
-      fontFamily: titleTypography.fontFamily,
-    });
+    const titleElement = rootContainer.select(titleSelector);
+    const titleBbox = titleElement
+      ? (titleElement.node() as SVGTextElement).getBBox()
+      : {
+          width: 0,
+          height: 0,
+        };
 
     if (orientation === Orientation.VERTICAL) {
       dimension = {

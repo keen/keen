@@ -43,6 +43,7 @@ describe('<AxisTitle />', () => {
     const { wrapper } = setup();
     expect(wrapper.find('text')).toMatchInlineSnapshot(`
       <text
+        data-elementid="horizontal-axis-title"
         fill="#27566D"
         fontFamily="Lato Bold, sans-serif"
         fontSize={14}
@@ -62,6 +63,7 @@ describe('<AxisTitle />', () => {
     const { wrapper } = setup({ orientation: 'vertical' });
     expect(wrapper.find('text')).toMatchInlineSnapshot(`
       <text
+        data-elementid="vertical-axis-title"
         fill="#27566D"
         fontFamily="Lato Bold, sans-serif"
         fontSize={14}
