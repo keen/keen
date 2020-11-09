@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/keen/keen/compare/@keen.io/charts@2.3.2...@keen.io/charts@2.4.0) (2020-11-09)
+
+
+### Features
+
+* 🎸 tooltip format ([5af39fc](https://github.com/keen/keen/commit/5af39fc4a6ca79ead26aec616f46c48906261097))
+
+
+
+
+
 ## [2.3.2](https://github.com/keen/keen/compare/@keen.io/charts@2.3.1...@keen.io/charts@2.3.2) (2020-11-05)
 
 
