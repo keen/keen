@@ -36,7 +36,7 @@ export const Modal: FC<Props> = ({
   onClose,
   isOpen,
   useMask = true,
-  blockScrollOnOpen = true,
+  blockScrollOnOpen = false,
 }) => {
   const [closeable, setClosable] = useState(true);
   const [scrollY, setScrollY] = useState(0);
