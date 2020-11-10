@@ -15,11 +15,11 @@ const iconSocketVariants = {
   prop: 'type',
   variants: {
     primary: {
-      bottom: '-3px',
+      bottom: '0',
     },
     secondary: {
       left: '1px',
-      bottom: '-3px',
+      bottom: '0',
     },
   },
 };
@@ -28,6 +28,7 @@ export const IconSocket = styled(motion.div)<{
   type: Variant;
 }>`
   position: absolute;
+  height: 15px;
 
   ${variant(iconSocketVariants)}
 `;
