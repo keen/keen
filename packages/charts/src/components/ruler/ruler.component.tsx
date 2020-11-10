@@ -2,29 +2,35 @@ import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
-import { Tick, Line } from './elements';
+import { Tick, Line } from '../elements';
 import { Group } from './ruler.styles';
 
-import RulerLabel from './ruler-label';
-import AxisTitle from './axis-title.component';
+import RulerLabel from '../ruler-label';
+import AxisTitle from '../axis-title.component';
 
 import { createRuler, rotateLabel } from './ruler.utils';
 
-import { Axis, Tick as RulerTick, Orientation } from '../types';
+import { Axis, Tick as RulerTick, Orientation } from '../../types';
 
 const TEXT_CENTER = '0.32em';
 
 type Props = {
+  /** Axis scale */
   scale:
     | ScaleBand<string>
     | ScaleLinear<number, number>
     | ScaleTime<number, number>;
+  /** Ruler orientation */
   orientation: Orientation;
+  /** X position */
   x: number;
+  /** Y position */
   y: number;
   /** Maximum single label dimension */
   labelDimension?: number;
+  /** Scale settings used to format labels */
   scaleSettings?: ScaleSettings;
+  /** Data series title */
   axisTitle?: string;
 } & Axis;
 

@@ -8,7 +8,7 @@ import React, {
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { Layout } from '@keen.io/ui-core';
 
-import Ruler from '../ruler.component';
+import Ruler from '../ruler';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 

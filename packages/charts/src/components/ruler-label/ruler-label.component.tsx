@@ -45,7 +45,7 @@ const RulerLabel: FC<Props> = ({
       >
         {children}
       </text>
-      {isTruncated && <title>{children}</title>}
+      {isTruncated && <title data-testid="ruler-label-title">{children}</title>}
     </g>
   );
 };
