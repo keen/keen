@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.1...@keen.io/widgets@2.2.2) (2020-11-12)
+
+
+### Performance Improvements
+
+* ⚡️ truncate node measurments performance improvement ([d56ce12](https://github.com/keen/keen/commit/d56ce12aa857c70bbc229d61ec1a4d2b7e3c9886))
+
+
+
+
+
 ## [2.2.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.0...@keen.io/widgets@2.2.1) (2020-11-12)
 
 **Note:** Version bump only for package @keen.io/widgets
