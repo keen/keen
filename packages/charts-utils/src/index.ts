@@ -19,6 +19,7 @@ import {
 } from './scale';
 
 import {
+  calculateRotation,
   calculateEulerAngles,
   convertDegreesToRadians,
   calculateHypotenuse,
@@ -32,6 +33,7 @@ import { TimePrecision, ScaleSettings } from './types';
 export { TimePrecision, ScaleSettings };
 
 export {
+  calculateRotation,
   calculateHypotenuse,
   calculateHypotenuseHeight,
   calculateEulerAngles,

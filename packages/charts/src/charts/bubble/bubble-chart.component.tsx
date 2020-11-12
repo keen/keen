@@ -154,6 +154,7 @@ export const BubbleChart: FC<Props> = ({
         yScaleSettings={yScaleSettings}
       >
         <Axes
+          svgElement={svgElement}
           useDynamicLayout={useDynamicLayout}
           initialMargins={margins}
           onComputeLayout={margins => {

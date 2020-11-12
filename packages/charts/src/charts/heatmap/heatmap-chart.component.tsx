@@ -158,6 +158,7 @@ export const HeatmapChart: FC<Props> = ({
         margins={layoutMargins}
       >
         <Axes
+          svgElement={svgElement}
           layout={layout}
           useDynamicLayout={useDynamicLayout}
           initialMargins={margins}
