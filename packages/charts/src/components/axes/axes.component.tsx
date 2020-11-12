@@ -3,7 +3,6 @@ import React, {
   useContext,
   useCallback,
   useEffect,
-  useRef,
 } from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { Layout } from '@keen.io/ui-core';
@@ -62,7 +61,6 @@ const Axes = ({
     xScaleSettings,
     yScaleSettings,
   } = useContext(ChartContext) as ChartContextType;
-  const computeLayoutFrame = useRef(null);
 
   const xLabelsDimension = theme.axisY.enabled
     ? setXLabelsDimension({
@@ -95,15 +93,11 @@ const Axes = ({
       axisTitle: yTitle,
     });
 
-    if (computeLayoutFrame.current)
-      cancelAnimationFrame(computeLayoutFrame.current);
-    computeLayoutFrame.current = requestAnimationFrame(() => {
-      onComputeLayout({
-        top: initialMargins.top,
-        right: initialMargins.right,
-        left: initialMargins.left + sizeAxisY.width,
-        bottom: initialMargins.bottom + sizeAxisX.height,
-      });
+    onComputeLayout({
+      top: initialMargins.top,
+      right: initialMargins.right,
+      left: initialMargins.left + sizeAxisY.width,
+      bottom: initialMargins.bottom + sizeAxisX.height,
     });
   }, [xTitle, yTitle, theme, initialMargins]);
 
@@ -111,12 +105,6 @@ const Axes = ({
     if (useDynamicLayout) {
       computeLayout();
     }
-
-    return () => {
-      if (computeLayoutFrame.current) {
-        cancelAnimationFrame(computeLayoutFrame.current);
-      }
-    };
   }, [
     useDynamicLayout,
     xLabelsDimension,
