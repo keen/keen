@@ -25,7 +25,7 @@ const RulerLabel: FC<Props> = ({
   maxDimension,
 }) => {
   const textRef = useRef(null);
-  const [isTruncated, setTextTruncate] = useState(null);
+  const [isTruncated, setTextTruncate] = useState(false);
 
   useEffect(() => {
     if (maxDimension && textRef.current) {
