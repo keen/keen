@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.22...@keen.io/widgets@2.2.0) (2020-11-12)
+
+
+### Features
+
+* 🎸 auto margins for rotated labels ([8af662d](https://github.com/keen/keen/commit/8af662ddf5d12a5d9f117935f048d933ef911e69))
+* 🎸 labels rotation support ([55cde1e](https://github.com/keen/keen/commit/55cde1e1f3c3289ff6514dd11c3b21ec1dc1e45c))
+
+
+
+
+
 ## [2.1.22](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.21...@keen.io/widgets@2.1.22) (2020-11-09)
 
 **Note:** Version bump only for package @keen.io/widgets
