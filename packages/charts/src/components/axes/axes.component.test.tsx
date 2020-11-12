@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { scaleBand, scaleLinear } from 'd3-scale';
 
@@ -59,16 +59,20 @@ const mockedRect = {
   toJSON: () => '',
 };
 
-const originalGetBBox = (SVGElement as any).prototype.getBBox;
+const getBBox = SVGElement.prototype.getBBox;
+const getComputedTextLength = SVGElement.prototype.getComputedTextLength;
 
-beforeEach(
-  () =>
-    ((SVGElement as any).prototype.getBBox = () => {
-      return mockedRect;
-    })
-);
+beforeEach(() => {
+  SVGElement.prototype.getBBox = () => {
+    return mockedRect;
+  };
+  SVGElement.prototype.getComputedTextLength = () => 100;
+});
 
-afterAll(() => ((SVGElement as any).prototype.getBBox = originalGetBBox));
+afterAll(() => {
+  SVGElement.prototype.getBBox = getBBox;
+  SVGElement.prototype.getComputedTextLength = getComputedTextLength;
+});
 
 test('renders rulers for axes', () => {
   const {
@@ -114,9 +118,16 @@ test('do not renders ruler for axis Y', () => {
 });
 
 test('computes chart layout based on axes dimensions', () => {
+  const svgElement = createRef();
+  window.requestAnimationFrame = callback => {
+    callback(null);
+    return null;
+  };
+
   const {
     props: { onComputeLayout },
   } = render({
+    svgElement,
     useDynamicLayout: true,
   });
 

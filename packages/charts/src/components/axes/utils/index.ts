@@ -1,5 +1,7 @@
-import getMaxDimensionValue from './get-max-dimension-value';
 import calculateAxisDimension from './calculate-axis-dimension';
-import getTextBBox from './get-text-bbox';
+import {
+  setXLabelsDimension,
+  setYLabelsDimension,
+} from './set-max-label-dimension';
 
-export { getMaxDimensionValue, getTextBBox, calculateAxisDimension };
+export { calculateAxisDimension, setXLabelsDimension, setYLabelsDimension };

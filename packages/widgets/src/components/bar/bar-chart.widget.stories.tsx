@@ -57,7 +57,7 @@ export const widget = () => (
       showValues={boolean('Show Values', false, 'Chart')}
       valuesAutocolor={boolean('Autocolor Values', true, 'Chart')}
       keys={['people', 'licenses', 'cars', 'documents']}
-      layout={layoutKnobs('Chart') as any}
+      layout={layoutKnobs('Chart')}
       xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
       yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
       theme={createThemeKnobs()}

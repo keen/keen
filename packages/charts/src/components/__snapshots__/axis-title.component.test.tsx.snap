@@ -34,6 +34,7 @@ exports[`<AxisTitle /> should render AxisTitle 1`] = `
     }
   >
     <text
+      data-elementid="horizontal-axis-title"
       fill="#27566D"
       fontFamily="Lato Bold, sans-serif"
       fontSize={14}

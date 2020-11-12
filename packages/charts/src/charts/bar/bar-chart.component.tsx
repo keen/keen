@@ -89,6 +89,7 @@ export const BarChart: FC<Props> = ({
   yAxisTitle,
   formatTooltip,
 }) => {
+  const svgElement = useRef<SVGSVGElement>(null);
   const {
     layoutMargins,
     layoutReady,
@@ -136,6 +137,7 @@ export const BarChart: FC<Props> = ({
   return (
     <>
       <ChartBase
+        ref={svgElement}
         theme={theme}
         svgDimensions={svgDimensions}
         margins={layoutMargins}
@@ -143,6 +145,7 @@ export const BarChart: FC<Props> = ({
       >
         <Axes
           layout={layout}
+          svgElement={svgElement}
           useDynamicLayout={useDynamicLayout}
           initialMargins={margins}
           onComputeLayout={margins => {
