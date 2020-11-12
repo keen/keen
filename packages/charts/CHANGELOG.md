@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/keen/keen/compare/@keen.io/charts@2.5.0...@keen.io/charts@2.5.1) (2020-11-12)
+
+
+### Performance Improvements
+
+* ⚡️ get rid of multiple getComputedTextLenght invocation ([ebc6fc9](https://github.com/keen/keen/commit/ebc6fc905cc84f2545679c9948a70386a0667efc))
+
+
+
+
+
 # [2.5.0](https://github.com/keen/keen/compare/@keen.io/charts@2.4.1...@keen.io/charts@2.5.0) (2020-11-12)
 
 

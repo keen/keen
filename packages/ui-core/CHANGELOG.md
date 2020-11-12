@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.14](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.13...@keen.io/ui-core@2.5.14) (2020-11-12)
+
+
+### Bug Fixes
+
+* 🐛 checkbox styles ([ce7c5fc](https://github.com/keen/keen/commit/ce7c5fcf5d0de07364ac6da53c176dc9a242b35a))
+
+
+
+
+
 ## [2.5.13](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.12...@keen.io/ui-core@2.5.13) (2020-11-09)
 
 **Note:** Version bump only for package @keen.io/ui-core
