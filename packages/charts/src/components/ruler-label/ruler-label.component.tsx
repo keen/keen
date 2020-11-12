@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useLayoutEffect, useState, useRef } from 'react';
 
 import { fitText } from './utils';
 
@@ -27,11 +27,13 @@ const RulerLabel: FC<Props> = ({
   const textRef = useRef(null);
   const [isTruncated, setTextTruncate] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (maxDimension && textRef.current) {
       const text = children ? children.toString() : '';
-      const { isTruncated } = fitText(textRef.current, text, maxDimension);
-      setTextTruncate(isTruncated);
+      if (text) {
+        const { isTruncated } = fitText(textRef.current, text, maxDimension);
+        setTextTruncate(isTruncated);
+      }
     }
   }, [maxDimension, children]);
 
