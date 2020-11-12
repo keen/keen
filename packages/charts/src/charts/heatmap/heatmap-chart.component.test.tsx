@@ -47,18 +47,27 @@ const mockedRect = {
   toJSON: () => '',
 };
 
-const originalGetBBox = (SVGElement as any).prototype.getBBox;
+const getBBox = SVGElement.prototype.getBBox;
+const getComputedTextLength = SVGElement.prototype.getComputedTextLength;
 
-beforeEach(
-  () =>
-    ((SVGElement as any).prototype.getBBox = () => {
-      return mockedRect;
-    })
-);
+beforeEach(() => {
+  SVGElement.prototype.getBBox = () => {
+    return mockedRect;
+  };
+  SVGElement.prototype.getComputedTextLength = () => 100;
+});
 
-afterAll(() => ((SVGElement as any).prototype.getBBox = originalGetBBox));
+afterAll(() => {
+  SVGElement.prototype.getBBox = getBBox;
+  SVGElement.prototype.getComputedTextLength = getComputedTextLength;
+});
 
 test('formats tooltip value', async () => {
+  window.requestAnimationFrame = callback => {
+    callback(null);
+    return null;
+  };
+
   const {
     wrapper: { getByText, container },
     props: { data, formatTooltip, keys },
