@@ -61,9 +61,8 @@ test('allows user to sort data', () => {
 test('applies typography settings to table header', () => {
   const {
     wrapper: { getByTestId },
-    props,
   } = render();
   const headerElement = getByTestId('header-row-container');
 
-  expect(headerElement).toHaveStyle(props.typography);
+  expect(headerElement).toMatchSnapshot();
 });
