@@ -223,7 +223,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                     "overrides": Array [],
                     "props": Object {
                       "animate": "off",
-                      "className": "sc-dlnjPT c2",
+                      "className": "sc-AxiKw c2",
                       "initial": "off",
                       "transition": Object {
                         "duration": 0.3,
@@ -509,7 +509,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 "props": Object {
                   "animate": "off",
                   "children": "off",
-                  "className": "sc-hKFyIo c3",
+                  "className": "sc-AxhCb c3",
                   "initial": "off",
                   "transition": Object {
                     "duration": 0.3,
@@ -807,7 +807,7 @@ exports[`<Toggle /> should render Toggle component 1`] = `
                 "overrides": Array [],
                 "props": Object {
                   "animate": "off",
-                  "className": "sc-eCApGN c4",
+                  "className": "sc-AxhUy c4",
                   "initial": "off",
                   "transition": Object {
                     "duration": 0.3,
