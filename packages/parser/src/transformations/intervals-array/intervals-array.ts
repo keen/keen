@@ -9,16 +9,21 @@ import { AtomicResult } from '../../types';
  * @return transformed atomic results
  *
  */
-export const transformIntervalsFromArray = (values: AtomicResult[]) => {
+export const transformIntervalsFromArray = (
+  values: AtomicResult[],
+  mergePropertiesOrder?: string[]
+) => {
   const keys: Set<string> = new Set();
   const data: Record<string, any> = {};
 
-  values.map(transformAtomicResult).forEach(({ result, ...properties }) => {
-    Object.values(properties).forEach(name => {
-      keys.add(name as string);
-      data[name] = result;
+  values
+    .map(value => transformAtomicResult(value, mergePropertiesOrder))
+    .forEach(({ result, ...properties }) => {
+      Object.values(properties).forEach(name => {
+        keys.add(name as string);
+        data[name] = result;
+      });
     });
-  });
 
   return {
     data,

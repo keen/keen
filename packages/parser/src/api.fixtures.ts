@@ -205,7 +205,7 @@ export const countAnalysisDoubleGroupBy = {
       start: '2020-01-01T00:00:00.000-00:00',
       end: '2020-02-01T16:00:00.000-00:00',
     },
-    group_by: ['author', 'name'],
+    group_by: ['name', 'author'],
     timezone: 3600,
   },
   result: [

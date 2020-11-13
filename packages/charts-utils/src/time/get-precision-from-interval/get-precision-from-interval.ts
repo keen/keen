@@ -1,4 +1,4 @@
-import { TimePrecision } from '@keen.io/charts-utils';
+import { TimePrecision } from '../../types';
 
 const INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
   minutely: 'minute',
@@ -25,7 +25,7 @@ const isCustomInterval = (interval: string): boolean => {
 
 const DEFAULT_INTERVAL = 'month';
 
-export const getPrecisionForInterval = (interval: string): TimePrecision => {
+const getPrecisionForInterval = (interval: string): TimePrecision => {
   if (isCustomInterval(interval))
     return (
       CUSTOM_INTERVAL_TO_PRECISION[interval.split('_')[2]] || DEFAULT_INTERVAL
@@ -33,3 +33,5 @@ export const getPrecisionForInterval = (interval: string): TimePrecision => {
 
   return INTERVAL_TO_PRECISION[interval] || DEFAULT_INTERVAL;
 };
+
+export default getPrecisionForInterval;

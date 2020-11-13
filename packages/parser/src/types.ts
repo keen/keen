@@ -75,3 +75,7 @@ export type ParserOutput = {
   keys: string[];
   results: Record<string, any>[];
 };
+
+export type ParserSettings = {
+  mergePropertiesOrder: null | string[];
+};
