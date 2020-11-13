@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.7...@keen.io/dataviz@2.2.8) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.7](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.6...@keen.io/dataviz@2.2.7) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.6](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.5...@keen.io/dataviz@2.2.6) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.5](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.4...@keen.io/dataviz@2.2.5) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.4](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.3...@keen.io/dataviz@2.2.4) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.2...@keen.io/dataviz@2.2.3) (2020-11-05)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.1...@keen.io/dataviz@2.2.2) (2020-11-04)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.2.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.0...@keen.io/dataviz@2.2.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* 🐛 dataviz funnel settings ([503b82c](https://github.com/keen/keen/commit/503b82ca18c746638eb490c2e87661d25f820f93))
+* 🐛 funnel settings fix ([860ef8a](https://github.com/keen/keen/commit/860ef8af322e61590420eecc945b8a9fe51aa610))
+
+
+
+
+
+# [2.2.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.1.17...@keen.io/dataviz@2.2.0) (2020-11-03)
+
+
+### Features
+
+* 🎸 bars order logic ([e7fa5f7](https://github.com/keen/keen/commit/e7fa5f76d3a0c4afcfe947843dba82b8bd7148cb))
+
+
+
+
+
 ## [2.1.17](https://github.com/keen/keen/compare/@keen.io/dataviz@2.1.16...@keen.io/dataviz@2.1.17) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/dataviz

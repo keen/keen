@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/keen/keen/compare/@keen.io/charts@2.5.1...@keen.io/charts@2.5.2) (2020-11-12)
+
+
+### Performance Improvements
+
+* ⚡️ truncate node measurments performance improvement ([d56ce12](https://github.com/keen/keen/commit/d56ce12aa857c70bbc229d61ec1a4d2b7e3c9886))
+
+
+
+
+
+## [2.5.1](https://github.com/keen/keen/compare/@keen.io/charts@2.5.0...@keen.io/charts@2.5.1) (2020-11-12)
+
+
+### Performance Improvements
+
+* ⚡️ get rid of multiple getComputedTextLenght invocation ([ebc6fc9](https://github.com/keen/keen/commit/ebc6fc905cc84f2545679c9948a70386a0667efc))
+
+
+
+
+
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/charts@2.4.1...@keen.io/charts@2.5.0) (2020-11-12)
+
+
+### Features
+
+* 🎸 auto margins for rotated labels ([8af662d](https://github.com/keen/keen/commit/8af662ddf5d12a5d9f117935f048d933ef911e69))
+* 🎸 labels rotation support ([55cde1e](https://github.com/keen/keen/commit/55cde1e1f3c3289ff6514dd11c3b21ec1dc1e45c))
+* 🎸 trucnated label tooltip ([f21d44b](https://github.com/keen/keen/commit/f21d44b336d9d44505d70ecaa5718acc41a8655b))
+
+
+
+
+
+## [2.4.1](https://github.com/keen/keen/compare/@keen.io/charts@2.4.0...@keen.io/charts@2.4.1) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+# [2.4.0](https://github.com/keen/keen/compare/@keen.io/charts@2.3.2...@keen.io/charts@2.4.0) (2020-11-09)
+
+
+### Features
+
+* 🎸 tooltip format ([5af39fc](https://github.com/keen/keen/commit/5af39fc4a6ca79ead26aec616f46c48906261097))
+
+
+
+
+
+## [2.3.2](https://github.com/keen/keen/compare/@keen.io/charts@2.3.1...@keen.io/charts@2.3.2) (2020-11-05)
+
+
+### Bug Fixes
+
+* 🐛 select unique values in table ([6182c95](https://github.com/keen/keen/commit/6182c95a6d27860a162aafd8aef5b191521616d2))
+
+
+
+
+
+## [2.3.1](https://github.com/keen/keen/compare/@keen.io/charts@2.3.0...@keen.io/charts@2.3.1) (2020-11-04)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+# [2.3.0](https://github.com/keen/keen/compare/@keen.io/charts@2.2.17...@keen.io/charts@2.3.0) (2020-11-03)
+
+
+### Bug Fixes
+
+* 🐛 longest label dimension calculation ([1b0d331](https://github.com/keen/keen/commit/1b0d33118e81a9151043c220a56cbf29232ebdc2))
+
+
+### Features
+
+* 🎸 bars order logic ([e7fa5f7](https://github.com/keen/keen/commit/e7fa5f76d3a0c4afcfe947843dba82b8bd7148cb))
+* 🎸 table columns order ([c998898](https://github.com/keen/keen/commit/c9988980823e2fd4cd9fc5e2937526c5353661a5))
+
+
+
+
+
 ## [2.2.17](https://github.com/keen/keen/compare/@keen.io/charts@2.2.16...@keen.io/charts@2.2.17) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/charts

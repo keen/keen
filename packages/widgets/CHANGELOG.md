@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.1...@keen.io/widgets@2.2.2) (2020-11-12)
+
+
+### Performance Improvements
+
+* ⚡️ truncate node measurments performance improvement ([d56ce12](https://github.com/keen/keen/commit/d56ce12aa857c70bbc229d61ec1a4d2b7e3c9886))
+
+
+
+
+
+## [2.2.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.0...@keen.io/widgets@2.2.1) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.2.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.22...@keen.io/widgets@2.2.0) (2020-11-12)
+
+
+### Features
+
+* 🎸 auto margins for rotated labels ([8af662d](https://github.com/keen/keen/commit/8af662ddf5d12a5d9f117935f048d933ef911e69))
+* 🎸 labels rotation support ([55cde1e](https://github.com/keen/keen/commit/55cde1e1f3c3289ff6514dd11c3b21ec1dc1e45c))
+
+
+
+
+
+## [2.1.22](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.21...@keen.io/widgets@2.1.22) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.21](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.20...@keen.io/widgets@2.1.21) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.20](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.19...@keen.io/widgets@2.1.20) (2020-11-05)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.19](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.18...@keen.io/widgets@2.1.19) (2020-11-04)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.1.18](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.17...@keen.io/widgets@2.1.18) (2020-11-03)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.1.17](https://github.com/keen/keen/compare/@keen.io/widgets@2.1.16...@keen.io/widgets@2.1.17) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/widgets

@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.7...@keen.io/toast-notifications@1.1.8) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/toast-notifications
+
+
+
+
+
+## [1.1.7](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.6...@keen.io/toast-notifications@1.1.7) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/toast-notifications
+
+
+
+
+
+## [1.1.6](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.5...@keen.io/toast-notifications@1.1.6) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/toast-notifications
+
+
+
+
+
+## [1.1.5](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.4...@keen.io/toast-notifications@1.1.5) (2020-11-05)
+
+**Note:** Version bump only for package @keen.io/toast-notifications
+
+
+
+
+
+## [1.1.4](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.3...@keen.io/toast-notifications@1.1.4) (2020-11-04)
+
+**Note:** Version bump only for package @keen.io/toast-notifications
+
+
+
+
+
 ## [1.1.3](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.2...@keen.io/toast-notifications@1.1.3) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/toast-notifications

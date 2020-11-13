@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.27](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.26...@keen.io/widget-picker@1.2.27) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.2.26](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.25...@keen.io/widget-picker@1.2.26) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.2.25](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.24...@keen.io/widget-picker@1.2.25) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.2.24](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.23...@keen.io/widget-picker@1.2.24) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.2.23](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.22...@keen.io/widget-picker@1.2.23) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.2.22](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.21...@keen.io/widget-picker@1.2.22) (2020-11-05)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.2.21](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.20...@keen.io/widget-picker@1.2.21) (2020-11-04)
+
+
+### Bug Fixes
+
+* 🐛 widget picker area chart settings ([60a3e69](https://github.com/keen/keen/commit/60a3e69cbde307f839a4e9a1db139bfccdda31e2))
+
+
+
+
+
+## [1.2.20](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.19...@keen.io/widget-picker@1.2.20) (2020-11-03)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
 ## [1.2.19](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.18...@keen.io/widget-picker@1.2.19) (2020-11-02)
 
 

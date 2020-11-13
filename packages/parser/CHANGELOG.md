@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.8](https://github.com/keen/keen/compare/@keen.io/parser@2.2.7...@keen.io/parser@2.2.8) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.2.7](https://github.com/keen/keen/compare/@keen.io/parser@2.2.6...@keen.io/parser@2.2.7) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.2.6](https://github.com/keen/keen/compare/@keen.io/parser@2.2.5...@keen.io/parser@2.2.6) (2020-11-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.2.5](https://github.com/keen/keen/compare/@keen.io/parser@2.2.4...@keen.io/parser@2.2.5) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.2.4](https://github.com/keen/keen/compare/@keen.io/parser@2.2.3...@keen.io/parser@2.2.4) (2020-11-09)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.2.3](https://github.com/keen/keen/compare/@keen.io/parser@2.2.2...@keen.io/parser@2.2.3) (2020-11-05)
+
+
+### Bug Fixes
+
+* 🐛 select unique values in table ([6182c95](https://github.com/keen/keen/commit/6182c95a6d27860a162aafd8aef5b191521616d2))
+
+
+
+
+
+## [2.2.2](https://github.com/keen/keen/compare/@keen.io/parser@2.2.1...@keen.io/parser@2.2.2) (2020-11-04)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.2.1](https://github.com/keen/keen/compare/@keen.io/parser@2.2.0...@keen.io/parser@2.2.1) (2020-11-03)
+
+
+### Bug Fixes
+
+* 🐛 funnel settings fix ([860ef8a](https://github.com/keen/keen/commit/860ef8af322e61590420eecc945b8a9fe51aa610))
+
+
+
+
+
+# [2.2.0](https://github.com/keen/keen/compare/@keen.io/parser@2.1.12...@keen.io/parser@2.2.0) (2020-11-03)
+
+
+### Features
+
+* 🎸 bars order logic ([e7fa5f7](https://github.com/keen/keen/commit/e7fa5f76d3a0c4afcfe947843dba82b8bd7148cb))
+
+
+
+
+
 ## [2.1.12](https://github.com/keen/keen/compare/@keen.io/parser@2.1.11...@keen.io/parser@2.1.12) (2020-10-27)
 
 **Note:** Version bump only for package @keen.io/parser
