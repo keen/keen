@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.1.0...@keen.io/charts-utils@1.2.0) (2020-11-13)
+
+
+### Features
+
+* 🎸 support group by order ([67390d3](https://github.com/keen/keen/commit/67390d38f15e467dc74b4fc0afd8b9e96ac72c4e))
+
+
+
+
+
 # [1.1.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.0.2...@keen.io/charts-utils@1.1.0) (2020-11-12)
 
 
