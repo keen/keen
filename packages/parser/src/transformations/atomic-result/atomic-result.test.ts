@@ -21,3 +21,18 @@ test('merge properties for multiple grouped result', () => {
     result: 97,
   });
 });
+
+test('merge multiple properties based on provided order', () => {
+  const mergePropertiesOrder = ['country', 'product', 'company'];
+  const fixture = {
+    result: 120,
+    company: 'Apple',
+    product: 'MacBook Pro 13',
+    country: 'USA',
+  };
+
+  expect(transformAtomicResult(fixture, mergePropertiesOrder)).toEqual({
+    'country-product-company': 'USA MacBook Pro 13 Apple',
+    result: 120,
+  });
+});

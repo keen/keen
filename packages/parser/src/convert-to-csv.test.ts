@@ -1,4 +1,4 @@
-import { convertToCSV } from './convertToCsv';
+import { convertToCSV } from './convert-to-csv';
 import { parseQuery } from './parser';
 import {
   countAnalysis,

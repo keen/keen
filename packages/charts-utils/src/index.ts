@@ -12,6 +12,7 @@ import { getElementOffset, hasContentOverflow } from './elements';
 import { copyToClipboard } from './text';
 
 import {
+  createScaleSettings,
   calculateScaleDomain,
   formatScaleLabel,
   getScaleValues,
@@ -42,6 +43,7 @@ export {
   calculateRange,
   calculateStackedRange,
   copyToClipboard,
+  createScaleSettings,
   formatScaleLabel,
   formatNumber,
   getElementOffset,

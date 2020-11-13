@@ -1,5 +1,6 @@
 import { timeFormat } from 'd3-time-format';
-import { TimePrecision } from '@keen.io/charts-utils';
+
+import { TimePrecision } from '../../types';
 
 const DATE_FORMATS: Record<TimePrecision, string> = {
   minute: '%I:%M:%S %p',
@@ -10,10 +11,12 @@ const DATE_FORMATS: Record<TimePrecision, string> = {
   year: '%b, %Y',
 };
 
-export const createLabelFormatter = (
+const createLabelFormatter = (
   precision: TimePrecision
 ): ((label: string | number) => string | number) => {
   const format = DATE_FORMATS[precision] || DATE_FORMATS['month'];
   const formatTime = timeFormat(format);
   return (date: string | number) => formatTime(new Date(date));
 };
+
+export default createLabelFormatter;

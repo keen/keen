@@ -6,6 +6,7 @@ import {
   transformFromNumber,
 } from './transformations';
 
+import { createParserSettings } from './create-parser-settings';
 import { fillWithEmptyKeys } from './utils/transform.utils';
 
 import {
@@ -17,7 +18,13 @@ import {
 
 import { KEEN_KEY, KEEN_VALUE } from './constants';
 
-export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
+export const parseQuery = ({
+  result,
+  steps,
+  query,
+}: ParserInput): ParserOutput => {
+  const { mergePropertiesOrder } = createParserSettings(query);
+
   let keys: Set<string> = new Set();
   let results: Record<string, any>[] = [];
 
@@ -54,7 +61,8 @@ export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
 
           if (Array.isArray(value)) {
             const { data, keys: dataSetKeys } = transformIntervalsFromArray(
-              value
+              value,
+              mergePropertiesOrder
             );
             results.push({ [KEEN_KEY]: timeframe.start, ...data });
             dataSetKeys.forEach(key => keys.add(key));
@@ -75,7 +83,8 @@ export const parseQuery = ({ result, steps }: ParserInput): ParserOutput => {
           'result' in partialResult
         ) {
           const { result, ...properties } = transformAtomicResult(
-            partialResult
+            partialResult,
+            mergePropertiesOrder
           );
           keys.add(KEEN_VALUE);
 
