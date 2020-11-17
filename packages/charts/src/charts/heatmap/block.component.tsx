@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { select } from 'd3-selection';
 
@@ -13,7 +13,7 @@ const rectMotion = {
 };
 
 const rectHoverMotion = {
-  scale: 1.1,
+  scale: 1.05,
   transition: { duration: 0.3 },
 };
 
@@ -25,10 +25,16 @@ type Props = {
 };
 
 const Block = ({ block, padding, onMouseEnter, onMouseLeave }: Props) => {
-  const [activeBlock, setActiveBlock] = useState(null);
+  const [isActive, setActive] = useState(false);
   const element = useRef(null);
-  const { key, width, height, x, y, color } = block;
-  const isActive = activeBlock === key;
+
+  useLayoutEffect(() => {
+    if (isActive && element.current) {
+      select(element.current).raise();
+    }
+  }, [isActive]);
+
+  const { width, height, x, y, color } = block;
 
   return (
     <motion.g
@@ -36,15 +42,14 @@ const Block = ({ block, padding, onMouseEnter, onMouseLeave }: Props) => {
       {...rectMotion}
       onMouseEnter={e => {
         onMouseEnter(e, block);
-        setActiveBlock(key);
-        select(element.current).raise();
+        setActive(true);
       }}
       onMouseMove={e => {
         onMouseEnter(e, block);
       }}
       onMouseLeave={e => {
         onMouseLeave(e);
-        setActiveBlock(null);
+        setActive(false);
       }}
       whileHover={rectHoverMotion}
     >
