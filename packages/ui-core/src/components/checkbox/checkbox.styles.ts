@@ -29,6 +29,8 @@ export const IconSocket = styled(motion.div)<{
 }>`
   position: absolute;
   height: 15px;
+  line-height: 1;
+  box-sizing: content-box;
 
   ${variant(iconSocketVariants)}
 `;
