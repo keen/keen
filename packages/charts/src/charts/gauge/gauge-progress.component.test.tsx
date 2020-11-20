@@ -46,7 +46,7 @@ describe('@keen.io/charts - <GaugeProgress />', () => {
       </svg>
     );
 
-    expect(wrapper.find('text').text()).toEqual('0.0%');
+    expect(wrapper.find('text').text()).toEqual('0%');
   });
 
   it('should display progress value', () => {
