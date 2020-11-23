@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.5](https://github.com/keen/keen/compare/@keen.io/charts@2.5.4...@keen.io/charts@2.5.5) (2020-11-23)
+
+
+### Bug Fixes
+
+* 🐛 zero values in funnel ([5884ae1](https://github.com/keen/keen/commit/5884ae1008f416eb54b8d9db4f75ee790cf261ce))
+
+
+
+
+
 ## [2.5.4](https://github.com/keen/keen/compare/@keen.io/charts@2.5.3...@keen.io/charts@2.5.4) (2020-11-18)
 
 **Note:** Version bump only for package @keen.io/charts

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.2.0...@keen.io/charts-utils@1.2.1) (2020-11-23)
+
+
+### Bug Fixes
+
+* 🐛 zero values in funnel ([5884ae1](https://github.com/keen/keen/commit/5884ae1008f416eb54b8d9db4f75ee790cf261ce))
+
+
+
+
+
 # [1.2.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.1.0...@keen.io/charts-utils@1.2.0) (2020-11-13)
 
 
