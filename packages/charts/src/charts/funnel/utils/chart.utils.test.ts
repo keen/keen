@@ -38,6 +38,25 @@ describe('@keen/charts', () => {
       ]);
     });
 
+    it('should set 0 for percentage values if the value for the first serie is 0', () => {
+      const chartData = [
+        { name: 'Emails', value: 0 },
+        { name: 'Visits', value: 500 },
+        { name: 'Logins', value: 250 },
+      ];
+      const { steps } = generateFunnel({
+        data: chartData,
+        key: 'value',
+        colors: theme.colors,
+      });
+
+      steps.forEach(step => {
+        const { percentageValue, nextPercentageValue } = step;
+        expect(percentageValue).toEqual(0);
+        expect(nextPercentageValue).toEqual(0);
+      });
+    });
+
     it('should set color for each step', () => {
       const { steps } = generateFunnel({
         data: chartData,

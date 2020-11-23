@@ -105,7 +105,7 @@ export const generateFunnel = ({
 
   const steps = range.reduce((acc, _item, index) => {
     const value = data[index][key];
-    const percentageValue = (value / maximum) * 100;
+    const percentageValue = maximum === 0 ? 0 : (value / maximum) * 100;
     const isLastStep = index === stepsCount - 1;
 
     if (isLastStep) {
@@ -125,7 +125,8 @@ export const generateFunnel = ({
       ...acc,
       {
         percentageValue,
-        nextPercentageValue: (data[index + 1][key] / maximum) * 100,
+        nextPercentageValue:
+          maximum === 0 ? 0 : (data[index + 1][key] / maximum) * 100,
         value,
         color: colors[index],
         index,
