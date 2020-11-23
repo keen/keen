@@ -12,7 +12,7 @@ import { format } from 'd3-format';
  */
 const formatNumber = (value: number, precision = 2) => {
   const formatter = format(`.${precision}s`);
-  return formatter(value);
+  return value === 0 ? value.toString() : formatter(value);
 };
 
 export default formatNumber;

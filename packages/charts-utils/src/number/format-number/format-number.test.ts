@@ -29,3 +29,8 @@ test('formats "milion" values', () => {
   const value = 1200000;
   expect(formatNumber(value)).toMatchInlineSnapshot(`"1.2M"`);
 });
+
+test('formats "zero" values', () => {
+  const value = 0;
+  expect(formatNumber(value)).toMatchInlineSnapshot(`"0"`);
+});
