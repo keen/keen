@@ -163,7 +163,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
         onDragStart={[Function]}
         style={
           Object {
-            "display": "inline-block",
+            "display": "block",
             "position": "absolute",
             "x": 0,
             "zIndex": 1,
@@ -174,7 +174,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           draggable={false}
           style={
             Object {
-              "display": "inline-block",
+              "display": "block",
               "position": "absolute",
               "transform": "none",
               "userSelect": "none",
@@ -264,7 +264,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
 
 <div
                 draggable="false"
-                style="display: inline-block; position: absolute; z-index: 1; transform: none; user-select: none;"
+                style="display: block; position: absolute; z-index: 1; transform: none; user-select: none;"
               >
                 <div
                   class="c0"
@@ -363,7 +363,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                 "onDragEnd": [Function],
                 "onDragStart": [Function],
                 "style": Object {
-                  "display": "inline-block",
+                  "display": "block",
                   "position": "absolute",
                   "x": 0,
                   "zIndex": 1,
@@ -419,7 +419,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
             Object {
               "current": <div
                 draggable="false"
-                style="display: inline-block; position: absolute; z-index: 1; transform: none; user-select: none;"
+                style="display: block; position: absolute; z-index: 1; transform: none; user-select: none;"
               >
                 <div
                   class="c1"
@@ -448,7 +448,7 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           }
           style={
             Object {
-              "display": "inline-block",
+              "display": "block",
               "position": "absolute",
               "x": 0,
               "zIndex": 1,
