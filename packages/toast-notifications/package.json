@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/toast-notifications",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Keen.io wrapper for react-toast-notifications",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
-    "@keen.io/ui-core": "^2.5.16",
+    "@keen.io/ui-core": "^2.5.17",
     "framer-motion": "^1.11.1",
     "polished": "^3.4.4",
     "react": "^16.12.0",
