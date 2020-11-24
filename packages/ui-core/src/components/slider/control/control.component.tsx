@@ -25,7 +25,7 @@ export const Control: FC<Props> = ({
   children,
 }) => {
   const styles = {
-    display: 'inline-block',
+    display: 'block',
     position: 'absolute',
     zIndex: 1,
     ...controlStyles,
