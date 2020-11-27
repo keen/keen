@@ -161,6 +161,8 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
         onDrag={[Function]}
         onDragEnd={[Function]}
         onDragStart={[Function]}
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
         style={
           Object {
             "display": "block",
@@ -172,6 +174,8 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
       >
         <div
           draggable={false}
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
           style={
             Object {
               "display": "block",
@@ -362,6 +366,8 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
                 "onDrag": [Function],
                 "onDragEnd": [Function],
                 "onDragStart": [Function],
+                "onMouseDown": [Function],
+                "onTouchStart": [Function],
                 "style": Object {
                   "display": "block",
                   "position": "absolute",
@@ -441,6 +447,8 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
           onDrag={[Function]}
           onDragEnd={[Function]}
           onDragStart={[Function]}
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
           parentContext={
             Object {
               "static": false,
