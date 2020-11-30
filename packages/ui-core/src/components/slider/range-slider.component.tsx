@@ -118,6 +118,7 @@ export const RangeSlider: FC<Props> = ({
 
   const calculateControlValue = useCallback(
     (position: number) => {
+      if (!dimension) return maximum;
       const percent = (position / dimension) * 100;
       return Math.round((maximum - minimum) * (percent / 100)) + minimum;
     },
@@ -129,7 +130,7 @@ export const RangeSlider: FC<Props> = ({
     const sliderDimension = isHorizontal ? width : height;
     dispatch(sliderActions.setControlPosition('maximum', sliderDimension));
     dispatch(sliderActions.setDimension(sliderDimension));
-  }, [slider.current]);
+  }, [slider.current, isHorizontal]);
 
   const layoutStyle = isHorizontal
     ? {
@@ -242,6 +243,7 @@ export const RangeSlider: FC<Props> = ({
                     right: 0,
                   }
             }
+            controlStyles={{ zIndex: 2 }}
           >
             <>
               <Mark
@@ -335,7 +337,11 @@ export const RangeSlider: FC<Props> = ({
                     right: 0,
                   }
             }
-            controlStyles={{ [isHorizontal ? 'x' : 'y']: dimension }}
+            controlStyles={{
+              [isHorizontal ? 'x' : 'y']: dimension,
+              [isHorizontal ? 'y' : 'x']: 0,
+              zIndex: currentMinimum === maximum ? 1 : 3,
+            }}
           >
             <>
               <Mark

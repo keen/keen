@@ -41,6 +41,12 @@ export const Control: FC<Props> = ({
       dragElastic={0}
       dragMomentum={false}
       style={styles}
+      onMouseDown={event => {
+        event.stopPropagation();
+      }}
+      onTouchStart={event => {
+        event.stopPropagation();
+      }}
     >
       <Container dragDirection={dragDirection}>{children}</Container>
     </motion.div>

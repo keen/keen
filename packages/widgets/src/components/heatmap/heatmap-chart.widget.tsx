@@ -53,6 +53,7 @@ export const HeatmapChartWidget: FC<Props> = ({
         <LegendSocket>
           <LegendBase fullDimension spacing="thin" {...legend}>
             <RangeSlider
+              key={`range-slider-${legend.position}`}
               minimum={min}
               maximum={max}
               layout={legend.layout}
