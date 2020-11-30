@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.18](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.17...@keen.io/ui-core@2.5.18) (2020-11-30)
+
+
+### Bug Fixes
+
+* 🐛 Heatmap slider fix ([d2fd9a4](https://github.com/keen/keen/commit/d2fd9a48896bd0252d49dca5199373db892b03fb))
+
+
+
+
+
 ## [2.5.17](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.16...@keen.io/ui-core@2.5.17) (2020-11-24)
 
 
