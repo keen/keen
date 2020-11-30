@@ -1692,6 +1692,25 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@keen.io/ui-core@2.5.18":
+  version "2.5.18"
+  resolved "https://registry.yarnpkg.com/@keen.io/ui-core/-/ui-core-2.5.18.tgz#17d1164fc2f5bd315600418c35365dbc23adac08"
+  integrity sha512-hwpXLRhIf7AOpMjqQVvj+A2jpk5DD91GbPbBF+oqcy6UWW1zlt7z3NvqCkuteBDuKKpOP5lSDrI3COtnYUMTWw==
+  dependencies:
+    "@keen.io/colors" "^1.1.0"
+    "@keen.io/icons" "^1.2.2"
+    color "^3.1.2"
+    framer-motion "^1.11.1"
+    fuse.js "^6.4.1"
+    polished "^3.4.4"
+    react "^16.12.0"
+    react-column-resizer "^1.1.9"
+    react-dom "^16.12.0"
+    react-select "^3.1.0"
+    styled-components "^5.1.0"
+    styled-system "5.1.5"
+    webfontloader "^1.6.28"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
