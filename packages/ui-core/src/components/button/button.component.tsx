@@ -2,7 +2,9 @@ import React, { FC } from 'react';
 
 import { StyledButton, StyledAnchor, IconSocket } from './button.styles';
 
-import { ButtonVariant, ButtonSize, ButtonType } from './types';
+import { ButtonSize, ButtonType } from './types';
+
+import { ButtonVariant } from '../../types';
 
 type Props = {
   /** Component React.Children nodes */

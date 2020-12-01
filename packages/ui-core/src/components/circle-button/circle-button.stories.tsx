@@ -42,7 +42,7 @@ const options = [
   'search',
 ];
 
-export const button = () => (
+export const secondary = () => (
   <CircleButton
     icon={
       <Icon
@@ -52,10 +52,11 @@ export const button = () => (
       />
     }
     onClick={action('click')}
+    variant="secondary"
   />
 );
 
-button.story = {
+secondary.story = {
   parameters: {
     docs: {
       storyDescription: 'CircleButton with custom icon',

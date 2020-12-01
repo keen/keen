@@ -3,7 +3,9 @@ import { variant } from 'styled-system';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { ButtonVariant, ButtonSize, ButtonType } from './types';
+import { ButtonSize, ButtonType } from './types';
+
+import { ButtonVariant } from '../../types';
 
 const createOutlineButton = (baseColor: string) => ({
   backgroundColor: 'transparent',

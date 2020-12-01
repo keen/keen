@@ -23,6 +23,25 @@ describe('@keen.io/ui-core - <CircleButton />', () => {
     expect(element).toBeInTheDocument();
   });
 
+  test('should render CircleButton with icon', () => {
+    const {
+      wrapper: { getByText },
+    } = render({
+      icon: <i>icon</i>,
+    });
+
+    expect(getByText('icon')).toBeInTheDocument();
+  });
+
+  test('should render CircleButton secondary variant', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ variant: 'secondary' });
+    const element = getByTestId('circle-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
   test('should call onClick callback', () => {
     const mockFn = jest.fn();
     const {
