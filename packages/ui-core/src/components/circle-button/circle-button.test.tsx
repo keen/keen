@@ -33,10 +33,46 @@ describe('@keen.io/ui-core - <CircleButton />', () => {
     expect(getByText('icon')).toBeInTheDocument();
   });
 
+  test('should render CircleButton primary variant', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ variant: 'primary' });
+    const element = getByTestId('circle-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
   test('should render CircleButton secondary variant', () => {
     const {
       wrapper: { getByTestId },
     } = render({ variant: 'secondary' });
+    const element = getByTestId('circle-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
+  test('should render CircleButton success variant', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ variant: 'success' });
+    const element = getByTestId('circle-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
+  test('should render CircleButton danger variant', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ variant: 'danger' });
+    const element = getByTestId('circle-button');
+
+    expect(element).toMatchSnapshot();
+  });
+
+  test('should render CircleButton blank variant', () => {
+    const {
+      wrapper: { getByTestId },
+    } = render({ variant: 'blank' });
     const element = getByTestId('circle-button');
 
     expect(element).toMatchSnapshot();
