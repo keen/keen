@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton blank variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  background-color: #FFFFFF;
+  color: #27566D;
+  box-shadow: 0 1px 4px 0 rgba(29,39,41,0.15);
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  box-shadow: none;
+  background-color: rgba(119,163,187,0.2);
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<button
+  class="c0"
+  data-testid="circle-button"
+  type="button"
+>
+  <div
+    class="c1"
+  />
+</button>
+`;
+
+exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton danger variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  background-color: #9D2F3A;
+  border-color: #9D2F3A;
+  color: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(29,39,41,0.15);
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  box-shadow: none;
+  background-color: #B25B63;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<button
+  class="c0"
+  data-testid="circle-button"
+  type="button"
+>
+  <div
+    class="c1"
+  />
+</button>
+`;
+
+exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton primary variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  background-color: #F0AB30;
+  border-color: #F0AB30;
+  color: #1D2729;
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:focus {
+  box-shadow: 0 0 0 0.2rem rgba(218,165,80,.5);
+}
+
+.c0:hover {
+  color: #273437;
+  background-color: #E29B1E;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<button
+  class="c0"
+  data-testid="circle-button"
+  type="button"
+>
+  <div
+    class="c1"
+  />
+</button>
+`;
+
+exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton secondary variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  background-color: #27566D;
+  border-color: #27566D;
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(29,39,41,0.15);
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  box-shadow: none;
+  background-color: #31627A;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<button
+  class="c0"
+  data-testid="circle-button"
+  type="button"
+>
+  <div
+    class="c1"
+  />
+</button>
+`;
+
+exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton success variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border-radius: 50%;
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  background-color: #6C9A74;
+  border-color: #6C9A74;
+  color: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(29,39,41,0.15);
+}
+
+.c0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  box-shadow: none;
+  background-color: #578760;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<button
+  class="c0"
+  data-testid="circle-button"
+  type="button"
+>
+  <div
+    class="c1"
+  />
+</button>
+`;
