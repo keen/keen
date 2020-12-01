@@ -9,7 +9,7 @@ import { ButtonSize, ButtonType } from './types';
 
 import { ButtonVariant } from '../../types';
 
-export const createOutlineButton = (baseColor: string) => ({
+const createOutlineButton = (baseColor: string) => ({
   backgroundColor: 'transparent',
   border: `solid 1px ${baseColor}`,
   color: baseColor,
@@ -21,7 +21,7 @@ export const createOutlineButton = (baseColor: string) => ({
   },
 });
 
-export const outlineVariants = {
+const outlineVariants = {
   prop: 'variant',
   variants: {
     primary: createOutlineButton(colors.yellow['400']),
