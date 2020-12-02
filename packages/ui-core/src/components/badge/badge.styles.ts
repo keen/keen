@@ -33,6 +33,7 @@ export const TextWrapper = styled.span<TextWrapperProps>`
   font-size: 13px;
   line-height: 16px;
   color: ${props => props.textColor};
+  white-space: nowrap;
 
   border-radius: ${props => (props.removable ? '2px 0 0 2px' : '2px')};
 
