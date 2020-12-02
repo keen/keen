@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 
-import { solidVariants } from '../../theme';
+import { solidButtonVariants } from '../../theme';
 
 import { ButtonVariant } from '../../types';
 
@@ -41,7 +41,7 @@ export const StyledButton = styled.button<Props>`
     text-decoration: none;
   }
 
-  ${variant(solidVariants)}
+  ${variant(solidButtonVariants)}
 `;
 
 export const IconSocket = styled.div`
