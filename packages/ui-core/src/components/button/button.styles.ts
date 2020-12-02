@@ -3,7 +3,7 @@ import { variant } from 'styled-system';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { solidVariants } from '../../theme';
+import { solidButtonVariants } from '../../theme';
 
 import { ButtonSize, ButtonType } from './types';
 
@@ -94,7 +94,7 @@ export const StyledButton = styled.button<Props>`
       justify-content: center;
     `}
   ${buttonMixin()};
-  ${props => props.body === 'solid' && variant(solidVariants)}
+  ${props => props.body === 'solid' && variant(solidButtonVariants)}
   ${props => props.body === 'outline' && variant(outlineVariants)}
   ${props => props.isActive && variant(activeVariants)}
   ${variant(sizeVariants)};
@@ -109,7 +109,7 @@ export const StyledAnchor = styled.a<Props>`
       justify-content: center;
     `}
   ${buttonMixin()}
-  ${props => props.body === 'solid' && variant(solidVariants)}
+  ${props => props.body === 'solid' && variant(solidButtonVariants)}
   ${props => props.body === 'outline' && variant(outlineVariants)}
   ${variant(sizeVariants)};
 `;
