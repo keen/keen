@@ -89,7 +89,7 @@ export const theme = {
   },
 };
 
-export const solidVariants = {
+export const solidButtonVariants = {
   prop: 'variant',
   variants: {
     primary: {
