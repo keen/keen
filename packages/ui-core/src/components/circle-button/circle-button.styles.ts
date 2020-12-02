@@ -1,9 +1,13 @@
 import styled, { css } from 'styled-components';
-import { transparentize } from 'polished';
-import { colors } from '@keen.io/colors';
+import { variant } from 'styled-system';
+
+import { solidButtonVariants } from '../../theme';
+
+import { ButtonVariant } from '../../types';
 
 type Props = {
   isDisabled: boolean;
+  variant?: ButtonVariant;
 };
 
 export const StyledButton = styled.button<Props>`
@@ -14,10 +18,6 @@ export const StyledButton = styled.button<Props>`
   padding: 0;
   width: 37px;
   height: 37px;
-
-  background-color: ${colors.blue[500]};
-  border-color: ${colors.blue[500]};
-  boxshadow: 0 2px 4px 0 ${transparentize(0.85, colors.black['500'])};
 
   outline: none;
   border: none;
@@ -39,9 +39,9 @@ export const StyledButton = styled.button<Props>`
 
   &:hover {
     text-decoration: none;
-    box-shadow: 'none';
-    background-color: ${colors.blue[400]};
   }
+
+  ${variant(solidButtonVariants)}
 `;
 
 export const IconSocket = styled.div`

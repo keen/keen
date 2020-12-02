@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/prefer-as-const */
+import { colors } from '@keen.io/colors';
+import { transparentize } from 'polished';
 import { TextVariant, Typography } from './types';
 
 export const textVariants: Record<TextVariant, Partial<Typography>> = {
@@ -84,5 +86,62 @@ export const theme = {
     LatoBold: 'Lato Bold',
     LatoLight: 'Lato Light',
     LatoRegular: 'Lato Regular',
+  },
+};
+
+export const solidButtonVariants = {
+  prop: 'variant',
+  variants: {
+    primary: {
+      backgroundColor: colors.yellow['400'],
+      borderColor: colors.yellow['400'],
+      color: colors.black['500'],
+      '&:focus': {
+        boxShadow: `0 0 0 0.2rem rgba(218,165,80, .5)`,
+      },
+      '&:hover': {
+        color: colors.black['400'],
+        backgroundColor: colors.yellow['500'],
+      },
+    },
+    secondary: {
+      backgroundColor: colors.blue['500'],
+      borderColor: colors.blue['500'],
+      color: colors.white['500'],
+      boxShadow: `0 2px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: colors.blue['400'],
+      },
+    },
+    danger: {
+      backgroundColor: colors.red['500'],
+      borderColor: colors.red['500'],
+      color: colors.white['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: colors.red['300'],
+      },
+    },
+    success: {
+      backgroundColor: colors.green['300'],
+      borderColor: colors.green['300'],
+      color: colors.white['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: colors.green['400'],
+      },
+    },
+    blank: {
+      backgroundColor: colors.white['500'],
+      color: colors.blue['500'],
+      boxShadow: `0 1px 4px 0 ${transparentize(0.85, colors.black['500'])}`,
+      '&:hover': {
+        boxShadow: 'none',
+        backgroundColor: transparentize(0.8, colors.blue['100']),
+      },
+    },
   },
 };

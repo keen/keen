@@ -40,3 +40,10 @@ export type TextVariant =
   | 'number-l'
   | 'number-m'
   | 'number-s';
+
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'blank';
