@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { colors } from '@keen.io/colors';
 import { Icon } from '@keen.io/icons';
 
+import { generateColors } from './utils';
 import { Container, TextWrapper, IconWrapper } from './badge.styles';
 
 import { Variant } from './types';
@@ -21,9 +21,7 @@ export const Badge: FC<Props> = ({
   onClick,
   onRemove,
 }) => {
-  const bgColor =
-    variant === 'white' ? colors[variant][200] : colors[variant][100];
-  const textColor = colors[variant][500];
+  const { bgColor, textColor } = generateColors(variant);
   return (
     <Container>
       <TextWrapper
