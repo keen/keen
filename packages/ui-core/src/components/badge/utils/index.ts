@@ -1,3 +1,3 @@
-import generateColors from './generateColors';
+import createVariants from './createVariants';
 
-export { generateColors };
+export { createVariants };

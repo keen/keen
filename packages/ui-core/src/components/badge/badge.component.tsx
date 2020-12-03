@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Icon } from '@keen.io/icons';
 
-import { generateColors } from './utils';
 import { Container, TextWrapper, IconWrapper } from './badge.styles';
 
 import { Variant } from './types';
@@ -21,12 +20,15 @@ export const Badge: FC<Props> = ({
   onClick,
   onRemove,
 }) => {
-  const { bgColor, textColor } = generateColors(variant);
+  const [isActive, setActive] = useState(false);
   return (
-    <Container>
+    <Container
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+    >
       <TextWrapper
-        bgColor={bgColor}
-        textColor={textColor}
+        variant={variant}
+        isActive={isActive}
         removable={removable}
         onClick={onClick}
       >
@@ -34,13 +36,14 @@ export const Badge: FC<Props> = ({
       </TextWrapper>
       {removable && (
         <IconWrapper
-          bgColor={bgColor}
+          variant={variant}
+          isActive={isActive}
           onClick={onRemove}
           data-testid="badge-remove"
         >
           <Icon
             type="close"
-            fill={textColor}
+            fill="currentColor"
             opacity={0.5}
             width={8}
             height={8}

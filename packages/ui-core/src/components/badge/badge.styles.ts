@@ -1,5 +1,8 @@
-import styled, { css } from 'styled-components';
-import { transparentize } from 'polished';
+import styled from 'styled-components';
+import { variant } from 'styled-system';
+import { Variant } from './types';
+
+import { createVariants } from './utils';
 
 export const Container = styled.div`
   display: inline-flex;
@@ -9,20 +12,10 @@ export const Container = styled.div`
   cursor: pointer;
 `;
 
-const backgroundMixin = (baseColor: string) => css`
-  background-color: ${transparentize(0.7, baseColor)};
-
-  transition: background-color 0.3s ease-in-out;
-
-  ${Container}:hover & {
-    background-color: ${transparentize(0.4, baseColor)};
-  }
-`;
-
 type TextWrapperProps = {
-  bgColor: string;
-  textColor: string;
   removable?: boolean;
+  variant: Variant;
+  isActive: boolean;
 };
 
 export const TextWrapper = styled.span<TextWrapperProps>`
@@ -32,16 +25,18 @@ export const TextWrapper = styled.span<TextWrapperProps>`
   font-family: 'Lato Bold', sans-serif;
   font-size: 13px;
   line-height: 16px;
-  color: ${props => props.textColor};
   white-space: nowrap;
 
   border-radius: ${props => (props.removable ? '2px 0 0 2px' : '2px')};
 
-  ${props => backgroundMixin(props.bgColor)}
+  transition: background-color 0.3s ease-in-out;
+
+  ${props => variant(createVariants(props.isActive))}
 `;
 
 type IconWrapperProps = {
-  bgColor: string;
+  variant: Variant;
+  isActive: boolean;
 };
 
 export const IconWrapper = styled.div<IconWrapperProps>`
@@ -54,5 +49,7 @@ export const IconWrapper = styled.div<IconWrapperProps>`
 
   border-radius: 0 2px 2px 0;
 
-  ${props => backgroundMixin(props.bgColor)}
+  transition: background-color 0.3s ease-in-out;
+
+  ${props => variant(createVariants(props.isActive))}
 `;
