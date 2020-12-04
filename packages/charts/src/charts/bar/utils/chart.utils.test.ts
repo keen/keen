@@ -1,7 +1,10 @@
 import {
   generateHorizontalGroupedBars,
   generateVerticalGroupedBars,
+  getColor,
 } from './chart.utils';
+
+import { chartColors } from '../../../theme';
 
 import { verticalBarChart, horizontalBarChart } from '../bar-chart.fixtures';
 
@@ -215,5 +218,19 @@ describe('generateVerticalGroupedBars()', () => {
     });
 
     expect(bars).toMatchSnapshot();
+  });
+});
+
+describe('getColor()', () => {
+  it('should return color from colors', () => {
+    const result = getColor(0, chartColors);
+
+    expect(result).toBe('#85B4C3');
+  });
+
+  it('should return #000000', () => {
+    const result = getColor(100, chartColors);
+
+    expect(result).toBe('#000000');
   });
 });
