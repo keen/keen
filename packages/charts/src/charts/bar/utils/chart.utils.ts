@@ -35,6 +35,11 @@ type Options = {
   barsOrder?: SortMode;
 };
 
+export const getColor = (idx: number, colors: string[]): string => {
+  if (colors[idx]) return colors[idx];
+  return '#000000';
+};
+
 export const generateHorizontalGroupedBars = ({
   data,
   keys,
@@ -107,7 +112,7 @@ export const generateHorizontalGroupedBars = ({
           y: yScale(data[index][labelSelector]) + barHeight * orderPosition,
           width: Math.abs(xScale(value) - xScale(0)),
           height: barHeight,
-          color: colors[idx],
+          color: getColor(idx, colors),
           value,
         };
 
@@ -199,7 +204,7 @@ export const generateVerticalGroupedBars = ({
           y: value > 0 ? yScale(value) : yScale(0),
           width: barWidth,
           height: Math.abs(yScale(value) - yScale(0)),
-          color: colors[idx],
+          color: getColor(idx, colors),
           value,
         };
 
@@ -275,7 +280,7 @@ export const generateHorizontalStackedBars = ({
         y: yScale(normalizedData[index][labelSelector]),
         width,
         height: barHeight,
-        color: colors[keys.indexOf(keyName)],
+        color: getColor(keys.indexOf(keyName), colors),
         value: data[index][keyName],
       };
 
@@ -346,7 +351,7 @@ export const generateVerticalStackedBars = ({
         y: yScale(rangeMax),
         width: barWidth,
         height,
-        color: colors[keys.indexOf(keyName)],
+        color: getColor(keys.indexOf(keyName), colors),
         value: data[index][keyName],
       };
 
