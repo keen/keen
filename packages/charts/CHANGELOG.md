@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.10](https://github.com/keen/keen/compare/@keen.io/charts@2.5.9...@keen.io/charts@2.5.10) (2020-12-04)
+
+
+### Bug Fixes
+
+* 🐛 Black color for bar chart when out of colors ([da4fdb3](https://github.com/keen/keen/commit/da4fdb32ee182f44db4018d396cd18455e80c42f))
+
+
+
+
+
 ## [2.5.9](https://github.com/keen/keen/compare/@keen.io/charts@2.5.8...@keen.io/charts@2.5.9) (2020-12-03)
 
 **Note:** Version bump only for package @keen.io/charts
