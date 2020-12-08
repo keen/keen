@@ -13,6 +13,7 @@ import CaretDown from './caret-down.component';
 import Close from './close.component';
 import CornerTick from './corner-tick.component';
 import ChoroplethWidget from './choropleth-widget.component';
+import DatePicker from './date-picker.component';
 import DonutWidget from './donut-widget.component';
 import QuestionMark from './question-mark.component';
 import EyeSolid from './eye-solid.component';
@@ -22,6 +23,7 @@ import FunnelVertical from './funnel-vertical.component';
 import FunnelHorizontal from './funnel-horizontal.component';
 import GaugeWidget from './gauge-widget.component';
 import HeatmapWidget from './heatmap-widget.component';
+import Image from './image.component';
 import UserSolid from './user-solid.component';
 import UserOutline from './user-outline.component';
 import UsersSolid from './users-solid.component';
@@ -46,6 +48,7 @@ import LockOpen from './lock-open.component';
 import LockClosed from './lock-closed.component';
 import Table from './table.component';
 import Temperature from './temperature.component';
+import Text from './text.component';
 import PieWidget from './pie-widget.component';
 import Plus from './plus.component';
 import Search from './search.component';
@@ -84,6 +87,8 @@ export const getIcon = (type: IconType) => {
       return Close;
     case 'choropleth-widget':
       return ChoroplethWidget;
+    case 'date-picker':
+      return DatePicker;
     case 'donut-widget':
       return DonutWidget;
     case 'line':
@@ -122,6 +127,8 @@ export const getIcon = (type: IconType) => {
       return GaugeWidget;
     case 'heatmap-widget':
       return HeatmapWidget;
+    case 'image':
+      return Image;
     case 'user-solid':
       return UserSolid;
     case 'user-outline':
@@ -154,6 +161,8 @@ export const getIcon = (type: IconType) => {
       return PieWidget;
     case 'temperature':
       return Temperature;
+    case 'text':
+      return Text;
     case 'search':
       return Search;
     case 'table-widget':
