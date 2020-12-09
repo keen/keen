@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/keen/keen/compare/@keen.io/icons@1.2.2...@keen.io/icons@1.3.0) (2020-12-09)
+
+
+### Features
+
+* 🎸 Text, Image and Date Picker icons were added ([f71cbbf](https://github.com/keen/keen/commit/f71cbbf6b9cd8f514fdaf51af6f5dee71e347f15))
+
+
+
+
+
 ## [1.2.2](https://github.com/keen/keen/compare/@keen.io/icons@1.2.1...@keen.io/icons@1.2.2) (2020-11-04)
 
 **Note:** Version bump only for package @keen.io/icons
