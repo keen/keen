@@ -35,6 +35,8 @@ import {
 
 import { KEEN_KEY } from '@keen.io/parser';
 
+import { transformDates } from './utils';
+
 type Options = {
   type: Widgets;
   keys: string[];
@@ -139,11 +141,24 @@ export const renderWidget = ({
         />
       );
     case 'line':
+      const {
+        xScaleSettings,
+        labelSelector,
+        data,
+      } = chartSettings as LineChartSettings;
+
+      const transformedData = transformDates(
+        data,
+        xScaleSettings.precision,
+        labelSelector
+      );
+
       return (
         <LineChartWidget
           legend={legend as LegendSettings}
           {...(chartSettings as LineChartSettings)}
           {...widgetSettings}
+          data={transformedData}
         />
       );
     case 'area':
