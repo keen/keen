@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.11](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.10...@keen.io/widgets@2.2.11) (2020-12-09)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.10](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.9...@keen.io/widgets@2.2.10) (2020-12-04)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.9](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.8...@keen.io/widgets@2.2.9) (2020-12-03)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.8](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.7...@keen.io/widgets@2.2.8) (2020-12-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.6...@keen.io/widgets@2.2.7) (2020-11-30)
+
+
+### Bug Fixes
+
+* 🐛 Heatmap slider fix ([d2fd9a4](https://github.com/keen/keen/commit/d2fd9a48896bd0252d49dca5199373db892b03fb))
+
+
+
+
+
+## [2.2.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.5...@keen.io/widgets@2.2.6) (2020-11-24)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.4...@keen.io/widgets@2.2.5) (2020-11-23)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.3...@keen.io/widgets@2.2.4) (2020-11-18)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.2...@keen.io/widgets@2.2.3) (2020-11-13)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.2.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.1...@keen.io/widgets@2.2.2) (2020-11-12)
 
 

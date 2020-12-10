@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.7...@keen.io/dataviz@2.3.8) (2020-12-09)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.7](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.6...@keen.io/dataviz@2.3.7) (2020-12-04)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.6](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.5...@keen.io/dataviz@2.3.6) (2020-12-03)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.5](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.4...@keen.io/dataviz@2.3.5) (2020-12-02)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.4](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.3...@keen.io/dataviz@2.3.4) (2020-11-30)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.2...@keen.io/dataviz@2.3.3) (2020-11-24)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.1...@keen.io/dataviz@2.3.2) (2020-11-23)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.0...@keen.io/dataviz@2.3.1) (2020-11-18)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+# [2.3.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.8...@keen.io/dataviz@2.3.0) (2020-11-13)
+
+
+### Features
+
+* 🎸 support group by order ([67390d3](https://github.com/keen/keen/commit/67390d38f15e467dc74b4fc0afd8b9e96ac72c4e))
+
+
+
+
+
 ## [2.2.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.2.7...@keen.io/dataviz@2.2.8) (2020-11-12)
 
 **Note:** Version bump only for package @keen.io/dataviz

@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.11](https://github.com/keen/keen/compare/@keen.io/charts@2.5.10...@keen.io/charts@2.5.11) (2020-12-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.10](https://github.com/keen/keen/compare/@keen.io/charts@2.5.9...@keen.io/charts@2.5.10) (2020-12-04)
+
+
+### Bug Fixes
+
+* 🐛 Black color for bar chart when out of colors ([da4fdb3](https://github.com/keen/keen/commit/da4fdb32ee182f44db4018d396cd18455e80c42f))
+
+
+
+
+
+## [2.5.9](https://github.com/keen/keen/compare/@keen.io/charts@2.5.8...@keen.io/charts@2.5.9) (2020-12-03)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.8](https://github.com/keen/keen/compare/@keen.io/charts@2.5.7...@keen.io/charts@2.5.8) (2020-12-02)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.7](https://github.com/keen/keen/compare/@keen.io/charts@2.5.6...@keen.io/charts@2.5.7) (2020-11-30)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.6](https://github.com/keen/keen/compare/@keen.io/charts@2.5.5...@keen.io/charts@2.5.6) (2020-11-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.5](https://github.com/keen/keen/compare/@keen.io/charts@2.5.4...@keen.io/charts@2.5.5) (2020-11-23)
+
+
+### Bug Fixes
+
+* 🐛 zero values in funnel ([5884ae1](https://github.com/keen/keen/commit/5884ae1008f416eb54b8d9db4f75ee790cf261ce))
+
+
+
+
+
+## [2.5.4](https://github.com/keen/keen/compare/@keen.io/charts@2.5.3...@keen.io/charts@2.5.4) (2020-11-18)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.3](https://github.com/keen/keen/compare/@keen.io/charts@2.5.2...@keen.io/charts@2.5.3) (2020-11-13)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [2.5.2](https://github.com/keen/keen/compare/@keen.io/charts@2.5.1...@keen.io/charts@2.5.2) (2020-11-12)
 
 
