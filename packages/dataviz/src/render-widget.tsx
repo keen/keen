@@ -141,32 +141,31 @@ export const renderWidget = ({
         />
       );
     case 'line':
-      const {
-        xScaleSettings,
-        labelSelector,
-        data,
-      } = chartSettings as LineChartSettings;
-
-      const transformedData = transformDates(
-        data,
-        xScaleSettings.precision,
-        labelSelector
-      );
-
+      const lineChartSettings = chartSettings as LineChartSettings;
       return (
         <LineChartWidget
           legend={legend as LegendSettings}
-          {...(chartSettings as LineChartSettings)}
+          {...lineChartSettings}
           {...widgetSettings}
-          data={transformedData}
+          data={transformDates(
+            data,
+            lineChartSettings.xScaleSettings.precision,
+            lineChartSettings.labelSelector
+          )}
         />
       );
     case 'area':
+      const areaChartSettings = chartSettings as AreaChartSettings;
       return (
         <AreaChartWidget
           legend={legend as LegendSettings}
           {...(chartSettings as AreaChartSettings)}
           {...widgetSettings}
+          data={transformDates(
+            data,
+            areaChartSettings.xScaleSettings.precision,
+            areaChartSettings.labelSelector
+          )}
         />
       );
   }
