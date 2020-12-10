@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.9](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.8...@keen.io/dataviz@2.3.9) (2020-12-10)
+
+
+### Bug Fixes
+
+* 🐛 timezones for line chart ([102c459](https://github.com/keen/keen/commit/102c45921bce4e2f28fa0b27cefcef1373fdb985))
+
+
+
+
+
 ## [2.3.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.7...@keen.io/dataviz@2.3.8) (2020-12-09)
 
 **Note:** Version bump only for package @keen.io/dataviz
