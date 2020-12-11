@@ -12,6 +12,7 @@ import {
   selectUnique,
   selectUniqueGroupBy,
   selectUniqueOrderByLimit,
+  countAnalysisWithIntervalTimezone,
 } from './api.fixtures';
 
 test('creates structure for "funnel" analysis', () => {
@@ -67,6 +68,12 @@ test('creates structure for "count" analysis grouped by two properties', () => {
 
 test('fills intervals empty keys with values', () => {
   const result = parseQuery(selectUniqueOrderByLimit);
+
+  expect(result).toMatchSnapshot();
+});
+
+test('format dates for browser lozalization', () => {
+  const result = parseQuery(countAnalysisWithIntervalTimezone);
 
   expect(result).toMatchSnapshot();
 });

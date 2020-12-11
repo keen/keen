@@ -28,7 +28,7 @@ export const parseQuery = ({
   const {
     mergePropertiesOrder,
     fillEmptyIntervalsKeys,
-    interval,
+    intervalPrecision,
   } = createParserSettings(query);
 
   let keys: Set<string> = new Set();
@@ -64,8 +64,8 @@ export const parseQuery = ({
           'timeframe' in partialResult
         ) {
           const { value, timeframe } = partialResult as IntervalResult;
-          const localizedDate = interval
-            ? localizeDate(timeframe.start, interval)
+          const localizedDate = intervalPrecision
+            ? localizeDate(timeframe.start, intervalPrecision)
             : timeframe.start;
 
           if (Array.isArray(value)) {

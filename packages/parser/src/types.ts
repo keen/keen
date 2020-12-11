@@ -1,3 +1,5 @@
+import { TimePrecision } from '@keen.io/charts-utils';
+
 export type Analysis =
   | 'sum'
   | 'average'
@@ -80,5 +82,5 @@ export type ParserOutput = {
 export type ParserSettings = {
   fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
-  interval: null | Intervals;
+  intervalPrecision: null | TimePrecision;
 };

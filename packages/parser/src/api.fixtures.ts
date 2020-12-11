@@ -338,3 +338,32 @@ export const selectUniqueOrderByLimit = {
     },
   ],
 };
+
+export const countAnalysisWithIntervalTimezone = {
+  query: {
+    analysis_type: 'count',
+    event_collection: 'book_purchase',
+    timeframe: {
+      start: '2019-11-01T00:00:00.000-00:00',
+      end: '2020-02-01T16:00:00.000-00:00',
+    },
+    interval: 'monthly',
+    timezone: 3600,
+  },
+  result: [
+    {
+      value: 436,
+      timeframe: {
+        start: '2019-11-01T06:00:00.000Z',
+        end: '2019-12-01T00:06:00.000Z',
+      },
+    },
+    {
+      value: 333,
+      timeframe: {
+        start: '2019-12-01T06:00:00.000Z',
+        end: '2020-01-01T00:06:00.000Z',
+      },
+    },
+  ],
+};

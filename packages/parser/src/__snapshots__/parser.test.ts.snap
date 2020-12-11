@@ -240,3 +240,21 @@ Object {
   ],
 }
 `;
+
+exports[`format dates for browser lozalization 1`] = `
+Object {
+  "keys": Array [
+    "keen.value",
+  ],
+  "results": Array [
+    Object {
+      "keen.key": "2019-11-01T00:00:00",
+      "keen.value": 436,
+    },
+    Object {
+      "keen.key": "2019-12-01T00:00:00",
+      "keen.value": 333,
+    },
+  ],
+}
+`;
