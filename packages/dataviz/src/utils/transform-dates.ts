@@ -1,7 +1,7 @@
 import { TimePrecision } from '@keen.io/charts-utils';
 import { timeFormat } from 'd3-time-format';
 
-const dateFormatter = timeFormat('%Y-%m-%dT%H:%M:%S.%LZ');
+const dateFormatter = timeFormat('%Y-%m-%dT%H:%M:%S');
 
 const clearDateTime = (dateString: string) => {
   const date = new Date(dateString);
