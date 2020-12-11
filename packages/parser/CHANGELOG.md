@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.11](https://github.com/keen/keen/compare/@keen.io/parser@2.3.10...@keen.io/parser@2.3.11) (2020-12-11)
+
+
+### Bug Fixes
+
+* 🐛 custom intervals ([7a23696](https://github.com/keen/keen/commit/7a23696ea2cb2b221c18ded52fdfbfbaaa56b8ed))
+
+
+
+
+
 ## [2.3.10](https://github.com/keen/keen/compare/@keen.io/parser@2.3.9...@keen.io/parser@2.3.10) (2020-12-11)
 
 

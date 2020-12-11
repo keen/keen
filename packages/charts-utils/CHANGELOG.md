@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.2.1...@keen.io/charts-utils@1.2.2) (2020-12-11)
+
+
+### Bug Fixes
+
+* 🐛 custom intervals ([7a23696](https://github.com/keen/keen/commit/7a23696ea2cb2b221c18ded52fdfbfbaaa56b8ed))
+
+
+
+
+
 ## [1.2.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.2.0...@keen.io/charts-utils@1.2.1) (2020-11-23)
 
 
