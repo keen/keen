@@ -18,4 +18,5 @@ export type ScaleSettings = {
   type: 'time' | 'band' | 'linear';
   formatLabel?: (label: string | number | Date) => string | number;
   precision?: TimePrecision;
+  stepRange?: number;
 };

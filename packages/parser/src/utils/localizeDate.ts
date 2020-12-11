@@ -5,8 +5,6 @@ const dateFormatter = timeFormat('%Y-%m-%dT%H:%M:%S');
 
 const clearDateTime = (dateString: string) => {
   const date = new Date(dateString);
-  date.setHours(0);
-  date.setMinutes(0);
   return dateFormatter(date);
 };
 

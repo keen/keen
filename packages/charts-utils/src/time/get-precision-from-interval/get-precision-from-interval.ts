@@ -18,14 +18,14 @@ const CUSTOM_INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
   years: 'year',
 };
 
-const isCustomInterval = (interval: string): boolean => {
-  const regex = /every_[2-9]+\d*_(minutes|hours|days|weeks|months|years)/;
-  return regex.test(interval);
-};
+const isCustomInterval = (interval: string): boolean =>
+  interval.includes('every');
 
 const DEFAULT_INTERVAL = 'month';
 
 const getPrecisionForInterval = (interval: string): TimePrecision => {
+  console.log(interval, 'lalala');
+
   if (isCustomInterval(interval))
     return (
       CUSTOM_INTERVAL_TO_PRECISION[interval.split('_')[2]] || DEFAULT_INTERVAL

@@ -34,12 +34,12 @@ export type OrderByProperty = {
 export type OrderBy = string | OrderByProperty | OrderByProperty[];
 
 export type Query = {
+  analysis_type: Analysis;
+  event_collection: string;
   interval?: Intervals;
   group_by?: string | string[];
   limit?: number;
   target_property?: string;
-  event_collection: string;
-  analysis_type: Analysis;
   order_by: OrderBy;
   property_names?: string[];
 };

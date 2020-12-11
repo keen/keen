@@ -10,7 +10,7 @@ import {
 import { getElementOffset, hasContentOverflow } from './elements';
 
 import { copyToClipboard } from './text';
-import { getPrecisionForInterval } from './time';
+import { getPrecisionForInterval, getStepsFromInterval } from './time';
 
 import {
   createScaleSettings,
@@ -56,4 +56,5 @@ export {
   hasContentOverflow,
   transformToPercent,
   getPrecisionForInterval,
+  getStepsFromInterval,
 };

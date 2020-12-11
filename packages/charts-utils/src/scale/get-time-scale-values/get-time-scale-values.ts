@@ -1,23 +1,22 @@
 import { ScaleTime } from 'd3-scale';
 import {
-  timeDay,
-  timeMinute,
-  timeMonth,
-  timeWeek,
-  timeHour,
-  timeYear,
-  CountableTimeInterval,
+  timeDays,
+  timeYears,
+  timeHours,
+  timeMonths,
+  timeMinutes,
+  timeWeeks,
 } from 'd3-time';
 
 import { TimePrecision, ScaleSettings } from '../../types';
 
-const timeModifier: Record<TimePrecision, CountableTimeInterval> = {
-  day: timeDay,
-  minute: timeMinute,
-  hour: timeHour,
-  week: timeWeek,
-  month: timeMonth,
-  year: timeYear,
+const timeModifier: Record<TimePrecision, any> = {
+  day: timeDays,
+  minute: timeMinutes,
+  hour: timeHours,
+  week: timeWeeks,
+  month: timeMonths,
+  year: timeYears,
 };
 
 /**
@@ -33,8 +32,14 @@ const getTimeScaleValues = (
   { precision }: ScaleSettings
 ) => {
   const [startDate, endDate] = scale.domain() as Date[];
-  const ticks = timeModifier[precision].count(startDate, endDate);
-  return scale.ticks(ticks);
+
+  console.log(precision, 'llala');
+
+  const ticks = timeModifier[precision](startDate, endDate, 10);
+
+  console.log('tiki bobasa', ticks);
+
+  return ticks;
 };
 
 export default getTimeScaleValues;
