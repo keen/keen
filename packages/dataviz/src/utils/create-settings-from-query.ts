@@ -1,5 +1,5 @@
 import { Widgets } from '@keen.io/widgets';
-import { Query } from '@keen.io/parser';
+import { Query } from '@keen.io/query';
 
 import {
   setBarChartSettings,

@@ -118,7 +118,7 @@ const generateLineMarks = (
         key: `${index}.${keyName}.mark`,
         color: colors[lineIndex],
         selector: [index, keyName],
-        x: xScale(new Date(data[index][labelSelector])),
+        x: xScale(data[index][labelSelector]),
         y: yScale(value),
         radius: markRadius,
       };
@@ -142,7 +142,7 @@ const generateSteps = (
     const range = yScale.range();
     const width = 20;
     const lastTick = yScale.ticks()[yScale.ticks().length - 1];
-    const x = xScale(new Date(data[index][labelSelector])) - width / 2;
+    const x = xScale(data[index][labelSelector]) - width / 2;
 
     if (keyName !== labelSelector && value) {
       const step = {
@@ -186,7 +186,7 @@ const calculatePath = (
 
   return lineShapeType
     .x(function(d: Record<string, any>) {
-      return xScale(new Date(d[labelSelector]));
+      return xScale(d[labelSelector]);
     })
     .y(function(d: Record<string, any>) {
       return yScale(d[keyName]);
@@ -217,7 +217,7 @@ const calculateNormalStackArea = (
 
   return lineShapeType
     .x(function(d: Record<string, any>) {
-      return xScale(new Date(d[labelSelector]));
+      return xScale(d[labelSelector]);
     })
     .y1(function(d: Record<string, any>) {
       return yScale(d[keyName]);
@@ -292,10 +292,7 @@ export const generateGroupedLines = ({
 
   const xScale = scaleTime()
     .range([margins.left, dimension.width - margins.right])
-    .domain([
-      new Date(first[labelSelector]),
-      new Date(data[data.length - 1][labelSelector]),
-    ]);
+    .domain([first[labelSelector], data[data.length - 1][labelSelector]]);
 
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])
@@ -411,10 +408,7 @@ export const generateStackLines = ({
 
   const xScale = scaleTime()
     .range([margins.left, dimension.width - margins.right])
-    .domain([
-      new Date(first[labelSelector]),
-      new Date(newData[newData.length - 1][labelSelector]),
-    ]);
+    .domain([first[labelSelector], newData[newData.length - 1][labelSelector]]);
 
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])

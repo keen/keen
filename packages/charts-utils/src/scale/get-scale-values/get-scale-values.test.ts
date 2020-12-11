@@ -1,4 +1,4 @@
-import { scaleBand, scaleLinear, scaleUtc } from 'd3-scale';
+import { scaleBand, scaleLinear, scaleTime } from 'd3-scale';
 
 import getScaleValues from './get-scale-values';
 
@@ -35,7 +35,7 @@ test('returns ticks for linear scale', () => {
 });
 
 test('apply "timeModifier" for month precision', () => {
-  const scale = scaleUtc()
+  const scale = scaleTime()
     .range([0, 10])
     .domain([firstDate, lastDate]);
 
@@ -45,7 +45,7 @@ test('apply "timeModifier" for month precision', () => {
 });
 
 test('apply "timeModifier" for minute precision', () => {
-  const scale = scaleUtc()
+  const scale = scaleTime()
     .range([0, 10])
     .domain([
       new Date('2020-01-06T15:00:00.000Z'),
@@ -58,7 +58,7 @@ test('apply "timeModifier" for minute precision', () => {
 });
 
 test('apply "timeModifier" for week precision', () => {
-  const scale = scaleUtc()
+  const scale = scaleTime()
     .range([0, 10])
     .domain([
       new Date('2020-01-01T15:00:00.000Z'),
@@ -71,7 +71,7 @@ test('apply "timeModifier" for week precision', () => {
 });
 
 test('apply "timeModifier" for year precision', () => {
-  const scale = scaleUtc()
+  const scale = scaleTime()
     .range([0, 10])
     .domain([
       new Date('2015-01-01T00:00:00.000Z'),
@@ -84,7 +84,7 @@ test('apply "timeModifier" for year precision', () => {
 });
 
 test('returns ticks for UTC scale wtesthout applying time precision', () => {
-  const scale = scaleUtc()
+  const scale = scaleTime()
     .range([0, 10])
     .domain([firstDate, lastDate]);
 

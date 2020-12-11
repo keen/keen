@@ -1,8 +1,9 @@
 import { getPrecisionForInterval } from '@keen.io/charts-utils';
+import { Query } from '@keen.io/query';
 
 import { extractGroupBySettings } from './extract-group-by';
 
-import { Query, ParserSettings } from './types';
+import { ParserSettings } from './types';
 
 export const createParserSettings = (query?: Query): ParserSettings => {
   let parserSettings: ParserSettings = {

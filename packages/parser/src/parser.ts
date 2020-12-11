@@ -1,3 +1,5 @@
+import { normalizeDate } from '@keen.io/charts-utils';
+
 import {
   transformAtomicResult,
   transformIntervalsFromArray,
@@ -8,8 +10,6 @@ import {
 
 import { createParserSettings } from './create-parser-settings';
 import { fillWithEmptyKeys } from './utils/transform.utils';
-
-import { localizeDate } from './utils';
 
 import {
   ParserInput,
@@ -64,9 +64,10 @@ export const parseQuery = ({
           'timeframe' in partialResult
         ) {
           const { value, timeframe } = partialResult as IntervalResult;
-          const localizedDate = intervalPrecision
-            ? localizeDate(timeframe.start, intervalPrecision)
-            : timeframe.start;
+          const localizedDate = normalizeDate(
+            timeframe.start,
+            intervalPrecision
+          );
 
           if (Array.isArray(value)) {
             const { data, keys: dataSetKeys } = transformIntervalsFromArray(

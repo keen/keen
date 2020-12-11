@@ -48,7 +48,7 @@ export const simpleResults = () => {
           start: '2020-02-01T00:00:00.000-00:00',
           end: '2020-02-01T16:00:00.000-00:00',
         },
-        interval: 'every_10_minutes',
+        interval: 'every_30_minutes',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

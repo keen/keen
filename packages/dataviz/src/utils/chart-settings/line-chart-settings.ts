@@ -19,7 +19,5 @@ export const setChartSettings = ({
     };
   }
 
-  console.log(settings, interval, 'lalala');
-
   return settings;
 };
