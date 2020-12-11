@@ -1,5 +1,5 @@
-import { Intervals } from '../types';
 import { timeFormat } from 'd3-time-format';
+import { TimePrecision } from '@keen.io/charts-utils';
 
 const dateFormatter = timeFormat('%Y-%m-%dT%H:%M:%S');
 
@@ -10,13 +10,13 @@ const clearDateTime = (dateString: string) => {
   return dateFormatter(date);
 };
 
-const DATE_FORMATS: Record<Intervals, any> = {
-  daily: clearDateTime,
-  hourly: (date: string) => date,
-  minutely: (date: string) => date,
-  weekly: clearDateTime,
-  monthly: clearDateTime,
-  yearly: clearDateTime,
+const DATE_FORMATS: Record<TimePrecision, any> = {
+  day: clearDateTime,
+  hour: (date: string) => date,
+  minute: (date: string) => date,
+  week: clearDateTime,
+  month: clearDateTime,
+  year: clearDateTime,
 };
 
 /**
@@ -28,5 +28,5 @@ const DATE_FORMATS: Record<Intervals, any> = {
  * @return localized date
  *
  */
-export const localizeDate = (date: string, interval: Intervals) =>
-  DATE_FORMATS[interval](date);
+export const localizeDate = (date: string, precision: TimePrecision) =>
+  DATE_FORMATS[precision](date);
