@@ -1,4 +1,4 @@
-import { scaleLinear, scaleUtc, ScaleLinear, ScaleTime } from 'd3-scale';
+import { scaleLinear, scaleTime, ScaleLinear, ScaleTime } from 'd3-scale';
 import {
   line as lineShape,
   curveStep,
@@ -290,7 +290,7 @@ export const generateGroupedLines = ({
 
   const [first] = data;
 
-  const xScale = scaleUtc()
+  const xScale = scaleTime()
     .range([margins.left, dimension.width - margins.right])
     .domain([
       new Date(first[labelSelector]),
@@ -409,7 +409,7 @@ export const generateStackLines = ({
   const areas: AreaType[] = [];
   const [first] = newData;
 
-  const xScale = scaleUtc()
+  const xScale = scaleTime()
     .range([margins.left, dimension.width - margins.right])
     .domain([
       new Date(first[labelSelector]),
