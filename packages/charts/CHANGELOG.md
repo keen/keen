@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.12](https://github.com/keen/keen/compare/@keen.io/charts@2.5.11...@keen.io/charts@2.5.12) (2020-12-11)
+
+
+### Bug Fixes
+
+* 🐛 date timezone ([c4fbdff](https://github.com/keen/keen/commit/c4fbdffbb1121bb0aa345b70a50567fae7b44fbd))
+
+
+
+
+
 ## [2.5.11](https://github.com/keen/keen/compare/@keen.io/charts@2.5.10...@keen.io/charts@2.5.11) (2020-12-09)
 
 **Note:** Version bump only for package @keen.io/charts
