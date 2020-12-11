@@ -1,7 +1,7 @@
 import { fillWithEmptyKeys } from './transform.utils';
 
 describe('fillWithEmptyKeys()', () => {
-  it('should return array with added keys filled with empty string', () => {
+  test('fills empty dataset keys with empty string', () => {
     const keys = new Set(['city', 'name']);
     const resultsToTransform = [
       {
@@ -23,6 +23,33 @@ describe('fillWithEmptyKeys()', () => {
         Object {
           "city": "Krakow",
           "name": "",
+        },
+      ]
+    `);
+  });
+
+  test('fills empty dataset keys with defined value', () => {
+    const keys = new Set(['city', 'name']);
+    const resultsToTransform = [
+      {
+        name: 'Darek',
+      },
+      {
+        city: 'Krakow',
+      },
+    ];
+
+    const result = fillWithEmptyKeys(keys, resultsToTransform, 0);
+
+    expect(result).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "city": 0,
+          "name": "Darek",
+        },
+        Object {
+          "city": "Krakow",
+          "name": 0,
         },
       ]
     `);

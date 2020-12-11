@@ -1,12 +1,13 @@
 export const fillWithEmptyKeys = (
   keys: Set<string>,
-  results: Record<string, any>
+  results: Record<string, any>,
+  emptyValue: string | number = ''
 ) => {
   let emptyKeysObject = {};
   keys.forEach(key => {
     emptyKeysObject = {
       ...emptyKeysObject,
-      [key]: '',
+      [key]: emptyValue,
     };
   });
   return results.map((result: any) => ({
