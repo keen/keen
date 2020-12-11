@@ -32,8 +32,9 @@ export type OrderByProperty = {
 export type OrderBy = string | OrderByProperty | OrderByProperty[];
 
 export type Query = {
-  interval?: string;
+  interval?: Intervals;
   group_by?: string | string[];
+  limit?: number;
   target_property?: string;
   event_collection: string;
   analysis_type: Analysis;
@@ -77,5 +78,7 @@ export type ParserOutput = {
 };
 
 export type ParserSettings = {
+  fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
+  interval: null | Intervals;
 };

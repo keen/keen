@@ -26,7 +26,7 @@ Object {
       "1.book_purchase.maximum.J.K. Rowling Harry Potter": 120,
       "1.book_purchase.maximum.Stephen King It": 1300,
       "1.book_purchase.maximum.Stephen King The Shining": 6,
-      "keen.key": "2020-01-01T00:00:00.000Z",
+      "keen.key": "2020-01-01T00:00:00",
     },
     Object {
       "0.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness": 42,
@@ -39,7 +39,7 @@ Object {
       "1.book_purchase.maximum.J.K. Rowling Harry Potter": 1,
       "1.book_purchase.maximum.Stephen King It": 45,
       "1.book_purchase.maximum.Stephen King The Shining": 0,
-      "keen.key": "2020-02-01T00:00:00.000Z",
+      "keen.key": "2020-02-01T00:00:00",
     },
   ],
 }
