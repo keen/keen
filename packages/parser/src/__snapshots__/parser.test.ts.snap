@@ -179,3 +179,64 @@ Object {
   ],
 }
 `;
+
+exports[`fills intervals empty keys with values 1`] = `
+Object {
+  "keys": Array [
+    "United States",
+    "Japan",
+    "Germany",
+    "Poland",
+    "Australia",
+    "Russia",
+    "Ukraine",
+    "France",
+  ],
+  "results": Array [
+    Object {
+      "Australia": 8,
+      "France": 0,
+      "Germany": 13,
+      "Japan": 14,
+      "Poland": 10,
+      "Russia": 0,
+      "Ukraine": 0,
+      "United States": 24,
+      "keen.key": "2020-12-07T00:00:00",
+    },
+    Object {
+      "Australia": 29,
+      "France": 0,
+      "Germany": 0,
+      "Japan": 26,
+      "Poland": 28,
+      "Russia": 26,
+      "Ukraine": 0,
+      "United States": 38,
+      "keen.key": "2020-12-08T00:00:00",
+    },
+    Object {
+      "Australia": 15,
+      "France": 0,
+      "Germany": 0,
+      "Japan": 17,
+      "Poland": 12,
+      "Russia": 0,
+      "Ukraine": 29,
+      "United States": 42,
+      "keen.key": "2020-12-10T00:00:00",
+    },
+    Object {
+      "Australia": 1,
+      "France": 0,
+      "Germany": 0,
+      "Japan": 0,
+      "Poland": 0,
+      "Russia": 0,
+      "Ukraine": 0,
+      "United States": 0,
+      "keen.key": "2020-12-11T00:00:00",
+    },
+  ],
+}
+`;
