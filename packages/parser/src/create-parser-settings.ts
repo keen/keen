@@ -1,3 +1,5 @@
+import { getPrecisionForInterval } from '@keen.io/charts-utils';
+
 import { extractGroupBySettings } from './extract-group-by';
 
 import { Query, ParserSettings } from './types';
@@ -6,7 +8,7 @@ export const createParserSettings = (query?: Query): ParserSettings => {
   let parserSettings: ParserSettings = {
     mergePropertiesOrder: null,
     fillEmptyIntervalsKeys: false,
-    interval: null,
+    intervalPrecision: null,
   };
 
   if (query) {
@@ -28,7 +30,7 @@ export const createParserSettings = (query?: Query): ParserSettings => {
     if (interval) {
       parserSettings = {
         ...parserSettings,
-        interval,
+        intervalPrecision: getPrecisionForInterval(interval),
       };
     }
   }

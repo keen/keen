@@ -270,3 +270,100 @@ export const extractionResultFixture = {
     lastLoginDate: 1576851939,
   },
 };
+
+export const selectUniqueOrderByLimit = {
+  query: {
+    analysis_type: 'count_unique',
+    event_collection: 'Data_Explorer_Query_Ran',
+    target_property: 'user.id',
+    timezone: 'UTC',
+    group_by: ['geo.country'],
+    limit: 5,
+    interval: 'daily',
+    timeframe: 'this_5_days',
+    order_by: [{ direction: 'DESC', property_name: 'result' }],
+  },
+  result: [
+    {
+      value: [
+        { 'geo.country': 'United States', result: 24 },
+        { 'geo.country': 'Japan', result: 14 },
+        { 'geo.country': 'Germany', result: 13 },
+        { 'geo.country': 'Poland', result: 10 },
+        { 'geo.country': 'Australia', result: 8 },
+      ],
+      timeframe: {
+        start: '2020-12-07T00:00:00.000Z',
+        end: '2020-12-08T00:00:00.000Z',
+      },
+    },
+    {
+      value: [
+        { 'geo.country': 'United States', result: 38 },
+        { 'geo.country': 'Australia', result: 29 },
+        { 'geo.country': 'Poland', result: 28 },
+        { 'geo.country': 'Russia', result: 26 },
+        { 'geo.country': 'Japan', result: 26 },
+      ],
+      timeframe: {
+        start: '2020-12-08T00:00:00.000Z',
+        end: '2020-12-09T00:00:00.000Z',
+      },
+    },
+    {
+      value: [
+        { 'geo.country': 'United States', result: 42 },
+        { 'geo.country': 'Ukraine', result: 29 },
+        { 'geo.country': 'Japan', result: 17 },
+        { 'geo.country': 'Australia', result: 15 },
+        { 'geo.country': 'Poland', result: 12 },
+      ],
+      timeframe: {
+        start: '2020-12-10T00:00:00.000Z',
+        end: '2020-12-11T00:00:00.000Z',
+      },
+    },
+    {
+      value: [
+        { 'geo.country': 'Australia', result: 1 },
+        { 'geo.country': 'France', result: 0 },
+        { 'geo.country': 'Germany', result: 0 },
+        { 'geo.country': 'Japan', result: 0 },
+        { 'geo.country': 'Poland', result: 0 },
+      ],
+      timeframe: {
+        start: '2020-12-11T00:00:00.000Z',
+        end: '2020-12-12T00:00:00.000Z',
+      },
+    },
+  ],
+};
+
+export const countAnalysisWithIntervalTimezone = {
+  query: {
+    analysis_type: 'count',
+    event_collection: 'book_purchase',
+    timeframe: {
+      start: '2019-11-01T00:00:00.000-00:00',
+      end: '2020-02-01T16:00:00.000-00:00',
+    },
+    interval: 'monthly',
+    timezone: 3600,
+  },
+  result: [
+    {
+      value: 436,
+      timeframe: {
+        start: '2019-11-01T06:00:00.000Z',
+        end: '2019-12-01T00:06:00.000Z',
+      },
+    },
+    {
+      value: 333,
+      timeframe: {
+        start: '2019-12-01T06:00:00.000Z',
+        end: '2020-01-01T00:06:00.000Z',
+      },
+    },
+  ],
+};
