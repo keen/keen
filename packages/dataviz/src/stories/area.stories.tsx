@@ -45,10 +45,10 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-02-01T00:00:00.000-00:00',
-          end: '2020-02-01T16:00:00.000-00:00',
+          start: '2019-09-01T23:30:00.000-00:00',
+          end: '2020-09-01T16:00:00.000-00:00',
         },
-        interval: 'every_30_minutes',
+        interval: 'every_43_days',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

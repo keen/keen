@@ -54,4 +54,5 @@ export const lineChart: any = {
   keys: ['sale', 'buy', 'revenue'],
   labelSelector: 'label',
   colors: ['red', 'blue', 'green'],
+  xScaleSettings: { useUTC: false },
 };

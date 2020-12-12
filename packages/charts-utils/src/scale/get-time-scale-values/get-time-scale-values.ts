@@ -29,8 +29,9 @@ const timeModifier: Record<TimePrecision, CountableTimeInterval[]> = {
 /**
  * Calculates values of time scale based on defined precision.
  *
- * @param scale - time scale
- * @param settings - scale settings
+ * @param scale - instance of time scale
+ * @param scaleSettings - scale settings
+ * @param useUTC - use universal coordinated time
  * @return Collection of dates
  *
  */

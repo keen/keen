@@ -1,4 +1,3 @@
-import { TimePrecision } from '@keen.io/charts-utils';
 import { Query } from '@keen.io/query';
 
 export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
@@ -41,5 +40,4 @@ export type ParserOutput = {
 export type ParserSettings = {
   fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
-  intervalPrecision: null | TimePrecision;
 };

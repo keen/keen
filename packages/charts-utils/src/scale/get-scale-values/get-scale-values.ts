@@ -8,7 +8,8 @@ import { ScaleSettings } from '../../types';
  * Calculates values of the scale.
  *
  * @param scale - time scale
- * @param settings - scale settings
+ * @param scaleSettings - scale settings
+ * @param useUTC - use universal coordinated time
  * @return Collection of scale values
  *
  */
@@ -17,13 +18,15 @@ const getScaleValues = (
     | ScaleBand<string>
     | ScaleLinear<number, number>
     | ScaleTime<number, number>,
-  scaleSettings?: ScaleSettings
+  scaleSettings?: ScaleSettings,
+  useUTC = false
 ) => {
   if ('bandwidth' in scale) return scale.domain();
   if (scaleSettings?.type === 'time') {
     return getTimeScaleValues(
       scale as ScaleTime<number, number>,
-      scaleSettings
+      scaleSettings,
+      useUTC
     );
   }
 

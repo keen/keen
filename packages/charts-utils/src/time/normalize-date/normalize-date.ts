@@ -26,6 +26,7 @@ export const TIME_PRECISION_MODIFIERS: Record<
  * Normalize date based on local browser timezone or UTC
  *
  * @param date - date in ISO format
+ * @param precision - time precision
  * @param useUTC - parse time as UTC indicator
  * @param format - data format
  * @return localized date

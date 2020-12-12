@@ -1,4 +1,10 @@
-import { scaleLinear, scaleTime, ScaleLinear, ScaleTime } from 'd3-scale';
+import {
+  scaleLinear,
+  scaleTime,
+  scaleUtc,
+  ScaleLinear,
+  ScaleTime,
+} from 'd3-scale';
 import {
   line as lineShape,
   curveStep,
@@ -12,6 +18,7 @@ import {
   calculateScaleDomain,
   getKeysDifference,
   transformToPercent,
+  normalizeDate,
 } from '@keen.io/charts-utils';
 
 import { Options, Mark, Line, StepType, CurveType, AreaType } from './types';
@@ -270,6 +277,7 @@ export const generateGroupedLines = ({
   strokeWidth,
   curve,
   areaMode,
+  xScaleSettings,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -288,11 +296,24 @@ export const generateGroupedLines = ({
   const areas = [] as AreaType[];
   const lines = [] as Line[];
 
-  const [first] = data;
+  const { useUTC, precision } = xScaleSettings;
+  const dateNormalizer = (date: string) =>
+    normalizeDate(date, precision, useUTC);
 
-  const xScale = scaleTime()
+  const localizedData = data.map(item => ({
+    ...item,
+    [labelSelector]: dateNormalizer(item[labelSelector]),
+  }));
+
+  const [first] = localizedData;
+  const xScale = useUTC ? scaleUtc() : scaleTime();
+
+  xScale
     .range([margins.left, dimension.width - margins.right])
-    .domain([first[labelSelector], data[data.length - 1][labelSelector]]);
+    .domain([
+      first[labelSelector],
+      localizedData[localizedData.length - 1][labelSelector],
+    ]);
 
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])
@@ -325,7 +346,7 @@ export const generateGroupedLines = ({
         );
       marks.push(
         ...generateLineMarks(
-          data,
+          localizedData,
           xScale,
           yScale,
           labelSelector,
@@ -338,7 +359,7 @@ export const generateGroupedLines = ({
       lines.push({
         key: keyName,
         selector: [idx, keyName],
-        d: generateLine(data),
+        d: generateLine(localizedData),
         color: colors[idx],
         strokeWidth,
       });
@@ -347,7 +368,7 @@ export const generateGroupedLines = ({
         areas.push({
           firstOpacity: 0.8,
           lastOpacity: 0.2,
-          d: generateArea(data),
+          d: generateArea(localizedData),
         });
     }
   });
@@ -360,6 +381,7 @@ export const generateGroupedLines = ({
     xScale,
     yScale,
     areas,
+    localizedData,
   };
 };
 
@@ -379,6 +401,7 @@ export const generateStackLines = ({
   areaMode,
   stackMode,
   groupMode,
+  xScaleSettings,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -390,11 +413,18 @@ export const generateStackLines = ({
       ? transformToPercent(data, filteredKeys)
       : data;
 
+  const { useUTC, precision } = xScaleSettings;
+  const dateNormalizer = (date: string) =>
+    normalizeDate(date, precision, useUTC);
+
   const newData = calculateStackData(
     normalizeData,
     labelSelector,
     filteredKeys
-  );
+  ).map(item => ({
+    ...item,
+    [labelSelector]: dateNormalizer(item[labelSelector]),
+  }));
 
   const { minimum, maximum } =
     groupMode === 'stacked' && stackMode === 'percent'
@@ -406,7 +436,9 @@ export const generateStackLines = ({
   const areas: AreaType[] = [];
   const [first] = newData;
 
-  const xScale = scaleTime()
+  const xScale = useUTC ? scaleUtc() : scaleTime();
+
+  xScale
     .range([margins.left, dimension.width - margins.right])
     .domain([first[labelSelector], newData[newData.length - 1][labelSelector]]);
 
