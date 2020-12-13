@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`@keen/charts <LineChart /> - utils generateGroupedLines() should calculate lines and apply colors 1`] = `Array []`;
-
-exports[`@keen/charts <LineChart /> - utils generateStackLines() should calculate lines and apply colors 1`] = `Array []`;

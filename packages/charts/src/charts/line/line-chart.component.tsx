@@ -42,7 +42,7 @@ export type Props = {
   /** Marks radius */
   markRadius?: number;
   /** Line thickness */
-  strokeWidth?: number | 2;
+  strokeWidth?: number;
   /** X scale settings */
   xScaleSettings?: ScaleSettings;
   /** Y scale settings */
