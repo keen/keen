@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`get values from "linear" scale 1`] = `
+exports[`returns values from "linear" scale 1`] = `
 Array [
   0,
   1,
