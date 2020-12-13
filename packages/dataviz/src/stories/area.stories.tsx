@@ -45,7 +45,8 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: 'last_2_years',
-        interval: 'every_110_days',
+        timezone: 'US/Eastern',
+        interval: 'every_35_days',
       })
       .then((res: any) => dataviz.render(res));
   }, []);
