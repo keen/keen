@@ -11,6 +11,8 @@ module.exports = {
     },
   },
 
+ testRunner: "jest-circus/runner",
+
  testEnvironment: 'jest-environment-jsdom-sixteen',
 
   moduleNameMapper: {

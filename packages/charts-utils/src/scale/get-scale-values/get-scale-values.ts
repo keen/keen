@@ -18,15 +18,13 @@ const getScaleValues = (
     | ScaleBand<string>
     | ScaleLinear<number, number>
     | ScaleTime<number, number>,
-  scaleSettings?: ScaleSettings,
-  useUTC = false
+  scaleSettings?: ScaleSettings
 ) => {
   if ('bandwidth' in scale) return scale.domain();
   if (scaleSettings?.type === 'time') {
     return getTimeScaleValues(
       scale as ScaleTime<number, number>,
-      scaleSettings,
-      useUTC
+      scaleSettings
     );
   }
 

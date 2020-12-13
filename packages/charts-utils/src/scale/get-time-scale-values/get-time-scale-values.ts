@@ -37,8 +37,7 @@ const timeModifier: Record<TimePrecision, CountableTimeInterval[]> = {
  */
 const getTimeScaleValues = (
   scale: ScaleTime<number, number>,
-  { precision, stepRange }: ScaleSettings,
-  useUTC = false
+  { precision, stepRange, useUTC }: ScaleSettings
 ) => {
   const [firstDate, lastDate] = scale.domain() as Date[];
   const modifier = timeModifier[precision][useUTC ? 1 : 0];
