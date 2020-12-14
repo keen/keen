@@ -9,8 +9,6 @@ import {
 import { createParserSettings } from './create-parser-settings';
 import { fillWithEmptyKeys } from './utils/transform.utils';
 
-import { localizeDate } from './utils';
-
 import {
   ParserInput,
   ParserOutput,
@@ -25,11 +23,9 @@ export const parseQuery = ({
   steps,
   query,
 }: ParserInput): ParserOutput => {
-  const {
-    mergePropertiesOrder,
-    fillEmptyIntervalsKeys,
-    intervalPrecision,
-  } = createParserSettings(query);
+  const { mergePropertiesOrder, fillEmptyIntervalsKeys } = createParserSettings(
+    query
+  );
 
   let keys: Set<string> = new Set();
   let results: Record<string, any>[] = [];
@@ -64,23 +60,20 @@ export const parseQuery = ({
           'timeframe' in partialResult
         ) {
           const { value, timeframe } = partialResult as IntervalResult;
-          const localizedDate = intervalPrecision
-            ? localizeDate(timeframe.start, intervalPrecision)
-            : timeframe.start;
 
           if (Array.isArray(value)) {
             const { data, keys: dataSetKeys } = transformIntervalsFromArray(
               value,
               mergePropertiesOrder
             );
-            results.push({ [KEEN_KEY]: localizedDate, ...data });
+            results.push({ [KEEN_KEY]: timeframe.start, ...data });
             dataSetKeys.forEach(key => keys.add(key));
           }
 
           if (typeof value === 'number') {
             keys.add(KEEN_VALUE);
             results.push({
-              [KEEN_KEY]: localizedDate,
+              [KEEN_KEY]: timeframe.start,
               [KEEN_VALUE]: value,
             });
           }

@@ -7,7 +7,7 @@ import { extractOrderDirection } from './extract-order-direction';
 
 import { KEEN_VALUE, KEEN_KEY } from './constants';
 
-import { Query, AnalysisResult, Step } from './types';
+import { AnalysisResult } from './types';
 
 export {
   parseQuery,
@@ -16,8 +16,6 @@ export {
   parseMultipleQueries,
   extractOrderDirection,
   convertToCSV,
-  Query,
-  Step,
   AnalysisResult,
   KEEN_VALUE,
   KEEN_KEY,

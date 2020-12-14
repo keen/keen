@@ -1,5 +1,7 @@
+import { isCustomInterval } from '@keen.io/query';
+
 import createLabelFormatter from '../create-label-formatter';
-import { getPrecisionForInterval } from '../../time';
+import { getPrecisionForInterval, getStepsFromInterval } from '../../time';
 
 import { ScaleSettings } from '../../types';
 
@@ -11,12 +13,13 @@ import { ScaleSettings } from '../../types';
  *
  */
 const createScaleSettings = (interval: string): Partial<ScaleSettings> => {
+  const customInterval = isCustomInterval(interval);
   const precision = getPrecisionForInterval(interval);
-  const formatLabel = createLabelFormatter(precision);
 
   return {
     precision,
-    formatLabel,
+    formatLabel: createLabelFormatter(precision),
+    stepRange: customInterval ? getStepsFromInterval(interval) : undefined,
   };
 };
 

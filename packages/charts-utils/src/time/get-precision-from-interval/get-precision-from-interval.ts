@@ -1,3 +1,5 @@
+import { isCustomInterval } from '@keen.io/query';
+
 import { TimePrecision } from '../../types';
 
 const INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
@@ -16,11 +18,6 @@ const CUSTOM_INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
   weeks: 'week',
   months: 'month',
   years: 'year',
-};
-
-const isCustomInterval = (interval: string): boolean => {
-  const regex = /every_[2-9]+\d*_(minutes|hours|days|weeks|months|years)/;
-  return regex.test(interval);
 };
 
 const DEFAULT_INTERVAL = 'month';

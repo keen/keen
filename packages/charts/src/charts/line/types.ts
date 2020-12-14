@@ -1,7 +1,11 @@
+import { ScaleSettings } from '@keen.io/charts-utils';
+
 import { Dimension, Margins, StackMode, GroupMode } from '../../types';
 
 export type Options = {
   data: any[];
+  xScaleSettings: ScaleSettings;
+  yScaleSettings: ScaleSettings;
   keys: string[];
   disabledKeys?: string[];
   labelSelector: string;

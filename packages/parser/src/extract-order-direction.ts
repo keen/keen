@@ -1,6 +1,5 @@
 import { SortMode } from '@keen.io/ui-core';
-
-import { OrderBy, Direction } from './types';
+import { OrderBy, Direction } from '@keen.io/query';
 
 const DIRECTIONS: Record<Direction, SortMode> = {
   DESC: 'descending',

@@ -4,10 +4,9 @@ import {
   mergeResults,
   mapKeys,
   KEEN_KEY,
-  Query,
-  Step,
   AnalysisResult,
 } from '@keen.io/parser';
+import { Query, Step } from '@keen.io/query';
 
 import { VisualizationInput, ComponentSettings } from '../types';
 

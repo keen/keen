@@ -1,6 +1,6 @@
-import { KEEN_KEY } from '../constants';
+import { Query } from '@keen.io/query';
 
-import { Query } from '../types';
+import { KEEN_KEY } from '../constants';
 
 export const mapKeys = (
   map: Record<string, string>,

@@ -8,7 +8,8 @@ import { ScaleSettings } from '../../types';
  * Calculates values of the scale.
  *
  * @param scale - time scale
- * @param settings - scale settings
+ * @param scaleSettings - scale settings
+ * @param useUTC - use universal coordinated time
  * @return Collection of scale values
  *
  */

@@ -1,0 +1,32 @@
+{
+  "name": "@keen.io/query",
+  "version": "1.0.0",
+  "description": "Keen Query utilities",
+  "author": "Keen.IO <team@keen.io> (https://keen.io/)",
+  "homepage": "https://github.com/keen/keen#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "src/index.ts",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keen/keen.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/keen/keen/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
