@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.13](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.12...@keen.io/dataviz@2.3.13) (2020-12-11)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.3.12](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.11...@keen.io/dataviz@2.3.12) (2020-12-11)
+
+
+### Bug Fixes
+
+* 🐛 empty intervals keys ([5be05e6](https://github.com/keen/keen/commit/5be05e627e33c138de3fc753309752b42f50931c))
+
+
+
+
+
 ## [2.3.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.10...@keen.io/dataviz@2.3.11) (2020-12-11)
 
 
