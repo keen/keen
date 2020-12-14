@@ -1,48 +1,6 @@
-import { TimePrecision } from '@keen.io/charts-utils';
-
-export type Analysis =
-  | 'sum'
-  | 'average'
-  | 'count'
-  | 'count_unique'
-  | 'maximum'
-  | 'minimum'
-  | 'median'
-  | 'percentile'
-  | 'standard_deviation'
-  | 'funnel'
-  | 'extraction'
-  | 'select_unique';
-
-export type Intervals =
-  | 'minutely'
-  | 'hourly'
-  | 'daily'
-  | 'weekly'
-  | 'monthly'
-  | 'yearly';
+import { Query } from '@keen.io/query';
 
 export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
-
-export type Direction = 'ASC' | 'DESC';
-
-export type OrderByProperty = {
-  propertyName: string;
-  direction: Direction;
-};
-
-export type OrderBy = string | OrderByProperty | OrderByProperty[];
-
-export type Query = {
-  interval?: Intervals;
-  group_by?: string | string[];
-  limit?: number;
-  target_property?: string;
-  event_collection: string;
-  analysis_type: Analysis;
-  order_by: OrderBy;
-  property_names?: string[];
-};
 
 export type AtomicResult = { [key: string]: string | number } & {
   result: number;
@@ -82,5 +40,4 @@ export type ParserOutput = {
 export type ParserSettings = {
   fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
-  intervalPrecision: null | TimePrecision;
 };

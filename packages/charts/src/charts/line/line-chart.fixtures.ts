@@ -52,6 +52,9 @@ export const lineChart: any = {
   minValue: 'auto',
   maxValue: 'auto',
   keys: ['sale', 'buy', 'revenue'],
+  disabledKeys: [],
+  strokeWidth: 1,
   labelSelector: 'label',
   colors: ['red', 'blue', 'green'],
+  xScaleSettings: { type: 'time', precision: 'month', useUTC: false },
 };

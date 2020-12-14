@@ -10,7 +10,11 @@ import {
 import { getElementOffset, hasContentOverflow } from './elements';
 
 import { copyToClipboard } from './text';
-import { getPrecisionForInterval } from './time';
+import {
+  normalizeDate,
+  getPrecisionForInterval,
+  getStepsFromInterval,
+} from './time';
 
 import {
   createScaleSettings,
@@ -55,5 +59,7 @@ export {
   getFromPath,
   hasContentOverflow,
   transformToPercent,
+  normalizeDate,
   getPrecisionForInterval,
+  getStepsFromInterval,
 };

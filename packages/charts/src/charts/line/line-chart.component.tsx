@@ -42,7 +42,7 @@ export type Props = {
   /** Marks radius */
   markRadius?: number;
   /** Line thickness */
-  strokeWidth?: number | 2;
+  strokeWidth?: number;
   /** X scale settings */
   xScaleSettings?: ScaleSettings;
   /** Y scale settings */
@@ -79,7 +79,7 @@ export const LineChart: FC<Props> = ({
   curve = 'linear',
   stackMode = 'normal',
   groupMode = 'grouped',
-  xScaleSettings = { precision: 'month', type: 'time' },
+  xScaleSettings = { precision: 'month', type: 'time', useUTC: false },
   yScaleSettings = { type: 'linear' },
   areaMode = false,
   gradient = true,
@@ -104,6 +104,8 @@ export const LineChart: FC<Props> = ({
     areas,
   } = generateLines({
     data,
+    xScaleSettings,
+    yScaleSettings,
     margins: layoutMargins,
     dimension: svgDimensions,
     labelSelector,

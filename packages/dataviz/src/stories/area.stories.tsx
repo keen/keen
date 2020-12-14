@@ -44,11 +44,9 @@ export const simpleResults = () => {
       .query({
         analysis_type: 'count',
         event_collection: 'book_purchase',
-        timeframe: {
-          start: '2020-02-01T00:00:00.000-00:00',
-          end: '2020-02-01T16:00:00.000-00:00',
-        },
-        interval: 'hourly',
+        timeframe: 'last_2_years',
+        timezone: 'US/Eastern',
+        interval: 'every_35_days',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

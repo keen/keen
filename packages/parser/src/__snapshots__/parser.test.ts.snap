@@ -37,19 +37,19 @@ Object {
   ],
   "results": Array [
     Object {
-      "keen.key": "2019-11-01T00:00:00",
+      "keen.key": "2019-11-01T00:00:00.000Z",
       "keen.value": 436,
     },
     Object {
-      "keen.key": "2019-12-01T00:00:00",
+      "keen.key": "2019-12-01T00:00:00.000Z",
       "keen.value": 333,
     },
     Object {
-      "keen.key": "2020-01-01T00:00:00",
+      "keen.key": "2020-01-01T00:00:00.000Z",
       "keen.value": 2991,
     },
     Object {
-      "keen.key": "2020-02-01T00:00:00",
+      "keen.key": "2020-02-01T00:00:00.000Z",
       "keen.value": 59,
     },
   ],
@@ -102,7 +102,7 @@ Object {
       "J.K. Rowling Harry Potter": 112,
       "Stephen King It": 2059,
       "Stephen King The Shining": 6,
-      "keen.key": "2020-01-01T00:00:00",
+      "keen.key": "2020-01-01T00:00:00.000Z",
     },
     Object {
       "Edwidge Danticat Love, Anger, Madness": 2,
@@ -110,7 +110,7 @@ Object {
       "J.K. Rowling Harry Potter": 1,
       "Stephen King It": 45,
       "Stephen King The Shining": 0,
-      "keen.key": "2020-02-01T00:00:00",
+      "keen.key": "2020-02-01T00:00:00.000Z",
     },
   ],
 }
@@ -202,7 +202,7 @@ Object {
       "Russia": 0,
       "Ukraine": 0,
       "United States": 24,
-      "keen.key": "2020-12-07T00:00:00",
+      "keen.key": "2020-12-07T00:00:00.000Z",
     },
     Object {
       "Australia": 29,
@@ -213,7 +213,7 @@ Object {
       "Russia": 26,
       "Ukraine": 0,
       "United States": 38,
-      "keen.key": "2020-12-08T00:00:00",
+      "keen.key": "2020-12-08T00:00:00.000Z",
     },
     Object {
       "Australia": 15,
@@ -224,7 +224,7 @@ Object {
       "Russia": 0,
       "Ukraine": 29,
       "United States": 42,
-      "keen.key": "2020-12-10T00:00:00",
+      "keen.key": "2020-12-10T00:00:00.000Z",
     },
     Object {
       "Australia": 1,
@@ -235,25 +235,7 @@ Object {
       "Russia": 0,
       "Ukraine": 0,
       "United States": 0,
-      "keen.key": "2020-12-11T00:00:00",
-    },
-  ],
-}
-`;
-
-exports[`format dates for browser lozalization 1`] = `
-Object {
-  "keys": Array [
-    "keen.value",
-  ],
-  "results": Array [
-    Object {
-      "keen.key": "2019-11-01T00:00:00",
-      "keen.value": 436,
-    },
-    Object {
-      "keen.key": "2019-12-01T00:00:00",
-      "keen.value": 333,
+      "keen.key": "2020-12-11T00:00:00.000Z",
     },
   ],
 }

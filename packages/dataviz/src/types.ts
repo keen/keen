@@ -11,7 +11,8 @@ import {
   GaugeChartSettings,
   TableChartSettings,
 } from '@keen.io/charts';
-import { Query, Step, AnalysisResult } from '@keen.io/parser';
+import { AnalysisResult } from '@keen.io/parser';
+import { Query, Step } from '@keen.io/query';
 import { CardSettings } from '@keen.io/ui-core';
 import { TextSettings, LegendSettings, Widgets } from '@keen.io/widgets';
 
