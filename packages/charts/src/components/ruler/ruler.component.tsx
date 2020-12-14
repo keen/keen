@@ -8,7 +8,7 @@ import { Group } from './ruler.styles';
 import RulerLabel from '../ruler-label';
 import AxisTitle from '../axis-title.component';
 
-import { createRuler, rotateLabel } from './ruler.utils';
+import { generateRuler, rotateLabel } from './utils';
 
 import { Axis, Tick as RulerTick, Orientation } from '../../types';
 
@@ -65,7 +65,7 @@ const Ruler = ({
   }, [groupElement, x, y, axisTitle]);
 
   const { enabled, typography, radiusAngle } = labels;
-  const { line, ticks } = createRuler({
+  const { line, ticks } = generateRuler({
     x,
     y,
     scale,

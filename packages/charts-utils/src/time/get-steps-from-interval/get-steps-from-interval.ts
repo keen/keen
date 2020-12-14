@@ -1,7 +1,7 @@
 /**
  * Get step range based on custom interval definition.
  *
- * @param interval - time interval
+ * @param interval - custom time interval
  * @return step range
  *
  */
