@@ -342,7 +342,13 @@ export const generateGroupedLines = ({
     if (disabledKeys && !disabledKeys.includes(keyName)) {
       if (idx === 0)
         steps.push(
-          ...generateSteps(data, xScale, yScale, labelSelector, keys[0])
+          ...generateSteps(
+            localizedData,
+            xScale,
+            yScale,
+            labelSelector,
+            keys[0]
+          )
         );
       marks.push(
         ...generateLineMarks(
@@ -408,23 +414,23 @@ export const generateStackLines = ({
     ? getKeysDifference(keys, disabledKeys)
     : keys;
 
-  const normalizeData =
-    groupMode === 'stacked' && stackMode === 'percent'
-      ? transformToPercent(data, filteredKeys)
-      : data;
-
   const { useUTC, precision } = xScaleSettings;
   const dateNormalizer = (date: string) =>
     normalizeDate(date, precision, useUTC);
+
+  const normalizeData = (groupMode === 'stacked' && stackMode === 'percent'
+    ? transformToPercent(data, filteredKeys)
+    : data
+  ).map(item => ({
+    ...item,
+    [labelSelector]: dateNormalizer(item[labelSelector]),
+  }));
 
   const newData = calculateStackData(
     normalizeData,
     labelSelector,
     filteredKeys
-  ).map(item => ({
-    ...item,
-    [labelSelector]: dateNormalizer(item[labelSelector]),
-  }));
+  );
 
   const { minimum, maximum } =
     groupMode === 'stacked' && stackMode === 'percent'
@@ -476,6 +482,7 @@ export const generateStackLines = ({
           markRadius
         )
       );
+
       lines.push({
         key: keyName,
         selector: [idx, keyName],
