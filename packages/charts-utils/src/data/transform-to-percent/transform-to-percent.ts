@@ -16,13 +16,13 @@ const transformToPercent = (data: Record<string, any>[], keys: string[]) => {
 
   return data.map((item: Record<string, any>, idx: number) => ({
     ...item,
-    ...keys.reduce(
-      (acc: Record<string, any>, key: string) => ({
+    ...keys.reduce((acc: Record<string, any>, key: string) => {
+      const value = item[key] / maximumValues[idx];
+      return {
         ...acc,
-        [key]: (item[key] / maximumValues[idx]) * 100,
-      }),
-      {}
-    ),
+        [key]: (Number.isNaN(value) ? 0 : value) * 100,
+      };
+    }, {}),
   }));
 };
 
