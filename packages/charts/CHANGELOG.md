@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.15](https://github.com/keen/keen/compare/@keen.io/charts@2.5.14...@keen.io/charts@2.5.15) (2020-12-15)
+
+
+### Bug Fixes
+
+* 🐛 area chart ([f40a14a](https://github.com/keen/keen/commit/f40a14a34424ee909cabfd07152e582e642f9237))
+
+
+
+
+
 ## [2.5.14](https://github.com/keen/keen/compare/@keen.io/charts@2.5.13...@keen.io/charts@2.5.14) (2020-12-14)
 
 **Note:** Version bump only for package @keen.io/charts
