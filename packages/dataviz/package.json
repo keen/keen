@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/dataviz",
-  "version": "2.3.16",
+  "version": "2.3.17",
   "description": "Data Visualization SDK for Keen IO",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://keen.io",
@@ -49,11 +49,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@keen.io/charts": "^2.5.16",
+    "@keen.io/charts": "^2.5.17",
     "@keen.io/colors": "^1.1.0",
-    "@keen.io/parser": "^2.3.14",
+    "@keen.io/parser": "^2.3.15",
     "@keen.io/query": "^1.0.1",
-    "@keen.io/widgets": "^2.2.16",
+    "@keen.io/widgets": "^2.2.17",
     "deepmerge": "4.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
