@@ -155,5 +155,27 @@ describe('<TableChart />', () => {
         ]
       `);
     });
+
+    it('should not sort columns when the first data row is null or undefined', () => {
+      const data = [
+        null,
+        {
+          price: 0.5,
+          province: 'Liaoning',
+          city: 'Shenyang',
+          country: 'China',
+        },
+        {
+          price: 0.5,
+          province: 'West Virginia',
+          city: 'Parsons',
+          country: 'United States',
+        },
+      ];
+      const order = ['city', 'province', 'country', 'invalid-key-name'];
+      const formattedData = setColumnsOrder(order, data);
+
+      expect(formattedData).toEqual(data);
+    });
   });
 });

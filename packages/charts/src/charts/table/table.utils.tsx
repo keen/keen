@@ -60,6 +60,7 @@ export const setColumnsOrder = (
   order: string[],
   data: Record<string, any>[]
 ) => {
+  if (!data[0]) return data;
   const dataKeys = Object.keys(data[0]);
   const filteredOrder = order.filter(o => dataKeys.includes(o));
   const columnsOrder = [...new Set([...filteredOrder, ...dataKeys])];
