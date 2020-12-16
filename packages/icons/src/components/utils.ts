@@ -10,12 +10,15 @@ import CaretLeft from './caret-left.component';
 import CaretRight from './caret-right.component';
 import CaretUp from './caret-up.component';
 import CaretDown from './caret-down.component';
+import Clone from './clone.component';
 import Close from './close.component';
 import CornerTick from './corner-tick.component';
 import ChoroplethWidget from './choropleth-widget.component';
 import DatePicker from './date-picker.component';
+import Delete from './delete.component';
 import DonutWidget from './donut-widget.component';
 import QuestionMark from './question-mark.component';
+import Resize from './resize.component';
 import EyeSolid from './eye-solid.component';
 import EyeOutline from './eye-outline.component';
 import EyeSlashSolid from './eye-slash-solid.component';
@@ -171,5 +174,11 @@ export const getIcon = (type: IconType) => {
       return Actions;
     case 'settings':
       return Settings;
+    case 'delete':
+      return Delete;
+    case 'clone':
+      return Clone;
+    case 'resize':
+      return Resize;
   }
 };
