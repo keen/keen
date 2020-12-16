@@ -41,6 +41,9 @@ const options = [
   'lock-closed',
   'temperature',
   'search',
+  'delete',
+  'clone',
+  'resize',
 ];
 
 export const primary = () => (
