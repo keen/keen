@@ -61,4 +61,7 @@ export type IconType =
   | 'plus'
   | 'search'
   | 'actions'
-  | 'settings';
+  | 'settings'
+  | 'delete'
+  | 'clone'
+  | 'resize';
