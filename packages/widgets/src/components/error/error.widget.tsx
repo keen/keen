@@ -19,7 +19,7 @@ const ErrorWidget: FC<Props> = ({
   title,
   subtitle,
   message,
-  header = text.dataLoadError,
+  header = text.renderError,
 }) => (
   <Card {...card}>
     <WidgetHeading title={title} subtitle={subtitle} />

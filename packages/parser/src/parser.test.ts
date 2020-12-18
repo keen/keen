@@ -14,6 +14,39 @@ import {
   selectUniqueOrderByLimit,
 } from './api.fixtures';
 
+test('creates structure for empty events', () => {
+  const result = parseQuery({ result: [{}, {}, {}] });
+
+  expect(result).toMatchInlineSnapshot(`
+    Object {
+      "keys": Array [],
+      "results": Array [],
+    }
+  `);
+});
+
+test('creates structure for empty collection result', () => {
+  const result = parseQuery({ result: [] });
+
+  expect(result).toMatchInlineSnapshot(`
+    Object {
+      "keys": Array [],
+      "results": Array [],
+    }
+  `);
+});
+
+test('creates structure for "null" result', () => {
+  const result = parseQuery({ result: null });
+
+  expect(result).toMatchInlineSnapshot(`
+    Object {
+      "keys": Array [],
+      "results": Array [],
+    }
+  `);
+});
+
 test('creates structure for "funnel" analysis', () => {
   const result = parseQuery(funnelAnalysis);
 

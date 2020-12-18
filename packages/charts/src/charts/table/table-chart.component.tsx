@@ -111,13 +111,10 @@ export const TableChart = ({
     [maxScroll, overflowLeft, overflowRight]
   );
 
-  const data = useMemo(
-    () =>
-      columnsOrder?.length
-        ? setColumnsOrder(columnsOrder, tableData)
-        : tableData,
-    [columnsOrder, tableData]
-  );
+  const data = useMemo(() => {
+    const sortColumns = tableData.length && columnsOrder?.length;
+    return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
+  }, [columnsOrder, tableData]);
   const formatData = formatValue ? generateTable(data, formatValue) : data;
   const sortedData = sort ? sortData(formatData, sort) : formatData;
 
