@@ -57,15 +57,16 @@ exports[`applies typography settings to table header 1`] = `
   position: sticky;
   top: 0;
   z-index: 1;
+  background: #44748C;
 }
 
 <tr
   class="c0"
-  color="#44748C"
   data-testid="header-row-container"
 >
   <td
     class="c1"
+    color="#44748C"
   >
     <div
       class="c2"
@@ -123,6 +124,7 @@ exports[`applies typography settings to table header 1`] = `
   </td>
   <td
     class="c1"
+    color="#44748C"
   >
     <div
       class="c2"

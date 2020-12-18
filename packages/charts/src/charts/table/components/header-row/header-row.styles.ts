@@ -8,9 +8,12 @@ export const Container = styled.tr<{
   color: ${props => props.typography.fontColor};
 `;
 
-export const StickyCell = styled.td`
+export const StickyCell = styled.td<{
+  color: string;
+}>`
   padding: 0;
   position: sticky;
   top: 0;
   z-index: 1;
+  background: ${props => props.color};
 `;

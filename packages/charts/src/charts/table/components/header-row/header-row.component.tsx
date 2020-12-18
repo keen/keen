@@ -34,13 +34,9 @@ export const HeaderRow = ({
   typography,
 }: Props) => (
   <thead>
-    <Container
-      color={color}
-      typography={typography}
-      data-testid="header-row-container"
-    >
+    <Container typography={typography} data-testid="header-row-container">
       {data.map(({ key, value }: HeaderCell) => (
-        <StickyCell key={key}>
+        <StickyCell key={key} color={color}>
           <TableHeader
             propertyName={key}
             backgroundColor={color}
