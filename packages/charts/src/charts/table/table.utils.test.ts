@@ -53,9 +53,9 @@ describe('<TableChart />', () => {
   });
   describe('generateHeader()', () => {
     const data = { name: 'Krzys', age: 31, city: 'San antonio' };
-    it('should generate header: formatted age property', () => {
+    it('should generate header: formatted age property and other properties with first capital letter', () => {
       const format = { age: el => `${el}-a` };
-      const header = generateHeader(data, format);
+      const header = generateHeader(data, format, true);
       expect(header).toMatchInlineSnapshot(`
         Array [
           Object {
@@ -69,6 +69,26 @@ describe('<TableChart />', () => {
           Object {
             "key": "city",
             "value": "City",
+          },
+        ]
+      `);
+    });
+    it('should generate header: formatted age property and other properties lower-cased', () => {
+      const format = { age: el => `${el}-a` };
+      const header = generateHeader(data, format, false);
+      expect(header).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "key": "name",
+            "value": "name",
+          },
+          Object {
+            "key": "age",
+            "value": "age-a",
+          },
+          Object {
+            "key": "city",
+            "value": "city",
           },
         ]
       `);

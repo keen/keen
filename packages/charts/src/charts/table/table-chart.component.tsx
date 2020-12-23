@@ -47,6 +47,8 @@ export type Props = {
   color: string;
   /** Object of functions to format headers separately */
   formatHeader?: Record<string, FormatFunction>;
+  /** Capitalize headers */
+  capitalizeHeader?: boolean;
   /** Columns order */
   columnsOrder?: string[];
   /** Format function for values, or object of functions to format values separately */
@@ -59,6 +61,7 @@ export const TableChart = ({
   data: tableData,
   color = colors.blue['500'],
   formatHeader,
+  capitalizeHeader,
   columnsOrder,
   formatValue,
   onResize,
@@ -183,7 +186,7 @@ export const TableChart = ({
           </AnimatePresence>
           <Table ref={tableRef}>
             <HeaderRow
-              data={generateHeader(data[0], formatHeader)}
+              data={generateHeader(data[0], formatHeader, capitalizeHeader)}
               isColumnDragged={isColumnDragged}
               color={color}
               onSort={({

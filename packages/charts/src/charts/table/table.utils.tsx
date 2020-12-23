@@ -17,14 +17,16 @@ export const sortData = (data: Record<string, any>, sortBy: SortByType) => {
 
 export const generateHeader = (
   data: Record<string, any>,
-  format: Record<string, FormatFunction>
+  format: Record<string, FormatFunction>,
+  capitalizeHeader: boolean
 ) => {
   const header: HeaderCell[] = [];
   Object.keys(data).map((key: string) => {
+    const formatLetters = capitalizeHeader
+      ? (firstCapital as FormatFunction)
+      : (key: string | number) => key;
     const formatFunc =
-      isObject(format) && format[key]
-        ? format[key]
-        : (firstCapital as FormatFunction);
+      isObject(format) && format[key] ? format[key] : formatLetters;
     header.push({
       key: key,
       value: formatFunc(key),
