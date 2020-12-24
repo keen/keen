@@ -36,7 +36,7 @@ describe('@keen.io/charts - <MetricChart />', () => {
     const label = findValue().first();
 
     expect(mockFn).toHaveBeenCalled();
-    expect(label.text()).toMatchInlineSnapshot(`"Total 2200"`);
+    expect(label.text()).toMatchInlineSnapshot(`"Total 3281"`);
   });
 
   it('should render <Excerpt /> component with percent difference', () => {

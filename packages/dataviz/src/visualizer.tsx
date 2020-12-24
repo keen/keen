@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
 
 import { renderWidget } from './render-widget';
+import text from './text.json';
 
 import {
   extendTheme,
@@ -35,6 +36,9 @@ class Visualizer {
   /** Specific visualization settings */
   private componentSettings: ComponentSettings;
 
+  /** Visualization data provided from Keen API */
+  private useKeenAsDataSource = true;
+
   constructor(options: Options) {
     validateOptions(options);
     const { container, type, mappings, widget, settings } = options;
@@ -44,6 +48,10 @@ class Visualizer {
     this.widgetSettings = widget || {};
     this.container = container;
     this.type = type;
+
+    if ('data' in this.componentSettings) {
+      this.useKeenAsDataSource = false;
+    }
   }
 
   private getContainerNode(): Element {
@@ -105,7 +113,8 @@ class Visualizer {
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
 
-    if (arguments.length) {
+    const parseQuery = arguments.length && this.useKeenAsDataSource;
+    if (parseQuery) {
       const parser = prepareVisualization(
         input,
         this.mappings,
@@ -113,6 +122,12 @@ class Visualizer {
       );
       keys = parser.keys;
       results = parser.results;
+    }
+
+    const isEmptyAnalysisResult =
+      this.useKeenAsDataSource && results.length === 0;
+    if (isEmptyAnalysisResult) {
+      return this.error(text.empty_analysis_result);
     }
 
     ReactDOM.render(

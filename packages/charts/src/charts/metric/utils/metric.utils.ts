@@ -72,9 +72,9 @@ export const generateMetric = ({
     };
   }
 
-  const [firstMetric] = data;
+  const metricData = data[data.length - 1];
 
   return {
-    value: firstMetric[keyName],
+    value: metricData[keyName],
   };
 };
