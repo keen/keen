@@ -9,11 +9,11 @@ export const Container = styled.tr<{
 `;
 
 export const StickyCell = styled.td<{
-  color: string;
+  backgroundColor: string;
 }>`
   padding: 0;
   position: sticky;
   top: 0;
   z-index: 1;
-  background: ${props => props.color};
+  background: ${props => props.backgroundColor};
 `;
