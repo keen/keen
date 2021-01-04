@@ -3,6 +3,7 @@ import { render as rtlRender } from '@testing-library/react';
 
 import ErrorWidget from './error.widget';
 import text from './text.json';
+
 import { widgetSettings } from '../../widget-settings';
 
 const render = (overProps: any = {}) => {
@@ -34,5 +35,5 @@ test('shows error title', () => {
     wrapper: { getByText },
   } = render();
 
-  expect(getByText(text.dataLoadError)).toBeInTheDocument();
+  expect(getByText(text.renderError)).toBeInTheDocument();
 });
