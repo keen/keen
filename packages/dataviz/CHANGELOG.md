@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.18](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.17...@keen.io/dataviz@2.3.18) (2021-01-04)
+
+
+### Bug Fixes
+
+* 🐛 empty result for analysis graceful handle ([e9e4491](https://github.com/keen/keen/commit/e9e44910b921f7fb175f2035dbe0652855dbf192))
+
+
+
+
+
 ## [2.3.17](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.16...@keen.io/dataviz@2.3.17) (2020-12-16)
 
 **Note:** Version bump only for package @keen.io/dataviz

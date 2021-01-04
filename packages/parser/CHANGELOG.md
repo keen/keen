@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.16](https://github.com/keen/keen/compare/@keen.io/parser@2.3.15...@keen.io/parser@2.3.16) (2021-01-04)
+
+
+### Bug Fixes
+
+* 🐛 empty result for analysis graceful handle ([e9e4491](https://github.com/keen/keen/commit/e9e44910b921f7fb175f2035dbe0652855dbf192))
+
+
+
+
+
 ## [2.3.15](https://github.com/keen/keen/compare/@keen.io/parser@2.3.14...@keen.io/parser@2.3.15) (2020-12-16)
 
 **Note:** Version bump only for package @keen.io/parser
