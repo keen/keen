@@ -66,7 +66,6 @@ exports[`applies typography settings to table header 1`] = `
 >
   <td
     class="c1"
-    color="#44748C"
   >
     <div
       class="c2"
@@ -124,7 +123,6 @@ exports[`applies typography settings to table header 1`] = `
   </td>
   <td
     class="c1"
-    color="#44748C"
   >
     <div
       class="c2"
