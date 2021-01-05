@@ -29,6 +29,8 @@ type Props = {
   useMask?: boolean;
   /** Disable scroll when modal is open */
   blockScrollOnOpen?: boolean;
+  /** Adjust modal position based on page scroll Y */
+  adjustPositionToScroll?: boolean;
 };
 
 export const Modal: FC<Props> = ({
@@ -36,6 +38,7 @@ export const Modal: FC<Props> = ({
   onClose,
   isOpen,
   useMask = true,
+  adjustPositionToScroll = true,
   blockScrollOnOpen = false,
 }) => {
   const [closeable, setClosable] = useState(true);
@@ -89,8 +92,10 @@ export const Modal: FC<Props> = ({
   }, [isOpen]);
 
   useEffect(() => {
-    setScrollY(window.scrollY);
-  }, [window.scrollY]);
+    if (adjustPositionToScroll) {
+      setScrollY(window.scrollY);
+    }
+  }, [adjustPositionToScroll, window.scrollY]);
 
   const showMask = useMask && isOpen;
 
