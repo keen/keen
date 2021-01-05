@@ -101,11 +101,14 @@ class Visualizer {
     ReactDOM.unmountComponentAtNode(container);
   }
 
-  error(message: string) {
+  error(message: string, title?: string) {
     const container = this.getContainerNode();
     const settings = this.setWidgetSettings();
 
-    ReactDOM.render(<ErrorWidget message={message} {...settings} />, container);
+    ReactDOM.render(
+      <ErrorWidget message={message} header={title} {...settings} />,
+      container
+    );
   }
 
   render(input: VisualizationInput | VisualizationInput[] = {}) {
