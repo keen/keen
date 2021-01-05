@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.18...@keen.io/dataviz@2.4.0) (2021-01-05)
+
+
+### Features
+
+* 🎸 add support for error title ([6db0fa3](https://github.com/keen/keen/commit/6db0fa3d51728003044d7c0f2d632c7164a07e06))
+
+
+
+
+
 ## [2.3.18](https://github.com/keen/keen/compare/@keen.io/dataviz@2.3.17...@keen.io/dataviz@2.3.18) (2021-01-04)
 
 

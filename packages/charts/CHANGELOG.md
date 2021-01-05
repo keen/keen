@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.19](https://github.com/keen/keen/compare/@keen.io/charts@2.5.18...@keen.io/charts@2.5.19) (2021-01-05)
+
+
+### Bug Fixes
+
+* 🐛 Fix for table header overflow ([4610892](https://github.com/keen/keen/commit/461089252a3667db4d959abbd2f8e3e22e17cadc))
+
+
+
+
+
 ## [2.5.18](https://github.com/keen/keen/compare/@keen.io/charts@2.5.17...@keen.io/charts@2.5.18) (2021-01-04)
 
 
