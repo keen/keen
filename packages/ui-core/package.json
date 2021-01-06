@@ -38,6 +38,7 @@
     "framer-motion": "^1.11.1",
     "fuse.js": "^6.4.1",
     "polished": "^3.4.4",
+    "react-select": "^3.1.0",
     "react-column-resizer": "^1.1.9",
     "styled-system": "^5.1.5",
     "webfontloader": "^1.6.28"
