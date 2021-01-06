@@ -25,10 +25,12 @@
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
+  "peerDependencies": {
+    "react": "^>=16"
+  },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
-    "@keen.io/ui-core": "^2.5.24",
-    "react": "^16.12.0"
+    "@keen.io/ui-core": "^2.5.24"
   },
   "publishConfig": {
     "access": "public"
