@@ -24,8 +24,8 @@ const Title = ({
 
 export const WidgetHeading: FC<Props> = ({ title, subtitle }) => (
   <Container data-testid="widget-heading">
-    {title.content && <Title {...title} data-testid="widget-title" />}
-    {subtitle.content && <Title {...subtitle} data-testid="widget-subtitle" />}
+    {title?.content && <Title {...title} data-testid="widget-title" />}
+    {subtitle?.content && <Title {...subtitle} data-testid="widget-subtitle" />}
   </Container>
 );
 

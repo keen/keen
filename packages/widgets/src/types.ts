@@ -42,9 +42,9 @@ export type TextSettings = { content: string; typography: Typography };
 
 export type WidgetSettings = {
   /** Widget title */
-  title: TextSettings;
+  title?: TextSettings;
   /** Widget subtitle */
-  subtitle: TextSettings;
+  subtitle?: TextSettings;
   /** Widget card settings */
   card: CardSettings;
 };

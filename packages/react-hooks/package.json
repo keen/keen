@@ -26,10 +26,12 @@
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
+  "peerDependencies": {
+    "react": "^>=16"
+  },
   "dependencies": {
     "d3-array": "^2.7.1",
-    "fuse.js": "^6.4.1",
-    "react": "^16.12.0"
+    "fuse.js": "^6.4.1"
   },
   "publishConfig": {
     "access": "public"
