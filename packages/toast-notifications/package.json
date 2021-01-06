@@ -26,16 +26,18 @@
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
+  "peerDependencies": {
+    "react": "^>=16",
+    "react-dom": ">=16",
+    "styled-components": ">=5"
+  },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
     "@keen.io/ui-core": "^2.5.21",
     "framer-motion": "^1.11.1",
     "polished": "^3.4.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "react-toast-notifications": "^2.4.0",
-    "styled-components": "^5.1.0",
-    "styled-system": "5.1.5"
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.10.1",
