@@ -9,7 +9,6 @@ import { Card } from '@keen.io/ui-core';
 import { HeaderContainer } from './table-chart.widget.styles';
 
 import WidgetHeading from '../widget-heading.component';
-import { ContentSocket, TitleSocket } from '../widget-sockets.component';
 
 import { WidgetSettings } from '../../types';
 
@@ -26,15 +25,11 @@ export const TableChartWidget: FC<Props> = ({
   return (
     <Card {...card} hasPadding={false}>
       {(title.content || subtitle.content) && (
-        <TitleSocket>
-          <HeaderContainer>
-            <WidgetHeading title={title} subtitle={subtitle} />
-          </HeaderContainer>
-        </TitleSocket>
+        <HeaderContainer>
+          <WidgetHeading title={title} subtitle={subtitle} />
+        </HeaderContainer>
       )}
-      <ContentSocket>
-        <TableChart {...props} theme={theme} />
-      </ContentSocket>
+      <TableChart {...props} theme={theme} />
     </Card>
   );
 };

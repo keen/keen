@@ -14,12 +14,8 @@ import GaugeChartWidget from './gauge';
 import TableChartWidget from './table';
 import ErrorWidget from './error';
 
-import { LegendSocket, ContentSocket } from './widget-sockets.component';
-
 export {
   ChartWidget,
-  LegendSocket,
-  ContentSocket,
   ChoroplethChartWidget,
   PieChartWidget,
   DonutChartWidget,

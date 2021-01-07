@@ -11,12 +11,6 @@ import { useLegend } from '@keen.io/react-hooks';
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
 
-import {
-  ContentSocket,
-  LegendSocket,
-  TitleSocket,
-} from '../widget-sockets.component';
-
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
 
@@ -41,12 +35,9 @@ export const BarChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      {legend.enabled && (
-        <LegendSocket>
+      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      legend={() =>
+        legend.enabled && (
           <SeriesLegend
             {...legend}
             onClick={updateKeys}
@@ -55,9 +46,9 @@ export const BarChartWidget: FC<Props> = ({
               color: theme.colors[idx],
             }))}
           />
-        </LegendSocket>
-      )}
-      <ContentSocket>
+        )
+      }
+      content={() => (
         <ResponsiveWrapper>
           {(width: number, height: number) => (
             <BarChart
@@ -68,8 +59,8 @@ export const BarChartWidget: FC<Props> = ({
             />
           )}
         </ResponsiveWrapper>
-      </ContentSocket>
-    </ChartWidget>
+      )}
+    />
   );
 };
 export default BarChartWidget;

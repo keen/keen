@@ -14,12 +14,6 @@ import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
 import WidgetLoader from '../widget-loader.component';
 
-import {
-  ContentSocket,
-  LegendSocket,
-  TitleSocket,
-} from '../widget-sockets.component';
-
 import { choroplethLegendSettings } from './widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
 
@@ -63,12 +57,9 @@ export const ChoroplethChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      {legend.enabled && (
-        <LegendSocket>
+      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      legend={() =>
+        legend.enabled && (
           <LegendBase spacing="thin" fullDimension {...legend}>
             <RangeSlider
               minimum={0}
@@ -83,26 +74,27 @@ export const ChoroplethChartWidget: FC<Props> = ({
               colorSteps={colorSteps}
             />
           </LegendBase>
-        </LegendSocket>
-      )}
-      <ContentSocket>
-        {loading && <WidgetLoader />}
-        {topology && !loading && (
-          <ResponsiveWrapper>
-            {(width: number, height: number) => (
-              <ChoroplethChart
-                theme={theme}
-                svgDimensions={{ width, height }}
-                topology={topology}
-                colorSteps={colorSteps}
-                valuesRange={range}
-                {...props}
-              />
-            )}
-          </ResponsiveWrapper>
-        )}
-      </ContentSocket>
-    </ChartWidget>
+        )
+      }
+      content={() => {
+        if (loading) return <WidgetLoader />;
+        else if (topology)
+          return (
+            <ResponsiveWrapper>
+              {(width: number, height: number) => (
+                <ChoroplethChart
+                  theme={theme}
+                  svgDimensions={{ width, height }}
+                  topology={topology}
+                  colorSteps={colorSteps}
+                  valuesRange={range}
+                  {...props}
+                />
+              )}
+            </ResponsiveWrapper>
+          );
+      }}
+    />
   );
 };
 

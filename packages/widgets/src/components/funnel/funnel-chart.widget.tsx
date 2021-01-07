@@ -7,7 +7,6 @@ import {
 
 import WidgetHeading from '../widget-heading.component';
 import ChartWidget from '../chart-widget.component';
-import { ContentSocket, TitleSocket } from '../widget-sockets.component';
 import { Content } from './funnel-chart.widget.styles';
 
 import { legendSettings } from '../../widget-settings';
@@ -32,16 +31,14 @@ export const FunnelChartWidget: FC<Props> = ({
       alignment: legend.alignment,
       layout: legend.layout,
     }}
-  >
-    <TitleSocket>
-      <WidgetHeading title={title} subtitle={subtitle} />
-    </TitleSocket>
-    <ContentSocket>
+    title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+    legend={() => null}
+    content={() => (
       <Content>
         <FunnelChart theme={theme} {...props} />
       </Content>
-    </ContentSocket>
-  </ChartWidget>
+    )}
+  />
 );
 
 export default FunnelChartWidget;

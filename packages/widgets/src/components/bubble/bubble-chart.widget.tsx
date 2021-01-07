@@ -17,12 +17,6 @@ import { LegendContainer } from './bubble-chart.styles';
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
 
-import {
-  ContentSocket,
-  TitleSocket,
-  LegendSocket,
-} from '../widget-sockets.component';
-
 import { createLegendLabels } from './bubble-chart.widget.utils';
 
 import { bubbleLegendSettings } from './widget-settings';
@@ -65,11 +59,8 @@ export const BubbleChartWidget: FC<Props> = ({
         alignment,
         layout,
       }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      <LegendSocket>
+      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      legend={() => (
         <LegendContainer position={position} maxHeight={maxHeight}>
           {series.enabled && (
             <SeriesLegend
@@ -91,8 +82,8 @@ export const BubbleChartWidget: FC<Props> = ({
             />
           )}
         </LegendContainer>
-      </LegendSocket>
-      <ContentSocket>
+      )}
+      content={() => (
         <ResponsiveWrapper>
           {(width: number, height: number) => (
             <BubbleChart
@@ -103,8 +94,8 @@ export const BubbleChartWidget: FC<Props> = ({
             />
           )}
         </ResponsiveWrapper>
-      </ContentSocket>
-    </ChartWidget>
+      )}
+    />
   );
 };
 

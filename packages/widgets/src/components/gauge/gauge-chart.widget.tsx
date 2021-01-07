@@ -8,7 +8,6 @@ import {
 
 import WidgetHeading from '../widget-heading.component';
 import ChartWidget from '../chart-widget.component';
-import { ContentSocket, TitleSocket } from '../widget-sockets.component';
 
 import { legendSettings } from '../../widget-settings';
 
@@ -33,11 +32,9 @@ export const GaugeChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      <ContentSocket>
+      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      legend={() => null}
+      content={() => (
         <ResponsiveWrapper>
           {(width: number, height: number) => (
             <GaugeChart
@@ -47,8 +44,8 @@ export const GaugeChartWidget: FC<Props> = ({
             />
           )}
         </ResponsiveWrapper>
-      </ContentSocket>
-    </ChartWidget>
+      )}
+    />
   );
 };
 export default GaugeChartWidget;
