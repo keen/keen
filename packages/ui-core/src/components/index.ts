@@ -54,7 +54,7 @@ import ScrollWrapper from './scroll-wrapper';
 
 export { ARROW_SIZE };
 
-export type { CardSettings, TooltipMode, OAuthConfig, OAuthUserAction };
+export type { CardSettings, TooltipMode, OAuthConfig };
 
 export {
   Alert,
@@ -104,6 +104,7 @@ export {
   LoadingScreen,
   SuccessNotification,
   OAuthProviders,
+  OAuthUserAction,
   Portal,
   ScrollWrapper,
 };

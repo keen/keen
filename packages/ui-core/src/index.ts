@@ -86,7 +86,6 @@ export type {
   SortMode,
   SortByType,
   OAuthConfig,
-  OAuthUserAction,
 };
 
 export {
@@ -145,6 +144,7 @@ export {
   SuccessNotification,
   screenBreakpoints,
   OAuthProviders,
+  OAuthUserAction,
   ScrollWrapper,
   UI_LAYERS,
 };
