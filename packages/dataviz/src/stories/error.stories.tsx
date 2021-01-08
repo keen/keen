@@ -5,7 +5,7 @@ import KeenAnalysis from 'keen-analysis';
 import KeenDataViz from '../visualizer';
 
 export default {
-  title: 'Visualizations|Errors',
+  title: 'Visualizations /Errors',
   parameters: {
     componentSubtitle: 'Dataviz error handler component',
   },

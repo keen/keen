@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Bubble Chart/Dataviz',
+  title: 'Visualizations /Bubble Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Bubble charts created with @keen.io/dataviz library',
   },

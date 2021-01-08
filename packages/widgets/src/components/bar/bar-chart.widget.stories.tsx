@@ -18,7 +18,7 @@ import { chartData } from './bar-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Bar Chart|Widget',
+  title: 'Visualizations /Bar Chart / Widget',
   parameters: {
     component: BarChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

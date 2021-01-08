@@ -16,7 +16,7 @@ import { chartData } from './choropleth-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Choropleth Chart|Widget',
+  title: 'Visualizations /Choropleth Chart / Widget',
   parameters: {
     component: ChoroplethChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

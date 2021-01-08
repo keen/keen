@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: 'Components|Card',
+  title: 'Components /Card',
   parameters: {
     component: Card,
     componentSubtitle: 'Displays customized card wrapper',

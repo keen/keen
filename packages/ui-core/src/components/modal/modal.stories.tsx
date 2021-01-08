@@ -9,7 +9,7 @@ import ModalHeader from '../modal-header';
 import ModalFooter from '../modal-footer';
 
 export default {
-  title: 'Components|Modal',
+  title: 'Components /Modal',
   parameters: {
     component: Modal,
     componentSubtitle: 'Displays modal window',

@@ -22,7 +22,7 @@ import { CurveType } from './types';
 import { GroupMode, StackMode, Theme } from '../../types';
 
 export default {
-  title: 'Visualizations|Line Chart|Plot',
+  title: 'Visualizations /Line Chart / Plot',
   parameters: {
     component: LineChart,
     componentSubtitle: 'Line Chart plot',

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import ModalContent from './modal-content.component';
 
 export default {
-  title: 'Components|Modal Content',
+  title: 'Components /Modal Content',
   parameters: {
     component: ModalContent,
     componentSubtitle: 'Modal content component',

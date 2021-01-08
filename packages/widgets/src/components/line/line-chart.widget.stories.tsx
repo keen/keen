@@ -23,7 +23,7 @@ import { chartData } from './line-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Line Chart|Widget',
+  title: 'Visualizations /Line Chart / Widget',
   parameters: {
     component: LineChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

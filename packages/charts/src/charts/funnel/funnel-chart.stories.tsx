@@ -64,7 +64,7 @@ const createThemeKnobs = () => ({
 });
 
 export default {
-  title: 'Visualizations|Funnel Chart|Plot',
+  title: 'Visualizations /Funnel Chart / Plot',
   parameters: {
     component: FunnelChart,
     componentSubtitle: 'Funnel Chart plot',

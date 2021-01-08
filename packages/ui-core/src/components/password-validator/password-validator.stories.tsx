@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs';
 import { PasswordValidator } from './password-validator.component';
 
 export default {
-  title: 'Components| Forms / Password Validator',
+  title: 'Components / Forms / Password Validator',
   parameters: {
     component: PasswordValidator,
     componentSubtitle: 'Displays hints for password validation.',

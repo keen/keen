@@ -5,7 +5,7 @@ import { WidgetPicker } from './widget-picker.component';
 import { PickerWidgets } from '../../types';
 
 export default {
-  title: 'Components| Widget Picker',
+  title: 'Components / Widget Picker',
   parameters: {
     component: WidgetPicker,
     componentSubtitle: 'Visualization widget picker ',

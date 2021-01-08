@@ -5,7 +5,7 @@ import { DropdownMenu } from './dropdown-menu.component';
 import { Item, Header, Divider } from './components';
 
 export default {
-  title: 'Styleguide | Dropdown Menu',
+  title: 'Styleguide / Dropdown Menu',
   parameters: {
     component: DropdownMenu,
     componentSubtitle:

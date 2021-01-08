@@ -4,7 +4,7 @@ import * as React from 'react';
 import Select from './select.component';
 
 export default {
-  title: 'Components| Forms / Select',
+  title: 'Components / Forms / Select',
   parameters: {
     component: Select,
     componentSubtitle: 'Simple select component',

@@ -3,7 +3,7 @@ import * as React from 'react';
 import SuccessNotification from './success-notification.component';
 
 export default {
-  title: 'Components|Success Notification',
+  title: 'Components /Success Notification',
   parameters: {
     component: SuccessNotification,
     componentSubtitle: 'Success notification component',
