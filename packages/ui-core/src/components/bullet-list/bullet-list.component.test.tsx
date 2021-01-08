@@ -41,11 +41,6 @@ describe('@keen.io/ui-core - <BulletList />', () => {
   it('should apply "typography" to list element', () => {
     const { wrapper, props } = setup();
 
-    expect(
-      wrapper
-        .find(Text)
-        .first()
-        .props()
-    ).toMatchObject(props.typography);
+    expect(wrapper.find(Text).first().props()).toMatchObject(props.typography);
   });
 });

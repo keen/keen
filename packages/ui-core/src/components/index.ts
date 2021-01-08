@@ -54,6 +54,8 @@ import ScrollWrapper from './scroll-wrapper';
 
 export { ARROW_SIZE };
 
+export type { CardSettings, TooltipMode, OAuthConfig, OAuthUserAction };
+
 export {
   Alert,
   Anchor,
@@ -63,7 +65,6 @@ export {
   CircleButton,
   BulletList,
   Card,
-  CardSettings,
   Checkbox,
   ColorAdjuster,
   ContentSeparator,
@@ -83,7 +84,6 @@ export {
   Image,
   Tooltip,
   Modal,
-  TooltipMode,
   RangeSlider,
   IntervalSlider,
   calculateIntervalValue,
@@ -104,8 +104,6 @@ export {
   LoadingScreen,
   SuccessNotification,
   OAuthProviders,
-  OAuthConfig,
-  OAuthUserAction,
   Portal,
   ScrollWrapper,
 };

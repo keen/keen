@@ -51,7 +51,7 @@ const Bubbles: FC<Props> = ({
         key={key}
         r={radius}
         fill={color}
-        onMouseMove={e =>
+        onMouseMove={(e) =>
           onMouseEnter(e, [
             {
               color,
@@ -59,7 +59,7 @@ const Bubbles: FC<Props> = ({
             },
           ])
         }
-        onMouseLeave={e => {
+        onMouseLeave={(e) => {
           onMouseLeave(e);
         }}
         {...createBubbleMotion({ x, y, middlePoint, index: idx })}

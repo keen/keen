@@ -141,8 +141,9 @@ export const GaugeChart: FC<Props> = ({
       >
         <g
           style={{
-            transform: `translate(${svgDimensions.width /
-              2}px, ${svgDimensions.height / 2}px)`,
+            transform: `translate(${svgDimensions.width / 2}px, ${
+              svgDimensions.height / 2
+            }px)`,
           }}
         >
           <g
@@ -183,7 +184,7 @@ export const GaugeChart: FC<Props> = ({
                     hideTooltip();
                   }, TOOLTIP_TIMEOUT);
                 }}
-                onMouseEnter={e => {
+                onMouseEnter={(e) => {
                   if (tooltipSettings.enabled) {
                     if (tooltipTimeout.current)
                       clearTimeout(tooltipTimeout.current);

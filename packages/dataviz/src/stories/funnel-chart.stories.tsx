@@ -66,7 +66,7 @@ export const simple = () => {
           },
         ],
       })
-      .then(res => dataviz.render(res));
+      .then((res) => dataviz.render(res));
   }, []);
 
   return <div style={{ width: '600px', height: '400px' }} ref={container} />;

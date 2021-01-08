@@ -7,7 +7,7 @@ export const useSlider = (
 ): { min: number; max: number } => {
   const { min, max } = useMemo(() => {
     const dataArray = [] as number[];
-    data.forEach(item => {
+    data.forEach((item) => {
       for (const property in item) {
         if (typeof item[property] === 'number' && keys.includes(property)) {
           dataArray.push(item[property]);

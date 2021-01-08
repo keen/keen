@@ -8,14 +8,14 @@ export const Slider = styled(motion.div)<{
 }>`
   display: grid;
 
-  ${props =>
+  ${(props) =>
     props.mode === 'vertical' &&
     css`
       grid-gap: 10px 0;
       min-height: 0px;
     `}
 
-  ${props =>
+  ${(props) =>
     props.mode === 'horizontal' &&
     css`
       grid-gap: 10px 20px;
@@ -41,7 +41,7 @@ export const SliderLayout = styled.div<{
   box-sizing: border-box;
   height: 100%;
 
-  padding: ${props =>
+  padding: ${(props) =>
     props.mode === 'horizontal' ? '15px 34px' : '34px 25px'};
 `;
 

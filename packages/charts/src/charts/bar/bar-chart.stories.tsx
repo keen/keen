@@ -21,7 +21,7 @@ import { theme as keenTheme } from '../../theme';
 import { Theme, GroupMode, StackMode } from '../../types';
 
 export default {
-  title: 'Visualizations /Bar Chart / Plot',
+  title: 'Visualizations / Bar Chart / Plot',
   parameters: {
     component: BarChart,
     componentSubtitle: 'Bar Chart plot',

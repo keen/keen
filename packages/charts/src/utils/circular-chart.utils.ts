@@ -103,7 +103,7 @@ export const calculateTotalValue = (
   keys: string[]
 ): number => {
   let total = 0;
-  data.map(item => {
+  data.map((item) => {
     const label = item[labelSelector];
     const result = keys.reduce((acc, currentKey) => {
       if (currentKey !== label) return acc + item[currentKey];
@@ -159,7 +159,7 @@ export const generateCircularChart = ({
     }
   });
 
-  const total = sum(slices, d => d.value);
+  const total = sum(slices, (d) => d.value);
   const createPie = pie().value((d: any) => d.value);
 
   const createArc = arc().padAngle(padAngle);

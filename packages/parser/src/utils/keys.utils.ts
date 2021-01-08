@@ -9,7 +9,7 @@ export const mapKeys = (
   labelSelector: string = KEEN_KEY
 ) => ({
   keys: keys.map((keyName: string) => map[keyName] || keyName),
-  results: data.map(item => {
+  results: data.map((item) => {
     const updatedData: Record<string, any> = {};
 
     Object.keys(item).forEach((keyName: string) => {

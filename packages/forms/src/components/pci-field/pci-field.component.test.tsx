@@ -17,11 +17,8 @@ describe('@keen.io/forms - <PciField />', () => {
       <PciField error={error} id={id} label="Card number" />
     );
 
-    expect(
-      wrapper
-        .find('[data-error="card-number"]')
-        .first()
-        .text()
-    ).toEqual(error);
+    expect(wrapper.find('[data-error="card-number"]').first().text()).toEqual(
+      error
+    );
   });
 });

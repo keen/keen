@@ -33,7 +33,5 @@ export const calculateColorScale = (
     return step * idx;
   });
 
-  return scaleLinear<string>()
-    .domain(domainValues)
-    .range(colors);
+  return scaleLinear<string>().domain(domainValues).range(colors);
 };

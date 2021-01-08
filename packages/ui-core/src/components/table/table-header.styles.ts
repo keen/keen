@@ -6,7 +6,7 @@ export const Container = styled.div<{
   display: flex;
   text-align: left;
   background: inherit;
-  background: ${props => props.backgroundColor};
+  background: ${(props) => props.backgroundColor};
 `;
 
 export const Content = styled.div`

@@ -28,7 +28,7 @@ export const basic = () => {
       <Select
         placeholder="Search or select country"
         value={country}
-        onChange={value => setCountry(value)}
+        onChange={(value) => setCountry(value)}
         options={countries}
       />
     </div>
@@ -56,7 +56,7 @@ export const basicSolid = () => {
         placeholder="Search or select country"
         value={country}
         variant="solid"
-        onChange={value => setCountry(value)}
+        onChange={(value) => setCountry(value)}
         options={countries}
       />
     </div>

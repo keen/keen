@@ -33,7 +33,7 @@ const projectionRotateRange = {
 export const plot = () => {
   const [topology, setTopology] = React.useState(null);
   React.useEffect(() => {
-    fetchMapTopology('world').then(mapTopology => {
+    fetchMapTopology('world').then((mapTopology) => {
       setTopology(mapTopology);
     });
   }, []);

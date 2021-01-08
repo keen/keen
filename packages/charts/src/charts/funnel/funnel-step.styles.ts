@@ -7,13 +7,13 @@ export const Header = styled.div<{
   centerItems: boolean;
 }>`
   padding: 10px;
-  background: ${props => props.backgroundColor};
-  ${props =>
+  background: ${(props) => props.backgroundColor};
+  ${(props) =>
     props.fixedWidth &&
     css`
       width: 30%;
     `};
-  ${props =>
+  ${(props) =>
     props.centerItems &&
     css`
       text-align: center;
@@ -30,7 +30,7 @@ export const Step = styled.div<{
   flex: 1 1 auto;
   box-sizing: border-box;
 
-  ${props => {
+  ${(props) => {
     if (props.layout === 'vertical') {
       return css`
         padding: 3px 0;
@@ -57,13 +57,13 @@ export const Container = styled.div<{
   height: 100%;
   width: 100%;
   flex-grow: 1;
-  background: ${props => props.backgroundColor};
-  ${props =>
+  background: ${(props) => props.backgroundColor};
+  ${(props) =>
     props.layout === 'horizontal' &&
     css`
       flex-direction: column;
     `}
-  ${props =>
+  ${(props) =>
     props.layout === 'vertical' &&
     css`
       flex-direction: row;

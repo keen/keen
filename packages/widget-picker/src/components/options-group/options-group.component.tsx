@@ -38,7 +38,7 @@ const OptionsGroup: FC<Props> = ({
         <Item
           key={label}
           isActive={isActiveOption && isActive(settings)}
-          onClick={e => onClick(e, id, defaultValue)}
+          onClick={(e) => onClick(e, id, defaultValue)}
         >
           {label}
         </Item>

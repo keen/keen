@@ -86,7 +86,7 @@ export const useTooltip = (
 
   const hideTooltip = useCallback(() => {
     if (tooltipUpdate.current) cancelAnimationFrame(tooltipUpdate.current);
-    setTooltip(currentState => ({
+    setTooltip((currentState) => ({
       ...currentState,
       visible: false,
       selectors: null,

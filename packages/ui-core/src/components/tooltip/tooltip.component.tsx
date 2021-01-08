@@ -36,12 +36,12 @@ export const ARROW_SIZE = 4;
 const Wrapper = styled.div<Props>`
   padding: 10px 15px;
   box-sizing: border-box;
-  background-color: ${props => props.backgroundColor};
-  border-radius: ${props => props.borderRadius};
-  font-family: ${props => props.fontFamily};
-  font-size: ${props => props.fontSize + 'px'};
-  color: ${props => props.fontColor};
-  box-shadow: ${props =>
+  background-color: ${(props) => props.backgroundColor};
+  border-radius: ${(props) => props.borderRadius};
+  font-family: ${(props) => props.fontFamily};
+  font-size: ${(props) => props.fontSize + 'px'};
+  color: ${(props) => props.fontColor};
+  box-shadow: ${(props) =>
     props.hasShadow ? '0 10px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
   position: relative;
   ${variant({
@@ -58,7 +58,7 @@ const Wrapper = styled.div<Props>`
     },
   })}
   &::after {
-    ${props =>
+    ${(props) =>
       !props.hasArrow &&
       css`
         display: none;
@@ -68,10 +68,10 @@ const Wrapper = styled.div<Props>`
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: ${ARROW_SIZE}px solid ${props => props.backgroundColor};
-    box-shadow: ${props =>
+    border: ${ARROW_SIZE}px solid ${(props) => props.backgroundColor};
+    box-shadow: ${(props) =>
       props.hasShadow ? '-3px 3px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
-    ${props => {
+    ${(props) => {
       let arrowColor = props.backgroundColor;
       switch (props.mode) {
         case 'light':
@@ -90,8 +90,9 @@ const Wrapper = styled.div<Props>`
             bottom: 'auto',
             left: '1px',
             right: 'auto',
-            transform: `rotate(-45deg) translateY(-50%) translateY(-${ARROW_SIZE /
-              2}px)`,
+            transform: `rotate(-45deg) translateY(-50%) translateY(-${
+              ARROW_SIZE / 2
+            }px)`,
           },
           right: {
             borderColor: `transparent ${arrowColor} ${arrowColor} transparent`,
@@ -100,8 +101,9 @@ const Wrapper = styled.div<Props>`
             right: `-${Math.floor(
               calculateHypotenuseHeight(ARROW_SIZE, ARROW_SIZE)
             )}px`,
-            transform: `rotate(-45deg) translateY(-50%) translateX(${ARROW_SIZE /
-              2}px)`,
+            transform: `rotate(-45deg) translateY(-50%) translateX(${
+              ARROW_SIZE / 2
+            }px)`,
           },
           top: {
             borderColor: `${arrowColor} ${arrowColor} transparent transparent`,
@@ -111,8 +113,9 @@ const Wrapper = styled.div<Props>`
             bottom: 'auto',
             left: '50%',
             right: 'auto',
-            transform: `rotate(-45deg) translateX(-50%) translateY(-${ARROW_SIZE /
-              2}px)`,
+            transform: `rotate(-45deg) translateX(-50%) translateY(-${
+              ARROW_SIZE / 2
+            }px)`,
           },
           bottom: {
             borderColor: `transparent transparent ${arrowColor} ${arrowColor}`,
@@ -120,8 +123,9 @@ const Wrapper = styled.div<Props>`
             bottom: '1px',
             left: '50%',
             right: 'auto',
-            transform: `rotate(-45deg) translateX(-50%) translateX(-${ARROW_SIZE /
-              2}px)`,
+            transform: `rotate(-45deg) translateX(-50%) translateX(-${
+              ARROW_SIZE / 2
+            }px)`,
           },
         },
       });

@@ -165,8 +165,9 @@ export const DonutChart: FC<Props> = ({
         >
           <g
             style={{
-              transform: `translate(${svgDimensions.width /
-                2}px, ${svgDimensions.height / 2}px)`,
+              transform: `translate(${svgDimensions.width / 2}px, ${
+                svgDimensions.height / 2
+              }px)`,
             }}
           >
             <ShadowFilter />
@@ -195,7 +196,7 @@ export const DonutChart: FC<Props> = ({
                     activePosition={activePosition}
                     labelPosition={labelPosition}
                     background={color}
-                    onMouseMove={e => {
+                    onMouseMove={(e) => {
                       if (tooltipSettings.enabled) {
                         if (stacked) updateTooltipPosition(e, stack);
                         else updateTooltipPosition(e, [{ color, selector }]);

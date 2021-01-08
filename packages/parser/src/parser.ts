@@ -67,7 +67,7 @@ export const parseQuery = ({
               mergePropertiesOrder
             );
             results.push({ [KEEN_KEY]: timeframe.start, ...data });
-            dataSetKeys.forEach(key => keys.add(key));
+            dataSetKeys.forEach((key) => keys.add(key));
           }
 
           if (typeof value === 'number') {
@@ -90,7 +90,7 @@ export const parseQuery = ({
           );
           keys.add(KEEN_VALUE);
 
-          Object.values(properties).forEach(property => {
+          Object.values(properties).forEach((property) => {
             results.push({ [KEEN_KEY]: property, [KEEN_VALUE]: result });
           });
         }
@@ -131,4 +131,4 @@ export const parseQuery = ({
 };
 
 export const parseMultipleQueries = (input: ParserInput[]) =>
-  input.map(analysys => parseQuery(analysys));
+  input.map((analysys) => parseQuery(analysys));

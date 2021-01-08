@@ -40,7 +40,7 @@ export const findMarksInCluster = (
 ) => {
   const { x, y } = mark;
   const group = marks[x];
-  return group.filter(mark => Math.abs(y - mark.y) < range);
+  return group.filter((mark) => Math.abs(y - mark.y) < range);
 };
 
 export const calculateStackData = (
@@ -67,7 +67,7 @@ export const calculateStackData = (
   }, []);
 
   if (!keys.length) {
-    return data.map(el => ({ labelSelector: el[labelSelector] }));
+    return data.map((el) => ({ labelSelector: el[labelSelector] }));
   }
 
   return newData;
@@ -100,7 +100,7 @@ export const calculateStackAreaData = (
   const secondDataPart = stackedData.reduce(reduceStack(1), []);
 
   if (!keys.length) {
-    return data.map(el => ({ labelSelector: el[labelSelector] }));
+    return data.map((el) => ({ labelSelector: el[labelSelector] }));
   }
 
   return { firstDataPart, secondDataPart: secondDataPart.reverse() };
@@ -192,10 +192,10 @@ const calculatePath = (
   }
 
   return lineShapeType
-    .x(function(d: Record<string, any>) {
+    .x(function (d: Record<string, any>) {
       return xScale(d[labelSelector]);
     })
-    .y(function(d: Record<string, any>) {
+    .y(function (d: Record<string, any>) {
       return yScale(d[keyName]);
     });
 };
@@ -223,13 +223,13 @@ const calculateNormalStackArea = (
   }
 
   return lineShapeType
-    .x(function(d: Record<string, any>) {
+    .x(function (d: Record<string, any>) {
       return xScale(d[labelSelector]);
     })
-    .y1(function(d: Record<string, any>) {
+    .y1(function (d: Record<string, any>) {
       return yScale(d[keyName]);
     })
-    .y0(function() {
+    .y0(function () {
       return yScale(yScale.ticks()[0]);
     });
 };
@@ -237,7 +237,7 @@ const calculateNormalStackArea = (
 export const sortAreaKeys = (data: any[], keys: string[]) => {
   const sumKeys = data.reduce((acc, item) => {
     let idx = 0;
-    for (const [key, value] of Object.entries(item).filter(a =>
+    for (const [key, value] of Object.entries(item).filter((a) =>
       keys.includes(a[0])
     )) {
       if (acc[idx]) {
@@ -300,7 +300,7 @@ export const generateGroupedLines = ({
   const dateNormalizer = (date: string) =>
     normalizeDate(date, precision, useUTC);
 
-  const localizedData = data.map(item => ({
+  const localizedData = data.map((item) => ({
     ...item,
     [labelSelector]: dateNormalizer(item[labelSelector]),
   }));
@@ -421,7 +421,7 @@ export const generateStackLines = ({
   const normalizeData = (groupMode === 'stacked' && stackMode === 'percent'
     ? transformToPercent(data, filteredKeys)
     : data
-  ).map(item => ({
+  ).map((item) => ({
     ...item,
     [labelSelector]: dateNormalizer(item[labelSelector]),
   }));

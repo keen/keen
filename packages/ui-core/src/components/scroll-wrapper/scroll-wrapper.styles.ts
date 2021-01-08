@@ -5,7 +5,7 @@ export const Wrapper = styled.div<{
 }>`
   position: relative;
 
-  ${props =>
+  ${(props) =>
     props.maxHeight &&
     css`
       overflow-y: scroll;

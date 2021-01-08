@@ -10,11 +10,11 @@ type Props = {
 
 export const BaseText = styled.div<Props>`
   ${typography}
-  color: ${props => props.fontColor};
+  color: ${(props) => props.fontColor};
   margin: 0;
   padding: 0;
 
-  ${props =>
+  ${(props) =>
     props.truncate &&
     css`
       white-space: nowrap;

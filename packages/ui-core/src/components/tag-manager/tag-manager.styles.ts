@@ -60,7 +60,7 @@ export const Container = styled.div<{
   flex-wrap: wrap;
   align-items: center;
 
-  ${props =>
+  ${(props) =>
     props.hasError &&
     css`
       border-bottom: solid 2px ${colors.orange['300']};

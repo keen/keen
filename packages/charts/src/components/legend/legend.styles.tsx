@@ -23,13 +23,13 @@ export const LegendCard = styled.div<
     position: Position;
   } & CardSettings
 >`
-  ${props =>
+  ${(props) =>
     (props.renderMode === 'list' || props.renderMode === 'group') &&
     css`
       padding: 15px;
     `}
 
-  ${props =>
+  ${(props) =>
     props.renderMode === 'slider' &&
     css`
       width: 100%;
@@ -38,13 +38,13 @@ export const LegendCard = styled.div<
 
   position: relative;
   box-sizing: border-box;
-  background: ${props => props.backgroundColor};
-  border: ${props => props.border};
-  border-radius: ${props => props.borderRadius};
-  box-shadow: ${props =>
+  background: ${(props) => props.backgroundColor};
+  border: ${(props) => props.border};
+  border-radius: ${(props) => props.borderRadius};
+  box-shadow: ${(props) =>
     props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
 
-  ${props => !props.border && borderMixin(props.layout)}
+  ${(props) => !props.border && borderMixin(props.layout)}
 `;
 
 LegendCard.defaultProps = {
@@ -59,12 +59,12 @@ export const LegendLayout = styled.div<{
   display: grid;
   grid-gap: 8px 10px;
   justify-content: flex-start
-    ${props =>
+    ${(props) =>
       props.type === 'horizontal' &&
       css`
         grid-auto-flow: column;
       `}
-    ${props =>
+    ${(props) =>
       props.type === 'vertical' &&
       css`
         grid-auto-flow: row;

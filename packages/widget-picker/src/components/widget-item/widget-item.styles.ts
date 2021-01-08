@@ -17,7 +17,7 @@ export const Container = styled.div<{ isActive?: boolean }>`
 
   cursor: pointer;
 
-  ${props =>
+  ${(props) =>
     props.isActive &&
     css`
       background: ${transparentize(0.7, colors.blue[100])};

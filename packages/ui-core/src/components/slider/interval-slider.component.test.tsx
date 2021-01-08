@@ -25,10 +25,7 @@ describe('@keen.io/ui-core - <RangeSlider />', () => {
 
   it('should show tooltip for "mouseEnter" event on drag control', () => {
     const wrapper = mount(<IntervalSlider {...props} />);
-    wrapper
-      .find(Mark)
-      .first()
-      .simulate('mouseEnter');
+    wrapper.find(Mark).first().simulate('mouseEnter');
 
     expect(wrapper.find(Tooltip).length).toBeTruthy();
   });

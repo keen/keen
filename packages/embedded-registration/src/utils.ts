@@ -44,7 +44,7 @@ export const setUtmCookie = (cookieList: string[]) => {
     [index: string]: string;
   } = {};
 
-  cookieList.map(cookie => {
+  cookieList.map((cookie) => {
     const utmCookie = new URL(location.href).searchParams.get(cookie);
     if (utmCookie) {
       cookies = {

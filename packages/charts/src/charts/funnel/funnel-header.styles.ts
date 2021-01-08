@@ -13,7 +13,7 @@ export const Container = styled.div<{ useColumns: boolean }>`
   flex-direction: row;
   justify-content: space-between;
 
-  ${props =>
+  ${(props) =>
     props.useColumns &&
     css`
       flex-direction: column;

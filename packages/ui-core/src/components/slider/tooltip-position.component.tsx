@@ -25,7 +25,7 @@ const PositionContainer = styled.div<{
   top: 0;
   left: 0;
 
-  ${props =>
+  ${(props) =>
     props.position === 'left' &&
     css`
       transform: translateX(-50%)
@@ -33,7 +33,7 @@ const PositionContainer = styled.div<{
         translateY(${props.containerSize / 2}px);
     `}
 
-  ${props =>
+  ${(props) =>
     props.position === 'right' &&
     css`
       transform: translateX(-50%)
@@ -43,7 +43,7 @@ const PositionContainer = styled.div<{
         translateY(-50%) translateY(${props.containerSize / 2}px);
     `}
 
-  ${props =>
+  ${(props) =>
     props.position === 'bottom' &&
     css`
       transform: translateX(-50%) translateX(${props.containerSize / 2}px)
@@ -53,7 +53,7 @@ const PositionContainer = styled.div<{
         );
     `}
 
-  ${props =>
+  ${(props) =>
     props.position === 'top' &&
     css`
       transform: translateX(-50%) translateX(${props.containerSize / 2}px)

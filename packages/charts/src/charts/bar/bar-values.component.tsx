@@ -42,7 +42,7 @@ const BarValues: FC<Props> = ({ bars, autocolor }) => {
 
         return autocolor ? (
           <ColorAdjuster key={key} baseColor={color}>
-            {adjustedColor => (
+            {(adjustedColor) => (
               <motion.text
                 key={key}
                 fill={adjustedColor}

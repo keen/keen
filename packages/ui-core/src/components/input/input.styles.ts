@@ -90,19 +90,19 @@ export const StyledInput = styled.input<{
 
   ${variant(inputVariants)}
 
-  ${props =>
+  ${(props) =>
     props.hasPrefix &&
     css`
       padding-left: 35px;
     `}
 
-  ${props =>
+  ${(props) =>
     props.hasSuffix &&
     css`
       padding-right: 35px;
     `}
 
-  ${props =>
+  ${(props) =>
     props.hasError &&
     props.variant === 'outline' &&
     css`
@@ -110,7 +110,7 @@ export const StyledInput = styled.input<{
       color: ${colors.red[500]};
     `}
 
-  ${props =>
+  ${(props) =>
     props.hasError &&
     props.variant === 'solid' &&
     css`

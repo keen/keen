@@ -58,14 +58,14 @@ const Step = ({
           return (
             <g
               key={key}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 onMouseEnter(e, transformedItem);
                 setActiveStep(transformedItem);
               }}
-              onMouseMove={e => {
+              onMouseMove={(e) => {
                 onMouseMove(e, transformedItem);
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 onMouseLeave(e);
                 setActiveStep(null);
               }}

@@ -21,7 +21,7 @@ const setup = (overProps: Record<string, any> = {}) => {
     <Formik
       onSubmit={submitMock}
       initialValues={initialValues}
-      validate={values => {
+      validate={(values) => {
         const errors: { email?: string } = {};
         if (!values.email) {
           errors.email = 'required';

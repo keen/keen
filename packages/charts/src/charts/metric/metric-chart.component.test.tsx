@@ -30,7 +30,7 @@ const setup = (overProps: any = {}) => {
 
 describe('@keen.io/charts - <MetricChart />', () => {
   it('should apply format function', () => {
-    const mockFn = jest.fn().mockImplementation(value => `Total ${value}`);
+    const mockFn = jest.fn().mockImplementation((value) => `Total ${value}`);
     const { findValue } = setup({ formatValue: mockFn });
 
     const label = findValue().first();

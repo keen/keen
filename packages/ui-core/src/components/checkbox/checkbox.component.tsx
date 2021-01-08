@@ -40,7 +40,7 @@ export const Checkbox: FC<Props> = ({
         id={id}
         checked={checked}
         disabled={disabled}
-        onChange={e => onChange && onChange(e)}
+        onChange={(e) => onChange && onChange(e)}
       />
       <StyledCheckbox checked={checked} type={type}>
         <AnimatePresence>

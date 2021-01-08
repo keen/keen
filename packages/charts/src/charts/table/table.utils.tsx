@@ -61,10 +61,10 @@ export const setColumnsOrder = (
   data: Record<string, any>[]
 ) => {
   const dataKeys = Object.keys(data[0]);
-  const filteredOrder = order.filter(o => dataKeys.includes(o));
+  const filteredOrder = order.filter((o) => dataKeys.includes(o));
   const columnsOrder = [...new Set([...filteredOrder, ...dataKeys])];
 
-  return data.map(item =>
+  return data.map((item) =>
     columnsOrder.reduce((acc, key) => ({ ...acc, [key]: item[key] }), {})
   );
 };

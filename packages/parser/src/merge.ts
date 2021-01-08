@@ -18,7 +18,7 @@ export const mergeResults = (
     parserOutput[idx].results.forEach((item, itemIndex: number) => {
       const mergedData = data[itemIndex] || {};
 
-      extractedKeys.forEach(key => {
+      extractedKeys.forEach((key) => {
         const mergedKey = `${computedKey}.${key}`;
         mergedData[KEEN_KEY] = item[KEEN_KEY];
 

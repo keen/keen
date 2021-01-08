@@ -36,8 +36,8 @@ export const invalidQuery = () => {
         analysis_type: 'count',
         steps: [],
       })
-      .then(res => dataviz.render(res))
-      .catch(err => dataviz.error(err.body));
+      .then((res) => dataviz.render(res))
+      .catch((err) => dataviz.error(err.body));
   }, []);
 
   return <div style={{ width: '600px', height: '400px' }} ref={container} />;

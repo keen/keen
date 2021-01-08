@@ -23,7 +23,7 @@ export const Item = styled.li<{
   flex-basis: 50%;
   margin-bottom: 10px;
   font-family: 'Lato Regular', sans-serif;
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   font-size: 12px;
   line-height: 14px;
 

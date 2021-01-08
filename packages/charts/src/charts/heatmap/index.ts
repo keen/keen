@@ -2,4 +2,5 @@ import HeatmapChart, {
   Props as HeatmapChartSettings,
 } from './heatmap-chart.component';
 
-export { HeatmapChart, HeatmapChartSettings };
+export { HeatmapChart };
+export type { HeatmapChartSettings };

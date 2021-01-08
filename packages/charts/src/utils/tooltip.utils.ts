@@ -60,7 +60,7 @@ export const getCircularChartTooltipContent = ({
 
     if (selectors.length > 1) {
       const filteredData = data.filter(
-        el => !disabledLabels.includes(el[labelSelector])
+        (el) => !disabledLabels.includes(el[labelSelector])
       );
       const allValuesTotal = calculateTotalValue(
         filteredData,

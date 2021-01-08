@@ -57,7 +57,7 @@ export const TagManager: FC<Props> = ({
         <StyledInput
           ref={inputElement}
           placeholder={placeholder}
-          onBlur={e => {
+          onBlur={(e) => {
             const tag = e.currentTarget.value;
             if (validator(tag) && !tags.includes(tag)) {
               onCreate(tag);

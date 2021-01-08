@@ -143,7 +143,7 @@ export const TableChart = ({
   useEffect(() => {
     const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
     if (hasOverflow) {
-      setOverflow(state => ({
+      setOverflow((state) => ({
         ...state,
         overflowRight: true,
       }));
@@ -210,7 +210,7 @@ export const TableChart = ({
                     const tooltipX = e.pageX - left - window.scrollX;
                     const tooltipY = e.pageY - top - window.scrollY;
 
-                    setTooltip(state => ({
+                    setTooltip((state) => ({
                       ...state,
                       visible: true,
                       x: tooltipX,
@@ -218,7 +218,7 @@ export const TableChart = ({
                     }));
 
                     tooltipHide.current = setTimeout(() => {
-                      setTooltip(state => ({
+                      setTooltip((state) => ({
                         ...state,
                         visible: false,
                         x: 0,

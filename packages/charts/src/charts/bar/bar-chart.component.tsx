@@ -148,7 +148,7 @@ export const BarChart: FC<Props> = ({
           svgElement={svgElement}
           useDynamicLayout={useDynamicLayout}
           initialMargins={margins}
-          onComputeLayout={margins => {
+          onComputeLayout={(margins) => {
             setLayoutMargins(margins);
             setLayoutReady(true);
           }}

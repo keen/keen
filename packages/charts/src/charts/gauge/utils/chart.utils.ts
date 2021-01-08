@@ -49,7 +49,7 @@ export const generateGauge = ({
     height / 2 - margins.top - margins.bottom,
   ]);
 
-  const progressValue = sum(data.map(item => item[valueKey]));
+  const progressValue = sum(data.map((item) => item[valueKey]));
   const minimum = minValue === 'auto' ? DEFAULT_MIN : minValue;
   const maximum = maxValue === 'auto' ? DEFAULT_MAX : maxValue;
 

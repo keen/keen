@@ -27,7 +27,7 @@ export const Item = styled.div<{ isActive: boolean }>`
   font-family: 'Lato Regular', sans-serif;
   color: ${colors.blue[500]};
 
-  ${props =>
+  ${(props) =>
     props.isActive &&
     css`
       background: ${transparentize(0.7, colors.blue[100])};

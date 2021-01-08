@@ -39,10 +39,7 @@ describe('@keen.io/ui-core - <RangeSlider />', () => {
   it('should show tooltip for "mouseEnter" event on minimum drag control', () => {
     const wrapper = mount(<RangeSlider {...props} />);
 
-    wrapper
-      .find(Mark)
-      .first()
-      .simulate('mouseEnter');
+    wrapper.find(Mark).first().simulate('mouseEnter');
 
     expect(wrapper.find(Tooltip).length).toBeTruthy();
   });
@@ -50,10 +47,7 @@ describe('@keen.io/ui-core - <RangeSlider />', () => {
   it('should show tooltip for "mouseEnter" event on maximum drag control', () => {
     const wrapper = mount(<RangeSlider {...props} />);
 
-    wrapper
-      .find(Mark)
-      .last()
-      .simulate('mouseEnter');
+    wrapper.find(Mark).last().simulate('mouseEnter');
 
     expect(wrapper.find(Tooltip).length).toBeTruthy();
   });

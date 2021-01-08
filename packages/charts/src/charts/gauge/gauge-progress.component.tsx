@@ -34,7 +34,7 @@ const GaugeProgress: FC<Props> = ({
 
   useEffect(() => {
     const interpolator = interpolateNumber(minimum, value);
-    spring.onChange(v => setProgressValue(Math.round(interpolator(v))));
+    spring.onChange((v) => setProgressValue(Math.round(interpolator(v))));
     initialValue.set(value);
   }, []);
 

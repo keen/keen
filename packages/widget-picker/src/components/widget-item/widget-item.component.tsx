@@ -56,7 +56,7 @@ const WidgetItem: FC<Props> = ({
     <Container
       data-testid="widget-item"
       isActive={isActive || settingsVisible}
-      onClick={e => !isActive && onClick(e)}
+      onClick={(e) => !isActive && onClick(e)}
     >
       <Icon width={18} height={18} type={icon} fill={colors.blue[500]} />
       {hasOptions && (

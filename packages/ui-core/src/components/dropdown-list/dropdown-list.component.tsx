@@ -42,7 +42,7 @@ const DropdownList = forwardRef(
               isActive={isActive}
               ref={isActive ? ref : null}
               key={idx}
-              onClick={e => onClick(e, item)}
+              onClick={(e) => onClick(e, item)}
             >
               {renderItem(item, isActive)}
             </ListItem>

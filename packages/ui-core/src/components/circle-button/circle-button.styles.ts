@@ -30,7 +30,7 @@ export const StyledButton = styled.button<Props>`
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     -webkit-box-shadow 0.15s ease-in-out;
 
-  ${props =>
+  ${(props) =>
     props.isDisabled &&
     css`
       opacity: 0.85;

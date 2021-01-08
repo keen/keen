@@ -14,8 +14,9 @@ type ButtonProps = {
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   text-decoration: none;
-  border-radius: ${props => (props.borderRadius ? props.borderRadius : '4px')};
-  background-color: ${props =>
+  border-radius: ${(props) =>
+    props.borderRadius ? props.borderRadius : '4px'};
+  background-color: ${(props) =>
     props.background
       ? props.background
       : transparentize(0.85, colors.blue['100'])};
@@ -29,7 +30,7 @@ export const StyledButton = styled.button<ButtonProps>`
   justify-content: center;
   transition: background-color 0.15s ease-in-out;
 
-  ${props =>
+  ${(props) =>
     props.isDisabled &&
     css`
       opacity: 0.5;
@@ -38,7 +39,7 @@ export const StyledButton = styled.button<ButtonProps>`
 
   &:hover {
     text-decoration: none;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.backgroundHover
         ? props.backgroundHover
         : transparentize(0.75, colors.blue['100'])};
@@ -54,12 +55,12 @@ export const StyledIcon = styled.span<IconProps>`
   font-size: 25px;
   line-height: 30px;
 
-  ${props =>
+  ${(props) =>
     props.action === 'create' &&
     css`
       color: ${colors.green['500']};
     `}
-  ${props =>
+  ${(props) =>
     props.action === 'remove' &&
     css`
       color: ${colors.red['200']};

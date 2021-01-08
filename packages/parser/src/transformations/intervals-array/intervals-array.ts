@@ -17,9 +17,9 @@ export const transformIntervalsFromArray = (
   const data: Record<string, any> = {};
 
   values
-    .map(value => transformAtomicResult(value, mergePropertiesOrder))
+    .map((value) => transformAtomicResult(value, mergePropertiesOrder))
     .forEach(({ result, ...properties }) => {
-      Object.values(properties).forEach(name => {
+      Object.values(properties).forEach((name) => {
         keys.add(name as string);
         data[name] = result;
       });
