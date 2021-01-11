@@ -21,9 +21,7 @@ jest.mock('d3-time');
 const FIRST_DATE = new Date('2020-01-01T00:00:00.000Z');
 const LAST_DATE = new Date('2020-06-01T00:00:00.000Z');
 
-const scale = scaleTime()
-  .range([0, 10])
-  .domain([FIRST_DATE, LAST_DATE]);
+const scale = scaleTime().range([0, 10]).domain([FIRST_DATE, LAST_DATE]);
 
 test('calls time modifier with scale steps range', () => {
   const stepRange = 10;

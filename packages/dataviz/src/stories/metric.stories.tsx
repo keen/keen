@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Metric Chart/Dataviz',
+  title: 'Visualizations /Metric Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Metrics created with @keen.io/dataviz library',
   },

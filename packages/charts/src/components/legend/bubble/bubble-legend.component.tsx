@@ -92,12 +92,12 @@ export const BubbleLegend: FC<Props> = ({
       <LegendWrapper>
         <TitleWrapper
           ref={wrapperRef}
-          onMouseEnter={e => {
+          onMouseEnter={(e) => {
             if (truncate) {
               updateTooltipPosition(e);
             }
           }}
-          onMouseMove={e => {
+          onMouseMove={(e) => {
             if (truncate) {
               updateTooltipPosition(e);
             }

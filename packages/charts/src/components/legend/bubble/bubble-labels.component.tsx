@@ -32,7 +32,7 @@ export const Labels: FC<Props> = ({
 
   return (
     <>
-      {legendRadius.map(radius => {
+      {legendRadius.map((radius) => {
         const x = maxRange;
         const y = typography?.fontSize
           ? maxRange * 2 - verticalPosition(radius) + typography?.fontSize

@@ -15,9 +15,7 @@ const transition = {
 };
 
 const createMotion = (color: string) => {
-  const [r, g, b] = Color(color)
-    .rgb()
-    .array();
+  const [r, g, b] = Color(color).rgb().array();
   return {
     hidden: {
       opacity: 0,

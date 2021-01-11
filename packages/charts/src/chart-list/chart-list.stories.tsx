@@ -164,7 +164,7 @@ export const areaChartPlot = () => (
       xScaleSettings={{
         type: 'time',
         precision: 'month',
-        formatLabel: date => {
+        formatLabel: (date) => {
           const format = timeFormat('%d %b');
           return format(date);
         },
@@ -198,7 +198,7 @@ export const bubbleChartPlot = () => (
 export const choroplethChartPlot = () => {
   const [topology, setTopology] = React.useState(null);
   React.useEffect(() => {
-    fetchMapTopology('world').then(mapTopology => {
+    fetchMapTopology('world').then((mapTopology) => {
       setTopology(mapTopology);
     });
   }, []);
@@ -292,7 +292,7 @@ export const lineChartPlot = () => (
       xScaleSettings={{
         type: 'time',
         precision: 'month',
-        formatLabel: date => {
+        formatLabel: (date) => {
           const format = timeFormat('%d %b');
           return format(date);
         },

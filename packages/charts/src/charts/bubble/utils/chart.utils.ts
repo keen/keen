@@ -29,9 +29,7 @@ const createScale = ({
   key: string;
 }) => {
   const { minimum, maximum } = calculateRange(data, 'auto', 'auto', [key]);
-  const scale = scaleLinear()
-    .domain([minimum, maximum])
-    .range(range);
+  const scale = scaleLinear().domain([minimum, maximum]).range(range);
   calculateScaleDomain(scale, minimum, maximum);
 
   return {

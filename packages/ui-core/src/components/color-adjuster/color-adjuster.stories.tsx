@@ -6,7 +6,7 @@ import { colors } from '@keen.io/colors';
 import ColorAdjuster from './color-adjuster.component';
 
 export default {
-  title: 'Components|Color Adjuster',
+  title: 'Components /Color Adjuster',
   parameters: {
     component: ColorAdjuster,
     componentSubtitle: 'Adjust color based on HSL lightness property',
@@ -16,7 +16,7 @@ export default {
 const ColorCard = styled.div<{ background: string }>`
   width: 80px;
   height: 80px;
-  background: ${props => props.background};
+  background: ${(props) => props.background};
 
   display: flex;
   justify-content: center;
@@ -33,12 +33,12 @@ export const palette = () => {
 
   return (
     <Grid>
-      {colorNames.map(name => {
+      {colorNames.map((name) => {
         const saturationLevels = Object.keys(colors[name]);
-        const palette = saturationLevels.map(saturation => (
+        const palette = saturationLevels.map((saturation) => (
           <ColorCard key={saturation} background={colors[name][saturation]}>
             <ColorAdjuster baseColor={colors[name][saturation]}>
-              {adjustedColor => (
+              {(adjustedColor) => (
                 <div style={{ color: adjustedColor }}>
                   {name}
                   {saturation}

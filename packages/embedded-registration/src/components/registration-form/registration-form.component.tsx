@@ -64,7 +64,7 @@ export const RegisterationForm: FC<Props> = ({
     onSubmit={(values: FormValues, actions) => {
       actions.setSubmitting(true);
       onSignup(values)
-        .then(user => {
+        .then((user) => {
           if ('organizationId' in user) {
             const { organizationId } = user;
             onSuccess(organizationId, values.companyDisclaimer);

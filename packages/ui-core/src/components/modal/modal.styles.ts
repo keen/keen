@@ -21,7 +21,7 @@ export const MotionContainer = styled(motion.div)<{
 }>`
   position: absolute;
   left: 50%;
-  top: ${props => 60 + props.scrollY}px;
+  top: ${(props) => 60 + props.scrollY}px;
   z-index: ${UI_LAYERS.modal};
 
   display: flex;

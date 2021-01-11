@@ -4,7 +4,7 @@ export const fillWithEmptyKeys = (
   emptyValue: string | number = ''
 ) => {
   let emptyKeysObject = {};
-  keys.forEach(key => {
+  keys.forEach((key) => {
     emptyKeysObject = {
       ...emptyKeysObject,
       [key]: emptyValue,

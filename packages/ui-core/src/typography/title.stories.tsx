@@ -4,7 +4,7 @@ import { loremIpsum } from 'lorem-ipsum';
 import { Title } from './title.component';
 
 export default {
-  title: 'Components | Typography',
+  title: 'Components / Typography',
   parameters: {
     component: Title,
     componentSubtitle: 'Title component',

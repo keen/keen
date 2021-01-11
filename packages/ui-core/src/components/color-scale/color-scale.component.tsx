@@ -27,7 +27,7 @@ const ColorScale = ({
       {mode === 'continuous' ? (
         <RangeSlider colors={colors} minimum={0} maximum={100} />
       ) : (
-        colors.map(el => <ColorCard key={el} background={el} />)
+        colors.map((el) => <ColorCard key={el} background={el} />)
       )}
     </>
   );

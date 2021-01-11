@@ -27,7 +27,7 @@ export const ListItem = styled.li<{
     background: ${transparentize(0.8, colors.green[100])};
   }
 
-  ${props =>
+  ${(props) =>
     props.isActive &&
     css`
       background: ${transparentize(0.8, colors.green[100])};

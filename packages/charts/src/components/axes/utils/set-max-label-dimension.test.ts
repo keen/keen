@@ -32,9 +32,7 @@ describe('setXLabelsDimension()', () => {
   test('calculates maximum dimension based on scale band', () => {
     const result = setXLabelsDimension({
       svgDimensions,
-      scale: scaleBand()
-        .range([0, 100])
-        .domain(['marketing', 'it']),
+      scale: scaleBand().range([0, 100]).domain(['marketing', 'it']),
       axisTheme: {
         ...theme.axisX,
         labels: {

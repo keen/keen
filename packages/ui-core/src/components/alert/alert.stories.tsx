@@ -4,7 +4,7 @@ import { loremIpsum } from 'lorem-ipsum';
 import { Alert } from './alert.component';
 
 export default {
-  title: 'Styleguide | Alert',
+  title: 'Styleguide / Alert',
   parameters: {
     component: Alert,
     componentSubtitle:

@@ -5,7 +5,7 @@ import { colors } from '@keen.io/colors';
 import { FadeLoader } from './fade-loader.component';
 
 export default {
-  title: 'Components|Loaders / Fade',
+  title: 'Components /Loaders / Fade',
   parameters: {
     component: FadeLoader,
     componentSubtitle: 'Displays animated brand loader',

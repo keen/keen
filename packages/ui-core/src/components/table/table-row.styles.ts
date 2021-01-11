@@ -9,10 +9,10 @@ export const Container = styled(motion.tr)<{
   position: relative;
 
   &:nth-child(odd) {
-    background: ${props => rgba(props.mainColor, 0.05)};
+    background: ${(props) => rgba(props.mainColor, 0.05)};
   }
 
-  ${props =>
+  ${(props) =>
     !props.isColumnDragged &&
     css`
       &:hover {

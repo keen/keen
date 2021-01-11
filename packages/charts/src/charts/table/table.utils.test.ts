@@ -54,7 +54,7 @@ describe('<TableChart />', () => {
   describe('generateHeader()', () => {
     const data = { name: 'Krzys', age: 31, city: 'San antonio' };
     it('should generate header: formatted age property', () => {
-      const format = { age: el => `${el}-a` };
+      const format = { age: (el) => `${el}-a` };
       const header = generateHeader(data, format);
       expect(header).toMatchInlineSnapshot(`
         Array [
@@ -81,7 +81,7 @@ describe('<TableChart />', () => {
       { name: 'Bartek', age: 26, city: 'Houston' },
     ];
     it('should generate header: formatted all values', () => {
-      const format = el => `${el}-a`;
+      const format = (el) => `${el}-a`;
       const header = generateTable(data, format);
       expect(header).toMatchInlineSnapshot(`
         Array [
@@ -104,7 +104,7 @@ describe('<TableChart />', () => {
       `);
     });
     it('should generate header: formatted city values', () => {
-      const format = { city: el => `Viva ${el}` };
+      const format = { city: (el) => `Viva ${el}` };
       const header = generateTable(data, format);
       expect(header).toMatchInlineSnapshot(`
         Array [

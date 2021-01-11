@@ -19,7 +19,7 @@ describe('@keen.io/ui-core - <Ruler />', () => {
   });
 
   it('should use custom label "renderer"', () => {
-    const renderLabel = value => <div className="custom">{value}</div>;
+    const renderLabel = (value) => <div className="custom">{value}</div>;
     const wrapper = mount(
       <Ruler layout="vertical" renderLabel={renderLabel} ticks={ticks} />
     );
@@ -32,10 +32,7 @@ describe('@keen.io/ui-core - <Ruler />', () => {
     const wrapper = mount(
       <Ruler layout="vertical" ticks={ticks} onClick={onClick} />
     );
-    wrapper
-      .find(PositionContainer)
-      .first()
-      .simulate('click');
+    wrapper.find(PositionContainer).first().simulate('click');
 
     expect(onClick).toHaveBeenCalled();
   });

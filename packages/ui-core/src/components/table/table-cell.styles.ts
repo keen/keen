@@ -16,5 +16,5 @@ export const Container = styled.div<{
   textAlignment: CellTextAlignment;
 }>`
   padding: 15px;
-  text-align: ${props => props.textAlignment};
+  text-align: ${(props) => props.textAlignment};
 `;

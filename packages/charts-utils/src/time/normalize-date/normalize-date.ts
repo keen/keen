@@ -42,7 +42,7 @@ export const normalizeDate = (
   const parsedDate = parseTime(date);
 
   const dateModifiers = TIME_PRECISION_MODIFIERS[precision];
-  dateModifiers.forEach(fn => fn(parsedDate));
+  dateModifiers.forEach((fn) => fn(parsedDate));
 
   return parsedDate;
 };

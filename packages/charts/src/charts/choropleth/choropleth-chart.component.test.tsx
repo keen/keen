@@ -19,7 +19,7 @@ const render = (overProps: any = {}) => {
   const colorMode = 'continuous';
   const colorSteps = 5;
   const valueKey = 'result';
-  const formatTooltip = value => `$${value}`;
+  const formatTooltip = (value) => `$${value}`;
 
   const props = {
     svgDimensions,

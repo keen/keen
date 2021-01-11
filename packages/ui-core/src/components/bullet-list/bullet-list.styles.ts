@@ -23,5 +23,5 @@ export const BulletPoint = styled.div<{
   height: 8px;
   margin-right: 6px;
   border-radius: 50%;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
 `;

@@ -28,7 +28,7 @@ import { chartData } from './area-chart.widget.fixtures';
 import { widgetSettings } from '../../widget-settings';
 
 export default {
-  title: 'Visualizations|Area Chart|Widget',
+  title: 'Visualizations /Area Chart / Widget',
   parameters: {
     component: AreaChartWidget,
     componentSubtitle: 'Widget to be directly integrated on website',

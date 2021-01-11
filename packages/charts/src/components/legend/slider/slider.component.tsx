@@ -21,7 +21,7 @@ const mapChildren = (children: React.ReactNode, chunks: number) => {
   if (chunks > 1)
     return (
       <Group chunks={chunks}>
-        {React.Children.map(children, child => (
+        {React.Children.map(children, (child) => (
           <SliderItem>{child}</SliderItem>
         ))}
       </Group>
@@ -62,12 +62,12 @@ const LegendSlider = ({
       slider.current,
       mode
     );
-    setScroll(state => ({
+    setScroll((state) => ({
       ...state,
       maxScroll: offsetScroll - offset,
     }));
 
-    const offsetSubscription = motionScroll.onChange(position => {
+    const offsetSubscription = motionScroll.onChange((position) => {
       slider.current[sliderProperty] = position;
     });
 
@@ -115,11 +115,11 @@ const LegendSlider = ({
       </Button>
       <ScrollMask
         ref={slider}
-        onScroll={e => {
+        onScroll={(e) => {
           e.persist();
           const offset = e.currentTarget[sliderProperty];
           motionScroll.set(offset, false);
-          setScroll(state => ({
+          setScroll((state) => ({
             ...state,
             scroll: offset,
           }));

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { Checkbox } from './checkbox.component';
 
 export default {
-  title: 'Components| Forms / Checkbox',
+  title: 'Components / Forms / Checkbox',
   parameters: {
     component: Checkbox,
     componentSubtitle: 'Checkbox component',

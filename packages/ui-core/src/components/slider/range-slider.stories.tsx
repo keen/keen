@@ -5,7 +5,7 @@ import { RangeSlider } from './range-slider.component';
 import Ruler from '../ruler';
 
 export default {
-  title: 'Components|Range Slider',
+  title: 'Components /Range Slider',
   parameters: {
     component: RangeSlider,
     componentSubtitle: 'Slider that operates on range custom range values',

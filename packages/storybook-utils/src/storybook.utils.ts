@@ -3,8 +3,8 @@ export const getGoogleFonts = async () => {
     'https://www.googleapis.com/webfonts/v1/webfonts/?key=AIzaSyC529qus-Wu8LEftuMjSSBOt7mKu5lMm2E';
 
   const fonts = await fetch(GOOGLE_FONTS_API)
-    .then(data => data.json())
-    .then(res => {
+    .then((data) => data.json())
+    .then((res) => {
       const { items } = res;
       const filteredItems = items
         .filter(
@@ -15,7 +15,7 @@ export const getGoogleFonts = async () => {
 
       return filteredItems;
     })
-    .catch(err => console.error(err));
+    .catch((err) => console.error(err));
 
   return fonts;
 };

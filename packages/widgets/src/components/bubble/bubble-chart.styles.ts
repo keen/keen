@@ -10,7 +10,7 @@ export const LegendContainer = styled.div<{
   align-items: center;
   height: 100%;
 
-  ${props =>
+  ${(props) =>
     (props.position === 'left' || props.position === 'right') &&
     css`
       & > div {
@@ -18,7 +18,7 @@ export const LegendContainer = styled.div<{
         margin-bottom: 20px;
       }
     `}
-  ${props =>
+  ${(props) =>
     (props.position === 'top' || props.position === 'bottom') &&
     css`
       & > div {

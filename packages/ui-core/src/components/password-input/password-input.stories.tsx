@@ -3,7 +3,7 @@ import * as React from 'react';
 import { PasswordInput } from './password-input.component';
 
 export default {
-  title: 'Components| Forms / Password Input',
+  title: 'Components / Forms / Password Input',
   parameters: {
     component: PasswordInput,
     componentSubtitle: 'Input dedicated for password',

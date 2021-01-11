@@ -7,7 +7,7 @@ import KeenDataViz from '../visualizer';
 import { analysisConfig } from '../fixture';
 
 export default {
-  title: 'Visualizations|Donut Chart/Dataviz',
+  title: 'Visualizations /Donut Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Donut charts created with @keen.io/dataviz library',
   },

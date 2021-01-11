@@ -21,7 +21,7 @@ import { CurveType } from '../line/types';
 import { GroupMode, StackMode, Theme } from '../../types';
 
 export default {
-  title: 'Visualizations|Area Chart|Plot',
+  title: 'Visualizations / Area Chart / Plot',
   parameters: {
     component: AreaChart,
     componentSubtitle: 'Area Chart plot',
@@ -39,7 +39,7 @@ const createThemeKnobs = () => ({
 export const plot = () => {
   const formatKnob = text('Date label format', '%d %b', 'Chart');
 
-  const createLabelFormatter = (dateFormat = '%D %b') => date => {
+  const createLabelFormatter = (dateFormat = '%D %b') => (date) => {
     const format = timeFormat(dateFormat);
     return format(date);
   };

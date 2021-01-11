@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 import TableChart from './table-chart.component';
 
 export default {
-  title: 'Visualizations|Table Chart|Plot',
+  title: 'Visualizations /Table Chart / Plot',
   parameters: {
     component: TableChart,
   },

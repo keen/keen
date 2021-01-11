@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Ruler } from './ruler.component';
 
 export default {
-  title: 'Components|Ruler',
+  title: 'Components /Ruler',
   parameters: {
     component: Ruler,
     componentSubtitle: 'Displays customized "ruler" with labels',

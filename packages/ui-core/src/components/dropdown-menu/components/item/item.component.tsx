@@ -11,7 +11,7 @@ type Props = {
 
 export const Item: FC<Props> = ({ children, onClick }) => (
   <Container
-    onClick={e => onClick && onClick(e)}
+    onClick={(e) => onClick && onClick(e)}
     role="listitem"
     data-testid="dropdown-menu-item"
   >

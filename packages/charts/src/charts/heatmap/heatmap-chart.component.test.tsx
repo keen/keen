@@ -15,7 +15,7 @@ const render = (overProps: any = {}) => {
   const labelSelector = 'name';
   const keys = ['users', 'licenses', 'shops'];
   const svgDimensions = { width: 700, height: 500 };
-  const formatTooltip = value => `$${value}`;
+  const formatTooltip = (value) => `$${value}`;
 
   const props = {
     svgDimensions,
@@ -63,7 +63,7 @@ afterAll(() => {
 });
 
 test('formats tooltip value', async () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };

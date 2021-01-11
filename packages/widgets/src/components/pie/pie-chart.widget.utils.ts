@@ -12,7 +12,7 @@ export const createLegendLabels = (
       name: item[labelSelector],
       color: colors[idx],
     }))
-    .filter(item => !stackElem.includes(item.name));
+    .filter((item) => !stackElem.includes(item.name));
 
   if (stackElem.length) {
     labels.push({

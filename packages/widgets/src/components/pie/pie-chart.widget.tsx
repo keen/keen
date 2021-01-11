@@ -56,7 +56,7 @@ export const PieChartWidget: FC<Props> = ({
             {...legend}
             onClick={(key, disabled) => {
               if (key === OTHERS_DATA_KEY) {
-                stackedElem.forEach(el => updateKeys(el, disabled));
+                stackedElem.forEach((el) => updateKeys(el, disabled));
               } else {
                 updateKeys(key, disabled);
               }
@@ -75,7 +75,7 @@ export const PieChartWidget: FC<Props> = ({
           {(width: number, height: number) => (
             <PieChart
               {...props}
-              onDataStack={res => setStackedElem(res)}
+              onDataStack={(res) => setStackedElem(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
               theme={theme}

@@ -5,7 +5,7 @@ export const mergeOptions = (
   chartOptions: OptionsGroup[],
   settings: ChartSettings | WidgetSettings
 ) => {
-  const options = chartOptions.filter(group => group.id !== id);
+  const options = chartOptions.filter((group) => group.id !== id);
 
   const mergedSettings = options.reduce((acc, item) => {
     let groupSettings = {};

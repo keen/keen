@@ -3,4 +3,5 @@ import ChoroplethChart, {
 } from './choropleth-chart.component';
 import { fetchMapTopology } from './utils';
 
-export { ChoroplethChart, ChoroplethChartSettings, fetchMapTopology };
+export { ChoroplethChart, fetchMapTopology };
+export type { ChoroplethChartSettings };

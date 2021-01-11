@@ -12,7 +12,7 @@ export const schema = Yup.object().shape({
       ' '
     ),
   companyName: Yup.string().when('companyDisclaimer', {
-    is: val => val === false,
+    is: (val) => val === false,
     then: Yup.string().required(
       'Please enter the company name or click the box below the field'
     ),

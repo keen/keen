@@ -9,7 +9,7 @@ import DropdownList from '../dropdown-list';
 import Button from '../button';
 
 export default {
-  title: 'Styleguide | ScrollWrapper',
+  title: 'Styleguide / ScrollWrapper',
   parameters: {
     component: ScrollWrapper,
     componentSubtitle: 'Scroll wrapper',
