@@ -89,6 +89,8 @@ export type {
   OAuthConfig,
 };
 
+export { isElementInViewport } from './utils';
+
 export {
   Anchor,
   Alert,
