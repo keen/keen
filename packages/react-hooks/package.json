@@ -27,7 +27,7 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "peerDependencies": {
-    "react": "^>=16"
+    "react": ">=16"
   },
   "dependencies": {
     "d3-array": "^2.7.1",
