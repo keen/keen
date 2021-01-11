@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.6.1...@keen.io/ui-core@2.7.0) (2021-01-11)
+
+
+### Features
+
+* 🎸 radio component ([6decd5e](https://github.com/keen/keen/commit/6decd5e0b8b6a2d2128edd8af1e0e3b066757996))
+
+
+
+
+
 ## [2.6.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.6.0...@keen.io/ui-core@2.6.1) (2021-01-11)
 
 **Note:** Version bump only for package @keen.io/ui-core
