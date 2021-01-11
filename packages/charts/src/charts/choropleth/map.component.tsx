@@ -101,9 +101,9 @@ export const Map: FC<Props> = ({
                 fill={color}
                 strokeWidth="0.5"
                 stroke={map.stroke}
-                onMouseEnter={e => onMouseEnter(e, meta)}
-                onMouseMove={e => onMouseEnter(e, meta)}
-                onMouseLeave={e => onMouseLeave(e)}
+                onMouseEnter={(e) => onMouseEnter(e, meta)}
+                onMouseMove={(e) => onMouseEnter(e, meta)}
+                onMouseLeave={(e) => onMouseLeave(e)}
               />
             </motion.g>
           );

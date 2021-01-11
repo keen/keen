@@ -50,7 +50,7 @@ describe('@keen/charts', () => {
         colors: theme.colors,
       });
 
-      steps.forEach(step => {
+      steps.forEach((step) => {
         const { percentageValue, nextPercentageValue } = step;
         expect(percentageValue).toEqual(0);
         expect(nextPercentageValue).toEqual(0);

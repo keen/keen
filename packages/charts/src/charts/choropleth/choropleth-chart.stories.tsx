@@ -13,7 +13,7 @@ import { fetchMapTopology } from './utils';
 import { chartData } from './choropleth-chart.fixtures';
 
 export default {
-  title: 'Visualizations|Choropleth Chart|Plot',
+  title: 'Visualizations /Choropleth Chart / Plot',
   parameters: {
     component: ChoroplethChart,
     componentSubtitle: 'Choropleth Chart plot',
@@ -33,7 +33,7 @@ const projectionRotateRange = {
 export const plot = () => {
   const [topology, setTopology] = React.useState(null);
   React.useEffect(() => {
-    fetchMapTopology('world').then(mapTopology => {
+    fetchMapTopology('world').then((mapTopology) => {
       setTopology(mapTopology);
     });
   }, []);

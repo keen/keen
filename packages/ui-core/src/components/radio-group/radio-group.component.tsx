@@ -15,7 +15,7 @@ type Props = {
 
 const RadioGroup: FC<Props> = ({ items, onClick, activeItem }) => (
   <Container>
-    {items.map(item => (
+    {items.map((item) => (
       <Item
         key={item.id}
         isActive={item.id === activeItem}

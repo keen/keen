@@ -2,4 +2,5 @@ import DonutChart, {
   Props as DonutChartSettings,
 } from './donut-chart.component';
 
-export { DonutChart, DonutChartSettings };
+export { DonutChart };
+export type { DonutChartSettings };

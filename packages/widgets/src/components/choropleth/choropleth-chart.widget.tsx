@@ -48,7 +48,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
   useEffect(() => {
     if (geographicArea) {
       setLoading(true);
-      fetchMapTopology(geographicArea).then(mapTopology => {
+      fetchMapTopology(geographicArea).then((mapTopology) => {
         setTopology(mapTopology);
         setLoading(false);
       });

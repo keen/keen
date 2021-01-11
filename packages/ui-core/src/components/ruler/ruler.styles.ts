@@ -10,13 +10,13 @@ export const Container = styled.div<{
 }>`
   position: relative;
 
-  ${props =>
+  ${(props) =>
     props.layout === 'horizontal' &&
     css`
       width: 100%;
     `}
 
-  ${props =>
+  ${(props) =>
     props.layout === 'vertical' &&
     css`
       height: 100%;
@@ -29,16 +29,16 @@ export const PositionContainer = styled.div<{
   pointer: boolean;
 }>`
   position: absolute;
-  cursor: ${props => props.pointer && 'pointer'};
+  cursor: ${(props) => props.pointer && 'pointer'};
 
-  ${props =>
+  ${(props) =>
     props.type === 'horizontal' &&
     css`
       left: ${props.position};
       transform: translateX(-50%);
     `}
 
-  ${props =>
+  ${(props) =>
     props.type === 'vertical' &&
     css`
       top: ${props.position};
@@ -53,7 +53,7 @@ export const Tick = styled.div<{
   position: absolute;
   background: ${colors.black['100']};
 
-  ${props =>
+  ${(props) =>
     props.type === 'horizontal' &&
     css`
       top: 0;
@@ -62,7 +62,7 @@ export const Tick = styled.div<{
       height: 5px;
     `}
 
-  ${props =>
+  ${(props) =>
     props.type === 'vertical' &&
     css`
       top: calc(${props.position} - ${POSITION_ALIGN});
@@ -79,14 +79,14 @@ export const Label = styled.div<{
   font-family: 'Lato Regular', sans-serif;
   color: ${colors.black['100']};
 
-  ${props =>
+  ${(props) =>
     props.type === 'horizontal' &&
     css`
       text-align: center;
       margin-top: 10px;
     `}
 
-  ${props =>
+  ${(props) =>
     props.type === 'vertical' &&
     css`
       text-align: left;

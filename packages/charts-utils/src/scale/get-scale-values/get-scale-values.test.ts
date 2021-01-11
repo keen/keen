@@ -25,9 +25,7 @@ test('returns domain for scale band', () => {
 });
 
 test('returns values from "linear" scale', () => {
-  const scale = scaleLinear()
-    .range([0, 10])
-    .domain([0, 10]);
+  const scale = scaleLinear().range([0, 10]).domain([0, 10]);
 
   expect(getScaleValues(scale)).toMatchSnapshot();
 });
@@ -36,9 +34,7 @@ test('returns time scale values in yearly range', () => {
   const firstDate = new Date('2017-01-01T00:00:00.000Z');
   const lastDate = new Date('2020-01-01T00:00:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = { type: 'time', precision: 'year' };
 
@@ -56,9 +52,7 @@ test('returns time scale values in monthly range', () => {
   const firstDate = new Date('2020-01-01T00:00:00.000Z');
   const lastDate = new Date('2020-03-01T00:00:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = { type: 'time', precision: 'month' };
 
@@ -75,9 +69,7 @@ test('returns time scale values in weekly range', () => {
   const firstDate = new Date('2020-01-15T00:00:00.000Z');
   const lastDate = new Date('2020-02-15T00:00:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = { type: 'time', precision: 'week' };
 
@@ -96,9 +88,7 @@ test('returns time scale values in daily range', () => {
   const firstDate = new Date('2020-01-01T00:00:00.000Z');
   const lastDate = new Date('2020-01-05T00:00:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = { type: 'time', precision: 'day' };
 
@@ -117,9 +107,7 @@ test('returns time scale values in hours range', () => {
   const firstDate = new Date('2020-01-15T12:00:00.000Z');
   const lastDate = new Date('2020-01-15T16:00:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = { type: 'time', precision: 'hour' };
 
@@ -138,9 +126,7 @@ test('returns time scale values in minute range', () => {
   const firstDate = new Date('2020-01-15T12:00:00.000Z');
   const lastDate = new Date('2020-01-15T12:05:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = { type: 'time', precision: 'minute' };
 
@@ -160,9 +146,7 @@ test('returns time scale values in custom range', () => {
   const firstDate = new Date('2020-01-02T00:00:00.000Z');
   const lastDate = new Date('2020-01-15T00:00:00.000Z');
 
-  const scale = scaleTime()
-    .range([0, 10])
-    .domain([firstDate, lastDate]);
+  const scale = scaleTime().range([0, 10]).domain([firstDate, lastDate]);
 
   const scaleSettings: ScaleSettings = {
     type: 'time',

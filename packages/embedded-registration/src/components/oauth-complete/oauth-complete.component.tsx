@@ -29,7 +29,7 @@ const OAuthComplete: FC<Props> = ({ onSignup, onSuccess, onError }) => {
       const { token } = parse(locationParams) as OAuthLocationParams;
       if (token) {
         onSignup(token)
-          .then(user => {
+          .then((user) => {
             if ('organizationId' in user) {
               const { organizationId } = user;
               onSuccess(organizationId, false);

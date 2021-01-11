@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Label } from './label.component';
 
 export default {
-  title: 'Components|Label',
+  title: 'Components /Label',
   parameters: {
     component: Label,
     componentSubtitle: 'Displays label for form HTML input elements.',

@@ -10,7 +10,7 @@ import { PieChart } from './pie-chart.component';
 import { chartData } from './pie-chart.fixtures';
 
 export default {
-  title: 'Visualizations|Pie Chart|Plot',
+  title: 'Visualizations /Pie Chart / Plot',
   parameters: {
     component: PieChart,
     componentSubtitle: 'Pie Chart plot',

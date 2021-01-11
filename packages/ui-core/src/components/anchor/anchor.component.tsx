@@ -9,14 +9,14 @@ type Props = {
 };
 
 export const Anchor = styled.a<Props>`
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   font-family: 'Lato Bold', sans-serif;
   font-size: 14px;
   line-height: 16px;
   text-decoration: none;
 
   &:hover {
-    color: ${props => props.hoverColor};
+    color: ${(props) => props.hoverColor};
   }
 
   transition: all 0.2s linear;

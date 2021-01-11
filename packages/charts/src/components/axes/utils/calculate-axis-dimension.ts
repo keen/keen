@@ -52,7 +52,7 @@ const calculateAxisDimension = ({
   rootContainer
     .selectAll(labelsSelector)
     .nodes()
-    .forEach(node => {
+    .forEach((node) => {
       const labelElement = select(node);
       const text = labelElement.text();
 

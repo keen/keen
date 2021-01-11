@@ -9,13 +9,13 @@ export const Container = styled.div<{
   align-items: flex-start;
   height: 100%;
 
-  ${props =>
+  ${(props) =>
     props.position === 'center' &&
     css`
       align-items: center;
     `}
 
-  ${props =>
+  ${(props) =>
     props.position === 'bottom' &&
     css`
       align-items: flex-end;

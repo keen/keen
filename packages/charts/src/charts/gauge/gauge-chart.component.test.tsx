@@ -12,7 +12,7 @@ const render = (overProps: any = {}) => {
   const data = [{ 'keen.key': 'Result', 'keen.value': 100 }];
   const valueKey = 'keen.value';
   const svgDimensions = { width: 100, height: 100 };
-  const formatTooltip = value => `$${value}`;
+  const formatTooltip = (value) => `$${value}`;
 
   const props = {
     svgDimensions,

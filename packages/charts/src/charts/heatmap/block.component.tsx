@@ -40,14 +40,14 @@ const Block = ({ block, padding, onMouseEnter, onMouseLeave }: Props) => {
     <motion.g
       ref={element}
       {...rectMotion}
-      onMouseEnter={e => {
+      onMouseEnter={(e) => {
         onMouseEnter(e, block);
         setActive(true);
       }}
-      onMouseMove={e => {
+      onMouseMove={(e) => {
         onMouseEnter(e, block);
       }}
-      onMouseLeave={e => {
+      onMouseLeave={(e) => {
         onMouseLeave(e);
         setActive(false);
       }}

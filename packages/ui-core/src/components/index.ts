@@ -34,6 +34,7 @@ import Image from './image';
 import PasswordInput from './password-input';
 import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
+import TagManagement from './tag-management';
 import Error from './error';
 
 import { TableCell, TableRow, TableHeader, CellValue } from './table';
@@ -54,6 +55,8 @@ import ScrollWrapper from './scroll-wrapper';
 
 export { ARROW_SIZE };
 
+export type { CardSettings, TooltipMode, OAuthConfig };
+
 export {
   Alert,
   Anchor,
@@ -63,7 +66,6 @@ export {
   CircleButton,
   BulletList,
   Card,
-  CardSettings,
   Checkbox,
   ColorAdjuster,
   ContentSeparator,
@@ -83,7 +85,6 @@ export {
   Image,
   Tooltip,
   Modal,
-  TooltipMode,
   RangeSlider,
   IntervalSlider,
   calculateIntervalValue,
@@ -94,6 +95,7 @@ export {
   Ruler,
   RulerTick,
   TagManager,
+  TagManagement,
   TableCell,
   TableRow,
   TableHeader,
@@ -104,7 +106,6 @@ export {
   LoadingScreen,
   SuccessNotification,
   OAuthProviders,
-  OAuthConfig,
   OAuthUserAction,
   Portal,
   ScrollWrapper,

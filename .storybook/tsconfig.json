@@ -8,5 +8,5 @@
     "jsx": "react",
     "isolatedModules": false,
     "noEmit": false
-  },
+  }
 }

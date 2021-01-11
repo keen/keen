@@ -10,13 +10,12 @@ import {
   OTHERS_DATA_KEY,
 } from './circular-chart.utils';
 
+export type { ArcProperties, CircularChart, LabelsPosition };
+
 export {
   createArcTween,
   animateArcPath,
   getTooltipContent,
-  ArcProperties,
-  LabelsPosition,
-  CircularChart,
   generateCircularChart,
   calculateTotalValue,
   OTHERS_DATA_KEY,

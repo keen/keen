@@ -8,7 +8,7 @@ import { colors } from '@keen.io/colors';
 import CircleButton from './circle-button.component';
 
 export default {
-  title: 'Styleguide | Circle Button',
+  title: 'Styleguide / Circle Button',
   parameters: {
     component: CircleButton,
     componentSubtitle: 'Displays customized CircleButton',

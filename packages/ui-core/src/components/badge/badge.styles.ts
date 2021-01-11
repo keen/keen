@@ -27,11 +27,11 @@ export const TextWrapper = styled.span<TextWrapperProps>`
   line-height: 16px;
   white-space: nowrap;
 
-  border-radius: ${props => (props.removable ? '2px 0 0 2px' : '2px')};
+  border-radius: ${(props) => (props.removable ? '2px 0 0 2px' : '2px')};
 
   transition: background-color 0.3s ease-in-out;
 
-  ${props => variant(createVariants(props.isActive))}
+  ${(props) => variant(createVariants(props.isActive))}
 `;
 
 type IconWrapperProps = {
@@ -51,5 +51,5 @@ export const IconWrapper = styled.div<IconWrapperProps>`
 
   transition: background-color 0.3s ease-in-out;
 
-  ${props => variant(createVariants(props.isActive))}
+  ${(props) => variant(createVariants(props.isActive))}
 `;

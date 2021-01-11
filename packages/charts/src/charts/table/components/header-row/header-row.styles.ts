@@ -4,8 +4,8 @@ import { Typography } from '@keen.io/ui-core';
 export const Container = styled.tr<{
   typography: Typography;
 }>`
-  ${props => props.typography}
-  color: ${props => props.typography.fontColor};
+  ${(props) => props.typography}
+  color: ${(props) => props.typography.fontColor};
 `;
 
 export const StickyCell = styled.td<{
@@ -15,5 +15,5 @@ export const StickyCell = styled.td<{
   position: sticky;
   top: 0;
   z-index: 1;
-  background: ${props => props.backgroundColor};
+  background: ${(props) => props.backgroundColor};
 `;

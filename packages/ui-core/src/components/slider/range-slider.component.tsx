@@ -89,7 +89,7 @@ export const RangeSlider: FC<Props> = ({
   const showTooltip = useCallback(
     (dragTooltip: 'minimum' | 'maximum') => {
       if (tooltipSettings.enabled) {
-        setTooltip(state => ({
+        setTooltip((state) => ({
           ...state,
           visible: dragTooltip,
         }));
@@ -100,7 +100,7 @@ export const RangeSlider: FC<Props> = ({
 
   const hideTooltip = useCallback(() => {
     if (tooltipSettings.enabled) {
-      setTooltip(state => ({
+      setTooltip((state) => ({
         ...state,
         visible: null,
       }));
@@ -222,7 +222,7 @@ export const RangeSlider: FC<Props> = ({
 
               onChange && onChange(minimumValue, maximumValue);
               if (tooltipSettings.enabled) {
-                setTooltip(state =>
+                setTooltip((state) =>
                   isHorizontal ? { ...state, y: 0, x } : { ...state, x: 0, y }
                 );
               }
@@ -316,7 +316,7 @@ export const RangeSlider: FC<Props> = ({
 
               onChange && onChange(minimumValue, maximumValue);
               if (tooltipSettings.enabled) {
-                setTooltip(state =>
+                setTooltip((state) =>
                   isHorizontal ? { ...state, y: 0, x } : { ...state, x: 0, y }
                 );
               }

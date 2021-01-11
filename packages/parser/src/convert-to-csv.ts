@@ -22,7 +22,7 @@ export const convertToCSV = ({
 
   data.forEach((item: Record<string, any>) => {
     ctr = 0;
-    keys.forEach(key => {
+    keys.forEach((key) => {
       if (ctr > 0) {
         result += columnDelimiter;
       }

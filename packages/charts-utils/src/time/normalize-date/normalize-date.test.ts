@@ -44,7 +44,7 @@ test('normalizes date with "month" precision', () => {
 
   normalizeDate(date, 'month', true);
 
-  modifiers.forEach(modifier => expect(modifier).toHaveBeenCalled());
+  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
 
   expect(mockDate.setMonth).not.toHaveBeenCalled();
   expect(utcParse).toHaveBeenCalled();
@@ -60,7 +60,7 @@ test('normalizes date with "day" precision', () => {
 
   normalizeDate(date, 'day', true);
 
-  modifiers.forEach(modifier => expect(modifier).toHaveBeenCalled());
+  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
 
   expect(mockDate.setDate).not.toHaveBeenCalled();
   expect(utcParse).toHaveBeenCalled();
@@ -72,7 +72,7 @@ test('normalizes date with "hour" precision', () => {
 
   normalizeDate(date, 'hour', true);
 
-  modifiers.forEach(modifier => expect(modifier).toHaveBeenCalled());
+  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
 
   expect(mockDate.setHours).not.toHaveBeenCalled();
   expect(utcParse).toHaveBeenCalled();
@@ -84,7 +84,7 @@ test('normalizes date with "minute" precision', () => {
 
   normalizeDate(date, 'minute', true);
 
-  modifiers.forEach(modifier => expect(modifier).toHaveBeenCalled());
+  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
 
   expect(mockDate.setMinutes).not.toHaveBeenCalled();
   expect(utcParse).toHaveBeenCalled();
@@ -100,6 +100,6 @@ test('normalizes date with "year" precision', () => {
   utcParse = jest.fn().mockReturnValue(() => mockDate);
   normalizeDate(date, 'year', true);
 
-  modifiers.forEach(modifier => expect(modifier).toHaveBeenCalled());
+  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
   expect(utcParse).toHaveBeenCalled();
 });

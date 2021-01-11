@@ -53,7 +53,7 @@ const Bars = ({
         {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (
           <g
             key={key}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               const markPosition = calculateMarkPosition({
                 layout,
                 x,
@@ -64,7 +64,7 @@ const Bars = ({
               setActiveBar({ key, selector });
               onBarMouseEnter(e, key, { selector, color }, markPosition);
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               setActiveBar({ selector: [], key: null });
               onBarMouseLeave(e, key);
             }}

@@ -115,7 +115,7 @@ export const IntervalSlider: FC<Props> = ({
 
   const showTooltip = useCallback(() => {
     if (tooltipSettings.enabled) {
-      setTooltip(state => ({
+      setTooltip((state) => ({
         ...state,
         visible: true,
       }));
@@ -124,7 +124,7 @@ export const IntervalSlider: FC<Props> = ({
 
   const hideTooltip = useCallback(() => {
     if (tooltipSettings.enabled) {
-      setTooltip(state => ({
+      setTooltip((state) => ({
         ...state,
         visible: false,
       }));
@@ -154,7 +154,7 @@ export const IntervalSlider: FC<Props> = ({
 
       onChange && onChange(value);
       if (tooltipSettings.enabled) {
-        setTooltip(state => ({ ...state, visible: true, y: 0, x }));
+        setTooltip((state) => ({ ...state, visible: true, y: 0, x }));
       }
     },
     [dimension, stepDimension, tooltipSettings.enabled]
@@ -222,7 +222,7 @@ export const IntervalSlider: FC<Props> = ({
 
           onChange && onChange(value);
           if (tooltipSettings.enabled) {
-            setTooltip(state => ({ ...state, y: 0, x }));
+            setTooltip((state) => ({ ...state, y: 0, x }));
           }
         }}
         dragDirection="x"

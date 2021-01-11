@@ -41,11 +41,11 @@ const Marks = ({
         return (
           <g
             key={key}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               onMouseEnter(e, mark);
               setActiveMark(key);
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               onMouseLeave(e);
               setActiveMark(null);
             }}

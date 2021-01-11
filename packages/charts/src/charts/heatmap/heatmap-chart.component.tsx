@@ -162,7 +162,7 @@ export const HeatmapChart: FC<Props> = ({
           layout={layout}
           useDynamicLayout={useDynamicLayout}
           initialMargins={margins}
-          onComputeLayout={margins => {
+          onComputeLayout={(margins) => {
             setLayoutMargins(margins);
             setLayoutReady(true);
           }}

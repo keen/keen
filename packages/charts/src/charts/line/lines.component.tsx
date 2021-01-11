@@ -173,7 +173,7 @@ const Lines = ({
             );
             setHoverBar({ x: mark.middle + mark.width / 2, visible: true });
           }}
-          onMouseLeave={e => {
+          onMouseLeave={(e) => {
             onMarkMouseLeave(e);
             hideHoverBar.current = setTimeout(() => {
               setHoverBar({
@@ -203,7 +203,7 @@ const Lines = ({
             );
             setHoverBar({ x: mark.x, visible: true });
           }}
-          onMouseLeave={e => {
+          onMouseLeave={(e) => {
             onMarkMouseLeave(e);
             hideHoverBar.current = setTimeout(() => {
               setHoverBar({

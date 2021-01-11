@@ -5,7 +5,7 @@ import KeenAnalysis from 'keen-analysis';
 import KeenDataViz from '../visualizer';
 
 export default {
-  title: 'Visualizations|Funnel Chart/Dataviz',
+  title: 'Visualizations /Funnel Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Funnel charts created with @keen.io/dataviz library',
   },
@@ -66,7 +66,7 @@ export const simple = () => {
           },
         ],
       })
-      .then(res => dataviz.render(res));
+      .then((res) => dataviz.render(res));
   }, []);
 
   return <div style={{ width: '600px', height: '400px' }} ref={container} />;

@@ -5,7 +5,7 @@ import { colors } from '@keen.io/colors';
 import Input, { InputProps } from '../input';
 import { Wrapper, Hint } from './password-input.styles';
 
-export const PasswordInput: FC<InputProps> = props => {
+export const PasswordInput: FC<InputProps> = (props) => {
   const [visible, setVisibility] = useState(false);
   const inputType = visible ? 'text' : 'password';
 

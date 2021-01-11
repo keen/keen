@@ -5,7 +5,7 @@ export const Circle = styled.div<{ background: string }>`
   border-radius: 50%;
   width: 12px;
   height: 12px;
-  background: ${props => props.background};
+  background: ${(props) => props.background};
   flex-shrink: 0;
 `;
 

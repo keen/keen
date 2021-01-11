@@ -44,20 +44,14 @@ const setup = (overProps: any = {}) => {
 describe('@keen.io/charts - <BarValues />', () => {
   it('should set "fill" property for <text> element based on theme', () => {
     const { wrapper } = setup();
-    const text = wrapper
-      .find('text')
-      .first()
-      .props();
+    const text = wrapper.find('text').first().props();
 
     expect(text.fill).toEqual(theme.bar.values.typography.fontColor);
   });
 
   it('should automatically set "fill" property for <text> element', () => {
     const { wrapper } = setup({ autocolor: true });
-    const text = wrapper
-      .find('text')
-      .first()
-      .props();
+    const text = wrapper.find('text').first().props();
 
     expect(text.fill).toMatchInlineSnapshot(`"hsl(0, 0%, 80%)"`);
   });

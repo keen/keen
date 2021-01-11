@@ -243,9 +243,9 @@ export const generateHorizontalStackedBars = ({
   const normalizedData =
     stackMode === 'normal' ? data : transformToPercent(data, filteredKeys);
 
-  const stackedData = stack()
-    .keys(filteredKeys)
-    .offset(stackOffsetDiverging)(normalizedData);
+  const stackedData = stack().keys(filteredKeys).offset(stackOffsetDiverging)(
+    normalizedData
+  );
 
   const { minimum, maximum } =
     stackMode === 'normal'
@@ -314,9 +314,9 @@ export const generateVerticalStackedBars = ({
   const normalizedData =
     stackMode === 'normal' ? data : transformToPercent(data, filteredKeys);
 
-  const stackedData = stack()
-    .keys(filteredKeys)
-    .offset(stackOffsetDiverging)(normalizedData);
+  const stackedData = stack().keys(filteredKeys).offset(stackOffsetDiverging)(
+    normalizedData
+  );
 
   const { minimum, maximum } =
     stackMode === 'normal'

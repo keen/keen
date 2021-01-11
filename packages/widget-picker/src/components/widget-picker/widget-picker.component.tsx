@@ -82,7 +82,7 @@ export const WidgetPicker: FC<Props> = ({
             >
               <OptionsContainer>
                 {chartOptions &&
-                  chartOptions.map(options => (
+                  chartOptions.map((options) => (
                     <OptionsGroupWrapper key={options.id}>
                       <OptionsGroup
                         id={options.id}
@@ -112,7 +112,7 @@ export const WidgetPicker: FC<Props> = ({
                     </OptionsGroupWrapper>
                   ))}
                 {widgetOptions &&
-                  widgetOptions.map(options => (
+                  widgetOptions.map((options) => (
                     <OptionsGroupWrapper key={options.id}>
                       <OptionsGroup
                         id={options.id}

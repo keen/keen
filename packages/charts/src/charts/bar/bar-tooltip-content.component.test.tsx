@@ -14,7 +14,7 @@ const render = (overProps: any = {}) => {
       selector: [0, 'users'],
     },
   ];
-  const formatValue = value => `$${value}`;
+  const formatValue = (value) => `$${value}`;
   const props = {
     data,
     keys,

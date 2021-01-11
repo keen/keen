@@ -7,7 +7,7 @@ export const LegendCard = styled.div<
 >`
   width: 100%;
 
-  ${props =>
+  ${(props) =>
     props.fullDimension &&
     css`
       height: 100%;
@@ -15,13 +15,13 @@ export const LegendCard = styled.div<
 
   position: relative;
   box-sizing: border-box;
-  background: ${props => props.backgroundColor};
-  border: ${props => props.border};
-  border-radius: ${props => props.borderRadius};
-  box-shadow: ${props =>
+  background: ${(props) => props.backgroundColor};
+  border: ${(props) => props.border};
+  border-radius: ${(props) => props.borderRadius};
+  box-shadow: ${(props) =>
     props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
 
-  ${props =>
+  ${(props) =>
     !props.border &&
     css`
     border-${props.borderPosition}: solid 3px ${colors.blue['500']}

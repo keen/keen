@@ -5,7 +5,7 @@ import { colors } from '@keen.io/colors';
 import { Input } from './input.component';
 
 export default {
-  title: 'Components| Forms / Input',
+  title: 'Components / Forms / Input',
   parameters: {
     component: Input,
     componentSubtitle: 'Simple input component',

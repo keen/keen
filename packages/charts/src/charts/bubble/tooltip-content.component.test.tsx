@@ -13,9 +13,9 @@ const render = (overProps: any = {}) => {
   const xDomainKey = 'users';
   const yDomainKey = 'conversion';
   const formatValue = {
-    xKey: value => `${value} X`,
-    yKey: value => `${value} Y`,
-    valueKey: value => `${value} value`,
+    xKey: (value) => `${value} X`,
+    yKey: (value) => `${value} Y`,
+    valueKey: (value) => `${value} value`,
   };
 
   const props = {

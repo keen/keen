@@ -14,7 +14,7 @@ const PieLabel: FC<Props> = memo(
       <>
         {autocolor ? (
           <ColorAdjuster baseColor={sliceBackground}>
-            {adjustedColor => (
+            {(adjustedColor) => (
               <text
                 fill={adjustedColor}
                 pointerEvents="none"

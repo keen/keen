@@ -13,7 +13,7 @@ const render = (overProps: any = {}) => {
   const svgDimensions = { width: 700, height: 500 };
   const labelSelector = 'name';
   const keys = ['buy', 'sold'];
-  const formatTooltip = value => `$${value}`;
+  const formatTooltip = (value) => `$${value}`;
 
   const props = {
     svgDimensions,

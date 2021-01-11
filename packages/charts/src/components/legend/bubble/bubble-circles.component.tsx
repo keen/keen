@@ -18,7 +18,7 @@ export const Circles: FC<Props> = ({ offsetTop }) => {
 
   return (
     <>
-      {legendRadius.map(radius => {
+      {legendRadius.map((radius) => {
         const x = xCircle;
         const y = yCircle - radius;
 

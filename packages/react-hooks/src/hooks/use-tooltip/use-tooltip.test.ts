@@ -3,7 +3,7 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { useTooltip } from './use-tooltip';
 
 test('set tooltip visibility', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -31,7 +31,7 @@ test('set tooltip visibility', () => {
 });
 
 test('hide tooltip and reset properties', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -58,7 +58,7 @@ test('hide tooltip and reset properties', () => {
 });
 
 test('calculates tooltip position', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -91,7 +91,7 @@ test('calculates tooltip position', () => {
 });
 
 test('set tooltip meta data', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -120,7 +120,7 @@ test('set tooltip meta data', () => {
 });
 
 test('set tooltip data selectos', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -149,7 +149,7 @@ test('set tooltip data selectos', () => {
 });
 
 test('calculates tooltip position relative to event target', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -190,7 +190,7 @@ test('calculates tooltip position relative to event target', () => {
 });
 
 test('horizontal overflow', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -243,7 +243,7 @@ test('horizontal overflow', () => {
 });
 
 test('vertical overflow', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };
@@ -296,7 +296,7 @@ test('vertical overflow', () => {
 });
 
 it('it should throw an error once tooltipRef is not provided', () => {
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };

@@ -26,7 +26,7 @@ export const Item = styled.div<{
 
   transition: all 0.2s ease-in;
 
-  ${props =>
+  ${(props) =>
     props.isActive &&
     css`
       box-shadow: 0 2px 4px 0 ${transparentize(0.85, colors.black[500])};

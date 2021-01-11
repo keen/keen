@@ -10,13 +10,13 @@ export const Container = styled.div<{
 }>`
   padding: 15px;
   box-sizing: border-box;
-  ${props =>
+  ${(props) =>
     props.fullDimension &&
     css`
       height: 100%;
     `}
 
-  ${props =>
+  ${(props) =>
     props.spacing === 'thin' &&
     css`
       padding: ${props.layout === 'horizontal' ? '10px 15px;' : '15px 10px'};

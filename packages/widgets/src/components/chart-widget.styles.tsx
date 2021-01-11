@@ -14,7 +14,7 @@ export const LayoutMain = styled.div<{
 }>`
   display: flex;
   flex: 1;
-  flex-direction: ${props => flexDirection[props.legendPosition]};
+  flex-direction: ${(props) => flexDirection[props.legendPosition]};
   min-height: 0;
   min-width: 0;
 `;
@@ -34,64 +34,63 @@ export const LegendPosition = styled.div<{
   position: relative;
   align-items: center;
 
-  ${props =>
+  ${(props) =>
     props.alignment === 'left' &&
     css`
       align-items: flex-start;
     `}
 
-  ${props =>
+  ${(props) =>
     props.alignment === 'center' &&
     css`
       align-items: center;
     `}
 
-  ${props =>
+  ${(props) =>
     props.alignment === 'right' &&
     css`
       align-items: flex-end;
     `}
 
 
-  ${props =>
+  ${(props) =>
     (props.position === 'top' || props.position === 'bottom') &&
     props.layout === 'vertical' &&
     css`
       max-height: 30%;
     `}
 
-  ${props =>
+  ${(props) =>
     props.position === 'right' &&
     css`
       margin-left: 15px;
     `};
 
-  ${props =>
+  ${(props) =>
     props.position === 'left' &&
     css`
       margin-right: 15px;
     `};
 
-  ${props =>
+  ${(props) =>
     (props.position === 'left' || props.position === 'right') &&
     css`
       max-width: 25%;
     `}
 
+  ${(props) =>
+    props.alignment === 'center' &&
+    (props.position === 'left' || props.position === 'right') &&
+    css`
+      top: 50%;
+      transform: translateY(-50%);
+    `}
 
-    ${props =>
-      props.alignment === 'center' &&
-      (props.position === 'left' || props.position === 'right') &&
-      css`
-        top: 50%;
-        transform: translateY(-50%);
-      `}
-
-    ${props =>
-      props.alignment === 'right' &&
-      (props.position === 'left' || props.position === 'right') &&
-      css`
-        top: 100%;
-        transform: translateY(-100%);
-      `}
+    ${(props) =>
+    props.alignment === 'right' &&
+    (props.position === 'left' || props.position === 'right') &&
+    css`
+      top: 100%;
+      transform: translateY(-100%);
+    `}
 `;

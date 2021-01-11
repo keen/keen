@@ -119,7 +119,7 @@ test('do not renders ruler for axis Y', () => {
 
 test('computes chart layout based on axes dimensions', () => {
   const svgElement = createRef();
-  window.requestAnimationFrame = callback => {
+  window.requestAnimationFrame = (callback) => {
     callback(null);
     return null;
   };

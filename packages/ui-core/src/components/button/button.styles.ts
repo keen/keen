@@ -87,30 +87,30 @@ type Props = {
 
 export const StyledButton = styled.button<Props>`
   display: flex;
-  ${props =>
+  ${(props) =>
     props.fullWidth &&
     css`
       width: 100%;
       justify-content: center;
     `}
   ${buttonMixin()};
-  ${props => props.body === 'solid' && variant(solidButtonVariants)}
-  ${props => props.body === 'outline' && variant(outlineVariants)}
-  ${props => props.isActive && variant(activeVariants)}
+  ${(props) => props.body === 'solid' && variant(solidButtonVariants)}
+  ${(props) => props.body === 'outline' && variant(outlineVariants)}
+  ${(props) => props.isActive && variant(activeVariants)}
   ${variant(sizeVariants)};
 `;
 
 export const StyledAnchor = styled.a<Props>`
   display: inline-flex;
-  ${props =>
+  ${(props) =>
     props.fullWidth &&
     css`
       width: 100%;
       justify-content: center;
     `}
   ${buttonMixin()}
-  ${props => props.body === 'solid' && variant(solidButtonVariants)}
-  ${props => props.body === 'outline' && variant(outlineVariants)}
+  ${(props) => props.body === 'solid' && variant(solidButtonVariants)}
+  ${(props) => props.body === 'outline' && variant(outlineVariants)}
   ${variant(sizeVariants)};
 `;
 

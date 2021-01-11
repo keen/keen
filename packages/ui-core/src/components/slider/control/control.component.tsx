@@ -41,10 +41,10 @@ export const Control: FC<Props> = ({
       dragElastic={0}
       dragMomentum={false}
       style={styles}
-      onMouseDown={event => {
+      onMouseDown={(event) => {
         event.stopPropagation();
       }}
-      onTouchStart={event => {
+      onTouchStart={(event) => {
         event.stopPropagation();
       }}
     >

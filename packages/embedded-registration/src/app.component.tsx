@@ -135,7 +135,7 @@ const App: FC<Props> = ({
             <OAuthComplete
               onError={onError}
               onSuccess={onSuccess}
-              onSignup={userToken => {
+              onSignup={(userToken) => {
                 const requestBody = transformOAuthPayload(
                   userToken,
                   offerHandle

@@ -31,7 +31,7 @@ export const StyledLabel = styled.label<{
   font-size: 14px;
   ${variant(labelVariants)}
 
-  ${props =>
+  ${(props) =>
     props.disabled &&
     props.variant === 'secondary' &&
     css`
@@ -39,7 +39,7 @@ export const StyledLabel = styled.label<{
       cursor: not-allowed;
     `};
 
-  ${props =>
+  ${(props) =>
     props.disabled &&
     props.variant === 'primary' &&
     css`
@@ -47,7 +47,7 @@ export const StyledLabel = styled.label<{
       cursor: not-allowed;
     `};
 
-  ${props =>
+  ${(props) =>
     props.hasError &&
     css`
       color: ${colors.red[500]};

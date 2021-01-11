@@ -18,7 +18,7 @@ const Heatmap = (options: Props) => {
   const { blocks, layout } = options;
   return (
     <AnimatePresence>
-      {blocks.map(block => (
+      {blocks.map((block) => (
         <Block key={`${block.key}.${layout}`} {...options} block={block} />
       ))}
     </AnimatePresence>

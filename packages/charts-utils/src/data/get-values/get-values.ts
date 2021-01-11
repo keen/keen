@@ -10,7 +10,7 @@ const getValues = (data: Record<string, any>[], keys: string[]) =>
   data.reduce(
     (acc: number[], item: any) => [
       ...acc,
-      ...keys.map((key: string) => item[key]).filter(v => v !== undefined),
+      ...keys.map((key: string) => item[key]).filter((v) => v !== undefined),
     ],
     []
   ) as number[];

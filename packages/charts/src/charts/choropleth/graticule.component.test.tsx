@@ -8,7 +8,7 @@ describe('@keen.io/charts - <Graticule />', () => {
   let graticule;
 
   beforeEach(() => {
-    draw = jest.fn(coordinates => coordinates);
+    draw = jest.fn((coordinates) => coordinates);
     graticule = jest.fn(() => 'value');
   });
 

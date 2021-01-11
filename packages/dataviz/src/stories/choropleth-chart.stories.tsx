@@ -5,7 +5,7 @@ import KeenAnalysis from 'keen-analysis';
 import KeenDataViz from '../visualizer';
 
 export default {
-  title: 'Visualizations|Choropleth Chart/Dataviz',
+  title: 'Visualizations /Choropleth Chart/Dataviz',
   parameters: {
     componentSubtitle: 'Choropleth created with @keen.io/dataviz library',
   },

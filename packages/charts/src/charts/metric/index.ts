@@ -3,4 +3,5 @@ import MetricChart, {
 } from './metric-chart.component';
 import { MetricType } from './types';
 
-export { MetricChart, MetricChartSettings, MetricType };
+export { MetricChart };
+export type { MetricType, MetricChartSettings };

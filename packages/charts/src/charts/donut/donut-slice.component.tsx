@@ -90,7 +90,7 @@ const DonutSlice: FC<Props> = ({
       <motion.g
         onMouseMove={onMouseMove}
         onMouseEnter={() => setActive(true)}
-        onMouseLeave={e => {
+        onMouseLeave={(e) => {
           onMouseLeave(e);
           setActive(false);
         }}

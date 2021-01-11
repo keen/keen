@@ -41,7 +41,7 @@ const TableHeader: FC<Props> = ({
     onSort({ propertyName, sortMode: sortMode ? sortMode : 'ascending' });
     const updatedSortMode =
       sortMode === 'descending' ? 'ascending' : 'descending';
-    setState(state => ({ ...state, sortMode: updatedSortMode }));
+    setState((state) => ({ ...state, sortMode: updatedSortMode }));
   }, [propertyName, sortMode, onSort]);
 
   const sortApplied = sortOptions && sortOptions.property === propertyName;

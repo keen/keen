@@ -17,7 +17,7 @@ export const Container = styled(motion.div)<{
   box-shadow: 0 10px 24px 0 rgba(29, 39, 41, 0.15);
   z-index: ${UI_LAYERS.dropdown};
 
-  ${props =>
+  ${(props) =>
     props.fullWidth &&
     css`
       width: 100%;

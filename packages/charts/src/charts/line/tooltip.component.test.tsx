@@ -9,7 +9,7 @@ import Tooltip from './tooltip.component';
 
 const render = (overProps: any = {}) => {
   const selectors = [{ selector: [1, 'books'], color: '#CB5623' }];
-  const formatValue = value => `$${value}`;
+  const formatValue = (value) => `$${value}`;
 
   const props = {
     data,

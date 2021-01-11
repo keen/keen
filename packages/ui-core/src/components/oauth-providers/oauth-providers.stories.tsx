@@ -11,7 +11,7 @@ const config = {
 };
 
 export default {
-  title: 'Components|OAuth Providers',
+  title: 'Components /OAuth Providers',
   parameters: {
     component: OAuthProviders,
     componentSubtitle:

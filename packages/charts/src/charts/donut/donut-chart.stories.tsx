@@ -10,7 +10,7 @@ import { DonutChart } from './donut-chart.component';
 import { chartData } from './donut-chart.fixtures';
 
 export default {
-  title: 'Visualizations|Donut Chart|Plot',
+  title: 'Visualizations /Donut Chart / Plot',
   parameters: {
     component: DonutChart,
     componentSubtitle: 'Donut Chart plot',

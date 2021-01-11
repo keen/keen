@@ -5,7 +5,7 @@ import RadioGroup from './radio-group.component';
 import { radioItems } from './radio-group.fixtures';
 
 export default {
-  title: 'Components|RadioGroup',
+  title: 'Components /RadioGroup',
   parameters: {
     component: RadioGroup,
   },

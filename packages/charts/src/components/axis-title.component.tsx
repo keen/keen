@@ -8,14 +8,14 @@ import {
   getHorizontalPosition,
 } from './axis-title.utils';
 
-import { AxisTitle } from '../types';
+import { AxisTitle as AxisTitleSettings } from '../types';
 
 type Props = {
   children: React.ReactNode;
   orientation: Orientation;
   line: Line;
   groupBox: Partial<DOMRect>;
-  titleSettings: AxisTitle;
+  titleSettings: AxisTitleSettings;
 };
 
 const AxisTitle = ({
