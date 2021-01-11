@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.25...@keen.io/ui-core@2.6.0) (2021-01-11)
+
+
+### Features
+
+* 🎸 tag management ([20132d8](https://github.com/keen/keen/commit/20132d86a211f3ee44f0583a60ff4bd4497cb3a9))
+
+
+
+
+
 ## [2.5.25](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.24...@keen.io/ui-core@2.5.25) (2021-01-06)
 
 **Note:** Version bump only for package @keen.io/ui-core
