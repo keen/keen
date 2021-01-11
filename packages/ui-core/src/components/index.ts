@@ -34,6 +34,7 @@ import Image from './image';
 import PasswordInput from './password-input';
 import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
+import TagManagement from './tag-management';
 import Error from './error';
 
 import { TableCell, TableRow, TableHeader, CellValue } from './table';
@@ -94,6 +95,7 @@ export {
   Ruler,
   RulerTick,
   TagManager,
+  TagManagement,
   TableCell,
   TableRow,
   TableHeader,
