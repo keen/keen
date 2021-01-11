@@ -7,6 +7,7 @@ import CircleButton from './circle-button';
 import BulletList from './bullet-list';
 import Card, { CardSettings } from './card';
 import Checkbox from './checkbox';
+import Radio from './radio';
 import ColorAdjuster from './color-adjuster';
 import ColorScale from './color-scale';
 import ContentSeparator from './content-separator';
@@ -81,6 +82,7 @@ export {
   Group,
   Input,
   Select,
+  Radio,
   RadioGroup,
   Image,
   Tooltip,
