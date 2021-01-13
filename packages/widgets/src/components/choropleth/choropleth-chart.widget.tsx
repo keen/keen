@@ -10,7 +10,7 @@ import {
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
 import WidgetLoader from '../widget-loader.component';
 

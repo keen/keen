@@ -14,7 +14,7 @@ import { useLegend } from '@keen.io/react-hooks';
 
 import { LegendContainer } from './bubble-chart.styles';
 
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
 
 import { createLegendLabels } from './bubble-chart.widget.utils';
