@@ -10,7 +10,7 @@ import {
 import { useLegend } from '@keen.io/react-hooks';
 
 import WidgetHeading from '../widget-heading.component';
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 
 import { createLegendLabels } from './donut-chart.widget.utils';
 

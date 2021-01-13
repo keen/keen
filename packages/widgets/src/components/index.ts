@@ -1,5 +1,3 @@
-import ChartWidget from './chart-widget.component';
-
 import BarChartWidget from './bar';
 import LineChartWidget from './line';
 import AreaChartWidget from './area';
@@ -12,6 +10,7 @@ import MetricChartWidget, { metricWidgetSettings } from './metric';
 import HeatmapChartWidget from './heatmap';
 import GaugeChartWidget from './gauge';
 import TableChartWidget from './table';
+import ChartWidget from './chart-widget';
 import ErrorWidget from './error';
 
 export {
