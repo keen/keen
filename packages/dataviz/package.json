@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/dataviz",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "Data Visualization SDK for Keen IO",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://keen.io",
@@ -53,7 +53,7 @@
     "@keen.io/colors": "^1.1.0",
     "@keen.io/parser": "^2.3.22",
     "@keen.io/query": "^1.0.1",
-    "@keen.io/widgets": "^2.2.24",
+    "@keen.io/widgets": "^2.2.25",
     "deepmerge": "4.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.25](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.24...@keen.io/widgets@2.2.25) (2021-01-13)
+
+
+### Bug Fixes
+
+* 🐛 Replace widget-sockets with react render props ([d15c533](https://github.com/keen/keen/commit/d15c533de17577b55a125a59a4464a3a3faec287))
+
+
+
+
+
 ## [2.2.24](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.23...@keen.io/widgets@2.2.24) (2021-01-11)
 
 **Note:** Version bump only for package @keen.io/widgets
