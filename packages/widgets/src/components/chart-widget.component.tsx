@@ -7,34 +7,36 @@ import {
   TitlePosition,
   LegendPosition,
 } from './chart-widget.styles';
-import {
-  getLegendJSX,
-  getTitleJSX,
-  getContentJSX,
-} from './widget-sockets.component';
 
 import { LegendSettings } from '../types';
 
 type Props = {
-  children: React.ReactNode;
+  title: () => React.ReactNode;
+  legend: () => React.ReactNode;
+  content: () => React.ReactNode;
   cardSettings: CardSettings;
   legendSettings: Pick<LegendSettings, 'position' | 'layout' | 'alignment'>;
 };
 
-const ChartWidget = ({ children, cardSettings, legendSettings }: Props) => {
-  const elements = React.Children.toArray(children);
-  const legend = elements.find(getLegendJSX);
-  const title = elements.find(getTitleJSX);
-  const content = elements.find(getContentJSX) as React.ReactElement;
+const ChartWidget = ({
+  title,
+  legend,
+  content,
+  cardSettings,
+  legendSettings,
+}: Props) => {
+  const legendComponent = legend();
+  const titleComponent = title();
+  const contentComponent = content();
 
   return (
     <Card {...cardSettings}>
-      <TitlePosition>{title}</TitlePosition>
+      <TitlePosition>{titleComponent}</TitlePosition>
       <LayoutMain legendPosition={legendSettings.position}>
-        {legend && (
-          <LegendPosition {...legendSettings}>{legend}</LegendPosition>
+        {legendComponent && (
+          <LegendPosition {...legendSettings}>{legendComponent}</LegendPosition>
         )}
-        {content}
+        {contentComponent}
       </LayoutMain>
     </Card>
   );

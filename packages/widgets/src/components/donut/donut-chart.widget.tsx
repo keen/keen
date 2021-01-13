@@ -11,11 +11,6 @@ import { useLegend } from '@keen.io/react-hooks';
 
 import WidgetHeading from '../widget-heading.component';
 import ChartWidget from '../chart-widget.component';
-import {
-  ContentSocket,
-  LegendSocket,
-  TitleSocket,
-} from '../widget-sockets.component';
 
 import { createLegendLabels } from './donut-chart.widget.utils';
 
@@ -46,12 +41,9 @@ export const DonutChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      {legend.enabled && (
-        <LegendSocket>
+      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      legend={() =>
+        legend.enabled && (
           <SeriesLegend
             {...legend}
             onClick={(key, disabled) => {
@@ -68,9 +60,9 @@ export const DonutChartWidget: FC<Props> = ({
               stackedElem
             )}
           />
-        </LegendSocket>
-      )}
-      <ContentSocket>
+        )
+      }
+      content={() => (
         <ResponsiveWrapper>
           {(width: number, height: number) => (
             <DonutChart
@@ -82,8 +74,8 @@ export const DonutChartWidget: FC<Props> = ({
             />
           )}
         </ResponsiveWrapper>
-      </ContentSocket>
-    </ChartWidget>
+      )}
+    />
   );
 };
 export default DonutChartWidget;

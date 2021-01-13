@@ -13,11 +13,6 @@ import { useSlider } from '@keen.io/react-hooks';
 
 import ChartWidget from '../chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
-import {
-  ContentSocket,
-  LegendSocket,
-  TitleSocket,
-} from '../widget-sockets.component';
 
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
@@ -45,12 +40,9 @@ export const HeatmapChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-    >
-      <TitleSocket>
-        <WidgetHeading title={title} subtitle={subtitle} />
-      </TitleSocket>
-      {legend.enabled && (
-        <LegendSocket>
+      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      legend={() =>
+        legend.enabled && (
           <LegendBase fullDimension spacing="thin" {...legend}>
             <RangeSlider
               key={`range-slider-${legend.position}`}
@@ -64,9 +56,9 @@ export const HeatmapChartWidget: FC<Props> = ({
               colorSteps={steps}
             />
           </LegendBase>
-        </LegendSocket>
-      )}
-      <ContentSocket>
+        )
+      }
+      content={() => (
         <ResponsiveWrapper>
           {(width: number, height: number) => (
             <HeatmapChart
@@ -78,8 +70,8 @@ export const HeatmapChartWidget: FC<Props> = ({
             />
           )}
         </ResponsiveWrapper>
-      </ContentSocket>
-    </ChartWidget>
+      )}
+    />
   );
 };
 
