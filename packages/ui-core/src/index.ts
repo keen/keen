@@ -72,6 +72,7 @@ import {
   OAuthUserAction,
   OAuthConfig,
   ScrollWrapper,
+  Tabs,
 } from './components';
 
 import { UI_LAYERS } from './constants';
@@ -152,5 +153,6 @@ export {
   OAuthProviders,
   OAuthUserAction,
   ScrollWrapper,
+  Tabs,
   UI_LAYERS,
 };
