@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.7.0...@keen.io/ui-core@2.8.0) (2021-01-15)
+
+
+### Features
+
+* 🎸 <Tabs/> component ([704c474](https://github.com/keen/keen/commit/704c47454d96f0e24cfa34080b51f6d6896ada24))
+
+
+
+
+
 # [2.7.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.6.1...@keen.io/ui-core@2.7.0) (2021-01-11)
 
 
