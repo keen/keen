@@ -8,7 +8,7 @@ import {
 } from '@keen.io/charts';
 import { useLegend } from '@keen.io/react-hooks';
 
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
 
 import { legendSettings } from '../../widget-settings';

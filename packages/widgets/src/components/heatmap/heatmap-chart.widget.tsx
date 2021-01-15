@@ -11,7 +11,7 @@ import {
 import { RangeSlider } from '@keen.io/ui-core';
 import { useSlider } from '@keen.io/react-hooks';
 
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
 
 import { legendSettings } from '../../widget-settings';

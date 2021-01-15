@@ -2,19 +2,20 @@ import React from 'react';
 
 import { Card, CardSettings } from '@keen.io/ui-core';
 
-import {
-  LayoutMain,
-  TitlePosition,
-  LegendPosition,
-} from './chart-widget.styles';
+import { Layout, TitleSocket, LegendSocket } from './chart-widget.styles';
 
-import { LegendSettings } from '../types';
+import { LegendSettings } from '../../types';
 
 type Props = {
+  /** Title renderer */
   title: () => React.ReactNode;
+  /** Legend renderer */
   legend: () => React.ReactNode;
+  /** Content renderer */
   content: () => React.ReactNode;
+  /** Card component settings */
   cardSettings: CardSettings;
+  /** Legend component settings */
   legendSettings: Pick<LegendSettings, 'position' | 'layout' | 'alignment'>;
 };
 
@@ -31,13 +32,15 @@ const ChartWidget = ({
 
   return (
     <Card {...cardSettings}>
-      <TitlePosition>{titleComponent}</TitlePosition>
-      <LayoutMain legendPosition={legendSettings.position}>
+      <TitleSocket data-testid="title-socket">{titleComponent}</TitleSocket>
+      <Layout legendPosition={legendSettings.position}>
         {legendComponent && (
-          <LegendPosition {...legendSettings}>{legendComponent}</LegendPosition>
+          <LegendSocket {...legendSettings} data-testid="legend-socket">
+            {legendComponent}
+          </LegendSocket>
         )}
         {contentComponent}
-      </LayoutMain>
+      </Layout>
     </Card>
   );
 };

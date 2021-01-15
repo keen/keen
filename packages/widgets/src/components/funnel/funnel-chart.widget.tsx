@@ -6,7 +6,7 @@ import {
 } from '@keen.io/charts';
 
 import WidgetHeading from '../widget-heading.component';
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 import { Content } from './funnel-chart.widget.styles';
 
 import { legendSettings } from '../../widget-settings';

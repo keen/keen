@@ -7,7 +7,7 @@ import {
 } from '@keen.io/charts';
 
 import WidgetHeading from '../widget-heading.component';
-import ChartWidget from '../chart-widget.component';
+import ChartWidget from '../chart-widget';
 
 import { legendSettings } from '../../widget-settings';
 

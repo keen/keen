@@ -53,6 +53,7 @@ import OAuthProviders, {
 } from './oauth-providers';
 import Portal from './portal';
 import ScrollWrapper from './scroll-wrapper';
+import Tabs from './tabs';
 
 export { ARROW_SIZE };
 
@@ -111,4 +112,5 @@ export {
   OAuthUserAction,
   Portal,
   ScrollWrapper,
+  Tabs,
 };

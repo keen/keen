@@ -9,7 +9,7 @@ const flexDirection: Record<Position, string> = {
   right: 'row-reverse',
 };
 
-export const LayoutMain = styled.div<{
+export const Layout = styled.div<{
   legendPosition: Position;
 }>`
   display: flex;
@@ -19,13 +19,13 @@ export const LayoutMain = styled.div<{
   min-width: 0;
 `;
 
-export const TitlePosition = styled.div`
+export const TitleSocket = styled.div`
   display: flex;
   flexdirection: column;
   flexgrow: 0;
 `;
 
-export const LegendPosition = styled.div<{
+export const LegendSocket = styled.div<{
   layout: 'vertical' | 'horizontal';
   alignment: Alignment;
   position: Position;
