@@ -73,6 +73,7 @@ import {
   OAuthConfig,
   ScrollWrapper,
   Tabs,
+  EmbedWidget,
 } from './components';
 
 import { UI_LAYERS } from './constants';
@@ -154,5 +155,6 @@ export {
   OAuthUserAction,
   ScrollWrapper,
   Tabs,
+  EmbedWidget,
   UI_LAYERS,
 };

@@ -54,6 +54,7 @@ import OAuthProviders, {
 import Portal from './portal';
 import ScrollWrapper from './scroll-wrapper';
 import Tabs from './tabs';
+import EmbedWidget from './embed-widget';
 
 export { ARROW_SIZE };
 
@@ -113,4 +114,5 @@ export {
   Portal,
   ScrollWrapper,
   Tabs,
+  EmbedWidget,
 };
