@@ -57,6 +57,7 @@ import Plus from './plus.component';
 import Search from './search.component';
 import Actions from './actions.component';
 import Settings from './settings.component';
+import Share from './share.component';
 
 import { IconType } from '../types';
 
@@ -180,5 +181,7 @@ export const getIcon = (type: IconType) => {
       return Clone;
     case 'resize':
       return Resize;
+    case 'share':
+      return Share;
   }
 };
