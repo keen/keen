@@ -6,6 +6,7 @@ const path = require('path');
 module.exports = {
   stories: [
     '../packages/**/*.stories.tsx',
+    '../packages/**/*.stories.mdx',
     '../docs/**/*.stories.mdx'
   ],
   addons: [

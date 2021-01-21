@@ -1,9 +1,13 @@
 import ArrowUp from './arrow-up.component';
 import ArrowDown from './arrow-down.component';
 import AreaWidget from './area-widget.component';
+import AlignLeft from './align-left.component';
+import AlignCenter from './align-center.component';
+import AlignRight from './align-right.component';
 import ButtonArrow from './button-arrow.component';
 import ButtonArrowLeft from './button-arrow-left.component';
 import Brand from './brand.component';
+import BoldText from './bold-text.component';
 import BarHorizontal from './bar-horizontal.component';
 import BarVertical from './bar-vertical.component';
 import CaretLeft from './caret-left.component';
@@ -17,6 +21,7 @@ import ChoroplethWidget from './choropleth-widget.component';
 import DatePicker from './date-picker.component';
 import Delete from './delete.component';
 import DonutWidget from './donut-widget.component';
+import Drag from './drag.component';
 import QuestionMark from './question-mark.component';
 import Resize from './resize.component';
 import EyeSolid from './eye-solid.component';
@@ -46,7 +51,9 @@ import MoneyOutline from './money-outline.component';
 import MoneySolid from './money-solid.component';
 import MetricWidget from './metric-widget.component';
 import Info from './info.component';
+import ItalicText from './italic-text.component';
 import Json from './json.component';
+import UnderlineText from './underline-text.component';
 import LockOpen from './lock-open.component';
 import LockClosed from './lock-closed.component';
 import Table from './table.component';
@@ -57,6 +64,7 @@ import Plus from './plus.component';
 import Search from './search.component';
 import Actions from './actions.component';
 import Settings from './settings.component';
+import Share from './share.component';
 
 import { IconType } from '../types';
 
@@ -90,6 +98,8 @@ export const getIcon = (type: IconType) => {
       return Close;
     case 'choropleth-widget':
       return ChoroplethWidget;
+    case 'drag':
+      return Drag;
     case 'date-picker':
       return DatePicker;
     case 'donut-widget':
@@ -180,5 +190,19 @@ export const getIcon = (type: IconType) => {
       return Clone;
     case 'resize':
       return Resize;
+    case 'share':
+      return Share;
+    case 'italic-text':
+      return ItalicText;
+    case 'bold-text':
+      return BoldText;
+    case 'underline-text':
+      return UnderlineText;
+    case 'align-left':
+      return AlignLeft;
+    case 'align-center':
+      return AlignCenter;
+    case 'align-right':
+      return AlignRight;
   }
 };
