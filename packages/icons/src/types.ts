@@ -71,4 +71,5 @@ export type IconType =
   | 'settings'
   | 'delete'
   | 'clone'
-  | 'resize';
+  | 'resize'
+  | 'share';
