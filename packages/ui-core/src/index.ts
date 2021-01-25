@@ -91,7 +91,7 @@ export type {
   OAuthConfig,
 };
 
-export { isElementInViewport } from './utils';
+export { isElementInViewport, exportToHtml } from './utils';
 
 export {
   Anchor,
