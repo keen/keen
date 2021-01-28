@@ -7,7 +7,13 @@ import React, {
 } from 'react';
 import ColumnResizer from 'column-resizer';
 import { AnimatePresence, motion } from 'framer-motion';
-import { TableRow, Tooltip, Text, SortMode } from '@keen.io/ui-core';
+import {
+  TableRow,
+  Tooltip,
+  Text,
+  SortMode,
+  SortByType,
+} from '@keen.io/ui-core';
 import {
   getElementOffset,
   hasContentOverflow,
@@ -19,9 +25,9 @@ import { HeaderRow } from './components';
 import {
   generateHeader,
   generateTable,
-  sortData,
   setColumnsOrder,
-} from './table.utils';
+} from './utils/chart.utils';
+import { sortData } from './utils/data.utils';
 
 import {
   Container,
@@ -64,7 +70,7 @@ export const TableChart = ({
   onResize,
   theme = defaultTheme,
 }: Props) => {
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState<SortByType>(null);
   const [maxScroll, setMaxScroll] = useState(0);
   const [{ overflowLeft, overflowRight }, setOverflow] = useState({
     overflowLeft: false,
@@ -115,8 +121,11 @@ export const TableChart = ({
     const sortColumns = tableData.length && columnsOrder?.length;
     return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
   }, [columnsOrder, tableData]);
-  const formatData = formatValue ? generateTable(data, formatValue) : data;
-  const sortedData = sort ? sortData(formatData, sort) : formatData;
+
+  const sortedData = sort ? sortData(data, sort) : data;
+  const formattedData = formatValue
+    ? generateTable(sortedData, formatValue)
+    : sortedData;
 
   const {
     table: { header, body },
@@ -194,7 +203,7 @@ export const TableChart = ({
               typography={header.typography}
             />
             <tbody>
-              {sortedData.map((el: any, idx: number) => (
+              {formattedData.map((el: any, idx: number) => (
                 <TableRow
                   key={`${idx}-${el[0]}`}
                   data={el}
