@@ -1,12 +1,11 @@
-import { Step } from '../../types';
+import { Step } from '@keen.io/query';
 
 import { KEEN_KEY, KEEN_VALUE } from '../../constants';
 
 /**
  * Transforms results of funnel analysis.
  *
- * @param steps - Keen API steps settings
- * @param result - Funnel steps results
+ * @param parserInput - Parser input properties
  * @return transformed funnel steps
  *
  */
@@ -17,9 +16,11 @@ export const transformFunnel = ({
   steps: Step[];
   result: number[];
 }) => ({
-  results: steps.map(({ event_collection }: Step, idx: number) => ({
-    [KEEN_KEY]: event_collection,
-    [KEEN_VALUE]: result[idx],
-  })),
+  data: steps.map(
+    ({ event_collection: eventCollection }: Step, idx: number) => ({
+      [KEEN_KEY]: eventCollection,
+      [KEEN_VALUE]: result[idx],
+    })
+  ),
   keys: [KEEN_VALUE],
 });

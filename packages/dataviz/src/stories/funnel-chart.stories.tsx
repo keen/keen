@@ -37,6 +37,9 @@ export const simple = () => {
     });
 
     client
+      // .query({
+      //   savedQueryName: 'actions-and-purchases'
+      // })
       .query({
         analysis_type: 'funnel',
         steps: [
@@ -66,7 +69,10 @@ export const simple = () => {
           },
         ],
       })
-      .then((res) => dataviz.render(res));
+      .then((res) => {
+        console.log(res, 'sasa');
+        dataviz.render(res);
+      });
   }, []);
 
   return <div style={{ width: '600px', height: '400px' }} ref={container} />;

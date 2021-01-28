@@ -1,23 +1,40 @@
+import { Query } from '@keen.io/query';
+
+import { extractEvent, fillWithEmptyKeys } from '../../utils';
+import { ExtractionResult } from '../../types';
+
 /**
  * Transforms results of extraction analysis.
  *
- * @param ob - Keen API extraction result
+ * @param parserInput - Parser input properties
  * @return transformed extraction
  *
  */
-export const transformExtraction = (ob: Record<string, any>) => {
-  const toReturn: Record<string, any> = {};
-  for (const i in ob) {
-    if (!ob.hasOwnProperty(i)) continue;
-    if (typeof ob[i] == 'object' && ob[i] !== null) {
-      const flatObject: Record<string, any> = transformExtraction(ob[i]);
-      for (const x in flatObject) {
-        if (!flatObject.hasOwnProperty(x)) continue;
-        toReturn[i + '.' + x] = flatObject[x];
-      }
-    } else {
-      toReturn[i] = ob[i];
+export const transformExtraction = ({
+  result,
+}: {
+  query?: Query;
+  result: ExtractionResult[];
+}) => {
+  let data: Record<string, any>[] = [];
+  let keys: string[] = [];
+
+  result.forEach((event) => {
+    const properties = Object.keys(event);
+    if (properties.length !== 0) {
+      const extractedEvent = extractEvent(event);
+      data.push(extractedEvent);
+      keys = [...keys, ...Object.keys(extractedEvent)];
     }
+  });
+
+  if (keys.length) {
+    keys = [...new Set(keys)];
+    data = fillWithEmptyKeys(keys, data);
   }
-  return toReturn;
+
+  return {
+    data,
+    keys,
+  };
 };
