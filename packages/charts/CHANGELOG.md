@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.28](https://github.com/keen/keen/compare/@keen.io/charts@2.5.27...@keen.io/charts@2.5.28) (2021-01-28)
+
+
+### Bug Fixes
+
+* 🐛 table sort behaviour ([320d7fb](https://github.com/keen/keen/commit/320d7fb49372bcdfa03da33f39f22e39e0e6b675))
+
+
+
+
+
 ## [2.5.27](https://github.com/keen/keen/compare/@keen.io/charts@2.5.26...@keen.io/charts@2.5.27) (2021-01-26)
 
 **Note:** Version bump only for package @keen.io/charts
