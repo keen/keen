@@ -22,30 +22,33 @@ export type Intervals =
 
 export type Direction = 'ASC' | 'DESC';
 
+export type Timeframe = { start: string; end: string } | string;
+
 export type OrderByProperty = {
-  propertyName: string;
+  property_name: string;
   direction: Direction;
 };
 
 export type OrderBy = string | OrderByProperty | OrderByProperty[];
 
 export type Step = {
-  with_actors: boolean;
   actor_property: string;
   event_collection: string;
-  timeframe: { start: string; end: string };
-  optional: boolean;
-  inverted: boolean;
+  timeframe: Timeframe;
+  with_actors?: boolean;
+  optional?: boolean;
+  inverted?: boolean;
 };
 
 export type Query = {
   analysis_type: Analysis;
+  timeframe: Timeframe;
   event_collection: string;
   interval?: string | Intervals;
   target_property?: string;
   group_by?: string | string[];
   limit?: number;
-  order_by: OrderBy;
+  order_by?: OrderBy;
   property_names?: string[];
   steps?: Step[];
 };

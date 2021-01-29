@@ -1,9 +1,7 @@
-import { mergeResults } from './merge';
-import { parseQuery, parseMultipleQueries } from './parser';
-import { convertToCSV } from './convert-to-csv';
-import { mapKeys } from './utils';
+import { mergeParsedResults } from './merge';
+import { parseQuery, parseQueries } from './parse-query';
 
-import { extractOrderDirection } from './extract-order-direction';
+import { mapKeys } from './utils';
 
 import { KEEN_VALUE, KEEN_KEY } from './constants';
 
@@ -12,10 +10,8 @@ import { AnalysisResult } from './types';
 export {
   parseQuery,
   mapKeys,
-  mergeResults,
-  parseMultipleQueries,
-  extractOrderDirection,
-  convertToCSV,
+  mergeParsedResults,
+  parseQueries,
   AnalysisResult,
   KEEN_VALUE,
   KEEN_KEY,

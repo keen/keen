@@ -2,11 +2,11 @@ import { createComputedKey } from './utils/keys.utils';
 
 import { KEEN_KEY } from './constants';
 
-import { ParserInput, ParserOutput } from './types';
+import { ParserInput, TransformOutput } from './types';
 
-export const mergeResults = (
+export const mergeParsedResults = (
   analysisCollection: ParserInput[],
-  parserOutput: ParserOutput[]
+  parserOutput: TransformOutput[]
 ) => {
   const keys: Set<string> = new Set();
   const data: Record<string, any>[] = [];
@@ -15,7 +15,7 @@ export const mergeResults = (
     const computedKey = createComputedKey(query, idx);
     const extractedKeys = parserOutput[idx].keys;
 
-    parserOutput[idx].results.forEach((item, itemIndex: number) => {
+    parserOutput[idx].data.forEach((item, itemIndex: number) => {
       const mergedData = data[itemIndex] || {};
 
       extractedKeys.forEach((key) => {

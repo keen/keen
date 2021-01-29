@@ -59,6 +59,7 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@keen.io/ui-core": "^2.5.24",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",

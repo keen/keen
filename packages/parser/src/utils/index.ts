@@ -1,3 +1,16 @@
 import { mapKeys } from './keys.utils';
+import setTransformationType from './set-transformation-type';
+import mergePropertiesGroup from './merge-properties-group';
+import extractEvent from './extract-event';
+import extractGroupSettings from './extract-group-settings';
 
-export { mapKeys };
+import { fillWithEmptyKeys } from './transform.utils';
+
+export {
+  setTransformationType,
+  mergePropertiesGroup,
+  extractGroupSettings,
+  fillWithEmptyKeys,
+  extractEvent,
+  mapKeys,
+};
