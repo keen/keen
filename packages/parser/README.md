@@ -19,4 +19,4 @@ This package contains set of parsers that are used internally to transform Keen 
 | funnel                            | `funnel` analysis                                            |
 | extraction                        | `extraction` analysis                                        |
 
--   As query is categorized as `standard` when `analysis_type` is different than `select_unique`, `funnel` or `extraction`.
+-   A query is categorized as `standard` when `analysis_type` is different than `select_unique`, `funnel` or `extraction`.
