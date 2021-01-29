@@ -1,8 +1,8 @@
 export const fillWithEmptyKeys = (
-  keys: Set<string>,
+  keys: string[],
   results: Record<string, any>,
   emptyValue: string | number = ''
-) => {
+): Record<string, any>[] => {
   let emptyKeysObject = {};
   keys.forEach((key) => {
     emptyKeysObject = {

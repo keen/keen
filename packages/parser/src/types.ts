@@ -1,30 +1,57 @@
-import { Query } from '@keen.io/query';
+import { Query, Step } from '@keen.io/query';
 
-export type Charts = 'pie' | 'bar' | 'line' | 'funnel';
+export type Transformation =
+  | 'singular'
+  | 'categorical'
+  | 'nominal'
+  | 'categorical-nominal'
+  | 'chronological-nominal'
+  | 'chronological-categorical-nominal'
+  | 'chronological'
+  | 'categorical-chronological'
+  | 'extraction'
+  | 'funnel';
 
-export type AtomicResult = { [key: string]: string | number } & {
+export type TransformOutput = {
+  data: Record<string, any>[];
+  keys: string[];
+};
+
+export type TransformationFunction = (
+  input: ParserInput,
+  settings: ParserSettings,
+  visualization?: string,
+  chartSettings?: Record<string, any>
+) => TransformOutput;
+
+export type GroupByResult = { [key: string]: string | number } & {
   result: number;
 };
 
-export type Step = {
-  with_actors: boolean;
-  actor_property: string;
-  event_collection: string;
-  timeframe: { start: string; end: string };
-  optional: boolean;
-  inverted: boolean;
+export type NominalGroupByResult = { [key: string]: string | number } & {
+  result: string[] | number[];
 };
 
 export type IntervalResult = {
   timeframe: { start: string; end: string };
-  value: number | AtomicResult[];
+  value:
+    | number
+    | null
+    | string
+    | string[]
+    | number[]
+    | GroupByResult[]
+    | NominalGroupByResult[];
 };
+
+export type ExtractionResult = Record<string, any>;
 
 export type AnalysisResult =
   | number
-  | number[]
+  | (string | number)[]
+  | ExtractionResult[]
   | IntervalResult[]
-  | AtomicResult[];
+  | GroupByResult[];
 
 export type ParserInput = {
   query?: Query;
@@ -32,12 +59,8 @@ export type ParserInput = {
   result: AnalysisResult;
 };
 
-export type ParserOutput = {
-  keys: string[];
-  results: Record<string, any>[];
-};
-
 export type ParserSettings = {
+  transformation: Transformation;
   fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
 };

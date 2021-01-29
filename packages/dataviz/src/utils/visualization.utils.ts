@@ -1,7 +1,7 @@
 import {
   parseQuery,
-  parseMultipleQueries,
-  mergeResults,
+  parseQueries,
+  mergeParsedResults,
   mapKeys,
   KEEN_KEY,
   AnalysisResult,
@@ -25,15 +25,15 @@ export const prepareVisualization = (
       result: AnalysisResult;
     }[];
 
-    const parsedQueries = parseMultipleQueries(analysisCollection);
-    const mergedResults = mergeResults(analysisCollection, parsedQueries);
+    const parsedQueries = parseQueries(analysisCollection);
+    const mergedResults = mergeParsedResults(analysisCollection, parsedQueries);
 
     keys = mergedResults.keys;
     results = mergedResults.results;
   } else {
     const parser = parseQuery(input as any);
     keys = parser.keys;
-    results = parser.results;
+    results = parser.data;
   }
 
   if (keysMap) {

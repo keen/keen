@@ -1,6 +1,7 @@
 import { BarChartSettings } from '@keen.io/charts';
 import { createScaleSettings } from '@keen.io/charts-utils';
-import { extractOrderDirection } from '@keen.io/parser';
+
+import { extractOrderDirection } from '../query';
 
 import { VisualizationOptions } from './types';
 

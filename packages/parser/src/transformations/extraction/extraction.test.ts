@@ -1,24 +1,30 @@
 import { transformExtraction } from './extraction';
 
-import { extractionResultFixture } from '../../api.fixtures';
+const result = [
+  { keen: { id: '@event/01' }, user: { name: 'John', surname: null } },
+  { keen: { id: '@event/02' } },
+];
 
-test('creates object from flatten array', () => {
-  const result = transformExtraction(extractionResultFixture.result);
-
-  expect(result).toMatchInlineSnapshot(`
+test('transform extraction results', () => {
+  expect(transformExtraction({ result })).toMatchInlineSnapshot(`
     Object {
-      "geo.city": "Krakow",
-      "geo.coordinates.0": 19.9789,
-      "geo.coordinates.1": 50.0591,
-      "geo.country": "Poland",
-      "geo.province": "Lesser Poland",
-      "lastLoginDate": 1576851939,
-      "tech.device.family": "other",
-      "tech.device.type": "desktop",
-      "userData.email": "John@Evans.com",
-      "userData.firstName": "John",
-      "userData.id": 1,
-      "userData.lastName": "Evans",
+      "data": Array [
+        Object {
+          "keen.id": "@event/01",
+          "user.name": "John",
+          "user.surname": null,
+        },
+        Object {
+          "keen.id": "@event/02",
+          "user.name": "",
+          "user.surname": "",
+        },
+      ],
+      "keys": Array [
+        "keen.id",
+        "user.name",
+        "user.surname",
+      ],
     }
   `);
 });

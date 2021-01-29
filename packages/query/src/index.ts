@@ -5,6 +5,7 @@ import {
   Step,
   Direction,
   Intervals,
+  Timeframe,
   Analysis,
 } from './types';
 
@@ -17,6 +18,7 @@ export {
   OrderByProperty,
   Direction,
   Intervals,
+  Timeframe,
   Analysis,
 };
 
