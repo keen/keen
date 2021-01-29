@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.43](https://github.com/keen/keen/compare/@keen.io/forms@2.0.42...@keen.io/forms@2.0.43) (2021-01-26)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [2.0.42](https://github.com/keen/keen/compare/@keen.io/forms@2.0.41...@keen.io/forms@2.0.42) (2021-01-21)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [2.0.41](https://github.com/keen/keen/compare/@keen.io/forms@2.0.40...@keen.io/forms@2.0.41) (2021-01-15)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [2.0.40](https://github.com/keen/keen/compare/@keen.io/forms@2.0.39...@keen.io/forms@2.0.40) (2021-01-11)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [2.0.39](https://github.com/keen/keen/compare/@keen.io/forms@2.0.38...@keen.io/forms@2.0.39) (2021-01-11)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [2.0.38](https://github.com/keen/keen/compare/@keen.io/forms@2.0.37...@keen.io/forms@2.0.38) (2021-01-11)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
+## [2.0.37](https://github.com/keen/keen/compare/@keen.io/forms@2.0.36...@keen.io/forms@2.0.37) (2021-01-06)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
 ## [2.0.36](https://github.com/keen/keen/compare/@keen.io/forms@2.0.35...@keen.io/forms@2.0.36) (2021-01-05)
 
 **Note:** Version bump only for package @keen.io/forms

@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.8.1...@keen.io/ui-core@2.9.0) (2021-01-26)
+
+
+### Features
+
+* 🎸 export-to-html ([a15ae8c](https://github.com/keen/keen/commit/a15ae8c1b0cfa5bbd697e4853612879f4a953925))
+
+
+
+
+
+## [2.8.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.8.0...@keen.io/ui-core@2.8.1) (2021-01-21)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.7.0...@keen.io/ui-core@2.8.0) (2021-01-15)
+
+
+### Features
+
+* 🎸 <Tabs/> component ([704c474](https://github.com/keen/keen/commit/704c47454d96f0e24cfa34080b51f6d6896ada24))
+
+
+
+
+
+# [2.7.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.6.1...@keen.io/ui-core@2.7.0) (2021-01-11)
+
+
+### Features
+
+* 🎸 radio component ([6decd5e](https://github.com/keen/keen/commit/6decd5e0b8b6a2d2128edd8af1e0e3b066757996))
+
+
+
+
+
+## [2.6.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.6.0...@keen.io/ui-core@2.6.1) (2021-01-11)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.6.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.25...@keen.io/ui-core@2.6.0) (2021-01-11)
+
+
+### Features
+
+* 🎸 tag management ([20132d8](https://github.com/keen/keen/commit/20132d86a211f3ee44f0583a60ff4bd4497cb3a9))
+
+
+
+
+
+## [2.5.25](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.24...@keen.io/ui-core@2.5.25) (2021-01-06)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
 ## [2.5.24](https://github.com/keen/keen/compare/@keen.io/ui-core@2.5.23...@keen.io/ui-core@2.5.24) (2021-01-05)
 
 **Note:** Version bump only for package @keen.io/ui-core
