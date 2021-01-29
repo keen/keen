@@ -1,4 +1,4 @@
-import { Query, Timeframe } from '@keen.io/query';
+import { Query } from '@keen.io/query';
 
 import { KEEN_KEY, KEEN_VALUE } from '../../constants';
 
@@ -26,7 +26,10 @@ export const transformChronologicalCategoricalNominal = ({
     const {
       timeframe: { start },
       value,
-    } = interval as { timeframe: Timeframe; value: NominalGroupByResult[] };
+    } = interval as {
+      timeframe: { start: string; end: string };
+      value: NominalGroupByResult[];
+    };
 
     const record = {
       [KEEN_KEY]: start,

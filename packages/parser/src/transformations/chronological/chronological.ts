@@ -1,4 +1,4 @@
-import { Query, Timeframe } from '@keen.io/query';
+import { Query } from '@keen.io/query';
 
 import { KEEN_KEY, KEEN_VALUE } from '../../constants';
 import { IntervalResult } from '../../types';
@@ -24,7 +24,7 @@ export const transformChronological = ({
       value,
       timeframe: { start: startDate },
     } = interval as {
-      timeframe: Timeframe;
+      timeframe: { start: string; end: string };
       value: number | null | string;
     };
     keys.add(KEEN_VALUE);

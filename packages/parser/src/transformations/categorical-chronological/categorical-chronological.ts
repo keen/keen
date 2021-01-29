@@ -1,4 +1,4 @@
-import { Query, Timeframe } from '@keen.io/query';
+import { Query } from '@keen.io/query';
 
 import { KEEN_KEY } from '../../constants';
 
@@ -27,7 +27,7 @@ export const transformCategoricalChronological = (
 
   result.forEach((interval) => {
     const { timeframe, value } = interval as {
-      timeframe: Timeframe;
+      timeframe: { start: string; end: string };
       value: GroupByResult[];
     };
     const intervalData: Record<string, any> = {};

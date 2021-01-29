@@ -24,10 +24,8 @@ export const simple = () => {
     const dataviz = new KeenDataViz({
       type: 'funnel',
       container: container.current,
-      mappings: {
-        pageviews: 'Views',
-        signups: 'Signups',
-        purchases: 'Purchsases',
+      settings: {
+        stepLabels: ['Pageviews', 'Signups', 'Purchases'],
       },
       widget: {
         title: {
@@ -37,9 +35,6 @@ export const simple = () => {
     });
 
     client
-      // .query({
-      //   savedQueryName: 'actions-and-purchases'
-      // })
       .query({
         analysis_type: 'funnel',
         steps: [
@@ -70,7 +65,6 @@ export const simple = () => {
         ],
       })
       .then((res) => {
-        console.log(res, 'sasa');
         dataviz.render(res);
       });
   }, []);
