@@ -37,3 +37,21 @@ test('creates structure for "extraction" analysis', () => {
     }
   `);
 });
+
+test('creates structure for "extraction" analysis with empty events', () => {
+  const extractionAnalysis = {
+    query: {
+      analysis_type: 'extraction',
+      event_collection: 'user_action',
+      timeframe: 'last_14_days',
+    } as Query,
+    result: [{}, {}],
+  };
+
+  expect(parseQuery(extractionAnalysis)).toMatchInlineSnapshot(`
+    Object {
+      "data": Array [],
+      "keys": Array [],
+    }
+  `);
+});

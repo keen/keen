@@ -6,8 +6,15 @@ import { renderWidget } from './render-widget';
 jest.mock('react-dom');
 jest.mock('./render-widget');
 
+const originalError = console.error;
+
 beforeEach(() => {
+  console.error = jest.fn();
   renderWidget.mockReset();
+});
+
+afterAll(() => {
+  console.error = originalError;
 });
 
 test('calls "unmountComponentAtNode" to destroy component', () => {

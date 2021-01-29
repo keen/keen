@@ -36,10 +36,20 @@ export const exportToCSV = ({
         result += columnDelimiter;
       }
 
-      result +=
-        typeof item[key] === 'string' && item[key].includes(columnDelimiter)
-          ? `"${item[key]}"`
-          : item[key];
+      let value = item[key];
+
+      if (
+        typeof item[key] === 'string' &&
+        item[key].includes(columnDelimiter)
+      ) {
+        value = `"${item[key]}"`;
+      }
+
+      if (Array.isArray(item[key])) {
+        value = `"${item[key].join(', ')}"`;
+      }
+
+      result += value;
       ctr++;
     });
     result += lineDelimiter;

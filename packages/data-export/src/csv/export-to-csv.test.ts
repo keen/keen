@@ -37,8 +37,8 @@ test('creates CSV structure from "object" with nested collections', () => {
 
   expect(exportToCSV({ data })).toMatchInlineSnapshot(`
     "keen.key,keen.value
-    2019-01-01T00:00:00.000Z,
-    2020-01-01T00:00:00.000Z,Dr.,Miss,Mr.
+    2019-01-01T00:00:00.000Z,\\"\\"
+    2020-01-01T00:00:00.000Z,\\"Dr., Miss, Mr.\\"
     "
   `);
 });

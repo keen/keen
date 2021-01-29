@@ -1,6 +1,8 @@
 import { createParserSettings } from './create-parser-settings';
 import { TRANSFORMATIONS } from './transformations';
 
+import { PREFIX } from './constants';
+
 import { ParserInput } from './types';
 
 /**
@@ -15,14 +17,23 @@ export const parseQuery = (input: ParserInput, visualization?: string) => {
   const { query, steps } = input;
   const parserSettings = createParserSettings(query, steps);
 
-  try {
-    const { transformation } = parserSettings;
-    const transformationHandler = TRANSFORMATIONS[transformation];
+  const { transformation } = parserSettings;
+  const transformationHandler = TRANSFORMATIONS[transformation];
 
-    return transformationHandler(input, parserSettings, visualization);
-  } catch (err) {
-    console.error(err);
+  if (transformationHandler) {
+    try {
+      return transformationHandler(input, parserSettings, visualization);
+    } catch (err) {
+      console.error(`${PREFIX} - analysis results cannot be transformed`);
+    }
+  } else {
+    console.error(`${PREFIX} - the provided data cannot be classified`);
   }
+
+  return {
+    keys: [],
+    data: [],
+  };
 };
 
 /**
