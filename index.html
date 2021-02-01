@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=11"/><title>Webpack App</title>
+  <link rel="stylesheet" href="https://static.keen.io/assets/keen-fonts.css"/>
+  <style>body {
+      margin: 0;
+      padding: 0;
+    }</style>
+  </head>
+  <body class="dev-body"><div id="root"></div><div id="modal-root"></div>
+
+      <script src="https://cdn.jsdelivr.net/npm/@keen.io/dashboard-creator@1.1.0-rc.1/dist/dashboard-creator/vendors.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@keen.io/dashboard-creator@1.1.0-rc.1/dist/dashboard-creator/main.min.js"></script></body><script>
+
+   new KeenDashboardCreator({
+     container: '#root',
+     editPrivileges: true,
+     backend: {
+       analyticsApiUrl: 'staging-api.keen.io',
+       dashboardsApiUrl: 'https://blob-service.us-west-2.test.aws.keen.io',
+     },
+     modalContainer: '#modal-root',
+     translations: {
+        backend: {
+          loadPath: 'https://cdn.jsdelivr.net/npm/@keen.io/dashboard-creator@1.1.0-rc.1/dist/locales/{{lng}}/{{ns}}.json'
+        }
+      },
+     project: {
+       id: '5de6365c46e0fb00016563bc',
+       accessKey: 'E6100206A8F145BB407AD97B2928CB53BA965CBC9C2304FA3BCBC8CFAA10A290F341286293F89CE884E52E20A9922FBC3300043834A0448285197AAE4669D34248A2D5CD15DB9D5E1C9551F870E43E0156DB478D635B99C125CDFC0B4ED52F5E',
+       masterKey: 'F3BC52F83A0FF361B441505739966A40FA6DF0A62D2912B005ACD6FDAB3B186C',
+       userKey: 'E6100206A8F145BB407AD97B2928CB53BA965CBC9C2304FA3BCBC8CFAA10A290F341286293F89CE884E52E20A9922FBC3300043834A0448285197AAE4669D34248A2D5CD15DB9D5E1C9551F870E43E0156DB478D635B99C125CDFC0B4ED52F5E',
+     },
+     createSharedDashboardUrl: (accessKey, dashboardId) => `https://dashboards.keen.io/${dashboardId}/${accessKey}`,
+   }).render();</script></html>
