@@ -35,9 +35,15 @@ const sizeVariants = {
   prop: 'size',
   variants: {
     default: {
+      fontSize: '15px',
       height: '37px',
     },
+    small: {
+      fontSize: '14px',
+      height: '27px',
+    },
     large: {
+      fontSize: '15px',
       height: '45px',
     },
   },
@@ -54,7 +60,6 @@ const activeVariants = {
 };
 
 const buttonMixin = () => css`
-  font-size: 15px;
   font-family: 'Lato Bold', sans-serif;
   text-decoration: none;
 

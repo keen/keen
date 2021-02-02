@@ -20,6 +20,12 @@ export const primaryLarge = () => (
   </Button>
 );
 
+export const primarySmall = () => (
+  <Button onClick={action('click')} size="small">
+    Small Button
+  </Button>
+);
+
 primaryLarge.story = {
   parameters: {
     docs: {
@@ -44,6 +50,12 @@ primaryButtonLink.story = {
 
 export const secondary = () => (
   <Button onClick={action('click')} variant="secondary">
+    Button
+  </Button>
+);
+
+export const secondarySmall = () => (
+  <Button onClick={action('click')} variant="secondary" size="small">
     Button
   </Button>
 );
