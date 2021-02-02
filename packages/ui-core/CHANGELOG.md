@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.9.0...@keen.io/ui-core@2.10.0) (2021-02-02)
+
+
+### Features
+
+* 🎸 small button variant ([3fa5242](https://github.com/keen/keen/commit/3fa524260c6f1a4f2480fcbbfe0c43ef1e9af9e1))
+
+
+
+
+
 # [2.9.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.8.1...@keen.io/ui-core@2.9.0) (2021-01-26)
 
 
