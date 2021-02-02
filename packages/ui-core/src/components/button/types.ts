@@ -1,3 +1,3 @@
-export type ButtonSize = 'default' | 'large';
+export type ButtonSize = 'default' | 'small' | 'large';
 
 export type ButtonType = 'solid' | 'outline';
