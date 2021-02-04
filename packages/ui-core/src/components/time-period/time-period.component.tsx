@@ -1,6 +1,7 @@
 import React, { FC, useState, useCallback, useMemo } from 'react';
-import { Dropdown, Input } from '@keen.io/ui-core';
 
+import Dropdown from '../dropdown';
+import Input from '../input';
 import DropdownList from '../dropdown-list';
 import DropdownListContainer from '../dropdown-list-container';
 import DropableContainer from '../dropable-container';
