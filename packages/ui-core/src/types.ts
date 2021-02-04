@@ -47,3 +47,37 @@ export type ButtonVariant =
   | 'success'
   | 'danger'
   | 'blank';
+
+export type Timezones =
+  | 'US/Eastern'
+  | 'US/Central'
+  | 'US/Mountain'
+  | 'US/Pacific'
+  | 'US/Alaska'
+  | 'US/Hawaii'
+  | 'Europe/Amsterdam'
+  | 'Europe/London'
+  | 'Europe/Paris'
+  | 'Europe/Prague'
+  | 'Europe/Stockholm'
+  | 'Europe/Copenhagen'
+  | 'Africa/Casablanca'
+  | 'Africa/Nairobi'
+  | 'Asia/Singapore'
+  | 'Australia/Sydney'
+  | 'Asia/Dubai'
+  | 'Asia/Istanbul'
+  | 'Asia/Jakarta'
+  | 'Asia/Tokyo'
+  | 'America/Sao_Paulo'
+  | 'Australia/Perth'
+  | 'Europe/Istanbul'
+  | 'Pacific/Auckland'
+  | 'UTC';
+
+export type Timeframe =
+  | string
+  | {
+      start: string;
+      end: string;
+    };

@@ -55,9 +55,25 @@ import Portal from './portal';
 import ScrollWrapper from './scroll-wrapper';
 import Tabs from './tabs';
 
-export { ARROW_SIZE };
+import AbsoluteTime, { TIME_PICKER_CLASS } from './absolute-time';
+import DatePicker from './date-picker';
+import DropableContainer, {
+  DropableContainerVariant,
+} from './dropable-container';
+import DropdownListContainer from './dropdown-list-container';
+import RelativeTime from './relative-time';
+import TimePeriod from './time-period';
+import Timezone from './timezone';
+import Title from './title';
 
-export type { CardSettings, TooltipMode, OAuthConfig };
+export { ARROW_SIZE, TIME_PICKER_CLASS };
+
+export type {
+  CardSettings,
+  TooltipMode,
+  OAuthConfig,
+  DropableContainerVariant,
+};
 
 export {
   Alert,
@@ -113,4 +129,12 @@ export {
   Portal,
   ScrollWrapper,
   Tabs,
+  AbsoluteTime,
+  DatePicker,
+  DropableContainer,
+  DropdownListContainer,
+  RelativeTime,
+  TimePeriod,
+  Timezone,
+  Title,
 };

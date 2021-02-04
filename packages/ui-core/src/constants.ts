@@ -5,3 +5,12 @@ export const UI_LAYERS = {
   tooltip: 20,
   element: 10,
 };
+
+export const TIME_UNITS = {
+  minute: 'minutes',
+  hour: 'hours',
+  day: 'days',
+  week: 'weeks',
+  month: 'months',
+  year: 'years',
+};
