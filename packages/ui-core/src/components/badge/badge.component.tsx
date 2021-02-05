@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
-import { Tooltip } from '@keen.io/ui-core';
 
 import {
   Container,
@@ -12,6 +11,7 @@ import {
 
 import { Variant } from './types';
 import { truncate as truncateString } from '../../utils/string.utils';
+import Tooltip from '../tooltip';
 
 type Props = {
   variant?: Variant;
