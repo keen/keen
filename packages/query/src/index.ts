@@ -7,6 +7,7 @@ import {
   Intervals,
   Timeframe,
   Analysis,
+  Timezones,
 } from './types';
 
 import { isCustomInterval } from './utils';
@@ -20,6 +21,7 @@ export {
   Intervals,
   Timeframe,
   Analysis,
+  Timezones,
 };
 
 export { isCustomInterval };
