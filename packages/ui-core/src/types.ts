@@ -74,10 +74,3 @@ export type Timezones =
   | 'Europe/Istanbul'
   | 'Pacific/Auckland'
   | 'UTC';
-
-export type Timeframe =
-  | string
-  | {
-      start: string;
-      end: string;
-    };

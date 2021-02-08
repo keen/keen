@@ -9,7 +9,6 @@ import {
   RangeType,
   SortMode,
   SortByType,
-  Timeframe,
   Timezones,
 } from './types';
 
@@ -100,7 +99,6 @@ export type {
   SortMode,
   SortByType,
   OAuthConfig,
-  Timeframe,
   Timezones,
   DropableContainerVariant,
   CellValue,
