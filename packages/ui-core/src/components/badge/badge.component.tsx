@@ -38,10 +38,14 @@ export const Badge: FC<Props> = ({
     exit: { opacity: 0 },
   };
 
-  const label =
-    truncate && typeof children === 'string'
-      ? truncateString(children)
-      : children;
+  let isTruncated = false;
+  let truncatedLabel = '';
+
+  if (truncate && typeof children === 'string') {
+    const truncateResult = truncateString(children);
+    isTruncated = truncateResult.isTruncated;
+    truncatedLabel = truncateResult.value;
+  }
 
   return (
     <Container
@@ -54,7 +58,7 @@ export const Badge: FC<Props> = ({
         removable={removable}
         onClick={onClick}
       >
-        {label}
+        {isTruncated ? truncatedLabel : children}
       </TextWrapper>
       {removable && (
         <IconWrapper
@@ -72,7 +76,7 @@ export const Badge: FC<Props> = ({
           />
         </IconWrapper>
       )}
-      {typeof label === 'string' && label.includes('...') && (
+      {isTruncated && (
         <AnimatePresence>
           {isActive && (
             <TooltipMotion {...tooltipMotion}>

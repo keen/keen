@@ -1,5 +1,8 @@
-export const truncate = (input: string, maxLength = 25) => {
-  if (input.length <= maxLength) return input;
+export const truncate = (
+  input: string,
+  maxLength = 25
+): { value: string; isTruncated: boolean } => {
+  if (input.length <= maxLength) return { value: input, isTruncated: false };
   const words = input.split(' ');
   let output = '';
   let numberOfOutputCharacters = 0;
@@ -28,7 +31,7 @@ export const truncate = (input: string, maxLength = 25) => {
       return true;
     }
   });
-  return output;
+  return { value: output, isTruncated: true };
 };
 
 const addSpace = (word: string, index: number) => {
