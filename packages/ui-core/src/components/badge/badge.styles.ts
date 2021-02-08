@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import { variant } from 'styled-system';
-import { Variant } from './types';
+import { motion } from 'framer-motion';
 
+import { Variant } from './types';
 import { createVariants } from './utils';
 
 export const Container = styled.div`
   display: inline-flex;
   align-items: stretch;
   justify-content: center;
-
+  position: relative;
   cursor: pointer;
 `;
 
@@ -52,4 +53,12 @@ export const IconWrapper = styled.div<IconWrapperProps>`
   transition: background-color 0.3s ease-in-out;
 
   ${(props) => variant(createVariants(props.isActive))}
+`;
+
+export const TooltipMotion = styled(motion.div)`
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%) translateY(50%);
+  min-width: 170px;
 `;
