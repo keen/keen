@@ -1,4 +1,5 @@
 import React, { FC, useMemo, useState } from 'react';
+import { Timezones } from '@keen.io/query';
 
 import Title from '../title';
 import DropdownList from '../dropdown-list';
@@ -9,8 +10,6 @@ import Dropdown from '../dropdown';
 import { Container, SelectContainer } from './timezone.styles';
 
 import { TIMEZONES } from './constants';
-
-import { Timezones } from '../../types';
 
 type Props = {
   /** Timezone value */

@@ -9,7 +9,6 @@ import {
   RangeType,
   SortMode,
   SortByType,
-  Timezones,
 } from './types';
 
 import { CDNContext } from './context';
@@ -99,7 +98,6 @@ export type {
   SortMode,
   SortByType,
   OAuthConfig,
-  Timezones,
   DropableContainerVariant,
   CellValue,
   RulerTick,

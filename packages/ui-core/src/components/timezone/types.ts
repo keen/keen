@@ -1,4 +1,4 @@
-import { Timezones } from '../../types';
+import { Timezones } from '@keen.io/query';
 
 export type Timezone = {
   name: Timezones;

@@ -1,13 +1,11 @@
 import React, { FC, memo } from 'react';
 import moment from 'moment-timezone';
 
-import { Timeframe } from '@keen.io/query';
+import { Timeframe, Timezones } from '@keen.io/query';
 
 import { Container, TimeLabel, TimeRow } from './absolute-time.styles';
 
 import DatePicker from '../date-picker';
-
-import { Timezones } from '../../types';
 
 type Props = {
   /** Unique identifer */
