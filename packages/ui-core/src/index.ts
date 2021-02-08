@@ -73,9 +73,18 @@ import {
   OAuthConfig,
   ScrollWrapper,
   Tabs,
+  AbsoluteTime,
+  TIME_PICKER_CLASS,
+  DatePicker,
+  DropableContainer,
+  DropableContainerVariant,
+  RelativeTime,
+  TimePeriod,
+  Timezone,
+  Title as TitleComponent,
 } from './components';
 
-import { UI_LAYERS } from './constants';
+import { UI_LAYERS, TIME_UNITS } from './constants';
 
 export type {
   Alignment,
@@ -89,7 +98,12 @@ export type {
   SortMode,
   SortByType,
   OAuthConfig,
+  DropableContainerVariant,
+  CellValue,
+  RulerTick,
 };
+
+export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
 
 export { isElementInViewport, exportToHtml } from './utils';
 
@@ -107,7 +121,6 @@ export {
   Card,
   CDNContext,
   Checkbox,
-  CellValue,
   Dropdown,
   DropdownMenu,
   DropdownList,
@@ -133,7 +146,6 @@ export {
   calculateIntervalValue,
   Portal,
   Ruler,
-  RulerTick,
   Radio,
   RadioGroup,
   TableCell,
@@ -142,7 +154,6 @@ export {
   Toggle,
   TagManager,
   TagManagement,
-  ARROW_SIZE,
   Brand,
   ModalContent,
   ModalHeader,
@@ -151,8 +162,14 @@ export {
   SuccessNotification,
   screenBreakpoints,
   OAuthProviders,
-  OAuthUserAction,
   ScrollWrapper,
   Tabs,
-  UI_LAYERS,
+  AbsoluteTime,
+  DatePicker,
+  DropableContainer,
+  RelativeTime,
+  TimePeriod,
+  Timezone,
+  TitleComponent,
+  OAuthUserAction,
 };

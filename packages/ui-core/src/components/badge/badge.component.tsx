@@ -1,9 +1,17 @@
 import React, { FC, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 
-import { Container, TextWrapper, IconWrapper } from './badge.styles';
+import {
+  Container,
+  TextWrapper,
+  IconWrapper,
+  TooltipMotion,
+} from './badge.styles';
 
 import { Variant } from './types';
+import { truncate as truncateString } from '../../utils/string.utils';
+import Tooltip from '../tooltip';
 
 type Props = {
   variant?: Variant;
@@ -11,6 +19,7 @@ type Props = {
   removable?: boolean;
   onClick?: () => void;
   onRemove?: () => void;
+  truncate?: boolean;
 };
 
 export const Badge: FC<Props> = ({
@@ -19,8 +28,25 @@ export const Badge: FC<Props> = ({
   removable,
   onClick,
   onRemove,
+  truncate,
 }) => {
   const [isActive, setActive] = useState(false);
+
+  const tooltipMotion = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
+  let isTruncated = false;
+  let truncatedLabel = '';
+
+  if (truncate && typeof children === 'string') {
+    const truncateResult = truncateString(children);
+    isTruncated = truncateResult.isTruncated;
+    truncatedLabel = truncateResult.value;
+  }
+
   return (
     <Container
       onMouseEnter={() => setActive(true)}
@@ -32,7 +58,7 @@ export const Badge: FC<Props> = ({
         removable={removable}
         onClick={onClick}
       >
-        {children}
+        {isTruncated ? truncatedLabel : children}
       </TextWrapper>
       {removable && (
         <IconWrapper
@@ -49,6 +75,15 @@ export const Badge: FC<Props> = ({
             height={8}
           />
         </IconWrapper>
+      )}
+      {isTruncated && (
+        <AnimatePresence>
+          {isActive && (
+            <TooltipMotion {...tooltipMotion}>
+              <Tooltip arrowDirection="top">{children}</Tooltip>
+            </TooltipMotion>
+          )}
+        </AnimatePresence>
       )}
     </Container>
   );
