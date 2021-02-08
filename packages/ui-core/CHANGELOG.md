@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.10.0...@keen.io/ui-core@2.11.0) (2021-02-08)
+
+
+### Bug Fixes
+
+* 🐛 Wrong library path fix ([11387b9](https://github.com/keen/keen/commit/11387b91804591c0227c7eb6b6349e0c4ed1c247))
+
+
+### Features
+
+* 🎸 Badge with truncated label added ([8f4e441](https://github.com/keen/keen/commit/8f4e441cb4bde0010596687e63abea6ae94b9cf1)), closes [#FEE-103](https://github.com/keen/keen/issues/FEE-103)
+* 🎸 extract components for <Timeframe/> ([7b412f0](https://github.com/keen/keen/commit/7b412f0201311797eb8eabfa626413c4558ad460))
+
+
+
+
+
 # [2.10.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.9.0...@keen.io/ui-core@2.10.0) (2021-02-02)
 
 

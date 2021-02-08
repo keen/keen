@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/storybook-utils",
-  "version": "2.0.46",
+  "version": "2.0.47",
   "description": "Keen utils",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
-    "@keen.io/ui-core": "^2.10.0"
+    "@keen.io/ui-core": "^2.11.0"
   },
   "publishConfig": {
     "access": "public"
