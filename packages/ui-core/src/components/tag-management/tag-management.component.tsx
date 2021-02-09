@@ -174,6 +174,7 @@ const TagManagement: FC<Props> = ({
                 onRemove={() => onRemoveTag(tag)}
                 removable
                 variant="purple"
+                truncate
               >
                 {tag}
               </Badge>
