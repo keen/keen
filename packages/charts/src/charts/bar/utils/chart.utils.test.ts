@@ -1,3 +1,4 @@
+import { colors } from '@keen.io/colors';
 import {
   generateHorizontalGroupedBars,
   generateVerticalGroupedBars,
@@ -228,9 +229,9 @@ describe('getColor()', () => {
     expect(result).toBe('#85B4C3');
   });
 
-  it('should return #000000', () => {
+  it('should return fallback color', () => {
     const result = getColor(100, chartColors);
 
-    expect(result).toBe('#000000');
+    expect(result).toBe(colors.black[500]);
   });
 });

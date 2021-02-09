@@ -1,5 +1,6 @@
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { stack, stackOffsetDiverging } from 'd3-shape';
+import { colors as colorPalette } from '@keen.io/colors';
 
 import { Layout, SortMode } from '@keen.io/ui-core';
 import {
@@ -8,6 +9,7 @@ import {
   calculateScaleDomain,
   getKeysDifference,
   transformToPercent,
+  normalizeDate,
   ScaleSettings,
 } from '@keen.io/charts-utils';
 
@@ -37,7 +39,7 @@ type Options = {
 
 export const getColor = (idx: number, colors: string[]): string => {
   if (colors[idx]) return colors[idx];
-  return '#000000';
+  return colorPalette.black[500];
 };
 
 export const generateHorizontalGroupedBars = ({
@@ -52,9 +54,28 @@ export const generateHorizontalGroupedBars = ({
   barsOrder,
   labelSelector,
   colors,
+  xScaleSettings,
 }: Options) => {
   const filteredKeys = getKeysDifference(keys, disabledKeys);
-  const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
+  const { precision, useUTC } = xScaleSettings;
+
+  const dateNormalizer = precision
+    ? (date: string) => normalizeDate(date, precision, useUTC)
+    : null;
+
+  const localizedData = dateNormalizer
+    ? data.map((item) => ({
+        ...item,
+        [labelSelector]: dateNormalizer(item[labelSelector]),
+      }))
+    : data;
+
+  const { minimum, maximum } = calculateRange(
+    localizedData,
+    minValue,
+    maxValue,
+    keys
+  );
 
   const xScale = scaleLinear()
     .range([margins.left, dimension.width - margins.right])
@@ -64,7 +85,7 @@ export const generateHorizontalGroupedBars = ({
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain(data.map((item: any) => item[labelSelector]).reverse())
+    .domain(localizedData.map((item: any) => item[labelSelector]).reverse())
     .padding(barPadding);
 
   const yGroupScale = scaleBand()
@@ -78,14 +99,14 @@ export const generateHorizontalGroupedBars = ({
   const keysOrder: Record<number, any> = {};
 
   if (barsOrder) {
-    data.forEach((_item: Record<string, any>, idx: number) => {
+    localizedData.forEach((_item: Record<string, any>, idx: number) => {
       yGroupScale
         .domain()
         .sort((a, b) => {
           if (barsOrder === 'descending') {
-            return data[idx]?.[b] - data[idx]?.[a];
+            return localizedData[idx]?.[b] - localizedData[idx]?.[a];
           } else {
-            return data[idx]?.[a] - data[idx]?.[b];
+            return localizedData[idx]?.[a] - localizedData[idx]?.[b];
           }
         })
         .forEach((keyName, index) => {
@@ -101,7 +122,7 @@ export const generateHorizontalGroupedBars = ({
       keyName === labelSelector || disabledKeys.includes(keyName);
 
     range.forEach((_d, index: number) => {
-      const value = data[index]?.[keyName];
+      const value = localizedData[index]?.[keyName];
 
       if (value && !isDisabled) {
         const orderPosition = barsOrder ? keysOrder[index][keyName] : yCounter;
@@ -109,7 +130,9 @@ export const generateHorizontalGroupedBars = ({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
           x: value > 0 ? Math.abs(xScale(0)) : xScale(value),
-          y: yScale(data[index][labelSelector]) + barHeight * orderPosition,
+          y:
+            yScale(localizedData[index][labelSelector]) +
+            barHeight * orderPosition,
           width: Math.abs(xScale(value) - xScale(0)),
           height: barHeight,
           color: getColor(idx, colors),
@@ -144,13 +167,32 @@ export const generateVerticalGroupedBars = ({
   disabledKeys,
   colors,
   labelSelector,
+  xScaleSettings,
 }: Options) => {
   const filteredKeys = getKeysDifference(keys, disabledKeys);
-  const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
+  const { precision, useUTC } = xScaleSettings;
+
+  const dateNormalizer = precision
+    ? (date: string) => normalizeDate(date, precision, useUTC)
+    : null;
+
+  const localizedData = dateNormalizer
+    ? data.map((item) => ({
+        ...item,
+        [labelSelector]: dateNormalizer(item[labelSelector]),
+      }))
+    : data;
+
+  const { minimum, maximum } = calculateRange(
+    localizedData,
+    minValue,
+    maxValue,
+    keys
+  );
 
   const xScale = scaleBand()
     .range([margins.left, dimension.width - margins.right])
-    .domain(data.map((item: any) => item[labelSelector]))
+    .domain(localizedData.map((item: any) => item[labelSelector]))
     .padding(barPadding);
 
   const yScale = scaleLinear()
@@ -170,14 +212,14 @@ export const generateVerticalGroupedBars = ({
   const keysOrder: Record<number, any> = {};
 
   if (barsOrder) {
-    data.forEach((_item: Record<string, any>, idx: number) => {
+    localizedData.forEach((_item: Record<string, any>, idx: number) => {
       xGroupScale
         .domain()
         .sort((a, b) => {
           if (barsOrder === 'descending') {
-            return data[idx]?.[b] - data[idx]?.[a];
+            return localizedData[idx]?.[b] - localizedData[idx]?.[a];
           } else {
-            return data[idx]?.[a] - data[idx]?.[b];
+            return localizedData[idx]?.[a] - localizedData[idx]?.[b];
           }
         })
         .forEach((keyName, index) => {
@@ -193,14 +235,16 @@ export const generateVerticalGroupedBars = ({
       keyName === labelSelector || disabledKeys.includes(keyName);
 
     range.forEach((_d, index: number) => {
-      const value = data[index]?.[keyName];
+      const value = localizedData[index]?.[keyName];
 
       if (value && !isDisabled) {
         const orderPosition = barsOrder ? keysOrder[index][keyName] : xCounter;
         const bar = {
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          x: xScale(data[index][labelSelector]) + barWidth * orderPosition,
+          x:
+            xScale(localizedData[index][labelSelector]) +
+            barWidth * orderPosition,
           y: value > 0 ? yScale(value) : yScale(0),
           width: barWidth,
           height: Math.abs(yScale(value) - yScale(0)),
@@ -236,12 +280,27 @@ export const generateHorizontalStackedBars = ({
   colors,
   stackMode,
   labelSelector,
+  xScaleSettings,
 }: Options) => {
   const bars = [] as Bar[];
   const filteredKeys = getKeysDifference(keys, disabledKeys);
+  const { precision, useUTC } = xScaleSettings;
+
+  const dateNormalizer = precision
+    ? (date: string) => normalizeDate(date, precision, useUTC)
+    : null;
+
+  const localizedData = dateNormalizer
+    ? data.map((item) => ({
+        ...item,
+        [labelSelector]: dateNormalizer(item[labelSelector]),
+      }))
+    : data;
 
   const normalizedData =
-    stackMode === 'normal' ? data : transformToPercent(data, filteredKeys);
+    stackMode === 'normal'
+      ? localizedData
+      : transformToPercent(localizedData, filteredKeys);
 
   const stackedData = stack().keys(filteredKeys).offset(stackOffsetDiverging)(
     normalizedData
@@ -307,12 +366,27 @@ export const generateVerticalStackedBars = ({
   colors,
   stackMode,
   labelSelector,
+  xScaleSettings,
 }: Options) => {
   const bars = [] as Bar[];
   const filteredKeys = getKeysDifference(keys, disabledKeys);
+  const { precision, useUTC } = xScaleSettings;
+
+  const dateNormalizer = precision
+    ? (date: string) => normalizeDate(date, precision, useUTC)
+    : null;
+
+  const localizedData = dateNormalizer
+    ? data.map((item) => ({
+        ...item,
+        [labelSelector]: dateNormalizer(item[labelSelector]),
+      }))
+    : data;
 
   const normalizedData =
-    stackMode === 'normal' ? data : transformToPercent(data, filteredKeys);
+    stackMode === 'normal'
+      ? localizedData
+      : transformToPercent(localizedData, filteredKeys);
 
   const stackedData = stack().keys(filteredKeys).offset(stackOffsetDiverging)(
     normalizedData
