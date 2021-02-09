@@ -7,6 +7,7 @@ import text from './text.json';
 
 import {
   extendTheme,
+  extendChartSettings,
   extendWidgetSettings,
   prepareVisualization,
   createSettingsFromQuery,
@@ -76,17 +77,17 @@ class Visualizer {
       let query = {};
       if (input.query) query = input.query;
 
-      componentSettings = {
-        ...createSettingsFromQuery({ query, widgetType, keys }),
-        ...componentSettings,
-      };
+      componentSettings = extendChartSettings(
+        createSettingsFromQuery({ query, widgetType, keys }),
+        componentSettings
+      );
     } else if (Array.isArray(input) && input[0]?.query) {
       const [firstQuery] = input;
       const { query } = firstQuery;
-      componentSettings = {
-        ...createSettingsFromQuery({ query, widgetType, keys }),
-        ...componentSettings,
-      };
+      componentSettings = extendChartSettings(
+        createSettingsFromQuery({ query, widgetType, keys }),
+        componentSettings
+      );
     }
 
     return componentSettings;
