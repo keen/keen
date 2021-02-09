@@ -1,7 +1,6 @@
 import { ScaleLinear, ScaleBand, ScaleTime, scaleOrdinal } from 'd3-scale';
 import {
   ScaleSettings,
-  formatScaleLabel,
   getScaleValues,
   getScaleCenterPosition,
 } from '@keen.io/charts-utils';
@@ -44,7 +43,7 @@ export const generateTicks = ({
   values.forEach((value: any) => {
     ticks.push({
       size: tickSize,
-      text: formatScaleLabel(value, scaleSettings),
+      text: value,
       x: getX(value),
       y: getY(value),
     });

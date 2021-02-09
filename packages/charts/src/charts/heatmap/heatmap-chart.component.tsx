@@ -17,6 +17,7 @@ import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
 import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { text } from '@storybook/addon-knobs';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -153,7 +154,10 @@ export const HeatmapChart: FC<Props> = ({
         ref={svgElement}
         theme={theme}
         xScaleSettings={xScaleSettings}
-        yScaleSettings={yScaleSettings}
+        yScaleSettings={{
+          formatLabel: text('Format pattern', '', 'Scale Settings'),
+          ...yScaleSettings,
+        }}
         svgDimensions={svgDimensions}
         margins={layoutMargins}
       >
