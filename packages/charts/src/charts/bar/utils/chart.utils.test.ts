@@ -1,4 +1,9 @@
+import {
+  register as registerTimezone,
+  unregister as unregisterTimezone,
+} from 'timezone-mock';
 import { colors } from '@keen.io/colors';
+
 import {
   generateHorizontalGroupedBars,
   generateVerticalGroupedBars,
@@ -14,13 +19,21 @@ const data = [
   { label: 'February', sale: 12, buy: 3, revenue: 21 },
 ];
 
+beforeAll(() => {
+  registerTimezone('UTC');
+});
+
+afterAll(() => {
+  unregisterTimezone();
+});
+
 describe('generateHorizontalGroupedBars()', () => {
   const chart: any = {
     data,
     ...horizontalBarChart,
   };
 
-  it('should create proper domain for xScale', () => {
+  test('should create proper domain for xScale', () => {
     const { xScale } = generateHorizontalGroupedBars(chart);
 
     expect(xScale.domain()).toMatchInlineSnapshot(`
@@ -31,7 +44,7 @@ describe('generateHorizontalGroupedBars()', () => {
     `);
   });
 
-  it('should increase domain for xScale', () => {
+  test('should increase domain for xScale', () => {
     const data = [
       { label: 'Cats', adopted: 12 },
       { label: 'Dogs', adopted: 17 },
@@ -52,7 +65,7 @@ describe('generateHorizontalGroupedBars()', () => {
     `);
   });
 
-  it('should create proper domain for yScale', () => {
+  test('should create proper domain for yScale', () => {
     const { yScale } = generateHorizontalGroupedBars(chart);
 
     expect(yScale.domain()).toMatchInlineSnapshot(`
@@ -63,7 +76,7 @@ describe('generateHorizontalGroupedBars()', () => {
     `);
   });
 
-  it('should not create bars for disabled keys', () => {
+  test('should not create bars for disabled keys', () => {
     const data = [
       { label: 'Marketing', people: 10, rooms: 3 },
       { label: 'Customer Success', people: 16, rooms: 10 },
@@ -84,7 +97,7 @@ describe('generateHorizontalGroupedBars()', () => {
     expect(bars).toMatchObject(result);
   });
 
-  it('should sort bars in "ascending" order', () => {
+  test('should sort bars in "ascending" order', () => {
     const data = [
       { label: 'Marketing', people: 10, rooms: 3 },
       { label: 'Customer Success', people: 2, rooms: 10 },
@@ -100,7 +113,7 @@ describe('generateHorizontalGroupedBars()', () => {
     expect(bars).toMatchSnapshot();
   });
 
-  it('should sort bars in "descending" order', () => {
+  test('should sort bars in "descending" order', () => {
     const data = [
       { label: 'Marketing', people: 15, rooms: 34 },
       { label: 'Customer Success', people: 21, rooms: 10 },
@@ -123,7 +136,33 @@ describe('generateVerticalGroupedBars()', () => {
     ...verticalBarChart,
   };
 
-  it('should create proper domain for xScale', () => {
+  test('should normalize intervals dates', () => {
+    const data = [
+      { label: '2020-01-01T12:00:00.000Z', value: 30 },
+      { label: '2020-01-01T13:00:00.000Z', value: 21 },
+    ];
+
+    const { xScale } = generateVerticalGroupedBars({
+      ...chart,
+      keys: ['value'],
+      labelSelector: 'label',
+      xScaleSettings: {
+        type: 'band',
+        precision: 'hour',
+        useUTC: false,
+      },
+      data,
+    });
+
+    expect(xScale.domain()).toMatchInlineSnapshot(`
+      Array [
+        "2020-01-01T12:00:00.000Z",
+        "2020-01-01T13:00:00.000Z",
+      ]
+    `);
+  });
+
+  test('should create proper domain for xScale', () => {
     const { xScale } = generateVerticalGroupedBars(chart);
 
     expect(xScale.domain()).toMatchInlineSnapshot(`
@@ -134,7 +173,7 @@ describe('generateVerticalGroupedBars()', () => {
     `);
   });
 
-  it('should create proper domain for yScale', () => {
+  test('should create proper domain for yScale', () => {
     const { yScale } = generateVerticalGroupedBars(chart);
 
     expect(yScale.domain()).toMatchInlineSnapshot(`
@@ -145,7 +184,7 @@ describe('generateVerticalGroupedBars()', () => {
     `);
   });
 
-  it('should not create bars for disabled keys', () => {
+  test('should not create bars for disabled keys', () => {
     const data = [
       { label: 'Marketing', people: 10, rooms: 3, cars: 10 },
       { label: 'Customer Success', people: 16, rooms: 10, cars: 12 },
@@ -168,7 +207,7 @@ describe('generateVerticalGroupedBars()', () => {
     expect(bars).toMatchObject(result);
   });
 
-  it('should increase domain for yScale', () => {
+  test('should increase domain for yScale', () => {
     const data = [
       { label: 'January', revenue: 33 },
       { label: 'February', revenue: 21 },
@@ -189,7 +228,7 @@ describe('generateVerticalGroupedBars()', () => {
     `);
   });
 
-  it('should sort bars in "ascending" order', () => {
+  test('should sort bars in "ascending" order', () => {
     const data = [
       { label: 'Marketing', people: 10, rooms: 3 },
       { label: 'Customer Success', people: 2, rooms: 10 },
@@ -205,7 +244,7 @@ describe('generateVerticalGroupedBars()', () => {
     expect(bars).toMatchSnapshot();
   });
 
-  it('should sort bars in "descending" order', () => {
+  test('should sort bars in "descending" order', () => {
     const data = [
       { label: 'Marketing', people: 15, rooms: 34 },
       { label: 'Customer Success', people: 21, rooms: 10 },
@@ -223,13 +262,13 @@ describe('generateVerticalGroupedBars()', () => {
 });
 
 describe('getColor()', () => {
-  it('should return color from colors', () => {
+  test('should return color from colors', () => {
     const result = getColor(0, chartColors);
 
     expect(result).toBe('#85B4C3');
   });
 
-  it('should return fallback color', () => {
+  test('should return fallback color', () => {
     const result = getColor(100, chartColors);
 
     expect(result).toBe(colors.black[500]);
