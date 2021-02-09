@@ -8,7 +8,7 @@ import {
   bubbleWidgetSettings as defaultBubbleWidgetSettings,
 } from '@keen.io/widgets';
 
-import { VisualizerWidgetSettings } from '../types';
+import { VisualizerWidgetSettings } from '../../types';
 
 /**
  * Extends widget settings with custom configuration
