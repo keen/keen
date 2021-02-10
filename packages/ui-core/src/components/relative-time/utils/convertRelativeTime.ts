@@ -1,5 +1,7 @@
 import { TIME_UNITS } from '../../../constants';
 
+type Keys = keyof typeof TIME_UNITS;
+
 const TIME_SEPARATOR = '_';
 
 const TODAY = {
@@ -28,7 +30,7 @@ export const convertRelativeTime = (time: string) => {
     return {
       relativity,
       value: 1,
-      units: TIME_UNITS[unit],
+      units: TIME_UNITS[unit as Keys],
     };
   }
 
