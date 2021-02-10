@@ -1,4 +1,17 @@
+import {
+  register as registerTimezone,
+  unregister as unregisterTimezone,
+} from 'timezone-mock';
+
 import createLabelFormatter from './create-label-formatter';
+
+beforeAll(() => {
+  registerTimezone('UTC');
+});
+
+afterAll(() => {
+  unregisterTimezone();
+});
 
 const date = '2019-01-01T00:00:00.000-00:00';
 

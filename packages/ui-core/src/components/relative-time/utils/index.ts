@@ -1,3 +1,4 @@
 import { getInterval } from './getInterval';
+import { convertRelativeTime } from './convertRelativeTime';
 
-export { getInterval };
+export { getInterval, convertRelativeTime };
