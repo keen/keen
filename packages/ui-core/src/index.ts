@@ -84,6 +84,12 @@ import {
   Title as TitleComponent,
 } from './components';
 
+import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
+import {
+  convertRelativeTime,
+  getInterval,
+} from './components/relative-time/utils';
+
 import { UI_LAYERS, TIME_UNITS } from './constants';
 
 export type {
@@ -172,4 +178,7 @@ export {
   Timezone,
   TitleComponent,
   OAuthUserAction,
+  getDefaultAbsoluteTime,
+  convertRelativeTime,
+  getInterval,
 };
