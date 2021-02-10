@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.2.7...@keen.io/charts-utils@1.3.0) (2021-02-10)
+
+
+### Features
+
+* 🎸 support timezones in bar chart ([9450ceb](https://github.com/keen/keen/commit/9450cebc508b3d018c64808ea64fc2fef62e60c0))
+
+
+
+
+
 ## [1.2.7](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.2.6...@keen.io/charts-utils@1.2.7) (2021-02-08)
 
 **Note:** Version bump only for package @keen.io/charts-utils

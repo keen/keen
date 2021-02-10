@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.0...@keen.io/ui-core@2.11.1) (2021-02-10)
+
+
+### Bug Fixes
+
+* 🐛 type error for util ([44316d0](https://github.com/keen/keen/commit/44316d089408eaf2f9f2a0ec4321fc51c711a588))
+
+
+
+
+
 # [2.11.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.10.0...@keen.io/ui-core@2.11.0) (2021-02-08)
 
 
