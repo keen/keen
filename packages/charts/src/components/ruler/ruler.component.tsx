@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { formatScaleLabel, ScaleSettings } from '@keen.io/charts-utils';
 
 import { Tick, Line } from '../elements';
 import { Group } from './ruler.styles';
@@ -65,6 +65,7 @@ const Ruler = ({
   }, [groupElement, x, y, axisTitle]);
 
   const { enabled, typography, radiusAngle } = labels;
+
   const { line, ticks } = generateRuler({
     x,
     y,
@@ -124,7 +125,7 @@ const Ruler = ({
                   maxDimension={labelDimension}
                   {...textPosition}
                 >
-                  {text}
+                  {formatScaleLabel(text, scaleSettings)}
                 </RulerLabel>
               </g>
             )}

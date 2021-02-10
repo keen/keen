@@ -17,7 +17,7 @@ export type TimePrecision =
 export type ScaleSettings = {
   type: 'time' | 'band' | 'linear';
   precision?: TimePrecision;
-  formatLabel?: (label: string | number | Date) => string | number;
+  formatLabel?: string | ((label: string | number | Date) => string | number);
   stepRange?: number;
   useUTC?: boolean;
 };
