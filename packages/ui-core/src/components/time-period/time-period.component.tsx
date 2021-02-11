@@ -28,6 +28,8 @@ type Props = {
   label: string;
   /** Units placeholder */
   unitsPlaceholder: string;
+  /** Disable autofocus */
+  disableAutoFocus?: boolean;
 };
 
 const TimePeriod: FC<Props> = ({
@@ -36,6 +38,7 @@ const TimePeriod: FC<Props> = ({
   units,
   label,
   unitsPlaceholder,
+  disableAutoFocus = false,
   onChange,
 }) => {
   const [isUnitsOpen, setUnitsOpen] = useState(false);
@@ -68,7 +71,7 @@ const TimePeriod: FC<Props> = ({
         <Input
           variant="solid"
           data-testid="relative-time-input"
-          autoFocus
+          autoFocus={!disableAutoFocus}
           type="number"
           value={inputValue}
           hasError={!inputValue}

@@ -59,6 +59,10 @@ export const plot = () => (
       layout={layoutKnobs('Chart', 'vertical') as any}
       xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
       yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
+      yScaleSettings={{
+        type: 'linear',
+        formatLabel: text('Format pattern', '', 'Scale Settings'),
+      }}
       svgDimensions={object(
         'svg',
         {

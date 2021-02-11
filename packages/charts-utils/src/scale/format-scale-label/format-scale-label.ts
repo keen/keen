@@ -1,4 +1,5 @@
 import { ScaleSettings } from '../../types';
+import { formatByPattern } from './format-by-pattern';
 
 /**
  * Adjusts axis tick label based on scale settings
@@ -12,7 +13,12 @@ const formatScaleLabel = (
   value: number | string | Date,
   scaleSettings?: ScaleSettings
 ): string | number => {
-  if (scaleSettings?.formatLabel) return scaleSettings.formatLabel(value);
+  if (scaleSettings?.formatLabel) {
+    if (typeof scaleSettings.formatLabel === 'string')
+      return formatByPattern(scaleSettings.formatLabel, value);
+    if (typeof scaleSettings.formatLabel === 'function')
+      return scaleSettings.formatLabel(value);
+  }
   if (value instanceof Date) return value.toString();
   return value;
 };

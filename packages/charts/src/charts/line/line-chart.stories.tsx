@@ -64,6 +64,10 @@ export const plot = () => {
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={stackModeKnobs('Chart') as StackMode}
         gradient={boolean('Gradient mode', true, 'Chart')}
+        yScaleSettings={{
+          type: 'linear',
+          formatLabel: text('Format pattern', '', 'Scale Settings'),
+        }}
         svgDimensions={object(
           'svg',
           {
