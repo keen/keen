@@ -9,8 +9,7 @@
     { "path": "../charts" },
     { "path": "../ui-core" },
     { "path": "../colors" },
-    { "path": "../react-hooks" },
-    { "path": "../widgets" }
+    { "path": "../react-hooks" }
   ],
   "include": ["src/**/*", "src/**/*.json"]
 }
