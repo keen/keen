@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.3.0...@keen.io/charts-utils@1.4.0) (2021-02-11)
+
+
+### Features
+
+* 🎸 Added label formatter by string pattern ([cb960c9](https://github.com/keen/keen/commit/cb960c98cc781a734a9b780d33be4d120a38860e)), closes [#FEE-401](https://github.com/keen/keen/issues/FEE-401)
+
+
+
+
+
 # [1.3.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.2.7...@keen.io/charts-utils@1.3.0) (2021-02-10)
 
 

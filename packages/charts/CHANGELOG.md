@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/keen/keen/compare/@keen.io/charts@2.6.0...@keen.io/charts@2.7.0) (2021-02-11)
+
+
+### Features
+
+* 🎸 Added label formatter by string pattern ([cb960c9](https://github.com/keen/keen/commit/cb960c98cc781a734a9b780d33be4d120a38860e)), closes [#FEE-401](https://github.com/keen/keen/issues/FEE-401)
+
+
+
+
+
 # [2.6.0](https://github.com/keen/keen/compare/@keen.io/charts@2.5.31...@keen.io/charts@2.6.0) (2021-02-10)
 
 

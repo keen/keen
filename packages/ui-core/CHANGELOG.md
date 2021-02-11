@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.1...@keen.io/ui-core@2.12.0) (2021-02-11)
+
+
+### Features
+
+* 🎸 Added truncate property to badge inside tag-management ([1249653](https://github.com/keen/keen/commit/1249653edfb883b494f00c6465de3807d2af52a2))
+* 🎸 disabled autofocus for <RelativeTime> ([4e09560](https://github.com/keen/keen/commit/4e09560d6ed5585ee62a18492eec95a31eff4767))
+
+
+
+
+
 ## [2.11.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.0...@keen.io/ui-core@2.11.1) (2021-02-10)
 
 
