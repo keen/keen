@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.15...@keen.io/dataviz@2.5.0) (2021-02-12)
+
+
+### Features
+
+* 🎸 Grouped bar ([8ecf3b2](https://github.com/keen/keen/commit/8ecf3b281bbde8a55db11ee01511f9d52e340bea))
+
+
+
+
+
 ## [2.4.15](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.14...@keen.io/dataviz@2.4.15) (2021-02-11)
 
 **Note:** Version bump only for package @keen.io/dataviz

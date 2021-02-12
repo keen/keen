@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/keen/keen/compare/@keen.io/parser@2.3.31...@keen.io/parser@2.4.0) (2021-02-12)
+
+
+### Bug Fixes
+
+* 🐛 Invalid reference fixed ([00f4adc](https://github.com/keen/keen/commit/00f4adcdb08765691997756fa8fa8e53fa966733))
+* 🐛 Missing package reference added ([ca2b5da](https://github.com/keen/keen/commit/ca2b5daacc750b4027da4533cf59b2a985bd3992))
+
+
+### Features
+
+* 🎸 Grouped bar ([8ecf3b2](https://github.com/keen/keen/commit/8ecf3b281bbde8a55db11ee01511f9d52e340bea))
+
+
+
+
+
 ## [2.3.31](https://github.com/keen/keen/compare/@keen.io/parser@2.3.30...@keen.io/parser@2.3.31) (2021-02-11)
 
 **Note:** Version bump only for package @keen.io/parser
