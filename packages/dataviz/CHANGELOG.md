@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.15](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.14...@keen.io/dataviz@2.4.15) (2021-02-11)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.4.14](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.13...@keen.io/dataviz@2.4.14) (2021-02-10)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.4.13](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.12...@keen.io/dataviz@2.4.13) (2021-02-08)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.4.12](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.11...@keen.io/dataviz@2.4.12) (2021-02-02)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.4.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.10...@keen.io/dataviz@2.4.11) (2021-01-29)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
 ## [2.4.10](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.9...@keen.io/dataviz@2.4.10) (2021-01-28)
 
 **Note:** Version bump only for package @keen.io/dataviz

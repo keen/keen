@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.1...@keen.io/ui-core@2.12.0) (2021-02-11)
+
+
+### Features
+
+* 🎸 Added truncate property to badge inside tag-management ([1249653](https://github.com/keen/keen/commit/1249653edfb883b494f00c6465de3807d2af52a2))
+* 🎸 disabled autofocus for <RelativeTime> ([4e09560](https://github.com/keen/keen/commit/4e09560d6ed5585ee62a18492eec95a31eff4767))
+
+
+
+
+
+## [2.11.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.0...@keen.io/ui-core@2.11.1) (2021-02-10)
+
+
+### Bug Fixes
+
+* 🐛 type error for util ([44316d0](https://github.com/keen/keen/commit/44316d089408eaf2f9f2a0ec4321fc51c711a588))
+
+
+
+
+
+# [2.11.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.10.0...@keen.io/ui-core@2.11.0) (2021-02-08)
+
+
+### Bug Fixes
+
+* 🐛 Wrong library path fix ([11387b9](https://github.com/keen/keen/commit/11387b91804591c0227c7eb6b6349e0c4ed1c247))
+
+
+### Features
+
+* 🎸 Badge with truncated label added ([8f4e441](https://github.com/keen/keen/commit/8f4e441cb4bde0010596687e63abea6ae94b9cf1)), closes [#FEE-103](https://github.com/keen/keen/issues/FEE-103)
+* 🎸 extract components for <Timeframe/> ([7b412f0](https://github.com/keen/keen/commit/7b412f0201311797eb8eabfa626413c4558ad460))
+
+
+
+
+
+# [2.10.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.9.0...@keen.io/ui-core@2.10.0) (2021-02-02)
+
+
+### Features
+
+* 🎸 small button variant ([3fa5242](https://github.com/keen/keen/commit/3fa524260c6f1a4f2480fcbbfe0c43ef1e9af9e1))
+
+
+
+
+
 # [2.9.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.8.1...@keen.io/ui-core@2.9.0) (2021-01-26)
 
 

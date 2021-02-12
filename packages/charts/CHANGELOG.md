@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/keen/keen/compare/@keen.io/charts@2.6.0...@keen.io/charts@2.7.0) (2021-02-11)
+
+
+### Features
+
+* 🎸 Added label formatter by string pattern ([cb960c9](https://github.com/keen/keen/commit/cb960c98cc781a734a9b780d33be4d120a38860e)), closes [#FEE-401](https://github.com/keen/keen/issues/FEE-401)
+
+
+
+
+
+# [2.6.0](https://github.com/keen/keen/compare/@keen.io/charts@2.5.31...@keen.io/charts@2.6.0) (2021-02-10)
+
+
+### Features
+
+* 🎸 support timezones in bar chart ([9450ceb](https://github.com/keen/keen/commit/9450cebc508b3d018c64808ea64fc2fef62e60c0))
+
+
+
+
+
+## [2.5.31](https://github.com/keen/keen/compare/@keen.io/charts@2.5.30...@keen.io/charts@2.5.31) (2021-02-08)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.30](https://github.com/keen/keen/compare/@keen.io/charts@2.5.29...@keen.io/charts@2.5.30) (2021-02-02)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.5.29](https://github.com/keen/keen/compare/@keen.io/charts@2.5.28...@keen.io/charts@2.5.29) (2021-01-29)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [2.5.28](https://github.com/keen/keen/compare/@keen.io/charts@2.5.27...@keen.io/charts@2.5.28) (2021-01-28)
 
 
