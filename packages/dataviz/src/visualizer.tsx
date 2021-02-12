@@ -122,7 +122,8 @@ class Visualizer {
       const parser = prepareVisualization(
         input,
         this.mappings,
-        this.componentSettings
+        this.componentSettings,
+        this.type
       );
       keys = parser.keys;
       results = parser.results;

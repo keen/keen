@@ -36,6 +36,7 @@
     "@keen.io/charts": "^2.5.28",
     "@keen.io/charts-utils": "^1.2.5",
     "@keen.io/ui-core": "^2.9.0",
+    "@keen.io/widgets": "^2.2.29",
     "@types/d3-time-format": "^2.1.1"
   }
 }
