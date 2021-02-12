@@ -1,3 +1,5 @@
+import { fillWithEmptyKeys } from '../../../utils';
+
 import { GroupByResult, ParserSettings } from '../../../types';
 import { KEEN_KEY } from '../../../constants';
 
@@ -60,7 +62,7 @@ export const barTransformation = (
   }
 
   return {
-    data: parsedResults,
+    data: fillWithEmptyKeys([...generatedKeys], parsedResults, 0),
     keys: [...generatedKeys],
   };
 };
