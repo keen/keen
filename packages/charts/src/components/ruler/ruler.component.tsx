@@ -115,7 +115,7 @@ const Ruler = ({
             color={color}
             orientation={orientation}
           >
-            {enabled && (
+            {enabled && text !== undefined && (
               <g
                 textAnchor={anchor}
                 transform={`translate(${translateX}, ${translateY}) rotate(${radius})`}
