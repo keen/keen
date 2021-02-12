@@ -99,3 +99,34 @@ test('Transforms data with more than two specified group by properties and gener
     expectedResult
   );
 });
+
+test('Transforms data and fill missing keys across data series', () => {
+  const parserSettings: ParserSettings = {
+    fillEmptyIntervalsKeys: false,
+    mergePropertiesOrder: ['country', 'food', 'size'],
+    transformation: 'categorical',
+  };
+
+  const input = [
+    { country: 'Poland', food: 'Burger', size: 'small', result: 10 },
+    { country: 'USA', food: 'Burger', size: 'big', result: 30 },
+  ];
+
+  const expectedResult = {
+    data: [
+      {
+        'keen.key': 'Poland',
+        Burger_big: 0,
+        Burger_small: 10,
+      },
+      {
+        'keen.key': 'USA',
+        Burger_big: 30,
+        Burger_small: 0,
+      },
+    ],
+    keys: ['Burger_small', 'Burger_big'],
+  };
+
+  expect(barTransformation(input, parserSettings)).toEqual(expectedResult);
+});
