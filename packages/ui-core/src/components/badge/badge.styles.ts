@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import { Variant } from './types';
 import { createVariants } from './utils';
+import { UI_LAYERS } from '../../constants';
 
 export const Container = styled.div`
   display: inline-flex;
@@ -61,4 +62,5 @@ export const TooltipMotion = styled(motion.div)`
   top: 10px;
   transform: translateX(-50%) translateY(50%);
   min-width: 170px;
+  z-index: ${UI_LAYERS.tooltip};
 `;
