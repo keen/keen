@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.0...@keen.io/ui-core@2.12.1) (2021-02-16)
+
+
+### Bug Fixes
+
+* 🐛 Badge tooltip z-index changed ([bd1e061](https://github.com/keen/keen/commit/bd1e061c5b71cda8ed0b7560abcd289d70a3f29d))
+
+
+
+
+
 # [2.12.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.1...@keen.io/ui-core@2.12.0) (2021-02-11)
 
 
