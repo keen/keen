@@ -1,7 +1,7 @@
 import { ParserSettings } from '../../../types';
 import { barTransformation } from './bar-transformation';
 
-test('Transforms data with one specified group by property and generates corresponding keys', () => {
+test('transforms data with one specified group by property and generates corresponding keys', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country'],
@@ -31,7 +31,7 @@ test('Transforms data with one specified group by property and generates corresp
   );
 });
 
-test('Transforms data with two specified group by properties and generates corresponding keys', () => {
+test('transforms data with two specified group by properties and generates corresponding keys', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'food'],
@@ -58,7 +58,7 @@ test('Transforms data with two specified group by properties and generates corre
   );
 });
 
-test('Transforms data with more than two specified group by properties and generates corresponding keys', () => {
+test('transforms data with more than two specified group by properties and generates corresponding keys', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'food', 'size'],
@@ -100,7 +100,7 @@ test('Transforms data with more than two specified group by properties and gener
   );
 });
 
-test('Transforms data and fill missing keys across data series', () => {
+test('transforms data and fill missing keys across data series', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'food', 'size'],
@@ -129,4 +129,40 @@ test('Transforms data and fill missing keys across data series', () => {
   };
 
   expect(barTransformation(input, parserSettings)).toEqual(expectedResult);
+});
+
+test('transforms data with "null" values', () => {
+  const parserSettings: ParserSettings = {
+    fillEmptyIntervalsKeys: false,
+    mergePropertiesOrder: ['country', 'city'],
+    transformation: 'categorical',
+  };
+
+  const input = [
+    { country: null, city: 'Cracow', result: 20 },
+    { country: null, city: null, result: 20 },
+    { country: 'USA', city: 'Berlin', result: 32 },
+  ];
+
+  const expectedResult = {
+    data: [
+      {
+        Berlin: 0,
+        Cracow: 20,
+        'keen.key': null,
+        null: 20,
+      },
+      {
+        Berlin: 32,
+        Cracow: 0,
+        'keen.key': 'USA',
+        null: 0,
+      },
+    ],
+    keys: ['Cracow', 'null', 'Berlin'],
+  };
+
+  expect(barTransformation(input, parserSettings)).toMatchObject(
+    expectedResult
+  );
 });
