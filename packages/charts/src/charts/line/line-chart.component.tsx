@@ -2,10 +2,9 @@ import React, { FC, useRef } from 'react';
 import { useTooltip } from '@keen.io/react-hooks';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
-import { generateLines, showAllMarks } from './line-chart.utils';
+import { generateLines, showAllMarks } from './utils';
 
-import Lines from './lines.component';
-import Tooltip from './tooltip.component';
+import { Tooltip, Lines } from './components';
 
 import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
@@ -102,6 +101,7 @@ export const LineChart: FC<Props> = ({
     steps,
     stepMode,
     areas,
+    gradientBlocks,
   } = generateLines({
     data,
     xScaleSettings,
@@ -170,6 +170,7 @@ export const LineChart: FC<Props> = ({
             stackMode={stackMode}
             areaMode={areaMode}
             stepMode={stepMode}
+            gradientBlocks={gradientBlocks}
             onMarkMouseEnter={(e, selectors) => {
               if (tooltipSettings.enabled) {
                 updateTooltipPosition(e, selectors);

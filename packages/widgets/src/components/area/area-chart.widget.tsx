@@ -6,7 +6,7 @@ import {
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
-  sortAreaKeys,
+  sortKeys,
 } from '@keen.io/charts';
 import { useLegend } from '@keen.io/react-hooks';
 
@@ -29,7 +29,7 @@ export const AreaChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
-  const sortedKeys = sortAreaKeys(props.data, props.keys);
+  const sortedKeys = sortKeys(props.data, props.keys);
 
   return (
     <ChartWidget

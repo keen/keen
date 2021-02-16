@@ -6,6 +6,7 @@ import {
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
+  sortKeys,
 } from '@keen.io/charts';
 import { useLegend } from '@keen.io/react-hooks';
 
@@ -27,6 +28,9 @@ export const LineChartWidget: FC<Props> = ({
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
+
+  const sortedKeys = sortKeys(props.data, props.keys);
+
   return (
     <ChartWidget
       cardSettings={card}
@@ -41,7 +45,7 @@ export const LineChartWidget: FC<Props> = ({
           <SeriesLegend
             {...legend}
             onClick={updateKeys}
-            labels={props.keys.map((key, idx) => ({
+            labels={sortedKeys.map((key: string, idx: number) => ({
               name: key,
               color: theme.colors[idx],
             }))}

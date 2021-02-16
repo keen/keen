@@ -26,7 +26,7 @@ import {
   TableChartSettings,
   CurveType,
   fetchMapTopology,
-  sortAreaKeys,
+  sortKeys,
 } from './charts';
 
 import {
@@ -80,7 +80,7 @@ export {
   LegendBase,
   BubbleLegend,
   fetchMapTopology,
-  sortAreaKeys,
+  sortKeys,
   theme,
   margins,
   OTHERS_DATA_KEY,

@@ -3,7 +3,7 @@ import { ScaleSettings } from '@keen.io/charts-utils';
 import { Dimension, Margins, StackMode, GroupMode } from '../../types';
 
 export type Options = {
-  data: any[];
+  data: Record<string, any>[];
   xScaleSettings: ScaleSettings;
   yScaleSettings: ScaleSettings;
   keys: string[];
@@ -51,8 +51,24 @@ export type StepType = {
 
 export type AreaType = {
   d: string;
-  firstOpacity: number;
-  lastOpacity: number;
+  positiveColor: string;
+  zeroPointColor: string;
+  negativeColor: string;
+  gradientZeroPercent: number;
+};
+
+export type GradientBlockType = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+export type KeyNamesValuesType = {
+  [index: string]: {
+    min: number;
+    max: number;
+  };
 };
 
 export type CurveType = 'linear' | 'spline' | 'step';

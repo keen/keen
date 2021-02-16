@@ -25,7 +25,10 @@ const calculateRange = (
     minimum = 0;
   }
 
-  const maximum = maxValue === 'auto' ? max<number>(values) : maxValue;
+  let maximum = maxValue === 'auto' ? max<number>(values) : maxValue;
+  if (minimum < 0 && maximum <= 0 && maxValue === 'auto') {
+    maximum = 0;
+  }
 
   return {
     minimum,

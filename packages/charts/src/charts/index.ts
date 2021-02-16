@@ -1,5 +1,5 @@
 import { BarChart, BarChartSettings } from './bar';
-import { LineChart, LineChartSettings, CurveType, sortAreaKeys } from './line';
+import { LineChart, LineChartSettings, CurveType, sortKeys } from './line';
 import { AreaChart, AreaChartSettings } from './area';
 import { PieChart, PieChartSettings } from './pie';
 import { DonutChart, DonutChartSettings } from './donut';
@@ -46,5 +46,5 @@ export {
   HeatmapChart,
   TableChart,
   fetchMapTopology,
-  sortAreaKeys,
+  sortKeys,
 };

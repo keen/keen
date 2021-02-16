@@ -13,7 +13,8 @@ const calculateStackedRange = (
   data: Record<string, any>[],
   minValue: number | 'auto',
   maxValue: number | 'auto',
-  keys: string[]
+  keys: string[],
+  isPercent?: boolean
 ) => {
   let minimumRange = 0;
   let maximumRange = 0;
@@ -22,8 +23,8 @@ const calculateStackedRange = (
     const itemRange = keys.reduce(
       (acc, keyName: string) => {
         const value = item[keyName];
-        if (value >= 0) acc.maximum += value;
-        if (value < 0) acc.minimum += value;
+        acc.maximum += value;
+        acc.minimum += value;
         return acc;
       },
       { minimum: 0, maximum: 0 }
@@ -38,7 +39,7 @@ const calculateStackedRange = (
 
   return {
     minimum,
-    maximum,
+    maximum: isPercent ? 100 : maximum,
   };
 };
 
