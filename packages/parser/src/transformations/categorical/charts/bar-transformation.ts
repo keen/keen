@@ -36,7 +36,11 @@ export const barTransformation = (
       [KEEN_KEY]: mainProperty,
     };
     result.forEach((record) => {
-      generatedKeys.add(record[mainProperty].toString());
+      const recordKey =
+        record[mainProperty] !== null
+          ? record[mainProperty].toString()
+          : `${null}`;
+      generatedKeys.add(recordKey);
       resultObject[record[mainProperty]] = record.result;
     });
     parsedResults = [resultObject];
