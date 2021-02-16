@@ -12,8 +12,8 @@ type Props = {
   fullWidth?: boolean;
   /** Motion settings */
   motion?: MotionProps;
-  /** Position relative to wrapper */
-  isWrapperRelative?: boolean;
+  /** Position relative to document */
+  positionRelativeToDocument?: boolean;
 };
 
 const dropdownMotion: MotionProps = {
@@ -29,11 +29,11 @@ export const Dropdown = forwardRef<HTMLDivElement, Props>(
       children,
       fullWidth = true,
       motion = dropdownMotion,
-      isWrapperRelative = true,
+      positionRelativeToDocument = true,
     },
     ref
   ) => (
-    <Wrapper isWrapperRelative={isWrapperRelative}>
+    <Wrapper isRelative={positionRelativeToDocument}>
       <AnimatePresence>
         {isOpen && (
           <Container ref={ref} {...motion} fullWidth={fullWidth}>
