@@ -4,8 +4,14 @@ import { colors } from '@keen.io/colors';
 
 import { UI_LAYERS } from '../../constants';
 
-export const Wrapper = styled.div`
-  position: relative;
+export const Wrapper = styled.div<{
+  isRelative?: boolean;
+}>`
+  ${(props) =>
+    props.isRelative &&
+    css`
+      position: relative;
+    `}
 `;
 
 export const Container = styled(motion.div)<{
