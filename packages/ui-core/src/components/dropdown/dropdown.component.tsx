@@ -29,11 +29,11 @@ export const Dropdown = forwardRef<HTMLDivElement, Props>(
       children,
       fullWidth = true,
       motion = dropdownMotion,
-      positionRelativeToDocument = true,
+      positionRelativeToDocument = false,
     },
     ref
   ) => (
-    <Wrapper isRelative={positionRelativeToDocument}>
+    <Wrapper isRelative={!positionRelativeToDocument}>
       <AnimatePresence>
         {isOpen && (
           <Container ref={ref} {...motion} fullWidth={fullWidth}>
