@@ -65,6 +65,7 @@ import RelativeTime from './relative-time';
 import TimePeriod from './time-period';
 import Timezone from './timezone';
 import Title from './title';
+import PropertiesTree, { createTree } from './properties-tree';
 
 export { ARROW_SIZE, TIME_PICKER_CLASS };
 
@@ -137,4 +138,6 @@ export {
   TimePeriod,
   Timezone,
   Title,
+  PropertiesTree,
+  createTree,
 };

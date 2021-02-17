@@ -1777,6 +1777,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.11.0":
+  version "7.12.13"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
+  integrity sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.12.5":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
@@ -5288,6 +5295,13 @@
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.0.tgz#882839db465df1320e4753e6e9f70ca7e9b4d46d"
   integrity sha512-/QfLHGpu+2fQOqQaXh8MG9q03bFENooTb/it4jr5kKaZlDQfWvjqWZg48AwzPVMBHlRuTRAY7hRHCEOXz5kV6w==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-window@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react-window/-/react-window-1.8.2.tgz#a5a6b2762ce73ffaab7911ee1397cf645f2459fe"
+  integrity sha512-gP1xam68Wc4ZTAee++zx6pTdDAH08rAkQrWm4B4F/y6hhmlT9Mgx2q8lTCXnrPHXsr15XjRN9+K2DLKcz44qEQ==
   dependencies:
     "@types/react" "*"
 
@@ -14833,7 +14847,7 @@ mem@^4.0.0:
     mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
 
-memoize-one@^5.0.0:
+"memoize-one@>=3.1.1 <6", memoize-one@^5.0.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
   integrity sha512-HKeeBpWvqiVJD57ZUAsJNm71eHTykffzcLZVYWiVfQeI1rJtuEaS7hQiEpWfVVk18donPwJEcFKIkCmPJNOhHA==
@@ -17822,6 +17836,21 @@ react-transition-group@^4.3.0:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-vtree@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-vtree/-/react-vtree-2.0.4.tgz#340e64255f5f4ec6f4c35dc44a7036f7fcd98bc5"
+  integrity sha512-UOld0VqyAZrryF06K753X4bcEVN6/wW831exvVlMZeZAVHk9KXnlHs4rpqDAeoiBgUwJqoW/rtn0hwsokRRxPA==
+  dependencies:
+    "@babel/runtime" "^7.11.0"
+
+react-window@^1.8.6:
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/react-window/-/react-window-1.8.6.tgz#d011950ac643a994118632665aad0c6382e2a112"
+  integrity sha512-8VwEEYyjz6DCnGBsd+MgkD0KJ2/OXFULyDtorIiTz+QzwoP94tBoA7CnbtyXMm+cCeAUER5KJcPtWl9cpKbOBg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
 
 react-with-direction@^1.3.1:
   version "1.3.1"
