@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.4...@keen.io/ui-core@2.13.0) (2021-02-18)
+
+
+### Bug Fixes
+
+* 🐛 display boolean value in table ([6e45bf6](https://github.com/keen/keen/commit/6e45bf6e174efdc677cb9d650193c9472cff98e3))
+
+
+### Features
+
+* 🎸 <PropertiesTree> and createTree method extracted ([573bda8](https://github.com/keen/keen/commit/573bda88c874977bdf93ee58ef5bae91571b33e3))
+
+
+
+
+
 ## [2.12.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.3...@keen.io/ui-core@2.12.4) (2021-02-17)
 
 **Note:** Version bump only for package @keen.io/ui-core
