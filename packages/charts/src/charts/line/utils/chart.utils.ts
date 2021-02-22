@@ -104,7 +104,7 @@ export const generateGroupedLines = ({
   }
 
   keys.forEach((keyName: string, idx: number) => {
-    const generateLine = calculatePath(
+    const generateLine: (data: Record<string, any>[]) => string = calculatePath(
       curve,
       xScale,
       yScale,
@@ -151,7 +151,9 @@ export const generateGroupedLines = ({
 
         const isNegative = minimum < 0 && maximum <= 0;
 
-        const generateArea = calculateArea(
+        const generateArea: (
+          data: Record<string, any>[]
+        ) => string = calculateArea(
           curve,
           xScale,
           yScale,
@@ -232,7 +234,7 @@ export const generateStackLines = ({
   const normalizeData = (groupMode === 'stacked' && stackMode === 'percent'
     ? transformToPercent(data, filteredKeys)
     : data
-  ).map((item) => ({
+  ).map((item: Record<string, any>) => ({
     ...item,
     [labelSelector]: dateNormalizer(item[labelSelector]),
   }));
@@ -273,11 +275,7 @@ export const generateStackLines = ({
   calculateScaleDomain(yScale, minimum, maximum);
 
   let minMaxSeriesValues: KeyNamesValuesType = {};
-  let areaData: {
-      firstDataPart: Record<string, any>[];
-      secondDataPart: Record<string, any>[];
-    },
-    {} = {};
+  let areaData: Record<string, any> = {};
   if (areaMode) {
     areaData = calculateStackAreaData(
       normalizeData,
