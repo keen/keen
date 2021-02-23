@@ -20,6 +20,32 @@ export type Intervals =
   | 'monthly'
   | 'yearly';
 
+export type GeoCoordinates = {
+  coordinates: number[];
+  maxDistanceMiles: string;
+};
+
+export type FilterOperator =
+  | 'or'
+  | 'eq'
+  | 'ne'
+  | 'lt'
+  | 'lte'
+  | 'gt'
+  | 'gte'
+  | 'exists'
+  | 'in'
+  | 'contains'
+  | 'not_contains'
+  | 'within'
+  | 'regex';
+
+export type Filter = {
+  propertyName: string;
+  operator: FilterOperator;
+  propertyValue: string | number | string[] | number[] | GeoCoordinates | null;
+};
+
 export type Direction = 'ASC' | 'DESC';
 
 export type Timeframe = { start: string; end: string } | string;
@@ -49,6 +75,7 @@ export type Query = {
   group_by?: string | string[];
   limit?: number;
   order_by?: OrderBy;
+  filters?: Filter[];
   property_names?: string[];
   steps?: Step[];
 };

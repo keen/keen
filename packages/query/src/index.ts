@@ -2,6 +2,9 @@ import {
   Query,
   OrderBy,
   OrderByProperty,
+  Filter,
+  FilterOperator,
+  GeoCoordinates,
   Step,
   Direction,
   Intervals,
@@ -22,6 +25,9 @@ export {
   Timeframe,
   Analysis,
   Timezones,
+  Filter,
+  FilterOperator,
+  GeoCoordinates,
 };
 
 export { isCustomInterval };
