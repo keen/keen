@@ -89,3 +89,37 @@ export const multipleResults = () => {
 
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
+
+export const DoubleGroupBy = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new KeenDataViz({
+      type: 'heatmap',
+      container: container.current,
+      widget: {
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Multiple results',
+        },
+      },
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2019-08-01T00:00:00.000-00:00',
+          end: '2020-02-01T00:00:00.000-00:00',
+        },
+        group_by: ['author', 'name'],
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};

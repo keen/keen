@@ -29,15 +29,15 @@ test('transform categorical results', () => {
     Object {
       "data": Array [
         Object {
-          "keen.key": "Edwidge Danticat Love, Anger, Madness",
+          "keen.key": "Edwidge Danticat | Love, Anger, Madness",
           "keen.value": 97,
         },
         Object {
-          "keen.key": "George R. R. Martin Game of Thrones",
+          "keen.key": "George R. R. Martin | Game of Thrones",
           "keen.value": 730,
         },
         Object {
-          "keen.key": "Stephen King The Shining",
+          "keen.key": "Stephen King | The Shining",
           "keen.value": 6,
         },
       ],

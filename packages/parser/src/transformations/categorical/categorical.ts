@@ -4,7 +4,7 @@ import { Widgets } from '@keen.io/widgets';
 import { defaultTransformation } from './default-transformation';
 
 import { GroupByResult, ParserSettings } from '../../types';
-import { barTransformation } from './charts/bar-transformation';
+import { chartTransformation } from './charts/chart-transformation';
 
 /**
  * Transforms categorical data.
@@ -25,8 +25,8 @@ export const transformCategorical = (
   parserSettings: ParserSettings,
   visualization?: Widgets
 ) => {
-  if (visualization === 'bar') {
-    return barTransformation(result, parserSettings);
+  if (visualization === 'bar' || visualization === 'heatmap') {
+    return chartTransformation(result, parserSettings);
   }
   return defaultTransformation(result, parserSettings);
 };

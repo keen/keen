@@ -1,17 +1,17 @@
 import { fillWithEmptyKeys } from '../../../utils';
 
 import { GroupByResult, ParserSettings } from '../../../types';
-import { KEEN_KEY } from '../../../constants';
+import { KEEN_KEY, PROPERTIES_CONNECTOR } from '../../../constants';
 
 /**
- * Bar transformation
+ * Chart transformation
  *
  * @param result - categorical results
  * @param parserSettings - parser settings
  * @return transformed results
  *
  */
-export const barTransformation = (
+export const chartTransformation = (
   result: GroupByResult[],
   parserSettings: ParserSettings
 ) => {
@@ -26,7 +26,11 @@ export const barTransformation = (
   ) => {
     let recordKey = '';
     keysToExtract.forEach(
-      (key) => (recordKey += recordKey !== '' ? '_' + record[key] : record[key])
+      (key) =>
+        (recordKey +=
+          recordKey !== ''
+            ? ` ${PROPERTIES_CONNECTOR} ${record[key]}`
+            : record[key])
     );
     return recordKey;
   };
