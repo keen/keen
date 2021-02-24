@@ -1,5 +1,5 @@
-import { useToasts, Options as ToastOptions } from 'react-toast-notifications';
-
+import { useToasts } from 'react-toast-notifications';
 import { ToastProvider } from './components';
+import { ToastOptions } from './types';
 
 export { ToastProvider, ToastOptions, useToasts };

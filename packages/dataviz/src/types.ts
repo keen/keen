@@ -50,4 +50,5 @@ export type Options = {
   mappings?: Record<string, string>;
   widget?: Partial<VisualizerWidgetSettings>;
   settings?: ComponentSettings;
+  visualization?: Widgets;
 };

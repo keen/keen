@@ -5,10 +5,10 @@ import { colors } from '@keen.io/colors';
 import { UI_LAYERS } from '../../constants';
 
 export const Wrapper = styled.div<{
-  isWrapperRelative?: boolean;
+  isRelative?: boolean;
 }>`
   ${(props) =>
-    props.isWrapperRelative &&
+    props.isRelative &&
     css`
       position: relative;
     `}

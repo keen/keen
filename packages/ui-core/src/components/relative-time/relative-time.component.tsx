@@ -27,6 +27,8 @@ type Props = {
   relativityTitleForTodayLabel: string;
   /** Relativity title */
   relativityTitleLabel: string;
+  /** Disable autofocus */
+  disableAutoFocus?: boolean;
 };
 
 const RelativeTime: FC<Props> = ({
@@ -37,6 +39,7 @@ const RelativeTime: FC<Props> = ({
   unitsPlaceholderLabel,
   relativityTitleForTodayLabel,
   relativityTitleLabel,
+  disableAutoFocus = false,
   onChange,
 }) => {
   const interval = getInterval(units);
@@ -48,6 +51,7 @@ const RelativeTime: FC<Props> = ({
         relativity={relativity}
         value={value}
         units={units}
+        disableAutoFocus={disableAutoFocus}
         onChange={onChange}
       />
       <RelativityContainer

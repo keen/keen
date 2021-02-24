@@ -44,21 +44,21 @@ test('transform categorical results in chronological order', () => {
     Object {
       "data": Array [
         Object {
-          "Edwidge Danticat Love, Anger, Madness": 95,
-          "George R. R. Martin Game of Thrones": 719,
+          "Edwidge Danticat | Love, Anger, Madness": 95,
+          "George R. R. Martin | Game of Thrones": 719,
           "keen.key": "2020-01-01T00:00:00.000Z",
         },
         Object {
-          "Edwidge Danticat Love, Anger, Madness": 2,
-          "George R. R. Martin Game of Thrones": 11,
-          "J.K. Rowling Harry Potter": 1,
+          "Edwidge Danticat | Love, Anger, Madness": 2,
+          "George R. R. Martin | Game of Thrones": 11,
+          "J.K. Rowling | Harry Potter": 1,
           "keen.key": "2020-02-01T00:00:00.000Z",
         },
       ],
       "keys": Array [
-        "Edwidge Danticat Love, Anger, Madness",
-        "George R. R. Martin Game of Thrones",
-        "J.K. Rowling Harry Potter",
+        "Edwidge Danticat | Love, Anger, Madness",
+        "George R. R. Martin | Game of Thrones",
+        "J.K. Rowling | Harry Potter",
       ],
     }
   `);
@@ -97,19 +97,19 @@ test('transform categorical results and fill missing interval data series', () =
     Object {
       "data": Array [
         Object {
-          "George R. R. Martin Game of Thrones": 719,
-          "J.K. Rowling Harry Potter": 0,
+          "George R. R. Martin | Game of Thrones": 719,
+          "J.K. Rowling | Harry Potter": 0,
           "keen.key": "2020-01-01T00:00:00.000Z",
         },
         Object {
-          "George R. R. Martin Game of Thrones": 0,
-          "J.K. Rowling Harry Potter": 1,
+          "George R. R. Martin | Game of Thrones": 0,
+          "J.K. Rowling | Harry Potter": 1,
           "keen.key": "2020-02-01T00:00:00.000Z",
         },
       ],
       "keys": Array [
-        "George R. R. Martin Game of Thrones",
-        "J.K. Rowling Harry Potter",
+        "George R. R. Martin | Game of Thrones",
+        "J.K. Rowling | Harry Potter",
       ],
     }
   `);
@@ -146,17 +146,17 @@ test('transform categorical results and merge properties in provided order', () 
     Object {
       "data": Array [
         Object {
-          "USA New York": 400,
+          "USA | New York": 400,
           "keen.key": "2020-01-01T00:00:00.000Z",
         },
         Object {
-          "Germany Berlin": 200,
+          "Germany | Berlin": 200,
           "keen.key": "2020-02-01T00:00:00.000Z",
         },
       ],
       "keys": Array [
-        "USA New York",
-        "Germany Berlin",
+        "USA | New York",
+        "Germany | Berlin",
       ],
     }
   `);

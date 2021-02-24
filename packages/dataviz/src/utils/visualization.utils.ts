@@ -7,17 +7,18 @@ import {
   AnalysisResult,
 } from '@keen.io/parser';
 import { Query, Step } from '@keen.io/query';
+import { Widgets } from '@keen.io/widgets';
 
 import { VisualizationInput, ComponentSettings } from '../types';
 
 export const prepareVisualization = (
   input: VisualizationInput | VisualizationInput[] = {},
   keysMap: Record<string, string>,
-  componentSettings: ComponentSettings
+  componentSettings: ComponentSettings,
+  type?: Widgets
 ) => {
   let keys: string[] = [];
   let results: Record<string, any>[] = [];
-
   if (Array.isArray(input)) {
     const analysisCollection = input as {
       query?: Query;
@@ -25,13 +26,13 @@ export const prepareVisualization = (
       result: AnalysisResult;
     }[];
 
-    const parsedQueries = parseQueries(analysisCollection);
+    const parsedQueries = parseQueries(analysisCollection, type);
     const mergedResults = mergeParsedResults(analysisCollection, parsedQueries);
 
     keys = mergedResults.keys;
     results = mergedResults.results;
   } else {
-    const parser = parseQuery(input as any);
+    const parser = parseQuery(input as any, type);
     keys = parser.keys;
     results = parser.data;
   }

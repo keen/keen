@@ -48,6 +48,10 @@ export const plot = () => (
       )}
       xAxisTitle={text('Title', 'Horizontal Title', 'Axis X Title')}
       yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
+      yScaleSettings={{
+        type: 'linear',
+        formatLabel: text('Format pattern', '', 'Scale Settings'),
+      }}
       svgDimensions={object(
         'svg',
         {

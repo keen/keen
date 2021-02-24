@@ -44,7 +44,7 @@ const TableCell: FC<Props> = ({ typography, onClick, value }) => {
   return (
     <StyledCell data-testid="table-cell" onClick={(e) => onClick(e, value)}>
       <Container textAlignment={textAlignment}>
-        <Text {...typography}>{cellValue}</Text>
+        <Text {...typography}>{`${cellValue}`}</Text>
       </Container>
     </StyledCell>
   );

@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates JSON tree 1`] = `
+Object {
+  "age": Array [
+    "age",
+    "number",
+  ],
+  "category": Object {
+    "details": Object {
+      "gender": Array [
+        "category.details.gender",
+        "string",
+      ],
+      "name": Array [
+        "category.details.name",
+        "string",
+      ],
+    },
+    "id": Array [
+      "category.id",
+      "string",
+    ],
+  },
+}
+`;
+
+exports[`creates JSON tree for conflicted nodes 1`] = `
+Object {
+  "age": Array [
+    "age",
+    "number",
+  ],
+  "category": Object {
+    "details": Object {
+      "gender": Array [
+        "category.details.gender",
+        "string",
+      ],
+      "name": Array [
+        "category.details.name",
+        "string",
+      ],
+    },
+    "id": Array [
+      "category.id",
+      "string",
+    ],
+  },
+  "category (node)": Array [
+    "category",
+    "null",
+  ],
+}
+`;
+
+exports[`creates JSON tree for list in schema 1`] = `
+Object {
+  "category": Object {
+    "details": Object {
+      "0": Object {
+        "id": Array [
+          "category.details.0.id",
+          "num",
+        ],
+        "name": Array [
+          "category.details.0.name",
+          "num",
+        ],
+      },
+      "1": Object {
+        "id": Array [
+          "category.details.1.id",
+          "num",
+        ],
+      },
+      "2": Object {
+        "name": Array [
+          "category.details.2.name",
+          "num",
+        ],
+      },
+      "gender": Array [
+        "category.details.gender",
+        "string",
+      ],
+      "id": Array [
+        "category.details.id",
+        "num",
+      ],
+    },
+    "details (node)": Array [
+      "category.details",
+      "list",
+    ],
+  },
+  "category (node)": Array [
+    "category",
+    "null",
+  ],
+}
+`;

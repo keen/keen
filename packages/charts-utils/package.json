@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/charts-utils",
-  "version": "1.2.5",
+  "version": "1.4.0",
   "description": "Keen utilities",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -27,7 +27,7 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "dependencies": {
-    "@keen.io/query": "^1.0.1",
+    "@keen.io/query": "^1.0.3",
     "d3-array": "^2.4.0",
     "d3-format": "^1.4.3",
     "d3-scale": "^3.2.1",

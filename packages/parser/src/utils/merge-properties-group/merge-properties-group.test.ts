@@ -17,7 +17,7 @@ test('merge properties for multiple grouped result', () => {
   };
 
   expect(mergePropertiesGroup(fixture)).toEqual({
-    'author-book': 'Edwidge Danticat Shining',
+    'author-book': 'Edwidge Danticat | Shining',
     result: 97,
   });
 });
@@ -32,7 +32,7 @@ test('merge multiple properties based on provided order', () => {
   };
 
   expect(mergePropertiesGroup(fixture, mergePropertiesOrder)).toEqual({
-    'country-product-company': 'USA MacBook Pro 13 Apple',
+    'country-product-company': 'USA | MacBook Pro 13 | Apple',
     result: 120,
   });
 });

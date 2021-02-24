@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/ui-core",
-  "version": "2.9.0",
+  "version": "2.12.0",
   "description": "Keen visual components",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -34,7 +34,7 @@
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
     "@keen.io/icons": "^1.4.0",
-    "@keen.io/query": "^1.0.1",
+    "@keen.io/query": "^1.0.3",
     "color": "^3.1.2",
     "framer-motion": "^1.11.1",
     "fuse.js": "^6.4.1",
@@ -44,6 +44,8 @@
     "react-column-resizer": "^1.1.9",
     "react-dates": "^21.8.0",
     "react-select": "^3.1.0",
+    "react-vtree": "2.0.4",
+    "react-window": "^1.8.6",
     "styled-system": "^5.1.5",
     "webfontloader": "^1.6.28"
   },
@@ -54,6 +56,7 @@
     "@types/rc-time-picker": "^3.4.1",
     "@types/react-dates": "^21.8.1",
     "@types/react-select": "^3.0.13",
+    "@types/react-window": "^1.8.2",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/webfontloader": "^1.6.29"
