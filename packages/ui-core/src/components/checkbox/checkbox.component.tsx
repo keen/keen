@@ -25,6 +25,7 @@ type Props = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checked?: boolean;
   disabled?: boolean;
+  role?: string;
 };
 
 export const Checkbox: FC<Props> = ({
@@ -38,6 +39,7 @@ export const Checkbox: FC<Props> = ({
     <Container>
       <HiddenInput
         id={id}
+        role="checkbox"
         checked={checked}
         disabled={disabled}
         onChange={(e) => onChange && onChange(e)}
