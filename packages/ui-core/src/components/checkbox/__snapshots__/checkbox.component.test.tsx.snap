@@ -44,6 +44,7 @@ exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] =
         disabled={false}
         id="id"
         onChange={[Function]}
+        role="checkbox"
       >
         <input
           checked={false}
@@ -51,6 +52,7 @@ exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] =
           disabled={false}
           id="id"
           onChange={[Function]}
+          role="checkbox"
           type="checkbox"
         />
       </styled.input>
@@ -117,6 +119,7 @@ exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`]
         disabled={false}
         id="id"
         onChange={[Function]}
+        role="checkbox"
       >
         <input
           checked={false}
@@ -124,6 +127,7 @@ exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`]
           disabled={false}
           id="id"
           onChange={[Function]}
+          role="checkbox"
           type="checkbox"
         />
       </styled.input>
