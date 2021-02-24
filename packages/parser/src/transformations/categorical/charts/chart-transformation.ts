@@ -11,7 +11,7 @@ import { KEEN_KEY, PROPERTIES_CONNECTOR } from '../../../constants';
  * @return transformed results
  *
  */
-export const chartTransformation = (
+export const categoricalChartTransformation = (
   result: GroupByResult[],
   parserSettings: ParserSettings
 ) => {

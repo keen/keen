@@ -1,5 +1,5 @@
 import { ParserSettings } from '../../../types';
-import { chartTransformation } from './chart-transformation';
+import { categoricalChartTransformation } from './chart-transformation';
 
 test('transforms data with one specified group by property and generates corresponding keys', () => {
   const parserSettings: ParserSettings = {
@@ -26,7 +26,7 @@ test('transforms data with one specified group by property and generates corresp
     keys: ['Poland', 'USA', 'Germany'],
   };
 
-  expect(chartTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
@@ -53,7 +53,7 @@ test('transforms data with two specified group by properties and generates corre
     keys: ['Burger', 'Hot-dog'],
   };
 
-  expect(chartTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
@@ -100,7 +100,7 @@ test('transforms data with more than two specified group by properties and gener
       'Hot-dog | small',
     ],
   };
-  expect(chartTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
@@ -133,7 +133,9 @@ test('transforms data and fill missing keys across data series', () => {
     keys: ['Burger | small', 'Burger | big'],
   };
 
-  expect(chartTransformation(input, parserSettings)).toEqual(expectedResult);
+  expect(categoricalChartTransformation(input, parserSettings)).toEqual(
+    expectedResult
+  );
 });
 
 test('transforms data with "null" values', () => {
@@ -167,7 +169,7 @@ test('transforms data with "null" values', () => {
     keys: ['Cracow', 'null', 'Berlin'],
   };
 
-  expect(chartTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
