@@ -2,6 +2,18 @@ import { ScaleLinear, ScaleTime } from 'd3-scale';
 
 import { StepType } from '../types';
 
+/**
+ * Generate steps for each series
+ *
+ * @param data - step mode information
+ * @param xScale - time scale
+ * @param yScale - linear scale
+ * @param labelSelector - selected label from data
+ * @param keyName - key of series
+ * @return steps for serie
+ *
+ */
+
 export const generateSteps = (
   data: Record<string, any>[],
   xScale: ScaleTime<number, number>,

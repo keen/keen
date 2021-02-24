@@ -6,9 +6,9 @@ import {
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
-  sortKeys,
 } from '@keen.io/charts';
 import { useLegend } from '@keen.io/react-hooks';
+import { sortKeysByValuesSum } from '@keen.io/charts-utils';
 
 import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
@@ -29,7 +29,7 @@ export const LineChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
-  const sortedKeys = sortKeys(props.data, props.keys);
+  const sortedKeys = sortKeysByValuesSum(props.data, props.keys);
 
   return (
     <ChartWidget

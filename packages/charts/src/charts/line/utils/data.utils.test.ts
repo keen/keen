@@ -1,7 +1,6 @@
 import {
   calculateStackData,
   calculateStackAreaData,
-  sortKeys,
   calculateMaxMinSeriesValue,
 } from './data.utils';
 
@@ -94,18 +93,6 @@ test('should calculate correctly stack area data', () => {
         },
       ],
     }
-  `);
-});
-
-test('should sort keys correctly', () => {
-  const sortedKeys = sortKeys(data, lineChart.keys);
-
-  expect(sortedKeys).toMatchInlineSnapshot(`
-    Array [
-      "revenue",
-      "buy",
-      "sale",
-    ]
   `);
 });
 

@@ -58,7 +58,7 @@ test('should generate grouped lines correctly', () => {
     Array [
       Object {
         "color": "red",
-        "d": "M10,328.2L939.0322580645161,217.20000000000002L490,328.2",
+        "d": "M10,263.7142857142857L939.0322580645161,184.42857142857142L490,263.7142857142857",
         "key": "sale",
         "selector": Array [
           0,
@@ -68,7 +68,7 @@ test('should generate grouped lines correctly', () => {
       },
       Object {
         "color": "blue",
-        "d": "M10,246.8L939.0322580645161,195L490,246.8",
+        "d": "M10,205.57142857142858L939.0322580645161,168.57142857142858L490,205.57142857142858",
         "key": "buy",
         "selector": Array [
           1,
@@ -78,7 +78,7 @@ test('should generate grouped lines correctly', () => {
       },
       Object {
         "color": "green",
-        "d": "M10,24.80000000000001L939.0322580645161,350.40000000000003L490,24.80000000000001",
+        "d": "M10,46.99999999999999L939.0322580645161,279.5714285714286L490,46.99999999999999",
         "key": "revenue",
         "selector": Array [
           2,

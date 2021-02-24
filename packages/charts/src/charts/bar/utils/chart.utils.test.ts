@@ -24,7 +24,7 @@ describe('generateHorizontalGroupedBars()', () => {
 
     expect(xScale.domain()).toMatchInlineSnapshot(`
       Array [
-        -3,
+        -4,
         12,
       ]
     `);
@@ -138,7 +138,7 @@ describe('generateVerticalGroupedBars()', () => {
 
     expect(yScale.domain()).toMatchInlineSnapshot(`
       Array [
-        -3,
+        4,
         30,
       ]
     `);

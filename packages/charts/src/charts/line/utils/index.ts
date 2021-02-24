@@ -1,7 +1,6 @@
 import {
   calculateStackData,
   calculateStackAreaData,
-  sortKeys,
   calculateMaxMinSeriesValue,
 } from './data.utils';
 import {
@@ -26,7 +25,6 @@ import { calculateArea } from './area.utils';
 export {
   calculateStackData,
   calculateStackAreaData,
-  sortKeys,
   calculateMaxMinSeriesValue,
   groupMarksByPosition,
   findMarksInCluster,

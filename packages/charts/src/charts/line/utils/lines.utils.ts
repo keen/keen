@@ -4,6 +4,18 @@ import { line as lineShape, curveStep, curveMonotoneX } from 'd3-shape';
 
 import { CurveType } from '../types';
 
+/**
+ * Prepare a function for line calculation.
+ *
+ * @param curve - curve type connecting points
+ * @param xScale - time scale
+ * @param yScale - linear scale
+ * @param labelSelector - selected label from data
+ * @param keyName - key of series
+ * @return a function to generate path string for line
+ *
+ */
+
 export const calculatePath = (
   curve: CurveType,
   xScale: ScaleTime<number, number>,

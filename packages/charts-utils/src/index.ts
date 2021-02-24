@@ -5,6 +5,7 @@ import {
   getFromPath,
   getKeysDifference,
   transformToPercent,
+  sortKeysByValuesSum,
 } from './data';
 
 import { getElementOffset, hasContentOverflow } from './elements';
@@ -62,4 +63,5 @@ export {
   normalizeDate,
   getPrecisionForInterval,
   getStepsFromInterval,
+  sortKeysByValuesSum,
 };

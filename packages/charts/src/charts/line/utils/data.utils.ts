@@ -2,6 +2,16 @@ import { stack } from 'd3-shape';
 
 import { KeyNamesValuesType } from '../types';
 
+/**
+ * Calculate stack data for normal stacked lines.
+ *
+ * @param data - data series
+ * @param labelSelector - selected label from data
+ * @param keys - keys used for calculation
+ * @return data with values recalculated
+ *
+ */
+
 export const calculateStackData = (
   data: Record<string, any>[],
   labelSelector: string,
@@ -31,6 +41,17 @@ export const calculateStackData = (
 
   return newData;
 };
+
+/**
+ * Calculate stack data for normal stacked areas.
+ *
+ * @param data - data series
+ * @param labelSelector - selected label from data
+ * @param keys - keys used for calculation
+ * @return data with values recalculated, as two parts to connect them
+ * later(solving problems with curve line type)
+ *
+ */
 
 export const calculateStackAreaData = (
   data: Record<string, any>[],
@@ -68,34 +89,14 @@ export const calculateStackAreaData = (
   return { firstDataPart, secondDataPart: secondDataPart.reverse() };
 };
 
-export const sortKeys = (data: Record<string, any>[], keys: string[]) => {
-  const sumKeys = data.reduce((acc, item) => {
-    let idx = 0;
-    for (const [key, value] of Object.entries(item).filter((a) =>
-      keys.includes(a[0])
-    )) {
-      if (acc[idx]) {
-        acc[idx] = {
-          ...acc[idx],
-          value: acc[idx].value + value,
-        };
-      } else {
-        acc[idx] = {
-          key: key,
-          value,
-        };
-      }
-      idx++;
-    }
-    return acc;
-  }, []);
-
-  sumKeys.sort(
-    (a: { key: string; value: number }, b: { key: string; value: number }) =>
-      a.value < b.value ? 1 : -1
-  );
-  return sumKeys.map((item: { key: string; value: number }) => item.key);
-};
+/**
+ * Calculate min and max values for each series.
+ *
+ * @param data - data series
+ * @param labelSelector - selected label from data
+ * @return min and max values for all series
+ *
+ */
 
 export const calculateMaxMinSeriesValue = (
   data: Record<string, any>[],

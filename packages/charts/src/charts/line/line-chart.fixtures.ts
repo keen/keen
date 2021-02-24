@@ -4,7 +4,7 @@ export const chartData = [
     users: -3,
     licenses: -52,
     shops: -12,
-    books: -34,
+    books: -54,
   },
   {
     name: '2020-02-01T00:00:00.000Z',

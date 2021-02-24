@@ -26,7 +26,8 @@ const calculateRange = (
   }
 
   let maximum = maxValue === 'auto' ? max<number>(values) : maxValue;
-  if (minimum < 0 && maximum <= 0 && maxValue === 'auto') {
+  const isNegativeSeries = minimum < 0 && maximum <= 0 && maxValue === 'auto';
+  if (isNegativeSeries) {
     maximum = 0;
   }
 

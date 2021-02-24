@@ -6,12 +6,12 @@ import {
   getKeysDifference,
   transformToPercent,
   normalizeDate,
+  sortKeysByValuesSum,
 } from '@keen.io/charts-utils';
 
 import {
   calculateStackData,
   calculateStackAreaData,
-  sortKeys,
   calculateMaxMinSeriesValue,
 } from './data.utils';
 import { generateLineMarks } from './marks.utils';
@@ -34,6 +34,27 @@ import {
   GradientBlockType,
   KeyNamesValuesType,
 } from '../types';
+
+/**
+ * Generate all data needed to set up grouped lines/area chart
+ *
+ * @param data - data series
+ * @param keys - keys used in calculations
+ * @param disabledKeys - keys disabled for calculation/display
+ * @param dimension - predefine dimensions of the chart
+ * @param margins - predefine margins of the chart
+ * @param minValue - predefine minimum value
+ * @param maxValue - predefine maximum value
+ * @param labelSelector - selected label from data
+ * @param colors - palette of colors for chart
+ * @param markRadius - radius for marks
+ * @param strokeWidth - stroke width for lines
+ * @param curve - curve type connecting points
+ * @param areaMode - if area path and gradient is needed
+ * @param xScaleSettings - time scale settings
+ * @return stepMode, steps, marks, lines, xScale, yScale, areas, localizedData, gradientBlocks,
+ *
+ */
 
 export const generateGroupedLines = ({
   data,
@@ -90,8 +111,7 @@ export const generateGroupedLines = ({
 
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain([minimum, maximum])
-    .nice();
+    .domain([minimum, maximum]);
 
   calculateScaleDomain(yScale, minimum, maximum);
 
@@ -129,9 +149,8 @@ export const generateGroupedLines = ({
           xScale,
           yScale,
           labelSelector,
-          colors,
+          colors[idx],
           keyName,
-          idx,
           markRadius
         )
       );
@@ -149,7 +168,7 @@ export const generateGroupedLines = ({
           max: maxKeyNameValue,
         } = minMaxSeriesValues[keyName];
 
-        const isNegative = minimum < 0 && maximum <= 0;
+        const isNegativeSeries = minimum < 0 && maximum <= 0;
 
         const generateArea: (
           data: Record<string, any>[]
@@ -161,7 +180,7 @@ export const generateGroupedLines = ({
           keyName,
           minValue,
           maxValue,
-          isNegative
+          isNegativeSeries
         );
 
         gradientBlocks.push({
@@ -173,7 +192,7 @@ export const generateGroupedLines = ({
             yScale,
             minKeyNameValue,
             maxKeyNameValue,
-            isNegative
+            isNegativeSeries
           ),
         });
 
@@ -203,6 +222,29 @@ export const generateGroupedLines = ({
     gradientBlocks,
   };
 };
+
+/**
+ * Generate all data needed to set up stacked lines/area chart
+ *
+ * @param data - data series
+ * @param keys - keys used in calculations
+ * @param disabledKeys - keys disabled for calculation/display
+ * @param dimension - predefine dimensions of the chart
+ * @param margins - predefine margins of the chart
+ * @param minValue - predefine minimum value
+ * @param maxValue - predefine maximum value
+ * @param labelSelector - selected label from data
+ * @param colors - palette of colors for chart
+ * @param markRadius - radius for marks
+ * @param strokeWidth - stroke width for lines
+ * @param curve - curve type connecting points
+ * @param areaMode - if area path and gradient is needed
+ * @param stackMode - stack mode settings
+ * @param groupMode - group mode settings
+ * @param xScaleSettings - time scale settings
+ * @return stepMode, steps, marks, lines, xScale, yScale, areas, gradientBlocks,
+ *
+ */
 
 export const generateStackLines = ({
   data,
@@ -245,13 +287,18 @@ export const generateStackLines = ({
     filteredKeys
   );
 
-  const { minimum, maximum } = calculateStackedRange(
+  let { minimum, maximum } = calculateStackedRange(
     normalizeData,
     minValue,
     maxValue,
-    filteredKeys,
-    stackMode === 'percent'
+    filteredKeys
   );
+
+  const percentMin = minimum < 0 ? -100 : 0;
+  const percentMax = maximum > 0 ? 100 : 0;
+
+  minimum = stackMode === 'percent' ? percentMin : minimum;
+  maximum = stackMode === 'percent' ? percentMax : maximum;
 
   const marks: Mark[] = [];
   const steps: StepType[] = [];
@@ -269,8 +316,7 @@ export const generateStackLines = ({
 
   const yScale = scaleLinear()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain([minimum, maximum])
-    .nice();
+    .domain([minimum, maximum]);
 
   calculateScaleDomain(yScale, minimum, maximum);
 
@@ -307,9 +353,8 @@ export const generateStackLines = ({
           xScale,
           yScale,
           labelSelector,
-          colors,
+          colors[idx],
           keyName,
-          idx,
           markRadius
         )
       );
@@ -323,7 +368,7 @@ export const generateStackLines = ({
       });
 
       if (areaMode) {
-        const isNegative = minimum < 0 && maximum <= 0;
+        const isNegativeSeries = minimum < 0 && maximum <= 0;
 
         const {
           min: minKeyNameValue,
@@ -339,7 +384,7 @@ export const generateStackLines = ({
             yScale,
             minKeyNameValue,
             maxKeyNameValue,
-            isNegative
+            isNegativeSeries
           ),
         });
 
@@ -371,11 +416,19 @@ export const generateStackLines = ({
   };
 };
 
+/**
+ * Prepare options and check whitch function will be used based on groupMode and stackMode
+ *
+ * @param options - all options used in function generateGroupedLines or/and generateStackLines
+ * @return function to use for generating line/area chart data
+ *
+ */
+
 export const generateLines = (options: Options) => {
   const { groupMode, stackMode, data, keys } = options;
 
   let newOptions = { ...options } as Options;
-  const sortedKeys = sortKeys(data, keys);
+  const sortedKeys = sortKeysByValuesSum(data, keys);
   newOptions = { ...options, keys: sortedKeys };
 
   return groupMode === 'grouped' &&
