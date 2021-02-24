@@ -23,7 +23,7 @@ test('creates JSON tree for conflicted nodes', () => {
   expect(createTree(records)).toMatchSnapshot();
 });
 
-test.only('creates JSON tree for list in schema', () => {
+test('creates JSON tree for list in schema', () => {
   const records = {
     category: 'null',
     'category.details': 'list',

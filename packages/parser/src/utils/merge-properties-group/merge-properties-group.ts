@@ -1,4 +1,5 @@
 import { GroupByResult } from '../../types';
+import { PROPERTIES_CONNECTOR } from '../../constants';
 
 /**
  * Merge properties from gruop based on provided order
@@ -21,7 +22,9 @@ export const mergePropertiesGroup = (
     const groupedProperties = propertiesToGroup.reduce(
       ([currentKey, currentValue], key) => {
         const value = properties[key];
-        const mergedValue = currentValue ? `${currentValue} ${value}` : value;
+        const mergedValue = currentValue
+          ? `${currentValue} ${PROPERTIES_CONNECTOR} ${value}`
+          : value;
         const mergedKey = currentKey ? `${currentKey}-${key}` : key;
 
         return [mergedKey, mergedValue];

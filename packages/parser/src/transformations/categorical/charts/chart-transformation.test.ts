@@ -1,5 +1,5 @@
 import { ParserSettings } from '../../../types';
-import { barTransformation } from './bar-transformation';
+import { categoricalChartTransformation } from './chart-transformation';
 
 test('transforms data with one specified group by property and generates corresponding keys', () => {
   const parserSettings: ParserSettings = {
@@ -26,7 +26,7 @@ test('transforms data with one specified group by property and generates corresp
     keys: ['Poland', 'USA', 'Germany'],
   };
 
-  expect(barTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
@@ -53,7 +53,7 @@ test('transforms data with two specified group by properties and generates corre
     keys: ['Burger', 'Hot-dog'],
   };
 
-  expect(barTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
@@ -80,22 +80,27 @@ test('transforms data with more than two specified group by properties and gener
     data: [
       {
         'keen.key': 'Poland',
-        Burger_small: 10,
-        Burger_big: 30,
-        'Hot-dog_big': 12,
-        'Hot-dog_small': 32,
+        'Burger | small': 10,
+        'Burger | big': 30,
+        'Hot-dog | big': 12,
+        'Hot-dog | small': 32,
       },
       {
         'keen.key': 'USA',
-        Burger_small: 15,
-        Burger_big: 20,
-        'Hot-dog_small': 10,
-        'Hot-dog_big': 14,
+        'Burger | small': 15,
+        'Burger | big': 20,
+        'Hot-dog | small': 10,
+        'Hot-dog | big': 14,
       },
     ],
-    keys: ['Burger_small', 'Burger_big', 'Hot-dog_big', 'Hot-dog_small'],
+    keys: [
+      'Burger | small',
+      'Burger | big',
+      'Hot-dog | big',
+      'Hot-dog | small',
+    ],
   };
-  expect(barTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
@@ -116,19 +121,21 @@ test('transforms data and fill missing keys across data series', () => {
     data: [
       {
         'keen.key': 'Poland',
-        Burger_big: 0,
-        Burger_small: 10,
+        'Burger | big': 0,
+        'Burger | small': 10,
       },
       {
         'keen.key': 'USA',
-        Burger_big: 30,
-        Burger_small: 0,
+        'Burger | big': 30,
+        'Burger | small': 0,
       },
     ],
-    keys: ['Burger_small', 'Burger_big'],
+    keys: ['Burger | small', 'Burger | big'],
   };
 
-  expect(barTransformation(input, parserSettings)).toEqual(expectedResult);
+  expect(categoricalChartTransformation(input, parserSettings)).toEqual(
+    expectedResult
+  );
 });
 
 test('transforms data with "null" values', () => {
@@ -162,7 +169,7 @@ test('transforms data with "null" values', () => {
     keys: ['Cracow', 'null', 'Berlin'],
   };
 
-  expect(barTransformation(input, parserSettings)).toMatchObject(
+  expect(categoricalChartTransformation(input, parserSettings)).toMatchObject(
     expectedResult
   );
 });
