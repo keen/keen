@@ -98,24 +98,24 @@ test('should merge parsed result of two queries', () => {
   expect(mergeParsedResults(input, parsedQueries)).toMatchInlineSnapshot(`
     Object {
       "keys": Array [
-        "0.book_purchase.maximum.Edwidge Danticat Love, Anger, Madness",
-        "0.book_purchase.maximum.George R. R. Martin Game of Thrones",
-        "1.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness",
-        "1.book_purchase.minimum.George R. R. Martin Game of Thrones",
+        "0.book_purchase.maximum.Edwidge Danticat | Love, Anger, Madness",
+        "0.book_purchase.maximum.George R. R. Martin | Game of Thrones",
+        "1.book_purchase.minimum.Edwidge Danticat | Love, Anger, Madness",
+        "1.book_purchase.minimum.George R. R. Martin | Game of Thrones",
       ],
       "results": Array [
         Object {
-          "0.book_purchase.maximum.Edwidge Danticat Love, Anger, Madness": 95,
-          "0.book_purchase.maximum.George R. R. Martin Game of Thrones": 600,
-          "1.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness": 95,
-          "1.book_purchase.minimum.George R. R. Martin Game of Thrones": 7419,
+          "0.book_purchase.maximum.Edwidge Danticat | Love, Anger, Madness": 95,
+          "0.book_purchase.maximum.George R. R. Martin | Game of Thrones": 600,
+          "1.book_purchase.minimum.Edwidge Danticat | Love, Anger, Madness": 95,
+          "1.book_purchase.minimum.George R. R. Martin | Game of Thrones": 7419,
           "keen.key": "2020-01-01T00:00:00.000Z",
         },
         Object {
-          "0.book_purchase.maximum.Edwidge Danticat Love, Anger, Madness": 2,
-          "0.book_purchase.maximum.George R. R. Martin Game of Thrones": 11,
-          "1.book_purchase.minimum.Edwidge Danticat Love, Anger, Madness": 42,
-          "1.book_purchase.minimum.George R. R. Martin Game of Thrones": undefined,
+          "0.book_purchase.maximum.Edwidge Danticat | Love, Anger, Madness": 2,
+          "0.book_purchase.maximum.George R. R. Martin | Game of Thrones": 11,
+          "1.book_purchase.minimum.Edwidge Danticat | Love, Anger, Madness": 42,
+          "1.book_purchase.minimum.George R. R. Martin | Game of Thrones": undefined,
           "keen.key": "2020-02-01T00:00:00.000Z",
         },
       ],

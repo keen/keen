@@ -120,24 +120,24 @@ test('creates structure for "count" analysis with multiple group settings and in
     Object {
       "data": Array [
         Object {
-          "Edwidge Danticat Love, Anger, Madness": 95,
-          "George R. R. Martin Game of Thrones": 719,
-          "J.K. Rowling Harry Potter": 112,
+          "Edwidge Danticat | Love, Anger, Madness": 95,
+          "George R. R. Martin | Game of Thrones": 719,
+          "J.K. Rowling | Harry Potter": 112,
           "keen.key": "2020-01-01T00:00:00.000Z",
         },
         Object {
-          "J.K. Rowling Harry Potter": 1,
-          "Stephen King It": 45,
-          "Stephen King The Shining": 0,
+          "J.K. Rowling | Harry Potter": 1,
+          "Stephen King | It": 45,
+          "Stephen King | The Shining": 0,
           "keen.key": "2020-02-01T00:00:00.000Z",
         },
       ],
       "keys": Array [
-        "Edwidge Danticat Love, Anger, Madness",
-        "George R. R. Martin Game of Thrones",
-        "J.K. Rowling Harry Potter",
-        "Stephen King It",
-        "Stephen King The Shining",
+        "Edwidge Danticat | Love, Anger, Madness",
+        "George R. R. Martin | Game of Thrones",
+        "J.K. Rowling | Harry Potter",
+        "Stephen King | It",
+        "Stephen King | The Shining",
       ],
     }
   `);
@@ -163,19 +163,19 @@ test('creates structure for "count" analysis with multiple group settings', () =
     Object {
       "data": Array [
         Object {
-          "keen.key": "Love, Anger, Madness Edwidge Danticat",
+          "keen.key": "Love, Anger, Madness | Edwidge Danticat",
           "keen.value": 97,
         },
         Object {
-          "keen.key": "Harry Potter J.K. Rowling",
+          "keen.key": "Harry Potter | J.K. Rowling",
           "keen.value": 113,
         },
         Object {
-          "keen.key": "It Stephen King",
+          "keen.key": "It | Stephen King",
           "keen.value": 2104,
         },
         Object {
-          "keen.key": "The Shining Stephen King",
+          "keen.key": "The Shining | Stephen King",
           "keen.value": 6,
         },
       ],

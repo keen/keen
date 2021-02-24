@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`creates JSON tree 1`] = `
+Object {
+  "age": Array [
+    "age",
+    "number",
+  ],
+  "category": Object {
+    "details": Object {
+      "gender": Array [
+        "category.details.gender",
+        "string",
+      ],
+      "name": Array [
+        "category.details.name",
+        "string",
+      ],
+    },
+    "id": Array [
+      "category.id",
+      "string",
+    ],
+  },
+}
+`;
+
+exports[`creates JSON tree for conflicted nodes 1`] = `
+Object {
+  "age": Array [
+    "age",
+    "number",
+  ],
+  "category": Object {
+    "details": Object {
+      "gender": Array [
+        "category.details.gender",
+        "string",
+      ],
+      "name": Array [
+        "category.details.name",
+        "string",
+      ],
+    },
+    "id": Array [
+      "category.id",
+      "string",
+    ],
+  },
+  "category (node)": Array [
+    "category",
+    "null",
+  ],
+}
+`;
+
 exports[`creates JSON tree for list in schema 1`] = `
 Object {
   "category": Object {
