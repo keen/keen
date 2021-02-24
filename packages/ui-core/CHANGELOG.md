@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.13.1...@keen.io/ui-core@2.14.0) (2021-02-24)
+
+
+### Features
+
+* 🎸 heatmap groups ([48a094c](https://github.com/keen/keen/commit/48a094c4b3b9d111b04598ab9a2f4e4b8f887988))
+
+
+
+
+
 ## [2.13.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.13.0...@keen.io/ui-core@2.13.1) (2021-02-23)
 
 **Note:** Version bump only for package @keen.io/ui-core
