@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import { colors } from '@keen.io/colors';
 
 import { ToggleVariant } from './types';
@@ -15,7 +15,7 @@ type Props = {
   isOn?: boolean;
   isDisabled?: boolean;
   variant?: ToggleVariant;
-  onChange?: (res: boolean) => void;
+  onChange: (res: boolean) => void;
 };
 
 const Toggle: FC<Props> = ({
@@ -24,8 +24,6 @@ const Toggle: FC<Props> = ({
   variant = 'primary',
   onChange,
 }) => {
-  const onClick = useCallback(() => onChange(!isOn), [isOn]);
-
   const switcherVariants = {
     on: { x: 39 },
     off: { x: -1 },
@@ -66,7 +64,7 @@ const Toggle: FC<Props> = ({
   return (
     <ToggleWrapper
       isDisabled={isDisabled}
-      onClick={onClick}
+      onClick={() => onChange(!isOn)}
       data-testid="toggle"
     >
       <Track variant={variant}>
