@@ -306,10 +306,18 @@ export const generateHorizontalStackedBars = ({
     normalizedData
   );
 
-  const { minimum, maximum } =
-    stackMode === 'normal'
-      ? calculateStackedRange(normalizedData, minValue, maxValue, filteredKeys)
-      : { minimum: 0, maximum: 100 };
+  let { minimum, maximum } = calculateStackedRange(
+    normalizedData,
+    minValue,
+    maxValue,
+    filteredKeys
+  );
+
+  const percentMin = minimum < 0 ? -100 : 0;
+  const percentMax = maximum > 0 ? 100 : 0;
+
+  minimum = stackMode === 'percent' ? percentMin : minimum;
+  maximum = stackMode === 'percent' ? percentMax : maximum;
 
   const xScale = scaleLinear()
     .range([margins.left, dimension.width - margins.right])
@@ -392,10 +400,18 @@ export const generateVerticalStackedBars = ({
     normalizedData
   );
 
-  const { minimum, maximum } =
-    stackMode === 'normal'
-      ? calculateStackedRange(normalizedData, minValue, maxValue, filteredKeys)
-      : { minimum: 0, maximum: 100 };
+  let { minimum, maximum } = calculateStackedRange(
+    normalizedData,
+    minValue,
+    maxValue,
+    filteredKeys
+  );
+
+  const percentMin = minimum < 0 ? -100 : 0;
+  const percentMax = maximum > 0 ? 100 : 0;
+
+  minimum = stackMode === 'percent' ? percentMin : minimum;
+  maximum = stackMode === 'percent' ? percentMax : maximum;
 
   const xScale = scaleBand()
     .range([margins.left, dimension.width - margins.right])
@@ -406,7 +422,7 @@ export const generateVerticalStackedBars = ({
     .range([dimension.height - margins.bottom, margins.top])
     .domain([minimum, maximum]);
 
-  calculateScaleDomain(yScale, minimum, maximum);
+  stackMode !== 'percent' && calculateScaleDomain(yScale, minimum, maximum);
 
   const barWidth = xScale.bandwidth();
   const range = new Array(xScale.domain().length).fill(true);

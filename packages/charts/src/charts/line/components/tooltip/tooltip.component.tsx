@@ -2,9 +2,9 @@ import React, { FC, useContext } from 'react';
 import { BulletList } from '@keen.io/ui-core';
 import { getFromPath } from '@keen.io/charts-utils';
 
-import { DataSelector, TooltipFormatter } from '../../types';
+import { DataSelector, TooltipFormatter } from '../../../../types';
 
-import { ChartContext, ChartContextType } from '../../contexts';
+import { ChartContext, ChartContextType } from '../../../../contexts';
 
 type Props = {
   data: Record<string, any>[];

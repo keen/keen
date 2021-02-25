@@ -10,7 +10,7 @@ const transformToPercent = (data: Record<string, any>[], keys: string[]) => {
   const maximumValues: number[] = data.map((item: Record<string, number>) =>
     keys.reduce((acc: number, keyName: string) => {
       const value = item[keyName];
-      return acc + value;
+      return acc + Math.abs(value);
     }, 0)
   );
 

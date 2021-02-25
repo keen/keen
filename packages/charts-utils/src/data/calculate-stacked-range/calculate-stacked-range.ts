@@ -22,8 +22,9 @@ const calculateStackedRange = (
     const itemRange = keys.reduce(
       (acc, keyName: string) => {
         const value = item[keyName];
-        if (value >= 0) acc.maximum += value;
-        if (value < 0) acc.minimum += value;
+        acc.maximum = value > 0 ? acc.maximum + value : acc.maximum;
+        acc.minimum = value < 0 ? acc.minimum - Math.abs(value) : acc.minimum;
+
         return acc;
       },
       { minimum: 0, maximum: 0 }

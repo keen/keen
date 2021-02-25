@@ -17,14 +17,22 @@ const calculateScaleDomain = (
 ) => {
   const ticks = scale.ticks();
   const ticksLength = ticks.length;
+  const ticksLengthPositive = ticks.filter((el) => el >= 0).length;
+  const ticksLengthNegative = ticks.filter((el) => el <= 0).length;
+  const tickSize = Math.abs(Math.abs(ticks[1]) - Math.abs(ticks[0]));
+  let min = minimum;
+  let max = maximum;
 
   if (maximum > ticks[ticksLength - 1]) {
-    const tickSize = ticks[1] - ticks[0];
-    const difference = Math.ceil(maximum / ticksLength);
-    const newMaximum =
-      difference > tickSize ? ticksLength * difference : ticksLength * tickSize;
-    scale.domain([minimum, newMaximum]);
+    const newMaximum = ticksLengthPositive * tickSize;
+    max = ticksLengthPositive > 1 ? newMaximum : -newMaximum;
   }
+  if (minimum < ticks[0]) {
+    const newMinimum = ticksLengthNegative * tickSize;
+    min = ticksLengthNegative > 1 ? -newMinimum : newMinimum;
+  }
+
+  scale.domain([min, max]).nice();
 };
 
 export default calculateScaleDomain;

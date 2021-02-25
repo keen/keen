@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { StepType, Mark } from './types';
+import { StepType, Mark } from '../../types';
 
-import { findMarksInCluster } from './line-chart.utils';
+import { findMarksInCluster } from '../../utils';
 
 const pointMotion = {
   initial: 'hidden',
