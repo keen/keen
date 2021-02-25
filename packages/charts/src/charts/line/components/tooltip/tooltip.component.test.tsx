@@ -1,9 +1,9 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
-import { theme } from '../../theme';
-import { ChartContext } from '../../contexts';
-import { chartData as data } from './line-chart.fixtures';
+import { theme } from '../../../../theme';
+import { ChartContext } from '../../../../contexts';
+import { chartData as data } from '../../line-chart.fixtures';
 
 import Tooltip from './tooltip.component';
 

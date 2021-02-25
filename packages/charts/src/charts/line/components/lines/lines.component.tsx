@@ -1,22 +1,30 @@
 import React, { useState, useMemo, useRef, useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import Marks from './marks.component';
-import Step from './step.component';
+import Marks from '../marks';
+import Step from '../steps/';
 import {
   groupMarksByPosition,
   findMarksInCluster,
   showAllMarks,
-} from './line-chart.utils';
+} from '../../utils';
 
-import { HoverBar, hoverBarMotion } from '../../components';
+import { HoverBar, hoverBarMotion } from '../../../../components';
 
-import { ChartContext, ChartContextType } from '../../contexts';
+import { ChartContext, ChartContextType } from '../../../../contexts';
 
-import { DataSelector, GroupMode, StackMode } from '../../types';
-import { Mark, Line, CurveType, StepType, AreaType } from './types';
+import { DataSelector, GroupMode, StackMode } from '../../../../types';
+import {
+  Mark,
+  Line,
+  CurveType,
+  StepType,
+  AreaType,
+  GradientBlockType,
+} from '../../types';
 
-import GradientFilter from './gradient-filter.component';
+import GradientFilter from '../gradient-filter';
+import ClipPath from '../clip-path';
 
 const HOVER_BAR_HIDE_TIME = 300;
 
@@ -54,6 +62,7 @@ type Props = {
   areaMode: boolean;
   stepMode: boolean;
   areas?: AreaType[];
+  gradientBlocks?: GradientBlockType[];
   gradient?: boolean;
   onMarkMouseEnter: (
     e: React.MouseEvent,
@@ -73,6 +82,7 @@ const Lines = ({
   groupMode,
   stepMode,
   gradient,
+  gradientBlocks,
   onMarkMouseEnter,
   onMarkMouseLeave,
 }: Props) => {
@@ -109,20 +119,26 @@ const Lines = ({
             strokeWidth={strokeWidth}
             fill="transparent"
           />
-          {areas.length && (
+          {areas.length && gradientBlocks.length && (
             <>
               {gradient && (
                 <GradientFilter
                   filterId={`id-${color}`}
-                  color={color}
-                  firstOpacity={areas[idx].firstOpacity}
-                  lastOpacity={areas[idx].lastOpacity}
+                  positiveColor={areas[idx].positiveColor}
+                  zeroPointColor={areas[idx].zeroPointColor}
+                  negativeColor={areas[idx].negativeColor}
+                  gradientZeroPercent={areas[idx].gradientZeroPercent}
                 />
               )}
-              <motion.path
-                key={`${key}-${curve}-${stackMode}-${groupMode}-area-gradient`}
-                d={areas[idx].d}
+              <ClipPath id={`clip-${color}`} area={areas[idx].d} />
+              <motion.rect
+                x={gradientBlocks[idx].x}
+                y={gradientBlocks[idx].y}
+                width={gradientBlocks[idx].width}
+                height={gradientBlocks[idx].height}
                 fill={gradient ? `url(#id-${color})` : color}
+                clipPath={`url(#clip-${color})`}
+                key={`${key}-${curve}-${stackMode}-${groupMode}-area-gradient`}
                 variants={createAreaMotion()}
                 transition={areaTransition}
                 initial="hidden"

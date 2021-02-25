@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Mark, CurveType, StepType } from './types';
+import { Mark, CurveType, StepType } from '../../types';
 
-import { Mark as PointMark, markMotion } from '../../components';
+import { Mark as PointMark, markMotion } from '../../../../components';
 
-import { GroupMode, StackMode } from '../../types';
+import { GroupMode, StackMode } from '../../../../types';
 
 const pointMotion = {
   initial: 'hidden',
