@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.2...@keen.io/charts-utils@1.4.3) (2021-02-26)
+
+
+### Bug Fixes
+
+* 🐛 Fix for values smaller than tickSize ([d4a67b9](https://github.com/keen/keen/commit/d4a67b9af236b78b296ed62657ccc5740c49507a))
+
+
+
+
+
 ## [1.4.2](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.1...@keen.io/charts-utils@1.4.2) (2021-02-25)
 
 **Note:** Version bump only for package @keen.io/charts-utils
