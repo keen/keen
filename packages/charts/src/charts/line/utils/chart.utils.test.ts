@@ -42,7 +42,7 @@ test('creates yScale domain for grouped line chart', () => {
 
   expect(yScale.domain()).toMatchInlineSnapshot(`
     Array [
-      4,
+      -5,
       30,
     ]
   `);
@@ -85,7 +85,7 @@ test('creates yScale domain for stacked line chart', () => {
 
   expect(yScale.domain()).toMatchInlineSnapshot(`
     Array [
-      5,
+      -5,
       45,
     ]
   `);
