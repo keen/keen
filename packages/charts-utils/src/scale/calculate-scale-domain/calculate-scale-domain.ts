@@ -25,13 +25,12 @@ const calculateScaleDomain = (
 
   if (maximum > ticks[ticksLength - 1]) {
     const newMaximum = ticksLengthPositive * tickSize;
-    max = ticksLengthPositive > 1 ? newMaximum : -newMaximum;
+    max = ticksLengthPositive > 1 || maximum > 0 ? newMaximum : -newMaximum;
   }
   if (minimum < ticks[0]) {
     const newMinimum = ticksLengthNegative * tickSize;
-    min = ticksLengthNegative > 1 ? -newMinimum : newMinimum;
+    min = ticksLengthNegative > 1 || minimum < 0 ? -newMinimum : newMinimum;
   }
-
   scale.domain([min, max]).nice();
 };
 
