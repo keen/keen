@@ -25,3 +25,9 @@ export const BulletPoint = styled.div<{
   border-radius: 50%;
   background-color: ${(props) => props.color};
 `;
+
+export const TextWrapper = styled.div`
+  & + & {
+    margin-left: 4px;
+  }
+`;

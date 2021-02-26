@@ -21,7 +21,7 @@ const Tooltip: FC<Props> = ({ data, selectors, formatValue }) => {
     <BulletList
       typography={tooltip.labels.typography}
       list={selectors.map(({ color, selector }) => ({
-        value: formatValue
+        label: formatValue
           ? formatValue(getFromPath(data, selector))
           : getFromPath(data, selector),
         color,

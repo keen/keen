@@ -49,8 +49,7 @@ test('formats tooltip value', async () => {
   fireEvent.mouseMove(slice.querySelector('path'));
 
   await waitFor(() => {
-    expect(
-      getByText(`${label} - ${formatTooltip(result)}`)
-    ).toBeInTheDocument();
+    expect(getByText(`${label} :`)).toBeInTheDocument();
+    expect(getByText(`${formatTooltip(result)}`)).toBeInTheDocument();
   });
 });

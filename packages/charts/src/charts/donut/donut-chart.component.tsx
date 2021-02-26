@@ -150,6 +150,7 @@ export const DonutChart: FC<Props> = ({
                     formatValue: formatTooltip,
                   })}
                   typography={tooltipSettings.labels.typography}
+                  valuesTypography={tooltipSettings.values.typography}
                 />
               )}
             </Tooltip>

@@ -1,46 +1,33 @@
 import React from 'react';
-import { mount } from 'enzyme';
-
+import { render as rtlRender } from '@testing-library/react';
 import BulletList from './bullet-list.component';
 
-import { Text } from '../../typography';
-
-const setup = (overProps: any = {}) => {
+const render = (overProps: any = {}) => {
   const list = [
-    { color: 'red', value: 12 },
-    { color: 'blue', value: 22 },
+    { color: 'red', value: 12, label: 'Label-1', change: '(+5)' },
+    { color: 'blue', value: 22, label: 'Label-2', change: '(+11)' },
   ];
-
   const props = {
-    ...overProps,
     list,
-    typography: {
-      fontSize: 12,
-      fontFamily: 'Lato Regular',
-      fontColor: 'black',
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-    },
+    ...overProps,
   };
 
-  const wrapper = mount(<BulletList {...props} />);
-
+  const wrapper = rtlRender(<BulletList {...props} />);
   return {
     wrapper,
     props,
   };
 };
 
-describe('@keen.io/ui-core - <BulletList />', () => {
-  it('should render render list', () => {
-    const { wrapper, props } = setup();
+test('renders list items', () => {
+  const {
+    wrapper: { getByText },
+    props,
+  } = render();
 
-    expect(wrapper.find('li').length).toEqual(props.list.length);
-  });
-
-  it('should apply "typography" to list element', () => {
-    const { wrapper, props } = setup();
-
-    expect(wrapper.find(Text).first().props()).toMatchObject(props.typography);
+  props.list.forEach((item) => {
+    expect(getByText(item.value)).toBeInTheDocument();
+    expect(getByText(item.label)).toBeInTheDocument();
+    expect(getByText(item.change)).toBeInTheDocument();
   });
 });

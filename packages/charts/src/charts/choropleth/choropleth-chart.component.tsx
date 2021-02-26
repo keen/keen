@@ -150,7 +150,7 @@ export const ChoroplethChart: FC<Props> = ({
                   list={[
                     {
                       color: tooltipMeta.color,
-                      value: `${tooltipMeta.label} - ${
+                      label: `${tooltipMeta.label} - ${
                         formatTooltip
                           ? formatTooltip(tooltipMeta.value)
                           : tooltipMeta.value

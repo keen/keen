@@ -61,7 +61,7 @@ const BarTooltip: FC<Props> = ({
         <BulletList
           typography={tooltip.labels.typography}
           list={selectors.map(({ color, selector }) => ({
-            value: getLabel({
+            label: getLabel({
               data,
               selector,
               percentageData,
