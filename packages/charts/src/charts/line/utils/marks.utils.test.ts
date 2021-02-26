@@ -162,7 +162,7 @@ test('should generate marks correctly', () => {
           "revenue",
         ],
         "x": 250,
-        "y": 148.75,
+        "y": 121.00000000000001,
       },
       Object {
         "color": "blue",
@@ -173,7 +173,7 @@ test('should generate marks correctly', () => {
           "buy",
         ],
         "x": 250,
-        "y": 46.99999999999999,
+        "y": 39.59999999999999,
       },
       Object {
         "color": "green",
@@ -184,7 +184,7 @@ test('should generate marks correctly', () => {
           "sale",
         ],
         "x": 250,
-        "y": 74.75000000000001,
+        "y": 61.800000000000004,
       },
     ]
   `);

@@ -178,7 +178,7 @@ describe('generateVerticalGroupedBars()', () => {
 
     expect(yScale.domain()).toMatchInlineSnapshot(`
       Array [
-        4,
+        -5,
         30,
       ]
     `);
