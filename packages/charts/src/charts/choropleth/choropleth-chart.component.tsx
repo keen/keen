@@ -2,7 +2,13 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Tooltip, ColorMode, BulletList, RangeType } from '@keen.io/ui-core';
+import {
+  Tooltip,
+  ColorMode,
+  BulletList,
+  RangeType,
+  Text,
+} from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import Map from './map.component';
@@ -147,17 +153,21 @@ export const ChoroplethChart: FC<Props> = ({
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipMeta && (
                 <BulletList
-                  list={[
+                  items={[
                     {
                       color: tooltipMeta.color,
-                      label: `${tooltipMeta.label} - ${
+                      data: `${tooltipMeta.label} - ${
                         formatTooltip
                           ? formatTooltip(tooltipMeta.value)
                           : tooltipMeta.value
                       }`,
                     },
                   ]}
-                  typography={tooltipSettings.labels.typography}
+                  renderItem={(_idx, item) => (
+                    <Text {...tooltipSettings.labels.typography}>
+                      {item.data}
+                    </Text>
+                  )}
                 />
               )}
             </Tooltip>

@@ -59,9 +59,8 @@ const BarTooltip: FC<Props> = ({
     <div data-testid="bar-tooltip">
       {isList ? (
         <BulletList
-          typography={tooltip.labels.typography}
-          list={selectors.map(({ color, selector }) => ({
-            label: getLabel({
+          items={selectors.map(({ color, selector }) => ({
+            data: getLabel({
               data,
               selector,
               percentageData,
@@ -70,6 +69,9 @@ const BarTooltip: FC<Props> = ({
             }),
             color,
           }))}
+          renderItem={(_idx, item) => (
+            <Text {...tooltip.labels.typography}>{item.data}</Text>
+          )}
         />
       ) : (
         <>

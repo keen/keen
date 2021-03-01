@@ -1,5 +1,6 @@
 import { colors } from '@keen.io/colors';
 import { getFromPath } from '@keen.io/charts-utils';
+import { Point } from '@keen.io/ui-core';
 import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
@@ -21,7 +22,7 @@ export const getTooltipContent = ({
   labelSelector,
   selectors,
 }: Options) => {
-  const content: { color: string; value: string }[] = [];
+  const content: { color: string; data: string }[] = [];
 
   selectors.forEach(({ selector, color }) => {
     const item = getFromPath(data, selector);
@@ -29,7 +30,7 @@ export const getTooltipContent = ({
       return acc + item[keyName];
     }, 0);
 
-    content.push({ color, value: `${item[labelSelector]} - ${total}` });
+    content.push({ color, data: `${item[labelSelector]} - ${total}` });
   });
 
   return content;
@@ -43,15 +44,10 @@ export const getCircularChartTooltipContent = ({
   disabledLabels,
   formatValue,
 }: Options) => {
-  const content: {
-    color: string;
-    value?: string;
-    label?: string;
-    change?: string;
-  }[] = [];
+  const content: Point[] = [];
 
   selectors.length > 1 &&
-    content.push({ color: colors.gray[500], label: OTHERS_DATA_KEY });
+    content.push({ color: colors.gray[500], data: OTHERS_DATA_KEY });
 
   selectors.forEach(({ selector, color }) => {
     const item = getFromPath(data, selector);
@@ -62,7 +58,7 @@ export const getCircularChartTooltipContent = ({
 
     let value = `${formattedTotal}`;
     let label = `${item[labelSelector]} :`;
-    let change;
+    let change = '';
     let newColor = color;
 
     if (selectors.length > 1) {
@@ -83,7 +79,14 @@ export const getCircularChartTooltipContent = ({
       newColor = 'rgba(0, 0, 0, 0)';
     }
 
-    content.push({ color: newColor, value, label, change });
+    content.push({
+      color: newColor,
+      data: {
+        label,
+        value,
+        change,
+      },
+    });
   });
 
   return content;

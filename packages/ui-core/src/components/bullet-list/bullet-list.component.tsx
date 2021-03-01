@@ -1,52 +1,31 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import {
   StyledBulletList,
   StyledBulletItem,
   BulletPoint,
-  TextWrapper,
 } from './bullet-list.styles';
-
-import { Text } from '../../typography';
-
-import { Typography } from '../../types';
-
-type Point = {
+export interface Point {
   color: string;
-  value?: string;
-  label?: string;
-  change?: string;
+  data: string | Record<string, any>;
+}
+
+type Props<T> = {
+  /** Collection of items */
+  items: T[];
+  /** Item renderer */
+  renderItem: (idx: number, item: T) => React.ReactNode;
 };
 
-type Props = {
-  list: Point[];
-  typography?: Typography;
-  valuesTypography?: Typography;
-};
-
-const BulletList: FC<Props> = ({ list, typography, valuesTypography }) => {
-  const listItems = list.map((item, idx: number) => (
-    <StyledBulletItem key={`${item.value}.${idx}`}>
-      <BulletPoint color={item.color} />
-      {item.label && (
-        <TextWrapper>
-          <Text {...typography}>{item.label}</Text>
-        </TextWrapper>
-      )}
-      {item.value && (
-        <TextWrapper>
-          <Text {...valuesTypography}>{item.value}</Text>
-        </TextWrapper>
-      )}
-      {item.change && (
-        <TextWrapper>
-          <Text {...typography}>{item.change}</Text>
-        </TextWrapper>
-      )}
-    </StyledBulletItem>
-  ));
-
-  return <StyledBulletList>{listItems}</StyledBulletList>;
-};
+const BulletList = <T extends Point>({ items, renderItem }: Props<T>) => (
+  <StyledBulletList>
+    {items.map((item, idx: number) => (
+      <StyledBulletItem key={`${item.color}.${idx}`}>
+        <BulletPoint color={item.color} />
+        {renderItem(idx, item)}
+      </StyledBulletItem>
+    ))}
+  </StyledBulletList>
+);
 
 export default BulletList;
