@@ -33,7 +33,7 @@ export const Container = styled.div<{
   isActive?: boolean;
   hasError?: boolean;
 }>`
-  ${variant(containerVariants)}
+  ${variant(containerVariants)};
   display: flex;
   padding: 10px 14px;
   height: 37px;
@@ -48,7 +48,7 @@ export const Container = styled.div<{
     props.isActive &&
     css`
       box-shadow: 0 0 3px 1px rgba(29, 39, 41, 0.15);
-    `}
+    `};
 
   transition: box-shadow 0.2s;
 
@@ -56,7 +56,7 @@ export const Container = styled.div<{
     props.hasError &&
     css`
       border: 1px solid ${transparentize(0.5, colors.red[500])};
-    `}
+    `};
 `;
 
 export const SearchIcon = styled.div`

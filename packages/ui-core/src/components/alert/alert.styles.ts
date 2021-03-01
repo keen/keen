@@ -37,5 +37,5 @@ export const StyledAlert = styled.div<{
   line-height: 16px;
   font-weight: 400;
 
-  ${variant(alertVariants)}
+  ${variant(alertVariants)};
 `;
