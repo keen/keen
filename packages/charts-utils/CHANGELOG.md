@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.3...@keen.io/charts-utils@1.5.0) (2021-03-02)
+
+
+### Features
+
+* 🎸 Added mathematical operations to scale settings ([d332b19](https://github.com/keen/keen/commit/d332b19d9c317c27a4851a912f876e417764799b))
+
+
+
+
+
 ## [1.4.3](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.2...@keen.io/charts-utils@1.4.3) (2021-02-26)
 
 
