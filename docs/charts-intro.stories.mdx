@@ -45,10 +45,10 @@ const chartData = [
 
 To format the label you can use any string with the value output marked with `${}`.
 
-To additionally process the numeric value use the following parameters:
+To additionally process the numeric value use the following parameters separated by semicolon:
 
 ```sh
-    ${number, pattern}
+    ${number; pattern; operationType; operationValue}
 ```
 
 Available patterns for `number` type:
@@ -74,6 +74,19 @@ Available patterns for `number` type:
 | -104000    	| '0a'         	| -104k
 | 1          	| '0o'         	| 1st
 | 100        	| '0o'         	| 100th
+
+Available mathematical operations for `number` type:
+- add
+- subtract
+- multiply
+- divide
+
+### Example:
+Input value: `10`
+
+Format string: `${number; 0.00; multiply; 100}£`
+
+Output value: `1000.00£`
 
 ## Compability
 
