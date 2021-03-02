@@ -90,6 +90,7 @@ export const BarChart: FC<Props> = ({
   formatTooltip,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
+  console.log({ labelSelector });
   const {
     layoutMargins,
     layoutReady,
@@ -205,6 +206,7 @@ export const BarChart: FC<Props> = ({
                   selectors={tooltip.selectors}
                   isList={tooltip.selectors.length > 1}
                   formatValue={formatTooltip}
+                  labelSelector={labelSelector}
                 />
               )}
             </ChartTooltip>

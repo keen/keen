@@ -4,6 +4,7 @@ import {
   getFromPath,
   getKeysDifference,
   transformToPercent,
+  formatScaleLabel,
 } from '@keen.io/charts-utils';
 
 import { getLabel } from './utils/tooltip.utils';
@@ -16,6 +17,7 @@ import {
   StackMode,
   TooltipFormatter,
 } from '../../types';
+// import { getTooltipContent } from '../../utils';
 
 type Props = {
   /** Data series */
@@ -32,6 +34,8 @@ type Props = {
   stackMode: StackMode;
   /** List indicator */
   isList: boolean;
+  /** Name of data object property used to create labels on axis */
+  labelSelector: string;
   /** Tooltip formatter */
   formatValue?: TooltipFormatter;
 };
@@ -44,16 +48,24 @@ const BarTooltip: FC<Props> = ({
   stackMode,
   groupMode,
   isList,
+  labelSelector,
   formatValue,
 }) => {
   const {
     theme: { tooltip },
+    xScaleSettings,
   } = useContext(ChartContext) as ChartContextType;
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
     ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
     : [];
+  console.log({ selectors, data, keys });
+  const index = selectors[0].selector[0] as number;
+
+  console.log(formatScaleLabel(data[index][labelSelector], xScaleSettings));
+  // const tooltipContent = getTooltipContent({ data, keys, labelSelector: 'keen.key', selectors });
+  // console.log(tooltipContent);
 
   return (
     <div data-testid="bar-tooltip">

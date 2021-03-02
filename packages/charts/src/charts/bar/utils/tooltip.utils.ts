@@ -46,6 +46,7 @@ export const getSelectors = ({
   selector: { selector: DataSelector; color: string };
 }): { selector: DataSelector; color: string }[] => {
   if (groupMode === 'stacked' && stackMode === 'percent') {
+    // if (groupMode === 'stacked') {
     const { selector: dataSelector } = selector;
     const [index] = dataSelector;
     const selectors: { selector: DataSelector; color: string }[] = [];
