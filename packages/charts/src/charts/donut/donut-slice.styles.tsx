@@ -11,12 +11,3 @@ export const StyledPath = styled.path<{
       filter: url(#${SHADOW_FILTER_ID});
     `}
 `;
-
-export const TooltipContent = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-
-  div + div {
-    margin-left: 4px;
-  }
-`;

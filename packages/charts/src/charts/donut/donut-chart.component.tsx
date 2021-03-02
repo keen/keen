@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Tooltip, BulletList, Text } from '@keen.io/ui-core';
+import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import {
@@ -14,8 +14,8 @@ import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase, Delayed } from '../../components';
+import { TooltipItem } from '../circular-chart';
 import DonutTotal from './donut-total.component';
-import { TooltipContent } from './donut-slice.styles';
 
 import { theme as defaultTheme } from '../../theme';
 
@@ -150,27 +150,9 @@ export const DonutChart: FC<Props> = ({
                     disabledLabels,
                     formatValue: formatTooltip,
                   })}
-                  renderItem={(_idx, item) =>
-                    typeof item.data === 'string' ? (
-                      <Text {...tooltipSettings.labels.typography}>
-                        {item.data}
-                      </Text>
-                    ) : (
-                      <TooltipContent>
-                        <Text {...tooltipSettings.labels.typography}>
-                          {item.data.label}
-                        </Text>
-                        <Text {...tooltipSettings.values.typography}>
-                          {item.data.value}
-                        </Text>
-                        {item.data.change && (
-                          <Text {...tooltipSettings.labels.typography}>
-                            {item.data.change}
-                          </Text>
-                        )}
-                      </TooltipContent>
-                    )
-                  }
+                  renderItem={(_idx, item) => (
+                    <TooltipItem data={item.data} theme={theme} />
+                  )}
                 />
               )}
             </Tooltip>
