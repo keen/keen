@@ -33,7 +33,7 @@ export const TextWrapper = styled.span<TextWrapperProps>`
 
   transition: background-color 0.3s ease-in-out;
 
-  ${(props) => variant(createVariants(props.isActive))}
+  ${(props) => variant(createVariants(props.isActive))};
 `;
 
 type IconWrapperProps = {
@@ -53,7 +53,7 @@ export const IconWrapper = styled.div<IconWrapperProps>`
 
   transition: background-color 0.3s ease-in-out;
 
-  ${(props) => variant(createVariants(props.isActive))}
+  ${(props) => variant(createVariants(props.isActive))};
 `;
 
 export const TooltipMotion = styled(motion.div)`

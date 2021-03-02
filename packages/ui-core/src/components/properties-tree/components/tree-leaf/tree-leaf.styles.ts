@@ -28,7 +28,7 @@ export const Container = styled.div<{
     props.isActive &&
     css`
       background: ${transparentize(0.8, colors.green[100])};
-    `}
+    `};
 `;
 
 export const Type = styled.div`
@@ -56,5 +56,5 @@ export const Path = styled.div<{
     props.isBold &&
     css`
       font-family: Lato Bold, sans-serif;
-    `}
+    `};
 `;

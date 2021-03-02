@@ -59,10 +59,10 @@ export const StyledIcon = styled.span<IconProps>`
     props.action === 'create' &&
     css`
       color: ${colors.green['500']};
-    `}
+    `};
   ${(props) =>
     props.action === 'remove' &&
     css`
       color: ${colors.red['200']};
-    `}
+    `};
 `;

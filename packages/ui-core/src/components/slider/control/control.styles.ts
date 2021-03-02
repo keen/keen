@@ -7,11 +7,11 @@ export const Container = styled.div<{
     props.dragDirection === 'x' &&
     css`
       transform: translateX(-50%);
-    `}
+    `};
 
   ${(props) =>
     props.dragDirection === 'y' &&
     css`
       transform: translateY(-50%);
-    `}
+    `};
 `;

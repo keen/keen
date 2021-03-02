@@ -56,13 +56,13 @@ const Wrapper = styled.div<Props>`
         color: colors.white['500'],
       },
     },
-  })}
+  })};
   &::after {
     ${(props) =>
       !props.hasArrow &&
       css`
         display: none;
-      `}
+      `};
     content: '';
     position: absolute;
     width: 0;
@@ -129,7 +129,7 @@ const Wrapper = styled.div<Props>`
           },
         },
       });
-    }}
+    }};
   }
 `;
 

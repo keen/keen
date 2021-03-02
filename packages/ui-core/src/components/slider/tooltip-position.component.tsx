@@ -31,7 +31,7 @@ const PositionContainer = styled.div<{
       transform: translateX(-50%)
         translateX(-${props.width / 2 + TOOLTIP_ARROW_SIZE}px) translateY(-50%)
         translateY(${props.containerSize / 2}px);
-    `}
+    `};
 
   ${(props) =>
     props.position === 'right' &&
@@ -41,7 +41,7 @@ const PositionContainer = styled.div<{
           ${props.width / 2 + props.containerSize + TOOLTIP_ARROW_SIZE}px
         )
         translateY(-50%) translateY(${props.containerSize / 2}px);
-    `}
+    `};
 
   ${(props) =>
     props.position === 'bottom' &&
@@ -51,14 +51,14 @@ const PositionContainer = styled.div<{
         translateY(
           ${props.containerSize + props.height / 2 + TOOLTIP_ARROW_SIZE}px
         );
-    `}
+    `};
 
   ${(props) =>
     props.position === 'top' &&
     css`
       transform: translateX(-50%) translateX(${props.containerSize / 2}px)
         translateY(-50%) translateY(-${props.height / 2 + TOOLTIP_ARROW_SIZE}px);
-    `}
+    `};
 `;
 
 type Props = {

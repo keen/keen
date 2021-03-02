@@ -27,7 +27,7 @@ const tabVariants = {
 export const Tab = styled.div<{
   type: TabTypes;
 }>`
-  ${variant(tabVariants)}
+  ${variant(tabVariants)};
   padding: 10px 20px;
   flex-grow: 1;
   font-family: 'Lato Bold', sans-serif;
@@ -41,7 +41,7 @@ export const Tab = styled.div<{
       &:hover {
         background: ${transparentize(0.8, colors.green[100])};
       }
-    `}
+    `};
 `;
 
 export const ActiveTab = styled(motion.div)`

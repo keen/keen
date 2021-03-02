@@ -32,7 +32,7 @@ export const IconSocket = styled(motion.div)<{
   line-height: 1;
   box-sizing: content-box;
 
-  ${variant(iconSocketVariants)}
+  ${variant(iconSocketVariants)};
 `;
 
 const checkboxVariants = {
@@ -62,7 +62,7 @@ export const StyledCheckbox = styled.div<{
   display: inline-block;
   box-sizing: content-box;
 
-  ${variant(checkboxVariants)}
+  ${variant(checkboxVariants)};
 `;
 
 export const HiddenInput = styled.input.attrs({ type: 'checkbox' })`

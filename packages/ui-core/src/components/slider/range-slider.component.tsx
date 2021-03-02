@@ -142,7 +142,7 @@ export const RangeSlider: FC<Props> = ({
         height: '100%',
       };
 
-  const [currentMinimum, currentMaximum] = value;
+  const [currentMinimum, currentMaximum] = value as number[];
 
   return (
     <div ref={slider} style={{ position: 'relative', ...layoutStyle }}>
@@ -215,7 +215,7 @@ export const RangeSlider: FC<Props> = ({
               const position = isHorizontal ? x : y;
 
               const minimumValue = calculateControlValue(position);
-              const [, maximumValue] = value;
+              const [, maximumValue] = value as number[];
 
               dispatch(sliderActions.setValue([minimumValue, maximumValue]));
               dispatch(sliderActions.setControlPosition('minimum', position));
@@ -309,7 +309,7 @@ export const RangeSlider: FC<Props> = ({
               const position = isHorizontal ? x : y;
               const maximumValue = calculateControlValue(position);
 
-              const [minimumValue] = value;
+              const [minimumValue] = value as number[];
 
               dispatch(sliderActions.setValue([minimumValue, maximumValue]));
               dispatch(sliderActions.setControlPosition('maximum', position));

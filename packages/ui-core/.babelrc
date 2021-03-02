@@ -1,0 +1,16 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "modules": false }],
+  ],
+  "plugins": [
+    [
+      "@quickbaseoss/babel-plugin-styled-components-css-namespace",
+      {"cssNamespace": "&&&"}
+    ],
+    ["babel-plugin-styled-components", {
+      "namespace": "keen-ui-core",
+      "minify": true,
+      "transpileTemplateLiterals": true
+    }]
+  ],
+}
