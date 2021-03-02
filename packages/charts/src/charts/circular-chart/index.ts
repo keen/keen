@@ -1,3 +1,3 @@
-import TooltipItem from './tooltip-item.component';
+import TooltipItem, { ItemData } from './tooltip-item.component';
 
-export { TooltipItem };
+export { TooltipItem, ItemData };

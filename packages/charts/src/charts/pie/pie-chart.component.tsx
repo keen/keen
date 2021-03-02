@@ -12,7 +12,7 @@ import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
 
 import PieSlice from './pie-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
-import { TooltipItem } from '../circular-chart';
+import { ItemData, TooltipItem } from '../circular-chart';
 
 import { ChartBase, Delayed } from '../../components';
 
@@ -140,7 +140,7 @@ export const PieChart: FC<Props> = ({
                     formatValue: formatTooltip,
                   })}
                   renderItem={(_idx, item) => (
-                    <TooltipItem data={item.data} theme={theme} />
+                    <TooltipItem data={item.data as ItemData} theme={theme} />
                   )}
                 />
               )}

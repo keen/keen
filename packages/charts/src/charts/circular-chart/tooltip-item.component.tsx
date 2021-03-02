@@ -5,7 +5,7 @@ import { Container } from './tooltip-item.styles';
 import { theme as defaultTheme } from '../../theme';
 import { Theme } from '../../types';
 
-interface ItemData {
+export interface ItemData {
   label: string;
   value: string;
   change?: string;

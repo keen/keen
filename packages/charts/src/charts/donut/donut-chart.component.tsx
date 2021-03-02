@@ -14,7 +14,7 @@ import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase, Delayed } from '../../components';
-import { TooltipItem } from '../circular-chart';
+import { ItemData, TooltipItem } from '../circular-chart';
 import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
@@ -151,7 +151,7 @@ export const DonutChart: FC<Props> = ({
                     formatValue: formatTooltip,
                   })}
                   renderItem={(_idx, item) => (
-                    <TooltipItem data={item.data} theme={theme} />
+                    <TooltipItem data={item.data as ItemData} theme={theme} />
                   )}
                 />
               )}
