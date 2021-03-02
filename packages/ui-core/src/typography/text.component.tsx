@@ -9,7 +9,7 @@ type Props = {
 } & Typography;
 
 export const BaseText = styled.div<Props>`
-  ${typography}
+  ${typography};
   color: ${(props) => props.fontColor};
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@ export const BaseText = styled.div<Props>`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    `}
+    `};
 `;
 
 const Text = ({ children, truncate = false, ...props }: Props) => (

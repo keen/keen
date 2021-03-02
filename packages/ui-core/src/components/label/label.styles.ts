@@ -29,7 +29,7 @@ export const StyledLabel = styled.label<{
   variant: LabelVariant;
 }>`
   font-size: 14px;
-  ${variant(labelVariants)}
+  ${variant(labelVariants)};
 
   ${(props) =>
     props.disabled &&
@@ -51,7 +51,7 @@ export const StyledLabel = styled.label<{
     props.hasError &&
     css`
       color: ${colors.red[500]};
-    `}
+    `};
 `;
 
 export const Asterisk = styled.span`

@@ -10,5 +10,5 @@ export const Wrapper = styled.div<{
     css`
       overflow-y: scroll;
       max-height: ${props.maxHeight}px;
-    `}
+    `};
 `;

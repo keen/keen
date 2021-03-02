@@ -31,5 +31,5 @@ export const ListItem = styled.li<{
     props.isActive &&
     css`
       background: ${transparentize(0.8, colors.green[100])};
-    `}
+    `};
 `;

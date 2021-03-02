@@ -14,13 +14,13 @@ export const Container = styled.div<{
     props.layout === 'horizontal' &&
     css`
       width: 100%;
-    `}
+    `};
 
   ${(props) =>
     props.layout === 'vertical' &&
     css`
       height: 100%;
-    `}
+    `};
 `;
 
 export const PositionContainer = styled.div<{
@@ -36,14 +36,14 @@ export const PositionContainer = styled.div<{
     css`
       left: ${props.position};
       transform: translateX(-50%);
-    `}
+    `};
 
   ${(props) =>
     props.type === 'vertical' &&
     css`
       top: ${props.position};
       transform: translateY(-50%);
-    `}
+    `};
 `;
 
 export const Tick = styled.div<{
@@ -60,7 +60,7 @@ export const Tick = styled.div<{
       left: calc(${props.position} - ${POSITION_ALIGN});
       width: 1px;
       height: 5px;
-    `}
+    `};
 
   ${(props) =>
     props.type === 'vertical' &&
@@ -69,7 +69,7 @@ export const Tick = styled.div<{
       left: 0;
       width: 5px;
       height: 1px;
-    `}
+    `};
 `;
 
 export const Label = styled.div<{
@@ -84,12 +84,12 @@ export const Label = styled.div<{
     css`
       text-align: center;
       margin-top: 10px;
-    `}
+    `};
 
   ${(props) =>
     props.type === 'vertical' &&
     css`
       text-align: left;
       margin-left: 10px;
-    `}
+    `};
 `;

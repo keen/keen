@@ -165,29 +165,29 @@ body {
 
   .keen-time-picker.rc-time-picker-panel {
     font-family: 'Lato Regular', sans-serif;
-  
+
     .rc-time-picker-panel-input-wrap {
       border: none;
       padding: 0;
     }
-  
+
     .rc-time-picker-panel-input {
       display: none;
     }
-  
+
     .rc-time-picker-panel-inner {
       margin-top: 42px;
     }
-  
+
     .rc-time-picker-panel-select li {
       outline: none;
     }
-  
+
     .rc-time-picker-panel-select li:hover,
     .rc-time-picker-panel-select-option-selected {
       background: rgba(156,192,162,0.2);
     }
-  
+
   }
 }
 `;
@@ -203,7 +203,7 @@ export const TimeContainer = styled.div`
   }
 
   .rc-time-picker .rc-time-picker-input {
-    ${inputMixin()}
+    ${inputMixin()};
   }
 `;
 
@@ -1098,7 +1098,7 @@ export const DateContainer = styled.div`
   }
 
   .DateInput_input {
-    ${inputMixin()}
+    ${inputMixin()};
   }
 
   .DateInput_fang {

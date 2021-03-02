@@ -8,4 +8,6 @@ package-lock.json
 coverage
 .DS_Store
 dist
+lib
+typings
 .idea/

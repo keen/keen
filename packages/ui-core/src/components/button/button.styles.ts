@@ -97,11 +97,11 @@ export const StyledButton = styled.button<Props>`
     css`
       width: 100%;
       justify-content: center;
-    `}
+    `};
   ${buttonMixin()};
-  ${(props) => props.body === 'solid' && variant(solidButtonVariants)}
-  ${(props) => props.body === 'outline' && variant(outlineVariants)}
-  ${(props) => props.isActive && variant(activeVariants)}
+  ${(props) => props.body === 'solid' && variant(solidButtonVariants)};
+  ${(props) => props.body === 'outline' && variant(outlineVariants)};
+  ${(props) => props.isActive && variant(activeVariants)};
   ${variant(sizeVariants)};
 `;
 
@@ -112,10 +112,10 @@ export const StyledAnchor = styled.a<Props>`
     css`
       width: 100%;
       justify-content: center;
-    `}
-  ${buttonMixin()}
-  ${(props) => props.body === 'solid' && variant(solidButtonVariants)}
-  ${(props) => props.body === 'outline' && variant(outlineVariants)}
+    `};
+  ${buttonMixin()};
+  ${(props) => props.body === 'solid' && variant(solidButtonVariants)};
+  ${(props) => props.body === 'outline' && variant(outlineVariants)};
   ${variant(sizeVariants)};
 `;
 

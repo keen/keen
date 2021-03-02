@@ -25,13 +25,13 @@ export const Card = styled.div<Props>`
     props.hasPadding &&
     css`
       padding: 20px;
-    `}
+    `};
 
   ${(props) =>
     props.hideOverflow &&
     css`
       overflow: hidden;
-    `}
+    `};
 `;
 
 Card.defaultProps = {

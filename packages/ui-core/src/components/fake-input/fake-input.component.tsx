@@ -12,7 +12,7 @@ const FakeInput = styled.div<{
     props.hasError &&
     css`
       border-bottom: solid 2px ${colors.red[500]};
-    `}
+    `};
 `;
 
 export default FakeInput;

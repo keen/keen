@@ -18,5 +18,5 @@ export const Container = styled(motion.tr)<{
       &:hover {
         box-shadow: 0 10px 24px rgba(29, 39, 41, 0.15);
       }
-    `}
+    `};
 `;

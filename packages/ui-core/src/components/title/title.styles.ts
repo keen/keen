@@ -18,11 +18,11 @@ export const Container = styled.div<{
     css`
       cursor: not-allowed;
       color: ${transparentize(0.5, colors.black[100])};
-    `}
+    `};
 
   ${(props) =>
     props.hasError &&
     css`
       color: ${colors.red[500]};
-    `}
+    `};
 `;

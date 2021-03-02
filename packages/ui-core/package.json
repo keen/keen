@@ -6,13 +6,14 @@
   "homepage": "https://github.com/keen/keen#readme",
   "license": "MIT",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "typings/index.d.ts",
   "module": "src/index.ts",
   "directories": {
     "lib": "dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "typings"
   ],
   "repository": {
     "type": "git",
@@ -20,8 +21,9 @@
   },
   "scripts": {
     "test": "jest",
-    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
-    "build": "tsc"
+    "prebuild": "rimraf dist lib tsconfig.tsbuildinfo",
+    "build": "tsc",
+    "postbuild": "babel lib --out-dir dist"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
@@ -50,6 +52,9 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-typescript": "^7.13.0",
+    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "11.2.2",
     "@types/color": "^3.0.1",
@@ -59,7 +64,8 @@
     "@types/react-window": "^1.8.2",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
-    "@types/webfontloader": "^1.6.29"
+    "@types/webfontloader": "^1.6.29",
+    "babel-plugin-styled-components": "^1.12.0"
   },
   "publishConfig": {
     "access": "public"

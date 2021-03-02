@@ -11,7 +11,7 @@ export const Wrapper = styled.div<{
     props.isRelative &&
     css`
       position: relative;
-    `}
+    `};
 `;
 
 export const Container = styled(motion.div)<{
@@ -27,5 +27,5 @@ export const Container = styled(motion.div)<{
     props.fullWidth &&
     css`
       width: 100%;
-    `}
+    `};
 `;

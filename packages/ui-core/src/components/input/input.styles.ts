@@ -88,19 +88,19 @@ export const StyledInput = styled.input<{
   outline: none;
   font-weight: normal;
 
-  ${variant(inputVariants)}
+  ${variant(inputVariants)};
 
   ${(props) =>
     props.hasPrefix &&
     css`
       padding-left: 35px;
-    `}
+    `};
 
   ${(props) =>
     props.hasSuffix &&
     css`
       padding-right: 35px;
-    `}
+    `};
 
   ${(props) =>
     props.hasError &&
@@ -108,7 +108,7 @@ export const StyledInput = styled.input<{
     css`
       border-bottom: solid 2px ${colors.red[500]};
       color: ${colors.red[500]};
-    `}
+    `};
 
   ${(props) =>
     props.hasError &&
@@ -116,8 +116,7 @@ export const StyledInput = styled.input<{
     css`
       border-color: ${colors.red[500]};
       color: ${colors.red[500]};
-    `}
-
+    `};
 
   &::-webkit-credentials-auto-fill-button {
     display: none !important;

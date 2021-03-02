@@ -35,13 +35,13 @@ export const StyledButton = styled.button<Props>`
     css`
       opacity: 0.85;
       pointer-events: none;
-    `}
+    `};
 
   &:hover {
     text-decoration: none;
   }
 
-  ${variant(solidButtonVariants)}
+  ${variant(solidButtonVariants)};
 `;
 
 export const IconSocket = styled.div`
