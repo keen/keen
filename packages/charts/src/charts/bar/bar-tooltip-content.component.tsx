@@ -63,30 +63,57 @@ const BarTooltip: FC<Props> = ({
   console.log({ selectors, data, keys });
   const index = selectors[0].selector[0] as number;
 
-  console.log(formatScaleLabel(data[index][labelSelector], xScaleSettings));
-  // const tooltipContent = getTooltipContent({ data, keys, labelSelector: 'keen.key', selectors });
-  // console.log(tooltipContent);
+  const scaleLabel = formatScaleLabel(
+    data[index][labelSelector],
+    xScaleSettings
+  );
+
+  const total = keys.reduce((acc: number, keyName: string) => {
+    return acc + data[index][keyName];
+  }, 0);
+
+  const percent = isPercentage
+    ? selectors.reduce((acc, { selector }) => {
+        return (
+          acc + parseFloat(getFromPath(percentageData, selector).toFixed(2))
+        );
+      }, 0)
+    : null;
 
   return (
     <div data-testid="bar-tooltip">
       {isList ? (
-        <BulletList
-          typography={tooltip.labels.typography}
-          list={selectors.map(({ color, selector }) => ({
-            value: getLabel({
-              data,
-              selector,
-              percentageData,
-              isPercentage,
-              formatValue,
-            }),
-            color,
-          }))}
-        />
+        <>
+          <span>{scaleLabel}</span>
+          <BulletList
+            typography={tooltip.labels.typography}
+            list={selectors.map(({ color, selector }) => ({
+              value: `${selector[1]}: ${getLabel({
+                data,
+                selector,
+                percentageData,
+                isPercentage,
+                formatValue,
+              })}`,
+              // value: getLabel({
+              //   data,
+              //   selector,
+              //   percentageData,
+              //   isPercentage,
+              //   formatValue,
+              // }),
+              color,
+            }))}
+          />
+          <span>
+            total : {total} {percent && `(${percent.toFixed(2)}%)`}
+          </span>
+        </>
       ) : (
         <>
           {selectors.map(({ selector, color }) => (
             <Text {...tooltip.labels.typography} key={color}>
+              {/* {selector[1]} */}
               {formatValue
                 ? formatValue(getFromPath(data, selector))
                 : getFromPath(data, selector)}
