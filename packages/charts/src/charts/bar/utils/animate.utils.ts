@@ -11,6 +11,19 @@ type BarMotionProps = {
   layout: Layout;
 };
 
+/**
+ * Prepare animation for bar
+ *
+ * @param groupMode - type of groupMode
+ * @param layout - layout of the chart
+ * @param height - height of the bar
+ * @param width - width of the bar
+ * @param x - x position of the bar
+ * @param y - y position of the bar
+ * @return animation object with data for framer
+ *
+ */
+
 export const createBarMotion = ({
   groupMode,
   layout,

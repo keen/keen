@@ -2,15 +2,11 @@ import {
   register as registerTimezone,
   unregister as unregisterTimezone,
 } from 'timezone-mock';
-import { colors } from '@keen.io/colors';
 
 import {
   generateHorizontalGroupedBars,
   generateVerticalGroupedBars,
-  getColor,
 } from './chart.utils';
-
-import { chartColors } from '../../../theme';
 
 import { verticalBarChart, horizontalBarChart } from '../bar-chart.fixtures';
 
@@ -258,19 +254,5 @@ describe('generateVerticalGroupedBars()', () => {
     });
 
     expect(bars).toMatchSnapshot();
-  });
-});
-
-describe('getColor()', () => {
-  test('should return color from colors', () => {
-    const result = getColor(0, chartColors);
-
-    expect(result).toBe('#85B4C3');
-  });
-
-  test('should return fallback color', () => {
-    const result = getColor(100, chartColors);
-
-    expect(result).toBe(colors.black[500]);
   });
 });

@@ -5,10 +5,15 @@ import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 import { generateBars } from './utils/chart.utils';
 import { getSelectors } from './utils/tooltip.utils';
 
-import Bars from './bars.component';
-import BarTooltipContent from './bar-tooltip-content.component';
+import { Bars, BarTooltipContent } from './components';
 
-import { ChartBase, ChartTooltip, Grid, Axes } from '../../components';
+import {
+  ChartBase,
+  ChartTooltip,
+  Grid,
+  Axes,
+  ZeroIntersection,
+} from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
@@ -160,6 +165,7 @@ export const BarChart: FC<Props> = ({
         {layoutReady && (
           <>
             <Grid xScale={xScale} yScale={yScale} />
+            <ZeroIntersection xScale={xScale} yScale={yScale} layout={layout} />
             <Bars
               bars={bars}
               stackMode={stackMode}

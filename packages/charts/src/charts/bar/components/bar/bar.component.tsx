@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 
-import { createBarMotion } from './utils/animate.utils';
+import { createBarMotion } from '../../utils/animate.utils';
 
-import { GroupMode } from '../../types';
+import { GroupMode } from '../../../../types';
 
 const transitionStyle = { transition: 'fill .2s ease-in' };
 

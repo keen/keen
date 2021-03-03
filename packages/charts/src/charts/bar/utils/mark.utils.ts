@@ -17,6 +17,18 @@ export const MARK_VARIANTS: Record<MarkVariants, Record<string, any>> = {
 
 const MARK_TRESHOLD = 35;
 
+/**
+ * Calculate mark position based on bar data
+ *
+ * @param layout - layout of the chart
+ * @param x - x position of the bar
+ * @param y - y position of the bar
+ * @param width - width of the bar
+ * @param height - height of the bar
+ * @return x and y for mark position
+ *
+ */
+
 export const calculateMarkPosition = ({
   layout,
   x,
@@ -42,6 +54,16 @@ export const calculateMarkPosition = ({
     y: y + height * 0.5,
   };
 };
+
+/**
+ * Set mark size based on plot layout and width/height of the bar
+ *
+ * @param layout - layout of the chart
+ * @param width - width of the bar
+ * @param height - height of the bar
+ * @return x and y for mark position
+ *
+ */
 
 export const setMarkSize = ({
   layout,

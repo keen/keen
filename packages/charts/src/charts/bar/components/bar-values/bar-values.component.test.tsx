@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 
 import BarValues from './bar-values.component';
 
-import { theme } from '../../theme';
-import { ChartContext } from '../../contexts';
+import { theme } from '../../../../theme';
+import { ChartContext } from '../../../../contexts';
 
 const setup = (overProps: any = {}) => {
   const bars = [

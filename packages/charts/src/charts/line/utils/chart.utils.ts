@@ -296,8 +296,8 @@ export const generateStackLines = ({
     filteredKeys
   );
 
-  const percentMin = minimum < 0 ? -100 : 0;
-  const percentMax = maximum > 0 ? 100 : 0;
+  const percentMin = minimum < -100 ? -100 : minimum;
+  const percentMax = maximum > 100 ? 100 : maximum;
 
   minimum = stackMode === 'percent' ? percentMin : minimum;
   maximum = stackMode === 'percent' ? percentMax : maximum;

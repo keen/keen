@@ -20,6 +20,7 @@ export type Line = {
   x2: number;
   y2: number;
   stroke?: number;
+  'data-testid'?: string;
 };
 
 export type Tick = {
@@ -70,6 +71,10 @@ export type Axis = {
 
 export type Grid = {
   enabled: boolean;
+  color: string;
+};
+
+export type ZeroIntersection = {
   color: string;
 };
 
@@ -218,6 +223,7 @@ export type Theme = {
   axisY?: Axis;
   gridX?: Grid;
   gridY?: Grid;
+  zeroIntersection?: ZeroIntersection;
   hoverBar?: HoverBarSettings;
 };
 
