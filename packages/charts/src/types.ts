@@ -46,6 +46,9 @@ export type Tooltip = {
   labels: {
     typography: Typography;
   };
+  values?: {
+    typography: Typography;
+  };
 };
 
 export type AxisTitle = {

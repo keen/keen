@@ -4,7 +4,7 @@ import Badge from './badge';
 import Button from './button';
 import ActionButton from './action-button';
 import CircleButton from './circle-button';
-import BulletList from './bullet-list';
+import BulletList, { Point } from './bullet-list';
 import Card, { CardSettings } from './card';
 import Checkbox from './checkbox';
 import Radio from './radio';
@@ -84,6 +84,7 @@ export {
   ActionButton,
   CircleButton,
   BulletList,
+  Point,
   Card,
   Checkbox,
   ColorAdjuster,

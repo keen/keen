@@ -1,46 +1,73 @@
 import React from 'react';
-import { mount } from 'enzyme';
-
+import { render as rtlRender } from '@testing-library/react';
 import BulletList from './bullet-list.component';
 
-import { Text } from '../../typography';
-
-const setup = (overProps: any = {}) => {
-  const list = [
-    { color: 'red', value: 12 },
-    { color: 'blue', value: 22 },
+const render = (overProps: any = {}) => {
+  const items = [
+    {
+      color: 'red',
+      data: '12',
+    },
+    {
+      color: 'blue',
+      data: '22',
+    },
   ];
 
   const props = {
+    items,
+    renderItem: jest.fn(),
     ...overProps,
-    list,
-    typography: {
-      fontSize: 12,
-      fontFamily: 'Lato Regular',
-      fontColor: 'black',
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-    },
   };
 
-  const wrapper = mount(<BulletList {...props} />);
-
+  const wrapper = rtlRender(<BulletList {...props} />);
   return {
     wrapper,
     props,
   };
 };
 
-describe('@keen.io/ui-core - <BulletList />', () => {
-  it('should render render list', () => {
-    const { wrapper, props } = setup();
+test('calls renderItem prop', () => {
+  const { props } = render();
 
-    expect(wrapper.find('li').length).toEqual(props.list.length);
+  expect(props.renderItem).toHaveBeenCalledTimes(props.items.length);
+});
+
+test('renders list items', () => {
+  const {
+    wrapper: { getByText },
+    props,
+  } = render({ renderItem: (idx, item) => item.data });
+
+  props.items.forEach((item) =>
+    expect(getByText(item.data)).toBeInTheDocument()
+  );
+});
+
+test('renders list items as objects', () => {
+  const items = [
+    {
+      color: 'red',
+      data: {
+        label: 'Label1',
+        value: '12',
+      },
+    },
+    {
+      color: 'blue',
+      data: {
+        label: 'Label2',
+        value: '22',
+      },
+    },
+  ];
+  const {
+    wrapper: { getByText },
+  } = render({
+    items,
+    renderItem: (idx, item) => `${item.data.label} - ${item.data.value}`,
   });
 
-  it('should apply "typography" to list element', () => {
-    const { wrapper, props } = setup();
-
-    expect(wrapper.find(Text).first().props()).toMatchObject(props.typography);
-  });
+  expect(getByText('Label1 - 12')).toBeInTheDocument();
+  expect(getByText('Label2 - 22')).toBeInTheDocument();
 });

@@ -271,7 +271,16 @@ export const theme: Theme = {
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 11,
-        fontFamily: 'Lato Light, sans-serif',
+        fontFamily: 'Lato Regular, sans-serif',
+        fontColor: colors.white['500'],
+      },
+    },
+    values: {
+      typography: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: 11,
+        fontFamily: 'Lato Bold, sans-serif',
         fontColor: colors.white['500'],
       },
     },

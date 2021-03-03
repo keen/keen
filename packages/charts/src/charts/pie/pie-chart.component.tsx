@@ -12,6 +12,7 @@ import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
 
 import PieSlice from './pie-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
+import { ItemData, TooltipItem } from '../circular-chart';
 
 import { ChartBase, Delayed } from '../../components';
 
@@ -130,7 +131,7 @@ export const PieChart: FC<Props> = ({
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
                 <BulletList
-                  list={getCircularChartTooltipContent({
+                  items={getCircularChartTooltipContent({
                     data,
                     keys,
                     labelSelector,
@@ -138,7 +139,9 @@ export const PieChart: FC<Props> = ({
                     disabledLabels,
                     formatValue: formatTooltip,
                   })}
-                  typography={tooltipSettings.labels.typography}
+                  renderItem={(_idx, item) => (
+                    <TooltipItem data={item.data as ItemData} theme={theme} />
+                  )}
                 />
               )}
             </Tooltip>
