@@ -54,7 +54,7 @@ export type Props = {
   /** Range for filtering map values */
   valuesRange?: RangeType;
   /** Tooltip formatter */
-  formatTooltip?: string | TooltipFormatter;
+  formatTooltip?: TooltipFormatter;
 } & CommonChartSettings;
 
 export const ChoroplethChart: FC<Props> = ({
