@@ -14,7 +14,7 @@ type Props = {
   /** Items */
   items: Point[];
   /** Label for scale */
-  scaleLabel?: string;
+  scaleLabel?: string | number;
   /** Total value */
   totalValue?: string;
   /** Percent value */

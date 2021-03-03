@@ -7,6 +7,8 @@ import {
   formatScaleLabel,
 } from '@keen.io/charts-utils';
 
+import { TooltipContent } from '../../components';
+
 import { getLabel } from './utils/tooltip.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
@@ -79,6 +81,40 @@ const BarTooltip: FC<Props> = ({
         );
       }, 0)
     : null;
+
+  const items = selectors.map(({ color, selector }) => {
+    return {
+      color,
+      data: {
+        label: `${selector[1]}`,
+        ...(isList
+          ? getLabel({
+              data,
+              selector,
+              percentageData,
+              isPercentage,
+              formatValue,
+            })
+          : {
+              value: formatValue
+                ? formatValue(getFromPath(data, selector))
+                : getFromPath(data, selector),
+            }),
+      },
+    };
+  });
+
+  return (
+    <div data-testid="bar-tooltip">
+      <TooltipContent
+        isList={isList}
+        items={items}
+        scaleLabel={scaleLabel}
+        totalValue={total}
+        percentValue={percent}
+      />
+    </div>
+  );
 
   return (
     <div data-testid="bar-tooltip">

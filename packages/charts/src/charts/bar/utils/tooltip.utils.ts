@@ -24,10 +24,14 @@ export const getLabel = ({
     ? formatValue(getFromPath(data, selector))
     : getFromPath(data, selector);
   if (isPercentage) {
-    return `${value} (${getFromPath(percentageData, selector).toFixed(2)}%)`;
+    return {
+      value,
+      change: `(${getFromPath(percentageData, selector).toFixed(2)}%)`,
+    };
+    // return `${value} (${getFromPath(percentageData, selector).toFixed(2)}%)`;
   }
 
-  return value;
+  return { value };
 };
 
 export const getSelectors = ({
