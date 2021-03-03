@@ -4,7 +4,9 @@ import { typography } from 'styled-system';
 import { Typography } from '../types';
 
 type Props = {
+  /* React children nodes */
   children: React.ReactNode;
+  /* Apply CSS text overflow ellipsis */
   truncate?: boolean;
   /** Type of HTML element */
   htmlElement?: string | React.ComponentType<any>;
