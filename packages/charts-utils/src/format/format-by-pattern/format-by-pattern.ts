@@ -7,10 +7,15 @@ enum MathOperations {
   'divide' = 'divide',
 }
 
-export const formatByPattern = (
-  pattern: string,
-  value: string | number | Date
-) => {
+/**
+ * Formats value based on provided pattern.
+ *
+ * @param pattern - format pattern
+ * @param value - value to format
+ * @return formatted value
+ *
+ */
+const formatByPattern = (pattern: string, value: string | number | Date) => {
   const variableRegex = /\${(.*?)}+/;
   const variable = pattern.match(variableRegex);
   if (variable) {
@@ -81,3 +86,5 @@ const applyMathOperation = (
   }
   return output;
 };
+
+export default formatByPattern;

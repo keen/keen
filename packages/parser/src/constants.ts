@@ -1,5 +1,6 @@
 export const KEEN_VALUE = 'keen.value';
 export const KEEN_KEY = 'keen.key';
+export const KEEN_ELEMENTS = 'keen.elements';
 
 export const DEFAULT_NAME = 'Result';
 

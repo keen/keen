@@ -8,9 +8,7 @@ import {
 } from 'd3-geo';
 import { RangeType } from '@keen.io/ui-core';
 
-import Graticule from './graticule.component';
-import Sphere from './sphere.component';
-import MapPath from './map-path.component';
+import { Graticule, MapPath, Sphere } from './components';
 import { GeoProperty } from './utils/chart.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
@@ -34,6 +32,7 @@ type Props = {
   geoKey: string;
   getColor: (value: number) => string;
   valuesRange?: RangeType;
+  elementsKey?: string;
 };
 
 const mapPathMotion = {
@@ -44,6 +43,7 @@ const mapPathMotion = {
 
 export const Map: FC<Props> = ({
   valueKey,
+  elementsKey,
   topology,
   drawPath,
   graticule,
@@ -88,9 +88,11 @@ export const Map: FC<Props> = ({
           if (!inRange) return null;
 
           const color = getColor(value);
+
           const meta = {
             color,
             value,
+            elements: elementsKey && geometryProperties.data[elementsKey],
             label: name,
           };
 

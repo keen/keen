@@ -11,14 +11,14 @@ type Props = {
 };
 
 const MapPath: FC<Props> = memo(
-  ({ fill, path, stroke, onMouseEnter, onMouseLeave }) => (
+  ({ fill, path, stroke, onMouseEnter, onMouseMove, onMouseLeave }) => (
     <path
       d={path}
       fill={fill}
       strokeWidth="0.5"
       stroke={stroke}
       onMouseEnter={onMouseEnter}
-      onMouseMove={onMouseEnter}
+      onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     />
   )

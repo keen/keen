@@ -33,7 +33,7 @@ import {
   HeatmapChartSettings,
 } from '@keen.io/charts';
 
-import { KEEN_KEY } from '@keen.io/parser';
+import { KEEN_KEY, KEEN_ELEMENTS } from '@keen.io/parser';
 
 type Options = {
   type: Widgets;
@@ -72,6 +72,7 @@ export const renderWidget = ({
       return (
         <ChoroplethChartWidget
           legend={legend as LegendSettings}
+          elementsKey={KEEN_ELEMENTS}
           {...(chartSettings as ChoroplethChartSettings)}
           {...widgetSettings}
         />

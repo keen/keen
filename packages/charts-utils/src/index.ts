@@ -10,6 +10,7 @@ import {
 
 import { getElementOffset, hasContentOverflow } from './elements';
 
+import { formatByPattern, formatValue } from './format';
 import { copyToClipboard } from './text';
 import {
   normalizeDate,
@@ -35,9 +36,14 @@ import {
 
 import { formatNumber } from './number';
 
-import { TimePrecision, ScaleSettings } from './types';
+import {
+  TimePrecision,
+  ScaleSettings,
+  TooltipFormatter,
+  FormatFunction,
+} from './types';
 
-export { TimePrecision, ScaleSettings };
+export { TimePrecision, ScaleSettings, TooltipFormatter, FormatFunction };
 
 export {
   calculateRotation,
@@ -52,6 +58,8 @@ export {
   createScaleSettings,
   formatScaleLabel,
   formatNumber,
+  formatByPattern,
+  formatValue,
   getElementOffset,
   getValues,
   getKeysDifference,
