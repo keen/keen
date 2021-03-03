@@ -1,5 +1,6 @@
 import { colors } from '@keen.io/colors';
 import { getFromPath } from '@keen.io/charts-utils';
+import { Point } from '@keen.io/ui-core';
 import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
@@ -21,7 +22,7 @@ export const getTooltipContent = ({
   labelSelector,
   selectors,
 }: Options) => {
-  const content: { color: string; value: string }[] = [];
+  const content: { color: string; data: string }[] = [];
 
   selectors.forEach(({ selector, color }) => {
     const item = getFromPath(data, selector);
@@ -29,7 +30,7 @@ export const getTooltipContent = ({
       return acc + item[keyName];
     }, 0);
 
-    content.push({ color, value: `${item[labelSelector]} - ${total}` });
+    content.push({ color, data: `${item[labelSelector]} - ${total}` });
   });
 
   return content;
@@ -43,10 +44,10 @@ export const getCircularChartTooltipContent = ({
   disabledLabels,
   formatValue,
 }: Options) => {
-  const content: { color: string; value: string }[] = [];
+  const content: Point[] = [];
 
   selectors.length > 1 &&
-    content.push({ color: colors.gray[500], value: OTHERS_DATA_KEY });
+    content.push({ color: colors.gray[500], data: OTHERS_DATA_KEY });
 
   selectors.forEach(({ selector, color }) => {
     const item = getFromPath(data, selector);
@@ -55,7 +56,9 @@ export const getCircularChartTooltipContent = ({
     }, 0);
     const formattedTotal = formatValue ? formatValue(total) : total;
 
-    let value = `${item[labelSelector]} - ${formattedTotal}`;
+    let value = `${formattedTotal}`;
+    let label = `${item[labelSelector]} :`;
+    let change = '';
     let newColor = color;
 
     if (selectors.length > 1) {
@@ -70,11 +73,20 @@ export const getCircularChartTooltipContent = ({
       const valuePercent = String(
         `${(Math.round(total * 100) / allValuesTotal).toFixed(1)}%`
       );
-      value = `${item[labelSelector]} - ${formattedTotal} (${valuePercent})`;
+      label = `${item[labelSelector]}:`;
+      value = `${formattedTotal}`;
+      change = `(${valuePercent})`;
       newColor = 'rgba(0, 0, 0, 0)';
     }
 
-    content.push({ color: newColor, value });
+    content.push({
+      color: newColor,
+      data: {
+        label,
+        value,
+        change,
+      },
+    });
   });
 
   return content;

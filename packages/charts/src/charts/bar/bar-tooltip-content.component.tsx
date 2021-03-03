@@ -60,7 +60,7 @@ const BarTooltip: FC<Props> = ({
   const percentageData = isPercentage
     ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
     : [];
-  console.log({ selectors, data, keys });
+  console.log({ selectors, data, keys, xScaleSettings });
   const index = selectors[0].selector[0] as number;
 
   const scaleLabel = formatScaleLabel(
@@ -86,9 +86,9 @@ const BarTooltip: FC<Props> = ({
         <>
           <span>{scaleLabel}</span>
           <BulletList
-            typography={tooltip.labels.typography}
-            list={selectors.map(({ color, selector }) => ({
-              value: `${selector[1]}: ${getLabel({
+            // typography={tooltip.labels.typography}
+            items={selectors.map(({ color, selector }) => ({
+              data: `${selector[1]}: ${getLabel({
                 data,
                 selector,
                 percentageData,
@@ -104,6 +104,9 @@ const BarTooltip: FC<Props> = ({
               // }),
               color,
             }))}
+            renderItem={(_idx, item) => (
+              <Text {...tooltip.labels.typography}>{item.data}</Text>
+            )}
           />
           <span>
             total : {total} {percent && `(${percent.toFixed(2)}%)`}
@@ -111,14 +114,30 @@ const BarTooltip: FC<Props> = ({
         </>
       ) : (
         <>
-          {selectors.map(({ selector, color }) => (
+          <BulletList
+            items={selectors.map(({ selector, color }) => ({
+              data: {
+                label: selector[1],
+                value: formatValue
+                  ? formatValue(getFromPath(data, selector))
+                  : getFromPath(data, selector),
+              },
+              color,
+            }))}
+            renderItem={(_idx, item) => (
+              <>
+                <Text {...tooltip.labels.typography}>{item.data.label}</Text>
+                <Text {...tooltip.values.typography}>{item.data.value}</Text>
+              </>
+            )}
+          />
+          {/* {selectors.map(({ selector, color }) => (
             <Text {...tooltip.labels.typography} key={color}>
-              {/* {selector[1]} */}
               {formatValue
                 ? formatValue(getFromPath(data, selector))
                 : getFromPath(data, selector)}
             </Text>
-          ))}
+          ))} */}
         </>
       )}
     </div>

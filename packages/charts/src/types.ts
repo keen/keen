@@ -46,6 +46,9 @@ export type Tooltip = {
   labels: {
     typography: Typography;
   };
+  values?: {
+    typography: Typography;
+  };
 };
 
 export type AxisTitle = {
@@ -254,3 +257,9 @@ export type StackMode = 'normal' | 'percent';
 export type TooltipFormatter = (
   element: number | string | Date
 ) => React.ReactNode;
+
+export type ItemData = {
+  label: string;
+  value: string;
+  change?: string;
+};

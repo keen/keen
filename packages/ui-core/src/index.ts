@@ -23,6 +23,7 @@ import {
   ActionButton,
   CircleButton,
   BulletList,
+  Point,
   Group,
   Card,
   CardSettings,
@@ -110,6 +111,7 @@ export type {
   DropableContainerVariant,
   CellValue,
   RulerTick,
+  Point,
 };
 
 export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
