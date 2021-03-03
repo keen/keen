@@ -1,7 +1,7 @@
 import ChoroplethChart, {
   Props as ChoroplethChartSettings,
 } from './choropleth-chart.component';
-import { fetchMapTopology } from './utils';
+import { fetchMapTopology, GeoAreaMatchStatus } from './utils';
 
-export { ChoroplethChart, fetchMapTopology };
+export { ChoroplethChart, GeoAreaMatchStatus, fetchMapTopology };
 export type { ChoroplethChartSettings };
