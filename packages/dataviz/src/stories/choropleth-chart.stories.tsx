@@ -180,7 +180,7 @@ export const unitedStatesMap = () => {
         geographicArea: 'us',
       },
       settings: {
-        projection: 'geoAlbersUnited States',
+        projection: 'geoAlbersUsa',
         projectionScale: 350,
       },
     });
