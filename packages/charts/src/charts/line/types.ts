@@ -50,6 +50,7 @@ export type StepType = {
 };
 
 export type AreaType = {
+  id: string;
   d: string;
   positiveColor: string;
   zeroPointColor: string;

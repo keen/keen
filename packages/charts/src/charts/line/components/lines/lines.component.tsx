@@ -123,21 +123,21 @@ const Lines = ({
             <>
               {gradient && (
                 <GradientFilter
-                  filterId={`id-${color}`}
+                  filterId={`gradient-${areas[idx].id}`}
                   positiveColor={areas[idx].positiveColor}
                   zeroPointColor={areas[idx].zeroPointColor}
                   negativeColor={areas[idx].negativeColor}
                   gradientZeroPercent={areas[idx].gradientZeroPercent}
                 />
               )}
-              <ClipPath id={`clip-${color}`} area={areas[idx].d} />
+              <ClipPath id={`clip-${areas[idx].id}`} area={areas[idx].d} />
               <motion.rect
                 x={gradientBlocks[idx].x}
                 y={gradientBlocks[idx].y}
                 width={gradientBlocks[idx].width}
                 height={gradientBlocks[idx].height}
-                fill={gradient ? `url(#id-${color})` : color}
-                clipPath={`url(#clip-${color})`}
+                fill={gradient ? `url(#gradient-${areas[idx].id})` : color}
+                clipPath={`url(#clip-${areas[idx].id})`}
                 key={`${key}-${curve}-${stackMode}-${groupMode}-area-gradient`}
                 variants={createAreaMotion()}
                 transition={areaTransition}

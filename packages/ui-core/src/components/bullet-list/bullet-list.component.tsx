@@ -5,6 +5,7 @@ import {
   StyledBulletItem,
   BulletPoint,
 } from './bullet-list.styles';
+
 export interface Point {
   color: string;
   data: string | Record<string, any>;

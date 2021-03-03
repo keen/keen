@@ -1,4 +1,5 @@
 import { scaleLinear, scaleTime, scaleUtc } from 'd3-scale';
+import { v4 as uuid } from 'uuid';
 import {
   calculateRange,
   calculateStackedRange,
@@ -197,6 +198,7 @@ export const generateGroupedLines = ({
         });
 
         areas.push({
+          id: uuid(),
           d: generateArea(localizedData),
           ...generateAreaGradient(
             minKeyNameValue,
@@ -389,6 +391,7 @@ export const generateStackLines = ({
         });
 
         areas.push({
+          id: uuid(),
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,

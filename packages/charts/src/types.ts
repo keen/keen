@@ -46,7 +46,7 @@ export type Tooltip = {
   labels: {
     typography: Typography;
   };
-  values?: {
+  values: {
     typography: Typography;
   };
 };
@@ -213,7 +213,7 @@ export type Theme = {
   pie: Pie;
   gauge: Gauge;
   table: Table;
-  tooltip?: Tooltip;
+  tooltip: Tooltip;
   axisX?: Axis;
   axisY?: Axis;
   gridX?: Grid;

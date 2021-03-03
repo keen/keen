@@ -18,6 +18,7 @@ type Props = Partial<Typography> & {
   fontColor?: string;
   hasShadow?: boolean;
   hasArrow?: boolean;
+  hasSpacing?: boolean;
   arrowDirection?: Position;
   arrowTop?: string;
 };
@@ -34,7 +35,11 @@ const DARK_MODE_BACKGROUND = Color(colors.black['200'])
 export const ARROW_SIZE = 4;
 
 const Wrapper = styled.div<Props>`
-  padding: 10px 15px;
+  ${(props) =>
+    props.hasSpacing &&
+    css`
+      padding: 10px 15px;
+    `};
   box-sizing: border-box;
   background-color: ${(props) => props.backgroundColor};
   border-radius: ${(props) => props.borderRadius};
@@ -150,6 +155,7 @@ Tooltip.defaultProps = {
   borderRadius: '0px',
   hasShadow: true,
   hasArrow: true,
+  hasSpacing: true,
   arrowDirection: 'bottom',
 };
 

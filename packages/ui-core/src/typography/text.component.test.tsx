@@ -1,13 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
+
 import Text from './text.component';
 
-const setup = (overProps: any = {}) => {
+const render = (overProps: any = {}) => {
   const props = {
     ...overProps,
+    children: '@text',
   };
 
-  const wrapper = mount(<Text {...props} />);
+  const wrapper = rtlRender(<Text {...props} />);
 
   return {
     wrapper,
@@ -15,14 +17,21 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('<Text />', () => {
-  it('should render provided text', () => {
-    const text = 'text';
-    const { wrapper } = setup({
-      children: text,
-    });
+test('renders children nodes', () => {
+  const {
+    wrapper: { getByText },
+  } = render();
 
-    expect(wrapper.text()).toEqual(text);
-    expect(wrapper.props().children).toEqual(text);
+  expect(getByText('@text')).toBeInTheDocument();
+});
+
+test('allows to specify HTML element node', () => {
+  const {
+    wrapper: { container },
+  } = render({
+    htmlElement: 'section',
   });
+
+  const element = container.querySelector('section');
+  expect(element).toBeInTheDocument();
 });
