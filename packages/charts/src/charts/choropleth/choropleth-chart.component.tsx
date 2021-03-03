@@ -2,16 +2,12 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import {
-  Tooltip,
-  ColorMode,
-  BulletList,
-  RangeType,
-  Text,
-} from '@keen.io/ui-core';
+import { ColorMode, RangeType } from '@keen.io/ui-core';
+import { TooltipFormatter } from '@keen.io/charts-utils';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import Map from './map.component';
+import { Tooltip } from './components';
 
 import { ChartBase } from '../../components';
 import { generateChoropleth } from './utils';
@@ -23,7 +19,7 @@ import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 import { THREE_DIMENSION_PROJECTIONS } from './constants';
 
 import { Projection, ProjectionState } from './types';
-import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -39,6 +35,8 @@ export type Props = {
   geoKey: string;
   /** Key used to pick value property from data */
   valueKey?: string;
+  /** Key used to pick values related with sum of all properties  */
+  elementsKey?: string;
   /** Collection of GeoJSON features */
   topology?: ExtendedFeatureCollection;
   /** Type of geo projection */
@@ -56,7 +54,7 @@ export type Props = {
   /** Range for filtering map values */
   valuesRange?: RangeType;
   /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  formatTooltip?: string | TooltipFormatter;
 } & CommonChartSettings;
 
 export const ChoroplethChart: FC<Props> = ({
@@ -74,6 +72,7 @@ export const ChoroplethChart: FC<Props> = ({
   projectionTranslation = [0, 0],
   projectionRotation = [0, 0, 0],
   valueKey = 'value',
+  elementsKey,
   data,
   formatTooltip,
 }) => {
@@ -150,27 +149,18 @@ export const ChoroplethChart: FC<Props> = ({
               pointerEvents: 'none',
             }}
           >
-            <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
-              {tooltipMeta && (
-                <BulletList
-                  items={[
-                    {
-                      color: tooltipMeta.color,
-                      data: `${tooltipMeta.label} - ${
-                        formatTooltip
-                          ? formatTooltip(tooltipMeta.value)
-                          : tooltipMeta.value
-                      }`,
-                    },
-                  ]}
-                  renderItem={(_idx, item) => (
-                    <Text {...tooltipSettings.labels.typography}>
-                      {item.data}
-                    </Text>
-                  )}
-                />
-              )}
-            </Tooltip>
+            {tooltipMeta && (
+              <Tooltip
+                mode={tooltipSettings.mode}
+                formatValue={formatTooltip}
+                theme={{
+                  labels: tooltipSettings.labels,
+                }}
+                partialValues={tooltipMeta.elements}
+                totalValue={tooltipMeta.value}
+                geographicalName={tooltipMeta.label}
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -190,6 +180,7 @@ export const ChoroplethChart: FC<Props> = ({
             geoData={geoData}
             geoKey={geoKey}
             valueKey={valueKey}
+            elementsKey={elementsKey}
             valuesRange={valuesRange}
             onMouseEnter={(e, meta) => {
               if (tooltipSettings.enabled && !dragged) {

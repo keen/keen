@@ -1,4 +1,4 @@
-import { formatByPattern } from './format-by-pattern';
+import formatByPattern from './format-by-pattern';
 
 test('should replace value symbol with the value', () => {
   const pattern = '${}$';

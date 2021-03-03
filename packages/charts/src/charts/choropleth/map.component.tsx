@@ -34,6 +34,7 @@ type Props = {
   geoKey: string;
   getColor: (value: number) => string;
   valuesRange?: RangeType;
+  elementsKey?: string;
 };
 
 const mapPathMotion = {
@@ -44,6 +45,7 @@ const mapPathMotion = {
 
 export const Map: FC<Props> = ({
   valueKey,
+  elementsKey,
   topology,
   drawPath,
   graticule,
@@ -88,9 +90,11 @@ export const Map: FC<Props> = ({
           if (!inRange) return null;
 
           const color = getColor(value);
+
           const meta = {
             color,
             value,
+            elements: elementsKey && geometryProperties.data[elementsKey],
             label: name,
           };
 

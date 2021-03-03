@@ -16,6 +16,71 @@ const analysisConfig = {
   readKey: 'FB952962910C97DE3E1C6A25EB2FC6B22FDB1ACA9D572948EA18227287BC4E12',
 };
 
+export const worldMapDoubleGroupBy = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+      settings: {
+        formatTooltip: '${number; 0.00}£',
+      },
+      widget: {
+        title: {
+          content: 'Homepage views ',
+        },
+        subtitle: {
+          content: 'Worldwide',
+        },
+      },
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: 310,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: 70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: 120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: 200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: 37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: 24,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '400px' }} ref={container} />;
+};
+
 export const worldMap = () => {
   const container = React.useRef(null);
 
@@ -110,12 +175,12 @@ export const unitedStatesMap = () => {
           content: 'Homepage views ',
         },
         subtitle: {
-          content: 'United States',
+          content: 'product.name',
         },
         geographicArea: 'us',
       },
       settings: {
-        projection: 'geoAlbersUsa',
+        projection: 'geoAlbersUnited States',
         projectionScale: 350,
       },
     });
@@ -133,7 +198,7 @@ export const unitedStatesMap = () => {
           {
             propertyName: 'geo.country',
             operator: 'eq',
-            propertyValue: 'United States',
+            propertyValue: 'product.name',
           },
         ],
       })
