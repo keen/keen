@@ -175,7 +175,7 @@ export const unitedStatesMap = () => {
           content: 'Homepage views ',
         },
         subtitle: {
-          content: 'product.name',
+          content: 'United States',
         },
         geographicArea: 'us',
       },
@@ -198,7 +198,7 @@ export const unitedStatesMap = () => {
           {
             propertyName: 'geo.country',
             operator: 'eq',
-            propertyValue: 'product.name',
+            propertyValue: 'United States',
           },
         ],
       })
