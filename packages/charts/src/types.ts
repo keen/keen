@@ -46,7 +46,7 @@ export type Tooltip = {
   labels: {
     typography: Typography;
   };
-  values?: {
+  values: {
     typography: Typography;
   };
 };

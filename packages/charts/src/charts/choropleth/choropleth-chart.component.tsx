@@ -155,6 +155,7 @@ export const ChoroplethChart: FC<Props> = ({
                 formatValue={formatTooltip}
                 theme={{
                   labels: tooltipSettings.labels,
+                  values: tooltipSettings.values,
                 }}
                 partialValues={tooltipMeta.elements}
                 totalValue={tooltipMeta.value}

@@ -8,9 +8,7 @@ import {
 } from 'd3-geo';
 import { RangeType } from '@keen.io/ui-core';
 
-import Graticule from './graticule.component';
-import Sphere from './sphere.component';
-import MapPath from './map-path.component';
+import { Graticule, MapPath, Sphere } from './components';
 import { GeoProperty } from './utils/chart.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';

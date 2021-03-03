@@ -9,7 +9,7 @@ export const PartialItem = styled.div`
 `;
 
 export const Value = styled.div`
-  margin-left: 10px;
+  margin-left: 5px;
 `;
 
 export const TotalContainer = styled.div`

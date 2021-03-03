@@ -1,4 +1,4 @@
-export const calculatePartialPercents = (
+const calculatePartialPercents = (
   total: number,
   components: Record<string, number>
 ) =>
@@ -7,3 +7,5 @@ export const calculatePartialPercents = (
     value: components[keyName],
     percentValue: `${Math.round((components[keyName] / total) * 100)}%`,
   }));
+
+export default calculatePartialPercents;

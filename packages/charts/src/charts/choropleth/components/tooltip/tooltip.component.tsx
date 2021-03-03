@@ -11,7 +11,7 @@ import {
   TotalContainer,
   PartialItem,
 } from './tooltip.styles';
-import { calculatePartialPercents } from './tooltip.utils';
+import { calculatePartialPercents } from './utils';
 
 import { Tooltip as TooltipTheme } from '../../../../types';
 
@@ -21,7 +21,7 @@ type Props = {
   /** Total value for geographical area */
   totalValue: number;
   /** Tooltip theme */
-  theme: Pick<TooltipTheme, 'labels'>;
+  theme: Pick<TooltipTheme, 'labels' | 'values'>;
   /** Tooltip mode */
   mode?: TooltipMode;
   /** Components used to calculate total value for geographical area */
@@ -50,10 +50,11 @@ export const Tooltip: FC<Props> = ({
     <BaseTooltip mode={mode} hasArrow={false} hasSpacing={false}>
       <TotalContainer>
         <Text htmlElement="span" {...theme.labels.typography}>
-          {geographicalName}:
+          {geographicalName}
+          <span>:</span>
         </Text>{' '}
         <Value>
-          <Text {...theme.labels.typography}>
+          <Text {...theme.values.typography}>
             {valueFormatter(totalValue, formatValue)}
           </Text>
         </Value>
@@ -62,12 +63,15 @@ export const Tooltip: FC<Props> = ({
         <PartialsContainer>
           {partialElements.map(({ label, value, percentValue }) => (
             <PartialItem key={`${label}-${value}`}>
-              <Text {...theme.labels.typography}>{label}:</Text>
+              <Text {...theme.labels.typography}>
+                {label}
+                <span>:</span>
+              </Text>
               <Value>
                 <Text htmlElement="span" {...theme.labels.typography}>
                   ({percentValue})
                 </Text>{' '}
-                <Text htmlElement="span" {...theme.labels.typography}>
+                <Text htmlElement="span" {...theme.values.typography}>
                   {valueFormatter(value, formatValue)}
                 </Text>
               </Value>
