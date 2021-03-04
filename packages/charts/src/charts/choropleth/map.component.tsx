@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useEffect, useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ExtendedFeatureCollection,
@@ -9,7 +9,11 @@ import {
 import { RangeType } from '@keen.io/ui-core';
 
 import { Graticule, MapPath, Sphere } from './components';
-import { GeoProperty } from './utils/chart.utils';
+import {
+  detectGeographicMatch,
+  GeoProperty,
+  GeoAreaMatchStatus,
+} from './utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
@@ -32,7 +36,10 @@ type Props = {
   geoKey: string;
   getColor: (value: number) => string;
   valuesRange?: RangeType;
+  /** Partial elements key selector */
   elementsKey?: string;
+  /** Geographic match status handler */
+  onUpdateGeoMatchStatus?: (status: GeoAreaMatchStatus) => void;
 };
 
 const mapPathMotion = {
@@ -51,6 +58,7 @@ export const Map: FC<Props> = ({
   getColor,
   onMouseEnter,
   onMouseLeave,
+  onUpdateGeoMatchStatus,
   valuesRange,
 }) => {
   const {
@@ -59,6 +67,13 @@ export const Map: FC<Props> = ({
     },
   } = useContext(ChartContext) as ChartContextType;
   const { features } = topology;
+
+  useEffect(() => {
+    if (onUpdateGeoMatchStatus) {
+      const matchStatus = detectGeographicMatch(topology, [...geoData.keys()]);
+      onUpdateGeoMatchStatus(matchStatus);
+    }
+  }, []);
 
   return (
     <>

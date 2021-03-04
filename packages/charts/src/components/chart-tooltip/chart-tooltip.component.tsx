@@ -18,9 +18,16 @@ type Props = {
   children: React.ReactNode;
   x: number;
   y: number;
+  hasSpacing?: boolean;
 };
 
-const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
+const ChartTooltip: FC<Props> = ({
+  children,
+  visible,
+  x,
+  y,
+  hasSpacing = true,
+}) => {
   const [foreignObject, setForeignObject] = useState({ width: 0, height: 0 });
   const wrapper = useRef(null);
 
@@ -69,7 +76,7 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
             }}
           >
             <Tooltip
-              hasSpacing={false}
+              hasSpacing={hasSpacing}
               mode={theme.tooltip.mode}
               arrowDirection={arrowDirection as Position}
               arrowTop={typeof arrowTop === 'number' && `${arrowTop}px`}

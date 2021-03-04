@@ -194,7 +194,12 @@ export const BarChart: FC<Props> = ({
                 }
               }}
             />
-            <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
+            <ChartTooltip
+              visible={tooltip.visible}
+              x={tooltip.x}
+              y={tooltip.y}
+              hasSpacing={false}
+            >
               {tooltip.selectors && (
                 <BarTooltipContent
                   data={data}

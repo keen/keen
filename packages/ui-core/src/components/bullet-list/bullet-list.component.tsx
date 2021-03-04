@@ -6,10 +6,10 @@ import {
   BulletPoint,
 } from './bullet-list.styles';
 
-export interface Point {
+export type Point = {
   color: string;
   data: string | Record<string, any>;
-}
+};
 
 type Props<T> = {
   /** Collection of items */
