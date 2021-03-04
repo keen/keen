@@ -82,7 +82,10 @@ export const generateChoropleth = ({
     [valueKey, data]
   );
 
-  const getColor = calculateColorScale(minimum, maximum, mode, steps, colors);
+  const getColor = useMemo(
+    () => calculateColorScale(minimum, maximum, mode, steps, colors),
+    [minimum, maximum, mode, steps, colors]
+  );
 
   data.forEach((item, idx) => {
     const key = item[geoKey];
