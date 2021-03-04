@@ -74,6 +74,7 @@ export type {
   TooltipMode,
   OAuthConfig,
   DropableContainerVariant,
+  Point,
 };
 
 export {
@@ -84,7 +85,6 @@ export {
   ActionButton,
   CircleButton,
   BulletList,
-  Point,
   Card,
   Checkbox,
   ColorAdjuster,
