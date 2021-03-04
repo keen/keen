@@ -25,6 +25,7 @@ import {
   TableChart,
   TableChartSettings,
   CurveType,
+  GeoAreaMatchStatus,
   fetchMapTopology,
 } from './charts';
 
@@ -78,6 +79,7 @@ export {
   SeriesLegend,
   LegendBase,
   BubbleLegend,
+  GeoAreaMatchStatus,
   fetchMapTopology,
   theme,
   margins,

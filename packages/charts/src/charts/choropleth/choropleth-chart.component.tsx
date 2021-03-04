@@ -10,7 +10,7 @@ import Map from './map.component';
 import { Tooltip } from './components';
 
 import { ChartBase } from '../../components';
-import { generateChoropleth } from './utils';
+import { generateChoropleth, GeoAreaMatchStatus } from './utils';
 
 import { useZoom, useDragHandlers } from './hooks';
 
@@ -54,7 +54,9 @@ export type Props = {
   /** Range for filtering map values */
   valuesRange?: RangeType;
   /** Tooltip formatter */
-  formatTooltip?: string | TooltipFormatter;
+  formatTooltip?: TooltipFormatter;
+  /** Geographic match status handler */
+  onUpdateGeoMatchStatus?: (status: GeoAreaMatchStatus) => void;
 } & CommonChartSettings;
 
 export const ChoroplethChart: FC<Props> = ({
@@ -75,6 +77,7 @@ export const ChoroplethChart: FC<Props> = ({
   elementsKey,
   data,
   formatTooltip,
+  onUpdateGeoMatchStatus,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
   const [projectionState, setProjectionState] = useState<ProjectionState>({
@@ -183,6 +186,7 @@ export const ChoroplethChart: FC<Props> = ({
             valueKey={valueKey}
             elementsKey={elementsKey}
             valuesRange={valuesRange}
+            onUpdateGeoMatchStatus={onUpdateGeoMatchStatus}
             onMouseEnter={(e, meta) => {
               if (tooltipSettings.enabled && !dragged) {
                 updateTooltipPosition(e, null, meta);

@@ -81,6 +81,42 @@ export const worldMapDoubleGroupBy = () => {
   return <div style={{ width: '700px', height: '400px' }} ref={container} />;
 };
 
+export const worldMapMatchError = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+      widget: {
+        title: {
+          content: 'Homepage views ',
+        },
+        subtitle: {
+          content: 'Worldwide',
+        },
+      },
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country'],
+      },
+      result: [
+        {
+          'user.address.country': 'Lermany',
+          result: 310,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '400px' }} ref={container} />;
+};
+
 export const worldMap = () => {
   const container = React.useRef(null);
 
@@ -175,7 +211,7 @@ export const unitedStatesMap = () => {
           content: 'Homepage views ',
         },
         subtitle: {
-          content: 'product.name',
+          content: 'United States',
         },
         geographicArea: 'us',
       },
@@ -198,7 +234,7 @@ export const unitedStatesMap = () => {
           {
             propertyName: 'geo.country',
             operator: 'eq',
-            propertyValue: 'product.name',
+            propertyValue: 'United States',
           },
         ],
       })

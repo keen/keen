@@ -4,11 +4,14 @@ import { useSlider } from '@keen.io/react-hooks';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
+  GeoAreaMatchStatus,
   ResponsiveWrapper,
   LegendBase,
   fetchMapTopology,
   theme as defaultTheme,
 } from '@keen.io/charts';
+
+import { GeoMatchError } from './components';
 
 import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
@@ -33,6 +36,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
   colorSteps,
   ...props
 }) => {
+  const [geoMatchError, setGeoMatchError] = useState(false);
   const [topology, setTopology] = useState<any>(null);
   const [loading, setLoading] = useState(null);
 
@@ -59,7 +63,8 @@ export const ChoroplethChartWidget: FC<Props> = ({
       }}
       title={() => <WidgetHeading title={title} subtitle={subtitle} />}
       legend={() =>
-        legend.enabled && (
+        legend.enabled &&
+        !geoMatchError && (
           <LegendBase spacing="thin" fullDimension {...legend}>
             <RangeSlider
               minimum={0}
@@ -78,21 +83,33 @@ export const ChoroplethChartWidget: FC<Props> = ({
       }
       content={() => {
         if (loading) return <WidgetLoader />;
-        else if (topology)
+        else if (topology) {
           return (
             <ResponsiveWrapper>
               {(width: number, height: number) => (
-                <ChoroplethChart
-                  theme={theme}
-                  svgDimensions={{ width, height }}
-                  topology={topology}
-                  colorSteps={colorSteps}
-                  valuesRange={range}
-                  {...props}
-                />
+                <>
+                  {geoMatchError ? (
+                    <GeoMatchError geographicArea={geographicArea} />
+                  ) : (
+                    <ChoroplethChart
+                      theme={theme}
+                      svgDimensions={{ width, height }}
+                      topology={topology}
+                      colorSteps={colorSteps}
+                      valuesRange={range}
+                      onUpdateGeoMatchStatus={(status) =>
+                        setGeoMatchError(
+                          status === GeoAreaMatchStatus.NOT_MATCHED
+                        )
+                      }
+                      {...props}
+                    />
+                  )}
+                </>
               )}
             </ResponsiveWrapper>
           );
+        }
       }}
     />
   );
