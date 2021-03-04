@@ -101,7 +101,6 @@ export const Map: FC<Props> = ({
             : true;
 
           if (!inRange) return null;
-
           const color = getColor(value);
 
           const meta = {
@@ -112,15 +111,18 @@ export const Map: FC<Props> = ({
           };
 
           return (
-            <motion.g key={`${name}-${idx}`} {...mapPathMotion}>
+            <motion.g
+              key={`${name}-${idx}`}
+              onMouseEnter={(e) => onMouseEnter(e, meta)}
+              onMouseMove={(e) => onMouseEnter(e, meta)}
+              onMouseLeave={(e) => onMouseLeave(e)}
+              {...mapPathMotion}
+            >
               <MapPath
                 path={drawPath(geometry)}
                 fill={color}
                 strokeWidth="0.5"
                 stroke={map.stroke}
-                onMouseEnter={(e) => onMouseEnter(e, meta)}
-                onMouseMove={(e) => onMouseEnter(e, meta)}
-                onMouseLeave={(e) => onMouseLeave(e)}
               />
             </motion.g>
           );
