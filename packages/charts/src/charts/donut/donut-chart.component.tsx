@@ -14,6 +14,7 @@ import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase, Delayed } from '../../components';
+import { ItemData, TooltipItem } from '../circular-chart';
 import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
@@ -141,7 +142,7 @@ export const DonutChart: FC<Props> = ({
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
                 <BulletList
-                  list={getCircularChartTooltipContent({
+                  items={getCircularChartTooltipContent({
                     data,
                     keys,
                     labelSelector,
@@ -149,7 +150,9 @@ export const DonutChart: FC<Props> = ({
                     disabledLabels,
                     formatValue: formatTooltip,
                   })}
-                  typography={tooltipSettings.labels.typography}
+                  renderItem={(_idx, item) => (
+                    <TooltipItem data={item.data as ItemData} theme={theme} />
+                  )}
                 />
               )}
             </Tooltip>

@@ -2,9 +2,12 @@ import { Query } from '@keen.io/query';
 import { Widgets } from '@keen.io/widgets';
 
 import { defaultTransformation } from './default-transformation';
+import {
+  categoricalChartTransformation,
+  choroplethChartTransformation,
+} from './charts';
 
 import { GroupByResult, ParserSettings } from '../../types';
-import { categoricalChartTransformation } from './charts/chart-transformation';
 
 /**
  * Transforms categorical data.
@@ -17,6 +20,7 @@ import { categoricalChartTransformation } from './charts/chart-transformation';
  */
 export const transformCategorical = (
   {
+    query,
     result,
   }: {
     query?: Query;
@@ -28,5 +32,18 @@ export const transformCategorical = (
   if (visualization === 'bar' || visualization === 'heatmap') {
     return categoricalChartTransformation(result, parserSettings);
   }
+
+  if (
+    visualization === 'choropleth' &&
+    Array.isArray(query?.group_by) &&
+    query.group_by.length > 1
+  ) {
+    return choroplethChartTransformation(
+      result,
+      parserSettings,
+      query.group_by
+    );
+  }
+
   return defaultTransformation(result, parserSettings);
 };

@@ -1,5 +1,6 @@
+import { formatByPattern } from '../../format';
+
 import { ScaleSettings } from '../../types';
-import { formatByPattern } from './format-by-pattern';
 
 /**
  * Adjusts axis tick label based on scale settings
