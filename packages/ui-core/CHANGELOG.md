@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.0...@keen.io/ui-core@2.15.1) (2021-03-04)
+
+
+### Bug Fixes
+
+* 🐛 export Point and ItemData types ([e96cb38](https://github.com/keen/keen/commit/e96cb38fcf180c5394765ab68a2804658e171a13))
+
+
+
+
+
 # [2.15.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.14.2...@keen.io/ui-core@2.15.0) (2021-03-04)
 
 

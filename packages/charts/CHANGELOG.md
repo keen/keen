@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/keen/keen/compare/@keen.io/charts@2.8.0...@keen.io/charts@2.9.0) (2021-03-04)
+
+
+### Bug Fixes
+
+* 🐛 export Point and ItemData types ([e96cb38](https://github.com/keen/keen/commit/e96cb38fcf180c5394765ab68a2804658e171a13))
+
+
+### Features
+
+* 🎸 detect geo match with properties ([c627fa1](https://github.com/keen/keen/commit/c627fa164ede6b18c7997352b383273177c78156))
+
+
+
+
+
 # [2.8.0](https://github.com/keen/keen/compare/@keen.io/charts@2.7.12...@keen.io/charts@2.8.0) (2021-03-04)
 
 
