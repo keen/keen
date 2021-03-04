@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.5.0...@keen.io/charts-utils@1.6.0) (2021-03-04)
+
+
+### Features
+
+* 🎸 choropleth tooltip ([5ff2990](https://github.com/keen/keen/commit/5ff299068f59922188ee4cfa06a90df465f6fe0b))
+
+
+
+
+
 # [1.5.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.3...@keen.io/charts-utils@1.5.0) (2021-03-02)
 
 

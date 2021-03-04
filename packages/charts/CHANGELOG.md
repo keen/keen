@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/charts@2.7.12...@keen.io/charts@2.8.0) (2021-03-04)
+
+
+### Bug Fixes
+
+* 🐛 Add unique id for gradient and clip id ([d4a8bfe](https://github.com/keen/keen/commit/d4a8bfedb4663983eef97dc3f0266f20bad0bd75))
+
+
+### Features
+
+* 🎸 choropleth multiple group by support ([013b121](https://github.com/keen/keen/commit/013b121b01618d13ff276a799a493094d0b9bbcf))
+* 🎸 choropleth tooltip ([5ff2990](https://github.com/keen/keen/commit/5ff299068f59922188ee4cfa06a90df465f6fe0b))
+* 🎸 updates for donut/pie tooltip ([d8c0b69](https://github.com/keen/keen/commit/d8c0b6979f5c68c6a272c3f89de6f871679747c2))
+
+
+
+
+
 ## [2.7.12](https://github.com/keen/keen/compare/@keen.io/charts@2.7.11...@keen.io/charts@2.7.12) (2021-03-02)
 
 **Note:** Version bump only for package @keen.io/charts
