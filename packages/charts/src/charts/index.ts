@@ -12,6 +12,7 @@ import { TableChart, TableChartSettings } from './table';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
+  GeoAreaMatchStatus,
   fetchMapTopology,
 } from './choropleth';
 
@@ -33,6 +34,7 @@ export type {
 };
 
 export {
+  GeoAreaMatchStatus,
   LineChart,
   AreaChart,
   BarChart,
