@@ -2,13 +2,13 @@ import { scaleLinear, scaleTime, scaleUtc } from 'd3-scale';
 import { v4 as uuid } from 'uuid';
 import {
   calculateRange,
-  calculateStackedRange,
   calculateScaleDomain,
   getKeysDifference,
   transformToPercent,
   normalizeDate,
   sortKeysByValuesSum,
 } from '@keen.io/charts-utils';
+import calculateLineStackedRange from './calculate-line-stacked-range';
 
 import {
   calculateStackData,
@@ -289,7 +289,7 @@ export const generateStackLines = ({
     filteredKeys
   );
 
-  let { minimum, maximum } = calculateStackedRange(
+  let { minimum, maximum } = calculateLineStackedRange(
     normalizeData,
     minValue,
     maxValue,
