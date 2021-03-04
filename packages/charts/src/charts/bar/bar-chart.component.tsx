@@ -172,7 +172,6 @@ export const BarChart: FC<Props> = ({
                 if (clearTooltip.current) clearTimeout(clearTooltip.current);
                 if (tooltipSettings.enabled) {
                   const selectors = getSelectors({
-                    stackMode,
                     groupMode,
                     keys,
                     disabledKeys,

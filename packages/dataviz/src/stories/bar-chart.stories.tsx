@@ -122,6 +122,7 @@ export const MultipleResultsPlot = () => {
           tooltip: {
             mode: 'light',
             labels: { typography: { fontColor: colors.black['500'] } },
+            values: { typography: { fontColor: colors.black['500'] } },
           },
         },
       },
@@ -217,6 +218,7 @@ export const StackedNormal = () => {
           tooltip: {
             mode: 'light',
             labels: { typography: { fontColor: colors.black['500'] } },
+            values: { typography: { fontColor: colors.black['500'] } },
           },
         },
       },
@@ -236,7 +238,7 @@ export const StackedNormal = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '400px' }} ref={container} />;
 };
 
 StackedNormal.story = {
@@ -280,7 +282,7 @@ export const StackedPercentage = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '400px' }} ref={container} />;
 };
 
 StackedPercentage.story = {

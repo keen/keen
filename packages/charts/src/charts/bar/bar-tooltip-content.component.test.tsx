@@ -28,7 +28,7 @@ const render = (overProps: any = {}) => {
   };
 
   const wrapper = rtlRender(
-    <ChartContext.Provider value={{ theme }}>
+    <ChartContext.Provider value={{ xScaleSettings: {}, theme }}>
       <BarTooltip {...props} />
     </ChartContext.Provider>
   );
@@ -70,6 +70,8 @@ test('formats toolip list values', () => {
   });
   const [firstSeries] = data;
   const { users, licenses } = firstSeries;
-  expect(getByText(`${formatValue(users)} (30.00%)`)).toBeInTheDocument();
-  expect(getByText(`${formatValue(licenses)} (70.00%)`)).toBeInTheDocument();
+  expect(getByText(`(${formatValue(users)})`)).toBeInTheDocument();
+  expect(getByText('30.00%')).toBeInTheDocument();
+  expect(getByText(`(${formatValue(licenses)})`)).toBeInTheDocument();
+  expect(getByText('70.00%')).toBeInTheDocument();
 });

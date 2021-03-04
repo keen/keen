@@ -1,5 +1,4 @@
 import React, { FC, useContext } from 'react';
-import { Text, BulletList } from '@keen.io/ui-core';
 import {
   getFromPath,
   getKeysDifference,
@@ -19,7 +18,6 @@ import {
   StackMode,
   TooltipFormatter,
 } from '../../types';
-// import { getTooltipContent } from '../../utils';
 
 type Props = {
   /** Data series */
@@ -53,28 +51,27 @@ const BarTooltip: FC<Props> = ({
   labelSelector,
   formatValue,
 }) => {
-  const {
-    theme: { tooltip },
-    xScaleSettings,
-  } = useContext(ChartContext) as ChartContextType;
+  const { xScaleSettings } = useContext(ChartContext) as ChartContextType;
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
     ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
     : [];
-  console.log({ selectors, data, keys, xScaleSettings });
-  const index = selectors[0].selector[0] as number;
 
-  const scaleLabel = formatScaleLabel(
-    data[index][labelSelector],
-    xScaleSettings
-  );
+  const [firstSelector] = selectors;
+  const [index] = firstSelector.selector;
 
-  const total = keys.reduce((acc: number, keyName: string) => {
+  const scaleLabel =
+    xScaleSettings.precision && typeof index === 'number'
+      ? formatScaleLabel(data[index][labelSelector], xScaleSettings)
+      : null;
+
+  const totalValue = keys.reduce((acc: number, keyName: string) => {
+    if (typeof index !== 'number') return acc;
     return acc + data[index][keyName];
   }, 0);
 
-  const percent = isPercentage
+  const percentValue = isPercentage
     ? selectors.reduce((acc, { selector }) => {
         return (
           acc + parseFloat(getFromPath(percentageData, selector).toFixed(2))
@@ -110,72 +107,9 @@ const BarTooltip: FC<Props> = ({
         isList={isList}
         items={items}
         scaleLabel={scaleLabel}
-        totalValue={total}
-        percentValue={percent}
+        totalValue={totalValue}
+        percentValue={percentValue}
       />
-    </div>
-  );
-
-  return (
-    <div data-testid="bar-tooltip">
-      {isList ? (
-        <>
-          <span>{scaleLabel}</span>
-          <BulletList
-            // typography={tooltip.labels.typography}
-            items={selectors.map(({ color, selector }) => ({
-              data: `${selector[1]}: ${getLabel({
-                data,
-                selector,
-                percentageData,
-                isPercentage,
-                formatValue,
-              })}`,
-              // value: getLabel({
-              //   data,
-              //   selector,
-              //   percentageData,
-              //   isPercentage,
-              //   formatValue,
-              // }),
-              color,
-            }))}
-            renderItem={(_idx, item) => (
-              <Text {...tooltip.labels.typography}>{item.data}</Text>
-            )}
-          />
-          <span>
-            total : {total} {percent && `(${percent.toFixed(2)}%)`}
-          </span>
-        </>
-      ) : (
-        <>
-          <BulletList
-            items={selectors.map(({ selector, color }) => ({
-              data: {
-                label: selector[1],
-                value: formatValue
-                  ? formatValue(getFromPath(data, selector))
-                  : getFromPath(data, selector),
-              },
-              color,
-            }))}
-            renderItem={(_idx, item) => (
-              <>
-                <Text {...tooltip.labels.typography}>{item.data.label}</Text>
-                <Text {...tooltip.values.typography}>{item.data.value}</Text>
-              </>
-            )}
-          />
-          {/* {selectors.map(({ selector, color }) => (
-            <Text {...tooltip.labels.typography} key={color}>
-              {formatValue
-                ? formatValue(getFromPath(data, selector))
-                : getFromPath(data, selector)}
-            </Text>
-          ))} */}
-        </>
-      )}
     </div>
   );
 };

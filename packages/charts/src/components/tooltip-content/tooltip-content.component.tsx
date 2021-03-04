@@ -3,7 +3,13 @@ import { Text, BulletList, Point } from '@keen.io/ui-core';
 
 import TooltipItem from '../tooltip-item';
 
-import { Total } from './tooltip-content.styles';
+import {
+  Total,
+  TextContainer,
+  LabelContainer,
+  Container,
+  BulletListContainer,
+} from './tooltip-content.styles';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 import { ItemData } from 'charts/src/types';
@@ -34,37 +40,52 @@ const TooltipContent: FC<Props> = ({
   } = useContext(ChartContext) as ChartContextType;
 
   return isList ? (
-    <>
-      {scaleLabel && <Text {...tooltip.labels.typography}>{scaleLabel}</Text>}
-      <BulletList
-        items={items}
-        renderItem={(_idx, item) => (
-          <TooltipItem data={item.data as ItemData} theme={theme} />
-        )}
-      />
-      <Total>
-        <Text {...tooltip.labels.typography}>Total:</Text>
-        {percentValue ? (
-          <div>
-            <Text {...tooltip.values.typography}>{`(${percentValue.toFixed(
-              2
-            )}%)`}</Text>{' '}
-            <Text {...tooltip.labels.typography}>{totalValue}</Text>
-          </div>
-        ) : (
-          <Text {...tooltip.values.typography}>{totalValue}</Text>
-        )}
-      </Total>
-    </>
+    <Container>
+      {scaleLabel && (
+        <LabelContainer>
+          <Text {...tooltip.labels.typography}>{scaleLabel}</Text>
+        </LabelContainer>
+      )}
+      <BulletListContainer>
+        <BulletList
+          items={items}
+          renderItem={(_idx, item) => (
+            <TooltipItem data={item.data as ItemData} theme={theme} />
+          )}
+        />
+      </BulletListContainer>
+      {totalValue && (
+        <Total>
+          <Text {...tooltip.labels.typography}>Total:</Text>
+          {percentValue ? (
+            <TextContainer>
+              <Text {...tooltip.values.typography}>
+                {`${percentValue.toFixed(2)}%`}&nbsp;
+              </Text>
+              <Text {...tooltip.labels.typography}>{`(${totalValue})`}</Text>
+            </TextContainer>
+          ) : (
+            <Text {...tooltip.values.typography}>{totalValue}</Text>
+          )}
+        </Total>
+      )}
+    </Container>
   ) : (
-    <>
-      <BulletList
-        items={items}
-        renderItem={(_idx, item) => (
-          <TooltipItem data={item.data as ItemData} theme={theme} />
-        )}
-      />
-    </>
+    <Container>
+      {scaleLabel && (
+        <LabelContainer>
+          <Text {...tooltip.labels.typography}>{scaleLabel}</Text>
+        </LabelContainer>
+      )}
+      <BulletListContainer>
+        <BulletList
+          items={items}
+          renderItem={(_idx, item) => (
+            <TooltipItem data={item.data as ItemData} theme={theme} />
+          )}
+        />
+      </BulletListContainer>
+    </Container>
   );
 };
 

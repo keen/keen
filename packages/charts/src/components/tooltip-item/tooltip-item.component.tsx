@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Text } from '@keen.io/ui-core';
-import { Container } from './tooltip-item.styles';
+import { Container, TextContainer } from './tooltip-item.styles';
 
 import { theme as defaultTheme } from '../../theme';
 import { Theme, ItemData } from '../../types';
@@ -16,16 +16,23 @@ const TooltipItem: FC<Props> = ({ data, theme = defaultTheme }) => {
   const { tooltip: tooltipSettings } = theme;
 
   return typeof data === 'string' ? (
-    <Text {...tooltipSettings.labels.typography}>{data}</Text>
+    <Text truncate {...tooltipSettings.labels.typography}>
+      {data}
+    </Text>
   ) : (
     <Container>
-      <Text {...tooltipSettings.labels.typography}>{data.label}</Text>
-      <div>
+      <Text truncate {...tooltipSettings.labels.typography}>
+        {data.label}
+        <span>:&nbsp;</span>
+      </Text>
+      <TextContainer>
         <Text {...tooltipSettings.values.typography}>{data.value}</Text>
         {data.change && (
-          <Text {...tooltipSettings.labels.typography}>{data.change}</Text>
+          <Text {...tooltipSettings.labels.typography}>
+            &nbsp;{data.change}
+          </Text>
         )}
-      </div>
+      </TextContainer>
     </Container>
   );
 };

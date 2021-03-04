@@ -69,6 +69,7 @@ const ChartTooltip: FC<Props> = ({ children, visible, x, y }) => {
             }}
           >
             <Tooltip
+              hasSpacing={false}
               mode={theme.tooltip.mode}
               arrowDirection={arrowDirection as Position}
               arrowTop={typeof arrowTop === 'number' && `${arrowTop}px`}
