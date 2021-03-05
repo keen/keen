@@ -113,7 +113,7 @@ export const MetricChart: FC<Props> = ({
             <TextWrapper>
               {valuePrefix && <Text {...prefix.typography}>{valuePrefix}</Text>}
               <Text {...valueSettings.typography}>
-                {formatValue ? valueFormatter(value, formatValue) : value}
+                {valueFormatter(value, formatValue)}
               </Text>
               {valueSuffix && <Text {...suffix.typography}>{valueSuffix}</Text>}
             </TextWrapper>

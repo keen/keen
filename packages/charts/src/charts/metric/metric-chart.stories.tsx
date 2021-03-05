@@ -88,6 +88,7 @@ export const plot = () => {
         keys={['users']}
         theme={theme as Theme}
         data={chartData}
+        formatValue={text('Format value', '${number; 0.00a}', 'Chart')}
       />
     </div>
   );
