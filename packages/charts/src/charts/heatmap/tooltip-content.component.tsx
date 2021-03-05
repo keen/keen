@@ -23,9 +23,7 @@ export const TooltipContent: FC<Props> = ({
 }) => {
   const value = getFromPath(data, selectors[0].selector);
 
-  return (
-    <Text {...typography}>{valueFormatter(value, formatValue).toString()}</Text>
-  );
+  return <Text {...typography}>{valueFormatter(value, formatValue)}</Text>;
 };
 
 export default TooltipContent;
