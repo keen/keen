@@ -53,6 +53,7 @@ export const plot = () => {
         margins={object('Margins', DEFAULT_MARGINS, 'Chart')}
         theme={createThemeKnobs() as Theme}
         data={chartData}
+        formatTooltip={text('Format tooltip', '${number; 0.00a}', 'Chart')}
       />
     </div>
   );

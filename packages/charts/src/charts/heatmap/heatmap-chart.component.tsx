@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layout, Tooltip, ColorMode, RangeType } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import Heatmap from './heatmap.component';
 import TooltipContent from './tooltip-content.component';
@@ -16,7 +16,7 @@ import { generateBlocks } from './heatmap-chart.utils';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
