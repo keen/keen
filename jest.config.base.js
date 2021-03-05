@@ -5,6 +5,8 @@ module.exports = {
 
   verbose: true,
 
+  collectCoverage :true,
+
   globals: {
     'ts-jest': {
       diagnostics: false,
