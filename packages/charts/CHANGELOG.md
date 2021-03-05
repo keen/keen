@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/keen/keen/compare/@keen.io/charts@2.9.0...@keen.io/charts@2.9.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* 🐛 Add marks on point 0 for line/area ([99a4562](https://github.com/keen/keen/commit/99a4562667d97bc5e1770865bd6a5553cbd0c2bd))
+* 🐛 Fix for yScale for stacked area/line ([e017f1c](https://github.com/keen/keen/commit/e017f1c64eed2ed2067c9dcc5c3c546250a9836f))
+
+
+### Performance Improvements
+
+* ⚡️ tooltip performance for choropleth ([5bcabc9](https://github.com/keen/keen/commit/5bcabc9f9890d2c3c86be8c3dc2b1b4134ec7093))
+
+
+
+
+
 # [2.9.0](https://github.com/keen/keen/compare/@keen.io/charts@2.8.0...@keen.io/charts@2.9.0) (2021-03-04)
 
 
