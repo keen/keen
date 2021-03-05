@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, select, boolean } from '@storybook/addon-knobs';
+import { object, select, boolean, text } from '@storybook/addon-knobs';
 
 import { typographyKnobs } from '@keen.io/storybook-utils';
 
@@ -54,6 +54,7 @@ export const plot = () => {
           { top: 50, right: 20, bottom: 50, left: 40 },
           'Chart'
         )}
+        formatTooltip={text('Format tooltip', '${number; 0.00a}', 'Chart')}
       />
     </div>
   );

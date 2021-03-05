@@ -2,6 +2,7 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
+import { TooltipFormatter } from '@keen.io/charts-utils';
 
 import {
   generateCircularChart,
@@ -19,7 +20,7 @@ import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
