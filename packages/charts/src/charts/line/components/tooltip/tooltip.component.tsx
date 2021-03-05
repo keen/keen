@@ -1,8 +1,12 @@
 import React, { FC, useContext } from 'react';
 import { BulletList, Text } from '@keen.io/ui-core';
-import { getFromPath } from '@keen.io/charts-utils';
+import {
+  getFromPath,
+  TooltipFormatter,
+  formatValue as valueFormatter,
+} from '@keen.io/charts-utils';
 
-import { DataSelector, TooltipFormatter } from '../../../../types';
+import { DataSelector } from '../../../../types';
 
 import { ChartContext, ChartContextType } from '../../../../contexts';
 
@@ -20,9 +24,10 @@ const Tooltip: FC<Props> = ({ data, selectors, formatValue }) => {
   return (
     <BulletList
       items={selectors.map(({ color, selector }) => ({
-        data: formatValue
-          ? formatValue(getFromPath(data, selector))
-          : getFromPath(data, selector),
+        data: valueFormatter(
+          getFromPath(data, selector),
+          formatValue
+        ).toString(),
         color,
       }))}
       renderItem={(_idx, item) => (
