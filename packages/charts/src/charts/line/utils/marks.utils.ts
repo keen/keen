@@ -87,7 +87,7 @@ export const generateLineMarks = (
   data.forEach((_d: any, index: number) => {
     const value = data[index]?.[keyName];
 
-    if (keyName !== labelSelector && value) {
+    if (keyName !== labelSelector) {
       const mark = {
         key: `${index}.${keyName}.mark`,
         color,
