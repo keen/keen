@@ -52,7 +52,6 @@ const BarTooltip: FC<Props> = ({
 }) => {
   const { xScaleSettings } = useContext(ChartContext) as ChartContextType;
   const { precision, formatLabel } = xScaleSettings;
-  console.log({ precision, formatLabel });
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
