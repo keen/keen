@@ -57,7 +57,7 @@ export const getCircularChartTooltipContent = ({
     const formattedTotal = formatValue ? formatValue(total) : total;
 
     let value = `${formattedTotal}`;
-    let label = `${item[labelSelector]} :`;
+    let label = item[labelSelector];
     let change = '';
     let newColor = color;
 
@@ -73,7 +73,7 @@ export const getCircularChartTooltipContent = ({
       const valuePercent = String(
         `${(Math.round(total * 100) / allValuesTotal).toFixed(1)}%`
       );
-      label = `${item[labelSelector]}:`;
+      label = item[labelSelector];
       value = `${formattedTotal}`;
       change = `(${valuePercent})`;
       newColor = 'rgba(0, 0, 0, 0)';
