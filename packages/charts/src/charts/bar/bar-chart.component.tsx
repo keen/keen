@@ -1,6 +1,6 @@
 import React, { useState, useRef, FC } from 'react';
 import { Layout, SortMode } from '@keen.io/ui-core';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import { generateBars } from './utils/chart.utils';
 import { getSelectors } from './utils/tooltip.utils';
@@ -13,7 +13,7 @@ import { useDynamicChartLayout } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { DEFAULT_MARGINS } from './constants';
+import { DEFAULT_MARGINS, MAX_TOOLTIP_WIDTH_FACTOR } from './constants';
 import { TOOLTIP_HIDE_TIME } from '../../constants';
 
 import {
@@ -21,7 +21,6 @@ import {
   TooltipState,
   GroupMode,
   StackMode,
-  TooltipFormatter,
 } from '../../types';
 
 export type Props = {
@@ -90,6 +89,7 @@ export const BarChart: FC<Props> = ({
   formatTooltip,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
+
   const {
     layoutMargins,
     layoutReady,
@@ -171,7 +171,6 @@ export const BarChart: FC<Props> = ({
                 if (clearTooltip.current) clearTimeout(clearTooltip.current);
                 if (tooltipSettings.enabled) {
                   const selectors = getSelectors({
-                    stackMode,
                     groupMode,
                     keys,
                     disabledKeys,
@@ -194,7 +193,12 @@ export const BarChart: FC<Props> = ({
                 }
               }}
             />
-            <ChartTooltip visible={tooltip.visible} x={tooltip.x} y={tooltip.y}>
+            <ChartTooltip
+              visible={tooltip.visible}
+              x={tooltip.x}
+              y={tooltip.y}
+              hasSpacing={false}
+            >
               {tooltip.selectors && (
                 <BarTooltipContent
                   data={data}
@@ -205,6 +209,8 @@ export const BarChart: FC<Props> = ({
                   selectors={tooltip.selectors}
                   isList={tooltip.selectors.length > 1}
                   formatValue={formatTooltip}
+                  labelSelector={labelSelector}
+                  maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
                 />
               )}
             </ChartTooltip>

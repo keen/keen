@@ -1,21 +1,19 @@
 import React, { FC, useContext } from 'react';
-import { Text, BulletList } from '@keen.io/ui-core';
 import {
   getFromPath,
   getKeysDifference,
   transformToPercent,
+  TooltipFormatter,
+  formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
+
+import { TooltipContent } from '../../components';
 
 import { getLabel } from './utils/tooltip.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-import {
-  DataSelector,
-  GroupMode,
-  StackMode,
-  TooltipFormatter,
-} from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
   /** Data series */
@@ -32,6 +30,10 @@ type Props = {
   stackMode: StackMode;
   /** List indicator */
   isList: boolean;
+  /** Name of data object property used to create labels on axis */
+  labelSelector: string;
+  /** Max width for tooltip */
+  maxWidth?: number;
   /** Tooltip formatter */
   formatValue?: TooltipFormatter;
 };
@@ -44,46 +46,72 @@ const BarTooltip: FC<Props> = ({
   stackMode,
   groupMode,
   isList,
+  labelSelector,
+  maxWidth,
   formatValue,
 }) => {
-  const {
-    theme: { tooltip },
-  } = useContext(ChartContext) as ChartContextType;
+  const { xScaleSettings } = useContext(ChartContext) as ChartContextType;
+  const { precision, formatLabel } = xScaleSettings;
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
     ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
     : [];
 
-  return (
-    <div data-testid="bar-tooltip">
-      {isList ? (
-        <BulletList
-          items={selectors.map(({ color, selector }) => ({
-            data: getLabel({
+  const [firstSelector] = selectors;
+  const [index] = firstSelector.selector;
+
+  const tooltipLabel =
+    precision && typeof index === 'number'
+      ? valueFormatter(data[index][labelSelector], formatLabel)
+      : null;
+
+  const totalValue = isList
+    ? keys.reduce((acc: number, keyName: string) => {
+        if (typeof index !== 'number') return acc;
+        return acc + data[index][keyName];
+      }, 0)
+    : null;
+
+  const percentValue = isPercentage
+    ? selectors.reduce((acc, { selector }) => {
+        return (
+          acc + parseFloat(getFromPath(percentageData, selector).toFixed(2))
+        );
+      }, 0)
+    : null;
+
+  const items = selectors.map(({ color, selector }) => {
+    return {
+      color,
+      data: {
+        label: `${selector[1]}`,
+        ...(isList
+          ? getLabel({
               data,
               selector,
               percentageData,
               isPercentage,
               formatValue,
+            })
+          : {
+              value: formatValue
+                ? valueFormatter(getFromPath(data, selector), formatValue)
+                : getFromPath(data, selector),
             }),
-            color,
-          }))}
-          renderItem={(_idx, item) => (
-            <Text {...tooltip.labels.typography}>{item.data}</Text>
-          )}
-        />
-      ) : (
-        <>
-          {selectors.map(({ selector, color }) => (
-            <Text {...tooltip.labels.typography} key={color}>
-              {formatValue
-                ? formatValue(getFromPath(data, selector))
-                : getFromPath(data, selector)}
-            </Text>
-          ))}
-        </>
-      )}
+      },
+    };
+  });
+
+  return (
+    <div data-testid="bar-tooltip">
+      <TooltipContent
+        items={items}
+        label={`${tooltipLabel}`}
+        totalValue={totalValue}
+        percentValue={percentValue}
+        maxWidth={maxWidth}
+      />
     </div>
   );
 };

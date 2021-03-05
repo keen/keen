@@ -3,13 +3,7 @@ import { Text } from '@keen.io/ui-core';
 import { Container } from './tooltip-item.styles';
 
 import { theme as defaultTheme } from '../../theme';
-import { Theme } from '../../types';
-
-export type ItemData = {
-  label: string;
-  value: string;
-  change?: string;
-};
+import { Theme, ItemData } from '../../types';
 
 type Props = {
   /** Item data */

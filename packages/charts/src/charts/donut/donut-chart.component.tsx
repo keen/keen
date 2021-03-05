@@ -14,12 +14,12 @@ import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase, Delayed } from '../../components';
-import { ItemData, TooltipItem } from '../circular-chart';
+import { TooltipItem } from '../circular-chart';
 import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { CommonChartSettings, TooltipFormatter, ItemData } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
