@@ -2,7 +2,11 @@ import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 import { Text } from '@keen.io/ui-core';
-import { formatNumber } from '@keen.io/charts-utils';
+import {
+  formatNumber,
+  formatValue as valueFormatter,
+  TooltipFormatter,
+} from '@keen.io/charts-utils';
 
 import MetricIcon from './metric-icon.component';
 import {
@@ -57,7 +61,7 @@ export type Props = {
   /** Suffix for value */
   valueSuffix?: React.ReactNode;
   /** Value format function */
-  formatValue?: (value: string | number) => React.ReactNode;
+  formatValue?: TooltipFormatter;
   /** Metric type */
   type?: MetricType;
   /** Use percentage difference */
@@ -107,19 +111,11 @@ export const MetricChart: FC<Props> = ({
         <AnimatePresence>
           <motion.div {...textMotion}>
             <TextWrapper>
-              {valuePrefix && (
-                <Text data-test="metric-prefix" {...prefix.typography}>
-                  {valuePrefix}
-                </Text>
-              )}
-              <Text data-test="metric-value" {...valueSettings.typography}>
-                {formatValue ? formatValue(value) : value}
+              {valuePrefix && <Text {...prefix.typography}>{valuePrefix}</Text>}
+              <Text {...valueSettings.typography}>
+                {valueFormatter(value, formatValue)}
               </Text>
-              {valueSuffix && (
-                <Text data-test="metric-suffix" {...suffix.typography}>
-                  {valueSuffix}
-                </Text>
-              )}
+              {valueSuffix && <Text {...suffix.typography}>{valueSuffix}</Text>}
             </TextWrapper>
           </motion.div>
         </AnimatePresence>
@@ -127,7 +123,7 @@ export const MetricChart: FC<Props> = ({
         {difference && (
           <div>
             <Excerpt
-              data-test="metric-excerpt-container"
+              data-testid="metric-excerpt-value"
               background={excerpt.backgroundColor}
             >
               <Wrapper>
@@ -144,7 +140,7 @@ export const MetricChart: FC<Props> = ({
                     </motion.div>
                   </AnimatePresence>
                 )}
-                <Text data-test="metric-excerpt-value" {...excerpt.typography}>
+                <Text {...excerpt.typography}>
                   {type === 'difference' && usePercentDifference
                     ? `${difference.value}%`
                     : formatNumber(difference.value)}
