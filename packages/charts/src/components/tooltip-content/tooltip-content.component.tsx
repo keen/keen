@@ -15,35 +15,35 @@ import { ChartContext, ChartContextType } from '../../contexts';
 import { ItemData } from 'charts/src/types';
 
 type Props = {
-  /** List indicator */
-  isList: boolean;
   /** Items */
   items: Point[];
-  /** Label for scale */
-  scaleLabel?: string | number;
+  /** Label for tooltip */
+  label?: string | number;
   /** Total value */
   totalValue?: string;
   /** Percent value */
   percentValue?: number;
+  /** Max width for tooltip content */
+  maxWidth?: number;
 };
 
 const TooltipContent: FC<Props> = ({
-  isList,
   items,
-  scaleLabel,
+  label,
   totalValue,
   percentValue,
+  maxWidth = 200,
 }: Props) => {
   const {
     theme,
     theme: { tooltip },
   } = useContext(ChartContext) as ChartContextType;
 
-  return isList ? (
-    <Container>
-      {scaleLabel && (
+  return (
+    <Container maxWidth={maxWidth}>
+      {label && (
         <LabelContainer>
-          <Text {...tooltip.labels.typography}>{scaleLabel}</Text>
+          <Text {...tooltip.labels.typography}>{label}</Text>
         </LabelContainer>
       )}
       <BulletListContainer>
@@ -60,7 +60,7 @@ const TooltipContent: FC<Props> = ({
           {percentValue ? (
             <TextContainer>
               <Text {...tooltip.values.typography}>
-                {`${percentValue.toFixed(2)}%`}&nbsp;
+                {`${percentValue.toFixed(1)}%`}&nbsp;
               </Text>
               <Text {...tooltip.labels.typography}>{`(${totalValue})`}</Text>
             </TextContainer>
@@ -69,22 +69,6 @@ const TooltipContent: FC<Props> = ({
           )}
         </Total>
       )}
-    </Container>
-  ) : (
-    <Container>
-      {scaleLabel && (
-        <LabelContainer>
-          <Text {...tooltip.labels.typography}>{scaleLabel}</Text>
-        </LabelContainer>
-      )}
-      <BulletListContainer>
-        <BulletList
-          items={items}
-          renderItem={(_idx, item) => (
-            <TooltipItem data={item.data as ItemData} theme={theme} />
-          )}
-        />
-      </BulletListContainer>
     </Container>
   );
 };

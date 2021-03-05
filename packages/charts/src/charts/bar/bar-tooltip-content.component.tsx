@@ -3,7 +3,8 @@ import {
   getFromPath,
   getKeysDifference,
   transformToPercent,
-  formatScaleLabel,
+  TooltipFormatter,
+  formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
 
 import { TooltipContent } from '../../components';
@@ -12,12 +13,7 @@ import { getLabel } from './utils/tooltip.utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-import {
-  DataSelector,
-  GroupMode,
-  StackMode,
-  TooltipFormatter,
-} from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../types';
 
 type Props = {
   /** Data series */
@@ -36,6 +32,8 @@ type Props = {
   isList: boolean;
   /** Name of data object property used to create labels on axis */
   labelSelector: string;
+  /** Max width for tooltip */
+  maxWidth?: number;
   /** Tooltip formatter */
   formatValue?: TooltipFormatter;
 };
@@ -49,9 +47,12 @@ const BarTooltip: FC<Props> = ({
   groupMode,
   isList,
   labelSelector,
+  maxWidth,
   formatValue,
 }) => {
   const { xScaleSettings } = useContext(ChartContext) as ChartContextType;
+  const { precision, formatLabel } = xScaleSettings;
+  console.log({ precision, formatLabel });
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
@@ -61,15 +62,17 @@ const BarTooltip: FC<Props> = ({
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
 
-  const scaleLabel =
-    xScaleSettings.precision && typeof index === 'number'
-      ? formatScaleLabel(data[index][labelSelector], xScaleSettings)
+  const tooltipLabel =
+    precision && typeof index === 'number'
+      ? valueFormatter(data[index][labelSelector], formatLabel)
       : null;
 
-  const totalValue = keys.reduce((acc: number, keyName: string) => {
-    if (typeof index !== 'number') return acc;
-    return acc + data[index][keyName];
-  }, 0);
+  const totalValue = isList
+    ? keys.reduce((acc: number, keyName: string) => {
+        if (typeof index !== 'number') return acc;
+        return acc + data[index][keyName];
+      }, 0)
+    : null;
 
   const percentValue = isPercentage
     ? selectors.reduce((acc, { selector }) => {
@@ -94,7 +97,7 @@ const BarTooltip: FC<Props> = ({
             })
           : {
               value: formatValue
-                ? formatValue(getFromPath(data, selector))
+                ? valueFormatter(getFromPath(data, selector), formatValue)
                 : getFromPath(data, selector),
             }),
       },
@@ -104,11 +107,11 @@ const BarTooltip: FC<Props> = ({
   return (
     <div data-testid="bar-tooltip">
       <TooltipContent
-        isList={isList}
         items={items}
-        scaleLabel={scaleLabel}
+        label={`${tooltipLabel}`}
         totalValue={totalValue}
         percentValue={percentValue}
+        maxWidth={maxWidth}
       />
     </div>
   );

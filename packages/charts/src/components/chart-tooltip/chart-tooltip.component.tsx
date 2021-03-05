@@ -40,7 +40,7 @@ const ChartTooltip: FC<Props> = ({
       const { width, height } = wrapper.current.getBoundingClientRect();
       setForeignObject({ width, height });
     }
-  }, [visible]);
+  }, [visible, x]);
 
   const {
     tooltipX,

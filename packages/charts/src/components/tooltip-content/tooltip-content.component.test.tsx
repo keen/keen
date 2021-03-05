@@ -9,7 +9,6 @@ import { ChartContext } from '../../contexts';
 const render = (overProps: any = {}) => {
   const props = {
     items: [{ color: 'red', data: 'value' }],
-    isList: false,
     ...overProps,
   };
 
@@ -34,13 +33,13 @@ test('renders basic content', () => {
   expect(getByText(props.items[0].data)).toBeInTheDocument();
 });
 
-test('renders label for scale', () => {
-  const scaleLabel = 'scaleLabel';
+test('renders label for tooltip', () => {
+  const label = 'tooltipLabel';
   const {
     wrapper: { getByText },
-  } = render({ scaleLabel });
+  } = render({ label });
 
-  expect(getByText(scaleLabel)).toBeInTheDocument();
+  expect(getByText(label)).toBeInTheDocument();
 });
 
 test('renders items list within the component', () => {
@@ -52,7 +51,7 @@ test('renders items list within the component', () => {
 
   const {
     wrapper: { getByText },
-  } = render({ items, isList: true });
+  } = render({ items });
 
   items.forEach((item) => expect(getByText(item.data)).toBeInTheDocument());
 });
@@ -67,7 +66,7 @@ test('renders total value for the list', () => {
 
   const {
     wrapper: { getByText },
-  } = render({ items, totalValue, isList: true });
+  } = render({ items, totalValue });
   expect(getByText(totalValue)).toBeInTheDocument();
 });
 
@@ -82,8 +81,8 @@ test('renders total value with percentage for list', () => {
 
   const {
     wrapper: { getByText },
-  } = render({ items, totalValue, percentValue, isList: true });
+  } = render({ items, totalValue, percentValue });
 
   expect(getByText(`(${totalValue})`)).toBeInTheDocument();
-  expect(getByText('30.00%')).toBeInTheDocument();
+  expect(getByText('30.0%')).toBeInTheDocument();
 });

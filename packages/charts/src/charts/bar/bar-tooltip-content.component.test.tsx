@@ -71,7 +71,7 @@ test('formats toolip list values', () => {
   const [firstSeries] = data;
   const { users, licenses } = firstSeries;
   expect(getByText(`(${formatValue(users)})`)).toBeInTheDocument();
-  expect(getByText('30.00%')).toBeInTheDocument();
+  expect(getByText('30.0%')).toBeInTheDocument();
   expect(getByText(`(${formatValue(licenses)})`)).toBeInTheDocument();
-  expect(getByText('70.00%')).toBeInTheDocument();
+  expect(getByText('70.0%')).toBeInTheDocument();
 });

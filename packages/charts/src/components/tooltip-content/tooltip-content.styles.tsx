@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { layout, LayoutProps } from 'styled-system';
 
 export const Total = styled.div`
   padding: 10px 15px;
@@ -28,8 +29,8 @@ export const LabelContainer = styled.div`
   padding: 10px 15px 0 15px;
 `;
 
-export const Container = styled.div`
-  max-width: 400px;
+export const Container = styled.div<LayoutProps>`
+  ${layout};
 `;
 
 export const BulletListContainer = styled.div`
