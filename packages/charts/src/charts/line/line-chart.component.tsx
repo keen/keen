@@ -4,7 +4,7 @@ import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import { generateLines, showAllMarks } from './utils';
 
-import { Tooltip, Lines } from './components';
+import { Lines } from './components';
 
 import {
   ChartBase,
@@ -21,6 +21,9 @@ import { DEFAULT_MARGINS } from './constants';
 import { CommonChartSettings, GroupMode, StackMode } from '../../types';
 
 import { CurveType } from './types';
+import LineChartTooltipContent from './line-chart-tooltip-content.component';
+
+import { MAX_TOOLTIP_WIDTH_FACTOR } from '../bar/constants';
 
 export type Props = {
   /** chart data */
@@ -103,6 +106,7 @@ export const LineChart: FC<Props> = ({
     stepMode,
     areas,
     gradientBlocks,
+    localizedData,
   } = generateLines({
     data,
     xScaleSettings,
@@ -134,7 +138,6 @@ export const LineChart: FC<Props> = ({
   } = useTooltip(svgElement, computeTooltipRelative);
 
   const { tooltip: tooltipSettings } = theme;
-
   return (
     <ChartBase
       ref={svgElement}
@@ -186,12 +189,20 @@ export const LineChart: FC<Props> = ({
             visible={tooltipVisible}
             x={tooltipPosition.x}
             y={tooltipPosition.y}
+            hasSpacing={false}
           >
             {tooltipSelectors && (
-              <Tooltip
-                data={data}
+              <LineChartTooltipContent
+                data={localizedData}
+                keys={keys}
+                disabledKeys={disabledKeys}
+                stackMode={stackMode}
+                groupMode={groupMode}
                 selectors={tooltipSelectors}
+                isList={tooltipSelectors.length > 1}
                 formatValue={formatTooltip}
+                labelSelector={labelSelector}
+                maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
               />
             )}
           </ChartTooltip>

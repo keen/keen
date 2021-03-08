@@ -8,7 +8,6 @@ const formatValue = (
 ) => {
   if (typeof formatter === 'string') return formatByPattern(formatter, value);
   if (typeof formatter === 'function') return formatter(value);
-
   return value;
 };
 
