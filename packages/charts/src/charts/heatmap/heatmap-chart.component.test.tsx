@@ -83,3 +83,22 @@ test('formats tooltip value', async () => {
     expect(getByText(formatTooltip(result))).toBeInTheDocument();
   });
 });
+
+test('formats tooltip value by string formatter', async () => {
+  window.requestAnimationFrame = (callback) => {
+    callback(null);
+    return null;
+  };
+
+  const formatter = '${number; 0.00a}$';
+  const {
+    wrapper: { getByText, container },
+  } = render({ formatTooltip: formatter });
+
+  const chart = container.querySelector('svg');
+  fireEvent.mouseOver(chart.querySelector('rect'));
+
+  await waitFor(() => {
+    expect(getByText('3.00$')).toBeInTheDocument();
+  });
+});

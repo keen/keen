@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
-import { getFromPath } from '@keen.io/charts-utils';
+import {
+  getFromPath,
+  TooltipFormatter,
+  formatValue as valueFormatter,
+} from '@keen.io/charts-utils';
 import { Text, Typography } from '@keen.io/ui-core';
 
-import { DataSelector, TooltipFormatter } from '../../types';
+import { DataSelector } from '../../types';
 
 type Props = {
   data: Record<string, any>[];
@@ -19,9 +23,7 @@ export const TooltipContent: FC<Props> = ({
 }) => {
   const value = getFromPath(data, selectors[0].selector);
 
-  return (
-    <Text {...typography}>{formatValue ? formatValue(value) : value}</Text>
-  );
+  return <Text {...typography}>{valueFormatter(value, formatValue)}</Text>;
 };
 
 export default TooltipContent;
