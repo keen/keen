@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Layout } from '@keen.io/ui-core';
 
-export const Header = styled.div<{
+export const HeaderContainer = styled.div<{
   backgroundColor: string;
   fixedWidth: boolean;
   centerItems: boolean;
@@ -22,7 +22,7 @@ export const Header = styled.div<{
   -webkit-font-smoothing: antialiased;
 `;
 
-export const Step = styled.div<{
+export const StepContainer = styled.div<{
   layout: Layout;
   stepsCount: number;
 }>`

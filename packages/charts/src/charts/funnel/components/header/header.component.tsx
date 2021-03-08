@@ -1,23 +1,24 @@
 import React, { FC } from 'react';
 import { Badge, Text } from '@keen.io/ui-core';
 
-import {
-  Container,
-  TextContainer,
-  LabelContainer,
-} from './funnel-header.styles';
+import { Container, TextContainer, Label } from './header.styles';
 
-import { Theme } from '../../types';
+import { Theme } from '../../../../types';
 
 type Props = {
+  /* Theme configuration */
   theme: Pick<Theme, 'funnel'>;
+  /** Percentage value for step */
   percentageValue: number;
+  /** Step value */
   value: number | string;
+  /** Step label */
   label: string;
+  /** Layout configuration */
   flipBadge?: boolean;
 };
 
-export const FunnelHeader: FC<Props> = ({
+export const Header: FC<Props> = ({
   label,
   percentageValue,
   flipBadge = false,
@@ -33,21 +34,19 @@ export const FunnelHeader: FC<Props> = ({
       <div>
         {header.value.enabled && (
           <TextContainer>
-            <Text data-test="step-value" {...header.value.typography}>
-              {value}
-            </Text>
+            <Text {...header.value.typography}>{value}</Text>
           </TextContainer>
         )}
-        <LabelContainer title={label}>
-          <Text data-test="step-label" truncate {...header.title.typography}>
+        <Label title={label}>
+          <Text truncate {...header.title.typography}>
             {label}
           </Text>
-        </LabelContainer>
+        </Label>
       </div>
       {header.badge.enabled && (
         <div>
-          <Badge data-test="step-badge" variant={header.badge.variant}>
-            <Text data-test="badge-text" {...header.badge.typography}>
+          <Badge variant={header.badge.variant}>
+            <Text {...header.badge.typography}>
               {percentageValue.toFixed(0)}%
             </Text>
           </Badge>
@@ -57,4 +56,4 @@ export const FunnelHeader: FC<Props> = ({
   );
 };
 
-export default FunnelHeader;
+export default Header;

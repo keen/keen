@@ -4,7 +4,7 @@ export const TextContainer = styled.div`
   margin-bottom: 5px;
 `;
 
-export const LabelContainer = styled.div`
+export const Label = styled.div`
   margin-bottom: 10px;
 `;
 
