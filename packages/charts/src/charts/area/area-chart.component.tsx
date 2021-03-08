@@ -1,14 +1,9 @@
 import React from 'react';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import LineChart from '../line/line-chart.component';
 
-import {
-  CommonChartSettings,
-  GroupMode,
-  StackMode,
-  TooltipFormatter,
-} from '../../types';
+import { CommonChartSettings, GroupMode, StackMode } from '../../types';
 
 import { CurveType } from '../line/types';
 

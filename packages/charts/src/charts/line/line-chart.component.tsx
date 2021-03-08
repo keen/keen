@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
 import { useTooltip } from '@keen.io/react-hooks';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import { generateLines, showAllMarks } from './utils';
 
@@ -12,12 +12,7 @@ import { useDynamicChartLayout } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import {
-  CommonChartSettings,
-  GroupMode,
-  StackMode,
-  TooltipFormatter,
-} from '../../types';
+import { CommonChartSettings, GroupMode, StackMode } from '../../types';
 
 import { CurveType } from './types';
 
