@@ -5,6 +5,10 @@ import {
   waitFor,
   within,
 } from '@testing-library/react';
+import {
+  register as registerTimezone,
+  unregister as unregisterTimezone,
+} from 'timezone-mock';
 import BarChart from './bar-chart.component';
 
 import { theme as defaultTheme } from '../../theme';
@@ -45,18 +49,20 @@ const originalGetBBox = (SVGElement as any).prototype.getBBox;
 const originalGetComputedTextLength = (SVGElement as any).prototype
   .getComputedTextLength;
 
-beforeEach(() => {
+beforeAll(() => {
   (SVGElement as any).prototype.getBBox = () => {
     return mockedRect;
   };
   (SVGElement as any).prototype.getComputedTextLength = () => {
     return 10;
   };
+  registerTimezone('UTC');
 });
 
 afterAll(() => {
   (SVGElement as any).prototype.getBBox = originalGetBBox;
   (SVGElement as any).prototype.getComputedTextLength = originalGetComputedTextLength;
+  unregisterTimezone();
 });
 
 test('chart to be rendered', () => {
@@ -410,4 +416,33 @@ test('should create motion for stacked chart', () => {
 
   expect(rects[0].getAttribute('width')).not.toEqual('0px');
   expect(rects[0].getAttribute('height')).not.toEqual('0px');
+});
+
+test('renders tooltip label with normalized date', () => {
+  const data = [
+    {
+      'keen.key': '2019-05-01T00:00:00.000Z',
+      'Edwidge Danticat': 121,
+      'George R. R. Martin': 64,
+      'J.K. Rowling': 82,
+      'Stephen King': 6,
+    },
+  ];
+  const keys = [
+    'Edwidge Danticat',
+    'George R. R. Martin',
+    'J.K. Rowling',
+    'Stephen King',
+  ];
+  const selectors = [{ selector: [0, 'Edwidge Danticat'], color: '#85B4C3' }];
+  const xScaleSettings = { type: 'band', precision: 'month' };
+  const labelSelector = 'keen.key';
+
+  const {
+    wrapper: { getByText },
+  } = render({ data, keys, selectors, labelSelector, xScaleSettings });
+
+  expect(
+    getByText('2019-05-01T00:00:00.000Z UTC (MockDate: GMT+0000)')
+  ).toBeInTheDocument();
 });

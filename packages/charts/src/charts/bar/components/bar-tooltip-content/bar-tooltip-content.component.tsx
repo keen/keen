@@ -13,11 +13,7 @@ import { getLabel } from '../../utils/tooltip.utils';
 
 import { ChartContext, ChartContextType } from '../../../../contexts';
 
-import {
-  DataSelector,
-  GroupMode,
-  StackMode
-} from '../../../../types';
+import { DataSelector, GroupMode, StackMode } from '../../../../types';
 
 type Props = {
   /** Data series */

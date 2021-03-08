@@ -106,6 +106,7 @@ export const BarChart: FC<Props> = ({
     bars,
     xScale,
     yScale,
+    localizedData,
     settings,
     settings: { xAxisTitle: xTitle, yAxisTitle: yTitle },
   } = generateBars({
@@ -207,7 +208,7 @@ export const BarChart: FC<Props> = ({
             >
               {tooltip.selectors && (
                 <BarTooltipContent
-                  data={data}
+                  data={localizedData}
                   keys={keys}
                   disabledKeys={disabledKeys}
                   stackMode={stackMode}
