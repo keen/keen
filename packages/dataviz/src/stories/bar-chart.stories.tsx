@@ -122,6 +122,7 @@ export const MultipleResultsPlot = () => {
           tooltip: {
             mode: 'light',
             labels: { typography: { fontColor: colors.black['500'] } },
+            values: { typography: { fontColor: colors.black['500'] } },
           },
         },
       },
@@ -217,6 +218,7 @@ export const StackedNormal = () => {
           tooltip: {
             mode: 'light',
             labels: { typography: { fontColor: colors.black['500'] } },
+            values: { typography: { fontColor: colors.black['500'] } },
           },
         },
       },
@@ -236,7 +238,7 @@ export const StackedNormal = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '400px' }} ref={container} />;
 };
 
 StackedNormal.story = {
@@ -280,7 +282,7 @@ export const StackedPercentage = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '400px' }} ref={container} />;
 };
 
 StackedPercentage.story = {
@@ -376,6 +378,41 @@ DoubleGrouped.story = {
   parameters: {
     docs: {
       storyDescription: 'Results grouped by two properties',
+    },
+  },
+};
+
+export const GroupedWithInterval = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const client = new KeenAnalysis(analysisConfig);
+    const dataviz = new KeenDataViz({
+      type: 'bar',
+      container: container.current,
+    });
+
+    client
+      .query({
+        analysis_type: 'count',
+        event_collection: 'book_purchase',
+        timeframe: {
+          start: '2020-01-01T00:00:00.000-00:00',
+          end: '2020-02-01T16:00:00.000-00:00',
+        },
+        group_by: ['name'],
+        interval: 'weekly',
+      })
+      .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+};
+
+GroupedWithInterval.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Results grouped by specific property with interval',
     },
   },
 };

@@ -31,15 +31,11 @@ const render = (overProps: any = {}) => {
   };
 };
 
-jest.useFakeTimers();
-
 test('formats tooltip value', async () => {
   const {
     wrapper: { getByTestId, getByText },
     props: { data, formatTooltip, labelSelector, keys },
   } = render();
-
-  jest.runAllTimers();
 
   const [firstSeries] = data;
   const label = firstSeries[labelSelector];
@@ -49,7 +45,26 @@ test('formats tooltip value', async () => {
   fireEvent.mouseMove(slice.querySelector('path'));
 
   await waitFor(() => {
-    expect(getByText(`${label} :`)).toBeInTheDocument();
+    expect(getByText(label)).toBeInTheDocument();
     expect(getByText(`${formatTooltip(result)}`)).toBeInTheDocument();
+  });
+});
+
+test('formats tooltip value by string formatter', async () => {
+  const formatter = '${number; 0.00a}';
+  const {
+    wrapper: { getByTestId, getByText },
+    props: { data, labelSelector },
+  } = render({ formatTooltip: formatter });
+
+  const [firstSeries] = data;
+  const label = firstSeries[labelSelector];
+
+  const slice = getByTestId(label);
+  fireEvent.mouseMove(slice.querySelector('path'));
+
+  await waitFor(() => {
+    expect(getByText(label)).toBeInTheDocument();
+    expect(getByText('22.00')).toBeInTheDocument();
   });
 });
