@@ -7,7 +7,7 @@ describe('@keen.io/charts', () => {
 
     const colors = ['red', 'green', 'blue'];
 
-    it('should return array with single "DateSelector" object', () => {
+    test('should return array with single "DateSelector" object', () => {
       const selectors = getSelectors({
         keys,
         colors,
@@ -20,7 +20,7 @@ describe('@keen.io/charts', () => {
       expect(selectors).toEqual([selector]);
     });
 
-    it('should return array with multiple "DateSelector" objects', () => {
+    test('should return array with multiple "DateSelector" objects', () => {
       const selectors = getSelectors({
         keys,
         selector,
@@ -39,7 +39,7 @@ describe('@keen.io/charts', () => {
       expect(selectors).toEqual(result);
     });
 
-    it('should return array with filtered "DateSelector" objects', () => {
+    test('should return array with filtered "DateSelector" objects', () => {
       const selectors = getSelectors({
         keys,
         selector,

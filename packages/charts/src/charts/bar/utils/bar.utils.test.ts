@@ -6,7 +6,7 @@ import { chartData } from '../bar-chart.fixtures';
 const colors = ['red', 'green', 'blue'];
 
 describe('getBarColor()', () => {
-  it('should get correct bar color', () => {
+  test('should get correct bar color', () => {
     const parameters = {
       activeBar: {
         selector: [1, 'users'],
@@ -24,13 +24,13 @@ describe('getBarColor()', () => {
 });
 
 describe('getColor()', () => {
-  it('should return green color', () => {
+  test('should return green color', () => {
     const result = getColor(1, colors);
 
     expect(result).toBe('green');
   });
 
-  it('should return black color', () => {
+  test('should return black color', () => {
     const result = getColor(3, colors);
 
     expect(result).toBe('#1D2729');
@@ -42,7 +42,7 @@ describe('calculateGroupedBars()', () => {
   const labelSelector = 'name';
   const range = [true, true, true, true];
 
-  it('should calculate grouped bars correctly for vertical layout', () => {
+  test('should calculate grouped bars correctly for vertical layout', () => {
     const xScale = scaleBand()
       .range([0, 100])
       .domain(chartData.map((item: any) => item[labelSelector]))
@@ -68,7 +68,7 @@ describe('calculateGroupedBars()', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it('should calculate grouped bars correctly for horizontal layout', () => {
+  test('should calculate grouped bars correctly for horizontal layout', () => {
     const xScale = scaleLinear().range([0, 100]).domain([-30, 82]);
     const yScale = scaleBand()
       .range([0, 100])
@@ -85,8 +85,8 @@ describe('calculateGroupedBars()', () => {
       labelSelector,
       [],
       range,
-      yScale,
       xScale,
+      yScale,
       'horizontal',
       colors
     );

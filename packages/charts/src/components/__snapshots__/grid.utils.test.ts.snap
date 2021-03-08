@@ -3,7 +3,6 @@
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale x 1`] = `
 Array [
   Object {
-    "data-testid": "grid-x-0",
     "stroke": undefined,
     "x1": 25,
     "x2": 25,
@@ -11,7 +10,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-1",
     "stroke": undefined,
     "x1": 75,
     "x2": 75,
@@ -36,7 +34,6 @@ Array [
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for band scale y 1`] = `
 Array [
   Object {
-    "data-testid": "grid-y-0",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -44,7 +41,6 @@ Array [
     "y2": 25,
   },
   Object {
-    "data-testid": "grid-y-1",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -52,7 +48,6 @@ Array [
     "y2": 75,
   },
   Object {
-    "data-testid": "grid-y-2",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -60,7 +55,6 @@ Array [
     "y2": 125,
   },
   Object {
-    "data-testid": "grid-y-3",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -85,7 +79,6 @@ Array [
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale x 1`] = `
 Array [
   Object {
-    "data-testid": "grid-x-0",
     "stroke": undefined,
     "x1": 0,
     "x2": 0,
@@ -93,7 +86,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-1",
     "stroke": undefined,
     "x1": 12.5,
     "x2": 12.5,
@@ -101,7 +93,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-2",
     "stroke": undefined,
     "x1": 25,
     "x2": 25,
@@ -109,7 +100,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-3",
     "stroke": undefined,
     "x1": 37.5,
     "x2": 37.5,
@@ -117,7 +107,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-4",
     "stroke": undefined,
     "x1": 50,
     "x2": 50,
@@ -125,7 +114,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-5",
     "stroke": undefined,
     "x1": 62.5,
     "x2": 62.5,
@@ -133,7 +121,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-6",
     "stroke": undefined,
     "x1": 75,
     "x2": 75,
@@ -141,7 +128,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-7",
     "stroke": undefined,
     "x1": 87.5,
     "x2": 87.5,
@@ -149,7 +135,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-x-8",
     "stroke": undefined,
     "x1": 100,
     "x2": 100,
@@ -162,7 +147,6 @@ Array [
 exports[`@keen.io/charts <Grid /> - utils generateGridLines() should calculate lines coordinates for linear scale y 1`] = `
 Array [
   Object {
-    "data-testid": "grid-y-0",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -170,7 +154,6 @@ Array [
     "y2": 0,
   },
   Object {
-    "data-testid": "grid-y-1",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -178,7 +161,6 @@ Array [
     "y2": 10,
   },
   Object {
-    "data-testid": "grid-y-2",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -186,7 +168,6 @@ Array [
     "y2": 20,
   },
   Object {
-    "data-testid": "grid-y-3",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -194,7 +175,6 @@ Array [
     "y2": 30,
   },
   Object {
-    "data-testid": "grid-y-4",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -202,7 +182,6 @@ Array [
     "y2": 40,
   },
   Object {
-    "data-testid": "grid-y-5",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -210,7 +189,6 @@ Array [
     "y2": 50,
   },
   Object {
-    "data-testid": "grid-y-6",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -218,7 +196,6 @@ Array [
     "y2": 60,
   },
   Object {
-    "data-testid": "grid-y-7",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -226,7 +203,6 @@ Array [
     "y2": 70,
   },
   Object {
-    "data-testid": "grid-y-8",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -234,7 +210,6 @@ Array [
     "y2": 80,
   },
   Object {
-    "data-testid": "grid-y-9",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,
@@ -242,7 +217,6 @@ Array [
     "y2": 90,
   },
   Object {
-    "data-testid": "grid-y-10",
     "stroke": undefined,
     "x1": 10,
     "x2": 90,

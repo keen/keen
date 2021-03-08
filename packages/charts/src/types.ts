@@ -20,7 +20,6 @@ export type Line = {
   x2: number;
   y2: number;
   stroke?: number;
-  'data-testid'?: string;
 };
 
 export type Tick = {

@@ -6,7 +6,7 @@ import {
 
 describe('@keen.io/charts - <BarChart /> utils', () => {
   describe('setMarkSize()', () => {
-    it('should use "small" variant for "vertical" layout', () => {
+    test('should use "small" variant for "vertical" layout', () => {
       const mark = setMarkSize({
         layout: 'vertical',
         width: 25,
@@ -16,7 +16,7 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       expect(mark).toEqual(MARK_VARIANTS['small']);
     });
 
-    it('should use "normal" variant for "vertical" layout', () => {
+    test('should use "normal" variant for "vertical" layout', () => {
       const mark = setMarkSize({
         layout: 'vertical',
         width: 90,
@@ -26,7 +26,7 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       expect(mark).toEqual(MARK_VARIANTS['normal']);
     });
 
-    it('should use "small" variant for "horizontal" layout', () => {
+    test('should use "small" variant for "horizontal" layout', () => {
       const mark = setMarkSize({
         layout: 'horizontal',
         width: 60,
@@ -36,7 +36,7 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       expect(mark).toEqual(MARK_VARIANTS['small']);
     });
 
-    it('should use "normal" variant for "horizontal" layout', () => {
+    test('should use "normal" variant for "horizontal" layout', () => {
       const mark = setMarkSize({
         layout: 'horizontal',
         width: 30,
@@ -55,7 +55,7 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       height: 100,
     };
 
-    it('should calculate position for "vertical" layout', () => {
+    test('should calculate position for "vertical" layout', () => {
       const result = calculateMarkPosition({
         ...barProperties,
         layout: 'vertical',
@@ -67,7 +67,7 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       });
     });
 
-    it('should calculate position for "horizontal" layout', () => {
+    test('should calculate position for "horizontal" layout', () => {
       const result = calculateMarkPosition({
         ...barProperties,
         layout: 'horizontal',

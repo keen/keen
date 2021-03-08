@@ -104,7 +104,6 @@ export const generateGridLines = ({
         x2: x,
         y2,
         stroke: isZero ? 2 : undefined,
-        'data-testid': `grid-x-${lines.length}`,
       });
     });
 
@@ -120,7 +119,6 @@ export const generateGridLines = ({
         x2: dimension.width - margins.right,
         y2: y,
         stroke: isZero ? 2 : undefined,
-        'data-testid': `grid-y-${lines.length}`,
       });
     });
 
