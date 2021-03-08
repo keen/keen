@@ -3,14 +3,13 @@ import { motion } from 'framer-motion';
 import { ScaleLinear } from 'd3-scale';
 import { Layout } from '@keen.io/ui-core';
 
-import FunnelHeader from './funnel-header.component';
-import { Container, Header, Step } from './funnel-step.styles';
+import Header from '../header';
+import { Container, HeaderContainer, StepContainer } from './step.styles';
 
-import { ResponsiveWrapper, ChartBase } from '../../components';
+import { ResponsiveWrapper, ChartBase } from '../../../../components';
+import { calculateStepPoints } from '../../utils';
 
-import { calculateStepPoints } from './utils';
-
-import { Margins, Theme } from '../../types';
+import { Margins, Theme } from '../../../../types';
 
 const createStepMotion = (layout: Layout) => {
   const motionProperty = layout === 'horizontal' ? 'x' : 'y';
@@ -66,7 +65,11 @@ export const FunnelStep: FC<Props> = ({
   } = theme;
 
   return (
-    <Step layout={layout} stepsCount={stepsCount}>
+    <StepContainer
+      layout={layout}
+      stepsCount={stepsCount}
+      data-testid="funnel-step"
+    >
       <motion.div
         style={{ width: '100%', height: '100%' }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -76,19 +79,19 @@ export const FunnelStep: FC<Props> = ({
         }}
       >
         <Container layout={layout} backgroundColor={step.backgroundColor}>
-          <Header
+          <HeaderContainer
             centerItems={layout === 'horizontal'}
             fixedWidth={layout === 'vertical'}
             backgroundColor={header.backgroundColor}
           >
-            <FunnelHeader
+            <Header
               label={label}
               value={value}
               flipBadge={layout === 'horizontal'}
               percentageValue={percentageValue}
               theme={theme}
             />
-          </Header>
+          </HeaderContainer>
           <ResponsiveWrapper>
             {(width: number, height: number) => {
               const path = calculateStepPoints({
@@ -120,7 +123,7 @@ export const FunnelStep: FC<Props> = ({
           </ResponsiveWrapper>
         </Container>
       </motion.div>
-    </Step>
+    </StepContainer>
   );
 };
 

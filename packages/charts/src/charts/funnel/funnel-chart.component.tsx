@@ -4,8 +4,8 @@ import { formatNumber } from '@keen.io/charts-utils';
 
 import { theme as defaultTheme } from '../../theme';
 
-import FunnelStep from './funnel-step.component';
-import { FunnelContainer } from './funnel-chart.styles';
+import { Step } from './components';
+import { Container } from './funnel-chart.styles';
 
 import { generateFunnel } from './utils';
 
@@ -43,13 +43,13 @@ export const FunnelChart: FC<Props> = ({
   });
 
   return (
-    <FunnelContainer layout={layout}>
+    <Container layout={layout}>
       {steps.map(
         (
           { percentageValue, nextPercentageValue, value, color, index },
           idx
         ) => (
-          <FunnelStep
+          <Step
             key={idx}
             label={stepLabels[idx] || data[index][labelSelector]}
             theme={theme}
@@ -65,7 +65,7 @@ export const FunnelChart: FC<Props> = ({
           />
         )
       )}
-    </FunnelContainer>
+    </Container>
   );
 };
 
