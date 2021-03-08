@@ -20,36 +20,15 @@ type Options = {
   formatValue?: TooltipFormatter;
 };
 
-export const getTooltipContent = ({
-  data,
-  keys,
-  labelSelector,
-  selectors,
-}: Options) => {
-  const content: { color: string; data: string }[] = [];
-
-  selectors.forEach(({ selector, color }) => {
-    const item = getFromPath(data, selector);
-    const total = keys.reduce((acc, keyName) => {
-      return acc + item[keyName];
-    }, 0);
-
-    content.push({ color, data: `${item[labelSelector]} - ${total}` });
-  });
-
-  return content;
-};
-
 export const getCircularChartTooltipContent = ({
   data,
   keys,
   labelSelector,
   selectors,
-  disabledLabels,
+  disabledLabels = [],
   formatValue,
 }: Options) => {
   const content: Point[] = [];
-  console.log({ selectors });
 
   selectors.length > 1 &&
     content.push({ color: colors.gray[500], data: OTHERS_DATA_KEY });
