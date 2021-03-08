@@ -6,7 +6,7 @@ import { chartData as data } from './bar-chart.fixtures';
 import { theme } from '../../theme';
 import { ChartContext } from '../../contexts';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: any = {}, overContextValue: any = {}) => {
   const keys = ['users', 'licenses'];
   const selectors = [
     {
@@ -27,8 +27,14 @@ const render = (overProps: any = {}) => {
     ...overProps,
   };
 
+  const contextValue = {
+    xScaleSettings: {},
+    theme,
+    ...overContextValue,
+  };
+
   const wrapper = rtlRender(
-    <ChartContext.Provider value={{ xScaleSettings: {}, theme }}>
+    <ChartContext.Provider value={...contextValue}>
       <BarTooltip {...props} />
     </ChartContext.Provider>
   );
@@ -74,4 +80,34 @@ test('formats toolip list values', () => {
   expect(getByText('30.0%')).toBeInTheDocument();
   expect(getByText(`(${formatValue(licenses)})`)).toBeInTheDocument();
   expect(getByText('70.0%')).toBeInTheDocument();
+});
+
+test('renders tooltip label when time precision is provided for axis', () => {
+  const data = [
+    {
+      'keen.key': '2019-05-01T00:00:00.000Z',
+      'Edwidge Danticat': 121,
+      'George R. R. Martin': 64,
+      'J.K. Rowling': 82,
+      'Stephen King': 6,
+    },
+  ];
+  const keys = [
+    'Edwidge Danticat',
+    'George R. R. Martin',
+    'J.K. Rowling',
+    'Stephen King',
+  ];
+  const selectors = [{ selector: [0, 'Edwidge Danticat'], color: '#85B4C3' }];
+  const xScaleSettings = { type: 'band', precision: 'month' };
+  const labelSelector = 'keen.key';
+
+  const [firstSelector] = selectors;
+  const [index] = firstSelector.selector;
+  const tooltipLabel = data[index][labelSelector];
+  const {
+    wrapper: { getByText },
+  } = render({ data, keys, selectors, labelSelector }, { xScaleSettings });
+
+  expect(getByText(tooltipLabel)).toBeInTheDocument();
 });

@@ -86,19 +86,13 @@ const BarTooltip: FC<Props> = ({
       color,
       data: {
         label: `${selector[1]}`,
-        ...(isList
-          ? getLabel({
-              data,
-              selector,
-              percentageData,
-              isPercentage,
-              formatValue,
-            })
-          : {
-              value: formatValue
-                ? valueFormatter(getFromPath(data, selector), formatValue)
-                : getFromPath(data, selector),
-            }),
+        ...getLabel({
+          data,
+          selector,
+          percentageData,
+          isPercentage,
+          formatValue,
+        }),
       },
     };
   });
@@ -107,7 +101,7 @@ const BarTooltip: FC<Props> = ({
     <div data-testid="bar-tooltip">
       <TooltipContent
         items={items}
-        label={`${tooltipLabel}`}
+        label={tooltipLabel && `${tooltipLabel}`}
         totalValue={totalValue}
         percentValue={percentValue}
         maxWidth={maxWidth}

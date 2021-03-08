@@ -19,9 +19,7 @@ export const getLabel = ({
   percentageData: Record<string, any>[];
   formatValue?: TooltipFormatter;
 }) => {
-  const value = formatValue
-    ? valueFormatter(getFromPath(data, selector), formatValue)
-    : getFromPath(data, selector);
+  const value = valueFormatter(getFromPath(data, selector), formatValue);
   if (isPercentage) {
     return {
       value: `${getFromPath(percentageData, selector).toFixed(1)}%`,
