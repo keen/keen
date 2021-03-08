@@ -5,6 +5,10 @@ import {
   waitFor,
   within,
 } from '@testing-library/react';
+import {
+  register as registerTimezone,
+  unregister as unregisterTimezone,
+} from 'timezone-mock';
 import BarChart from './bar-chart.component';
 
 import { theme as defaultTheme } from '../../theme';
@@ -45,18 +49,20 @@ const originalGetBBox = (SVGElement as any).prototype.getBBox;
 const originalGetComputedTextLength = (SVGElement as any).prototype
   .getComputedTextLength;
 
-beforeEach(() => {
+beforeAll(() => {
   (SVGElement as any).prototype.getBBox = () => {
     return mockedRect;
   };
   (SVGElement as any).prototype.getComputedTextLength = () => {
     return 10;
   };
+  registerTimezone('UTC');
 });
 
 afterAll(() => {
   (SVGElement as any).prototype.getBBox = originalGetBBox;
   (SVGElement as any).prototype.getComputedTextLength = originalGetComputedTextLength;
+  unregisterTimezone();
 });
 
 test('chart to be rendered', () => {
@@ -437,8 +443,6 @@ test('renders tooltip label with normalized date', () => {
   } = render({ data, keys, selectors, labelSelector, xScaleSettings });
 
   expect(
-    getByText(
-      'Wed May 01 2019 00:00:00 GMT+0200 (Central European Summer Time)'
-    )
+    getByText('2019-05-01T00:00:00.000Z UTC (MockDate: GMT+0000)')
   ).toBeInTheDocument();
 });
