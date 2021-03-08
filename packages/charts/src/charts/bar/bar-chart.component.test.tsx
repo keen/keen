@@ -411,3 +411,34 @@ test('should create motion for stacked chart', () => {
   expect(rects[0].getAttribute('width')).not.toEqual('0px');
   expect(rects[0].getAttribute('height')).not.toEqual('0px');
 });
+
+test('renders tooltip label with normalized date', () => {
+  const data = [
+    {
+      'keen.key': '2019-05-01T00:00:00.000Z',
+      'Edwidge Danticat': 121,
+      'George R. R. Martin': 64,
+      'J.K. Rowling': 82,
+      'Stephen King': 6,
+    },
+  ];
+  const keys = [
+    'Edwidge Danticat',
+    'George R. R. Martin',
+    'J.K. Rowling',
+    'Stephen King',
+  ];
+  const selectors = [{ selector: [0, 'Edwidge Danticat'], color: '#85B4C3' }];
+  const xScaleSettings = { type: 'band', precision: 'month' };
+  const labelSelector = 'keen.key';
+
+  const {
+    wrapper: { getByText },
+  } = render({ data, keys, selectors, labelSelector, xScaleSettings });
+
+  expect(
+    getByText(
+      'Wed May 01 2019 00:00:00 GMT+0200 (Central European Summer Time)'
+    )
+  ).toBeInTheDocument();
+});

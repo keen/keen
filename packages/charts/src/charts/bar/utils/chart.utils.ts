@@ -54,7 +54,7 @@ type Options = {
  * @param colors - palette of colors for chart
  * @param xScaleSettings - time scale settings
  * @param layout - layout of the plot
- * @return bars, xScale, yScale
+ * @return bars, xScale, yScale, localizedData
  *
  */
 
@@ -129,6 +129,7 @@ export const generateHorizontalGroupedBars = ({
     bars,
     xScale,
     yScale,
+    localizedData,
   };
 };
 
@@ -148,7 +149,7 @@ export const generateHorizontalGroupedBars = ({
  * @param labelSelector - selected label from data
  * @param xScaleSettings - time scale settings
  * @param layout - layout of the plot
- * @return bars, xScale, yScale
+ * @return bars, xScale, yScale, localizedData
  *
  */
 
@@ -223,6 +224,7 @@ export const generateVerticalGroupedBars = ({
     bars,
     xScale,
     yScale,
+    localizedData,
   };
 };
 
@@ -241,7 +243,7 @@ export const generateVerticalGroupedBars = ({
  * @param stackMode - stackMode option
  * @param labelSelector - selected label from data
  * @param xScaleSettings - time scale settings
- * @return bars, xScale, yScale
+ * @return bars, xScale, yScale, localizedData
  *
  */
 
@@ -336,6 +338,7 @@ export const generateHorizontalStackedBars = ({
     bars,
     xScale,
     yScale,
+    localizedData,
   };
 };
 
@@ -354,7 +357,7 @@ export const generateHorizontalStackedBars = ({
  * @param stackMode - stackMode option
  * @param labelSelector - selected label from data
  * @param xScaleSettings - time scale settings
- * @return bars, xScale, yScale
+ * @return bars, xScale, yScale, localizedData
  *
  */
 
@@ -449,6 +452,7 @@ export const generateVerticalStackedBars = ({
     bars,
     xScale,
     yScale,
+    localizedData,
   };
 };
 
