@@ -2,10 +2,10 @@ import React from 'react';
 import { render as rtlRender, fireEvent, screen } from '@testing-library/react';
 
 import Bars, { Props } from './bars.component';
-import { bars } from './bar-chart.fixtures';
+import { bars } from '../../bar-chart.fixtures';
 
-import { theme } from '../../theme';
-import { ChartContext } from '../../contexts';
+import { theme } from '../../../../theme';
+import { ChartContext } from '../../../../contexts';
 
 const render = (overProps: any = {}) => {
   const props = {

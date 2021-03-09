@@ -353,6 +353,9 @@ export const theme: Theme = {
     enabled: true,
     color: colors.gray['400'],
   },
+  zeroIntersection: {
+    color: colors.blue['500'],
+  },
   hoverBar: {
     enabled: true,
     type: 'dark',

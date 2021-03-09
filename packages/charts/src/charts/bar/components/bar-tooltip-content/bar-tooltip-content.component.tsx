@@ -8,11 +8,11 @@ import {
   ScaleSettings,
 } from '@keen.io/charts-utils';
 
-import { TooltipContent } from '../../components';
+import { TooltipContent } from '../../../../components';
 
-import { getLabel } from './utils/tooltip.utils';
+import { getLabel } from '../../utils/tooltip.utils';
 
-import { DataSelector, GroupMode, StackMode } from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../../../types';
 
 type Props = {
   /** Data series */

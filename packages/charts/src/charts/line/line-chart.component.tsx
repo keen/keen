@@ -6,7 +6,13 @@ import { generateLines, showAllMarks } from './utils';
 
 import { Tooltip, Lines } from './components';
 
-import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
+import {
+  ChartBase,
+  ChartTooltip,
+  Axes,
+  Grid,
+  ZeroIntersection,
+} from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
@@ -154,6 +160,7 @@ export const LineChart: FC<Props> = ({
       {layoutReady && (
         <>
           <Grid xScale={xScale} yScale={yScale} />
+          <ZeroIntersection xScale={xScale} yScale={yScale} />
           <Lines
             lines={lines}
             marks={marks}

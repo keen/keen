@@ -2,9 +2,9 @@ import React, { FC, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ColorAdjuster } from '@keen.io/ui-core';
 
-import { ChartContext, ChartContextType } from '../../contexts';
+import { ChartContext, ChartContextType } from '../../../../contexts';
 
-import { Bar } from './types';
+import { Bar } from '../../types';
 
 export const createTextMotion = (x: number, y: number) => ({
   initial: { opacity: 0, x, y },

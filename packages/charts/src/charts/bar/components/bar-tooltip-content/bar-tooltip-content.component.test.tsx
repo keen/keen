@@ -2,9 +2,9 @@ import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import BarTooltip from './bar-tooltip-content.component';
 
-import { chartData as data } from './bar-chart.fixtures';
-import { theme } from '../../theme';
-import { ChartContext } from '../../contexts';
+import { chartData as data } from '../../bar-chart.fixtures';
+import { theme } from '../../../../theme';
+import { ChartContext } from '../../../../contexts';
 
 const render = (overProps: any = {}) => {
   const keys = ['users', 'licenses'];
