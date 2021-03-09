@@ -1,17 +1,16 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import {
   getFromPath,
   getKeysDifference,
   transformToPercent,
   TooltipFormatter,
   formatValue as valueFormatter,
+  ScaleSettings,
 } from '@keen.io/charts-utils';
 
 import { TooltipContent } from '../../components';
 
 import { getLabel } from './utils/tooltip.utils';
-
-import { ChartContext, ChartContextType } from '../../contexts';
 
 import { DataSelector, GroupMode, StackMode } from '../../types';
 
@@ -36,6 +35,8 @@ type Props = {
   maxWidth?: number;
   /** Tooltip formatter */
   formatValue?: TooltipFormatter;
+  /** Scale settings */
+  scaleSettings?: ScaleSettings;
 };
 
 const BarTooltip: FC<Props> = ({
@@ -49,9 +50,9 @@ const BarTooltip: FC<Props> = ({
   labelSelector,
   maxWidth,
   formatValue,
+  scaleSettings = {},
 }) => {
-  const { xScaleSettings } = useContext(ChartContext) as ChartContextType;
-  const { precision, formatLabel } = xScaleSettings;
+  const { precision, formatLabel } = scaleSettings;
 
   const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
   const percentageData = isPercentage
@@ -61,10 +62,14 @@ const BarTooltip: FC<Props> = ({
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
 
-  const tooltipLabel =
-    precision && typeof index === 'number'
-      ? valueFormatter(data[index][labelSelector], formatLabel)
-      : null;
+  const isGrouped = data.length > 1;
+
+  const getTooltipLabel = () => {
+    if (typeof index === 'number' && (precision || isGrouped)) {
+      return `${valueFormatter(data[index][labelSelector], formatLabel)}`;
+    }
+    return null;
+  };
 
   const totalValue = isList
     ? keys.reduce((acc: number, keyName: string) => {
@@ -101,7 +106,7 @@ const BarTooltip: FC<Props> = ({
     <div data-testid="bar-tooltip">
       <TooltipContent
         items={items}
-        label={tooltipLabel && `${tooltipLabel}`}
+        label={getTooltipLabel()}
         totalValue={totalValue}
         percentValue={percentValue}
         maxWidth={maxWidth}
