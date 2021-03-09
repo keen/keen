@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 
-import { Mark, markMotion } from '../../components';
-import BarComponent from './bar.component';
-import BarValues from './bar-values.component';
+import { Mark, markMotion } from '../../../../components';
+import BarComponent from '../bar';
+import BarValues from '../bar-values';
 
-import { getBarColor } from './utils/bar.utils';
-import { calculateMarkPosition, setMarkSize } from './utils/mark.utils';
+import { getBarColor } from '../../utils/bar.utils';
+import { calculateMarkPosition, setMarkSize } from '../../utils/mark.utils';
 
-import { Bar } from './types';
-import { DataSelector, GroupMode, StackMode } from '../../types';
+import { Bar } from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../../../types';
 
 export type Props = {
   bars: Bar[];

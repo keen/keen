@@ -1,7 +1,23 @@
 import { transparentize } from 'polished';
+import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
+import { colors as colorPalette } from '@keen.io/colors';
+import { Layout, SortMode } from '@keen.io/ui-core';
 
-import { GroupMode, StackMode } from '../../../types';
-import { DataSelector } from '../../../types';
+import { GroupMode, StackMode, DataSelector } from '../../../types';
+import { Bar } from '../types';
+
+/**
+ * Prepare a color based on groupMode and stackMode
+ *
+ * @param activeBar - selected bar with mouse hover
+ * @param barKey - key of the bar
+ * @param barSelector - selector of the bar
+ * @param stackMode - stackMode option
+ * @param groupMode - groupMode option
+ * @param color - color of the bar
+ * @return return a color
+ *
+ */
 
 export const getBarColor = ({
   activeBar,
@@ -48,4 +64,117 @@ export const getBarColor = ({
   }
 
   return activeBar.key === barKey ? transparentize(0.05, color) : color;
+};
+
+/**
+ * Get color for the bar, if the pallete ends return black
+ *
+ * @param idx - index of the bar
+ * @param colors - colors array
+ * @return a color for a bar
+ *
+ */
+
+export const getColor = (idx: number, colors: string[]): string => {
+  if (colors[idx]) return colors[idx];
+  return colorPalette.black[500];
+};
+
+/**
+ * Calculate bars data for chart
+ *
+ * @param data - data series
+ * @param groupScale - band scale
+ * @param keys - keys used for calculation
+ * @param labelSelector - selected label from data
+ * @param disabledKeys - keys disabled for calculation/display
+ * @param range - array of booleans created based on yScale/xScale domain length
+ * @param xScale - time/linear scale
+ * @param yScale - time/linear scale
+ * @param layout - plot layout
+ * @param colors - array of colors
+ * @param barsOrder - bars order
+ * @return bars for chart
+ *
+ */
+
+export const calculateGroupedBars = (
+  data: Record<string, any>[],
+  groupScale: ScaleBand<string>,
+  keys: string[],
+  labelSelector: string,
+  disabledKeys: string[],
+  range: boolean[],
+  xScale:
+    | ScaleBand<string | number>
+    | ScaleLinear<number, number>
+    | ScaleTime<number, number>,
+  yScale: ScaleBand<string | number> | ScaleLinear<number, number>,
+  layout: Layout,
+  colors: string[],
+  barsOrder?: SortMode
+) => {
+  let counter = 0;
+  const barSize = groupScale.bandwidth();
+  const keysOrder: Record<number, any> = {};
+
+  if (barsOrder) {
+    data.forEach((_item: Record<string, any>, idx: number) => {
+      groupScale
+        .domain()
+        .sort((a, b) => {
+          if (barsOrder === 'descending') {
+            return data[idx]?.[b] - data[idx]?.[a];
+          } else {
+            return data[idx]?.[a] - data[idx]?.[b];
+          }
+        })
+        .forEach((keyName: string, index: number) => {
+          if (!keysOrder[idx]) keysOrder[idx] = {};
+          keysOrder[idx][keyName] = index;
+        });
+    });
+  }
+
+  const bars = keys.reduce((acc: Bar[], keyName: string, idx: number) => {
+    const barsGroup = [] as Bar[];
+    const isDisabled =
+      keyName === labelSelector || disabledKeys.includes(keyName);
+
+    range.forEach((_d, index: number) => {
+      const value = data[index]?.[keyName];
+
+      if (value && !isDisabled) {
+        const orderPosition = barsOrder ? keysOrder[index][keyName] : counter;
+        const bar =
+          layout === 'vertical'
+            ? {
+                x: xScale(data[index][labelSelector]) + barSize * orderPosition,
+                y: value > 0 ? yScale(value) : yScale(0),
+                width: barSize,
+                height: Math.abs(yScale(value) - yScale(0)),
+              }
+            : {
+                x: value > 0 ? Math.abs(xScale(0)) : xScale(value),
+                y: yScale(data[index][labelSelector]) + barSize * orderPosition,
+                width: Math.abs(xScale(value) - xScale(0)),
+                height: barSize,
+              };
+
+        barsGroup.push({
+          key: `${index}.${keyName}`,
+          selector: [index, keyName],
+          color: getColor(idx, colors),
+          value,
+          ...bar,
+        });
+      }
+    });
+
+    if (!barsOrder && !disabledKeys.includes(keyName)) counter++;
+
+    return [...acc, ...barsGroup];
+  }, []);
+
+  return bars;
 };

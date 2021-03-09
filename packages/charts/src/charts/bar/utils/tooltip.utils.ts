@@ -6,6 +6,18 @@ import {
 
 import { DataSelector, GroupMode } from '../../../types';
 
+/**
+ * Prepare selectors for bar while mouse hover
+ *
+ * @param isPercentage - is stackMode 'percent' on
+ * @param selector - selector of active bar
+ * @param data - data series
+ * @param percentageData - calculated percentage data
+ * @param formatValue - function for tooltip value format
+ * @return a value that will be displayed in tooltip
+ *
+ */
+
 export const getLabel = ({
   isPercentage,
   selector,
@@ -29,6 +41,19 @@ export const getLabel = ({
 
   return { value };
 };
+
+/**
+ * Prepare selectors for bar while mouse hover
+ *
+ * @param groupMode - groupMode option
+ * @param stackMode - stackMode option
+ * @param keys - keys for the calculations
+ * @param disabledKeys - keys disabled for calculation/display
+ * @param colors - colors array
+ * @param selector - color of the bar
+ * @return return an array of DataSelector objects with a color
+ *
+ */
 
 export const getSelectors = ({
   groupMode,

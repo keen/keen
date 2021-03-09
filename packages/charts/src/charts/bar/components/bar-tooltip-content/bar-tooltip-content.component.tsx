@@ -7,13 +7,13 @@ import {
   formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
 
-import { TooltipContent } from '../../components';
+import { TooltipContent } from '../../../../components';
 
-import { getLabel } from './utils/tooltip.utils';
+import { getLabel } from '../../utils/tooltip.utils';
 
-import { ChartContext, ChartContextType } from '../../contexts';
+import { ChartContext, ChartContextType } from '../../../../contexts';
 
-import { DataSelector, GroupMode, StackMode } from '../../types';
+import { DataSelector, GroupMode, StackMode } from '../../../../types';
 
 type Props = {
   /** Data series */

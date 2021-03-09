@@ -7,6 +7,7 @@ import { Mark, markMotion } from './mark';
 import PieLabel from './pie-label';
 import Delayed from './delayed';
 import Axes from './axes';
+import ZeroIntersection from './zero-intersection';
 
 import Grid from './grid.component';
 import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
@@ -29,4 +30,5 @@ export {
   Mark,
   markMotion,
   hoverBarMotion,
+  ZeroIntersection,
 };

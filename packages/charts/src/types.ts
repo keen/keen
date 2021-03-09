@@ -73,6 +73,10 @@ export type Grid = {
   color: string;
 };
 
+export type ZeroIntersection = {
+  color: string;
+};
+
 export type Icon = {
   color: string;
   type: IconType;
@@ -218,6 +222,7 @@ export type Theme = {
   axisY?: Axis;
   gridX?: Grid;
   gridY?: Grid;
+  zeroIntersection?: ZeroIntersection;
   hoverBar?: HoverBarSettings;
 };
 
