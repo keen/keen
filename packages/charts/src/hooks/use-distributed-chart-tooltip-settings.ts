@@ -1,13 +1,12 @@
-import { useContext } from 'react';
 import {
   formatValue as valueFormatter,
   getFromPath,
   getKeysDifference,
+  ScaleSettings,
   TooltipFormatter,
   transformToPercent,
 } from '@keen.io/charts-utils';
 
-import { ChartContext, ChartContextType } from '../contexts';
 import { DataSelector } from '../types';
 import { getLabel } from '../components/distributed-chart-tooltip';
 
@@ -19,10 +18,10 @@ const useDistributedChartTooltipSettings = (
   isPercentage: boolean,
   labelSelector: string,
   maxWidth?: number,
-  formatValue?: TooltipFormatter
+  formatValue?: TooltipFormatter,
+  scaleSettings?: ScaleSettings
 ) => {
-  const { xScaleSettings } = useContext(ChartContext) as ChartContextType;
-  const { precision, formatLabel } = xScaleSettings;
+  const { precision, formatLabel } = scaleSettings;
 
   const percentageData = isPercentage
     ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
@@ -31,10 +30,14 @@ const useDistributedChartTooltipSettings = (
   const [firstSelector] = selectors;
   const [index] = firstSelector.selector;
 
-  const tooltipLabel =
-    precision && typeof index === 'number'
-      ? valueFormatter(data[index][labelSelector], formatLabel)
-      : null;
+  const isGrouped = data.length > 1;
+
+  const getTooltipLabel = () => {
+    if (typeof index === 'number' && (precision || isGrouped)) {
+      return `${valueFormatter(data[index][labelSelector], formatLabel)}`;
+    }
+    return null;
+  };
 
   const totalValue =
     selectors.length > 1
@@ -71,7 +74,7 @@ const useDistributedChartTooltipSettings = (
   });
 
   return {
-    tooltipLabel,
+    getTooltipLabel,
     percentValue,
     totalValue,
     items,

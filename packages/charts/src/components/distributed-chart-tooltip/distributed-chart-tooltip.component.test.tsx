@@ -5,7 +5,7 @@ import { theme } from '../../theme';
 import { ChartContext } from '../../contexts';
 import DistributedChartTooltip from './distributed-chart-tooltip.component';
 
-const render = (overProps: any = {}, overContextValue: any = {}) => {
+const render = (overProps: any = {}) => {
   const keys = ['users', 'licenses'];
   const selectors = [
     {
@@ -30,17 +30,12 @@ const render = (overProps: any = {}, overContextValue: any = {}) => {
     selectors,
     isPercentage: false,
     formatValue,
+    scaleSettings: {},
     ...overProps,
   };
 
-  const contextValue = {
-    xScaleSettings: {},
-    theme,
-    ...overContextValue,
-  };
-
   const wrapper = rtlRender(
-    <ChartContext.Provider value={...contextValue}>
+    <ChartContext.Provider value={{ theme }}>
       <DistributedChartTooltip {...props} />
     </ChartContext.Provider>
   );
@@ -103,7 +98,7 @@ test('renders tooltip label when time precision is provided for axis', () => {
     'Stephen King',
   ];
   const selectors = [{ selector: [0, 'Edwidge Danticat'], color: '#85B4C3' }];
-  const xScaleSettings = { type: 'band', precision: 'month' };
+  const scaleSettings = { type: 'band', precision: 'month' };
   const labelSelector = 'keen.key';
 
   const [firstSelector] = selectors;
@@ -111,7 +106,7 @@ test('renders tooltip label when time precision is provided for axis', () => {
   const tooltipLabel = data[index][labelSelector];
   const {
     wrapper: { getByText },
-  } = render({ data, keys, selectors, labelSelector }, { xScaleSettings });
+  } = render({ data, keys, selectors, labelSelector, scaleSettings });
 
   expect(getByText(tooltipLabel)).toBeInTheDocument();
 });

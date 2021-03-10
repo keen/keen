@@ -203,6 +203,7 @@ export const LineChart: FC<Props> = ({
                 formatValue={formatTooltip}
                 labelSelector={labelSelector}
                 maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
+                scaleSettings={xScaleSettings}
               />
             )}
           </ChartTooltip>

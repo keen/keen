@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TooltipFormatter } from '@keen.io/charts-utils';
+import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import useDistributedChartTooltipSettings from '../../hooks/use-distributed-chart-tooltip-settings';
 import TooltipContent from '../tooltip-content';
@@ -22,6 +22,7 @@ type Props = {
   maxWidth?: number;
   /** Tooltip formatter */
   formatValue?: TooltipFormatter;
+  scaleSettings?: ScaleSettings;
 };
 
 const DistributedChartTooltip: FC<Props> = ({
@@ -33,9 +34,10 @@ const DistributedChartTooltip: FC<Props> = ({
   labelSelector,
   maxWidth,
   formatValue,
+  scaleSettings,
 }) => {
   const {
-    tooltipLabel,
+    getTooltipLabel,
     percentValue,
     totalValue,
     items,
@@ -47,13 +49,14 @@ const DistributedChartTooltip: FC<Props> = ({
     isPercentage,
     labelSelector,
     maxWidth,
-    formatValue
+    formatValue,
+    scaleSettings
   );
 
   return (
     <TooltipContent
       items={items}
-      label={tooltipLabel && `${tooltipLabel}`}
+      label={getTooltipLabel()}
       totalValue={totalValue}
       percentValue={percentValue}
       maxWidth={maxWidth}

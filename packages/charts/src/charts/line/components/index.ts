@@ -1,4 +1,3 @@
-// import Tooltip from './tooltip';
 import ClipPath from './clip-path';
 import GradientFilter from './gradient-filter';
 import Lines from './lines';
