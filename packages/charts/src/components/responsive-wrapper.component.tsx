@@ -38,6 +38,7 @@ const ResponsiveWrapper = ({ children, mountTreshold = 2 }: Props) => {
             display: 'flex',
             minHeight: 0,
             minWidth: 0,
+            position: 'relative',
           }}
         >
           {showContent && children(width, height)}
