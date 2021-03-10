@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { SHADOW_FILTER_ID } from './constants';
+import { SHADOW_FILTER_ID } from '../constants';
 
 type Props = {
   filterId?: string;

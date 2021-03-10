@@ -21,9 +21,9 @@ import { DEFAULT_MARGINS } from './constants';
 import { CommonChartSettings, GroupMode, StackMode } from '../../types';
 
 import { CurveType } from './types';
-import LineChartTooltipContent from './line-chart-tooltip-content.component';
 
 import { MAX_TOOLTIP_WIDTH_FACTOR } from '../bar/constants';
+import LineChartTooltip from '../../components/distributed-chart-tooltip';
 
 export type Props = {
   /** chart data */
@@ -129,6 +129,8 @@ export const LineChart: FC<Props> = ({
   const svgElement = useRef<SVGSVGElement>(null);
   const computeTooltipRelative = !showAllMarks(stepMode, marks, lines);
 
+  const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
+
   const {
     tooltipVisible,
     tooltipPosition,
@@ -192,14 +194,12 @@ export const LineChart: FC<Props> = ({
             hasSpacing={false}
           >
             {tooltipSelectors && (
-              <LineChartTooltipContent
+              <LineChartTooltip
                 data={localizedData}
                 keys={keys}
                 disabledKeys={disabledKeys}
-                stackMode={stackMode}
-                groupMode={groupMode}
+                isPercentage={isPercentage}
                 selectors={tooltipSelectors}
-                isList={tooltipSelectors.length > 1}
                 formatValue={formatTooltip}
                 labelSelector={labelSelector}
                 maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}

@@ -1,4 +1,4 @@
-import { getSelectors } from './tooltip.utils';
+import { getSelectors } from '../index';
 
 describe('@keen.io/charts', () => {
   describe('getSelectors()', () => {
@@ -13,7 +13,6 @@ describe('@keen.io/charts', () => {
         colors,
         selector,
         disabledKeys: [],
-        stackMode: 'normal',
         groupMode: 'grouped',
       });
 
@@ -25,7 +24,6 @@ describe('@keen.io/charts', () => {
         keys,
         selector,
         colors,
-        stackMode: 'percent',
         groupMode: 'stacked',
         disabledKeys: [],
       });
@@ -44,7 +42,6 @@ describe('@keen.io/charts', () => {
         keys,
         selector,
         colors,
-        stackMode: 'percent',
         groupMode: 'stacked',
         disabledKeys: ['books', 'cars'],
       });

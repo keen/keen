@@ -1,10 +1,9 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
-import LineTooltip from './line-chart-tooltip-content.component';
 
-import { chartData as data } from './line-chart.fixtures';
 import { theme } from '../../theme';
 import { ChartContext } from '../../contexts';
+import DistributedChartTooltip from './distributed-chart-tooltip.component';
 
 const render = (overProps: any = {}, overContextValue: any = {}) => {
   const keys = ['users', 'licenses'];
@@ -14,15 +13,22 @@ const render = (overProps: any = {}, overContextValue: any = {}) => {
       selector: [0, 'users'],
     },
   ];
+
+  const data = [
+    { name: 'Windows', users: 3, licenses: 52, shops: 12 },
+    { name: 'MacOS', users: 19, licenses: 82, shops: 15 },
+    { name: 'Linux', users: 20, licenses: -15, shops: 23 },
+    { name: 'Android', users: 63, licenses: -15, shops: -30 },
+  ];
+
   const formatValue = (value) => `$${value}`;
+
   const props = {
     data,
     keys,
     disabledKeys: [],
     selectors,
-    groupMode: 'normal',
-    stackMode: 'grouped',
-    isList: false,
+    isPercentage: false,
     formatValue,
     ...overProps,
   };
@@ -35,7 +41,7 @@ const render = (overProps: any = {}, overContextValue: any = {}) => {
 
   const wrapper = rtlRender(
     <ChartContext.Provider value={...contextValue}>
-      <LineTooltip {...props} />
+      <DistributedChartTooltip {...props} />
     </ChartContext.Provider>
   );
   return {
@@ -70,9 +76,7 @@ test('formats toolip list values', () => {
   } = render({
     data,
     selectors,
-    stackMode: 'percent',
-    groupMode: 'stacked',
-    isList: true,
+    isPercentage: true,
   });
   const [firstSeries] = data;
   const { users, licenses } = firstSeries;

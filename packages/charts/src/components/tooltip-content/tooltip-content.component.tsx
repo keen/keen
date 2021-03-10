@@ -20,7 +20,7 @@ type Props = {
   /** Label for tooltip */
   label?: string | number;
   /** Total value */
-  totalValue?: string;
+  totalValue?: number;
   /** Percent value */
   percentValue?: number;
   /** Max width for tooltip content */

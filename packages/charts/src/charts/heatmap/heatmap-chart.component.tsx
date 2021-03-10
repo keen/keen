@@ -1,17 +1,21 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layout, Tooltip, ColorMode, RangeType } from '@keen.io/ui-core';
+import { Layout, Tooltip, ColorMode, RangeType, Text } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
-import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
+import {
+  formatValue as valueFormatter,
+  getFromPath,
+  ScaleSettings,
+  TooltipFormatter,
+} from '@keen.io/charts-utils';
 
-import Heatmap from './heatmap.component';
-import TooltipContent from './tooltip-content.component';
-import ShadowFilter from './shadow-filter.component';
+import Heatmap from './components/heatmap/heatmap.component';
+import ShadowFilter from './components/shadow-filter.component';
 
 import { ChartBase, Axes } from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
 
-import { generateBlocks } from './heatmap-chart.utils';
+import { generateBlocks } from './utils/heatmap-chart.utils';
 
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
@@ -138,12 +142,12 @@ export const HeatmapChart: FC<Props> = ({
           >
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
-                <TooltipContent
-                  typography={tooltipSettings.labels.typography}
-                  data={data}
-                  selectors={tooltipSelectors}
-                  formatValue={formatTooltip}
-                />
+                <Text {...tooltipSettings.labels.typography}>
+                  {valueFormatter(
+                    getFromPath(data, tooltipSelectors[0].selector),
+                    formatTooltip
+                  )}
+                </Text>
               )}
             </Tooltip>
           </motion.div>

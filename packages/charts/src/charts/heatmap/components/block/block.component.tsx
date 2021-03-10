@@ -4,7 +4,7 @@ import { select } from 'd3-selection';
 
 import { StyledRect } from './block.styles';
 
-import { BlockType } from './types';
+import { BlockType } from '../../types';
 
 const rectMotion = {
   initial: { opacity: 0 },

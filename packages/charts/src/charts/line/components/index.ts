@@ -1,8 +1,8 @@
-import Tooltip from './tooltip';
+// import Tooltip from './tooltip';
 import ClipPath from './clip-path';
 import GradientFilter from './gradient-filter';
 import Lines from './lines';
 import Marks from './marks';
 import Steps from './steps';
 
-export { Tooltip, ClipPath, GradientFilter, Lines, Marks, Steps };
+export { ClipPath, GradientFilter, Lines, Marks, Steps };

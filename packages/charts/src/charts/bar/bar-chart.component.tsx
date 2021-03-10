@@ -3,9 +3,7 @@ import { Layout, SortMode } from '@keen.io/ui-core';
 import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import { generateBars } from './utils/chart.utils';
-import { getSelectors } from './utils/tooltip.utils';
-
-import { Bars, BarTooltipContent } from './components';
+import { Bars } from './components';
 
 import {
   ChartBase,
@@ -27,6 +25,9 @@ import {
   GroupMode,
   StackMode,
 } from '../../types';
+import BarChartTooltip, {
+  getSelectors,
+} from '../../components/distributed-chart-tooltip';
 
 export type Props = {
   /** Chart data */
@@ -140,6 +141,8 @@ export const BarChart: FC<Props> = ({
     y: 0,
   });
 
+  const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
+
   return (
     <>
       <ChartBase
@@ -207,14 +210,12 @@ export const BarChart: FC<Props> = ({
               hasSpacing={false}
             >
               {tooltip.selectors && (
-                <BarTooltipContent
+                <BarChartTooltip
                   data={localizedData}
                   keys={keys}
                   disabledKeys={disabledKeys}
-                  stackMode={stackMode}
-                  groupMode={groupMode}
+                  isPercentage={isPercentage}
                   selectors={tooltip.selectors}
-                  isList={tooltip.selectors.length > 1}
                   formatValue={formatTooltip}
                   labelSelector={labelSelector}
                   maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
