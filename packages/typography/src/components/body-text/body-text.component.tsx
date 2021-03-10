@@ -5,8 +5,11 @@ import { colors } from '@keen.io/colors';
 import { Variant } from './types';
 import { FontWeight, LineHeight } from '../../types';
 
-import { resetSpacing } from '../../utils';
-import { DEFAULT_FONT_WEIGHT, DEFAULT_LINE_HEIGHT } from '../../constants';
+import {
+  DEFAULT_FONT_WEIGHT,
+  DEFAULT_LINE_HEIGHT,
+  SHARED_STYLE,
+} from '../../constants';
 
 type Props = {
   /** Headline variant */
@@ -20,24 +23,14 @@ type Props = {
 };
 
 const BodyText = styled.p<Props>`
-  ${resetSpacing()}
+  ${SHARED_STYLE};
   font-family: 'Lato', sans-serif;
 
-  ${(props) =>
-    props.color &&
-    css`
-      color: ${props.color};
-    `};
-  ${(props) =>
-    props.lineHeight &&
-    css`
-      line-height: ${props.lineHeight};
-    `};
-  ${(props) =>
-    props.fontWeight &&
-    css`
-      font-weight: ${props.fontWeight};
-    `};
+  ${(props) => css`
+    color: ${props.color};
+    line-height: ${props.lineHeight};
+    font-weight: ${props.fontWeight};
+  `};
 
   ${variant({
     variants: {
@@ -52,7 +45,7 @@ const BodyText = styled.p<Props>`
         fontWeight: 600,
       },
     },
-  })}
+  })};
 `;
 
 BodyText.defaultProps = {

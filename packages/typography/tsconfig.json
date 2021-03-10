@@ -2,8 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./lib",
+    "declarationDir": "./typings",
+    "target": "es2019"
   },
-  "references": [{ "path": "../ui-core" }, { "path": "../colors" }],
-  "include": ["src/**/*", "src/**/*.json"]
+  "references": [{ "path": "../colors" }],
+  "include": ["src/**/*"]
 }

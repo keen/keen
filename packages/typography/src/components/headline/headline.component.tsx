@@ -6,8 +6,7 @@ import { colors } from '@keen.io/colors';
 import { Variant } from './types';
 import { FontWeight, LineHeight } from '../../types';
 
-import { resetSpacing } from '../../utils';
-import { DEFAULT_LINE_HEIGHT } from '../../constants';
+import { DEFAULT_LINE_HEIGHT, SHARED_STYLE } from '../../constants';
 
 type Props = {
   /** Headline variant */
@@ -23,7 +22,7 @@ type Props = {
 };
 
 const StyledH1 = styled.h1<TypographyProps & ColorProps>`
-  ${resetSpacing()}
+  ${SHARED_STYLE};
 
   font-family: 'Gangster Grotesk', sans-serif;
   font-size: 36px;
@@ -37,7 +36,7 @@ const StyledH1 = styled.h1<TypographyProps & ColorProps>`
 `;
 
 const StyledH2 = styled.h2<TypographyProps & ColorProps>`
-  ${resetSpacing()}
+  ${SHARED_STYLE};
 
   font-family: 'Gangster Grotesk', sans-serif;
   font-size: 30px;
@@ -51,7 +50,7 @@ const StyledH2 = styled.h2<TypographyProps & ColorProps>`
 `;
 
 const StyledH3 = styled.h3<TypographyProps & ColorProps>`
-  ${resetSpacing()}
+  ${SHARED_STYLE};
 
   font-family: 'Gangster Grotesk', sans-serif;
   font-size: 20px;
