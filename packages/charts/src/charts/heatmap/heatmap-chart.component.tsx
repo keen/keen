@@ -9,8 +9,7 @@ import {
   TooltipFormatter,
 } from '@keen.io/charts-utils';
 
-import Heatmap from './components/heatmap/heatmap.component';
-import ShadowFilter from './components/shadow-filter.component';
+import { Heatmap, ShadowFilter } from './components';
 
 import { ChartBase, Axes } from '../../components';
 import { useDynamicChartLayout } from '../../hooks';

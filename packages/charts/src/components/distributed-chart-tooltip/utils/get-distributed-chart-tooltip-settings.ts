@@ -7,20 +7,30 @@ import {
   transformToPercent,
 } from '@keen.io/charts-utils';
 
-import { DataSelector } from '../types';
-import { getLabel } from '../components/distributed-chart-tooltip';
+import { DataSelector } from '../../../types';
+import { getLabel } from '../index';
 
-const useDistributedChartTooltipSettings = (
-  data: Record<string, any>[],
-  keys: string[],
-  disabledKeys: string[],
-  selectors: { selector: DataSelector; color: string }[],
-  isPercentage: boolean,
-  labelSelector: string,
-  maxWidth?: number,
-  formatValue?: TooltipFormatter,
-  scaleSettings?: ScaleSettings
-) => {
+type TooltipSettings = {
+  data: Record<string, any>[];
+  keys: string[];
+  disabledKeys: string[];
+  selectors: { selector: DataSelector; color: string }[];
+  isPercentage: boolean;
+  labelSelector: string;
+  formatValue?: TooltipFormatter;
+  scaleSettings?: ScaleSettings;
+};
+
+const getDistributedChartTooltipSettings = ({
+  data,
+  keys,
+  disabledKeys,
+  selectors,
+  isPercentage,
+  labelSelector,
+  formatValue,
+  scaleSettings,
+}: TooltipSettings) => {
   const { precision, formatLabel } = scaleSettings;
 
   const percentageData = isPercentage
@@ -81,4 +91,4 @@ const useDistributedChartTooltipSettings = (
   };
 };
 
-export default useDistributedChartTooltipSettings;
+export default getDistributedChartTooltipSettings;

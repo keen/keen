@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
-import useDistributedChartTooltipSettings from '../../hooks/use-distributed-chart-tooltip-settings';
 import TooltipContent from '../tooltip-content';
 import { DataSelector } from '../../types';
+import { getDistributedChartTooltipSettings } from './utils';
 
 type Props = {
   /** Data series */
@@ -41,17 +41,16 @@ const DistributedChartTooltip: FC<Props> = ({
     percentValue,
     totalValue,
     items,
-  } = useDistributedChartTooltipSettings(
+  } = getDistributedChartTooltipSettings({
     data,
     keys,
     disabledKeys,
     selectors,
     isPercentage,
     labelSelector,
-    maxWidth,
     formatValue,
-    scaleSettings
-  );
+    scaleSettings,
+  });
 
   return (
     <TooltipContent

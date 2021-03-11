@@ -141,8 +141,6 @@ export const BarChart: FC<Props> = ({
     y: 0,
   });
 
-  const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
-
   return (
     <>
       <ChartBase
@@ -214,7 +212,9 @@ export const BarChart: FC<Props> = ({
                   data={localizedData}
                   keys={keys}
                   disabledKeys={disabledKeys}
-                  isPercentage={isPercentage}
+                  isPercentage={
+                    stackMode === 'percent' && groupMode === 'stacked'
+                  }
                   selectors={tooltip.selectors}
                   formatValue={formatTooltip}
                   labelSelector={labelSelector}

@@ -129,8 +129,6 @@ export const LineChart: FC<Props> = ({
   const svgElement = useRef<SVGSVGElement>(null);
   const computeTooltipRelative = !showAllMarks(stepMode, marks, lines);
 
-  const isPercentage = stackMode === 'percent' && groupMode === 'stacked';
-
   const {
     tooltipVisible,
     tooltipPosition,
@@ -198,7 +196,9 @@ export const LineChart: FC<Props> = ({
                 data={localizedData}
                 keys={keys}
                 disabledKeys={disabledKeys}
-                isPercentage={isPercentage}
+                isPercentage={
+                  stackMode === 'percent' && groupMode === 'stacked'
+                }
                 selectors={tooltipSelectors}
                 formatValue={formatTooltip}
                 labelSelector={labelSelector}
