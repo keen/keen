@@ -36,6 +36,8 @@ const ResponsiveWrapper = ({ children, mountTreshold = 2 }: Props) => {
             height: '100%',
             width: '100%',
             display: 'flex',
+            minHeight: 0,
+            minWidth: 0,
             position: 'relative',
           }}
         >
