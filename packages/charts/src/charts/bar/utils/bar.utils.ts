@@ -140,8 +140,7 @@ export const calculateGroupedBars = (
     keys.forEach((keyName: string, idx: number) => {
       const isDisabled =
         keyName === labelSelector || disabledKeys.includes(keyName);
-      let barCounter = 0;
-      barCounter = Object.entries(data[index]).filter(
+      const barCounter = Object.entries(data[index]).filter(
         (el) => el[1] !== 0 && el[0] !== labelSelector
       ).length;
 
