@@ -89,7 +89,9 @@ export const plot = () => {
         svgDimensions={svgDimensionsKnob}
         margins={marginsKnob}
         innerRadius={innerRadiusKnob}
-        formatTooltip={text('Format tooltip', '${number; 0.00a}', 'Chart')}
+        tooltipSettings={{
+          formatValue: text('Format tooltip', '${number; 0.00a}', 'Chart'),
+        }}
       />
     </div>
   );
