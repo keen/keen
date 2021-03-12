@@ -55,10 +55,11 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       height: 100,
     };
 
-    test('should calculate position for "vertical" layout', () => {
+    test('should calculate position for "vertical" layout, positive value', () => {
       const result = calculateMarkPosition({
         ...barProperties,
         layout: 'vertical',
+        positiveValue: true,
       });
 
       expect(result).toEqual({
@@ -67,14 +68,41 @@ describe('@keen.io/charts - <BarChart /> utils', () => {
       });
     });
 
-    test('should calculate position for "horizontal" layout', () => {
+    test('should calculate position for "horizontal" layout, positive value', () => {
       const result = calculateMarkPosition({
         ...barProperties,
         layout: 'horizontal',
+        positiveValue: true,
       });
 
       expect(result).toEqual({
         x: 110,
+        y: 60,
+      });
+    });
+
+    test('should calculate position for "vertical" layout, negative value', () => {
+      const result = calculateMarkPosition({
+        ...barProperties,
+        layout: 'vertical',
+        positiveValue: false,
+      });
+
+      expect(result).toEqual({
+        x: 60,
+        y: 110,
+      });
+    });
+
+    test('should calculate position for "horizontal" layout, negative value', () => {
+      const result = calculateMarkPosition({
+        ...barProperties,
+        layout: 'horizontal',
+        positiveValue: false,
+      });
+
+      expect(result).toEqual({
+        x: 10,
         y: 60,
       });
     });

@@ -50,52 +50,62 @@ const Bars = ({
   return (
     <>
       <AnimatePresence>
-        {bars.map(({ key, selector, x, y, width, height, color }: Bar) => (
-          <g
-            key={key}
-            onMouseEnter={(e) => {
-              const markPosition = calculateMarkPosition({
-                layout,
-                x,
-                y,
-                width,
-                height,
-              });
-              setActiveBar({ key, selector });
-              onBarMouseEnter(e, key, { selector, color }, markPosition);
-            }}
-            onMouseLeave={(e) => {
-              setActiveBar({ selector: [], key: null });
-              onBarMouseLeave(e, key);
-            }}
-          >
-            <BarComponent
+        {bars.map(
+          ({ key, selector, x, y, width, height, color, value }: Bar) => (
+            <g
               key={key}
-              layout={layout}
-              groupMode={groupMode}
-              x={x}
-              y={y}
-              height={height}
-              width={width}
-              color={getBarColor({
-                activeBar,
-                stackMode,
-                barKey: key,
-                barSelector: selector,
-                color,
-                groupMode,
-              })}
-            />
-          </g>
-        ))}
+              onMouseEnter={(e) => {
+                const markPosition = calculateMarkPosition({
+                  layout,
+                  x,
+                  y,
+                  width,
+                  height,
+                  positiveValue: value > 0,
+                });
+                setActiveBar({ key, selector });
+                onBarMouseEnter(e, key, { selector, color }, markPosition);
+              }}
+              onMouseLeave={(e) => {
+                setActiveBar({ selector: [], key: null });
+                onBarMouseLeave(e, key);
+              }}
+            >
+              <BarComponent
+                key={key}
+                layout={layout}
+                groupMode={groupMode}
+                x={x}
+                y={y}
+                height={height}
+                width={width}
+                color={getBarColor({
+                  activeBar,
+                  stackMode,
+                  barKey: key,
+                  barSelector: selector,
+                  color,
+                  groupMode,
+                })}
+              />
+            </g>
+          )
+        )}
       </AnimatePresence>
       {showValues && <BarValues bars={bars} autocolor={valuesAutocolor} />}
-      {bars.map(({ key, x, y, width, height, color }: Bar) => (
+      {bars.map(({ key, x, y, width, height, color, value }: Bar) => (
         <AnimatePresence key={key}>
           {activeBar.key === key && (
             <motion.g {...markMotion} pointerEvents="all">
               <Mark
-                {...calculateMarkPosition({ layout, x, y, width, height })}
+                {...calculateMarkPosition({
+                  layout,
+                  x,
+                  y,
+                  width,
+                  height,
+                  positiveValue: value > 0,
+                })}
                 {...setMarkSize({ layout, width, height })}
                 color={color}
               />
