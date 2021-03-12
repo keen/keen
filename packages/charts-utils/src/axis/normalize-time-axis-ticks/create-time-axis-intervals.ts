@@ -1,17 +1,11 @@
 import { ScaleTime } from 'd3-scale';
 import {
   timeDay,
-  utcDay,
   timeMinute,
-  utcMinute,
   timeMonth,
-  utcMonth,
-  utcWeek,
   timeWeek,
   timeHour,
-  utcHour,
   timeYear,
-  utcYear,
   CountableTimeInterval,
 } from 'd3-time';
 
@@ -19,13 +13,13 @@ import { TIME_UNIT, TIME_INTERVALS } from './constants';
 
 import { TimePrecision } from '../../types';
 
-const timeModifier: Record<TimePrecision, CountableTimeInterval[]> = {
-  day: [timeDay, utcDay],
-  minute: [timeMinute, utcMinute],
-  hour: [timeHour, utcHour],
-  week: [timeWeek, utcWeek],
-  month: [timeMonth, utcMonth],
-  year: [timeYear, utcYear],
+const timeModifier: Record<TimePrecision, CountableTimeInterval> = {
+  day: timeDay,
+  minute: timeMinute,
+  hour: timeHour,
+  week: timeWeek,
+  month: timeMonth,
+  year: timeYear,
 };
 
 /**
@@ -36,8 +30,12 @@ const timeModifier: Record<TimePrecision, CountableTimeInterval[]> = {
  *
  */
 const createTimeAxisIntervals = (
-  scale: ScaleTime<number, number>
+  scale: ScaleTime<number, number>,
+  minimumTickWidth = 70
 ): { ticks: Date[]; precision: TimePrecision } => {
+  const [startDimension, endDimension] = scale.range();
+  const axisDimension = endDimension - startDimension;
+
   const [start, end] = scale.domain();
   const defaultTickInterval = end.getTime() - start.getTime();
 
@@ -62,15 +60,40 @@ const createTimeAxisIntervals = (
     }
   }
 
-  const stepRange =
-    [...multiples].reverse().find((value) => {
-      const ms = value * TIME_UNIT[unit[0]];
-      return defaultTickInterval % ms === 0;
-    }) || multiples[0];
-  const modifier = timeModifier[unit[0]][0];
+  let intervalDividers = multiples.filter((value) => {
+    const ms = value * TIME_UNIT[unit[0]];
+    return defaultTickInterval % ms === 0;
+  });
+
+  if (intervalDividers.length === 0) {
+    intervalDividers = [1];
+  }
+
+  console.log(intervalDividers, 'intervalDividers', unit[0]);
+
+  const modifier = timeModifier[unit[0]];
+  const ticksRanges = intervalDividers.map((stepRange) =>
+    modifier.range(start, end, stepRange)
+  );
+
+  const tickRatio = Math.floor(axisDimension / minimumTickWidth);
+
+  const ticks = ticksRanges.reduce((prev, curr) => {
+    return Math.abs(curr.length - tickRatio) < Math.abs(prev.length - tickRatio)
+      ? curr
+      : prev;
+  });
+
+  console.log('possible values', tickRatio);
+
+  // const stepRange =
+  //   [...multiples].reverse().find((value) => {
+  //     const ms = value * TIME_UNIT[unit[0]];
+  //     return defaultTickInterval % ms === 0;
+  //   }) || multiples[0];
 
   return {
-    ticks: [...modifier.range(start, end, stepRange)],
+    ticks,
     precision: unit[0],
   };
 };
