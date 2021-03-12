@@ -36,7 +36,7 @@ export const calculateStackData = (
   }, []);
 
   if (!keys.length) {
-    return data.map((el) => ({ labelSelector: el[labelSelector] }));
+    return data.map((el) => ({ [labelSelector]: el[labelSelector] }));
   }
 
   return newData;
@@ -83,7 +83,7 @@ export const calculateStackAreaData = (
   const secondDataPart = stackedData.reduce(reduceStack(1), []);
 
   if (!keys.length) {
-    return data.map((el) => ({ labelSelector: el[labelSelector] }));
+    return { firstDataPart: [], secondDataPart: [] };
   }
 
   return { firstDataPart, secondDataPart: secondDataPart.reverse() };
