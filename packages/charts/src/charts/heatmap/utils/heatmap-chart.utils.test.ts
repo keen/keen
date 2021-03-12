@@ -3,7 +3,7 @@ import {
   generateVerticalBlocks,
 } from './heatmap-chart.utils';
 
-import { heatmapChart } from './heatmap-chart.fixtures';
+import { heatmapChart } from '../heatmap-chart.fixtures';
 
 describe('<Heatmap /> - utils', () => {
   const data = [

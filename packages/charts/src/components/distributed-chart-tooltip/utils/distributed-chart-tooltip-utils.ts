@@ -1,10 +1,9 @@
+import { DataSelector, GroupMode } from '../../../types';
 import {
+  formatValue as valueFormatter,
   getFromPath,
   TooltipFormatter,
-  formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
-
-import { DataSelector, GroupMode } from '../../../types';
 
 /**
  * Prepare selectors for bar while mouse hover
@@ -17,7 +16,6 @@ import { DataSelector, GroupMode } from '../../../types';
  * @return a value that will be displayed in tooltip
  *
  */
-
 export const getLabel = ({
   isPercentage,
   selector,
@@ -46,7 +44,6 @@ export const getLabel = ({
  * Prepare selectors for bar while mouse hover
  *
  * @param groupMode - groupMode option
- * @param stackMode - stackMode option
  * @param keys - keys for the calculations
  * @param disabledKeys - keys disabled for calculation/display
  * @param colors - colors array

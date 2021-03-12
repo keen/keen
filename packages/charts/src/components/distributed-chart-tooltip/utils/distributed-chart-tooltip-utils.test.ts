@@ -1,31 +1,29 @@
-import { getSelectors } from './tooltip.utils';
+import { getSelectors } from './distributed-chart-tooltip-utils';
 
 describe('@keen.io/charts', () => {
-  describe('<BarChart /> - getSelectors()', () => {
+  describe('getSelectors()', () => {
     const keys = ['books', 'cars', 'pencils'];
     const selector = { selector: [1, 'books'], color: 'red' };
 
     const colors = ['red', 'green', 'blue'];
 
-    test('should return array with single "DateSelector" object', () => {
+    it('should return array with single "DateSelector" object', () => {
       const selectors = getSelectors({
         keys,
         colors,
         selector,
         disabledKeys: [],
-        stackMode: 'normal',
         groupMode: 'grouped',
       });
 
       expect(selectors).toEqual([selector]);
     });
 
-    test('should return array with multiple "DateSelector" objects', () => {
+    it('should return array with multiple "DateSelector" objects', () => {
       const selectors = getSelectors({
         keys,
         selector,
         colors,
-        stackMode: 'percent',
         groupMode: 'stacked',
         disabledKeys: [],
       });
@@ -39,12 +37,11 @@ describe('@keen.io/charts', () => {
       expect(selectors).toEqual(result);
     });
 
-    test('should return array with filtered "DateSelector" objects', () => {
+    it('should return array with filtered "DateSelector" objects', () => {
       const selectors = getSelectors({
         keys,
         selector,
         colors,
-        stackMode: 'percent',
         groupMode: 'stacked',
         disabledKeys: ['books', 'cars'],
       });

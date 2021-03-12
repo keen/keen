@@ -1,22 +1,24 @@
 import React, { FC, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layout, Tooltip, ColorMode, RangeType } from '@keen.io/ui-core';
+import { Layout, Tooltip, ColorMode, RangeType, Text } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
-import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
+import {
+  formatValue as valueFormatter,
+  getFromPath,
+  ScaleSettings,
+} from '@keen.io/charts-utils';
 
-import Heatmap from './heatmap.component';
-import TooltipContent from './tooltip-content.component';
-import ShadowFilter from './shadow-filter.component';
+import { Heatmap, ShadowFilter } from './components';
 
 import { ChartBase, Axes } from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
 
-import { generateBlocks } from './heatmap-chart.utils';
+import { generateBlocks } from './utils/heatmap-chart.utils';
 
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -54,8 +56,8 @@ export type Props = {
   padding?: number;
   /** Range for filtering map values */
   range?: RangeType;
-  /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  /** Tooltip settings */
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const HeatmapChart: FC<Props> = ({
@@ -77,7 +79,7 @@ export const HeatmapChart: FC<Props> = ({
   range,
   xAxisTitle,
   yAxisTitle,
-  formatTooltip,
+  tooltipSettings = {},
 }) => {
   const {
     layoutMargins,
@@ -117,7 +119,7 @@ export const HeatmapChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings } = theme;
+  const { tooltip: themeTooltipSettings } = theme;
 
   return (
     <>
@@ -136,14 +138,14 @@ export const HeatmapChart: FC<Props> = ({
               pointerEvents: 'none',
             }}
           >
-            <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
+            <Tooltip mode={themeTooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
-                <TooltipContent
-                  typography={tooltipSettings.labels.typography}
-                  data={data}
-                  selectors={tooltipSelectors}
-                  formatValue={formatTooltip}
-                />
+                <Text {...themeTooltipSettings.labels.typography}>
+                  {valueFormatter(
+                    getFromPath(data, tooltipSelectors[0].selector),
+                    tooltipSettings.formatValue
+                  )}
+                </Text>
               )}
             </Tooltip>
           </motion.div>
@@ -179,7 +181,7 @@ export const HeatmapChart: FC<Props> = ({
               padding={padding}
               layout={layout}
               onMouseEnter={(e, selectors) => {
-                if (tooltipSettings.enabled) {
+                if (themeTooltipSettings.enabled) {
                   updateTooltipPosition(e, [selectors]);
                 }
               }}

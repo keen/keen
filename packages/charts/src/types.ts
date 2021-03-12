@@ -1,6 +1,7 @@
 import { Typography, TooltipMode, Position } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
+import { TooltipFormatter } from '@keen.io/charts-utils';
 
 export type Dimension = {
   width: number;
@@ -256,15 +257,14 @@ export type LabelRotation = {
 };
 
 export type GroupMode = 'grouped' | 'stacked';
-
 export type StackMode = 'normal' | 'percent';
-
-export type TooltipFormatter = (
-  element: number | string | Date
-) => React.ReactNode;
 
 export type ItemData = {
   label: string;
   value: string;
   change?: string;
+};
+
+export type TooltipSettings = {
+  formatValue?: TooltipFormatter;
 };

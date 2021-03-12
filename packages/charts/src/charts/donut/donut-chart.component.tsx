@@ -2,7 +2,6 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
-import { TooltipFormatter } from '@keen.io/charts-utils';
 
 import {
   generateCircularChart,
@@ -20,7 +19,7 @@ import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ItemData } from '../../types';
+import { CommonChartSettings, ItemData, TooltipSettings } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -51,8 +50,8 @@ export type Props = {
   stackTreshold?: number;
   /** Return dataKeys after stacking */
   onDataStack?: (keys: string[]) => void;
-  /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  /** Tooltip settings */
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const DonutChart: FC<Props> = ({
@@ -72,7 +71,7 @@ export const DonutChart: FC<Props> = ({
   labelsAutocolor = true,
   stackTreshold = 4,
   onDataStack,
-  formatTooltip,
+  tooltipSettings = {},
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -117,7 +116,7 @@ export const DonutChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings, donut: donutSettings } = theme;
+  const { tooltip: themeTooltipSettings, donut: donutSettings } = theme;
   const {
     enabled: totalEnabled,
     label: donutTotalLabel,
@@ -140,7 +139,7 @@ export const DonutChart: FC<Props> = ({
               pointerEvents: 'none',
             }}
           >
-            <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
+            <Tooltip mode={themeTooltipSettings.mode} hasArrow={false}>
               {tooltipSelectors && (
                 <BulletList
                   items={getCircularChartTooltipContent({
@@ -149,7 +148,7 @@ export const DonutChart: FC<Props> = ({
                     labelSelector,
                     selectors: tooltipSelectors,
                     disabledLabels,
-                    formatValue: formatTooltip,
+                    formatValue: tooltipSettings.formatValue,
                   })}
                   renderItem={(_idx, item) => (
                     <TooltipItem data={item.data as ItemData} theme={theme} />
@@ -201,7 +200,7 @@ export const DonutChart: FC<Props> = ({
                     labelPosition={labelPosition}
                     background={color}
                     onMouseMove={(e) => {
-                      if (tooltipSettings.enabled) {
+                      if (themeTooltipSettings.enabled) {
                         if (stacked) updateTooltipPosition(e, stack);
                         else updateTooltipPosition(e, [{ color, selector }]);
                       }

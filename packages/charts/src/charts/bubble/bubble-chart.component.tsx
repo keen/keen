@@ -1,7 +1,7 @@
 import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { FormatFunction, ScaleSettings } from '@keen.io/charts-utils';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import { ChartBase, Grid, Axes } from '../../components';
@@ -15,7 +15,7 @@ import { useDynamicChartLayout } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -51,9 +51,9 @@ export type Props = {
   useDynamicLayout?: boolean;
   /** Tooltip formatter */
   formatTooltip?: {
-    xKey?: TooltipFormatter;
-    yKey?: TooltipFormatter;
-    valueKey?: TooltipFormatter;
+    xKey?: FormatFunction;
+    yKey?: FormatFunction;
+    valueKey?: FormatFunction;
   };
 } & CommonChartSettings;
 

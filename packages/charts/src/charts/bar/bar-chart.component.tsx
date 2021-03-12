@@ -1,11 +1,9 @@
 import React, { useState, useRef, FC } from 'react';
 import { Layout, SortMode } from '@keen.io/ui-core';
-import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateBars } from './utils/chart.utils';
-import { getSelectors } from './utils/tooltip.utils';
-
-import { Bars, BarTooltipContent } from './components';
+import { Bars } from './components';
 
 import {
   ChartBase,
@@ -26,7 +24,11 @@ import {
   TooltipState,
   GroupMode,
   StackMode,
+  TooltipSettings,
 } from '../../types';
+import BarChartTooltip, {
+  getSelectors,
+} from '../../components/distributed-chart-tooltip';
 
 export type Props = {
   /** Chart data */
@@ -65,8 +67,8 @@ export type Props = {
   stackMode?: StackMode;
   /** Type of ordering applied on bars */
   barsOrder?: SortMode;
-  /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  /** Tooltip settings */
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -91,7 +93,7 @@ export const BarChart: FC<Props> = ({
   barsOrder,
   xAxisTitle,
   yAxisTitle,
-  formatTooltip,
+  tooltipSettings = {},
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
 
@@ -130,7 +132,7 @@ export const BarChart: FC<Props> = ({
     yAxisTitle,
   });
 
-  const { tooltip: tooltipSettings } = theme;
+  const { tooltip: themeTooltipsSettings } = theme;
 
   const clearTooltip = useRef(null);
   const [tooltip, setTooltip] = useState<TooltipState>({
@@ -176,7 +178,7 @@ export const BarChart: FC<Props> = ({
               valuesAutocolor={valuesAutocolor}
               onBarMouseEnter={(_e, _key, selector, { x, y }) => {
                 if (clearTooltip.current) clearTimeout(clearTooltip.current);
-                if (tooltipSettings.enabled) {
+                if (themeTooltipsSettings.enabled) {
                   const selectors = getSelectors({
                     groupMode,
                     keys,
@@ -188,7 +190,7 @@ export const BarChart: FC<Props> = ({
                 }
               }}
               onBarMouseLeave={() => {
-                if (tooltipSettings.enabled) {
+                if (themeTooltipsSettings.enabled) {
                   clearTooltip.current = setTimeout(() => {
                     setTooltip({
                       selectors: null,
@@ -207,17 +209,18 @@ export const BarChart: FC<Props> = ({
               hasSpacing={false}
             >
               {tooltip.selectors && (
-                <BarTooltipContent
+                <BarChartTooltip
                   data={localizedData}
                   keys={keys}
                   disabledKeys={disabledKeys}
-                  stackMode={stackMode}
-                  groupMode={groupMode}
+                  isPercentage={
+                    stackMode === 'percent' && groupMode === 'stacked'
+                  }
                   selectors={tooltip.selectors}
-                  isList={tooltip.selectors.length > 1}
-                  formatValue={formatTooltip}
+                  formatValue={tooltipSettings.formatValue}
                   labelSelector={labelSelector}
                   maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
+                  scaleSettings={xScaleSettings}
                 />
               )}
             </ChartTooltip>

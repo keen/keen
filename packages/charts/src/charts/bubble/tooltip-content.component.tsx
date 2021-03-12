@@ -1,10 +1,10 @@
 import React, { FC, useMemo } from 'react';
 import { Typography } from '@keen.io/ui-core';
-import { getFromPath } from '@keen.io/charts-utils';
+import { FormatFunction, getFromPath } from '@keen.io/charts-utils';
 
 import Correlation from './correlation.component';
 
-import { DataSelector, TooltipFormatter } from '../../types';
+import { DataSelector } from '../../types';
 
 type Props = {
   data: Record<string, any>[];
@@ -15,9 +15,9 @@ type Props = {
   xDomainKey: string;
   yDomainKey: string;
   formatValue?: Partial<{
-    xKey: TooltipFormatter;
-    yKey: TooltipFormatter;
-    valueKey: TooltipFormatter;
+    xKey: FormatFunction;
+    yKey: FormatFunction;
+    valueKey: FormatFunction;
   }>;
 };
 

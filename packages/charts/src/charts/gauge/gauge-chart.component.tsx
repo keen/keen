@@ -13,9 +13,10 @@ import { ChartBase } from '../../components';
 import { theme as defaultTheme } from '../../theme';
 import { TOOLTIP_TIMEOUT } from './constants';
 
-import { CommonChartSettings, TooltipFormatter } from '../../types';
+import { CommonChartSettings } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
+import { FormatFunction } from '@keen.io/charts-utils';
 
 export type Props = {
   /** Chart data */
@@ -39,7 +40,7 @@ export type Props = {
   /** Progress type */
   progressType?: 'normal' | 'percent';
   /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  formatTooltip?: FormatFunction;
 } & CommonChartSettings;
 
 const createArcMotion = (index: number) => ({

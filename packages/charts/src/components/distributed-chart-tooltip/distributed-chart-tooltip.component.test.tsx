@@ -1,12 +1,11 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
-import BarTooltip from './bar-tooltip-content.component';
 
-import { chartData as data } from '../../bar-chart.fixtures';
-import { theme } from '../../../../theme';
-import { ChartContext } from '../../../../contexts';
+import { theme } from '../../theme';
+import { ChartContext } from '../../contexts';
+import DistributedChartTooltip from './distributed-chart-tooltip.component';
 
-const render = (overProps: any = {}, overContextValue: any = {}) => {
+const render = (overProps: any = {}) => {
   const keys = ['users', 'licenses'];
   const selectors = [
     {
@@ -14,28 +13,30 @@ const render = (overProps: any = {}, overContextValue: any = {}) => {
       selector: [0, 'users'],
     },
   ];
+
+  const data = [
+    { name: 'Windows', users: 3, licenses: 52, shops: 12 },
+    { name: 'MacOS', users: 19, licenses: 82, shops: 15 },
+    { name: 'Linux', users: 20, licenses: -15, shops: 23 },
+    { name: 'Android', users: 63, licenses: -15, shops: -30 },
+  ];
+
   const formatValue = (value) => `$${value}`;
+
   const props = {
     data,
     keys,
     disabledKeys: [],
     selectors,
-    groupMode: 'normal',
-    stackMode: 'grouped',
-    isList: false,
+    isPercentage: false,
     formatValue,
+    scaleSettings: {},
     ...overProps,
   };
 
-  const contextValue = {
-    xScaleSettings: {},
-    theme,
-    ...overContextValue,
-  };
-
   const wrapper = rtlRender(
-    <ChartContext.Provider value={...contextValue}>
-      <BarTooltip {...props} />
+    <ChartContext.Provider value={{ theme }}>
+      <DistributedChartTooltip {...props} />
     </ChartContext.Provider>
   );
   return {
@@ -70,9 +71,7 @@ test('formats toolip list values', () => {
   } = render({
     data,
     selectors,
-    stackMode: 'percent',
-    groupMode: 'stacked',
-    isList: true,
+    isPercentage: true,
   });
   const [firstSeries] = data;
   const { users, licenses } = firstSeries;
@@ -99,7 +98,7 @@ test('renders tooltip label when time precision is provided for axis', () => {
     'Stephen King',
   ];
   const selectors = [{ selector: [0, 'Edwidge Danticat'], color: '#85B4C3' }];
-  const xScaleSettings = { type: 'band', precision: 'month' };
+  const scaleSettings = { type: 'band', precision: 'month' };
   const labelSelector = 'keen.key';
 
   const [firstSelector] = selectors;
@@ -107,7 +106,7 @@ test('renders tooltip label when time precision is provided for axis', () => {
   const tooltipLabel = data[index][labelSelector];
   const {
     wrapper: { getByText },
-  } = render({ data, keys, selectors, labelSelector }, { xScaleSettings });
+  } = render({ data, keys, selectors, labelSelector, scaleSettings });
 
   expect(getByText(tooltipLabel)).toBeInTheDocument();
 });

@@ -1,9 +1,9 @@
 import { scaleBand } from 'd3-scale';
 import { calculateRange } from '@keen.io/charts-utils';
 
-import { Options, BlockType } from './types';
+import { Options, BlockType } from '../types';
 
-import { calculateColorScale } from '../../utils/colors.utils';
+import { calculateColorScale } from '../../../utils/colors.utils';
 
 export const generateVerticalBlocks = ({
   data,
