@@ -24,7 +24,9 @@ export const worldMapDoubleGroupBy = () => {
       type: 'choropleth',
       container: container.current,
       settings: {
-        formatTooltip: '${number; 0.00}£',
+        tooltipSettings: {
+          formatValue: '${number; 0.00}£',
+        },
       },
       widget: {
         title: {
