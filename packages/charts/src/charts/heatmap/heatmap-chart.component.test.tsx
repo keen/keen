@@ -23,7 +23,9 @@ const render = (overProps: any = {}) => {
     keys,
     labelSelector,
     theme,
-    formatTooltip,
+    tooltipSettings: {
+      formatValue: formatTooltip,
+    },
     ...overProps,
   };
 
@@ -70,7 +72,7 @@ test('formats tooltip value', async () => {
 
   const {
     wrapper: { getByText, container },
-    props: { data, formatTooltip, keys },
+    props: { data, tooltipSettings, keys },
   } = render();
 
   const chart = container.querySelector('svg');
@@ -80,7 +82,7 @@ test('formats tooltip value', async () => {
   const result = firstSeries[keys[0]];
 
   await waitFor(() => {
-    expect(getByText(formatTooltip(result))).toBeInTheDocument();
+    expect(getByText(tooltipSettings.formatValue(result))).toBeInTheDocument();
   });
 });
 
@@ -91,9 +93,10 @@ test('formats tooltip value by string formatter', async () => {
   };
 
   const formatter = '${number; 0.00a}$';
+
   const {
     wrapper: { getByText, container },
-  } = render({ formatTooltip: formatter });
+  } = render({ tooltipSettings: { formatValue: formatter } });
 
   const chart = container.querySelector('svg');
   fireEvent.mouseOver(chart.querySelector('rect'));

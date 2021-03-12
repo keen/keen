@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 import TooltipContent from '../tooltip-content';
 import { DataSelector } from '../../types';
 import { getDistributedChartTooltipSettings } from './utils';
+import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
 
 type Props = {
   /** Data series */
@@ -21,7 +21,7 @@ type Props = {
   /** Max width for tooltip */
   maxWidth?: number;
   /** Tooltip formatter */
-  formatValue?: TooltipFormatter;
+  formatValue: TooltipFormatter;
   scaleSettings?: ScaleSettings;
 };
 

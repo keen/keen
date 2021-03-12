@@ -20,7 +20,9 @@ const render = (overProps: any = {}) => {
     data,
     labelSelector,
     keys,
-    formatTooltip,
+    tooltipSettings: {
+      formatValue: formatTooltip,
+    },
     ...overProps,
   };
 
@@ -35,7 +37,7 @@ const render = (overProps: any = {}) => {
 test('formats tooltip value', async () => {
   const {
     wrapper: { getByTestId, getByText },
-    props: { data, formatTooltip, labelSelector, keys },
+    props: { data, tooltipSettings, labelSelector, keys },
   } = render();
 
   const [firstSeries] = data;
@@ -48,7 +50,9 @@ test('formats tooltip value', async () => {
   await waitFor(() => {
     expect(getByText(label)).toBeInTheDocument();
 
-    expect(getByText(`${formatTooltip(result)}`)).toBeInTheDocument();
+    expect(
+      getByText(`${tooltipSettings.formatValue(result)}`)
+    ).toBeInTheDocument();
   });
 });
 
@@ -57,7 +61,7 @@ test('formats tooltip value by string formatter', async () => {
   const {
     wrapper: { getByTestId, getByText },
     props: { data, labelSelector },
-  } = render({ formatTooltip: formatter });
+  } = render({ tooltipSettings: { formatValue: formatter } });
 
   const [firstSeries] = data;
   const label = firstSeries[labelSelector];

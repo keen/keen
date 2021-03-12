@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react';
 import { useTooltip } from '@keen.io/react-hooks';
-import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateLines, showAllMarks } from './utils';
 
@@ -18,7 +18,12 @@ import { useDynamicChartLayout } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings, GroupMode, StackMode } from '../../types';
+import {
+  CommonChartSettings,
+  GroupMode,
+  StackMode,
+  TooltipSettings,
+} from '../../types';
 
 import { CurveType } from './types';
 
@@ -62,8 +67,8 @@ export type Props = {
   gradient?: boolean;
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
-  /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  /** Tooltip settings */
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -88,7 +93,7 @@ export const LineChart: FC<Props> = ({
   gradient = true,
   xAxisTitle,
   yAxisTitle,
-  formatTooltip,
+  tooltipSettings = {},
 }) => {
   const {
     layoutMargins,
@@ -137,7 +142,7 @@ export const LineChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement, computeTooltipRelative);
 
-  const { tooltip: tooltipSettings } = theme;
+  const { tooltip: themeTooltipSettings } = theme;
   return (
     <ChartBase
       ref={svgElement}
@@ -177,7 +182,7 @@ export const LineChart: FC<Props> = ({
             stepMode={stepMode}
             gradientBlocks={gradientBlocks}
             onMarkMouseEnter={(e, selectors) => {
-              if (tooltipSettings.enabled) {
+              if (themeTooltipSettings.enabled) {
                 updateTooltipPosition(e, selectors);
               }
             }}
@@ -200,7 +205,7 @@ export const LineChart: FC<Props> = ({
                   stackMode === 'percent' && groupMode === 'stacked'
                 }
                 selectors={tooltipSelectors}
-                formatValue={formatTooltip}
+                formatValue={tooltipSettings.formatValue}
                 labelSelector={labelSelector}
                 maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
                 scaleSettings={xScaleSettings}

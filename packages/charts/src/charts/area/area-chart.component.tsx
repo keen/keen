@@ -1,9 +1,14 @@
 import React from 'react';
-import { ScaleSettings, TooltipFormatter } from '@keen.io/charts-utils';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import LineChart from '../line/line-chart.component';
 
-import { CommonChartSettings, GroupMode, StackMode } from '../../types';
+import {
+  CommonChartSettings,
+  GroupMode,
+  StackMode,
+  TooltipSettings,
+} from '../../types';
 
 import { CurveType } from '../line/types';
 
@@ -43,7 +48,7 @@ export type Props = {
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
   /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {

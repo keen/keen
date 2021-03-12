@@ -94,7 +94,7 @@ test('formats tooltip value', async () => {
   const {
     wrapper: { getByText, container },
     props: { data },
-  } = render({ formatTooltip });
+  } = render({ tooltipSettings: { formatValue: formatTooltip } });
   const [firstSeries] = data;
   const { users } = firstSeries;
   const formattedValue = formatTooltip(users);
