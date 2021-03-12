@@ -22,7 +22,8 @@ type Props = {
   maxWidth?: number;
   /** Tooltip formatter */
   formatValue: TooltipFormatter;
-  scaleSettings?: ScaleSettings;
+  /** Scale settings */
+  scaleSettings: ScaleSettings;
 };
 
 const DistributedChartTooltip: FC<Props> = ({

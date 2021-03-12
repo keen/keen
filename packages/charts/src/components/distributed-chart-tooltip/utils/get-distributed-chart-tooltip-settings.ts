@@ -18,7 +18,7 @@ type TooltipSettings = {
   isPercentage: boolean;
   labelSelector: string;
   formatValue?: TooltipFormatter;
-  scaleSettings?: ScaleSettings;
+  scaleSettings: ScaleSettings;
 };
 
 const getDistributedChartTooltipSettings = ({

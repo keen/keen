@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from '@keen.io/ui-core';
 import { AnimatePresence } from 'framer-motion';
 
-import Block from '../block/block.component';
+import { Block } from '../block';
 
 import { BlockType } from '../../types';
 

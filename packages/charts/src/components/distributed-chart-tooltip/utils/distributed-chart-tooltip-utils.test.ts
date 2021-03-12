@@ -1,4 +1,4 @@
-import { getSelectors } from '../index';
+import { getSelectors } from './distributed-chart-tooltip-utils';
 
 describe('@keen.io/charts', () => {
   describe('getSelectors()', () => {
