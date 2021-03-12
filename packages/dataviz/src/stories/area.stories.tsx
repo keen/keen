@@ -29,24 +29,15 @@ export const simpleResults = () => {
           content: 'hourly',
         },
       },
-      settings: {
-        theme: {
-          axisX: {
-            labels: {
-              radiusAngle: 60,
-            },
-          },
-        },
-      },
     });
 
     client
       .query({
         analysis_type: 'count',
         event_collection: 'book_purchase',
-        timeframe: 'last_2_years',
-        timezone: 'US/Eastern',
-        interval: 'every_35_days',
+        timeframe: 'this_3_months',
+        timezone: 'UTC',
+        interval: 'every_3_days',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

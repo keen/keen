@@ -1,27 +1,20 @@
 import { isCustomInterval } from '@keen.io/query';
 
+import {
+  DEFAULT_INTERVAL,
+  CUSTOM_INTERVAL_TO_PRECISION,
+  INTERVAL_TO_PRECISION,
+} from './constants';
+
 import { TimePrecision } from '../../types';
 
-const INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
-  minutely: 'minute',
-  hourly: 'hour',
-  daily: 'day',
-  weekly: 'week',
-  monthly: 'month',
-  yearly: 'year',
-};
-
-const CUSTOM_INTERVAL_TO_PRECISION: Record<string, TimePrecision> = {
-  minutes: 'minute',
-  hours: 'hour',
-  days: 'day',
-  weeks: 'week',
-  months: 'month',
-  years: 'year',
-};
-
-const DEFAULT_INTERVAL = 'month';
-
+/**
+ * Get time precision from provided interval
+ *
+ * @param interval - string representing data interval
+ * @return time precision
+ *
+ */
 const getPrecisionForInterval = (interval: string): TimePrecision => {
   if (isCustomInterval(interval))
     return (

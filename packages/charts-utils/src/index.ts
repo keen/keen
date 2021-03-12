@@ -8,6 +8,8 @@ import {
   sortKeysByValuesSum,
 } from './data';
 
+import createTimeAxisIntervals from './axis/normalize-time-axis-ticks/create-time-axis-intervals';
+
 import { getElementOffset, hasContentOverflow } from './elements';
 
 import { formatByPattern, formatValue } from './format';
@@ -16,13 +18,13 @@ import {
   normalizeDate,
   getPrecisionForInterval,
   getStepsFromInterval,
+  createDateFormatter,
 } from './time';
 
 import {
-  createScaleSettings,
   calculateScaleDomain,
   formatScaleLabel,
-  getScaleValues,
+  getScaleTicks,
   getScaleCenterPosition,
 } from './scale';
 
@@ -46,6 +48,8 @@ import {
 export { TimePrecision, ScaleSettings, TooltipFormatter, FormatFunction };
 
 export {
+  createDateFormatter,
+  createTimeAxisIntervals,
   calculateRotation,
   calculateHypotenuse,
   calculateHypotenuseHeight,
@@ -55,7 +59,6 @@ export {
   calculateRange,
   calculateStackedRange,
   copyToClipboard,
-  createScaleSettings,
   formatScaleLabel,
   formatNumber,
   formatByPattern,
@@ -63,7 +66,7 @@ export {
   getElementOffset,
   getValues,
   getKeysDifference,
-  getScaleValues,
+  getScaleTicks,
   getScaleCenterPosition,
   getFromPath,
   hasContentOverflow,

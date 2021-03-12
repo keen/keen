@@ -1,4 +1,4 @@
-import { scaleLinear, scaleTime, scaleUtc } from 'd3-scale';
+import { scaleLinear, scaleUtc } from 'd3-scale';
 import { v4 as uuid } from 'uuid';
 import {
   calculateRange,
@@ -91,9 +91,8 @@ export const generateGroupedLines = ({
   const lines: Line[] = [];
   const gradientBlocks: GradientBlockType[] = [];
 
-  const { useUTC, precision } = xScaleSettings;
-  const dateNormalizer = (date: string) =>
-    normalizeDate(date, precision, useUTC);
+  const { precision } = xScaleSettings;
+  const dateNormalizer = (date: string) => normalizeDate(date, precision);
 
   const localizedData = data.map((item) => ({
     ...item,
@@ -101,9 +100,7 @@ export const generateGroupedLines = ({
   }));
 
   const [first] = localizedData;
-  const xScale = useUTC ? scaleUtc() : scaleTime();
-
-  xScale
+  const xScale = scaleUtc()
     .range([margins.left, dimension.width - margins.right])
     .domain([
       first[labelSelector],
@@ -271,10 +268,8 @@ export const generateStackLines = ({
     ? getKeysDifference(keys, disabledKeys)
     : keys;
 
-  const { useUTC, precision } = xScaleSettings;
-
-  const dateNormalizer = (date: string) =>
-    normalizeDate(date, precision, useUTC);
+  const { precision } = xScaleSettings;
+  const dateNormalizer = (date: string) => normalizeDate(date, precision);
 
   const localizedData = data.map((item) => ({
     ...item,
@@ -313,9 +308,7 @@ export const generateStackLines = ({
 
   const [first] = newData;
 
-  const xScale = useUTC ? scaleUtc() : scaleTime();
-
-  xScale
+  const xScale = scaleUtc()
     .range([margins.left, dimension.width - margins.right])
     .domain([first[labelSelector], newData[newData.length - 1][labelSelector]]);
 

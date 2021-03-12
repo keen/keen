@@ -1,5 +1,8 @@
 import { HeatmapChartSettings } from '@keen.io/charts';
-import { createScaleSettings } from '@keen.io/charts-utils';
+import {
+  getPrecisionForInterval,
+  createDateFormatter,
+} from '@keen.io/charts-utils';
 
 import { VisualizationOptions } from './types';
 
@@ -10,9 +13,15 @@ export const setChartSettings = ({
   let settings = {};
 
   if (interval) {
+    const precision = getPrecisionForInterval(interval);
+
     settings = {
       ...settings,
-      yScaleSettings: { type: 'band', ...createScaleSettings(interval) },
+      yScaleSettings: {
+        precision,
+        type: 'time',
+        formatLabel: createDateFormatter(precision),
+      },
     };
   }
 
