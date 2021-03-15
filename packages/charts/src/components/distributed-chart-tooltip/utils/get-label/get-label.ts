@@ -7,14 +7,14 @@ import {
 import { DataSelector } from '../../../../types';
 
 /**
- * Prepare selectors for bar while mouse hover
+ * Prepare label for item in tooltip
  *
  * @param isPercentage - is stackMode 'percent' on
  * @param selector - selector of active bar
  * @param data - data series
  * @param percentageData - calculated percentage data
  * @param formatValue - function for tooltip value format
- * @return a value that will be displayed in tooltip
+ * @return label that will be displayed for tooltip item
  *
  */
 const getLabel = ({

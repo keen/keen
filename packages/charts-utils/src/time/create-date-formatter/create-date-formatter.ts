@@ -1,27 +1,25 @@
 import { timeFormat } from 'd3-time-format';
 
-import { TimePrecision } from '../../types';
+import { DATE_FORMATS, PRECISE_DATE_FORMATS } from './constants';
 
-const DATE_FORMATS: Record<TimePrecision, string> = {
-  minute: '%I:%M %p',
-  hour: '%I:%M %p',
-  day: '%e %a %y',
-  week: '%d %a',
-  month: '%b %y',
-  year: '%b, %Y',
-};
+import { TimePrecision } from '../../types';
 
 /**
  * Creates date formatter based on specified precision
  *
  * @param precision - time precision
+ * @param useFullTimePrecision - increase time format precision
  * @return format function
  *
  */
 const createDateFormatter = (
-  precision: TimePrecision
+  precision: TimePrecision,
+  useFullTimePrecision = false
 ): ((label: string | number | Date) => string) => {
-  const format = DATE_FORMATS[precision] || DATE_FORMATS['month'];
+  const formatSpecifiers = useFullTimePrecision
+    ? PRECISE_DATE_FORMATS
+    : DATE_FORMATS;
+  const format = formatSpecifiers[precision] || formatSpecifiers['month'];
   const formatTime = timeFormat(format);
 
   return (date: string | number | Date) => {

@@ -17,7 +17,7 @@ export const setChartSettings = ({
     settings = {
       ...settings,
       tooltipSettings: {
-        formatTime: createDateFormatter(precision),
+        formatTime: createDateFormatter(precision, true),
       },
       xScaleSettings: {
         type: 'time',

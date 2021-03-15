@@ -43,7 +43,9 @@ const TooltipContent: FC<Props> = ({
     <Container maxWidth={maxWidth}>
       {label && (
         <LabelContainer>
-          <Text {...tooltip.labels.typography}>{label}</Text>
+          <Text truncate {...tooltip.labels.typography}>
+            {label}
+          </Text>
         </LabelContainer>
       )}
       <BulletListContainer>

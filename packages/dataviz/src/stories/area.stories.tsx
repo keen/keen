@@ -35,9 +35,9 @@ export const simpleResults = () => {
       .query({
         analysis_type: 'count',
         event_collection: 'book_purchase',
-        timeframe: 'this_3_months',
+        timeframe: 'last_2_years',
         timezone: 'UTC',
-        interval: 'every_3_days',
+        interval: 'every_35_days',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

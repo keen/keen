@@ -31,13 +31,6 @@ export const simpleResults = () => {
       },
     });
 
-    /*
-    timeframe: {
-      start: '2001-02-01T12:33:00.000',
-      end: '2002-02-01T16:37:00.000',
-    },
-    */
-
     client
       .query({
         analysis_type: 'count',
@@ -52,7 +45,7 @@ export const simpleResults = () => {
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '800px', height: '500px' }} ref={container} />;
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
 
 export const multipleResultsSpline = () => {
