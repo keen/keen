@@ -16,13 +16,17 @@ export const setChartSettings = ({
 
   if (interval) {
     const precision = getPrecisionForInterval(interval);
+    const dateFormatter = createDateFormatter(precision);
 
     settings = {
       ...settings,
+      tooltipSettings: {
+        formatTime: dateFormatter,
+      },
       xScaleSettings: {
-        precision,
         type: 'time',
-        formatLabel: createDateFormatter(precision),
+        precision,
+        formatLabel: dateFormatter,
       },
     };
   }

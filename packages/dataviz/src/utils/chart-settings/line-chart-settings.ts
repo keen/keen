@@ -1,5 +1,8 @@
 import { LineChartSettings } from '@keen.io/charts';
-import { getPrecisionForInterval } from '@keen.io/charts-utils';
+import {
+  getPrecisionForInterval,
+  createDateFormatter,
+} from '@keen.io/charts-utils';
 
 import { VisualizationOptions } from './types';
 
@@ -13,6 +16,9 @@ export const setChartSettings = ({
     const precision = getPrecisionForInterval(interval);
     settings = {
       ...settings,
+      tooltipSettings: {
+        formatTime: createDateFormatter(precision),
+      },
       xScaleSettings: {
         type: 'time',
         precision,

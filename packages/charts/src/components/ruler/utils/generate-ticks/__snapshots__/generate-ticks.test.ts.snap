@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates ticks for horizontal linear scale 1`] = `
+Object {
+  "ticks": Array [
+    Object {
+      "size": 5,
+      "text": 0,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 10,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 20,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 30,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 40,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 50,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 60,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 70,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 80,
+      "x": 0,
+      "y": -0.5,
+    },
+    Object {
+      "size": 5,
+      "text": 90,
+      "x": 0,
+      "y": -0.5,
+    },
+  ],
+  "ticksPrecision": undefined,
+}
+`;
+
+exports[`creates ticks for vertical linear scale 1`] = `
+Object {
+  "ticks": Array [
+    Object {
+      "size": 5,
+      "text": 0,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 10,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 20,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 30,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 40,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 50,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 60,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 70,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 80,
+      "x": 0.5,
+      "y": 0,
+    },
+    Object {
+      "size": 5,
+      "text": 90,
+      "x": 0.5,
+      "y": 0,
+    },
+  ],
+  "ticksPrecision": undefined,
+}
+`;

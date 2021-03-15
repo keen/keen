@@ -1,6 +1,6 @@
 import { ScaleLinear, ScaleBand, ScaleTime } from 'd3-scale';
 
-import createTimeAxisIntervals from '../../axis/normalize-time-axis-ticks/create-time-axis-intervals';
+import { createTimeIntervals } from '../../time/';
 
 import { ScaleSettings } from '../../types';
 
@@ -25,7 +25,7 @@ const getScaleTicks = (
       ticksPrecision: scaleSettings?.precision,
     };
   if (scaleSettings?.type === 'time') {
-    const { ticks, precision: ticksPrecision } = createTimeAxisIntervals(
+    const { ticks, precision: ticksPrecision } = createTimeIntervals(
       scale as ScaleTime<number, number>
     );
 

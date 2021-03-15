@@ -15,5 +15,5 @@ export const TIME_INTERVALS: Array<[TimePrecision, Array<number>]> = [
   ['day', [1, 2]],
   ['week', [1, 2]],
   ['month', [1, 2, 3, 4, 6]],
-  ['year', [1]],
+  ['year', [1, 2, 3, 6]],
 ];

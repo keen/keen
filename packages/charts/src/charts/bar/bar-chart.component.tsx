@@ -3,6 +3,7 @@ import { Layout, SortMode } from '@keen.io/ui-core';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateBars } from './utils/chart.utils';
+import { getSelectors } from './utils/tooltip.utils';
 import { Bars } from './components';
 
 import {
@@ -11,9 +12,10 @@ import {
   Grid,
   Axes,
   ZeroIntersection,
+  DistributedChartTooltip as BarChartTooltip,
 } from '../../components';
-import { useDynamicChartLayout } from '../../hooks';
 
+import { useDynamicChartLayout } from '../../hooks';
 import { theme as defaultTheme } from '../../theme';
 
 import { DEFAULT_MARGINS, MAX_TOOLTIP_WIDTH_FACTOR } from './constants';
@@ -26,9 +28,6 @@ import {
   StackMode,
   TooltipSettings,
 } from '../../types';
-import BarChartTooltip, {
-  getSelectors,
-} from '../../components/distributed-chart-tooltip';
 
 export type Props = {
   /** Chart data */
@@ -217,10 +216,10 @@ export const BarChart: FC<Props> = ({
                     stackMode === 'percent' && groupMode === 'stacked'
                   }
                   selectors={tooltip.selectors}
-                  formatValue={tooltipSettings.formatValue}
+                  tooltipSettings={tooltipSettings}
                   labelSelector={labelSelector}
                   maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
-                  scaleSettings={xScaleSettings}
+                  isTimePrecise={xScaleSettings?.type === 'time'}
                 />
               )}
             </ChartTooltip>

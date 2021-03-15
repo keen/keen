@@ -8,8 +8,6 @@ import {
   sortKeysByValuesSum,
 } from './data';
 
-import createTimeAxisIntervals from './axis/normalize-time-axis-ticks/create-time-axis-intervals';
-
 import { getElementOffset, hasContentOverflow } from './elements';
 
 import { formatByPattern, formatValue } from './format';
@@ -19,6 +17,7 @@ import {
   getPrecisionForInterval,
   getStepsFromInterval,
   createDateFormatter,
+  createTimeIntervals,
 } from './time';
 
 import {
@@ -49,7 +48,7 @@ export { TimePrecision, ScaleSettings, TooltipFormatter, FormatFunction };
 
 export {
   createDateFormatter,
-  createTimeAxisIntervals,
+  createTimeIntervals,
   calculateRotation,
   calculateHypotenuse,
   calculateHypotenuseHeight,
