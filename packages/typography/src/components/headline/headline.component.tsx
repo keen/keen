@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
-import { typography, TypographyProps, color, ColorProps } from 'styled-system';
+import styled, { css } from 'styled-components';
 import { colors } from '@keen.io/colors';
 
 import { Variant } from './types';
 import { FontWeight, LineHeight } from '../../types';
 
-import { DEFAULT_LINE_HEIGHT, SHARED_STYLE } from '../../constants';
+import { HEADER_STYLE } from './constants';
 
 type Props = {
   /** Headline variant */
@@ -21,46 +20,43 @@ type Props = {
   children: React.ReactNode;
 };
 
-const StyledH1 = styled.h1<TypographyProps & ColorProps>`
-  ${SHARED_STYLE};
+const StyledH1 = styled.h1<Partial<Props>>`
+  ${HEADER_STYLE};
 
-  font-family: 'Gangster Grotesk', sans-serif;
   font-size: 36px;
-
-  font-weight: bold;
-  line-height: ${DEFAULT_LINE_HEIGHT};
   color: ${colors.black[500]};
 
-  ${typography};
-  ${color};
+  ${(props) => css`
+    color: ${props.color};
+    line-height: ${props.lineHeight};
+    font-weight: ${props.fontWeight};
+  `};
 `;
 
-const StyledH2 = styled.h2<TypographyProps & ColorProps>`
-  ${SHARED_STYLE};
+const StyledH2 = styled.h2<Partial<Props>>`
+  ${HEADER_STYLE};
 
-  font-family: 'Gangster Grotesk', sans-serif;
   font-size: 30px;
-
-  font-weight: bold;
-  line-height: ${DEFAULT_LINE_HEIGHT};
   color: ${colors.black[500]};
 
-  ${typography};
-  ${color};
+  ${(props) => css`
+    color: ${props.color};
+    line-height: ${props.lineHeight};
+    font-weight: ${props.fontWeight};
+  `};
 `;
 
-const StyledH3 = styled.h3<TypographyProps & ColorProps>`
-  ${SHARED_STYLE};
+const StyledH3 = styled.h3<Partial<Props>>`
+  ${HEADER_STYLE};
 
-  font-family: 'Gangster Grotesk', sans-serif;
   font-size: 20px;
-
-  font-weight: bold;
-  line-height: ${DEFAULT_LINE_HEIGHT};
   color: ${colors.black[400]};
 
-  ${typography};
-  ${color};
+  ${(props) => css`
+    color: ${props.color};
+    line-height: ${props.lineHeight};
+    font-weight: ${props.fontWeight};
+  `};
 `;
 
 const Headline: FC<Props> = ({
