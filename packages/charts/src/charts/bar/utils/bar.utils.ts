@@ -140,11 +140,11 @@ export const calculateGroupedBars = (
     keys.forEach((keyName: string, idx: number) => {
       const isDisabled =
         keyName === labelSelector || disabledKeys.includes(keyName);
-      const barCounter = Object.entries(data[index]).filter(
+      const barsToRenderInGroup = Object.entries(data[index]).filter(
         (el) => el[1] !== 0 && el[0] !== labelSelector
       ).length;
 
-      const newOrder = (keys.length - barCounter) / 2;
+      const newOrder = (keys.length - barsToRenderInGroup) / 2;
 
       const value = data[index]?.[keyName];
       if (value && !isDisabled) {

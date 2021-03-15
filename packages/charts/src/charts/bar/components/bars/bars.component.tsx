@@ -61,7 +61,7 @@ const Bars = ({
                   y,
                   width,
                   height,
-                  positiveValue: value > 0,
+                  inPositiveCartesianQuadrant: value > 0,
                 });
                 setActiveBar({ key, selector });
                 onBarMouseEnter(e, key, { selector, color }, markPosition);
@@ -104,7 +104,7 @@ const Bars = ({
                   y,
                   width,
                   height,
-                  positiveValue: value > 0,
+                  inPositiveCartesianQuadrant: value > 0,
                 })}
                 {...setMarkSize({ layout, width, height })}
                 color={color}
