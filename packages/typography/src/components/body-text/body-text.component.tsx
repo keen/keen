@@ -26,19 +26,15 @@ const BodyText = styled.p<Props>`
   ${SHARED_STYLE};
   font-family: 'Lato', sans-serif;
 
-  ${(props) => css`
-    color: ${props.color};
-    line-height: ${props.lineHeight};
-    font-weight: ${props.fontWeight};
-  `};
-
   ${variant({
     variants: {
       body1: {
         fontSize: '16px',
+        fontWeight: DEFAULT_FONT_WEIGHT,
       },
       body2: {
         fontSize: '14px',
+        fontWeight: DEFAULT_FONT_WEIGHT,
       },
       body3: {
         fontSize: '12px',
@@ -46,10 +42,15 @@ const BodyText = styled.p<Props>`
       },
     },
   })};
+
+  ${(props) => css`
+    color: ${props.color};
+    line-height: ${props.lineHeight};
+    font-weight: ${props.fontWeight};
+  `};
 `;
 
 BodyText.defaultProps = {
-  fontWeight: DEFAULT_FONT_WEIGHT,
   lineHeight: DEFAULT_LINE_HEIGHT,
   color: colors.black[100],
 };
