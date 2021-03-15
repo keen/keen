@@ -45,11 +45,21 @@ export const Grid = ({ xScale, yScale }: Props) => {
     <>
       {gridX.enabled &&
         xLines.map((line, idx) => (
-          <Line key={`x-${idx}`} color={gridX.color} {...line} />
+          <Line
+            data-testid={`grid-x-${idx}`}
+            key={`x-${idx}`}
+            color={gridX.color}
+            {...line}
+          />
         ))}
       {gridY.enabled &&
         yLines.map((line, idx) => (
-          <Line key={`y-${idx}`} color={gridY.color} {...line} />
+          <Line
+            data-testid={`grid-y-${idx}`}
+            key={`y-${idx}`}
+            color={gridY.color}
+            {...line}
+          />
         ))}
     </>
   );

@@ -32,7 +32,14 @@ const ResponsiveWrapper = ({ children, mountTreshold = 2 }: Props) => {
       {({ measureRef }) => (
         <div
           ref={measureRef}
-          style={{ height: '100%', width: '100%', display: 'flex' }}
+          style={{
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            minHeight: 0,
+            minWidth: 0,
+            position: 'relative',
+          }}
         >
           {showContent && children(width, height)}
         </div>

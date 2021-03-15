@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import MetricChart from './metric-chart.component';
 import { theme as defaultTheme } from '../../theme';
 
 import { chartData } from './metric-chart.fixtures';
 
-const setup = (overProps: any = {}) => {
+const render = (overProps: any = {}) => {
   const props = {
     data: chartData,
     labelSelector: 'day',
@@ -14,127 +14,151 @@ const setup = (overProps: any = {}) => {
     ...overProps,
   };
 
-  const wrapper = mount(<MetricChart {...props} />);
+  const wrapper = rtlRender(<MetricChart {...props} />);
 
   return {
     wrapper,
     props,
-    findValue: () => wrapper.find('[data-test="metric-value"]'),
-    findExcerptContainer: () =>
-      wrapper.find('[data-test="metric-excerpt-container"]'),
-    findExcerpt: () => wrapper.find('[data-test="metric-excerpt-value"]'),
-    findPrefix: () => wrapper.find('[data-test="metric-prefix"]'),
-    findSuffix: () => wrapper.find('[data-test="metric-suffix"]'),
   };
 };
 
-describe('@keen.io/charts - <MetricChart />', () => {
-  it('should apply format function', () => {
-    const mockFn = jest.fn().mockImplementation((value) => `Total ${value}`);
-    const { findValue } = setup({ formatValue: mockFn });
+test('applies format function', () => {
+  const mockFn = jest.fn().mockImplementation((value) => `Total ${value}`);
 
-    const label = findValue().first();
+  const {
+    wrapper: { getByText },
+  } = render({ formatValue: mockFn });
 
-    expect(mockFn).toHaveBeenCalled();
-    expect(label.text()).toMatchInlineSnapshot(`"Total 3281"`);
+  expect(mockFn).toHaveBeenCalled();
+  expect(getByText('Total 3281')).toBeInTheDocument();
+});
+
+test('applies format pattern', () => {
+  const pattern = '${number; 0a}';
+  const {
+    wrapper: { getByText },
+  } = render({ formatValue: pattern });
+
+  expect(getByText('3k')).toBeInTheDocument();
+});
+
+test('renders <Excerpt /> component with percent difference', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ type: 'difference', usePercentDifference: true });
+
+  expect(getByText('49.14%')).toBeInTheDocument();
+});
+
+test('renders <Excerpt /> component with value difference', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ type: 'difference' });
+
+  expect(getByText('1.1k')).toBeInTheDocument();
+});
+
+test('renders <Excerpt /> component with compared value', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ type: 'comparison' });
+
+  expect(getByText('1.1k')).toBeInTheDocument();
+});
+
+test('not renders <Excerpt /> component for metric with single data serie', () => {
+  const [firstSerie] = chartData;
+  const {
+    wrapper: { queryByTestId },
+  } = render({
+    data: [firstSerie],
   });
 
-  it('should render <Excerpt /> component with percent difference', () => {
-    const { findExcerpt } = setup({
-      type: 'difference',
-      usePercentDifference: true,
-    });
-    const excerpt = findExcerpt().first();
+  expect(queryByTestId('metric-excerpt-value')).toBeNull();
+});
 
-    expect(excerpt.text()).toMatchInlineSnapshot(`"49.14%"`);
-  });
+test('applies "typography" theming properties on metric value', () => {
+  const {
+    wrapper: { getByText },
+  } = render();
+  const { metric } = defaultTheme;
+  const el = getByText('3281');
 
-  it('should render <Excerpt /> component with value difference', () => {
-    const { findExcerpt } = setup({ type: 'difference' });
-    const excerpt = findExcerpt().first();
+  expect(el.getAttribute('font-style')).toEqual(
+    metric.value.typography.fontStyle
+  );
+  expect(el.getAttribute('font-weight')).toEqual(
+    metric.value.typography.fontWeight
+  );
+  expect(el.getAttribute('font-size')).toEqual(
+    metric.value.typography.fontSize.toString()
+  );
+  expect(el.getAttribute('font-family')).toEqual(
+    metric.value.typography.fontFamily
+  );
+});
 
-    expect(excerpt.text()).toMatchInlineSnapshot(`"1.1k"`);
-  });
+test('applies "typography" theming properties on excerpt label', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ type: 'difference' });
+  const el = getByText('1.1k');
+  const { metric } = defaultTheme;
 
-  it('should render <Excerpt /> component with compared value', () => {
-    const { findExcerpt } = setup({ type: 'comparison' });
-    const excerpt = findExcerpt().first();
+  expect(el.getAttribute('font-style')).toEqual(
+    metric.excerpt.typography.fontStyle
+  );
+  expect(el.getAttribute('font-weight')).toEqual(
+    metric.excerpt.typography.fontWeight
+  );
+  expect(el.getAttribute('font-size')).toEqual(
+    metric.excerpt.typography.fontSize.toString()
+  );
+  expect(el.getAttribute('font-family')).toEqual(
+    metric.excerpt.typography.fontFamily
+  );
+});
 
-    expect(excerpt.text()).toMatchInlineSnapshot(`"1.1k"`);
-  });
+test('renders prefix if provided', () => {
+  const valuePrefix = 'prefix';
+  const {
+    wrapper: { getByText },
+  } = render({ valuePrefix });
 
-  it('should not render <Excerpt /> component for metric with single data serie', () => {
-    const [firstSerie] = chartData;
-    const { findExcerpt } = setup({
-      data: [firstSerie],
-    });
+  expect(getByText(valuePrefix)).toBeInTheDocument();
+});
 
-    const excerpt = findExcerpt().first();
+test('applies "fontSize" property on prefix', () => {
+  const valuePrefix = 'prefix';
+  const {
+    wrapper: { getByText },
+  } = render({ valuePrefix });
+  const el = getByText(valuePrefix);
+  const { metric } = defaultTheme;
 
-    expect(excerpt.length).toBeFalsy();
-  });
+  expect(el.getAttribute('font-size')).toEqual(
+    metric.prefix.typography.fontSize.toString()
+  );
+});
 
-  it('should apply "typography" theming properties on metric value', () => {
-    const { findValue } = setup();
-    const value = findValue().first();
-    const { metric } = defaultTheme;
+test('renders suffix if provided', () => {
+  const valueSuffix = 'suffix';
+  const {
+    wrapper: { getByText },
+  } = render({ valueSuffix });
 
-    expect(value.props()).toMatchObject(metric.value.typography);
-  });
+  expect(getByText(valueSuffix)).toBeInTheDocument();
+});
 
-  it('should apply "typography" theming properties on excerpt label', () => {
-    const { findExcerpt } = setup({ type: 'difference' });
-    const excerpt = findExcerpt().first();
-    const { metric } = defaultTheme;
+test('applies "fontSize" property on suffix', () => {
+  const valueSuffix = 'suffix';
+  const {
+    wrapper: { getByText },
+  } = render({ valueSuffix });
+  const el = getByText(valueSuffix);
+  const { metric } = defaultTheme;
 
-    expect(excerpt.props()).toMatchObject(metric.excerpt.typography);
-  });
-
-  it('should apply "backgroundColor" property on "excerpt" container', () => {
-    const { findExcerptContainer } = setup({ type: 'difference' });
-    const excerptContainer = findExcerptContainer().first();
-    const { metric } = defaultTheme;
-
-    expect(excerptContainer.props()).toMatchObject({
-      background: metric.excerpt.backgroundColor,
-    });
-  });
-
-  it('should render prefix if provided', () => {
-    const valuePrefix = 'prefix';
-    const { findPrefix } = setup({ valuePrefix });
-    const prefix = findPrefix().first();
-
-    expect(prefix.text()).toEqual(valuePrefix);
-  });
-
-  it('should apply "fontSize" property on prefix', () => {
-    const valuePrefix = 'prefix';
-    const { findPrefix } = setup({ valuePrefix });
-    const prefix = findPrefix().first();
-    const { metric } = defaultTheme;
-
-    expect(prefix.props()).toMatchObject({
-      fontSize: metric.prefix.typography.fontSize,
-    });
-  });
-
-  it('should render suffix if provided', () => {
-    const valueSuffix = 'suffix';
-    const { findSuffix } = setup({ valueSuffix });
-    const suffix = findSuffix().first();
-
-    expect(suffix.text()).toEqual(valueSuffix);
-  });
-
-  it('should apply "fontSize" property on suffix', () => {
-    const valueSuffix = 'suffix';
-    const { findSuffix } = setup({ valueSuffix });
-    const suffix = findSuffix().first();
-    const { metric } = defaultTheme;
-
-    expect(suffix.props()).toMatchObject({
-      fontSize: metric.suffix.typography.fontSize,
-    });
-  });
+  expect(el.getAttribute('font-size')).toEqual(
+    metric.suffix.typography.fontSize.toString()
+  );
 });

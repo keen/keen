@@ -83,6 +83,7 @@ import {
   RelativeTime,
   TimePeriod,
   Timezone,
+  TIMEZONES,
   Title as TitleComponent,
   PropertiesTree,
 } from './components';
@@ -114,7 +115,7 @@ export type {
   Point,
 };
 
-export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
+export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS, TIMEZONES };
 
 export { isElementInViewport, exportToHtml } from './utils';
 

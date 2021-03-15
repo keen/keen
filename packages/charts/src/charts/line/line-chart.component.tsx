@@ -4,9 +4,15 @@ import { ScaleSettings } from '@keen.io/charts-utils';
 
 import { generateLines, showAllMarks } from './utils';
 
-import { Tooltip, Lines } from './components';
+import { Lines } from './components';
 
-import { ChartBase, ChartTooltip, Axes, Grid } from '../../components';
+import {
+  ChartBase,
+  ChartTooltip,
+  Axes,
+  Grid,
+  ZeroIntersection,
+} from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';
@@ -16,10 +22,13 @@ import {
   CommonChartSettings,
   GroupMode,
   StackMode,
-  TooltipFormatter,
+  TooltipSettings,
 } from '../../types';
 
 import { CurveType } from './types';
+
+import { MAX_TOOLTIP_WIDTH_FACTOR } from '../bar/constants';
+import LineChartTooltip from '../../components/distributed-chart-tooltip';
 
 export type Props = {
   /** chart data */
@@ -58,8 +67,8 @@ export type Props = {
   gradient?: boolean;
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
-  /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  /** Tooltip settings */
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -84,7 +93,7 @@ export const LineChart: FC<Props> = ({
   gradient = true,
   xAxisTitle,
   yAxisTitle,
-  formatTooltip,
+  tooltipSettings = {},
 }) => {
   const {
     layoutMargins,
@@ -102,6 +111,7 @@ export const LineChart: FC<Props> = ({
     stepMode,
     areas,
     gradientBlocks,
+    localizedData,
   } = generateLines({
     data,
     xScaleSettings,
@@ -132,8 +142,7 @@ export const LineChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement, computeTooltipRelative);
 
-  const { tooltip: tooltipSettings } = theme;
-
+  const { tooltip: themeTooltipSettings } = theme;
   return (
     <ChartBase
       ref={svgElement}
@@ -159,6 +168,7 @@ export const LineChart: FC<Props> = ({
       {layoutReady && (
         <>
           <Grid xScale={xScale} yScale={yScale} />
+          <ZeroIntersection xScale={xScale} yScale={yScale} />
           <Lines
             lines={lines}
             marks={marks}
@@ -172,7 +182,7 @@ export const LineChart: FC<Props> = ({
             stepMode={stepMode}
             gradientBlocks={gradientBlocks}
             onMarkMouseEnter={(e, selectors) => {
-              if (tooltipSettings.enabled) {
+              if (themeTooltipSettings.enabled) {
                 updateTooltipPosition(e, selectors);
               }
             }}
@@ -184,12 +194,21 @@ export const LineChart: FC<Props> = ({
             visible={tooltipVisible}
             x={tooltipPosition.x}
             y={tooltipPosition.y}
+            hasSpacing={false}
           >
             {tooltipSelectors && (
-              <Tooltip
-                data={data}
+              <LineChartTooltip
+                data={localizedData}
+                keys={keys}
+                disabledKeys={disabledKeys}
+                isPercentage={
+                  stackMode === 'percent' && groupMode === 'stacked'
+                }
                 selectors={tooltipSelectors}
-                formatValue={formatTooltip}
+                formatValue={tooltipSettings.formatValue}
+                labelSelector={labelSelector}
+                maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
+                scaleSettings={xScaleSettings}
               />
             )}
           </ChartTooltip>

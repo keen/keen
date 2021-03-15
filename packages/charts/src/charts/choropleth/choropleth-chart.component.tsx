@@ -3,7 +3,6 @@ import { ExtendedFeatureCollection } from 'd3-geo';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { ColorMode, RangeType } from '@keen.io/ui-core';
-import { TooltipFormatter } from '@keen.io/charts-utils';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import Map from './map.component';
@@ -19,7 +18,7 @@ import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 import { THREE_DIMENSION_PROJECTIONS } from './constants';
 
 import { Projection, ProjectionState } from './types';
-import { CommonChartSettings } from '../../types';
+import { CommonChartSettings, TooltipSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
@@ -53,8 +52,8 @@ export type Props = {
   colorSteps?: number;
   /** Range for filtering map values */
   valuesRange?: RangeType;
-  /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  /** Tooltip settings */
+  tooltipSettings?: TooltipSettings;
   /** Geographic match status handler */
   onUpdateGeoMatchStatus?: (status: GeoAreaMatchStatus) => void;
 } & CommonChartSettings;
@@ -76,7 +75,7 @@ export const ChoroplethChart: FC<Props> = ({
   valueKey = 'value',
   elementsKey,
   data,
-  formatTooltip,
+  tooltipSettings = {},
   onUpdateGeoMatchStatus,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
@@ -94,7 +93,7 @@ export const ChoroplethChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(svgElement);
 
-  const { tooltip: tooltipSettings } = theme;
+  const { tooltip: themeTooltipSettings } = theme;
 
   const {
     drawPath,
@@ -132,7 +131,7 @@ export const ChoroplethChart: FC<Props> = ({
   useZoom(svgElement, setProjectionState, projectionScale);
 
   useEffect(() => {
-    if (dragged && tooltipSettings.enabled) hideTooltip();
+    if (dragged && themeTooltipSettings.enabled) hideTooltip();
   }, [dragged]);
 
   return (
@@ -154,11 +153,11 @@ export const ChoroplethChart: FC<Props> = ({
           >
             {tooltipMeta && (
               <Tooltip
-                mode={tooltipSettings.mode}
-                formatValue={formatTooltip}
+                mode={themeTooltipSettings.mode}
+                formatValue={tooltipSettings.formatValue}
                 theme={{
-                  labels: tooltipSettings.labels,
-                  values: tooltipSettings.values,
+                  labels: themeTooltipSettings.labels,
+                  values: themeTooltipSettings.values,
                 }}
                 partialValues={tooltipMeta.elements}
                 totalValue={tooltipMeta.value}
@@ -188,12 +187,12 @@ export const ChoroplethChart: FC<Props> = ({
             valuesRange={valuesRange}
             onUpdateGeoMatchStatus={onUpdateGeoMatchStatus}
             onMouseEnter={(e, meta) => {
-              if (tooltipSettings.enabled && !dragged) {
+              if (themeTooltipSettings.enabled && !dragged) {
                 updateTooltipPosition(e, null, meta);
               }
             }}
             onMouseLeave={() => {
-              if (tooltipSettings.enabled) hideTooltip();
+              if (themeTooltipSettings.enabled) hideTooltip();
             }}
           />
         </ChartBase>

@@ -7,9 +7,11 @@ import { Mark, markMotion } from './mark';
 import PieLabel from './pie-label';
 import Delayed from './delayed';
 import Axes from './axes';
+import ZeroIntersection from './zero-intersection';
 
 import Grid from './grid.component';
 import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
+import TooltipContent from './tooltip-content';
 
 export {
   ChartBase,
@@ -22,9 +24,11 @@ export {
   LegendBase,
   LegendCard,
   BubbleLegend,
+  TooltipContent,
   Axes,
   Grid,
   Mark,
   markMotion,
   hoverBarMotion,
+  ZeroIntersection,
 };

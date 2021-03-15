@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, select, boolean, number } from '@storybook/addon-knobs';
+import { object, select, boolean, number, text } from '@storybook/addon-knobs';
 
 import { typographyKnobs } from '@keen.io/storybook-utils';
 
@@ -89,6 +89,9 @@ export const plot = () => {
         svgDimensions={svgDimensionsKnob}
         margins={marginsKnob}
         innerRadius={innerRadiusKnob}
+        tooltipSettings={{
+          formatValue: text('Format tooltip', '${number; 0.00a}', 'Chart'),
+        }}
       />
     </div>
   );

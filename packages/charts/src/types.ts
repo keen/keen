@@ -1,6 +1,7 @@
 import { Typography, TooltipMode, Position } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
+import { TooltipFormatter } from '@keen.io/charts-utils';
 
 export type Dimension = {
   width: number;
@@ -70,6 +71,10 @@ export type Axis = {
 
 export type Grid = {
   enabled: boolean;
+  color: string;
+};
+
+export type ZeroIntersection = {
   color: string;
 };
 
@@ -218,6 +223,7 @@ export type Theme = {
   axisY?: Axis;
   gridX?: Grid;
   gridY?: Grid;
+  zeroIntersection?: ZeroIntersection;
   hoverBar?: HoverBarSettings;
 };
 
@@ -251,9 +257,14 @@ export type LabelRotation = {
 };
 
 export type GroupMode = 'grouped' | 'stacked';
-
 export type StackMode = 'normal' | 'percent';
 
-export type TooltipFormatter = (
-  element: number | string | Date
-) => React.ReactNode;
+export type ItemData = {
+  label: string;
+  value: string;
+  change?: string;
+};
+
+export type TooltipSettings = {
+  formatValue?: TooltipFormatter;
+};

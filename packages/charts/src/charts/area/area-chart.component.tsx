@@ -7,7 +7,7 @@ import {
   CommonChartSettings,
   GroupMode,
   StackMode,
-  TooltipFormatter,
+  TooltipSettings,
 } from '../../types';
 
 import { CurveType } from '../line/types';
@@ -48,7 +48,7 @@ export type Props = {
   /** Automatically adjusts margins for visualization */
   useDynamicLayout?: boolean;
   /** Tooltip formatter */
-  formatTooltip?: TooltipFormatter;
+  tooltipSettings?: TooltipSettings;
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {

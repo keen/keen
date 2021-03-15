@@ -272,16 +272,19 @@ export const generateStackLines = ({
     : keys;
 
   const { useUTC, precision } = xScaleSettings;
+
   const dateNormalizer = (date: string) =>
     normalizeDate(date, precision, useUTC);
 
-  const normalizeData = (groupMode === 'stacked' && stackMode === 'percent'
-    ? transformToPercent(data, filteredKeys)
-    : data
-  ).map((item: Record<string, any>) => ({
+  const localizedData = data.map((item) => ({
     ...item,
     [labelSelector]: dateNormalizer(item[labelSelector]),
   }));
+
+  const normalizeData =
+    groupMode === 'stacked' && stackMode === 'percent'
+      ? transformToPercent(localizedData, filteredKeys)
+      : localizedData;
 
   const newData = calculateStackData(
     normalizeData,
@@ -296,8 +299,8 @@ export const generateStackLines = ({
     filteredKeys
   );
 
-  const percentMin = minimum < 0 ? -100 : 0;
-  const percentMax = maximum > 0 ? 100 : 0;
+  const percentMin = minimum < -100 ? -100 : minimum;
+  const percentMax = maximum > 100 ? 100 : maximum;
 
   minimum = stackMode === 'percent' ? percentMin : minimum;
   maximum = stackMode === 'percent' ? percentMax : maximum;
@@ -416,11 +419,12 @@ export const generateStackLines = ({
     yScale,
     areas,
     gradientBlocks,
+    localizedData,
   };
 };
 
 /**
- * Prepare options and check whitch function will be used based on groupMode and stackMode
+ * Prepare options and check which function will be used based on groupMode and stackMode
  *
  * @param options - all options used in function generateGroupedLines or/and generateStackLines
  * @return function to use for generating line/area chart data

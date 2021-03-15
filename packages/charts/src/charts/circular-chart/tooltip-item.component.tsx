@@ -3,13 +3,7 @@ import { Text } from '@keen.io/ui-core';
 import { Container } from './tooltip-item.styles';
 
 import { theme as defaultTheme } from '../../theme';
-import { Theme } from '../../types';
-
-export type ItemData = {
-  label: string;
-  value: string;
-  change?: string;
-};
+import { Theme, ItemData } from '../../types';
 
 type Props = {
   /** Item data */
@@ -25,10 +19,16 @@ const TooltipItem: FC<Props> = ({ data, theme = defaultTheme }) => {
     <Text {...tooltipSettings.labels.typography}>{data}</Text>
   ) : (
     <Container>
-      <Text {...tooltipSettings.labels.typography}>{data.label}</Text>
+      <Text {...tooltipSettings.labels.typography}>
+        {data.label}
+        <span>:&nbsp;</span>
+      </Text>
       <Text {...tooltipSettings.values.typography}>{data.value}</Text>
       {data.change && (
-        <Text {...tooltipSettings.labels.typography}>{data.change}</Text>
+        <Text {...tooltipSettings.labels.typography}>
+          <span>&nbsp;</span>
+          {data.change}
+        </Text>
       )}
     </Container>
   );

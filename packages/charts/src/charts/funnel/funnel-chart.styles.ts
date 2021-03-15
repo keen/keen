@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Layout } from '@keen.io/ui-core';
 
-export const FunnelContainer = styled.div<{
+export const Container = styled.div<{
   layout: Layout;
 }>`
   display: flex;
