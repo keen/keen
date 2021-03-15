@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.6.0...@keen.io/charts-utils@1.7.0) (2021-03-15)
+
+
+### Features
+
+* 🎸 Line/Area chart tooltips ([8786a6b](https://github.com/keen/keen/commit/8786a6bb5e0de98c2703a59e56e6746847ef94e0))
+
+
+
+
+
 # [1.6.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.5.0...@keen.io/charts-utils@1.6.0) (2021-03-04)
 
 

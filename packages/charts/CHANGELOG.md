@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/keen/keen/compare/@keen.io/charts@2.9.1...@keen.io/charts@2.10.0) (2021-03-15)
+
+
+### Bug Fixes
+
+* 🐛 funnel chart responsiveness ([6c4c4cf](https://github.com/keen/keen/commit/6c4c4cfbd877b7389fa570220268ff718d263da4))
+* 🐛 issue with empty stacked gruops ([0851ff2](https://github.com/keen/keen/commit/0851ff2d09abb99407e703ab00167f62cc93217f))
+* 🐛 localized data for tooltip ([93babcf](https://github.com/keen/keen/commit/93babcf40a74487591b3b0a5cb95a85e557fcd56))
+* 🐛 null in <BarChart> tooltip ([7c8c3b5](https://github.com/keen/keen/commit/7c8c3b50472a2604424719a9cf6f23dd51e6609f))
+* 🐛 update letter spacing ([7819723](https://github.com/keen/keen/commit/7819723e460339a6d9bb0800917ce975af0ffefc))
+* 🐛 update tooltip position in Chargify ([6f07030](https://github.com/keen/keen/commit/6f070302d865cff9ee03c13107752a43edd9ca42))
+
+
+### Features
+
+* 🎸 Bar Chart tooltip ([a6c0b4a](https://github.com/keen/keen/commit/a6c0b4aef2168e97f330cc79d4416a4ee277d862))
+* 🎸 format tooltip pattern for line/area ([118c594](https://github.com/keen/keen/commit/118c5940d3e9ed77dfc360595f75a3ff37c9d9b7))
+* 🎸 Line/Area chart tooltips ([8786a6b](https://github.com/keen/keen/commit/8786a6bb5e0de98c2703a59e56e6746847ef94e0))
+
+
+
+
+
 ## [2.9.1](https://github.com/keen/keen/compare/@keen.io/charts@2.9.0...@keen.io/charts@2.9.1) (2021-03-05)
 
 
