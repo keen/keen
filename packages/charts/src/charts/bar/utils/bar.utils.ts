@@ -114,7 +114,6 @@ export const calculateGroupedBars = (
   colors: string[],
   barsOrder?: SortMode
 ) => {
-  let counter = 0;
   const barSize = groupScale.bandwidth();
   const keysOrder: Record<number, any> = {};
 
@@ -135,17 +134,24 @@ export const calculateGroupedBars = (
         });
     });
   }
+  const bars = [] as Bar[];
+  range.forEach((_d, index: number) => {
+    let counter = 0;
+    keys.forEach((keyName: string, idx: number) => {
+      const isDisabled =
+        keyName === labelSelector || disabledKeys.includes(keyName);
+      const barsToRenderInGroup = Object.entries(data[index]).filter(
+        (el) => el[1] !== 0 && el[0] !== labelSelector
+      ).length;
 
-  const bars = keys.reduce((acc: Bar[], keyName: string, idx: number) => {
-    const barsGroup = [] as Bar[];
-    const isDisabled =
-      keyName === labelSelector || disabledKeys.includes(keyName);
+      const newOrder = (keys.length - barsToRenderInGroup) / 2;
 
-    range.forEach((_d, index: number) => {
       const value = data[index]?.[keyName];
-
       if (value && !isDisabled) {
-        const orderPosition = barsOrder ? keysOrder[index][keyName] : counter;
+        const orderPosition = barsOrder
+          ? keysOrder[index][keyName] - newOrder
+          : counter + newOrder;
+
         const bar =
           layout === 'vertical'
             ? {
@@ -161,7 +167,7 @@ export const calculateGroupedBars = (
                 height: barSize,
               };
 
-        barsGroup.push({
+        bars.push({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
           color: getColor(idx, colors),
@@ -169,12 +175,9 @@ export const calculateGroupedBars = (
           ...bar,
         });
       }
+      if (!barsOrder && !disabledKeys.includes(keyName) && value) counter++;
     });
-
-    if (!barsOrder && !disabledKeys.includes(keyName)) counter++;
-
-    return [...acc, ...barsGroup];
-  }, []);
+  });
 
   return bars;
 };

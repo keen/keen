@@ -352,9 +352,9 @@ test('should set <Bar> background on hover', async () => {
 
   await waitFor(() => {
     expect(rects[0].getAttribute('fill')).toEqual('rgba(133,180,195,0.95)');
-    expect(rects[1].getAttribute('fill')).toEqual('#85B4C3');
+    expect(rects[1].getAttribute('fill')).toEqual('#CB5623');
     expect(rects[4].getAttribute('fill')).toEqual('#CB5623');
-    expect(rects[5].getAttribute('fill')).toEqual('#CB5623');
+    expect(rects[5].getAttribute('fill')).toEqual('#E29B1E');
   });
 });
 

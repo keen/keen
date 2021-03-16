@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "declarationDir": "./typings",
+    "target": "es2019"
+  },
+  "references": [{ "path": "../colors" }],
+  "include": ["src/**/*"]
+}
