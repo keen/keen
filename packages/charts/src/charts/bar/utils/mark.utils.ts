@@ -25,6 +25,7 @@ const MARK_TRESHOLD = 35;
  * @param y - y position of the bar
  * @param width - width of the bar
  * @param height - height of the bar
+ * @param inPositiveCartesianQuadrant - if bar have positive value to display mark correctly
  * @return x and y for mark position
  *
  */
@@ -35,22 +36,24 @@ export const calculateMarkPosition = ({
   y,
   width,
   height,
+  inPositiveCartesianQuadrant,
 }: {
   layout: Layout;
   x: number;
   y: number;
   width: number;
   height: number;
+  inPositiveCartesianQuadrant: boolean;
 }) => {
   if (layout === 'vertical') {
     return {
       x: x + width * 0.5,
-      y,
+      y: inPositiveCartesianQuadrant ? y : y + height,
     };
   }
 
   return {
-    x: x + width,
+    x: inPositiveCartesianQuadrant ? x + width : x,
     y: y + height * 0.5,
   };
 };

@@ -195,8 +195,8 @@ describe('generateVerticalGroupedBars()', () => {
 
     const result = [
       { key: '0.people', selector: [0, 'people'] },
-      { key: '1.people', selector: [1, 'people'] },
       { key: '0.cars', selector: [0, 'cars'] },
+      { key: '1.people', selector: [1, 'people'] },
       { key: '1.cars', selector: [1, 'cars'] },
     ];
 

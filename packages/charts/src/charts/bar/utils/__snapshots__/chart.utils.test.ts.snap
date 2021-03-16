@@ -16,19 +16,6 @@ Array [
     "y": 81,
   },
   Object {
-    "color": "red",
-    "height": 66,
-    "key": "1.people",
-    "selector": Array [
-      1,
-      "people",
-    ],
-    "value": 2,
-    "width": 76,
-    "x": 10,
-    "y": 147.5,
-  },
-  Object {
     "color": "green",
     "height": 66,
     "key": "0.rooms",
@@ -40,6 +27,19 @@ Array [
     "width": 114,
     "x": 10,
     "y": 15,
+  },
+  Object {
+    "color": "red",
+    "height": 66,
+    "key": "1.people",
+    "selector": Array [
+      1,
+      "people",
+    ],
+    "value": 2,
+    "width": 76,
+    "x": 10,
+    "y": 147.5,
   },
   Object {
     "color": "green",
@@ -73,19 +73,6 @@ Array [
     "y": 81,
   },
   Object {
-    "color": "red",
-    "height": 66,
-    "key": "1.people",
-    "selector": Array [
-      1,
-      "people",
-    ],
-    "value": 21,
-    "width": 228,
-    "x": 10,
-    "y": 147.5,
-  },
-  Object {
     "color": "green",
     "height": 66,
     "key": "0.rooms",
@@ -97,6 +84,19 @@ Array [
     "width": 369.1428571428571,
     "x": 10,
     "y": 15,
+  },
+  Object {
+    "color": "red",
+    "height": 66,
+    "key": "1.people",
+    "selector": Array [
+      1,
+      "people",
+    ],
+    "value": 21,
+    "width": 228,
+    "x": 10,
+    "y": 147.5,
   },
   Object {
     "color": "green",
@@ -130,19 +130,6 @@ Array [
     "y": 10,
   },
   Object {
-    "color": "red",
-    "height": 74,
-    "key": "1.people",
-    "selector": Array [
-      1,
-      "people",
-    ],
-    "value": 2,
-    "width": 120,
-    "x": 250,
-    "y": 306,
-  },
-  Object {
     "color": "blue",
     "height": 111,
     "key": "0.rooms",
@@ -154,6 +141,19 @@ Array [
     "width": 120,
     "x": 10,
     "y": 269,
+  },
+  Object {
+    "color": "red",
+    "height": 74,
+    "key": "1.people",
+    "selector": Array [
+      1,
+      "people",
+    ],
+    "value": 2,
+    "width": 120,
+    "x": 250,
+    "y": 306,
   },
   Object {
     "color": "blue",
@@ -187,19 +187,6 @@ Array [
     "y": 221.42857142857142,
   },
   Object {
-    "color": "red",
-    "height": 222,
-    "key": "1.people",
-    "selector": Array [
-      1,
-      "people",
-    ],
-    "value": 21,
-    "width": 120,
-    "x": 250,
-    "y": 158,
-  },
-  Object {
     "color": "blue",
     "height": 359.42857142857144,
     "key": "0.rooms",
@@ -211,6 +198,19 @@ Array [
     "width": 120,
     "x": 10,
     "y": 20.571428571428577,
+  },
+  Object {
+    "color": "red",
+    "height": 222,
+    "key": "1.people",
+    "selector": Array [
+      1,
+      "people",
+    ],
+    "value": 21,
+    "width": 120,
+    "x": 250,
+    "y": 158,
   },
   Object {
     "color": "blue",
