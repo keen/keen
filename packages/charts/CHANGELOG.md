@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/keen/keen/compare/@keen.io/charts@2.10.0...@keen.io/charts@2.10.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* 🐛 Fix for shifted double groupBy and hover mark negatives ([7d85ae1](https://github.com/keen/keen/commit/7d85ae1f5b91bf02d12702bcbe12b9c62d857de8))
+
+
+
+
+
 # [2.10.0](https://github.com/keen/keen/compare/@keen.io/charts@2.9.1...@keen.io/charts@2.10.0) (2021-03-15)
 
 
