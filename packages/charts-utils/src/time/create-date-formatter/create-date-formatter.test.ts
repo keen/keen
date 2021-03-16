@@ -42,5 +42,5 @@ test('creates formatter for "month" precision', () => {
 test('creates formatter for "year" precision', () => {
   const format = createDateFormatter('year');
 
-  expect(format(date)).toMatchInlineSnapshot(`"Jan, 2019"`);
+  expect(format(date)).toMatchInlineSnapshot(`"2019"`);
 });

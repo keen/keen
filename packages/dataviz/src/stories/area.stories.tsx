@@ -80,7 +80,7 @@ export const multipleResultsSpline = () => {
           end: '2020-02-01T00:00:00.000-00:00',
         },
         group_by: ['author'],
-        interval: 'monthly',
+        interval: 'every_2_weeks',
       })
       .then((res: any) => dataviz.render(res));
   }, []);
