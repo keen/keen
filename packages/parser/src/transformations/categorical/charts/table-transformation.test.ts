@@ -28,7 +28,7 @@ test('transforms data and generates corresponding keys', () => {
   expect(tableChartTransformation(input)).toMatchObject(expectedResult);
 });
 
-test('transforms data fill records with missing keys', () => {
+test('transforms data and fill records with missing keys', () => {
   const input = [
     { country: 'Poland', company: 'Keen.io', result: 20 },
     { country: 'USA', result: 32 },
