@@ -13,7 +13,7 @@ import {
   Timezones,
 } from './types';
 
-import { isCustomInterval } from './utils';
+import { isCustomInterval, extractGroupBySettings } from './utils';
 
 export {
   Query,
@@ -30,4 +30,4 @@ export {
   GeoCoordinates,
 };
 
-export { isCustomInterval };
+export { isCustomInterval, extractGroupBySettings };

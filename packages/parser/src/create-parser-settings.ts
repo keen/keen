@@ -1,6 +1,6 @@
-import { Query, Step } from '@keen.io/query';
+import { Query, Step, extractGroupBySettings } from '@keen.io/query';
 
-import { extractGroupSettings, setTransformationType } from './utils';
+import { setTransformationType } from './utils';
 
 import { ParserSettings } from './types';
 
@@ -26,7 +26,7 @@ export const createParserSettings = (
     if (groupBy) {
       parserSettings = {
         ...parserSettings,
-        mergePropertiesOrder: extractGroupSettings(groupBy),
+        mergePropertiesOrder: extractGroupBySettings(groupBy),
       };
     }
 

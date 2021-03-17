@@ -5,6 +5,7 @@ import { defaultTransformation } from './default-transformation';
 import {
   categoricalChartTransformation,
   choroplethChartTransformation,
+  tableChartTransformation,
 } from './charts';
 
 import { GroupByResult, ParserSettings } from '../../types';
@@ -31,6 +32,10 @@ export const transformCategorical = (
 ) => {
   if (visualization === 'bar' || visualization === 'heatmap') {
     return categoricalChartTransformation(result, parserSettings);
+  }
+
+  if (visualization === 'table') {
+    return tableChartTransformation(result);
   }
 
   if (
