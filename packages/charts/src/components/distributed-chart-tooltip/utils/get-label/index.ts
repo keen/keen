@@ -1,3 +1,3 @@
 import getLabel from './get-label';
 
-export { getLabel };
+export default getLabel;

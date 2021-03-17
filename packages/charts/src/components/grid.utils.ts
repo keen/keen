@@ -1,6 +1,6 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import {
-  getScaleValues,
+  getScaleTicks,
   getScaleCenterPosition,
   ScaleSettings,
 } from '@keen.io/charts-utils';
@@ -76,7 +76,7 @@ export const generateGridLines = ({
 }: Options) => {
   let closeLines = false;
   let calculatePosition: CalculatePosition;
-  const values = getScaleValues(scale, scaleSettings);
+  const { ticks: values } = getScaleTicks(scale, scaleSettings);
 
   if ('bandwidth' in scale) {
     calculatePosition = getScaleCenterPosition(scale) as (

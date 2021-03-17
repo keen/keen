@@ -205,10 +205,10 @@ export const LineChart: FC<Props> = ({
                   stackMode === 'percent' && groupMode === 'stacked'
                 }
                 selectors={tooltipSelectors}
-                formatValue={tooltipSettings.formatValue}
+                tooltipSettings={tooltipSettings}
                 labelSelector={labelSelector}
                 maxWidth={MAX_TOOLTIP_WIDTH_FACTOR * svgDimensions.width}
-                scaleSettings={xScaleSettings}
+                isTimePrecise={xScaleSettings?.type === 'time'}
               />
             )}
           </ChartTooltip>

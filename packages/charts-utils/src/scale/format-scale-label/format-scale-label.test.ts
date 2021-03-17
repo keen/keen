@@ -20,6 +20,17 @@ test('returns original scale value', () => {
   expect(result).toEqual(value);
 });
 
+test('applies default formatter for time scale based on ticks precision', () => {
+  const value = new Date('2020-02-01T10:45:00.000Z');
+  const result = formatScaleLabel(
+    value,
+    { type: 'time', formatLabel: null },
+    'day'
+  );
+
+  expect(result).toMatchInlineSnapshot(`" 1 Sat 20"`);
+});
+
 test('applies formatter function from scale settings ', () => {
   const value = 'formatted';
   const formatFunction = () => 'formatted';

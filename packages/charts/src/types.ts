@@ -1,7 +1,7 @@
 import { Typography, TooltipMode, Position } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
-import { TooltipFormatter } from '@keen.io/charts-utils';
+import { TooltipFormatter, FormatFunction } from '@keen.io/charts-utils';
 
 export type Dimension = {
   width: number;
@@ -267,4 +267,5 @@ export type ItemData = {
 
 export type TooltipSettings = {
   formatValue?: TooltipFormatter;
+  formatTime?: FormatFunction;
 };

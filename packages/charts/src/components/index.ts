@@ -12,6 +12,7 @@ import ZeroIntersection from './zero-intersection';
 import Grid from './grid.component';
 import { LegendCard, LegendBase, SeriesLegend, BubbleLegend } from './legend';
 import TooltipContent from './tooltip-content';
+import DistributedChartTooltip from './distributed-chart-tooltip';
 
 export {
   ChartBase,
@@ -31,4 +32,5 @@ export {
   markMotion,
   hoverBarMotion,
   ZeroIntersection,
+  DistributedChartTooltip,
 };

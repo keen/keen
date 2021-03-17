@@ -16,13 +16,14 @@ import {
   normalizeDate,
   getPrecisionForInterval,
   getStepsFromInterval,
+  createDateFormatter,
+  createTimeIntervals,
 } from './time';
 
 import {
-  createScaleSettings,
   calculateScaleDomain,
   formatScaleLabel,
-  getScaleValues,
+  getScaleTicks,
   getScaleCenterPosition,
 } from './scale';
 
@@ -46,6 +47,8 @@ import {
 export { TimePrecision, ScaleSettings, TooltipFormatter, FormatFunction };
 
 export {
+  createDateFormatter,
+  createTimeIntervals,
   calculateRotation,
   calculateHypotenuse,
   calculateHypotenuseHeight,
@@ -55,7 +58,6 @@ export {
   calculateRange,
   calculateStackedRange,
   copyToClipboard,
-  createScaleSettings,
   formatScaleLabel,
   formatNumber,
   formatByPattern,
@@ -63,7 +65,7 @@ export {
   getElementOffset,
   getValues,
   getKeysDifference,
-  getScaleValues,
+  getScaleTicks,
   getScaleCenterPosition,
   getFromPath,
   hasContentOverflow,

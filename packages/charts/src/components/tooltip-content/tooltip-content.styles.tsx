@@ -27,6 +27,7 @@ export const TextContainer = styled.div`
 
 export const LabelContainer = styled.div`
   padding: 10px 15px 0 15px;
+  white-space: nowrap;
 `;
 
 export const Container = styled.div<LayoutProps>`

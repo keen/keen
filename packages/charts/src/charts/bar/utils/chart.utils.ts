@@ -74,10 +74,10 @@ export const generateHorizontalGroupedBars = ({
   layout,
 }: Options) => {
   const filteredKeys = getKeysDifference(keys, disabledKeys);
-  const { precision, useUTC } = xScaleSettings;
+  const { precision } = xScaleSettings;
 
   const dateNormalizer = precision
-    ? (date: string) => normalizeDate(date, precision, useUTC)
+    ? (date: string) => normalizeDate(date, precision)
     : null;
 
   const localizedData = dateNormalizer
@@ -169,10 +169,10 @@ export const generateVerticalGroupedBars = ({
   layout,
 }: Options) => {
   const filteredKeys = getKeysDifference(keys, disabledKeys);
-  const { precision, useUTC } = xScaleSettings;
+  const { precision } = xScaleSettings;
 
   const dateNormalizer = precision
-    ? (date: string) => normalizeDate(date, precision, useUTC)
+    ? (date: string) => normalizeDate(date, precision)
     : null;
 
   const localizedData = dateNormalizer
@@ -263,10 +263,10 @@ export const generateHorizontalStackedBars = ({
 }: Options) => {
   const bars = [] as Bar[];
   const filteredKeys = getKeysDifference(keys, disabledKeys);
-  const { precision, useUTC } = xScaleSettings;
+  const { precision } = xScaleSettings;
 
   const dateNormalizer = precision
-    ? (date: string) => normalizeDate(date, precision, useUTC)
+    ? (date: string) => normalizeDate(date, precision)
     : null;
 
   const localizedData = dateNormalizer
@@ -377,10 +377,10 @@ export const generateVerticalStackedBars = ({
 }: Options) => {
   const bars = [] as Bar[];
   const filteredKeys = getKeysDifference(keys, disabledKeys);
-  const { precision, useUTC } = xScaleSettings;
+  const { precision } = xScaleSettings;
 
   const dateNormalizer = precision
-    ? (date: string) => normalizeDate(date, precision, useUTC)
+    ? (date: string) => normalizeDate(date, precision)
     : null;
 
   const localizedData = dateNormalizer
