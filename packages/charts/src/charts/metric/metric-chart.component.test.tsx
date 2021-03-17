@@ -63,7 +63,7 @@ test('renders <Excerpt /> component with compared value', () => {
     wrapper: { getByText },
   } = render({ type: 'comparison' });
 
-  expect(getByText('1.1k')).toBeInTheDocument();
+  expect(getByText('2.2k')).toBeInTheDocument();
 });
 
 test('not renders <Excerpt /> component for metric with single data serie', () => {
