@@ -19,8 +19,12 @@ export const getAvailableWidgets = (
     return ['bar', 'table', 'json', 'pie', 'donut', 'heatmap', 'choropleth'];
   }
 
-  if (query.interval) {
+  if (query.interval && !query.group_by) {
     return ['line', 'table', 'json', 'metric', 'bar', 'area', 'heatmap'];
+  }
+
+  if (query.interval) {
+    return ['line', 'table', 'json', 'bar', 'area', 'heatmap'];
   }
 
   return ['metric', 'table', 'json'];
