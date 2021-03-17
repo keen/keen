@@ -56,7 +56,7 @@ const TooltipContent: FC<Props> = ({
           )}
         />
       </BulletListContainer>
-      {totalValue && (
+      {totalValue !== null && (
         <Total>
           <Text {...tooltip.labels.typography}>Total:</Text>
           {percentValue ? (
