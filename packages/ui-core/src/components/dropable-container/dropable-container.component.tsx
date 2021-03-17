@@ -1,4 +1,4 @@
-import React, { FC, useRef, useCallback, useEffect } from 'react';
+import React, { FC, useRef, useCallback, useEffect, ReactNode } from 'react';
 import { transparentize } from 'polished';
 
 import { colors } from '@keen.io/colors';
@@ -31,7 +31,7 @@ type Props = {
   /** Property value */
   value?: string | Record<string, any>;
   /** Value placeholder */
-  placeholder?: string;
+  placeholder?: string | ReactNode;
   /** Search placeholder */
   searchPlaceholder?: string;
   /** Search event handler */
@@ -73,6 +73,14 @@ const DropableContainer: FC<Props> = ({
     return () => document.removeEventListener('click', outsideClick);
   }, [isActive, containerRef]);
 
+  const PlaceholderContent = () => {
+    if (!placeholder) return;
+    if (typeof placeholder === 'function') {
+      return placeholder();
+    }
+    return <Placeholder>{placeholder}</Placeholder>;
+  };
+
   return (
     <Container
       data-testid="dropable-container"
@@ -101,10 +109,7 @@ const DropableContainer: FC<Props> = ({
           />
         </>
       ) : (
-        <>
-          {value && <>{children}</>}
-          {placeholder && !value && <Placeholder>{placeholder}</Placeholder>}
-        </>
+        <>{value ? <>{children}</> : <PlaceholderContent />}</>
       )}
       {dropIndicator && (
         <DropIndicator data-testid="drop-indicator">

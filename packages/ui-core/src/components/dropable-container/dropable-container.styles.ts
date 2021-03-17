@@ -43,7 +43,6 @@ export const Container = styled.div<{
   line-height: 17px;
   font-family: 'Lato Regular', sans-serif;
   position: relative;
-  justify-content: center;
 
   ${(props) =>
     props.isActive &&
