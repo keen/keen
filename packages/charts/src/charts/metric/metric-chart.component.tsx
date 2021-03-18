@@ -80,7 +80,7 @@ export const MetricChart: FC<Props> = ({
   type = 'simple',
   usePercentDifference = false,
 }) => {
-  const { value, difference } = generateMetric({
+  const { value, previousValue, difference } = generateMetric({
     labelSelector,
     keys,
     data,
@@ -104,6 +104,8 @@ export const MetricChart: FC<Props> = ({
       ? excerpt.icons.increase
       : excerpt.icons.decrease),
   };
+
+  const excerptValue = type === 'difference' ? difference.value : previousValue;
 
   return (
     <Layout>
@@ -142,8 +144,8 @@ export const MetricChart: FC<Props> = ({
                 )}
                 <Text {...excerpt.typography}>
                   {type === 'difference' && usePercentDifference
-                    ? `${difference.value}%`
-                    : formatNumber(difference.value)}
+                    ? `${excerptValue}%`
+                    : formatNumber(excerptValue)}
                 </Text>
               </Wrapper>
             </Excerpt>
