@@ -46,5 +46,5 @@ export const Tab = styled.div<{
     props.isActive &&
     css`
       --d: 100%;
-    `}
+    `};
 `;
