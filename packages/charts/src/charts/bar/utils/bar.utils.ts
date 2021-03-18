@@ -128,6 +128,7 @@ export const calculateGroupedBars = (
             return data[idx]?.[a] - data[idx]?.[b];
           }
         })
+        .filter((keyName: string) => data[idx][keyName])
         .forEach((keyName: string, index: number) => {
           if (!keysOrder[idx]) keysOrder[idx] = {};
           keysOrder[idx][keyName] = index;
@@ -149,7 +150,7 @@ export const calculateGroupedBars = (
       const value = data[index]?.[keyName];
       if (value && !isDisabled) {
         const orderPosition = barsOrder
-          ? keysOrder[index][keyName] - newOrder
+          ? keysOrder[index][keyName] + newOrder
           : counter + newOrder;
 
         const bar =
