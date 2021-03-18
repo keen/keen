@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.7.0...@keen.io/charts-utils@1.8.0) (2021-03-18)
+
+
+### Features
+
+* 🎸 time axis disconnected from intervals ([3cb10ca](https://github.com/keen/keen/commit/3cb10ca3cbce28f7053811d7d1ab88bdca3e1492))
+* 🎸 tooltip date formatters ([40147a8](https://github.com/keen/keen/commit/40147a8707c31632ab1ed4ec8f240fa50dfda71a))
+
+
+
+
+
 # [1.7.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.6.0...@keen.io/charts-utils@1.7.0) (2021-03-15)
 
 

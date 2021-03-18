@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.60](https://github.com/keen/keen/compare/@keen.io/forms@2.0.59...@keen.io/forms@2.0.60) (2021-03-18)
+
+**Note:** Version bump only for package @keen.io/forms
+
+
+
+
+
 ## [2.0.59](https://github.com/keen/keen/compare/@keen.io/forms@2.0.58...@keen.io/forms@2.0.59) (2021-03-15)
 
 **Note:** Version bump only for package @keen.io/forms
