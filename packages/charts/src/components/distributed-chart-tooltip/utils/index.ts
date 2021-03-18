@@ -1,4 +1,3 @@
-import getDistributedChartTooltipSettings from './get-distributed-chart-tooltip-settings';
-import { getLabel, getSelectors } from './distributed-chart-tooltip-utils';
+import getLabel from './get-label';
 
-export { getDistributedChartTooltipSettings, getSelectors, getLabel };
+export { getLabel };

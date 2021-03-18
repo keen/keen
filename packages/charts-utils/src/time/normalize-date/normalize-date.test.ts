@@ -1,105 +1,50 @@
-import { utcParse, timeParse } from 'd3-time-format';
+import {
+  register as registerTimezone,
+  unregister as unregisterTimezone,
+} from 'timezone-mock';
 
 import normalizeDate from './normalize-date';
 
-jest.mock('d3-time-format');
-
-const date = '2020-01-01T15:30:00.000Z';
-
-let mockDate;
-
-beforeEach(() => {
-  mockDate = {
-    setSeconds: jest.fn(),
-    setMinutes: jest.fn(),
-    setHours: jest.fn(),
-    setMonth: jest.fn(),
-    setDate: jest.fn(),
-    setYear: jest.fn(),
-  };
+beforeAll(() => {
+  registerTimezone('UTC');
 });
 
-test('calls "utcParse" to normalize date in UTC', () => {
-  utcParse = jest.fn().mockReturnValue(() => new Date(date));
-  normalizeDate(date, 'month', true);
-
-  expect(utcParse).toHaveBeenCalled();
-});
-
-test('calls "timeParse" to normalize date in local time', () => {
-  timeParse = jest.fn().mockReturnValue(() => new Date(date));
-  normalizeDate(date, 'month', false);
-
-  expect(timeParse).toHaveBeenCalled();
+afterAll(() => {
+  unregisterTimezone();
 });
 
 test('normalizes date with "month" precision', () => {
-  const modifiers = [
-    mockDate.setSeconds,
-    mockDate.setMinutes,
-    mockDate.setHours,
-    mockDate.setDate,
-  ];
-  utcParse = jest.fn().mockReturnValue(() => mockDate);
+  const normalizedDate = normalizeDate('2020-02-01T10:45:00.000Z', 'month');
 
-  normalizeDate(date, 'month', true);
-
-  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
-
-  expect(mockDate.setMonth).not.toHaveBeenCalled();
-  expect(utcParse).toHaveBeenCalled();
+  expect(normalizedDate).toMatchInlineSnapshot(`"2020-02-01T00:00:00.000Z"`);
 });
 
 test('normalizes date with "day" precision', () => {
-  const modifiers = [
-    mockDate.setSeconds,
-    mockDate.setMinutes,
-    mockDate.setHours,
-  ];
-  utcParse = jest.fn().mockReturnValue(() => mockDate);
+  const normalizedDate = normalizeDate('2020-02-15T12:30:00.000Z', 'day');
 
-  normalizeDate(date, 'day', true);
-
-  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
-
-  expect(mockDate.setDate).not.toHaveBeenCalled();
-  expect(utcParse).toHaveBeenCalled();
+  expect(normalizedDate).toMatchInlineSnapshot(`"2020-02-15T00:00:00.000Z"`);
 });
 
-test('normalizes date with "hour" precision', () => {
-  const modifiers = [mockDate.setSeconds, mockDate.setMinutes];
-  utcParse = jest.fn().mockReturnValue(() => mockDate);
+test('normalizes date with "week" precision', () => {
+  const normalizedDate = normalizeDate('2020-02-15T12:30:00.000Z', 'week');
 
-  normalizeDate(date, 'hour', true);
-
-  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
-
-  expect(mockDate.setHours).not.toHaveBeenCalled();
-  expect(utcParse).toHaveBeenCalled();
+  expect(normalizedDate).toMatchInlineSnapshot(`"2020-02-15T00:00:00.000Z"`);
 });
 
 test('normalizes date with "minute" precision', () => {
-  const modifiers = [mockDate.setSeconds];
-  utcParse = jest.fn().mockReturnValue(() => mockDate);
+  const normalizedDate = normalizeDate('2021-01-10T12:30:30.000Z', 'minute');
 
-  normalizeDate(date, 'minute', true);
+  expect(normalizedDate).toMatchInlineSnapshot(`"2021-01-10T12:30:00.000Z"`);
+});
 
-  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
+test('normalizes date with "hour" precision', () => {
+  const normalizedDate = normalizeDate('2021-01-10T12:30:45.000Z', 'hour');
 
-  expect(mockDate.setMinutes).not.toHaveBeenCalled();
-  expect(utcParse).toHaveBeenCalled();
+  expect(normalizedDate).toMatchInlineSnapshot(`"2021-01-10T12:00:00.000Z"`);
 });
 
 test('normalizes date with "year" precision', () => {
-  const modifiers = [
-    mockDate.setSeconds,
-    mockDate.setMinutes,
-    mockDate.setHours,
-    mockDate.setMonth,
-  ];
-  utcParse = jest.fn().mockReturnValue(() => mockDate);
-  normalizeDate(date, 'year', true);
+  const normalizedDate = normalizeDate('2021-05-15T12:30:45.000Z', 'year');
 
-  modifiers.forEach((modifier) => expect(modifier).toHaveBeenCalled());
-  expect(utcParse).toHaveBeenCalled();
+  expect(normalizedDate).toMatchInlineSnapshot(`"2021-01-01T00:00:00.000Z"`);
 });

@@ -1,9 +1,10 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
+import DistributedChartTooltip from './distributed-chart-tooltip.component';
+
 import { theme } from '../../theme';
 import { ChartContext } from '../../contexts';
-import DistributedChartTooltip from './distributed-chart-tooltip.component';
 
 const render = (overProps: any = {}) => {
   const keys = ['users', 'licenses'];
@@ -21,7 +22,7 @@ const render = (overProps: any = {}) => {
     { name: 'Android', users: 63, licenses: -15, shops: -30 },
   ];
 
-  const formatValue = (value) => `$${value}`;
+  const formatValue = jest.fn().mockImplementation((value) => `$${value}`);
 
   const props = {
     data,
@@ -29,8 +30,10 @@ const render = (overProps: any = {}) => {
     disabledKeys: [],
     selectors,
     isPercentage: false,
-    formatValue,
-    scaleSettings: {},
+    isTimePrecise: false,
+    tooltipSettings: {
+      formatValue,
+    },
     ...overProps,
   };
 
@@ -45,18 +48,17 @@ const render = (overProps: any = {}) => {
   };
 };
 
-test('formats tooltip value', () => {
+test('applies function formatter on values', () => {
   const {
     wrapper: { getByText },
-    props: { data, formatValue },
+    props: { tooltipSettings },
   } = render();
-  const [firstSeries] = data;
-  const { users } = firstSeries;
-  const formattedValue = formatValue(users);
-  expect(getByText(formattedValue)).toBeInTheDocument();
+
+  expect(tooltipSettings.formatValue).toHaveBeenCalled();
+  expect(getByText('$3')).toBeInTheDocument();
 });
 
-test('formats toolip list values', () => {
+test('formats toolip list values and renders percentages', () => {
   const data = [{ name: 'Windows', users: 30, licenses: 70 }];
   const selectors = [
     {
@@ -67,7 +69,9 @@ test('formats toolip list values', () => {
   ];
   const {
     wrapper: { getByText },
-    props: { formatValue },
+    props: {
+      tooltipSettings: { formatValue },
+    },
   } = render({
     data,
     selectors,
@@ -75,13 +79,16 @@ test('formats toolip list values', () => {
   });
   const [firstSeries] = data;
   const { users, licenses } = firstSeries;
+
   expect(getByText(`(${formatValue(users)})`)).toBeInTheDocument();
   expect(getByText('30.0%')).toBeInTheDocument();
+
   expect(getByText(`(${formatValue(licenses)})`)).toBeInTheDocument();
   expect(getByText('70.0%')).toBeInTheDocument();
 });
 
-test('renders tooltip label when time precision is provided for axis', () => {
+test('applies time formatter for labels', () => {
+  const formatTime = jest.fn().mockImplementation(() => '@formatted-date');
   const data = [
     {
       'keen.key': '2019-05-01T00:00:00.000Z',
@@ -91,22 +98,27 @@ test('renders tooltip label when time precision is provided for axis', () => {
       'Stephen King': 6,
     },
   ];
+
   const keys = [
     'Edwidge Danticat',
     'George R. R. Martin',
     'J.K. Rowling',
     'Stephen King',
   ];
+
   const selectors = [{ selector: [0, 'Edwidge Danticat'], color: '#85B4C3' }];
-  const scaleSettings = { type: 'band', precision: 'month' };
   const labelSelector = 'keen.key';
 
-  const [firstSelector] = selectors;
-  const [index] = firstSelector.selector;
-  const tooltipLabel = data[index][labelSelector];
   const {
     wrapper: { getByText },
-  } = render({ data, keys, selectors, labelSelector, scaleSettings });
+  } = render({
+    data,
+    keys,
+    selectors,
+    labelSelector,
+    isTimePrecise: true,
+    tooltipSettings: { formatTime },
+  });
 
-  expect(getByText(tooltipLabel)).toBeInTheDocument();
+  expect(getByText('@formatted-date')).toBeInTheDocument();
 });

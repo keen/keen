@@ -66,7 +66,7 @@ const Ruler = ({
 
   const { enabled, typography, radiusAngle } = labels;
 
-  const { line, ticks } = generateRuler({
+  const { line, ticks, ticksPrecision } = generateRuler({
     x,
     y,
     scale,
@@ -125,7 +125,7 @@ const Ruler = ({
                   maxDimension={labelDimension}
                   {...textPosition}
                 >
-                  {formatScaleLabel(text, scaleSettings)}
+                  {formatScaleLabel(text, scaleSettings, ticksPrecision)}
                 </RulerLabel>
               </g>
             )}

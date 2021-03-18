@@ -1,7 +1,7 @@
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { ScaleSettings } from '@keen.io/charts-utils';
 
-import { generateTicks } from '../../../../utils/scale.utils';
+import generateTicks from '../generate-ticks';
 
 import { Orientation } from '../../../../types';
 
@@ -26,7 +26,7 @@ export const generateRuler = ({
   scaleSettings,
 }: Options) => {
   const [scaleStart, scaleEnd] = scale.range();
-  const ticks = generateTicks({
+  const { ticks, ticksPrecision } = generateTicks({
     x,
     y,
     tickSize,
@@ -55,6 +55,7 @@ export const generateRuler = ({
   return {
     line,
     ticks,
+    ticksPrecision,
   };
 };
 

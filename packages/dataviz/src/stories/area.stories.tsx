@@ -29,15 +29,6 @@ export const simpleResults = () => {
           content: 'hourly',
         },
       },
-      settings: {
-        theme: {
-          axisX: {
-            labels: {
-              radiusAngle: 60,
-            },
-          },
-        },
-      },
     });
 
     client
@@ -45,7 +36,7 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: 'last_2_years',
-        timezone: 'US/Eastern',
+        timezone: 'UTC',
         interval: 'every_35_days',
       })
       .then((res: any) => dataviz.render(res));
@@ -89,7 +80,7 @@ export const multipleResultsSpline = () => {
           end: '2020-02-01T00:00:00.000-00:00',
         },
         group_by: ['author'],
-        interval: 'monthly',
+        interval: 'every_2_weeks',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

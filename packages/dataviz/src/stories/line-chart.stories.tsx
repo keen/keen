@@ -29,15 +29,6 @@ export const simpleResults = () => {
           content: 'hourly',
         },
       },
-      settings: {
-        theme: {
-          axisX: {
-            labels: {
-              radiusAngle: 60,
-            },
-          },
-        },
-      },
     });
 
     client
@@ -45,10 +36,11 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-02-01T00:00:00.000-00:00',
-          end: '2020-02-01T16:00:00.000-00:00',
+          start: '2020-02-01T12:33:00.000',
+          end: '2020-02-01T16:37:00.000',
         },
-        interval: 'every_35_minutes',
+        timezone: 'UTC',
+        interval: 'every_5_minutes',
       })
       .then((res: any) => dataviz.render(res));
   }, []);

@@ -43,7 +43,9 @@ const TooltipContent: FC<Props> = ({
     <Container maxWidth={maxWidth}>
       {label && (
         <LabelContainer>
-          <Text {...tooltip.labels.typography}>{label}</Text>
+          <Text truncate {...tooltip.labels.typography}>
+            {label}
+          </Text>
         </LabelContainer>
       )}
       <BulletListContainer>
@@ -54,7 +56,7 @@ const TooltipContent: FC<Props> = ({
           )}
         />
       </BulletListContainer>
-      {totalValue && (
+      {totalValue !== null && (
         <Total>
           <Text {...tooltip.labels.typography}>Total:</Text>
           {percentValue ? (

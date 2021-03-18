@@ -1,5 +1,8 @@
 import { BarChartSettings } from '@keen.io/charts';
-import { createScaleSettings } from '@keen.io/charts-utils';
+import {
+  getPrecisionForInterval,
+  createDateFormatter,
+} from '@keen.io/charts-utils';
 
 import { extractOrderDirection } from '../query';
 
@@ -12,9 +15,19 @@ export const setChartSettings = ({
   let settings = {};
 
   if (interval) {
+    const precision = getPrecisionForInterval(interval);
+    const dateFormatter = createDateFormatter(precision);
+
     settings = {
       ...settings,
-      xScaleSettings: { type: 'band', ...createScaleSettings(interval) },
+      tooltipSettings: {
+        formatTime: dateFormatter,
+      },
+      xScaleSettings: {
+        type: 'time',
+        precision,
+        formatLabel: dateFormatter,
+      },
     };
   }
 
