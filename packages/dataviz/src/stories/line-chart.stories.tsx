@@ -99,7 +99,7 @@ export const multipleResultsSpline = () => {
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
 
-export const multiAnalysys = () => {
+export const multiAnalysis = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
