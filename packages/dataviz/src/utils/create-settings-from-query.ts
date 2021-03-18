@@ -10,12 +10,15 @@ import {
   setGaugeChartSettings,
   setFunnelChartSettings,
   setChoroplethChartSettings,
+  setMetricChartSettings,
 } from './chart-settings';
+import { ComponentSettings } from '../types';
 
 type Options = {
   query: Partial<Query>;
   widgetType: Widgets;
   keys: string[];
+  componentSettings: ComponentSettings;
 };
 
 /**
@@ -27,12 +30,13 @@ type Options = {
  * @return chart settings
  *
  */
-export const createSettingsFromQuery = ({
+export const createChartSettings = ({
   query,
   widgetType,
   keys,
+  componentSettings,
 }: Options) => {
-  const input = { query, keys };
+  const input = { query, keys, componentSettings };
 
   switch (widgetType) {
     case 'funnel':
@@ -52,6 +56,8 @@ export const createSettingsFromQuery = ({
       return setBarChartSettings(input);
     case 'table':
       return setTableChartSettings(input);
+    case 'metric':
+      return setMetricChartSettings(input);
     default:
       return {};
   }
