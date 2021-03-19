@@ -78,6 +78,7 @@ export type Query = {
   filters?: Filter[];
   property_names?: string[];
   steps?: Step[];
+  percentile?: number;
 };
 
 export type Timezones =
