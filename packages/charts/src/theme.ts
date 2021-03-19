@@ -111,7 +111,7 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 15,
+        fontSize: 12,
         fontFamily: 'Gangster Grotesk Regular, sans-serif',
         fontColor: colors.black['300'],
       },

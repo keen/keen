@@ -1,7 +1,7 @@
 import { VisualizationOptions } from './types';
 import { MetricChartSettings } from '@keen.io/charts';
 import { Analysis } from '@keen.io/query';
-import { INTERVAL_TO_PRECISION } from '../../../../charts-utils/src/time/get-precision-from-interval';
+import { INTERVAL_TO_PRECISION } from '@keen.io/charts-utils';
 
 export const setChartSettings = ({
   query,
