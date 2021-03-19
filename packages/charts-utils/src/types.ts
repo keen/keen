@@ -26,4 +26,4 @@ export type FormatFunction = (
   value: string | number | boolean | Date
 ) => string | number | boolean;
 
-export type TooltipFormatter = string | FormatFunction;
+export type Formatter = string | FormatFunction;

@@ -5,7 +5,7 @@ import { Text } from '@keen.io/ui-core';
 import {
   formatNumber,
   formatValue as valueFormatter,
-  TooltipFormatter,
+  Formatter,
 } from '@keen.io/charts-utils';
 
 import MetricIcon from './metric-icon.component';
@@ -61,7 +61,7 @@ export type Props = {
   /** Suffix for value */
   valueSuffix?: React.ReactNode;
   /** Value format function */
-  formatValue?: TooltipFormatter;
+  formatValue?: Formatter;
   /** Metric type */
   type?: MetricType;
   /** Use percentage difference */
