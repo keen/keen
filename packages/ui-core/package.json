@@ -32,7 +32,7 @@
     "react": ">=16",
     "react-dom": ">=16",
     "styled-components": ">=5",
-    "moment-timezone": "^0.5.32"
+    "moment-timezone": ">=0.5.30"
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
