@@ -6,6 +6,7 @@ import { setChartSettings as setBubbleChartSettings } from './bubble-chart-setti
 import { setChartSettings as setChoroplethChartSettings } from './choropleth-chart-settings';
 import { setChartSettings as setGaugeChartSettings } from './gauge-chart-settings';
 import { setChartSettings as setFunnelChartSettings } from './funnel-chart-settings';
+import { setChartSettings as setMetricChartSettings } from './metric-chart-settings';
 
 export {
   setBarChartSettings,
@@ -16,4 +17,5 @@ export {
   setGaugeChartSettings,
   setFunnelChartSettings,
   setChoroplethChartSettings,
+  setMetricChartSettings,
 };

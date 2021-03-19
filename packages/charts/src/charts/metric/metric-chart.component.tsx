@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
-import { Text } from '@keen.io/ui-core';
+import { Text, Tooltip } from '@keen.io/ui-core';
 import {
   formatNumber,
   formatValue as valueFormatter,
@@ -25,6 +25,8 @@ import { theme as defaultTheme } from '../../theme';
 
 import { MetricType } from './types';
 import { CommonChartSettings } from '../../types';
+import { useTooltip } from '@keen.io/react-hooks';
+import { TOOLTIP_MOTION, TOOLTIP_TIMEOUT } from '../../constants';
 
 export const textMotion = {
   initial: { opacity: 0 },
@@ -66,6 +68,7 @@ export type Props = {
   type?: MetricType;
   /** Use percentage difference */
   usePercentDifference?: boolean;
+  secondaryValueDescription?: string;
 } & CommonChartSettings;
 
 export const MetricChart: FC<Props> = ({
@@ -79,6 +82,7 @@ export const MetricChart: FC<Props> = ({
   keys = ['value'],
   type = 'simple',
   usePercentDifference = false,
+  secondaryValueDescription,
 }) => {
   const { value, previousValue, difference } = generateMetric({
     labelSelector,
@@ -105,6 +109,17 @@ export const MetricChart: FC<Props> = ({
       : excerpt.icons.decrease),
   };
 
+  const excerptRef = useRef<HTMLDivElement>(null);
+  const tooltipTimeout = useRef(null);
+  const { tooltip: tooltipSettings } = theme;
+
+  const {
+    tooltipVisible,
+    tooltipPosition,
+    updateTooltipPosition,
+    hideTooltip,
+  } = useTooltip(excerptRef);
+
   const excerptValue = type === 'difference' ? difference.value : previousValue;
 
   return (
@@ -122,11 +137,51 @@ export const MetricChart: FC<Props> = ({
           </motion.div>
         </AnimatePresence>
         {caption && <Text {...captionSettings.typography}>{caption}</Text>}
+        <AnimatePresence>
+          {tooltipVisible && (
+            <motion.div
+              {...TOOLTIP_MOTION}
+              initial={{
+                opacity: 0,
+                x: tooltipPosition.x,
+                y: tooltipPosition.y,
+              }}
+              animate={{
+                x: tooltipPosition.x,
+                y: tooltipPosition.y,
+                opacity: 1,
+              }}
+              style={{
+                position: 'absolute',
+                pointerEvents: 'none',
+              }}
+            >
+              <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
+                <Text {...tooltipSettings.labels.typography}>
+                  {secondaryValueDescription}
+                </Text>
+              </Tooltip>
+            </motion.div>
+          )}
+        </AnimatePresence>
         {difference && (
           <div>
             <Excerpt
               data-testid="metric-excerpt-value"
               background={excerpt.backgroundColor}
+              ref={excerptRef}
+              onMouseEnter={(e) => {
+                if (tooltipSettings.enabled) {
+                  if (tooltipTimeout.current)
+                    clearTimeout(tooltipTimeout.current);
+                  updateTooltipPosition(e, null, { value });
+                }
+              }}
+              onMouseLeave={() => {
+                tooltipTimeout.current = setTimeout(() => {
+                  hideTooltip();
+                }, TOOLTIP_TIMEOUT);
+              }}
             >
               <Wrapper>
                 {type !== 'comparison' && difference.status !== 'static' && (

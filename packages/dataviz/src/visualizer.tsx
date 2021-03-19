@@ -10,7 +10,7 @@ import {
   extendChartSettings,
   extendWidgetSettings,
   prepareVisualization,
-  createSettingsFromQuery,
+  createChartSettings,
   validateOptions,
 } from './utils';
 
@@ -78,14 +78,14 @@ class Visualizer {
       if (input.query) query = input.query;
 
       componentSettings = extendChartSettings(
-        createSettingsFromQuery({ query, widgetType, keys }),
+        createChartSettings({ query, widgetType, keys, componentSettings }),
         componentSettings
       );
     } else if (Array.isArray(input) && input[0]?.query) {
       const [firstQuery] = input;
       const { query } = firstQuery;
       componentSettings = extendChartSettings(
-        createSettingsFromQuery({ query, widgetType, keys }),
+        createChartSettings({ query, widgetType, keys, componentSettings }),
         componentSettings
       );
     }

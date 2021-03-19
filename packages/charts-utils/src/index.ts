@@ -18,6 +18,7 @@ import {
   getStepsFromInterval,
   createDateFormatter,
   createTimeIntervals,
+  INTERVAL_TO_PRECISION,
 } from './time';
 
 import {
@@ -74,4 +75,5 @@ export {
   getPrecisionForInterval,
   getStepsFromInterval,
   sortKeysByValuesSum,
+  INTERVAL_TO_PRECISION,
 };

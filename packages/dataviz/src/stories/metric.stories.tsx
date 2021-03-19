@@ -109,7 +109,8 @@ export const customizedMetric = () => {
         },
       },
       settings: {
-        type: 'comparison',
+        type: 'difference',
+        usePercentDifference: true,
         caption: 'Book purchases',
         formatValue: (v: number) => `${v} Qty.`,
         theme: {
@@ -213,7 +214,7 @@ export const singleMetric = () => {
         },
       },
       settings: {
-        type: 'compare',
+        type: 'comparison',
       },
     });
 
