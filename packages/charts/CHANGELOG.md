@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/keen/keen/compare/@keen.io/charts@2.11.0...@keen.io/charts@2.11.1) (2021-03-19)
+
+
+### Bug Fixes
+
+* 🐛 Fix for order by bars double group_by ([bba1a30](https://github.com/keen/keen/commit/bba1a30f92ca82ddc170297d187f66d6f3970b36))
+
+
+
+
+
 # [2.11.0](https://github.com/keen/keen/compare/@keen.io/charts@2.10.1...@keen.io/charts@2.11.0) (2021-03-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.78](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.77...@keen.io/widget-picker@1.2.78) (2021-03-19)
+
+
+### Bug Fixes
+
+* 🐛 update available widgets for metric ([ea7b4d0](https://github.com/keen/keen/commit/ea7b4d0094a1b51d322c2ec32d35be81145976ca))
+
+
+
+
+
 ## [1.2.77](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.76...@keen.io/widget-picker@1.2.77) (2021-03-18)
 
 **Note:** Version bump only for package @keen.io/widget-picker
