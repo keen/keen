@@ -11,11 +11,10 @@ import { generateGauge } from './utils';
 import { ChartBase } from '../../components';
 
 import { theme as defaultTheme } from '../../theme';
-import { TOOLTIP_TIMEOUT } from './constants';
 
 import { CommonChartSettings } from '../../types';
 
-import { TOOLTIP_MOTION } from '../../constants';
+import { TOOLTIP_MOTION, TOOLTIP_TIMEOUT } from '../../constants';
 import { FormatFunction } from '@keen.io/charts-utils';
 
 export type Props = {

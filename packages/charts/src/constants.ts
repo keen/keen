@@ -6,3 +6,5 @@ export const TOOLTIP_MOTION = {
   transition: { duration: 0.3 },
   exit: { opacity: 0 },
 };
+
+export const TOOLTIP_TIMEOUT = 100;

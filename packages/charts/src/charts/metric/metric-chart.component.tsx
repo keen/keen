@@ -26,8 +26,7 @@ import { theme as defaultTheme } from '../../theme';
 import { MetricType } from './types';
 import { CommonChartSettings } from '../../types';
 import { useTooltip } from '@keen.io/react-hooks';
-import { TOOLTIP_MOTION } from '../../constants';
-import { TOOLTIP_TIMEOUT } from '../gauge/constants';
+import { TOOLTIP_MOTION, TOOLTIP_TIMEOUT } from '../../constants';
 
 export const textMotion = {
   initial: { opacity: 0 },
