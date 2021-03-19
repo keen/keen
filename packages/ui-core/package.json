@@ -31,7 +31,8 @@
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16",
-    "styled-components": ">=5"
+    "styled-components": ">=5",
+    "moment-timezone": "^0.5.32"
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
@@ -40,7 +41,6 @@
     "color": "^3.1.2",
     "framer-motion": "^1.11.1",
     "fuse.js": "^6.4.1",
-    "moment-timezone": "^0.5.32",
     "polished": "^3.4.4",
     "rc-time-picker": "^3.7.3",
     "react-column-resizer": "^1.1.9",
