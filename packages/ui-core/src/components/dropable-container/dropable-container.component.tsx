@@ -74,7 +74,6 @@ const DropableContainer: FC<Props> = ({
   }, [isActive, containerRef]);
 
   const PlaceholderContent = () => {
-    if (!placeholder) return <></>;
     if (typeof placeholder === 'function') {
       return placeholder();
     }
@@ -108,10 +107,11 @@ const DropableContainer: FC<Props> = ({
             onChange={onSearch}
           />
         </>
-      ) : value ? (
-        <>{children}</>
       ) : (
-        <PlaceholderContent />
+        <>
+          {value && <>{children}</>}
+          {placeholder && !value && <PlaceholderContent />}
+        </>
       )}
       {dropIndicator && (
         <DropIndicator data-testid="drop-indicator">
