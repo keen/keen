@@ -46,6 +46,7 @@ export const generateMetric = ({
   usePercentDifference,
 }: Options): {
   value: number;
+  previousValue?: number;
   difference?: Difference;
 } => {
   const [keyName] = keys;
@@ -65,6 +66,7 @@ export const generateMetric = ({
 
     return {
       value: currentValue,
+      previousValue,
       difference: {
         value: Math.abs(valueDifference),
         status: setStatus(previousValue, currentValue),

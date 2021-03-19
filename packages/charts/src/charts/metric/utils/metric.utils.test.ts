@@ -40,6 +40,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
             "status": "increase",
             "value": 20,
           },
+          "previousValue": 100,
           "value": 120,
         }
       `);
@@ -64,6 +65,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
             "status": "decrease",
             "value": 80,
           },
+          "previousValue": 100,
           "value": 20,
         }
       `);
@@ -87,6 +89,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
             "status": "increase",
             "value": 90,
           },
+          "previousValue": 100,
           "value": 190,
         }
       `);
@@ -111,6 +114,7 @@ describe('@keen.io/charts - <MetricChart /> utils', () => {
             "status": "increase",
             "value": 0,
           },
+          "previousValue": 0,
           "value": 190,
         }
       `);

@@ -31,7 +31,7 @@ export const compareMetric = () => {
         },
       },
       settings: {
-        type: 'compare',
+        type: 'comparison',
       },
     });
 
@@ -40,7 +40,7 @@ export const compareMetric = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-01-01T00:00:00.000-00:00',
+          start: '2019-01-01T00:00:00.000-00:00',
           end: '2020-02-01T16:00:00.000-00:00',
         },
         interval: 'monthly',
@@ -72,7 +72,8 @@ export const percentMetric = () => {
         },
       },
       settings: {
-        type: 'percent',
+        type: 'difference',
+        usePercentDifference: true,
         formatValue: (v: number) => `${v} Qty.`,
       },
     });
@@ -108,7 +109,7 @@ export const customizedMetric = () => {
         },
       },
       settings: {
-        type: 'percent',
+        type: 'comparison',
         caption: 'Book purchases',
         formatValue: (v: number) => `${v} Qty.`,
         theme: {
@@ -220,7 +221,10 @@ export const singleMetric = () => {
       .query({
         analysis_type: 'count',
         event_collection: 'book_purchase',
-        timeframe: 'this_1_month',
+        timeframe: {
+          start: '2020-01-01T00:00:00.000-00:00',
+          end: '2020-01-01T16:00:00.000-00:00',
+        },
       })
       .then((res: any) => dataviz.render(res));
   }, []);

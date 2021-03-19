@@ -78,6 +78,28 @@ test('returns widgets for groupBy', () => {
   `);
 });
 
+test('returns widgets for intervals and groupBy', () => {
+  const query: Record<string, any> = {
+    analysis_type: 'count',
+    event_collection: 'Clicks',
+    timeframe: 'this_14_days',
+    group_by: ['country'],
+    interval: 'daily',
+  };
+
+  const result = getAvailableWidgets(query);
+  expect(result).toMatchInlineSnapshot(`
+    Array [
+      "line",
+      "table",
+      "json",
+      "bar",
+      "area",
+      "heatmap",
+    ]
+  `);
+});
+
 test('fallbacks to default widgets', () => {
   const query: Record<string, any> = {
     analysis_type: 'count',
