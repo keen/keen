@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/ui-core",
-  "version": "2.15.5",
+  "version": "2.15.6",
   "description": "Keen visual components",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -29,15 +29,15 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "peerDependencies": {
+    "moment-timezone": ">=0.5.30",
     "react": ">=16",
     "react-dom": ">=16",
-    "styled-components": ">=5",
-    "moment-timezone": ">=0.5.30"
+    "styled-components": ">=5"
   },
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
     "@keen.io/icons": "^1.4.0",
-    "@keen.io/query": "^1.1.0",
+    "@keen.io/query": "^1.1.1",
     "color": "^3.1.2",
     "framer-motion": "^1.11.1",
     "fuse.js": "^6.4.1",
