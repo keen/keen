@@ -8,7 +8,7 @@ type Props = WidgetSettings & MetricChartSettings;
 
 /** Metric Chart widget integrated with other components */
 export const MetricChartWidget: FC<Props> = ({ card, ...props }) => (
-  <Card {...card} hideOverflow>
+  <Card {...card}>
     <MetricChart {...props} />
   </Card>
 );

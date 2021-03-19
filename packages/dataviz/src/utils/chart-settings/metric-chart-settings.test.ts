@@ -60,7 +60,7 @@ test('Should set the correct caption and tooltip value for the comparison type',
   };
   expect(setChartSettings({ query, keys: [], componentSettings })).toEqual({
     caption: 'Sum of books - Last 46 hours',
-    tooltip: 'Previous 46 hours',
+    secondaryValueDescription: 'Previous 46 hours',
   });
 });
 
@@ -77,6 +77,6 @@ test('Should set the correct caption and tooltip value for the percentage differ
   };
   expect(setChartSettings({ query, keys: [], componentSettings })).toEqual({
     caption: 'Maximum books - Last week',
-    tooltip: 'Percentage change from the previous week',
+    secondaryValueDescription: 'Percentage change from the previous week',
   });
 });

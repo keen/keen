@@ -32,29 +32,34 @@ export const setChartSettings = ({
   caption = caption.replace(/^./, (str) => str.toUpperCase());
   if (interval) {
     caption += ' ' + getSuffix(interval, '- Last');
+    let secondaryValueDescription = null;
+    if (type === 'comparison') {
+      secondaryValueDescription = getSuffix(interval, 'Previous');
+    }
+    if (type === 'difference') {
+      secondaryValueDescription = getSuffix(
+        interval,
+        'Change from the previous'
+      );
+    }
+    if (usePercentDifference) {
+      secondaryValueDescription = getSuffix(
+        interval,
+        'Percentage change from the previous'
+      );
+    }
+    if (secondaryValueDescription) {
+      settings = {
+        ...settings,
+        secondaryValueDescription,
+      };
+    }
   }
+
   settings = {
     ...settings,
     caption,
   };
-  if (type === 'comparison') {
-    settings = {
-      ...settings,
-      tooltip: getSuffix(interval, 'Previous'),
-    };
-  }
-  if (type === 'difference') {
-    settings = {
-      ...settings,
-      tooltip: getSuffix(interval, 'Change from the previous'),
-    };
-  }
-  if (usePercentDifference) {
-    settings = {
-      ...settings,
-      tooltip: getSuffix(interval, 'Percentage change from the previous'),
-    };
-  }
   return settings;
 };
 

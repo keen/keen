@@ -69,7 +69,7 @@ export type Props = {
   type?: MetricType;
   /** Use percentage difference */
   usePercentDifference?: boolean;
-  tooltip?: string;
+  secondaryValueDescription?: string;
 } & CommonChartSettings;
 
 export const MetricChart: FC<Props> = ({
@@ -83,7 +83,7 @@ export const MetricChart: FC<Props> = ({
   keys = ['value'],
   type = 'simple',
   usePercentDifference = false,
-  tooltip,
+  secondaryValueDescription,
 }) => {
   const { value, previousValue, difference } = generateMetric({
     labelSelector,
@@ -158,7 +158,9 @@ export const MetricChart: FC<Props> = ({
               }}
             >
               <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
-                <Text {...tooltipSettings.labels.typography}>{tooltip}</Text>
+                <Text {...tooltipSettings.labels.typography}>
+                  {secondaryValueDescription}
+                </Text>
               </Tooltip>
             </motion.div>
           )}
