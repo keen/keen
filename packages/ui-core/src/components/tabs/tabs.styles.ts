@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
-import { motion } from 'framer-motion';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
@@ -26,6 +25,7 @@ const tabVariants = {
 
 export const Tab = styled.div<{
   type: TabTypes;
+  isActive: boolean;
 }>`
   ${variant(tabVariants)};
   padding: 10px 20px;
@@ -34,20 +34,17 @@ export const Tab = styled.div<{
   color: ${colors.green[500]};
   text-align: center;
   cursor: pointer;
+  background: linear-gradient(currentColor 0 0) bottom / var(--d, 0) 2px
+    no-repeat;
+  transition: background 150ms ease-out;
+
+  &:hover {
+    background-color: ${transparentize(0.9, colors.green[100])};
+  }
 
   ${(props) =>
-    props.type === 'large' &&
+    props.isActive &&
     css`
-      &:hover {
-        background: ${transparentize(0.8, colors.green[100])};
-      }
+      --d: 100%;
     `};
-`;
-
-export const ActiveTab = styled(motion.div)`
-  height: 2px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: ${colors.green[500]};
 `;
