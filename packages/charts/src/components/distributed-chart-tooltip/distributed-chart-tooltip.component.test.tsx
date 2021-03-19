@@ -76,6 +76,7 @@ test('formats toolip list values and renders percentages', () => {
     data,
     selectors,
     isPercentage: true,
+    isStacked: true,
   });
   const [firstSeries] = data;
   const { users, licenses } = firstSeries;

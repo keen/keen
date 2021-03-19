@@ -17,6 +17,8 @@ type Props = {
   selectors: { selector: DataSelector; color: string }[];
   /** Indicates if tooltip should display data in percentage form */
   isPercentage: boolean;
+  /** Indicates if tooltip should display stacked data */
+  isStacked: boolean;
   /** Name of data object property used to create labels on axis */
   labelSelector: string;
   /** Max width for tooltip */
@@ -33,6 +35,7 @@ const DistributedChartTooltip: FC<Props> = ({
   disabledKeys,
   selectors,
   isPercentage,
+  isStacked,
   labelSelector,
   maxWidth,
   tooltipSettings,
@@ -44,6 +47,7 @@ const DistributedChartTooltip: FC<Props> = ({
     disabledKeys,
     selectors,
     isPercentage,
+    isStacked,
     labelSelector,
     tooltipSettings,
     isTimePrecise,

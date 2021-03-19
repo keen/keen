@@ -201,9 +201,8 @@ export const LineChart: FC<Props> = ({
                 data={localizedData}
                 keys={keys}
                 disabledKeys={disabledKeys}
-                isPercentage={
-                  stackMode === 'percent' && groupMode === 'stacked'
-                }
+                isPercentage={stackMode === 'percent'}
+                isStacked={groupMode === 'stacked'}
                 selectors={tooltipSelectors}
                 tooltipSettings={tooltipSettings}
                 labelSelector={labelSelector}

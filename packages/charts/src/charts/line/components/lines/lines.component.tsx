@@ -96,6 +96,7 @@ const Lines = ({
   });
 
   const {
+    svgDimensions: { height },
     theme: { hoverBar },
   } = useContext(ChartContext) as ChartContextType;
 
@@ -208,9 +209,11 @@ const Lines = ({
           steps={steps}
           onMouseEnter={(e, mark) => {
             if (hideHoverBar.current) clearTimeout(hideHoverBar.current);
+            let marksRange;
+            if (groupMode === 'stacked') marksRange = height;
             onMarkMouseEnter(
               e,
-              findMarksInCluster(mark, groupedMarks).map(
+              findMarksInCluster(mark, groupedMarks, marksRange).map(
                 ({ selector, color }) => ({
                   selector,
                   color,

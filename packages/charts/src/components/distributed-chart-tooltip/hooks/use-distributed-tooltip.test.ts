@@ -174,6 +174,7 @@ test('calculates total value for multiple selectors', () => {
 
   const { result } = renderHook({
     data,
+    isStacked: true,
     keys: ['male', 'female'],
     disabledKeys: ['female'],
     selectors: [
@@ -198,6 +199,7 @@ test('calculates percentage value for records', () => {
     data,
     keys: ['male', 'female'],
     isPercentage: true,
+    isStacked: true,
     selectors: [
       { selector: [0, 'male'], color: 'red' },
       { selector: [0, 'female'], color: 'blue' },
