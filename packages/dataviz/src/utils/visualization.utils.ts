@@ -1,41 +1,17 @@
-import {
-  parseQuery,
-  parseQueries,
-  mergeParsedResults,
-  mapKeys,
-  KEEN_KEY,
-  AnalysisResult,
-} from '@keen.io/parser';
-import { Query, Step } from '@keen.io/query';
+import { parseQuery, mapKeys, KEEN_KEY } from '@keen.io/parser';
 import { Widgets } from '@keen.io/widgets';
 
 import { VisualizationInput, ComponentSettings } from '../types';
 
 export const prepareVisualization = (
-  input: VisualizationInput | VisualizationInput[] = {},
+  input: VisualizationInput = {},
   keysMap: Record<string, string>,
   componentSettings: ComponentSettings,
   type?: Widgets
 ) => {
-  let keys: string[] = [];
-  let results: Record<string, any>[] = [];
-  if (Array.isArray(input)) {
-    const analysisCollection = input as {
-      query?: Query;
-      steps?: Step[];
-      result: AnalysisResult;
-    }[];
-
-    const parsedQueries = parseQueries(analysisCollection, type);
-    const mergedResults = mergeParsedResults(analysisCollection, parsedQueries);
-
-    keys = mergedResults.keys;
-    results = mergedResults.results;
-  } else {
-    const parser = parseQuery(input as any, type);
-    keys = parser.keys;
-    results = parser.data;
-  }
+  const parser = parseQuery(input as any, type);
+  let keys: string[] = parser.keys;
+  let results: Record<string, any>[] = parser.data;
 
   if (keysMap) {
     const labelSelector =

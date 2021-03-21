@@ -35,14 +35,3 @@ export const parseQuery = (input: ParserInput, visualization?: string) => {
     data: [],
   };
 };
-
-/**
- * Prepare multiple analysis results for specified visualization.
- *
- * @param input - Parser input properties
- * @param visualization - chart type
- * @return transformed data
- *
- */
-export const parseQueries = (input: ParserInput[], visualization?: string) =>
-  input.map((analysys) => parseQuery(analysys, visualization));
