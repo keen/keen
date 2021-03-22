@@ -48,9 +48,7 @@ describe('calculateGroupedBars()', () => {
       .domain(chartData.map((item: any) => item[labelSelector]))
       .padding(0);
     const yScale = scaleLinear().range([0, 100]).domain([-30, 82]);
-    const groupScale = scaleBand()
-      .rangeRound([0, xScale.bandwidth()])
-      .domain(keys);
+    const groupScale = scaleBand().range([0, xScale.bandwidth()]).domain(keys);
 
     const result = calculateGroupedBars(
       chartData,
@@ -74,9 +72,7 @@ describe('calculateGroupedBars()', () => {
       .range([0, 100])
       .domain(chartData.map((item: any) => item[labelSelector]).reverse())
       .padding(0);
-    const groupScale = scaleBand()
-      .rangeRound([0, yScale.bandwidth()])
-      .domain(keys);
+    const groupScale = scaleBand().range([0, yScale.bandwidth()]).domain(keys);
 
     const result = calculateGroupedBars(
       chartData,
