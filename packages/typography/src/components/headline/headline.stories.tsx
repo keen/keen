@@ -30,7 +30,7 @@ const fontWeightOptions: FontWeight[] = [
   'bold',
   'bolder',
 ];
-const variantOptions: Variant[] = ['h1', 'h2', 'h3'];
+const variantOptions: Variant[] = ['h1', 'h2', 'h3', 'h4'];
 
 const Container = styled.div`
   display: flex;
