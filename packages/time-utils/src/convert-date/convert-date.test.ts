@@ -1,10 +1,9 @@
 import convertDate from './convert-date';
 
-test('performs date conversion based on date with offset', () => {
+test('performs date conversion based on numeric offset (+02:00)', () => {
   const utcISODate = '2021-03-14T15:00:00.000Z';
-  const dateWithOffset = '2021-03-14T16:00:00-02:00';
 
-  expect(convertDate(utcISODate, dateWithOffset)).toMatchInlineSnapshot(
+  expect(convertDate(utcISODate, -120)).toMatchInlineSnapshot(
     `"2021-03-14T13:00:00.000Z"`
   );
 });
