@@ -4,7 +4,7 @@ exports[`calculateGroupedBars() should calculate grouped bars correctly for hori
 Array [
   Object {
     "color": "red",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "0.users",
     "selector": Array [
       0,
@@ -17,7 +17,7 @@ Array [
   },
   Object {
     "color": "green",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "0.licenses",
     "selector": Array [
       0,
@@ -26,11 +26,11 @@ Array [
     "value": 52,
     "width": 46.42857142857142,
     "x": 26.785714285714285,
-    "y": 83,
+    "y": 83.33333333333333,
   },
   Object {
     "color": "blue",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "0.shops",
     "selector": Array [
       0,
@@ -39,11 +39,11 @@ Array [
     "value": 12,
     "width": 10.714285714285715,
     "x": 26.785714285714285,
-    "y": 91,
+    "y": 91.66666666666667,
   },
   Object {
     "color": "red",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "1.users",
     "selector": Array [
       1,
@@ -56,7 +56,7 @@ Array [
   },
   Object {
     "color": "green",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "1.licenses",
     "selector": Array [
       1,
@@ -65,11 +65,11 @@ Array [
     "value": 82,
     "width": 73.21428571428572,
     "x": 26.785714285714285,
-    "y": 58,
+    "y": 58.333333333333336,
   },
   Object {
     "color": "blue",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "1.shops",
     "selector": Array [
       1,
@@ -78,11 +78,11 @@ Array [
     "value": 15,
     "width": 13.392857142857146,
     "x": 26.785714285714285,
-    "y": 66,
+    "y": 66.66666666666667,
   },
   Object {
     "color": "red",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "2.users",
     "selector": Array [
       2,
@@ -95,7 +95,7 @@ Array [
   },
   Object {
     "color": "green",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "2.licenses",
     "selector": Array [
       2,
@@ -104,11 +104,11 @@ Array [
     "value": -15,
     "width": 13.392857142857142,
     "x": 13.392857142857142,
-    "y": 33,
+    "y": 33.333333333333336,
   },
   Object {
     "color": "blue",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "2.shops",
     "selector": Array [
       2,
@@ -117,11 +117,11 @@ Array [
     "value": 23,
     "width": 20.535714285714285,
     "x": 26.785714285714285,
-    "y": 41,
+    "y": 41.66666666666667,
   },
   Object {
     "color": "red",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "3.users",
     "selector": Array [
       3,
@@ -134,7 +134,7 @@ Array [
   },
   Object {
     "color": "green",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "3.licenses",
     "selector": Array [
       3,
@@ -143,11 +143,11 @@ Array [
     "value": -15,
     "width": 13.392857142857142,
     "x": 13.392857142857142,
-    "y": 8,
+    "y": 8.333333333333334,
   },
   Object {
     "color": "blue",
-    "height": 8,
+    "height": 8.333333333333334,
     "key": "3.shops",
     "selector": Array [
       3,
@@ -156,7 +156,7 @@ Array [
     "value": -30,
     "width": 26.785714285714285,
     "x": 0,
-    "y": 16,
+    "y": 16.666666666666668,
   },
 ]
 `;
@@ -172,7 +172,7 @@ Array [
       "users",
     ],
     "value": 3,
-    "width": 8,
+    "width": 8.333333333333334,
     "x": 0,
     "y": 29.464285714285715,
   },
@@ -185,8 +185,8 @@ Array [
       "licenses",
     ],
     "value": 52,
-    "width": 8,
-    "x": 8,
+    "width": 8.333333333333334,
+    "x": 8.333333333333334,
     "y": 73.21428571428571,
   },
   Object {
@@ -198,8 +198,8 @@ Array [
       "shops",
     ],
     "value": 12,
-    "width": 8,
-    "x": 16,
+    "width": 8.333333333333334,
+    "x": 16.666666666666668,
     "y": 37.5,
   },
   Object {
@@ -211,7 +211,7 @@ Array [
       "users",
     ],
     "value": 19,
-    "width": 8,
+    "width": 8.333333333333334,
     "x": 25,
     "y": 43.75,
   },
@@ -224,8 +224,8 @@ Array [
       "licenses",
     ],
     "value": 82,
-    "width": 8,
-    "x": 33,
+    "width": 8.333333333333334,
+    "x": 33.333333333333336,
     "y": 100,
   },
   Object {
@@ -237,8 +237,8 @@ Array [
       "shops",
     ],
     "value": 15,
-    "width": 8,
-    "x": 41,
+    "width": 8.333333333333334,
+    "x": 41.66666666666667,
     "y": 40.17857142857143,
   },
   Object {
@@ -250,7 +250,7 @@ Array [
       "users",
     ],
     "value": 20,
-    "width": 8,
+    "width": 8.333333333333334,
     "x": 50,
     "y": 44.642857142857146,
   },
@@ -263,8 +263,8 @@ Array [
       "licenses",
     ],
     "value": -15,
-    "width": 8,
-    "x": 58,
+    "width": 8.333333333333334,
+    "x": 58.333333333333336,
     "y": 26.785714285714285,
   },
   Object {
@@ -276,8 +276,8 @@ Array [
       "shops",
     ],
     "value": 23,
-    "width": 8,
-    "x": 66,
+    "width": 8.333333333333334,
+    "x": 66.66666666666667,
     "y": 47.32142857142857,
   },
   Object {
@@ -289,7 +289,7 @@ Array [
       "users",
     ],
     "value": 63,
-    "width": 8,
+    "width": 8.333333333333334,
     "x": 75,
     "y": 83.03571428571429,
   },
@@ -302,8 +302,8 @@ Array [
       "licenses",
     ],
     "value": -15,
-    "width": 8,
-    "x": 83,
+    "width": 8.333333333333334,
+    "x": 83.33333333333333,
     "y": 26.785714285714285,
   },
   Object {
@@ -315,8 +315,8 @@ Array [
       "shops",
     ],
     "value": -30,
-    "width": 8,
-    "x": 91,
+    "width": 8.333333333333334,
+    "x": 91.66666666666667,
     "y": 26.785714285714285,
   },
 ]
