@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.9.3...@keen.io/dataviz@2.10.0) (2021-03-22)
+
+
+### Features
+
+* 🎸 Metric chart caption added ([#829](https://github.com/keen/keen/issues/829)) ([25585a7](https://github.com/keen/keen/commit/25585a7c8a46c9a7055cea3b61dfd98f63b98e18))
+
+
+
+
+
 ## [2.9.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.9.2...@keen.io/dataviz@2.9.3) (2021-03-19)
 
 **Note:** Version bump only for package @keen.io/dataviz
