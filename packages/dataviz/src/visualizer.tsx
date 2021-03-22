@@ -62,7 +62,7 @@ class Visualizer {
   }
 
   private setComponentSettings(
-    input: VisualizationInput | VisualizationInput[] = {},
+    input: VisualizationInput = {},
     widgetType: Widgets,
     keys: string[]
   ) {
@@ -73,22 +73,13 @@ class Visualizer {
       componentSettings = { ...componentSettings, theme: extendTheme(theme) };
     }
 
-    if (!Array.isArray(input) && (input.query || input.steps)) {
-      let query = {};
-      if (input.query) query = input.query;
+    let query = {};
+    if (input.query) query = input.query;
 
-      componentSettings = extendChartSettings(
-        createChartSettings({ query, widgetType, keys, componentSettings }),
-        componentSettings
-      );
-    } else if (Array.isArray(input) && input[0]?.query) {
-      const [firstQuery] = input;
-      const { query } = firstQuery;
-      componentSettings = extendChartSettings(
-        createChartSettings({ query, widgetType, keys, componentSettings }),
-        componentSettings
-      );
-    }
+    componentSettings = extendChartSettings(
+      createChartSettings({ query, widgetType, keys, componentSettings }),
+      componentSettings
+    );
 
     return componentSettings;
   }
@@ -112,7 +103,7 @@ class Visualizer {
     );
   }
 
-  render(input: VisualizationInput | VisualizationInput[] = {}) {
+  render(input: VisualizationInput = {}) {
     const container = this.getContainerNode();
     let keys: string[] = [];
     let results: Record<string, any>[] = [];
