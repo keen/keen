@@ -24,8 +24,10 @@ export type TooltipConfig = {
   tooltipSettings: TooltipSettings;
   /** Date label indicator */
   isTimePrecise?: boolean;
-  /** Data is stacked percentage */
+  /** Data is in percentage */
   isPercentage?: boolean;
+  /** Data is stacked */
+  isStacked?: boolean;
 };
 
 const useDistributedTooltip = ({
@@ -37,13 +39,15 @@ const useDistributedTooltip = ({
   tooltipSettings,
   isTimePrecise = false,
   isPercentage = false,
+  isStacked = false,
 }: TooltipConfig) => {
   const [{ selector }] = selectors;
   const [recordIndex] = selector as [number];
 
-  const percentageData = isPercentage
-    ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
-    : [];
+  const percentageData =
+    isPercentage && isStacked
+      ? transformToPercent(data, getKeysDifference(keys, disabledKeys))
+      : [];
 
   const getTooltipLabel = useCallback(
     (
@@ -63,7 +67,7 @@ const useDistributedTooltip = ({
   );
 
   const totalValue = useMemo(() => {
-    return selectors.length > 1
+    return isStacked && selectors.length > 1
       ? getKeysDifference(keys, disabledKeys).reduce(
           (acc: number, keyName: string) => {
             const value = data[recordIndex][keyName];
