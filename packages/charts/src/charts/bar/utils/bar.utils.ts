@@ -138,15 +138,15 @@ export const calculateGroupedBars = (
   const bars = [] as Bar[];
   range.forEach((_d, index: number) => {
     let counter = 0;
+    const barsToRenderInGroup = Object.entries(data[index]).filter(
+      (el) => el[1] !== 0 && el[0] !== labelSelector
+    ).length;
+
+    const newOrder = (keys.length - barsToRenderInGroup) / 2;
+
     keys.forEach((keyName: string, idx: number) => {
       const isDisabled =
         keyName === labelSelector || disabledKeys.includes(keyName);
-      const barsToRenderInGroup = Object.entries(data[index]).filter(
-        (el) => el[1] !== 0 && el[0] !== labelSelector
-      ).length;
-
-      const newOrder = (keys.length - barsToRenderInGroup) / 2;
-
       const value = data[index]?.[keyName];
       if (value && !isDisabled) {
         const orderPosition = barsOrder
