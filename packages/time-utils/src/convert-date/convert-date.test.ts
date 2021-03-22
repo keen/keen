@@ -2,13 +2,9 @@ import convertDate from './convert-date';
 
 test('performs date conversion based on date with offset', () => {
   const utcISODate = '2021-03-14T15:00:00.000Z';
+  const dateWithOffset = '2021-03-14T16:00:00-02:00';
 
-  const timeframe = {
-    start: '2021-03-14T16:00:00-02:00',
-    end: '2021-03-15T19:00:00-02:00',
-  };
-
-  expect(convertDate(utcISODate, timeframe)).toMatchInlineSnapshot(
+  expect(convertDate(utcISODate, dateWithOffset)).toMatchInlineSnapshot(
     `"2021-03-14T13:00:00.000Z"`
   );
 });
