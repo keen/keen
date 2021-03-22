@@ -3,6 +3,134 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.57](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.56...@keen.io/embedded-registration@2.1.57) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.56](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.55...@keen.io/embedded-registration@2.1.56) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.55](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.54...@keen.io/embedded-registration@2.1.55) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.54](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.53...@keen.io/embedded-registration@2.1.54) (2021-03-18)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.53](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.52...@keen.io/embedded-registration@2.1.53) (2021-03-15)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.52](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.51...@keen.io/embedded-registration@2.1.52) (2021-03-04)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.51](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.50...@keen.io/embedded-registration@2.1.51) (2021-03-04)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.50](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.49...@keen.io/embedded-registration@2.1.50) (2021-03-02)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.49](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.48...@keen.io/embedded-registration@2.1.49) (2021-02-25)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.48](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.47...@keen.io/embedded-registration@2.1.48) (2021-02-24)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.47](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.46...@keen.io/embedded-registration@2.1.47) (2021-02-23)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.46](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.45...@keen.io/embedded-registration@2.1.46) (2021-02-18)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.45](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.44...@keen.io/embedded-registration@2.1.45) (2021-02-17)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.44](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.43...@keen.io/embedded-registration@2.1.44) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.43](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.42...@keen.io/embedded-registration@2.1.43) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
+## [2.1.42](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.41...@keen.io/embedded-registration@2.1.42) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
 ## [2.1.41](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.40...@keen.io/embedded-registration@2.1.41) (2021-02-11)
 
 **Note:** Version bump only for package @keen.io/embedded-registration

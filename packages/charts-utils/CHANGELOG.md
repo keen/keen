@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.0...@keen.io/charts-utils@1.8.1) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/charts-utils
+
+
+
+
+
+# [1.8.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.7.0...@keen.io/charts-utils@1.8.0) (2021-03-18)
+
+
+### Features
+
+* 🎸 time axis disconnected from intervals ([3cb10ca](https://github.com/keen/keen/commit/3cb10ca3cbce28f7053811d7d1ab88bdca3e1492))
+* 🎸 tooltip date formatters ([40147a8](https://github.com/keen/keen/commit/40147a8707c31632ab1ed4ec8f240fa50dfda71a))
+
+
+
+
+
+# [1.7.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.6.0...@keen.io/charts-utils@1.7.0) (2021-03-15)
+
+
+### Features
+
+* 🎸 Line/Area chart tooltips ([8786a6b](https://github.com/keen/keen/commit/8786a6bb5e0de98c2703a59e56e6746847ef94e0))
+
+
+
+
+
+# [1.6.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.5.0...@keen.io/charts-utils@1.6.0) (2021-03-04)
+
+
+### Features
+
+* 🎸 choropleth tooltip ([5ff2990](https://github.com/keen/keen/commit/5ff299068f59922188ee4cfa06a90df465f6fe0b))
+
+
+
+
+
+# [1.5.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.3...@keen.io/charts-utils@1.5.0) (2021-03-02)
+
+
+### Features
+
+* 🎸 Added mathematical operations to scale settings ([d332b19](https://github.com/keen/keen/commit/d332b19d9c317c27a4851a912f876e417764799b))
+
+
+
+
+
+## [1.4.3](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.2...@keen.io/charts-utils@1.4.3) (2021-02-26)
+
+
+### Bug Fixes
+
+* 🐛 Fix for values smaller than tickSize ([d4a67b9](https://github.com/keen/keen/commit/d4a67b9af236b78b296ed62657ccc5740c49507a))
+
+
+
+
+
+## [1.4.2](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.1...@keen.io/charts-utils@1.4.2) (2021-02-25)
+
+**Note:** Version bump only for package @keen.io/charts-utils
+
+
+
+
+
+## [1.4.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.4.0...@keen.io/charts-utils@1.4.1) (2021-02-23)
+
+**Note:** Version bump only for package @keen.io/charts-utils
+
+
+
+
+
 # [1.4.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.3.0...@keen.io/charts-utils@1.4.0) (2021-02-11)
 
 

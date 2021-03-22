@@ -3,6 +3,237 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3](https://github.com/keen/keen/compare/@keen.io/charts@2.11.2...@keen.io/charts@2.11.3) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.11.2](https://github.com/keen/keen/compare/@keen.io/charts@2.11.1...@keen.io/charts@2.11.2) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.11.1](https://github.com/keen/keen/compare/@keen.io/charts@2.11.0...@keen.io/charts@2.11.1) (2021-03-19)
+
+
+### Bug Fixes
+
+* 🐛 Fix for order by bars double group_by ([bba1a30](https://github.com/keen/keen/commit/bba1a30f92ca82ddc170297d187f66d6f3970b36))
+
+
+
+
+
+# [2.11.0](https://github.com/keen/keen/compare/@keen.io/charts@2.10.1...@keen.io/charts@2.11.0) (2021-03-18)
+
+
+### Bug Fixes
+
+* 🐛 issue when total value is 0 ([d4329c4](https://github.com/keen/keen/commit/d4329c44cf3e7c04f456614c6a2801794eb12708))
+
+
+### Features
+
+* 🎸 time axis disconnected from intervals ([3cb10ca](https://github.com/keen/keen/commit/3cb10ca3cbce28f7053811d7d1ab88bdca3e1492))
+* 🎸 tooltip date formatters ([40147a8](https://github.com/keen/keen/commit/40147a8707c31632ab1ed4ec8f240fa50dfda71a))
+
+
+
+
+
+## [2.10.1](https://github.com/keen/keen/compare/@keen.io/charts@2.10.0...@keen.io/charts@2.10.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* 🐛 Fix for shifted double groupBy and hover mark negatives ([7d85ae1](https://github.com/keen/keen/commit/7d85ae1f5b91bf02d12702bcbe12b9c62d857de8))
+
+
+
+
+
+# [2.10.0](https://github.com/keen/keen/compare/@keen.io/charts@2.9.1...@keen.io/charts@2.10.0) (2021-03-15)
+
+
+### Bug Fixes
+
+* 🐛 funnel chart responsiveness ([6c4c4cf](https://github.com/keen/keen/commit/6c4c4cfbd877b7389fa570220268ff718d263da4))
+* 🐛 issue with empty stacked gruops ([0851ff2](https://github.com/keen/keen/commit/0851ff2d09abb99407e703ab00167f62cc93217f))
+* 🐛 localized data for tooltip ([93babcf](https://github.com/keen/keen/commit/93babcf40a74487591b3b0a5cb95a85e557fcd56))
+* 🐛 null in <BarChart> tooltip ([7c8c3b5](https://github.com/keen/keen/commit/7c8c3b50472a2604424719a9cf6f23dd51e6609f))
+* 🐛 update letter spacing ([7819723](https://github.com/keen/keen/commit/7819723e460339a6d9bb0800917ce975af0ffefc))
+* 🐛 update tooltip position in Chargify ([6f07030](https://github.com/keen/keen/commit/6f070302d865cff9ee03c13107752a43edd9ca42))
+
+
+### Features
+
+* 🎸 Bar Chart tooltip ([a6c0b4a](https://github.com/keen/keen/commit/a6c0b4aef2168e97f330cc79d4416a4ee277d862))
+* 🎸 format tooltip pattern for line/area ([118c594](https://github.com/keen/keen/commit/118c5940d3e9ed77dfc360595f75a3ff37c9d9b7))
+* 🎸 Line/Area chart tooltips ([8786a6b](https://github.com/keen/keen/commit/8786a6bb5e0de98c2703a59e56e6746847ef94e0))
+
+
+
+
+
+## [2.9.1](https://github.com/keen/keen/compare/@keen.io/charts@2.9.0...@keen.io/charts@2.9.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* 🐛 Add marks on point 0 for line/area ([99a4562](https://github.com/keen/keen/commit/99a4562667d97bc5e1770865bd6a5553cbd0c2bd))
+* 🐛 Fix for yScale for stacked area/line ([e017f1c](https://github.com/keen/keen/commit/e017f1c64eed2ed2067c9dcc5c3c546250a9836f))
+
+
+### Performance Improvements
+
+* ⚡️ tooltip performance for choropleth ([5bcabc9](https://github.com/keen/keen/commit/5bcabc9f9890d2c3c86be8c3dc2b1b4134ec7093))
+
+
+
+
+
+# [2.9.0](https://github.com/keen/keen/compare/@keen.io/charts@2.8.0...@keen.io/charts@2.9.0) (2021-03-04)
+
+
+### Bug Fixes
+
+* 🐛 export Point and ItemData types ([e96cb38](https://github.com/keen/keen/commit/e96cb38fcf180c5394765ab68a2804658e171a13))
+
+
+### Features
+
+* 🎸 detect geo match with properties ([c627fa1](https://github.com/keen/keen/commit/c627fa164ede6b18c7997352b383273177c78156))
+
+
+
+
+
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/charts@2.7.12...@keen.io/charts@2.8.0) (2021-03-04)
+
+
+### Bug Fixes
+
+* 🐛 Add unique id for gradient and clip id ([d4a8bfe](https://github.com/keen/keen/commit/d4a8bfedb4663983eef97dc3f0266f20bad0bd75))
+
+
+### Features
+
+* 🎸 choropleth multiple group by support ([013b121](https://github.com/keen/keen/commit/013b121b01618d13ff276a799a493094d0b9bbcf))
+* 🎸 choropleth tooltip ([5ff2990](https://github.com/keen/keen/commit/5ff299068f59922188ee4cfa06a90df465f6fe0b))
+* 🎸 updates for donut/pie tooltip ([d8c0b69](https://github.com/keen/keen/commit/d8c0b6979f5c68c6a272c3f89de6f871679747c2))
+
+
+
+
+
+## [2.7.12](https://github.com/keen/keen/compare/@keen.io/charts@2.7.11...@keen.io/charts@2.7.12) (2021-03-02)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.11](https://github.com/keen/keen/compare/@keen.io/charts@2.7.10...@keen.io/charts@2.7.11) (2021-02-26)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.10](https://github.com/keen/keen/compare/@keen.io/charts@2.7.9...@keen.io/charts@2.7.10) (2021-02-25)
+
+
+### Bug Fixes
+
+* 🐛 Fix for build problems ([28dc54a](https://github.com/keen/keen/commit/28dc54a33bc93ee415e22a9c72cd894429a1276c))
+
+
+
+
+
+## [2.7.9](https://github.com/keen/keen/compare/@keen.io/charts@2.7.8...@keen.io/charts@2.7.9) (2021-02-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.8](https://github.com/keen/keen/compare/@keen.io/charts@2.7.7...@keen.io/charts@2.7.8) (2021-02-23)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.7](https://github.com/keen/keen/compare/@keen.io/charts@2.7.6...@keen.io/charts@2.7.7) (2021-02-18)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.6](https://github.com/keen/keen/compare/@keen.io/charts@2.7.5...@keen.io/charts@2.7.6) (2021-02-17)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.5](https://github.com/keen/keen/compare/@keen.io/charts@2.7.4...@keen.io/charts@2.7.5) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.4](https://github.com/keen/keen/compare/@keen.io/charts@2.7.3...@keen.io/charts@2.7.4) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.3](https://github.com/keen/keen/compare/@keen.io/charts@2.7.2...@keen.io/charts@2.7.3) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.7.2](https://github.com/keen/keen/compare/@keen.io/charts@2.7.1...@keen.io/charts@2.7.2) (2021-02-12)
+
+
+### Bug Fixes
+
+* 🐛 scale format apply ([d911793](https://github.com/keen/keen/commit/d911793243d70a4c0ae5e29bb9dc4ac52f715efd))
+
+
+
+
+
+## [2.7.1](https://github.com/keen/keen/compare/@keen.io/charts@2.7.0...@keen.io/charts@2.7.1) (2021-02-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 # [2.7.0](https://github.com/keen/keen/compare/@keen.io/charts@2.6.0...@keen.io/charts@2.7.0) (2021-02-11)
 
 

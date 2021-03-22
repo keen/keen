@@ -3,6 +3,159 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.5...@keen.io/ui-core@2.15.6) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.15.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.4...@keen.io/ui-core@2.15.5) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.15.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.3...@keen.io/ui-core@2.15.4) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.15.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.2...@keen.io/ui-core@2.15.3) (2021-03-18)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.15.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.1...@keen.io/ui-core@2.15.2) (2021-03-15)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.15.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.0...@keen.io/ui-core@2.15.1) (2021-03-04)
+
+
+### Bug Fixes
+
+* 🐛 export Point and ItemData types ([e96cb38](https://github.com/keen/keen/commit/e96cb38fcf180c5394765ab68a2804658e171a13))
+
+
+
+
+
+# [2.15.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.14.2...@keen.io/ui-core@2.15.0) (2021-03-04)
+
+
+### Features
+
+* 🎸 choropleth multiple group by support ([013b121](https://github.com/keen/keen/commit/013b121b01618d13ff276a799a493094d0b9bbcf))
+* 🎸 choropleth tooltip ([5ff2990](https://github.com/keen/keen/commit/5ff299068f59922188ee4cfa06a90df465f6fe0b))
+* 🎸 updates for donut/pie tooltip ([d8c0b69](https://github.com/keen/keen/commit/d8c0b6979f5c68c6a272c3f89de6f871679747c2))
+
+
+
+
+
+## [2.14.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.14.1...@keen.io/ui-core@2.14.2) (2021-03-02)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.14.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.14.0...@keen.io/ui-core@2.14.1) (2021-02-25)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.14.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.13.1...@keen.io/ui-core@2.14.0) (2021-02-24)
+
+
+### Features
+
+* 🎸 heatmap groups ([48a094c](https://github.com/keen/keen/commit/48a094c4b3b9d111b04598ab9a2f4e4b8f887988))
+
+
+
+
+
+## [2.13.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.13.0...@keen.io/ui-core@2.13.1) (2021-02-23)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.13.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.4...@keen.io/ui-core@2.13.0) (2021-02-18)
+
+
+### Bug Fixes
+
+* 🐛 display boolean value in table ([6e45bf6](https://github.com/keen/keen/commit/6e45bf6e174efdc677cb9d650193c9472cff98e3))
+
+
+### Features
+
+* 🎸 <PropertiesTree> and createTree method extracted ([573bda8](https://github.com/keen/keen/commit/573bda88c874977bdf93ee58ef5bae91571b33e3))
+
+
+
+
+
+## [2.12.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.3...@keen.io/ui-core@2.12.4) (2021-02-17)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.12.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.2...@keen.io/ui-core@2.12.3) (2021-02-16)
+
+
+### Bug Fixes
+
+* 🐛 Change dropdown positionRelativeToDocument values ([7755434](https://github.com/keen/keen/commit/775543489a5a44ffbd3c8b94464d8dc4246e7af9))
+
+
+
+
+
+## [2.12.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.1...@keen.io/ui-core@2.12.2) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.12.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.12.0...@keen.io/ui-core@2.12.1) (2021-02-16)
+
+
+### Bug Fixes
+
+* 🐛 Badge tooltip z-index changed ([bd1e061](https://github.com/keen/keen/commit/bd1e061c5b71cda8ed0b7560abcd289d70a3f29d))
+
+
+
+
+
 # [2.12.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.11.1...@keen.io/ui-core@2.12.0) (2021-02-11)
 
 

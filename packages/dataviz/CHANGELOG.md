@@ -3,6 +3,210 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.9.2...@keen.io/dataviz@2.9.3) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.9.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.9.1...@keen.io/dataviz@2.9.2) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.9.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.9.0...@keen.io/dataviz@2.9.1) (2021-03-19)
+
+
+### Bug Fixes
+
+* 🐛 Fix for order by bars double group_by ([bba1a30](https://github.com/keen/keen/commit/bba1a30f92ca82ddc170297d187f66d6f3970b36))
+
+
+
+
+
+# [2.9.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.8.3...@keen.io/dataviz@2.9.0) (2021-03-18)
+
+
+### Features
+
+* 🎸 dedicated categorical transformation for table ([1c54a48](https://github.com/keen/keen/commit/1c54a48fa34857fd0d72ccb371c62abdd7e4058d))
+* 🎸 time axis disconnected from intervals ([3cb10ca](https://github.com/keen/keen/commit/3cb10ca3cbce28f7053811d7d1ab88bdca3e1492))
+* 🎸 tooltip date formatters ([40147a8](https://github.com/keen/keen/commit/40147a8707c31632ab1ed4ec8f240fa50dfda71a))
+
+
+
+
+
+## [2.8.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.8.2...@keen.io/dataviz@2.8.3) (2021-03-16)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.8.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.8.1...@keen.io/dataviz@2.8.2) (2021-03-15)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.8.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.8.0...@keen.io/dataviz@2.8.1) (2021-03-05)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.7.0...@keen.io/dataviz@2.8.0) (2021-03-04)
+
+
+### Features
+
+* 🎸 detect geo match with properties ([c627fa1](https://github.com/keen/keen/commit/c627fa164ede6b18c7997352b383273177c78156))
+
+
+
+
+
+# [2.7.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.6.3...@keen.io/dataviz@2.7.0) (2021-03-04)
+
+
+### Features
+
+* 🎸 choropleth tooltip ([5ff2990](https://github.com/keen/keen/commit/5ff299068f59922188ee4cfa06a90df465f6fe0b))
+
+
+
+
+
+## [2.6.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.6.2...@keen.io/dataviz@2.6.3) (2021-03-02)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.6.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.6.1...@keen.io/dataviz@2.6.2) (2021-02-26)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.6.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.6.0...@keen.io/dataviz@2.6.1) (2021-02-25)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+# [2.6.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.9...@keen.io/dataviz@2.6.0) (2021-02-24)
+
+
+### Features
+
+* 🎸 heatmap groups ([48a094c](https://github.com/keen/keen/commit/48a094c4b3b9d111b04598ab9a2f4e4b8f887988))
+
+
+
+
+
+## [2.5.9](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.8...@keen.io/dataviz@2.5.9) (2021-02-23)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.7...@keen.io/dataviz@2.5.8) (2021-02-18)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.7](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.6...@keen.io/dataviz@2.5.7) (2021-02-17)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.6](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.5...@keen.io/dataviz@2.5.6) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.5](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.4...@keen.io/dataviz@2.5.5) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.4](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.3...@keen.io/dataviz@2.5.4) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.2...@keen.io/dataviz@2.5.3) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.1...@keen.io/dataviz@2.5.2) (2021-02-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.5.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.5.0...@keen.io/dataviz@2.5.1) (2021-02-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.15...@keen.io/dataviz@2.5.0) (2021-02-12)
+
+
+### Features
+
+* 🎸 Grouped bar ([8ecf3b2](https://github.com/keen/keen/commit/8ecf3b281bbde8a55db11ee01511f9d52e340bea))
+
+
+
+
+
 ## [2.4.15](https://github.com/keen/keen/compare/@keen.io/dataviz@2.4.14...@keen.io/dataviz@2.4.15) (2021-02-11)
 
 **Note:** Version bump only for package @keen.io/dataviz

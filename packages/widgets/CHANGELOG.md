@@ -3,6 +3,177 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.6...@keen.io/widgets@2.3.7) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.5...@keen.io/widgets@2.3.6) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.4...@keen.io/widgets@2.3.5) (2021-03-19)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.3...@keen.io/widgets@2.3.4) (2021-03-18)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.2...@keen.io/widgets@2.3.3) (2021-03-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.1...@keen.io/widgets@2.3.2) (2021-03-15)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.0...@keen.io/widgets@2.3.1) (2021-03-05)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.3.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.47...@keen.io/widgets@2.3.0) (2021-03-04)
+
+
+### Features
+
+* 🎸 detect geo match with properties ([c627fa1](https://github.com/keen/keen/commit/c627fa164ede6b18c7997352b383273177c78156))
+
+
+
+
+
+## [2.2.47](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.46...@keen.io/widgets@2.2.47) (2021-03-04)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.46](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.45...@keen.io/widgets@2.2.46) (2021-03-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.45](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.44...@keen.io/widgets@2.2.45) (2021-02-26)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.44](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.43...@keen.io/widgets@2.2.44) (2021-02-25)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.43](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.42...@keen.io/widgets@2.2.43) (2021-02-24)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.42](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.41...@keen.io/widgets@2.2.42) (2021-02-23)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.41](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.40...@keen.io/widgets@2.2.41) (2021-02-18)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.40](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.39...@keen.io/widgets@2.2.40) (2021-02-17)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.39](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.38...@keen.io/widgets@2.2.39) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.38](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.37...@keen.io/widgets@2.2.38) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.37](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.36...@keen.io/widgets@2.2.37) (2021-02-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.36](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.35...@keen.io/widgets@2.2.36) (2021-02-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.2.35](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.34...@keen.io/widgets@2.2.35) (2021-02-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.2.34](https://github.com/keen/keen/compare/@keen.io/widgets@2.2.33...@keen.io/widgets@2.2.34) (2021-02-11)
 
 **Note:** Version bump only for package @keen.io/widgets
