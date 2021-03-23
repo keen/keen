@@ -29,6 +29,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@keen.io/time-utils": "^1.0.0",
     "d3-time-format": "^2.2.3"
   },
   "devDependencies": {

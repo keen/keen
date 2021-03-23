@@ -8,6 +8,12 @@ test('performs date conversion based on numeric offset (+02:00)', () => {
   );
 });
 
+test('fallbacks to "UTC" date for "0" offset', () => {
+  const utcISODate = '2021-03-14T15:00:00.000Z';
+
+  expect(convertDate(utcISODate, 0)).toEqual(utcISODate);
+});
+
 test('performs date conversion for deprecated named timezone', () => {
   const isoDate = '2021-03-03T05:00:00.000Z';
 
@@ -22,6 +28,12 @@ test('performs date conversion for "Africa/Cairo (+02:00)" canonical named timez
   expect(convertDate(isoDate, 'Africa/Cairo')).toMatchInlineSnapshot(
     `"2021-03-03T07:00:00.000Z"`
   );
+});
+
+test('do not performs date conversion for "UTC" named timezone', () => {
+  const utcISODate = '2021-03-14T15:00:00.000Z';
+
+  expect(convertDate(utcISODate, 'UTC')).toEqual(utcISODate);
 });
 
 test('fallbacks to "UTC" date', () => {

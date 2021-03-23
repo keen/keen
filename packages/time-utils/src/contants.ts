@@ -6,3 +6,5 @@ export const DEPRECATED_TIMEZONES: Record<string, string> = {
   'US/Alaska': 'America/Anchorage',
   'US/Hawaii': 'Pacific/Honolulu',
 };
+
+export const DEFAULT_TIMEZONE = 'UTC';

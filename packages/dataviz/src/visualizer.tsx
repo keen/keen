@@ -25,6 +25,9 @@ class Visualizer {
   /** Type of widget that should be rendered */
   private type: Widgets;
 
+  /** Named timezone or offset in minutes */
+  private presentationTimezone: string | number | null;
+
   /** Container used to mount widget */
   private container: HTMLElement | string;
 
@@ -42,9 +45,18 @@ class Visualizer {
 
   constructor(options: Options) {
     validateOptions(options);
-    const { container, type, mappings, widget, settings } = options;
+    const {
+      container,
+      type,
+      presentationTimezone,
+      mappings,
+      widget,
+      settings,
+    } = options;
 
     this.mappings = mappings || null;
+    this.presentationTimezone = presentationTimezone;
+
     this.componentSettings = settings || {};
     this.widgetSettings = widget || {};
     this.container = container;
@@ -114,7 +126,8 @@ class Visualizer {
         input,
         this.mappings,
         this.componentSettings,
-        this.type
+        this.type,
+        this.presentationTimezone
       );
       keys = parser.keys;
       results = parser.results;

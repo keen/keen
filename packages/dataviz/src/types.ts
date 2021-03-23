@@ -47,6 +47,7 @@ export type ComponentSettings =
 export type Options = {
   container: HTMLElement | string;
   type: Widgets;
+  presentationTimezone?: string | number;
   mappings?: Record<string, string>;
   widget?: Partial<VisualizerWidgetSettings>;
   settings?: ComponentSettings;

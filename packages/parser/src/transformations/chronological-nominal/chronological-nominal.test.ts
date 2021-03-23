@@ -1,5 +1,7 @@
 import { transformChronologicalNominal } from './chronological-nominal';
 
+import { ParserSettings } from '../../types';
+
 test('transform nominal results in chronological order', () => {
   const result = [
     {
@@ -18,7 +20,8 @@ test('transform nominal results in chronological order', () => {
     },
   ];
 
-  expect(transformChronologicalNominal({ result })).toMatchInlineSnapshot(`
+  expect(transformChronologicalNominal({ result }, {} as ParserSettings))
+    .toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -34,6 +37,42 @@ test('transform nominal results in chronological order', () => {
         Object {
           "keen.key": "2021-01-01T00:00:00.000Z",
           "keen.value": Array [],
+        },
+      ],
+      "keys": Array [
+        "keen.value",
+      ],
+    }
+  `);
+});
+
+test('transform nominal results in "America/Anguilla (-04:00)" named timezone', () => {
+  const result = [
+    {
+      value: ['Dr.', 'Miss', 'Mr.', 'Mrs.', 'Ms.'],
+      timeframe: {
+        start: '2020-01-01T16:00:00.000Z',
+        end: '2021-01-01T00:00:00.000Z',
+      },
+    },
+  ];
+
+  expect(
+    transformChronologicalNominal({ result }, {
+      dateModifier: 'America/Anguilla',
+    } as ParserSettings)
+  ).toMatchInlineSnapshot(`
+    Object {
+      "data": Array [
+        Object {
+          "keen.key": "2020-01-01T12:00:00.000Z",
+          "keen.value": Array [
+            "Dr.",
+            "Miss",
+            "Mr.",
+            "Mrs.",
+            "Ms.",
+          ],
         },
       ],
       "keys": Array [

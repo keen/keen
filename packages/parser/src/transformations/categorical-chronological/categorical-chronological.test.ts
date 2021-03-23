@@ -161,3 +161,94 @@ test('transform categorical results and merge properties in provided order', () 
     }
   `);
 });
+
+test('transform categorical results in "Europe/Warsaw (+01:00)" named timezone', () => {
+  const result: IntervalResult[] = [
+    {
+      value: [
+        {
+          author: 'Edwidge Danticat',
+          result: 95,
+          name: 'Love, Anger, Madness',
+        },
+        { author: 'George R. R. Martin', result: 719, name: 'Game of Thrones' },
+      ],
+      timeframe: {
+        start: '2019-12-31T23:00:00.000Z',
+        end: '2019-12-31T23:00:00.000Z',
+      },
+    },
+  ];
+
+  expect(
+    transformCategoricalChronological(
+      { result },
+      {
+        transformation: 'categorical-chronological',
+        fillEmptyIntervalsKeys: false,
+        mergePropertiesOrder: null,
+        dateModifier: 'Europe/Warsaw',
+      },
+      null
+    )
+  ).toMatchInlineSnapshot(`
+    Object {
+      "data": Array [
+        Object {
+          "Edwidge Danticat | Love, Anger, Madness": 95,
+          "George R. R. Martin | Game of Thrones": 719,
+          "keen.key": "2020-01-01T00:00:00.000Z",
+        },
+      ],
+      "keys": Array [
+        "Edwidge Danticat | Love, Anger, Madness",
+        "George R. R. Martin | Game of Thrones",
+      ],
+    }
+  `);
+});
+
+test('transform categorical results by offset in minutes', () => {
+  const result: IntervalResult[] = [
+    {
+      value: [
+        {
+          author: 'Edwidge Danticat',
+          result: 95,
+          name: 'Love, Anger, Madness',
+        },
+        { author: 'George R. R. Martin', result: 719, name: 'Game of Thrones' },
+      ],
+      timeframe: {
+        start: '2019-01-01T01:00:00.000Z',
+        end: '2019-01-01T00:01:00.000Z',
+      },
+    },
+  ];
+
+  expect(
+    transformCategoricalChronological(
+      { result },
+      {
+        transformation: 'categorical-chronological',
+        fillEmptyIntervalsKeys: false,
+        mergePropertiesOrder: null,
+        dateModifier: -60,
+      }
+    )
+  ).toMatchInlineSnapshot(`
+    Object {
+      "data": Array [
+        Object {
+          "Edwidge Danticat | Love, Anger, Madness": 95,
+          "George R. R. Martin | Game of Thrones": 719,
+          "keen.key": "2019-01-01T00:00:00.000Z",
+        },
+      ],
+      "keys": Array [
+        "Edwidge Danticat | Love, Anger, Madness",
+        "George R. R. Martin | Game of Thrones",
+      ],
+    }
+  `);
+});
