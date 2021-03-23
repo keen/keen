@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { Tooltip as BaseTooltip, TooltipMode, Text } from '@keen.io/ui-core';
 import {
   formatValue as valueFormatter,
-  TooltipFormatter,
+  Formatter,
 } from '@keen.io/charts-utils';
 
 import {
@@ -27,7 +27,7 @@ type Props = {
   /** Components used to calculate total value for geographical area */
   partialValues?: Record<string, number>;
   /** Function or pattern used for formatting tooltip value */
-  formatValue?: TooltipFormatter;
+  formatValue?: Formatter;
 };
 
 export const Tooltip: FC<Props> = ({

@@ -1,7 +1,7 @@
 import { colors } from '@keen.io/colors';
 import {
   getFromPath,
-  TooltipFormatter,
+  Formatter,
   formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
 import { Point } from '@keen.io/ui-core';
@@ -17,7 +17,7 @@ type Options = {
   labelSelector: string;
   selectors: { selector: DataSelector; color: string }[];
   disabledLabels?: string[];
-  formatValue?: TooltipFormatter;
+  formatValue?: Formatter;
 };
 
 export const getCircularChartTooltipContent = ({

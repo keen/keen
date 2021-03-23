@@ -49,3 +49,14 @@ test('renders correct amount of steps based on provided data', () => {
 
   expect(steps.length).toEqual(props.data.length);
 });
+
+test('renders correct value after string formatter', () => {
+  const {
+    wrapper: { getByText },
+  } = render({
+    formatValues: '${number; 0.00a}',
+  });
+  expect(getByText('1.00k')).toBeInTheDocument();
+  expect(getByText('500.00')).toBeInTheDocument();
+  expect(getByText('250.00')).toBeInTheDocument();
+});
