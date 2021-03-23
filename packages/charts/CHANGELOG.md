@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/keen/keen/compare/@keen.io/charts@2.12.0...@keen.io/charts@2.12.1) (2021-03-23)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([0cd478b](https://github.com/keen/keen/commit/0cd478b3057e3536fb99f8abd309d60298790a03))
+* 🐛 Fix for shifted bars ([b737450](https://github.com/keen/keen/commit/b73745034cfaea417fd5b06c83176fe74687cd30))
+
+
+
+
+
 # [2.12.0](https://github.com/keen/keen/compare/@keen.io/charts@2.11.3...@keen.io/charts@2.12.0) (2021-03-22)
 
 
