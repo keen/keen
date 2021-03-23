@@ -21,7 +21,7 @@ export const simpleResults = () => {
     const dataviz = new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      presentationTimezone: 120,
+      presentationTimezone: 180,
       settings: {
         layout: 'horizontal',
       },
@@ -40,8 +40,8 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-02-01T00:00:00.000+02:00',
-          end: '2020-02-01T16:00:00.000+02:00',
+          start: '2020-02-01T00:00:00.000+03:00',
+          end: '2020-02-01T16:00:00.000+03:00',
         },
         interval: 'hourly',
       })

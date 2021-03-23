@@ -13,6 +13,7 @@ export default {
   },
 };
 
+/* Asia/Colombo UTC +05:30 / (330) minutes */
 export const simpleResults = () => {
   const container = React.useRef(null);
 
@@ -21,6 +22,7 @@ export const simpleResults = () => {
     const dataviz = new KeenDataViz({
       type: 'line',
       container: container.current,
+      presentationTimezone: 'Asia/Colombo',
       widget: {
         title: {
           content: 'Book purchases',
@@ -36,10 +38,9 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-02-01T12:33:00.000',
-          end: '2020-02-01T16:37:00.000',
+          start: '2020-02-01T12:00:00.000+05:30',
+          end: '2020-02-01T16:00:00.000+05:30',
         },
-        timezone: 'UTC',
         interval: 'every_5_minutes',
       })
       .then((res: any) => dataviz.render(res));
