@@ -120,7 +120,8 @@ export const MetricChart: FC<Props> = ({
     hideTooltip,
   } = useTooltip(excerptRef);
 
-  const excerptValue = type === 'difference' ? difference.value : previousValue;
+  const excerptValue =
+    type === 'difference' ? difference?.value : previousValue;
 
   return (
     <Layout>
@@ -197,11 +198,13 @@ export const MetricChart: FC<Props> = ({
                     </motion.div>
                   </AnimatePresence>
                 )}
-                <Text {...excerpt.typography}>
-                  {type === 'difference' && usePercentDifference
-                    ? `${excerptValue}%`
-                    : formatNumber(excerptValue)}
-                </Text>
+                {excerptValue && (
+                  <Text {...excerpt.typography}>
+                    {type === 'difference' && usePercentDifference
+                      ? `${excerptValue}%`
+                      : formatNumber(excerptValue)}
+                  </Text>
+                )}
               </Wrapper>
             </Excerpt>
           </div>
