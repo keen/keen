@@ -188,8 +188,7 @@ test('transform categorical results in "Europe/Warsaw (+01:00)" named timezone',
         fillEmptyIntervalsKeys: false,
         mergePropertiesOrder: null,
         dateModifier: 'Europe/Warsaw',
-      },
-      null
+      }
     )
   ).toMatchInlineSnapshot(`
     Object {
