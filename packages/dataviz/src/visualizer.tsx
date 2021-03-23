@@ -26,7 +26,7 @@ class Visualizer {
   private type: Widgets;
 
   /** Named timezone or offset in minutes */
-  private presentationTimezone: string | number | null;
+  private presentationTimezone: string | number | null = null;
 
   /** Container used to mount widget */
   private container: HTMLElement | string;
