@@ -20,6 +20,7 @@ export const Excerpt = styled.div<{
   margin-top: 10px;
   display: inline-block;
   padding: 5px 10px;
+  cursor: pointer;
   background: ${(props) => props.background};
 `;
 
