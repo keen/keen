@@ -11,7 +11,7 @@ type Props = {
   /** Percentage value for step */
   percentageValue: number;
   /** Step value */
-  value: number | string;
+  value: string | number | boolean | Date;
   /** Step label */
   label: string;
   /** Layout configuration */

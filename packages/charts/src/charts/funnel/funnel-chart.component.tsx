@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import { Layout } from '@keen.io/ui-core';
-import { formatNumber } from '@keen.io/charts-utils';
+import {
+  formatNumber,
+  formatValue as valueFormatter,
+  Formatter,
+} from '@keen.io/charts-utils';
 
 import { theme as defaultTheme } from '../../theme';
 
@@ -23,7 +27,7 @@ export type Props = {
   /** Key used to pick value property from data */
   valueKey?: string;
   /** Function used to format step values */
-  formatValues?: (value: number) => string | number;
+  formatValues?: Formatter;
 } & CommonChartSettings;
 
 export const FunnelChart: FC<Props> = ({
@@ -55,7 +59,7 @@ export const FunnelChart: FC<Props> = ({
             theme={theme}
             stepsCount={steps.length}
             index={idx}
-            value={formatValues(value)}
+            value={valueFormatter(value, formatValues)}
             percentageValue={percentageValue}
             nextPercentageValue={nextPercentageValue}
             color={color}

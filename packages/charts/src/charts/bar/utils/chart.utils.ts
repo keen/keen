@@ -106,7 +106,7 @@ export const generateHorizontalGroupedBars = ({
     .padding(barPadding);
 
   const yGroupScale = scaleBand()
-    .rangeRound([0, yScale.bandwidth()])
+    .range([0, yScale.bandwidth()])
     .domain(filteredKeys);
 
   const range = new Array(yScale.domain().length).fill(true);
@@ -201,7 +201,7 @@ export const generateVerticalGroupedBars = ({
   calculateScaleDomain(yScale, minimum, maximum);
 
   const xGroupScale = scaleBand()
-    .rangeRound([0, xScale.bandwidth()])
+    .range([0, xScale.bandwidth()])
     .domain(filteredKeys);
 
   const range = new Array(xScale.domain().length).fill(true);

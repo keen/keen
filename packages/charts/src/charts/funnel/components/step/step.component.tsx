@@ -38,7 +38,7 @@ type Props = {
   index: number;
   label: string;
   layout: Layout;
-  value: number | string;
+  value: string | number | boolean | Date;
   nextPercentageValue: number;
   percentageValue: number;
   color: string;

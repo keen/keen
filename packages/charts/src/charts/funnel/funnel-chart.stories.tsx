@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, boolean, color, select } from '@storybook/addon-knobs';
+import { object, boolean, color, select, text } from '@storybook/addon-knobs';
 import { layoutKnobs, typographyKnobs } from '@keen.io/storybook-utils';
 import { colors } from '@keen.io/colors';
 import { Layout } from '@keen.io/ui-core';
@@ -96,6 +96,7 @@ export const plot = () => {
         )}
         theme={createThemeKnobs() as Theme}
         data={chartData}
+        formatValues={text('Format value', '${number; 0.00a}', 'Value')}
       />
     </div>
   );

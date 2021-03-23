@@ -1,7 +1,7 @@
 import {
   formatValue as valueFormatter,
   getFromPath,
-  TooltipFormatter,
+  Formatter,
 } from '@keen.io/charts-utils';
 
 import { DataSelector } from '../../../../types';
@@ -28,7 +28,7 @@ const getLabel = ({
   data: Record<string, any>[];
   percentageData: Record<string, any>[];
   isPercentage?: boolean;
-  formatValue?: TooltipFormatter;
+  formatValue?: Formatter;
 }) => {
   const value = valueFormatter(getFromPath(data, selector), formatValue);
   if (isPercentage) {

@@ -41,11 +41,11 @@ import { formatNumber } from './number';
 import {
   TimePrecision,
   ScaleSettings,
-  TooltipFormatter,
+  Formatter,
   FormatFunction,
 } from './types';
 
-export { TimePrecision, ScaleSettings, TooltipFormatter, FormatFunction };
+export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
 
 export {
   createDateFormatter,
