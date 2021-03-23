@@ -30,7 +30,9 @@ export const basic = () => (
 basic.story = {
   parameters: {
     docs: {
-      storyDescription: 'Italic',
+      description: {
+        story: 'Italic',
+      },
     },
   },
 };

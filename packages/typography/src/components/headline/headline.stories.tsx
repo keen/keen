@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 import { select, text } from '@storybook/addon-knobs';
 import { colors } from '@keen.io/colors';
 
@@ -40,7 +41,7 @@ const Wrapper = styled.div`
   padding: 6px;
 `;
 
-export const variants = () => (
+export const Variants = () => (
   <Container>
     <Wrapper>
       <Headline
@@ -55,10 +56,184 @@ export const variants = () => (
   </Container>
 );
 
-variants.story = {
+const component = {
+  component: `
+Headlines in Keen:
+
+- **Gangster Grotesk Bold**, 36px
+- **Gangster Grotesk Bold**, 30px  
+  Use for:
+  - Signup pages
+  - Marketing pages
+- **Gangster Grotesk Bold**, 20px  
+  Titles of the pages
+- **Gangster Grotesk Bold**, 16px  
+  Small titles
+  `,
+};
+
+Variants.story = {
   parameters: {
     docs: {
-      storyDescription: 'Headline with variants',
+      description: {
+        story: 'Headline with variants',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H1Headline = () => (
+  <Headline variant="h1">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H1Headline.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for headlines on marketing pages',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H2Headline = () => (
+  <Headline variant="h2">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H2Headline.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for headlines on Signup pages',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H3Headline = () => (
+  <Headline variant="h3">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H3Headline.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for titles and headlines in the application',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H3PageTitle = () => (
+  <Headline variant="h3" color={colors.black[400]}>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H3PageTitle.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for page titles, query names, dashboard names',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H3ModalTitle = () => (
+  <Headline variant="h3" color={colors.blue[500]}>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H3ModalTitle.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for modal titles',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H3EmptyStateTitleBlue = () => (
+  <Headline variant="h3" color={colors.blue[500]} fontWeight={400}>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H3EmptyStateTitleBlue.story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Used for empty states for different views (No queries yet, No dashboards yet), loading states, it can be a link',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H3EmptyStateTitleGreen = () => (
+  <Headline variant="h3" color={colors.green[500]} fontWeight={400}>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H3EmptyStateTitleGreen.story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Used for empty states for different views (No queries yet, No dashboards yet), loading states, it can be a link',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H3PageTitlePlaceholder = () => (
+  <Headline variant="h3" color={transparentize(0.5, colors.black[400])}>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H3PageTitlePlaceholder.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for New query, Untitled dashboard',
+        ...component,
+      },
+    },
+  },
+};
+
+export const H4SmallTitle = () => (
+  <Headline variant="h4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit
+  </Headline>
+);
+
+H4SmallTitle.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Used for Saved Queries table titles, Dashboard titles on tiles',
+        ...component,
+      },
     },
   },
 };

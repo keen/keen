@@ -7,7 +7,7 @@ type Props = {
   fontWeight: FontWeightType;
 };
 
-const FontWeight = styled.span<Props>`
+export const FontWeight = styled.span<Props>`
   ${(props) =>
     props.fontWeight &&
     css`

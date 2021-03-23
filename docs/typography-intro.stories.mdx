@@ -1,0 +1,63 @@
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Typography" />
+
+# Typography
+
+We use two font types in Keen:
+
+- **Lato** - Body & Data typeface  
+Main platform font. It is used for most cases as it has good readability. It is used in visualisations.
+- **Gangster Grotesk** - Headline typeface  
+Use only for headlines, titles. Don't use it for small text.
+
+If there is no additional specification on the mockups, follow these guidelines:  
+- Always align text to the left
+- Title Case All (except prepositions) words for:  
+  - Buttons 
+  - Input labels
+  - Modals titles
+  - (Example: New Query, Go to Saved Queries)
+- Use sentence case for messages, tooltip hints (only the first letter of the first word is capitalised).
+- Text always should have **proper contrast**. Always make sure if it is readable
+- Use small text only when it is necessary 
+
+
+Tools for checking text contrast:  
+- https://contrast-ratio.com/
+- https://colorable.jxnblk.com/
+- https://webaim.org/resources/contrastchecker/  
+
+## Overview
+
+The `@keen.io/typography` package is a set of components used for display text on Keen pages and applications.
+
+### Use cases
+- [React](https://reactjs.org/) ecosystem front-end applications.
+- Build customer-facing dashboards and visualizations with set of production ready components.
+
+## Installing
+
+Use standard `npm` or [yarn](https://yarnpkg.com/lang/en/) package manager.
+
+```sh
+yarn add @keen.io/typography
+```
+
+## Example
+`<Headline />` component rendered in `React` ecosystem.
+
+<Story id="typography-headline--h-1-headline" />
+
+<br/>
+
+```js
+import { Headline } from '@keen.io/typography';
+
+<Headline variant="h1">Lorem ipsum</Headline>
+```
+
+## Compatibility
+
+- `react@^16`
+- `react-dom@^16`

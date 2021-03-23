@@ -72,7 +72,7 @@ const StyledH4 = styled.h4<Partial<Props>>`
   `};
 `;
 
-const Headline: FC<Props> = ({
+export const Headline: FC<Props> = ({
   variant = 'h1',
   fontWeight,
   lineHeight,
