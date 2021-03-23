@@ -9,7 +9,7 @@ const REGEXP = /([+-])(\d{2}):?(\d{2})/;
  */
 const getOffsetFromDate = (utcIsoDate: string) => {
   if (/Z$/.test(utcIsoDate)) return 0;
-  const regexp = REGEXP.exec(utcIsoDate);
+  const regexp: any = REGEXP.exec(utcIsoDate);
   return regexp && (+regexp[3] + regexp[2] * 60) * (regexp[1] === '+' ? 1 : -1);
 };
 
