@@ -26,7 +26,6 @@ import { theme as defaultTheme } from '../../theme';
 import { MetricType } from './types';
 import { CommonChartSettings } from '../../types';
 import { MetricTooltip } from './components';
-import { Portal } from '../../components';
 
 export const textMotion = {
   initial: { opacity: 0 },
@@ -112,6 +111,8 @@ export const MetricChart: FC<Props> = ({
   };
 
   const excerptRef = useRef<HTMLDivElement>(null);
+  const requestFrameRef = React.useRef(null);
+
   const { tooltip: tooltipSettings } = theme;
   const excerptValue = type === 'difference' ? difference.value : previousValue;
 
@@ -133,26 +134,16 @@ export const MetricChart: FC<Props> = ({
           </motion.div>
         </AnimatePresence>
         {caption && <Text {...captionSettings.typography}>{caption}</Text>}
-        {portalContainer &&
-        portalContainer.current &&
-        secondaryValueDescription ? (
-          <Portal portalRef={portalContainer.current}>
-            {tooltipVisible && (
-              <MetricTooltip
-                tooltipPosition={tooltipPosition}
-                tooltipSettings={tooltipSettings}
-                tooltipDescription={secondaryValueDescription}
-              />
-            )}
-          </Portal>
-        ) : (
-          tooltipVisible && (
-            <MetricTooltip
-              tooltipPosition={tooltipPosition}
-              tooltipSettings={tooltipSettings}
-              tooltipDescription={secondaryValueDescription}
-            />
-          )
+        {secondaryValueDescription && tooltipVisible && (
+          <MetricTooltip
+            tooltipPosition={tooltipPosition}
+            tooltipSettings={tooltipSettings}
+            portalRef={portalContainer}
+          >
+            <Text {...tooltipSettings.labels.typography}>
+              {secondaryValueDescription}
+            </Text>
+          </MetricTooltip>
         )}
         {difference && (
           <div>
@@ -166,7 +157,9 @@ export const MetricChart: FC<Props> = ({
               }}
               onMouseMove={(e) => {
                 const mousePosition = { x: e.clientX, y: e.clientY };
-                requestAnimationFrame(() => {
+                if (requestFrameRef.current)
+                  cancelAnimationFrame(requestFrameRef.current);
+                requestFrameRef.current = requestAnimationFrame(() => {
                   setTooltipPosition(mousePosition);
                 });
               }}
