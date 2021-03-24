@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { action } from '@storybook/addon-actions';
+// import { action } from '@storybook/addon-actions';
 
 import Timezone from './timezone.component';
 
@@ -11,12 +11,14 @@ export default {
   },
 };
 
-export const basic = () => {
+export const Basic = () => {
+  const [timezone, setTimezone] = React.useState(null);
   return (
     <Timezone
       timezoneLabel="Timezone"
       timezonePlaceholderLabel="Select your timezone"
-      onChange={action('click')}
+      onChange={(tz) => setTimezone(tz)}
+      timezone={timezone}
     />
   );
 };
