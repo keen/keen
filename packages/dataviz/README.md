@@ -19,10 +19,44 @@ For direct website integration embed a script with `@keen.io/dataviz` that is ho
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@keen.io/dataviz@latest/dist/dataviz.min.js"></script>
 ```
 
-## Examples
+## API
 
-For code examples check the Keen [Storybook](https://keen.github.io/keen/).
+### render
+
+Renders metrics based on specified settings and analysis results.
+
+```typescript
+const result = await client.query({
+ analysisType: 'count',
+ eventCollection: 'pageviews',
+ timeframe: 'this_14_days'
+});
+
+const chart = new DataViz({ type: 'bar', container: '#container' })
+ .render(result);
+```
+
+## Timezones
+
+The **presentationTimezone** argument could be used to adjust visualizations to specified timezone or convert UTC ISO string dates based on defined offset in minutes.
+
+```typescript
+const result = await client.query({
+ analysisType: 'count',
+ eventCollection: 'pageviews',
+ interval: 'daily',
+ timeframe: 'this_7_days'
+});
+
+const chart = new DataViz({
+  type: 'area',
+  container: '#container',
+  presentationTimezone: 'America/New_York' // -600
+}).render(result);
+```
+
+For more code examples check the Keen [Storybook](https://keen.github.io/keen/).
 
 ## Supported Browsers
 
-This project targeting all modern browsers with support for IE 11.
+This project targeting all modern browsers.
