@@ -1,5 +1,5 @@
 import { scaleBand } from 'd3-scale';
-import { calculateRange } from '@keen.io/charts-utils';
+import { calculateRange, normalizeDate } from '@keen.io/charts-utils';
 
 import { Options, BlockType } from '../types';
 
@@ -16,8 +16,22 @@ export const generateVerticalBlocks = ({
   colorMode,
   steps,
   range,
+  yScaleSettings,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
+  const { type: scaleType, precision } = yScaleSettings;
+
+  const dateNormalizer =
+    scaleType === 'time' && precision
+      ? (date: string) => normalizeDate(date, precision)
+      : null;
+
+  const localizedData = dateNormalizer
+    ? data.map((item) => ({
+        ...item,
+        [labelSelector]: dateNormalizer(item[labelSelector]),
+      }))
+    : data;
 
   const xScale = scaleBand()
     .range([margins.left, dimension.width - margins.right])
@@ -25,14 +39,14 @@ export const generateVerticalBlocks = ({
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
-    .domain(data.map((item: any) => item[labelSelector]));
+    .domain(localizedData.map((item: any) => item[labelSelector]));
 
   const color = calculateColorScale(minimum, maximum, colorMode, steps);
 
   const blocks: BlockType[] = [];
   keys.forEach((keyName: string) => {
-    data.forEach((_d: any, index: number) => {
-      const value = data[index]?.[keyName];
+    localizedData.forEach((_d: any, index: number) => {
+      const value = localizedData[index]?.[keyName];
       const inRange = range ? value >= range.min && value <= range.max : true;
       if (keyName !== labelSelector && value >= 0 && inRange) {
         const block = {
@@ -69,12 +83,26 @@ export const generateHorizontalBlocks = ({
   colorMode,
   steps,
   range,
+  yScaleSettings,
 }: Options) => {
   const { minimum, maximum } = calculateRange(data, minValue, maxValue, keys);
+  const { type: scaleType, precision } = yScaleSettings;
+
+  const dateNormalizer =
+    scaleType === 'time' && precision
+      ? (date: string) => normalizeDate(date, precision)
+      : null;
+
+  const localizedData = dateNormalizer
+    ? data.map((item) => ({
+        ...item,
+        [labelSelector]: dateNormalizer(item[labelSelector]),
+      }))
+    : data;
 
   const xScale = scaleBand()
     .range([margins.left, dimension.width - margins.right])
-    .domain(data.map((item: any) => item[labelSelector]));
+    .domain(localizedData.map((item: any) => item[labelSelector]));
 
   const yScale = scaleBand()
     .range([dimension.height - margins.bottom, margins.top])
@@ -84,7 +112,7 @@ export const generateHorizontalBlocks = ({
 
   const blocks: BlockType[] = [];
   keys.forEach((keyName: string) => {
-    data.forEach((_d: any, index: number) => {
+    localizedData.forEach((_d: any, index: number) => {
       const value = data[index]?.[keyName];
       const inRange = range ? value >= range.min && value <= range.max : true;
       if (keyName !== labelSelector && value >= 0 && inRange) {
@@ -126,7 +154,7 @@ export const generateBlocks = (options: Options) => {
   } = options;
 
   const settings =
-    layout === 'horizontal'
+    layout === 'vertical'
       ? {
           xScaleSettings,
           yScaleSettings,

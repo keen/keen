@@ -92,7 +92,7 @@ export const HeatmapChart: FC<Props> = ({
     blocks,
     xScale,
     yScale,
-    settings: { xAxisTitle: xTitle, yAxisTitle: yTitle },
+    settings: { xAxisTitle: xTitle, yAxisTitle: yTitle, ...settings },
   } = generateBlocks({
     data,
     margins: layoutMargins,
@@ -107,6 +107,8 @@ export const HeatmapChart: FC<Props> = ({
     range,
     xAxisTitle,
     yAxisTitle,
+    xScaleSettings,
+    yScaleSettings,
   });
 
   const svgElement = useRef<SVGSVGElement>(null);
@@ -154,8 +156,8 @@ export const HeatmapChart: FC<Props> = ({
       <ChartBase
         ref={svgElement}
         theme={theme}
-        xScaleSettings={xScaleSettings}
-        yScaleSettings={yScaleSettings}
+        xScaleSettings={settings.xScaleSettings}
+        yScaleSettings={settings.yScaleSettings}
         svgDimensions={svgDimensions}
         margins={layoutMargins}
       >

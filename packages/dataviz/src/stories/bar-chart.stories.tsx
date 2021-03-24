@@ -160,6 +160,7 @@ export const MultipleResults = () => {
     const client = new KeenAnalysis(analysisConfig);
     const dataviz = new KeenDataViz({
       type: 'bar',
+      presentationTimezone: 180,
       container: container.current,
       widget: {
         title: {
@@ -180,10 +181,10 @@ export const MultipleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2019-05-01T00:00:00.000-00:00',
-          end: '2019-08-01T16:00:00.000-00:00',
+          start: '2019-05-01T00:00:00.000+03:00',
+          end: '2019-05-04T00:00:00.000+03:00',
         },
-        interval: 'monthly',
+        interval: 'daily',
         group_by: ['author'],
       })
       .then((res: any) => dataviz.render(res));

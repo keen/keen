@@ -2,7 +2,7 @@ import { Query, Step, extractGroupBySettings } from '@keen.io/query';
 
 import { setTransformationType } from './utils';
 
-import { ParserSettings } from './types';
+import { ParserSettings, DateModifier } from './types';
 
 /**
  * Creates parser settings based on query structure
@@ -11,13 +11,19 @@ import { ParserSettings } from './types';
  * @return parser settings
  *
  */
-export const createParserSettings = (
-  query?: Query,
-  steps?: Step[]
-): ParserSettings => {
+export const createParserSettings = ({
+  query,
+  steps,
+  dateModifier,
+}: {
+  dateModifier: DateModifier;
+  query?: Query;
+  steps?: Step[];
+}): ParserSettings => {
   let parserSettings: ParserSettings = {
     mergePropertiesOrder: null,
     fillEmptyIntervalsKeys: false,
+    dateModifier: null,
     transformation: setTransformationType(query, steps),
   };
 
@@ -36,6 +42,13 @@ export const createParserSettings = (
         fillEmptyIntervalsKeys: true,
       };
     }
+  }
+
+  if (dateModifier) {
+    parserSettings = {
+      ...parserSettings,
+      dateModifier,
+    };
   }
 
   return parserSettings;
