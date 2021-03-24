@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/parser@2.7.5...@keen.io/parser@2.8.0) (2021-03-24)
+
+
+### Features
+
+* 🎸 date conversion in query parser ([00a9e48](https://github.com/keen/keen/commit/00a9e4814a5bc2b3ccad8035e2df27bc1f2a9fb3))
+
+
+
+
+
 ## [2.7.5](https://github.com/keen/keen/compare/@keen.io/parser@2.7.4...@keen.io/parser@2.7.5) (2021-03-23)
 
 **Note:** Version bump only for package @keen.io/parser

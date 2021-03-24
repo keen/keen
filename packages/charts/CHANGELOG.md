@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.2](https://github.com/keen/keen/compare/@keen.io/charts@2.12.1...@keen.io/charts@2.12.2) (2021-03-24)
+
+
+### Bug Fixes
+
+* 🐛 interval larger than timeframe in metric chart ([3e5bc97](https://github.com/keen/keen/commit/3e5bc97f1c2e3c1154e271389344a6c4d731eefe))
+
+
+
+
+
 ## [2.12.1](https://github.com/keen/keen/compare/@keen.io/charts@2.12.0...@keen.io/charts@2.12.1) (2021-03-23)
 
 
