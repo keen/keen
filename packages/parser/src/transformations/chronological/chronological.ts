@@ -1,7 +1,8 @@
 import { Query } from '@keen.io/query';
+import { convertDate } from '@keen.io/time-utils';
 
 import { KEEN_KEY, KEEN_VALUE } from '../../constants';
-import { IntervalResult } from '../../types';
+import { ParserSettings, IntervalResult } from '../../types';
 
 /**
  * Transforms chronological results.
@@ -10,12 +11,15 @@ import { IntervalResult } from '../../types';
  * @return transformed results
  *
  */
-export const transformChronological = ({
-  result,
-}: {
-  query?: Query;
-  result: IntervalResult[];
-}) => {
+export const transformChronological = (
+  {
+    result,
+  }: {
+    query?: Query;
+    result: IntervalResult[];
+  },
+  { dateModifier }: ParserSettings
+) => {
   const data: Record<string, any>[] = [];
   const keys: Set<string> = new Set();
 
@@ -29,7 +33,7 @@ export const transformChronological = ({
     };
     keys.add(KEEN_VALUE);
     data.push({
-      [KEEN_KEY]: startDate,
+      [KEEN_KEY]: convertDate(startDate, dateModifier),
       [KEEN_VALUE]: value,
     });
   });

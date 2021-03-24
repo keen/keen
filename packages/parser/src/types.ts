@@ -20,8 +20,7 @@ export type TransformOutput = {
 export type TransformationFunction = (
   input: ParserInput,
   settings: ParserSettings,
-  visualization?: string,
-  chartSettings?: Record<string, any>
+  visualization?: string
 ) => TransformOutput;
 
 export type GroupByResult = { [key: string]: string | number } & {
@@ -53,6 +52,8 @@ export type AnalysisResult =
   | IntervalResult[]
   | GroupByResult[];
 
+export type DateModifier = string | number | null;
+
 export type ParserInput = {
   query?: Query;
   steps?: Step[];
@@ -63,4 +64,5 @@ export type ParserSettings = {
   transformation: Transformation;
   fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
+  dateModifier?: DateModifier;
 };

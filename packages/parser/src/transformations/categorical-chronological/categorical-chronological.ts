@@ -1,4 +1,5 @@
 import { Query } from '@keen.io/query';
+import { convertDate } from '@keen.io/time-utils';
 
 import { KEEN_KEY } from '../../constants';
 
@@ -20,7 +21,7 @@ export const transformCategoricalChronological = (
     query?: Query;
     result: IntervalResult[];
   },
-  { mergePropertiesOrder, fillEmptyIntervalsKeys }: ParserSettings
+  { mergePropertiesOrder, fillEmptyIntervalsKeys, dateModifier }: ParserSettings
 ) => {
   let data: Record<string, any>[] = [];
   const keys: Set<string> = new Set();
@@ -44,7 +45,10 @@ export const transformCategoricalChronological = (
         });
       });
 
-    data.push({ [KEEN_KEY]: timeframe.start, ...intervalData });
+    data.push({
+      [KEEN_KEY]: convertDate(timeframe.start, dateModifier),
+      ...intervalData,
+    });
     intervalKeys.forEach((key) => keys.add(key));
   });
 

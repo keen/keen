@@ -16,4 +16,6 @@ export const heatmapChart: any = {
   keys: ['sale', 'buy', 'revenue'],
   labelSelector: 'label',
   colors: ['red', 'blue', 'green'],
+  xScaleSettings: {},
+  yScaleSettings: {},
 };

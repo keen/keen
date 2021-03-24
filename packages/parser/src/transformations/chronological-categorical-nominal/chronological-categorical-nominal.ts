@@ -1,8 +1,13 @@
 import { Query } from '@keen.io/query';
+import { convertDate } from '@keen.io/time-utils';
 
 import { KEEN_KEY, KEEN_VALUE } from '../../constants';
 
-import { IntervalResult, NominalGroupByResult } from '../../types';
+import {
+  IntervalResult,
+  NominalGroupByResult,
+  ParserSettings,
+} from '../../types';
 
 /**
  * Transforms categorized nominal data in chronological order.
@@ -11,12 +16,15 @@ import { IntervalResult, NominalGroupByResult } from '../../types';
  * @return transformed results
  *
  */
-export const transformChronologicalCategoricalNominal = ({
-  result,
-}: {
-  query?: Query;
-  result: IntervalResult[];
-}) => {
+export const transformChronologicalCategoricalNominal = (
+  {
+    result,
+  }: {
+    query?: Query;
+    result: IntervalResult[];
+  },
+  { dateModifier }: ParserSettings
+) => {
   const data: Record<string, any>[] = [];
   const keys: Set<string> = new Set();
 
@@ -32,7 +40,7 @@ export const transformChronologicalCategoricalNominal = ({
     };
 
     const record = {
-      [KEEN_KEY]: start,
+      [KEEN_KEY]: convertDate(start, dateModifier),
     };
 
     value.forEach(({ result, ...properties }) => {

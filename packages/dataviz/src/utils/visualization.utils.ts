@@ -7,9 +7,11 @@ export const prepareVisualization = (
   input: VisualizationInput = {},
   keysMap: Record<string, string>,
   componentSettings: ComponentSettings,
-  type?: Widgets
+  type?: Widgets,
+  presentationTimezone?: string | number
 ) => {
-  const parser = parseQuery(input as any, type);
+  const parser = parseQuery(input as any, type, presentationTimezone);
+
   let keys: string[] = parser.keys;
   let results: Record<string, any>[] = parser.data;
 

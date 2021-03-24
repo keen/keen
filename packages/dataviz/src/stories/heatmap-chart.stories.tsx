@@ -21,6 +21,10 @@ export const simpleResults = () => {
     const dataviz = new KeenDataViz({
       type: 'heatmap',
       container: container.current,
+      presentationTimezone: 180,
+      settings: {
+        layout: 'horizontal',
+      },
       widget: {
         title: {
           content: 'Book purchases',
@@ -36,15 +40,15 @@ export const simpleResults = () => {
         analysis_type: 'count',
         event_collection: 'book_purchase',
         timeframe: {
-          start: '2020-02-01T00:00:00.000-00:00',
-          end: '2020-02-01T16:00:00.000-00:00',
+          start: '2020-02-01T00:00:00.000+03:00',
+          end: '2020-02-01T16:00:00.000+03:00',
         },
         interval: 'hourly',
       })
       .then((res: any) => dataviz.render(res));
   }, []);
 
-  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+  return <div style={{ width: '900px', height: '500px' }} ref={container} />;
 };
 
 export const multipleResults = () => {
