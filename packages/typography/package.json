@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/typography",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Typography components for Keen",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.13.8",
     "@babel/preset-typescript": "^7.13.0",
-    "@keen.io/storybook-utils": "^2.0.66",
+    "@keen.io/storybook-utils": "^2.0.67",
     "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
     "@types/styled-system": "5.1.9",
     "babel-plugin-styled-components": "^1.12.0"
