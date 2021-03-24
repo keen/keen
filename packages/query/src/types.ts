@@ -64,6 +64,7 @@ export type Step = {
   with_actors?: boolean;
   optional?: boolean;
   inverted?: boolean;
+  timezone?: string;
 };
 
 export type Query = {
@@ -78,6 +79,7 @@ export type Query = {
   filters?: Filter[];
   property_names?: string[];
   steps?: Step[];
+  timezone?: string;
   percentile?: number;
 };
 
