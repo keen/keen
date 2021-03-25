@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/typography@1.1.6...@keen.io/typography@1.2.0) (2021-03-25)
+
+
+### Features
+
+* 🎸 extend Headline with h4 option ([ea955fa](https://github.com/keen/keen/commit/ea955fa59b7485f392346550d4fce42b13cd450e))
+
+
+
+
+
 ## [1.1.6](https://github.com/keen/keen/compare/@keen.io/typography@1.1.5...@keen.io/typography@1.1.6) (2021-03-24)
 
 **Note:** Version bump only for package @keen.io/typography
