@@ -29,7 +29,17 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) => {
+        if (prop.parent) {
+          return !/node_modules/.test(prop.parent.fileName);
+        }
+        if (prop.name) {
+          if (prop.name === 'ref' || prop.name === 'theme' || prop.name === 'as' || prop.name === 'forwardedAs') {
+            return false;
+          }
+        }
+        return true;
+      },
     },
   },
   webpackFinal: async (config) => {
