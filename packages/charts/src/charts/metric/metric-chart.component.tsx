@@ -1,7 +1,7 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, RefObject, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
-import { Text, Tooltip } from '@keen.io/ui-core';
+import { Text } from '@keen.io/ui-core';
 import {
   formatNumber,
   formatValue as valueFormatter,
@@ -25,8 +25,7 @@ import { theme as defaultTheme } from '../../theme';
 
 import { MetricType } from './types';
 import { CommonChartSettings } from '../../types';
-import { useTooltip } from '@keen.io/react-hooks';
-import { TOOLTIP_MOTION, TOOLTIP_TIMEOUT } from '../../constants';
+import { MetricTooltip } from './components';
 
 export const textMotion = {
   initial: { opacity: 0 },
@@ -69,6 +68,7 @@ export type Props = {
   /** Use percentage difference */
   usePercentDifference?: boolean;
   secondaryValueDescription?: string;
+  portalContainer?: RefObject<HTMLDivElement>;
 } & CommonChartSettings;
 
 export const MetricChart: FC<Props> = ({
@@ -83,6 +83,7 @@ export const MetricChart: FC<Props> = ({
   type = 'simple',
   usePercentDifference = false,
   secondaryValueDescription,
+  portalContainer,
 }) => {
   const { value, previousValue, difference } = generateMetric({
     labelSelector,
@@ -110,18 +111,13 @@ export const MetricChart: FC<Props> = ({
   };
 
   const excerptRef = useRef<HTMLDivElement>(null);
-  const tooltipTimeout = useRef(null);
+  const requestFrameRef = React.useRef(null);
+
   const { tooltip: tooltipSettings } = theme;
+  const excerptValue = type === 'difference' ? difference.value : previousValue;
 
-  const {
-    tooltipVisible,
-    tooltipPosition,
-    updateTooltipPosition,
-    hideTooltip,
-  } = useTooltip(excerptRef);
-
-  const excerptValue =
-    type === 'difference' ? difference?.value : previousValue;
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
   return (
     <Layout>
@@ -138,33 +134,17 @@ export const MetricChart: FC<Props> = ({
           </motion.div>
         </AnimatePresence>
         {caption && <Text {...captionSettings.typography}>{caption}</Text>}
-        <AnimatePresence>
-          {tooltipVisible && (
-            <motion.div
-              {...TOOLTIP_MOTION}
-              initial={{
-                opacity: 0,
-                x: tooltipPosition.x,
-                y: tooltipPosition.y,
-              }}
-              animate={{
-                x: tooltipPosition.x,
-                y: tooltipPosition.y,
-                opacity: 1,
-              }}
-              style={{
-                position: 'absolute',
-                pointerEvents: 'none',
-              }}
-            >
-              <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
-                <Text {...tooltipSettings.labels.typography}>
-                  {secondaryValueDescription}
-                </Text>
-              </Tooltip>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {secondaryValueDescription && tooltipVisible && (
+          <MetricTooltip
+            tooltipPosition={tooltipPosition}
+            tooltipSettings={tooltipSettings}
+            portalRef={portalContainer}
+          >
+            <Text {...tooltipSettings.labels.typography}>
+              {secondaryValueDescription}
+            </Text>
+          </MetricTooltip>
+        )}
         {difference && (
           <div>
             <Excerpt
@@ -172,16 +152,19 @@ export const MetricChart: FC<Props> = ({
               background={excerpt.backgroundColor}
               ref={excerptRef}
               onMouseEnter={(e) => {
-                if (tooltipSettings.enabled) {
-                  if (tooltipTimeout.current)
-                    clearTimeout(tooltipTimeout.current);
-                  updateTooltipPosition(e, null, { value });
-                }
+                setTooltipVisible(true);
+                setTooltipPosition({ x: e.clientX, y: e.clientY });
+              }}
+              onMouseMove={(e) => {
+                const mousePosition = { x: e.clientX, y: e.clientY };
+                if (requestFrameRef.current)
+                  cancelAnimationFrame(requestFrameRef.current);
+                requestFrameRef.current = requestAnimationFrame(() => {
+                  setTooltipPosition(mousePosition);
+                });
               }}
               onMouseLeave={() => {
-                tooltipTimeout.current = setTimeout(() => {
-                  hideTooltip();
-                }, TOOLTIP_TIMEOUT);
+                setTooltipVisible(false);
               }}
             >
               <Wrapper>

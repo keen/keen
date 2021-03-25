@@ -70,7 +70,9 @@ export const basic = () => (
 basic.story = {
   parameters: {
     docs: {
-      storyDescription: 'FontWeight',
+      description: {
+        story: 'FontWeight',
+      },
     },
   },
 };

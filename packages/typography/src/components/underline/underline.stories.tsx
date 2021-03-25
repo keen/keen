@@ -32,7 +32,9 @@ export const basic = () => (
 basic.story = {
   parameters: {
     docs: {
-      storyDescription: 'Underline',
+      description: {
+        story: 'Underline',
+      },
     },
   },
 };

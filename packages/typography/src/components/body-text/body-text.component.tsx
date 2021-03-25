@@ -22,7 +22,7 @@ type Props = {
   color?: string;
 };
 
-const BodyText = styled.p<Props>`
+export const BodyText = styled.p<Props>`
   ${SHARED_STYLE};
   font-family: 'Lato', sans-serif;
 
