@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { UI_LAYERS } from '@keen.io/ui-core';
 
 export const WidgetContainer = styled.div`
   position: relative;
+  z-index: ${UI_LAYERS.element};
 `;
 
 export const Container = styled.div`
