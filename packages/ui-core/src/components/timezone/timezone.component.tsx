@@ -1,81 +1,102 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-import { Timezones } from '@keen.io/query';
+import { AnimatePresence } from 'framer-motion';
 import { FixedSizeList as ReactWindowList } from 'react-window';
-import moment from 'moment-timezone';
 
 import Title from '../title';
-// import DropdownList from '../dropdown-list';
-// import DropdownListContainer from '../dropdown-list-container';
 import DropableContainer from '../dropable-container';
-import Dropdown from '../dropdown';
 
-import { Container, SelectContainer, ListItem } from './timezone.styles';
+import {
+  Container,
+  SelectContainer,
+  ListItem,
+  Offset,
+  Name,
+  CustomDropdown,
+  DropableContent,
+} from './timezone.styles';
 
-// import { TIMEZONES } from './constants';
+import { Timezone as TimezoneType, DropdownPosition, Options } from './types';
+import { dropdownMotion } from './motion';
 
 type Props = {
+  /** Timezones */
+  timezones: TimezoneType[];
   /** Timezone value */
-  timezone?: Timezones;
+  timezone?: TimezoneType;
+  /** Dropdown position */
+  dropdownPosition?: DropdownPosition;
+  /** Disable selection */
+  disableSelection?: boolean;
   /** Timezone label */
   timezoneLabel: string;
   /** Timezone placeholder label */
   timezonePlaceholderLabel: string;
   /** Change event handler */
-  onChange: (timezone: Timezones) => void;
+  onChange: (timezone: TimezoneType) => void;
 };
 
-const Row = ({ data, index, style }) => {
-  // console.log(data);
+type RowProps = {
+  data: Options;
+  index: number;
+  style: Record<string, any>;
+};
+
+const Row: FC<RowProps> = ({ data, index, style }) => {
   const { timezones, timezone, onChange } = data;
   const tz = timezones[index];
+  const { name, utcOffset } = tz;
   return (
     <div style={style} role="listitem">
-      <ListItem isActive={tz === timezone} onClick={() => onChange(tz)}>
-        {tz}
+      <ListItem
+        isActive={timezone && name === timezone.name}
+        onClick={() => onChange(tz)}
+      >
+        <Name>{name}</Name>
+        <Offset>{utcOffset}</Offset>
       </ListItem>
     </div>
   );
 };
 
 const Timezone: FC<Props> = ({
-  timezone = 'Asia/Seoul',
+  timezone,
+  timezones,
+  dropdownPosition = 'bottom',
+  disableSelection = false,
   timezoneLabel,
   timezonePlaceholderLabel,
   onChange,
 }) => {
   const [isOpen, setOpen] = useState(false);
   const listRef = useRef(null);
-  // const options = useMemo(
-  //   () =>
-  //     TIMEZONES.map(({ name }) => ({
-  //       label: name,
-  //       value: name,
-  //     })),
-  //   []
-  // );
 
-  // const timezones = moment.tz.names();
-  const timeZonesOptions = {
-    timezones: moment.tz.names(),
+  const options: Options = {
+    timezones,
     timezone,
     onChange,
   };
 
   useEffect(() => {
-    const index = timeZonesOptions.timezones.findIndex((tz) => tz === timezone);
-    console.log({ index });
+    if (!timezone) return;
+    const index = timezones.findIndex((tz) => tz.name === timezone.name);
 
     if (index && listRef?.current) listRef.current.scrollToItem(index, 'smart');
   }, [timezone, isOpen]);
 
+  useEffect(() => {
+    if (isOpen && disableSelection) setOpen(false);
+  }, [disableSelection]);
+
   return (
-    <Container data-testid="timezone">
-      <Title onClick={() => setOpen(true)}>{timezoneLabel}</Title>
+    <Container isDisabled={disableSelection} data-testid="timezone">
+      <Title onClick={() => (disableSelection ? null : setOpen(true))}>
+        {timezoneLabel}
+      </Title>
       <SelectContainer>
         <DropableContainer
           variant="secondary"
           dropIndicator
-          onClick={() => !isOpen && setOpen(true)}
+          onClick={() => !isOpen && !disableSelection && setOpen(true)}
           placeholder={timezonePlaceholderLabel}
           isActive={isOpen}
           value={timezone}
@@ -83,33 +104,33 @@ const Timezone: FC<Props> = ({
             setOpen(false);
           }}
         >
-          {timezone}
+          {timezone && (
+            <DropableContent>
+              <Name>{timezone.name}</Name>
+              <Offset>{timezone.utcOffset}</Offset>
+            </DropableContent>
+          )}
         </DropableContainer>
-        <Dropdown isOpen={isOpen}>
-          <ReactWindowList
-            ref={listRef}
-            height={150}
-            data-testid="scroll-wrapper2"
-            itemData={timeZonesOptions}
-            itemCount={timeZonesOptions.timezones.length}
-            itemSize={35}
-            width="100%"
-          >
-            {Row}
-          </ReactWindowList>
-          {/* <DropdownListContainer scrollToActive>
-            {(activeItemRef) => (
-              <DropdownList
-                ref={activeItemRef}
-                items={options}
-                setActiveItem={({ value }) => value === timezone}
-                onClick={(_e, { value }) => {
-                  onChange(value);
-                }}
-              />
-            )}
-          </DropdownListContainer> */}
-        </Dropdown>
+        <AnimatePresence>
+          {isOpen && (
+            <CustomDropdown
+              position={dropdownPosition}
+              {...dropdownMotion[dropdownPosition]}
+            >
+              <ReactWindowList
+                ref={listRef}
+                height={150}
+                data-testid="timezones-list"
+                itemData={options}
+                itemCount={timezones.length}
+                itemSize={30}
+                width="100%"
+              >
+                {Row}
+              </ReactWindowList>
+            </CustomDropdown>
+          )}
+        </AnimatePresence>
       </SelectContainer>
     </Container>
   );
