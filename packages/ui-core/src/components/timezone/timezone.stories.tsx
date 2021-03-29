@@ -30,6 +30,7 @@ export const Basic = () => {
         <Timezone
           timezoneLabel="Timezone"
           timezonePlaceholderLabel="Search by timezone name or offset"
+          emptySearchLabel="No timezone found with this name"
           onChange={(tz) => setTimezone(tz)}
           timezone={timezone}
           timezones={timezones}

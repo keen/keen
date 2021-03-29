@@ -1,28 +1,28 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useState, useRef, useEffect, useMemo } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { FixedSizeList as ReactWindowList } from 'react-window';
 
 import Title from '../title';
 import DropableContainer from '../dropable-container';
 
+import { FixedList } from './components';
+
 import {
   Container,
   SelectContainer,
-  ListItem,
   Offset,
   Name,
   CustomDropdown,
   DropableContent,
 } from './timezone.styles';
 
-import { Timezone as TimezoneType, DropdownPosition, Options } from './types';
+import { Timezone as TimezoneItem, DropdownPosition, Options } from './types';
 import { dropdownMotion } from './motion';
 
 type Props = {
   /** Timezones */
-  timezones: TimezoneType[];
+  timezones: TimezoneItem[];
   /** Timezone value */
-  timezone?: TimezoneType;
+  timezone?: string;
   /** Dropdown position */
   dropdownPosition?: DropdownPosition;
   /** Disable selection */
@@ -31,31 +31,10 @@ type Props = {
   timezoneLabel: string;
   /** Timezone placeholder label */
   timezonePlaceholderLabel: string;
+  /** Empty search label */
+  emptySearchLabel: string;
   /** Change event handler */
-  onChange: (timezone: TimezoneType) => void;
-};
-
-type RowProps = {
-  data: Options;
-  index: number;
-  style: Record<string, any>;
-};
-
-const Row: FC<RowProps> = ({ data, index, style }) => {
-  const { timezones, timezone, onChange } = data;
-  const tz = timezones[index];
-  const { name, utcOffset } = tz;
-  return (
-    <div style={style} role="listitem">
-      <ListItem
-        isActive={timezone && name === timezone.name}
-        onClick={() => onChange(tz)}
-      >
-        <Name>{name}</Name>
-        <Offset>{utcOffset}</Offset>
-      </ListItem>
-    </div>
-  );
+  onChange: (timezone: string) => void;
 };
 
 const Timezone: FC<Props> = ({
@@ -65,20 +44,29 @@ const Timezone: FC<Props> = ({
   disableSelection = false,
   timezoneLabel,
   timezonePlaceholderLabel,
+  emptySearchLabel,
   onChange,
 }) => {
   const [isOpen, setOpen] = useState(false);
+  const [searchPhrase, setSearchPhrase] = useState('');
   const listRef = useRef(null);
 
-  const options: Options = {
-    timezones,
-    timezone,
-    onChange,
+  const availableTimezones = () => {
+    if (searchPhrase !== '') {
+      console.log(searchPhrase);
+      return timezones.filter(({ name, utcOffset }) =>
+        `${name}${utcOffset}`.toLowerCase().includes(searchPhrase.toLowerCase())
+      );
+    }
+    return timezones;
   };
+
+  const availableTimezonesLength = availableTimezones().length;
 
   useEffect(() => {
     if (!timezone) return;
-    const index = timezones.findIndex((tz) => tz.name === timezone.name);
+    setSearchPhrase('');
+    const index = timezones.findIndex((tz) => tz.name === timezone);
 
     if (index && listRef?.current) listRef.current.scrollToItem(index, 'smart');
   }, [timezone, isOpen]);
@@ -86,6 +74,40 @@ const Timezone: FC<Props> = ({
   useEffect(() => {
     if (isOpen && disableSelection) setOpen(false);
   }, [disableSelection]);
+
+  const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setSearchPhrase(e.target.value);
+
+  const { name, utcOffset } = useMemo(() => {
+    if (timezones.length === 0) {
+      return {
+        name: timezone,
+        utcOffset: null,
+      };
+    }
+
+    const selectedTimezone = timezones.find((tz) => tz.name === timezone);
+    if (!selectedTimezone) {
+      return {
+        name: '',
+        utcOffset: null,
+      };
+    }
+    const { name, utcOffset } = selectedTimezone;
+    return {
+      name,
+      utcOffset,
+    };
+  }, [timezone, timezones]);
+
+  const options: Options = {
+    timezones: availableTimezones(),
+    timezone: {
+      name,
+      utcOffset,
+    },
+    onChange,
+  };
 
   return (
     <Container isDisabled={disableSelection} data-testid="timezone">
@@ -96,18 +118,20 @@ const Timezone: FC<Props> = ({
         <DropableContainer
           variant="secondary"
           dropIndicator
+          searchable
           onClick={() => !isOpen && !disableSelection && setOpen(true)}
           placeholder={timezonePlaceholderLabel}
           isActive={isOpen}
           value={timezone}
+          onSearch={searchHandler}
           onDefocus={() => {
             setOpen(false);
           }}
         >
           {timezone && (
             <DropableContent>
-              <Name>{timezone.name}</Name>
-              <Offset>{timezone.utcOffset}</Offset>
+              <Name>{name}</Name>
+              {utcOffset && <Offset>{utcOffset}</Offset>}
             </DropableContent>
           )}
         </DropableContainer>
@@ -117,17 +141,15 @@ const Timezone: FC<Props> = ({
               position={dropdownPosition}
               {...dropdownMotion[dropdownPosition]}
             >
-              <ReactWindowList
-                ref={listRef}
-                height={150}
-                data-testid="timezones-list"
-                itemData={options}
-                itemCount={timezones.length}
-                itemSize={30}
-                width="100%"
-              >
-                {Row}
-              </ReactWindowList>
+              {availableTimezonesLength ? (
+                <FixedList
+                  ref={listRef}
+                  itemData={options}
+                  itemCount={availableTimezonesLength}
+                />
+              ) : (
+                <div>{emptySearchLabel}</div>
+              )}
             </CustomDropdown>
           )}
         </AnimatePresence>

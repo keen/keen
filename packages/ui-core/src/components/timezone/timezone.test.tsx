@@ -8,7 +8,7 @@ import { timezones } from './timezone.fixtures';
 const render = (overProps: any = {}) => {
   const props = {
     timezones,
-    timezone: timezones[0],
+    timezone: timezones[0].name,
     timezoneLabel: 'Timezone',
     timezonePlaceholderLabel: 'Placeholder',
     onChange: jest.fn(),
@@ -29,7 +29,7 @@ test('shows the current timezone', () => {
     wrapper: { getByText },
   } = render();
 
-  expect(getByText(props.timezone.name)).toBeInTheDocument();
+  expect(getByText(props.timezone)).toBeInTheDocument();
 });
 
 test('allows user to select timezone', () => {
@@ -44,7 +44,7 @@ test('allows user to select timezone', () => {
   const element = getByText(timezones[1].name);
   fireEvent.click(element);
 
-  expect(props.onChange).toHaveBeenCalledWith(timezones[1]);
+  expect(props.onChange).toHaveBeenCalledWith(timezones[1].name);
 });
 
 test('shows placeholder text when timezone is not selected', () => {
