@@ -1,1 +1,1 @@
-export type Variant = 'h1' | 'h2' | 'h3';
+export type Variant = 'h1' | 'h2' | 'h3' | 'h4';

@@ -86,6 +86,7 @@ import {
   TimezoneType,
   Title as TitleComponent,
   PropertiesTree,
+  EmptySearch,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -186,6 +187,7 @@ export {
   Timezone,
   TitleComponent,
   PropertiesTree,
+  EmptySearch,
   OAuthUserAction,
   getDefaultAbsoluteTime,
   convertRelativeTime,

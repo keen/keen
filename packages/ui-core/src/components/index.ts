@@ -66,6 +66,7 @@ import TimePeriod from './time-period';
 import Timezone, { TimezoneType } from './timezone';
 import Title from './title';
 import PropertiesTree, { createTree } from './properties-tree';
+import EmptySearch from './empty-search';
 
 export { ARROW_SIZE, TIME_PICKER_CLASS };
 
@@ -142,4 +143,5 @@ export {
   Title,
   PropertiesTree,
   createTree,
+  EmptySearch,
 };

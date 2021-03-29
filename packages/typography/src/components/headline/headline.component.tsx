@@ -59,7 +59,20 @@ const StyledH3 = styled.h3<Partial<Props>>`
   `};
 `;
 
-const Headline: FC<Props> = ({
+const StyledH4 = styled.h4<Partial<Props>>`
+  ${HEADER_STYLE};
+
+  font-size: 16px;
+  color: ${colors.black[400]};
+
+  ${(props) => css`
+    color: ${props.color};
+    line-height: ${props.lineHeight};
+    font-weight: ${props.fontWeight};
+  `};
+`;
+
+export const Headline: FC<Props> = ({
   variant = 'h1',
   fontWeight,
   lineHeight,
@@ -78,6 +91,12 @@ const Headline: FC<Props> = ({
         <StyledH3 fontWeight={fontWeight} lineHeight={lineHeight} color={color}>
           {children}
         </StyledH3>
+      );
+    case 'h4':
+      return (
+        <StyledH4 fontWeight={fontWeight} lineHeight={lineHeight} color={color}>
+          {children}
+        </StyledH4>
       );
     default:
       return (
