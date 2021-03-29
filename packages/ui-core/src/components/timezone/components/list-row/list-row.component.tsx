@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 
-import { ListItem, Offset, Name } from './list-row.styles';
+import TextEllipsis from '../text-ellipsis';
+import Offset from '../offset';
+
+import { ListItem } from './list-row.styles';
 
 import { Options } from '../../types';
 
@@ -21,7 +24,7 @@ const ListRow: FC<Props> = ({ data, index, style }) => {
           onChange(name);
         }}
       >
-        <Name>{name}</Name>
+        <TextEllipsis>{name}</TextEllipsis>
         {utcOffset && <Offset>{utcOffset}</Offset>}
       </ListItem>
     </div>

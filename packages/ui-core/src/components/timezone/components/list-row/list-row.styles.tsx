@@ -29,15 +29,3 @@ export const ListItem = styled.div<{
       background: ${transparentize(0.8, colors.green[100])};
     `};
 `;
-
-export const Offset = styled.div`
-  color: ${colors.blue[200]};
-  font-size: 12px;
-  line-height: 15px;
-`;
-
-export const Name = styled.div`
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-`;

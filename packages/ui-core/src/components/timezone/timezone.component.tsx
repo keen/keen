@@ -3,14 +3,13 @@ import { AnimatePresence } from 'framer-motion';
 
 import Title from '../title';
 import DropableContainer from '../dropable-container';
+import EmptySearch from '../empty-search';
 
-import { FixedList } from './components';
+import { FixedList, Offset, TextEllipsis } from './components';
 
 import {
   Container,
   SelectContainer,
-  Offset,
-  Name,
   CustomDropdown,
   DropableContent,
 } from './timezone.styles';
@@ -130,7 +129,7 @@ const Timezone: FC<Props> = ({
         >
           {timezone && (
             <DropableContent>
-              <Name>{name}</Name>
+              <TextEllipsis>{name}</TextEllipsis>
               {utcOffset && <Offset>{utcOffset}</Offset>}
             </DropableContent>
           )}
@@ -148,7 +147,7 @@ const Timezone: FC<Props> = ({
                   itemCount={availableTimezonesLength}
                 />
               ) : (
-                <div>{emptySearchLabel}</div>
+                <EmptySearch message={emptySearchLabel} />
               )}
             </CustomDropdown>
           )}
