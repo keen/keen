@@ -33,7 +33,7 @@ const TooltipContent = ({
         opacity: 1,
       }}
       style={{
-        position: 'absolute',
+        position: 'fixed',
         pointerEvents: 'none',
       }}
     >
