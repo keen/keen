@@ -10,7 +10,7 @@ type Props = WidgetSettings & MetricChartSettings;
 export const MetricChartWidget: FC<Props> = ({ card, ...props }) => {
   const portalContainer = useRef(null);
   return (
-    <div>
+    <>
       <Card {...card} hideOverflow>
         <MetricChart
           {...props}
@@ -18,7 +18,7 @@ export const MetricChartWidget: FC<Props> = ({ card, ...props }) => {
         />
       </Card>
       <div ref={portalContainer} />
-    </div>
+    </>
   );
 };
 

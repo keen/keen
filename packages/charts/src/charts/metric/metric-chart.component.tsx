@@ -181,13 +181,11 @@ export const MetricChart: FC<Props> = ({
                     </motion.div>
                   </AnimatePresence>
                 )}
-                {excerptValue && (
-                  <Text {...excerpt.typography}>
-                    {type === 'difference' && usePercentDifference
-                      ? `${excerptValue}%`
-                      : formatNumber(excerptValue)}
-                  </Text>
-                )}
+                <Text {...excerpt.typography}>
+                  {type === 'difference' && usePercentDifference
+                    ? `${excerptValue}%`
+                    : formatNumber(excerptValue)}
+                </Text>
               </Wrapper>
             </Excerpt>
           </div>
