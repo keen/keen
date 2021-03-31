@@ -107,7 +107,7 @@ const Timezone: FC<Props> = ({
     const selectedTimezone = timezones.find((tz) => tz.name === timezone);
     if (!selectedTimezone) {
       return {
-        name: '',
+        name: timezone,
         utcOffset: null,
       };
     }
