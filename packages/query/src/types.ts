@@ -77,6 +77,7 @@ export type Query = {
   limit?: number;
   order_by?: OrderBy;
   filters?: Filter[];
+  latest?: number;
   property_names?: string[];
   steps?: Step[];
   timezone?: string;

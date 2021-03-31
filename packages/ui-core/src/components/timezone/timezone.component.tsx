@@ -23,12 +23,12 @@ import {
   DropableContent,
 } from './timezone.styles';
 
-import { Timezone as TimezoneItem, Options, DropdownPosition } from './types';
+import { Options, DropdownPosition } from './types';
 import { dropdownMotion } from './motion';
 
 type Props = {
-  /** Timezones */
-  timezones: TimezoneItem[];
+  /** Timezones collection */
+  timezones: { name: string; utcOffset: string }[];
   /** Timezone value */
   timezone?: string;
   /** Disable selection */
