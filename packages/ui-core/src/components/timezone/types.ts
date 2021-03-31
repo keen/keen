@@ -1,7 +1,12 @@
-import { Timezones } from '@keen.io/query';
-
 export type Timezone = {
-  name: Timezones;
-  value: number;
-  dstValue: number;
+  name: string;
+  utcOffset?: string;
 };
+
+export type Options = {
+  timezones: Timezone[];
+  timezone?: Timezone;
+  onChange: (timezone: string) => void;
+};
+
+export type DropdownPosition = 'top' | 'bottom';

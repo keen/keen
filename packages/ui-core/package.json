@@ -37,7 +37,8 @@
   "dependencies": {
     "@keen.io/colors": "^1.1.0",
     "@keen.io/icons": "^1.4.0",
-    "@keen.io/query": "^1.1.2",
+    "@keen.io/query": "^1.1.1",
+    "@keen.io/typography": "^1.1.4",
     "color": "^3.1.2",
     "framer-motion": "^1.11.1",
     "fuse.js": "^6.4.1",

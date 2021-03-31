@@ -3,9 +3,12 @@ import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import Timezone from './timezone.component';
 
+import { timezones } from './timezone.fixtures';
+
 const render = (overProps: any = {}) => {
   const props = {
-    timezone: 'UTC',
+    timezones,
+    timezone: timezones[0].name,
     timezoneLabel: 'Timezone',
     timezonePlaceholderLabel: 'Placeholder',
     onChange: jest.fn(),
@@ -38,8 +41,28 @@ test('allows user to select timezone', () => {
   const field = getByTestId('dropable-container');
   fireEvent.click(field);
 
-  const element = getByText('Europe/London');
+  const element = getByText(timezones[1].name);
   fireEvent.click(element);
 
-  expect(props.onChange).toHaveBeenCalledWith('Europe/London');
+  expect(props.onChange).toHaveBeenCalledWith(timezones[1].name);
+});
+
+test('shows placeholder text when timezone is not selected', () => {
+  const {
+    props,
+    wrapper: { getByText },
+  } = render({ timezone: null });
+
+  expect(getByText(props.timezonePlaceholderLabel)).toBeInTheDocument();
+});
+
+test('timezones list should not appear when selection is disabled', () => {
+  const {
+    wrapper: { getByTestId, queryByTestId },
+  } = render();
+
+  const field = getByTestId('dropable-container');
+  fireEvent.click(field);
+
+  expect(queryByTestId('timezones-list')).toBeNull();
 });

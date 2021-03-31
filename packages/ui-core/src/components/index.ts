@@ -63,12 +63,12 @@ import DropableContainer, {
 import DropdownListContainer from './dropdown-list-container';
 import RelativeTime from './relative-time';
 import TimePeriod from './time-period';
-import Timezone, { TIMEZONES } from './timezone';
+import Timezone, { TimezoneType } from './timezone';
 import Title from './title';
 import PropertiesTree, { createTree } from './properties-tree';
 import EmptySearch from './empty-search';
 
-export { ARROW_SIZE, TIME_PICKER_CLASS, TIMEZONES };
+export { ARROW_SIZE, TIME_PICKER_CLASS };
 
 export type {
   CardSettings,
@@ -76,6 +76,7 @@ export type {
   OAuthConfig,
   DropableContainerVariant,
   Point,
+  TimezoneType,
 };
 
 export {

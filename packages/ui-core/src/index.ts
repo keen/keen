@@ -83,7 +83,7 @@ import {
   RelativeTime,
   TimePeriod,
   Timezone,
-  TIMEZONES,
+  TimezoneType,
   Title as TitleComponent,
   PropertiesTree,
   EmptySearch,
@@ -114,9 +114,10 @@ export type {
   CellValue,
   RulerTick,
   Point,
+  TimezoneType,
 };
 
-export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS, TIMEZONES };
+export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
 
 export { isElementInViewport, exportToHtml } from './utils';
 
