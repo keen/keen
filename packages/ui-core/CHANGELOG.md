@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.17.0...@keen.io/ui-core@2.18.0) (2021-03-31)
+
+
+### Bug Fixes
+
+* 🐛 display custom timezone ([5674d0c](https://github.com/keen/keen/commit/5674d0c84eee6b4b099f7f4a6d77b9e0e5fbabaf))
+
+
+### Features
+
+* 🎸 add timezone specific types ([e4bcd65](https://github.com/keen/keen/commit/e4bcd658c62ba47d5aa2e2427e94579b47c58da6))
+
+
+
+
+
 # [2.17.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.16.0...@keen.io/ui-core@2.17.0) (2021-03-31)
 
 
