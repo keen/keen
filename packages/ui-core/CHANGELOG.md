@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.16.0...@keen.io/ui-core@2.17.0) (2021-03-31)
+
+
+### Features
+
+* 🎸 enhance <Timezone> with virtual list ([1b7fc3b](https://github.com/keen/keen/commit/1b7fc3bcfcc7fb1f28f25158190473275766c03e))
+
+
+
+
+
 # [2.16.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.8...@keen.io/ui-core@2.16.0) (2021-03-25)
 
 

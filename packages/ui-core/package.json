@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/ui-core",
-  "version": "2.16.0",
+  "version": "2.17.0",
   "description": "Keen visual components",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -38,7 +38,7 @@
     "@keen.io/colors": "^1.1.0",
     "@keen.io/icons": "^1.4.0",
     "@keen.io/query": "^1.1.1",
-    "@keen.io/typography": "^1.1.4",
+    "@keen.io/typography": "^1.2.1",
     "color": "^3.1.2",
     "framer-motion": "^1.11.1",
     "fuse.js": "^6.4.1",
