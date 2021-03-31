@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.8...@keen.io/ui-core@2.16.0) (2021-03-25)
+
+
+### Features
+
+* 🎸 extract <EmptySearch> component ([627f5e3](https://github.com/keen/keen/commit/627f5e3a3eccb258d34ce0713d55ecd76af63b6c))
+
+
+
+
+
+## [2.15.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.7...@keen.io/ui-core@2.15.8) (2021-03-24)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.15.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.6...@keen.io/ui-core@2.15.7) (2021-03-22)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
 ## [2.15.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.5...@keen.io/ui-core@2.15.6) (2021-03-19)
 
 **Note:** Version bump only for package @keen.io/ui-core

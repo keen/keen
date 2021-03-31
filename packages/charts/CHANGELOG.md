@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.5](https://github.com/keen/keen/compare/@keen.io/charts@2.12.4...@keen.io/charts@2.12.5) (2021-03-31)
+
+
+### Bug Fixes
+
+* 🐛 Font in excerpt and widget height fix ([bf9f8e4](https://github.com/keen/keen/commit/bf9f8e4c3b462a7247f9c96c1673748bae9d0e91))
+* 🐛 tooltip position for metric ([b396085](https://github.com/keen/keen/commit/b3960850a9788da7c442d974d74006ee280e17f9))
+
+
+
+
+
+## [2.12.4](https://github.com/keen/keen/compare/@keen.io/charts@2.12.3...@keen.io/charts@2.12.4) (2021-03-25)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes ([1f61322](https://github.com/keen/keen/commit/1f6132225e04f44cc2b238da91dfdc1347705221))
+
+
+
+
+
+## [2.12.3](https://github.com/keen/keen/compare/@keen.io/charts@2.12.2...@keen.io/charts@2.12.3) (2021-03-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.12.2](https://github.com/keen/keen/compare/@keen.io/charts@2.12.1...@keen.io/charts@2.12.2) (2021-03-24)
+
+
+### Bug Fixes
+
+* 🐛 interval larger than timeframe in metric chart ([3e5bc97](https://github.com/keen/keen/commit/3e5bc97f1c2e3c1154e271389344a6c4d731eefe))
+
+
+
+
+
+## [2.12.1](https://github.com/keen/keen/compare/@keen.io/charts@2.12.0...@keen.io/charts@2.12.1) (2021-03-23)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([0cd478b](https://github.com/keen/keen/commit/0cd478b3057e3536fb99f8abd309d60298790a03))
+* 🐛 Fix for shifted bars ([b737450](https://github.com/keen/keen/commit/b73745034cfaea417fd5b06c83176fe74687cd30))
+
+
+
+
+
+# [2.12.0](https://github.com/keen/keen/compare/@keen.io/charts@2.11.3...@keen.io/charts@2.12.0) (2021-03-22)
+
+
+### Bug Fixes
+
+* 🐛 line/area chart tooltip updates ([59acca9](https://github.com/keen/keen/commit/59acca933caaa0ec8f99209cd610f80f1dca308b))
+
+
+### Features
+
+* 🎸 Metric chart caption added ([#829](https://github.com/keen/keen/issues/829)) ([25585a7](https://github.com/keen/keen/commit/25585a7c8a46c9a7055cea3b61dfd98f63b98e18))
+
+
+
+
+
 ## [2.11.3](https://github.com/keen/keen/compare/@keen.io/charts@2.11.2...@keen.io/charts@2.11.3) (2021-03-19)
 
 **Note:** Version bump only for package @keen.io/charts
