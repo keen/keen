@@ -1,6 +1,6 @@
 export type Options = {
   timezones: { name: string; utcOffset: string }[];
-  timezone?: string;
+  timezone?: { name: string; utcOffset?: string };
   onChange: (timezone: string) => void;
 };
 
