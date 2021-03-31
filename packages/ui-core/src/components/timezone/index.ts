@@ -1,5 +1,5 @@
 import Timezone from './timezone.component';
-import { TIMEZONES } from './constants';
+import { Timezone as TimezoneType } from './types';
 
 export default Timezone;
-export { TIMEZONES };
+export { TimezoneType };

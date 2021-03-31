@@ -9,7 +9,8 @@
   "references": [
     { "path": "../colors" },
     { "path": "../icons" },
-    { "path": "../query" }
+    { "path": "../query" },
+    { "path": "../typography" }
   ],
   "include": ["./src/**/*"]
 }
