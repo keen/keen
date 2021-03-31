@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.13](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.12...@keen.io/widgets@2.3.13) (2021-03-31)
+
+
+### Bug Fixes
+
+* 🐛 Font in excerpt and widget height fix ([bf9f8e4](https://github.com/keen/keen/commit/bf9f8e4c3b462a7247f9c96c1673748bae9d0e91))
+
+
+
+
+
 ## [2.3.12](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.11...@keen.io/widgets@2.3.12) (2021-03-25)
 
 **Note:** Version bump only for package @keen.io/widgets

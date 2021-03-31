@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.5](https://github.com/keen/keen/compare/@keen.io/charts@2.12.4...@keen.io/charts@2.12.5) (2021-03-31)
+
+
+### Bug Fixes
+
+* 🐛 Font in excerpt and widget height fix ([bf9f8e4](https://github.com/keen/keen/commit/bf9f8e4c3b462a7247f9c96c1673748bae9d0e91))
+* 🐛 tooltip position for metric ([b396085](https://github.com/keen/keen/commit/b3960850a9788da7c442d974d74006ee280e17f9))
+
+
+
+
+
 ## [2.12.4](https://github.com/keen/keen/compare/@keen.io/charts@2.12.3...@keen.io/charts@2.12.4) (2021-03-25)
 
 
