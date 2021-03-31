@@ -16,10 +16,32 @@ getOffsetFromDate('2021-03-14T16:00:00+03:00');  // 180
 
 ### convertDate
 
-Converts date based on provided offset in minutes or named timezone.
+Converts date based on provided offset in minutes or named timezone. Respects daylight saving time offsets.
 
 ```typescript
 convertDate('2021-03-14T16:00:00', 180);  // 2021-03-14T19:00:00
 convertDate('2021-03-14T16:00:00', -60);  // 2021-03-14T15:00:00
 convertDate('2021-03-14T16:00:00', 'Europe/Warsaw');  // 2021-03-14T17:00:00
+```
+
+### setTimezoneOffset
+
+Replaces timezone offset without modifying date.
+
+```typescript
+setTimezoneOffset('2021-03-14T16:00:00-12:00', 'Europe/Warsaw');  // 2021-03-14T16:00:00+02:00
+```
+
+### getDefaultAbsoluteTime
+
+Creates default date range aligned with Keen API absolute `Timeframe` interface.
+
+```typescript
+// new Date() => 2021-03-31T00:00:00
+
+getDefaultAbsoluteTime('Europe/Warsaw');  
+/* Object {
+  "start": "2021-03-30T00:00:00+02:00",
+  "end": "2021-03-31T00:00:00+02:00",
+} */
 ```
