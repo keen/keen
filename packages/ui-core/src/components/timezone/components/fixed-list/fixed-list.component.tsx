@@ -19,7 +19,7 @@ const FixedList = forwardRef<any, Props>(
       data-testid="fixed-list"
       itemData={itemData}
       itemCount={itemCount}
-      itemSize={30}
+      itemSize={28}
       width="100%"
     >
       {ListRow}

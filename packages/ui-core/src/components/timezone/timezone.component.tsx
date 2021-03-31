@@ -1,11 +1,20 @@
-import React, { FC, useState, useRef, useEffect, useMemo } from 'react';
+import React, {
+  FC,
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+  useLayoutEffect,
+} from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { BodyText } from '@keen.io/typography';
+import { colors } from '@keen.io/colors';
 
 import Title from '../title';
 import DropableContainer from '../dropable-container';
 import EmptySearch from '../empty-search';
 
-import { FixedList, Offset, TextEllipsis } from './components';
+import { FixedList, TextEllipsis, NoWrap } from './components';
 
 import {
   Container,
@@ -14,7 +23,7 @@ import {
   DropableContent,
 } from './timezone.styles';
 
-import { Timezone as TimezoneItem, DropdownPosition, Options } from './types';
+import { Timezone as TimezoneItem, Options, DropdownPosition } from './types';
 import { dropdownMotion } from './motion';
 
 type Props = {
@@ -22,8 +31,6 @@ type Props = {
   timezones: TimezoneItem[];
   /** Timezone value */
   timezone?: string;
-  /** Dropdown position */
-  dropdownPosition?: DropdownPosition;
   /** Disable selection */
   disableSelection?: boolean;
   /** Timezone label */
@@ -39,7 +46,6 @@ type Props = {
 const Timezone: FC<Props> = ({
   timezone,
   timezones,
-  dropdownPosition = 'bottom',
   disableSelection = false,
   timezoneLabel,
   timezonePlaceholderLabel,
@@ -48,11 +54,15 @@ const Timezone: FC<Props> = ({
 }) => {
   const [isOpen, setOpen] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState('');
+  const [dropdownPosition, setDropdownPosition] = useState<DropdownPosition>(
+    'bottom'
+  );
+
   const listRef = useRef(null);
+  const customDropdownRef = useRef(null);
 
   const availableTimezones = () => {
     if (searchPhrase !== '') {
-      console.log(searchPhrase);
       return timezones.filter(({ name, utcOffset }) =>
         `${name}${utcOffset}`.toLowerCase().includes(searchPhrase.toLowerCase())
       );
@@ -73,6 +83,15 @@ const Timezone: FC<Props> = ({
   useEffect(() => {
     if (isOpen && disableSelection) setOpen(false);
   }, [disableSelection]);
+
+  useLayoutEffect(() => {
+    if (!customDropdownRef.current) return;
+
+    const { bottom } = customDropdownRef.current.getBoundingClientRect();
+    const position: DropdownPosition =
+      bottom > document.body.offsetHeight ? 'top' : 'bottom';
+    setDropdownPosition(position);
+  }, [isOpen]);
 
   const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchPhrase(e.target.value);
@@ -130,13 +149,24 @@ const Timezone: FC<Props> = ({
           {timezone && (
             <DropableContent>
               <TextEllipsis>{name}</TextEllipsis>
-              {utcOffset && <Offset>{utcOffset}</Offset>}
+              {utcOffset && (
+                <NoWrap>
+                  <BodyText
+                    variant="body3"
+                    fontWeight={400}
+                    color={colors.blue[200]}
+                  >
+                    {utcOffset}
+                  </BodyText>
+                </NoWrap>
+              )}
             </DropableContent>
           )}
         </DropableContainer>
         <AnimatePresence>
           {isOpen && (
             <CustomDropdown
+              ref={customDropdownRef}
               position={dropdownPosition}
               {...dropdownMotion[dropdownPosition]}
             >

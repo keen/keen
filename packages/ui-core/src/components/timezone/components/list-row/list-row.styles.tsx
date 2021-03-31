@@ -11,11 +11,6 @@ export const ListItem = styled.div<{
   justify-content: space-between;
   column-gap: 10px;
 
-  font-size: 13px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  color: ${colors.blue[500]};
-
   cursor: pointer;
   transition: background 0.2s linear;
 

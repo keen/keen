@@ -3,10 +3,10 @@ export type Timezone = {
   utcOffset?: string;
 };
 
-export type DropdownPosition = 'top' | 'bottom';
-
 export type Options = {
   timezones: Timezone[];
   timezone?: Timezone;
   onChange: (timezone: string) => void;
 };
+
+export type DropdownPosition = 'top' | 'bottom';

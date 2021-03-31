@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { BodyText } from '@keen.io/typography';
+import { colors } from '@keen.io/colors';
 
 import TextEllipsis from '../text-ellipsis';
-import Offset from '../offset';
 
 import { ListItem } from './list-row.styles';
 
@@ -24,8 +25,16 @@ const ListRow: FC<Props> = ({ data, index, style }) => {
           onChange(name);
         }}
       >
-        <TextEllipsis>{name}</TextEllipsis>
-        {utcOffset && <Offset>{utcOffset}</Offset>}
+        <TextEllipsis>
+          <BodyText variant="body3" fontWeight={400} color={colors.blue[500]}>
+            {name}
+          </BodyText>
+        </TextEllipsis>
+        {utcOffset && (
+          <BodyText variant="body3" fontWeight={400} color={colors.blue[200]}>
+            {utcOffset}
+          </BodyText>
+        )}
       </ListItem>
     </div>
   );

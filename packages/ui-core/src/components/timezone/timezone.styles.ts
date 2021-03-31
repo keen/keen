@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { colors } from '@keen.io/colors';
 
 import { UI_LAYERS } from '../../constants';
-
 import { DropdownPosition } from './types';
 
 export const Container = styled.div<{ isDisabled: boolean }>`
@@ -26,16 +25,18 @@ export const CustomDropdown = styled(motion.div)<{
   position: DropdownPosition;
 }>`
   width: 100%;
-  min-width: 310px;
-  position: absolute;
-  right: 0;
+  min-width: 280px;
   background: ${colors.white[500]};
   border: solid 1px ${colors.gray[200]};
   box-shadow: 0 10px 24px 0 rgba(29, 39, 41, 0.15);
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: auto;
   z-index: ${UI_LAYERS.dropdown};
 
-  ${(props) =>
-    props.position === 'bottom'
+  ${({ position }) =>
+    position === 'bottom'
       ? css`
           top: 100%;
         `

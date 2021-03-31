@@ -1,6 +1,6 @@
 import FixedList from './fixed-list';
 import ListRow from './list-row';
-import Offset from './offset';
 import TextEllipsis from './text-ellipsis';
+import NoWrap from './no-wrap';
 
-export { FixedList, ListRow, Offset, TextEllipsis };
+export { FixedList, ListRow, TextEllipsis, NoWrap };
