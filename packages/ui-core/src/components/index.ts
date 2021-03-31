@@ -63,7 +63,7 @@ import DropableContainer, {
 import DropdownListContainer from './dropdown-list-container';
 import RelativeTime from './relative-time';
 import TimePeriod from './time-period';
-import Timezone, { TimezoneType } from './timezone';
+import Timezone from './timezone';
 import Title from './title';
 import PropertiesTree, { createTree } from './properties-tree';
 import EmptySearch from './empty-search';
@@ -76,7 +76,6 @@ export type {
   OAuthConfig,
   DropableContainerVariant,
   Point,
-  TimezoneType,
 };
 
 export {

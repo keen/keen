@@ -105,6 +105,7 @@
     "husky": "^3.1.0",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
+    "jest-date-mock": "^1.0.8",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-styled-components": "^7.0.2",
     "lerna": "^3.18.4",
