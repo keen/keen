@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import moment from 'moment-timezone';
 
-import { Timeframe, Timezones } from '@keen.io/query';
+import { Timeframe } from '@keen.io/query';
 
 import { Container, TimeLabel, TimeRow } from './absolute-time.styles';
 
@@ -17,7 +17,7 @@ type Props = {
   /** Absolute time change event handler */
   onChange: (time: Timeframe) => void;
   /** Timezone value */
-  timezone: Timezones;
+  timezone: string;
   /** Start date label */
   startDateLabel: string;
   /** End date label */
