@@ -4,6 +4,7 @@ module.exports = {
   ...require('../../jest.config.base'),
   displayName: package.name,
   name: package.name,
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@keen.io/(.*)$': '<rootDir>/../$1/src',
   },
