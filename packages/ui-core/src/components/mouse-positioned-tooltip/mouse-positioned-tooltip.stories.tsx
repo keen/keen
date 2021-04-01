@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { select } from '@storybook/addon-knobs';
+import { colors } from '@keen.io/colors';
 
 import { TooltipMode } from '../tooltip';
 import MousePositionedTooltip from './mouse-positioned-tooltip';
+import { BodyText } from '@keen.io/typography';
+import styled from 'styled-components';
 
 export default {
   title: 'Components / Mouse Positioned Tooltip',
@@ -20,18 +23,26 @@ const options = {
   },
 };
 
+const Wrapper = styled.div`
+  width: 250px;
+`;
+
 export const LightMode = () => (
-  <div>
+  <Wrapper>
     <MousePositionedTooltip
       tooltipTheme={
         select('Mode', options.mode, options.mode.light, 'Mode') as TooltipMode
       }
       isActive={true}
-      renderContent={() => <p>This is a description</p>}
+      renderContent={() => (
+        <BodyText variant="body3" fontWeight={400} color={colors.black[500]}>
+          This is a description
+        </BodyText>
+      )}
     >
-      Hover on this text to show tooltip
+      <BodyText variant="body2">Hover on this text to show tooltip</BodyText>
     </MousePositionedTooltip>
-  </div>
+  </Wrapper>
 );
 
 LightMode.story = {
@@ -43,17 +54,21 @@ LightMode.story = {
 };
 
 export const DarkMode = () => (
-  <div>
+  <Wrapper>
     <MousePositionedTooltip
       tooltipTheme={
         select('Mode', options.mode, options.mode.dark, 'Mode') as TooltipMode
       }
       isActive={true}
-      renderContent={() => <p>This is a description</p>}
+      renderContent={() => (
+        <BodyText variant="body3" fontWeight={400} color={colors.white[500]}>
+          This is a description
+        </BodyText>
+      )}
     >
-      Hover on this text to show tooltip
+      <BodyText variant="body2">Hover on this text to show tooltip</BodyText>
     </MousePositionedTooltip>
-  </div>
+  </Wrapper>
 );
 
 DarkMode.story = {

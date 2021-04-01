@@ -45,10 +45,10 @@ const TooltipContent = ({
           position: 'absolute',
           pointerEvents: 'none',
           zIndex: UI_LAYERS.tooltip,
-          width: 225,
+          maxWidth: 225,
         }}
       >
-        <Tooltip hasArrow={false} fontSize={12} mode={tooltipTheme}>
+        <Tooltip hasArrow={false} mode={tooltipTheme}>
           {children}
         </Tooltip>
       </motion.div>
@@ -79,7 +79,6 @@ const MousePositionedTooltip = ({
 
   return (
     <div
-      data-testid="tooltip-container"
       ref={tooltipContainerRef}
       onMouseEnter={(e) => {
         setTooltipVisible(true);
