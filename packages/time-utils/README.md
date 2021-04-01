@@ -14,6 +14,14 @@ Set of utilities and helper functions responsible for dates and time conversion.
 getOffsetFromDate('2021-03-14T16:00:00+03:00');  // 180
 ```
 
+### formatDate
+
+Formats date based on provided pattern and timezone.
+
+```typescript
+formatDate('2021-03-30T12:00:00+02:00', 'Europe/Warsaw', 'YYYY-MM-DD HH:mm'); // 2021-03-30 12:00
+```
+
 ### convertDate
 
 Converts date based on provided offset in minutes or named timezone. Respects daylight saving time offsets.
