@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Portal, Tooltip, TooltipMode, UI_LAYERS } from '@keen.io/ui-core';
+import Portal from '../portal';
+import Tooltip from '../tooltip';
+import { TooltipMode } from '../tooltip';
+import { UI_LAYERS } from '../../constants';
 
 export const TOOLTIP_MOTION = {
   transition: { duration: 0.3 },
