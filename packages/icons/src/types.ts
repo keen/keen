@@ -72,4 +72,5 @@ export type IconType =
   | 'delete'
   | 'clone'
   | 'resize'
-  | 'share';
+  | 'share'
+  | 'warning';
