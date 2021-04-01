@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.18.1...@keen.io/ui-core@2.19.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* 🐛 Import paths fixed ([5f16045](https://github.com/keen/keen/commit/5f16045694543edb99e62291c6579313c5d3cdb7))
+
+
+### Features
+
+* 🎸 Mouse positioned tooltip added ([0f3cf80](https://github.com/keen/keen/commit/0f3cf80baef77ce3c2e8d87f262f4a33b63aff07))
+
+
+
+
+
 ## [2.18.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.18.0...@keen.io/ui-core@2.18.1) (2021-04-01)
 
 **Note:** Version bump only for package @keen.io/ui-core
