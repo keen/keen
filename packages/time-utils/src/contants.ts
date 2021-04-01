@@ -8,3 +8,4 @@ export const DEPRECATED_TIMEZONES: Record<string, string> = {
 };
 
 export const DEFAULT_TIMEZONE = 'UTC';
+export const INVALID_DATE = 'Invalid date';
