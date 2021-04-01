@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.10](https://github.com/keen/keen/compare/@keen.io/charts@2.12.9...@keen.io/charts@2.12.10) (2021-04-01)
+
+
+### Bug Fixes
+
+* 🐛 update position of metric chart tooltip ([2308618](https://github.com/keen/keen/commit/23086187db5cac63a31835351542b71a1dc5aea6))
+
+
+
+
+
 ## [2.12.9](https://github.com/keen/keen/compare/@keen.io/charts@2.12.8...@keen.io/charts@2.12.9) (2021-04-01)
 
 **Note:** Version bump only for package @keen.io/charts
