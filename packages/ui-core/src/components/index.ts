@@ -45,6 +45,7 @@ import { Brand } from './brand';
 import ModalContent from './modal-content';
 import ModalHeader from './modal-header';
 import ModalFooter from './modal-footer';
+import MousePositionedTooltip from './mouse-positioned-tooltip';
 import LoadingScreen from './loading-screen';
 import SuccessNotification from './success-notification';
 import OAuthProviders, {
@@ -125,6 +126,7 @@ export {
   ModalContent,
   ModalHeader,
   ModalFooter,
+  MousePositionedTooltip,
   LoadingScreen,
   SuccessNotification,
   OAuthProviders,
