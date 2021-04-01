@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useRef, useState } from 'react';
+import React, { FC, useRef, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 import { Text } from '@keen.io/ui-core';
@@ -68,7 +68,6 @@ export type Props = {
   /** Use percentage difference */
   usePercentDifference?: boolean;
   secondaryValueDescription?: string;
-  portalContainer?: RefObject<HTMLDivElement>;
 } & CommonChartSettings;
 
 export const MetricChart: FC<Props> = ({
@@ -118,9 +117,16 @@ export const MetricChart: FC<Props> = ({
 
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const [offset, setOffset] = useState({ left: 0, top: 0 });
+
+  const layoutRef = useCallback((node) => {
+    if (node !== null) {
+      setOffset({ left: node.offsetLeft, top: node.offsetTop });
+    }
+  }, []);
 
   return (
-    <Layout>
+    <Layout ref={layoutRef}>
       <ValueContainer>
         <AnimatePresence>
           <motion.div {...textMotion}>
@@ -153,14 +159,31 @@ export const MetricChart: FC<Props> = ({
               ref={excerptRef}
               onMouseEnter={(e) => {
                 setTooltipVisible(true);
-                setTooltipPosition({ x: e.clientX, y: e.clientY });
+
+                const {
+                  left,
+                  top,
+                } = e.currentTarget.offsetParent.getBoundingClientRect();
+                setTooltipPosition({
+                  x: e.clientX - left + offset.left,
+                  y: e.clientY - top + offset.top,
+                });
               }}
               onMouseMove={(e) => {
-                const mousePosition = { x: e.clientX, y: e.clientY };
+                e.persist();
+
+                const {
+                  left,
+                  top,
+                } = e.currentTarget.offsetParent.getBoundingClientRect();
+
                 if (requestFrameRef.current)
                   cancelAnimationFrame(requestFrameRef.current);
                 requestFrameRef.current = requestAnimationFrame(() => {
-                  setTooltipPosition(mousePosition);
+                  setTooltipPosition({
+                    x: e.clientX - left + offset.left,
+                    y: e.clientY - top + offset.top,
+                  });
                 });
               }}
               onMouseLeave={() => {

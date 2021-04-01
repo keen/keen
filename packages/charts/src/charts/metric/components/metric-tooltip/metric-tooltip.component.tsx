@@ -1,15 +1,18 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { TOOLTIP_MOTION } from '../../../../constants';
-import { Tooltip } from '@keen.io/ui-core';
 import React, { FC, RefObject } from 'react';
-import { Tooltip as TooltipSettings } from '../../../../types';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Tooltip } from '@keen.io/ui-core';
+
 import { Portal } from '../../../../components';
+import { TOOLTIP_MOTION } from '../../../../constants';
+
+import { Tooltip as TooltipSettings } from '../../../../types';
 
 type Props = {
   tooltipPosition: { x: number; y: number };
   tooltipSettings: Pick<TooltipSettings, 'mode' | 'labels'>;
   children: React.ReactNode;
   portalRef?: RefObject<HTMLDivElement>;
+  tooltipRef?: RefObject<HTMLDivElement>;
 };
 
 const TooltipContent = ({
