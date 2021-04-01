@@ -12,7 +12,6 @@ type Props = {
   tooltipSettings: Pick<TooltipSettings, 'mode' | 'labels'>;
   children: React.ReactNode;
   portalRef?: RefObject<HTMLDivElement>;
-  tooltipRef?: RefObject<HTMLDivElement>;
 };
 
 const TooltipContent = ({
