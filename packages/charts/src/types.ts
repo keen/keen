@@ -1,3 +1,4 @@
+import { RefObject } from 'react';
 import { Typography, TooltipMode, Position } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
@@ -234,6 +235,8 @@ export type CommonChartSettings = {
   svgDimensions?: Dimension;
   /** SVG margins */
   margins?: Margins;
+  /** Container for displaying tooltip */
+  portalContainer?: RefObject<HTMLDivElement>;
 };
 
 export type TooltipState = {
