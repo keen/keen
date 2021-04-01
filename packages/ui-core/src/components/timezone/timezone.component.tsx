@@ -39,6 +39,8 @@ type Props = {
   timezonePlaceholderLabel: string;
   /** Empty search label */
   emptySearchLabel: string;
+  /** Dropdown height */
+  dropdownHeight?: number;
   /** Change event handler */
   onChange: (timezone: string) => void;
 };
@@ -50,6 +52,7 @@ const Timezone: FC<Props> = ({
   timezoneLabel,
   timezonePlaceholderLabel,
   emptySearchLabel,
+  dropdownHeight,
   onChange,
 }) => {
   const [isOpen, setOpen] = useState(false);
@@ -89,7 +92,7 @@ const Timezone: FC<Props> = ({
 
     const { bottom } = customDropdownRef.current.getBoundingClientRect();
     const position: DropdownPosition =
-      bottom > document.body.offsetHeight ? 'top' : 'bottom';
+      bottom > window.innerHeight ? 'top' : 'bottom';
     setDropdownPosition(position);
   }, [isOpen]);
 
@@ -175,6 +178,7 @@ const Timezone: FC<Props> = ({
                   ref={listRef}
                   itemData={options}
                   itemCount={availableTimezonesLength}
+                  height={dropdownHeight}
                 />
               ) : (
                 <EmptySearch message={emptySearchLabel} />
