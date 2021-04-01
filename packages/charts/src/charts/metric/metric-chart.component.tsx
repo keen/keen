@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useCallback } from 'react';
+import React, { FC, useState, useCallback, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 import { Text } from '@keen.io/ui-core';
@@ -109,19 +109,26 @@ export const MetricChart: FC<Props> = ({
       : excerpt.icons.decrease),
   };
 
-  const excerptRef = useRef<HTMLDivElement>(null);
-  const requestFrameRef = React.useRef(null);
+  const requestFrameRef = useRef(null);
 
   const { tooltip: tooltipSettings } = theme;
   const excerptValue = type === 'difference' ? difference.value : previousValue;
 
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [offset, setOffset] = useState({ left: 0, top: 0 });
+  const [chartPosition, setChartPosition] = useState({
+    left: 0,
+    top: 0,
+    offsetLeft: 0,
+    offsetTop: 0,
+  });
 
   const layoutRef = useCallback((node) => {
     if (node !== null) {
-      setOffset({ left: node.offsetLeft, top: node.offsetTop });
+      const offsetLeft = node.offsetLeft;
+      const offsetTop = node.offsetTop;
+      const { left, top } = node.getBoundingClientRect();
+      setChartPosition({ left, top, offsetLeft, offsetTop });
     }
   }, []);
 
@@ -156,34 +163,25 @@ export const MetricChart: FC<Props> = ({
             <Excerpt
               data-testid="metric-excerpt-value"
               background={excerpt.backgroundColor}
-              ref={excerptRef}
               onMouseEnter={(e) => {
                 setTooltipVisible(true);
 
-                const {
-                  left,
-                  top,
-                } = e.currentTarget.offsetParent.getBoundingClientRect();
-                setTooltipPosition({
-                  x: e.clientX - left + offset.left,
-                  y: e.clientY - top + offset.top,
-                });
+                const { left, top, offsetTop, offsetLeft } = chartPosition;
+                const x = e.clientX - (left - window.scrollX) + offsetLeft;
+                const y = e.clientY - (top - window.scrollY) + offsetTop;
+                setTooltipPosition({ x, y });
               }}
               onMouseMove={(e) => {
                 e.persist();
 
-                const {
-                  left,
-                  top,
-                } = e.currentTarget.offsetParent.getBoundingClientRect();
+                const { left, top, offsetTop, offsetLeft } = chartPosition;
+                const x = e.clientX - (left - window.scrollX) + offsetLeft;
+                const y = e.clientY - (top - window.scrollY) + offsetTop;
 
                 if (requestFrameRef.current)
                   cancelAnimationFrame(requestFrameRef.current);
                 requestFrameRef.current = requestAnimationFrame(() => {
-                  setTooltipPosition({
-                    x: e.clientX - left + offset.left,
-                    y: e.clientY - top + offset.top,
-                  });
+                  setTooltipPosition({ x, y });
                 });
               }}
               onMouseLeave={() => {
