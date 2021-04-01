@@ -65,6 +65,7 @@ import Search from './search.component';
 import Actions from './actions.component';
 import Settings from './settings.component';
 import Share from './share.component';
+import Warning from './warning.component';
 
 import { IconType } from '../types';
 
@@ -204,5 +205,7 @@ export const getIcon = (type: IconType) => {
       return AlignCenter;
     case 'align-right':
       return AlignRight;
+    case 'warning':
+      return Warning;
   }
 };
