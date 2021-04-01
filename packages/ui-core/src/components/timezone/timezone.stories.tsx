@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, text, number } from '@storybook/addon-knobs';
 
 import Timezone from './timezone.component';
 import { timezones } from './timezone.fixtures';
@@ -34,6 +34,7 @@ export const Basic = () => {
           timezone={timezone}
           timezones={timezones}
           disableSelection={boolean('Disable selection', false, 'Timezone')}
+          dropdownHeight={number('Dropdown height', 150, {}, 'Timezone')}
         />
       </div>
     </div>
