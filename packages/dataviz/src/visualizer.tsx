@@ -85,13 +85,13 @@ class Visualizer {
       componentSettings = { ...componentSettings, theme: extendTheme(theme) };
     }
 
-    let query = {};
-    if (input.query) query = input.query;
-
-    componentSettings = extendChartSettings(
-      createChartSettings({ query, widgetType, keys, componentSettings }),
-      componentSettings
-    );
+    if (input.query) {
+      const query = input.query;
+      componentSettings = extendChartSettings(
+        createChartSettings({ query, widgetType, keys, componentSettings }),
+        componentSettings
+      );
+    }
 
     return componentSettings;
   }

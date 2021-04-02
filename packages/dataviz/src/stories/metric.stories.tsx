@@ -22,14 +22,6 @@ export const compareMetric = () => {
     const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Last month',
-        },
-      },
       settings: {
         type: 'comparison',
       },
@@ -63,12 +55,6 @@ export const percentMetric = () => {
       widget: {
         card: {
           backgroundColor: '#fafafa',
-        },
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Percentage',
         },
       },
       settings: {
@@ -205,14 +191,6 @@ export const singleMetric = () => {
     const dataviz = new KeenDataViz({
       type: 'metric',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Last month',
-        },
-      },
       settings: {
         type: 'comparison',
       },
