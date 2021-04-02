@@ -2,6 +2,7 @@ import * as React from 'react';
 import { boolean, text, number } from '@storybook/addon-knobs';
 
 import Timezone from './timezone.component';
+import { TimezoneError } from './components';
 import { timezones } from './timezone.fixtures';
 import { colors } from '@keen.io/colors';
 
@@ -39,4 +40,28 @@ export const Basic = () => {
       </div>
     </div>
   );
+};
+
+export const Error = () => (
+  <>
+    <TimezoneError
+      label="Timezone"
+      placeholder={text('Placeholder', 'Select timezone', 'Timezone')}
+      tooltipMessage={text(
+        'Tooltip message',
+        'We cannot load list of time zones. Try again later if you need to check data for specific time zone',
+        'Timezone'
+      )}
+    />
+  </>
+);
+
+Error.story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Timezone select in error state',
+      },
+    },
+  },
 };
