@@ -8,7 +8,6 @@ import DropableContainer from '../../../dropable-container';
 import MousePositionedTooltip from '../../../mouse-positioned-tooltip';
 
 import {
-  Container,
   DisabledContainer,
   Heading,
   Title,
@@ -32,7 +31,7 @@ const TimezoneError: FC<Props> = ({
   tooltipPortal,
   tooltipMessage,
 }) => (
-  <Container>
+  <div>
     <Heading>
       <MousePositionedTooltip
         isActive
@@ -76,7 +75,7 @@ const TimezoneError: FC<Props> = ({
         dropIndicator
       />
     </DisabledContainer>
-  </Container>
+  </div>
 );
 
 export default TimezoneError;

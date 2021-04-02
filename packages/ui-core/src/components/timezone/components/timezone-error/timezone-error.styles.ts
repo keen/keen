@@ -19,5 +19,3 @@ export const DisabledContainer = styled.div`
   opacity: 0.5;
   cursor: not-allowed;
 `;
-
-export const Container = styled.div``;
