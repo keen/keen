@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.19.1...@keen.io/ui-core@2.20.0) (2021-04-02)
+
+
+### Features
+
+* 🎸 timezone error component ([8b74594](https://github.com/keen/keen/commit/8b74594a131219fc2ddf38412fdbb3d7dd9e9a96))
+
+
+
+
+
 ## [2.19.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.19.0...@keen.io/ui-core@2.19.1) (2021-04-01)
 
 **Note:** Version bump only for package @keen.io/ui-core
