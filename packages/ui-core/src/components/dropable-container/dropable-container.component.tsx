@@ -17,11 +17,11 @@ type Props = {
   /** Active indicator */
   isActive: boolean;
   /** React children nodes */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /** Click event handler */
-  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   /** Container defocus event handler */
-  onDefocus: (e: MouseEvent) => void;
+  onDefocus?: (e: MouseEvent) => void;
   /** Component variant */
   variant?: DropableContainerVariant;
   /** Search feature flag */
@@ -62,10 +62,10 @@ const DropableContainer: FC<Props> = ({
         containerRef.current &&
         !containerRef.current.contains(e.target)
       ) {
-        onDefocus(e);
+        if (onDefocus) onDefocus(e);
       }
     },
-    [isActive, containerRef]
+    [isActive, containerRef, onDefocus]
   );
 
   useEffect(() => {

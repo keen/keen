@@ -2,5 +2,6 @@ import FixedList from './fixed-list';
 import ListRow from './list-row';
 import TextEllipsis from './text-ellipsis';
 import NoWrap from './no-wrap';
+import TimezoneError from './timezone-error';
 
-export { FixedList, ListRow, TextEllipsis, NoWrap };
+export { TimezoneError, FixedList, ListRow, TextEllipsis, NoWrap };
