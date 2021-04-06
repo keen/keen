@@ -6,6 +6,7 @@ import { Variant } from './types';
 import { FontWeight, LineHeight } from '../../types';
 
 import { HEADER_STYLE } from './constants';
+import { TEXT_ELLIPSIS } from '../../constants';
 
 type Props = {
   /** Headline variant */
@@ -16,6 +17,8 @@ type Props = {
   lineHeight?: LineHeight;
   /** Color */
   color?: string;
+  /** Enable text overflow */
+  isTextOverflow?: boolean;
   /** Children */
   children: React.ReactNode;
 };
@@ -30,6 +33,8 @@ const StyledH1 = styled.h1<Partial<Props>>`
     color: ${props.color};
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
+
+    ${props.isTextOverflow && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -43,6 +48,8 @@ const StyledH2 = styled.h2<Partial<Props>>`
     color: ${props.color};
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
+
+    ${props.isTextOverflow && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -56,6 +63,8 @@ const StyledH3 = styled.h3<Partial<Props>>`
     color: ${props.color};
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
+
+    ${props.isTextOverflow && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -69,6 +78,8 @@ const StyledH4 = styled.h4<Partial<Props>>`
     color: ${props.color};
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
+
+    ${props.isTextOverflow && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -77,30 +88,51 @@ export const Headline: FC<Props> = ({
   fontWeight,
   lineHeight,
   color,
+  isTextOverflow = false,
   children,
 }) => {
   switch (variant) {
     case 'h2':
       return (
-        <StyledH2 fontWeight={fontWeight} lineHeight={lineHeight} color={color}>
+        <StyledH2
+          fontWeight={fontWeight}
+          lineHeight={lineHeight}
+          color={color}
+          isTextOverflow={isTextOverflow}
+        >
           {children}
         </StyledH2>
       );
     case 'h3':
       return (
-        <StyledH3 fontWeight={fontWeight} lineHeight={lineHeight} color={color}>
+        <StyledH3
+          fontWeight={fontWeight}
+          lineHeight={lineHeight}
+          color={color}
+          isTextOverflow={isTextOverflow}
+        >
           {children}
         </StyledH3>
       );
     case 'h4':
       return (
-        <StyledH4 fontWeight={fontWeight} lineHeight={lineHeight} color={color}>
+        <StyledH4
+          fontWeight={fontWeight}
+          lineHeight={lineHeight}
+          color={color}
+          isTextOverflow={isTextOverflow}
+        >
           {children}
         </StyledH4>
       );
     default:
       return (
-        <StyledH1 fontWeight={fontWeight} lineHeight={lineHeight} color={color}>
+        <StyledH1
+          fontWeight={fontWeight}
+          lineHeight={lineHeight}
+          color={color}
+          isTextOverflow={isTextOverflow}
+        >
           {children}
         </StyledH1>
       );

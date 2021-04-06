@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-import { select, text } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import { colors } from '@keen.io/colors';
 
 import Headline from './headline.component';
@@ -39,6 +39,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   padding: 6px;
+  max-width: 100%;
 `;
 
 export const Variants = () => (
@@ -46,11 +47,15 @@ export const Variants = () => (
     <Wrapper>
       <Headline
         variant={select('Variant', variantOptions, 'h1')}
-        lineHeight={text('Line Height', '120%')}
+        lineHeight={text('Line height', '120%')}
         fontWeight={select('Font weight', fontWeightOptions, 400)}
         color={text('Color', colors.black[500])}
+        isTextOverflow={boolean('Text overflow', false)}
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam
+        eveniet, assumenda, quo beatae fugit vero magni minima vel voluptatem
+        aspernatur corporis fuga ratione molestias doloribus animi illo nemo,
+        saepe atque.
       </Headline>
     </Wrapper>
   </Container>

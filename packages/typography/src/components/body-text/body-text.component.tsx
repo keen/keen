@@ -9,6 +9,7 @@ import {
   DEFAULT_FONT_WEIGHT,
   DEFAULT_LINE_HEIGHT,
   SHARED_STYLE,
+  TEXT_ELLIPSIS,
 } from '../../constants';
 
 type Props = {
@@ -20,6 +21,8 @@ type Props = {
   lineHeight?: LineHeight;
   /** Color */
   color?: string;
+  /** Text overflow */
+  isTextOverflow?: boolean;
 };
 
 export const BodyText = styled.p<Props>`
@@ -47,12 +50,15 @@ export const BodyText = styled.p<Props>`
     color: ${props.color};
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
+
+    ${props.isTextOverflow && TEXT_ELLIPSIS};
   `};
 `;
 
 BodyText.defaultProps = {
   lineHeight: DEFAULT_LINE_HEIGHT,
   color: colors.black[100],
+  isTextOverflow: false,
 };
 
 export default BodyText;
