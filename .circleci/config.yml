@@ -2,6 +2,8 @@ version: 2.1
 
 executors:
   nodejs:
+    environment:
+      TZ: "Etc/UTC"
     docker:
       - image: circleci/node:latest
 
