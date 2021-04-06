@@ -12,7 +12,7 @@ test('converts date with "America/New_York (-04:00)" timezone offset', () => {
   const isoDate = '2019-12-01T10:00:00+02:00';
 
   expect(setTimezoneOffset(isoDate, 'America/New_York')).toMatchInlineSnapshot(
-    `"2019-12-01T09:00:00-04:00"`
+    `"2019-12-01T10:00:00-04:00"`
   );
 });
 

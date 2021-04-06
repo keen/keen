@@ -7,7 +7,7 @@ import getOffsetFromDate from '../get-offset-from-date';
 dayjs.extend(utcPlugin);
 dayjs.extend(timezonePlugin);
 
-import { DEPRECATED_TIMEZONES, DEFAULT_TIMEZONES } from '../contants';
+import { DEPRECATED_TIMEZONES } from '../contants';
 
 /**
  * Change date timezone offset without modyfing time.
@@ -21,15 +21,23 @@ const setTimezoneOffset = (utcISODate: string, timezoneName: string) => {
   try {
     const timezone = DEPRECATED_TIMEZONES[timezoneName] || timezoneName;
     const currentOffset = getOffsetFromDate(utcISODate);
-    let date;
 
-    if (DEFAULT_TIMEZONES.includes(timezoneName)) {
-      date = dayjs(utcISODate).utc(true).utcOffset(currentOffset);
-    } else {
-      date = dayjs(utcISODate).utc().utcOffset(currentOffset);
-    }
+    const dateWithoutOffset =
+      dayjs
+        .utc(utcISODate)
+        .utcOffset(currentOffset)
+        .format('YYYY-MM-DD:HH:mm:ss') + `Z`;
+    const date = dayjs.utc(dateWithoutOffset);
 
-    return date.tz(timezone, true).format();
+    return date
+      .tz(timezone, false)
+      .day(date.day())
+      .month(date.month())
+      .year(date.year())
+      .hour(date.hour())
+      .minute(date.minute())
+      .second(date.second())
+      .format();
   } catch (err) {
     return utcISODate;
   }
