@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Portal from '../portal';
 import Tooltip from '../tooltip';
@@ -77,19 +77,31 @@ const MousePositionedTooltip = ({
   const tooltipContainerRef = useRef<HTMLDivElement>(null);
   const requestFrameRef = React.useRef(null);
 
+  const calculateTooltipPosotion = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (tooltipPortal) {
+        return { x: e.clientX, y: e.clientY + window.scrollY };
+      } else {
+        return { x: e.clientX, y: e.clientY };
+      }
+    },
+    [tooltipPortal]
+  );
+
   return (
     <div
       ref={tooltipContainerRef}
       onMouseEnter={(e) => {
+        e.persist();
         setTooltipVisible(true);
-        setTooltipPosition({ x: e.clientX, y: e.clientY });
+        setTooltipPosition(calculateTooltipPosotion(e));
       }}
       onMouseMove={(e) => {
-        const mousePosition = { x: e.clientX, y: e.clientY };
+        e.persist();
         if (requestFrameRef.current)
           cancelAnimationFrame(requestFrameRef.current);
         requestFrameRef.current = requestAnimationFrame(() => {
-          setTooltipPosition(mousePosition);
+          setTooltipPosition(calculateTooltipPosotion(e));
         });
       }}
       onMouseLeave={() => {
