@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.11.10...@keen.io/dataviz@2.11.11) (2021-04-06)
+
+
+### Bug Fixes
+
+* 🐛 omit chart settings for metric without query ([9dd4b8b](https://github.com/keen/keen/commit/9dd4b8bce953420530933517a9d42ed5018d2d71))
+
+
+
+
+
 ## [2.11.10](https://github.com/keen/keen/compare/@keen.io/dataviz@2.11.9...@keen.io/dataviz@2.11.10) (2021-04-02)
 
 **Note:** Version bump only for package @keen.io/dataviz
