@@ -1,7 +1,7 @@
 import convertByOffset from '../convert-by-offset';
 import convertByTimezone from '../convert-by-timezone';
 
-import { DEFAULT_TIMEZONE } from '../contants';
+import { DEFAULT_TIMEZONES } from '../contants';
 
 /**
  * Converts date based on provided offset in minutes or named timezone.
@@ -14,7 +14,10 @@ import { DEFAULT_TIMEZONE } from '../contants';
 const convertDate = (utcISODate: string, timezone: string | number) => {
   if (typeof timezone === 'number' && timezone !== 0) {
     return convertByOffset(utcISODate, timezone);
-  } else if (typeof timezone === 'string' && timezone !== DEFAULT_TIMEZONE) {
+  } else if (
+    typeof timezone === 'string' &&
+    !DEFAULT_TIMEZONES.includes(timezone)
+  ) {
     return convertByTimezone(utcISODate, timezone);
   }
 

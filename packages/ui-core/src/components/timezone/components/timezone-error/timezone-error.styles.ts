@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Heading = styled.div`
   margin-bottom: 5px;
+  display: inline-flex;
 `;
 
 export const Title = styled.div`
