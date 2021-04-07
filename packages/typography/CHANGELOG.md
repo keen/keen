@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/keen/keen/compare/@keen.io/typography@1.2.1...@keen.io/typography@1.3.0) (2021-04-07)
+
+
+### Features
+
+* 🎸 extend typography with text overflow ([28a9b7c](https://github.com/keen/keen/commit/28a9b7cf1d5921a1b9522ba05dd174eb8d50cefe))
+
+
+
+
+
 ## [1.2.1](https://github.com/keen/keen/compare/@keen.io/typography@1.2.0...@keen.io/typography@1.2.1) (2021-03-31)
 
 **Note:** Version bump only for package @keen.io/typography

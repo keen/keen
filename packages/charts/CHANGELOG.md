@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.14](https://github.com/keen/keen/compare/@keen.io/charts@2.12.13...@keen.io/charts@2.12.14) (2021-04-07)
+
+
+### Bug Fixes
+
+* 🐛 funnel step text truncate ([7785af7](https://github.com/keen/keen/commit/7785af711013e4e50409159cccb3f21435ceeb90))
+
+
+
+
+
 ## [2.12.13](https://github.com/keen/keen/compare/@keen.io/charts@2.12.12...@keen.io/charts@2.12.13) (2021-04-06)
 
 **Note:** Version bump only for package @keen.io/charts
