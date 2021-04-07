@@ -5,11 +5,9 @@ import { colors } from '@keen.io/colors';
 import { Variant } from './types';
 import { FontWeight, LineHeight } from '../../types';
 
-import {
-  DEFAULT_FONT_WEIGHT,
-  DEFAULT_LINE_HEIGHT,
-  SHARED_STYLE,
-} from '../../constants';
+import { DEFAULT_FONT_WEIGHT, DEFAULT_LINE_HEIGHT } from '../../constants';
+
+import { RESET_SPACING, TEXT_ELLIPSIS } from '../../css-mixins';
 
 type Props = {
   /** Headline variant */
@@ -20,10 +18,12 @@ type Props = {
   lineHeight?: LineHeight;
   /** Color */
   color?: string;
+  /** Text overflow */
+  enableTextEllipsis?: boolean;
 };
 
 export const BodyText = styled.p<Props>`
-  ${SHARED_STYLE};
+  ${RESET_SPACING};
   font-family: 'Lato', sans-serif;
 
   ${variant({
@@ -47,12 +47,15 @@ export const BodyText = styled.p<Props>`
     color: ${props.color};
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
+
+    ${props.enableTextEllipsis && TEXT_ELLIPSIS};
   `};
 `;
 
 BodyText.defaultProps = {
   lineHeight: DEFAULT_LINE_HEIGHT,
   color: colors.black[100],
+  enableTextEllipsis: false,
 };
 
 export default BodyText;
