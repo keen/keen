@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.20.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.3...@keen.io/ui-core@2.20.4) (2021-04-07)
+
+
+### Bug Fixes
+
+* 🐛 Swapped z-index values of dropdown and tooltip ([132f8cb](https://github.com/keen/keen/commit/132f8cbe9b443752cb59007f09edf10fda3cf9eb))
+
+
+
+
+
 ## [2.20.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.2...@keen.io/ui-core@2.20.3) (2021-04-07)
 
 **Note:** Version bump only for package @keen.io/ui-core
