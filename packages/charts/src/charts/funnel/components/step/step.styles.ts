@@ -12,6 +12,7 @@ export const HeaderContainer = styled.div<{
     props.fixedWidth &&
     css`
       width: 30%;
+      min-width: 0;
     `};
   ${(props) =>
     props.centerItems &&

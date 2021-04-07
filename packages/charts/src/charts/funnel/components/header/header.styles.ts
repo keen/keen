@@ -19,3 +19,7 @@ export const Container = styled.div<{ useColumns: boolean }>`
       flex-direction: column;
     `};
 `;
+
+export const TextContent = styled.div`
+  min-width: 0;
+`;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Badge, Text } from '@keen.io/ui-core';
 
-import { Container, TextContainer, Label } from './header.styles';
+import { Container, TextContainer, Label, TextContent } from './header.styles';
 
 import { Theme } from '../../../../types';
 
@@ -31,7 +31,7 @@ export const Header: FC<Props> = ({
 
   return (
     <Container useColumns={flipBadge}>
-      <div>
+      <TextContent>
         {header.value.enabled && (
           <TextContainer>
             <Text {...header.value.typography}>{value}</Text>
@@ -42,7 +42,7 @@ export const Header: FC<Props> = ({
             {label}
           </Text>
         </Label>
-      </div>
+      </TextContent>
       {header.badge.enabled && (
         <div>
           <Badge variant={header.badge.variant}>
