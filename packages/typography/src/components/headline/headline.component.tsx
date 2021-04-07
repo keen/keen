@@ -5,8 +5,8 @@ import { colors } from '@keen.io/colors';
 import { Variant } from './types';
 import { FontWeight, LineHeight } from '../../types';
 
-import { HEADER_STYLE } from './constants';
-import { TEXT_ELLIPSIS } from '../../constants';
+import { HEADER_STYLE } from './css-mixins';
+import { TEXT_ELLIPSIS } from '../../css-mixins';
 
 type Props = {
   /** Headline variant */
