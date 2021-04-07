@@ -23,6 +23,8 @@ export const setChartSettings = ({
   let caption = '';
   let settings = {};
 
+  if (!Object.keys(query).length) return settings;
+
   const prefix = getPrefix(analysisType, percentile);
   if (targetProperty) {
     caption = prefix + ' ' + targetProperty;
