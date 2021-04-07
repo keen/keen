@@ -18,7 +18,7 @@ type Props = {
   /** Color */
   color?: string;
   /** Enable text overflow */
-  isTextOverflow?: boolean;
+  enableTextEllipsis?: boolean;
   /** Children */
   children: React.ReactNode;
 };
@@ -34,7 +34,7 @@ const StyledH1 = styled.h1<Partial<Props>>`
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
 
-    ${props.isTextOverflow && TEXT_ELLIPSIS};
+    ${props.enableTextEllipsis && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -49,7 +49,7 @@ const StyledH2 = styled.h2<Partial<Props>>`
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
 
-    ${props.isTextOverflow && TEXT_ELLIPSIS};
+    ${props.enableTextEllipsis && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -64,7 +64,7 @@ const StyledH3 = styled.h3<Partial<Props>>`
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
 
-    ${props.isTextOverflow && TEXT_ELLIPSIS};
+    ${props.enableTextEllipsis && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -79,7 +79,7 @@ const StyledH4 = styled.h4<Partial<Props>>`
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
 
-    ${props.isTextOverflow && TEXT_ELLIPSIS};
+    ${props.enableTextEllipsis && TEXT_ELLIPSIS};
   `};
 `;
 
@@ -88,7 +88,7 @@ export const Headline: FC<Props> = ({
   fontWeight,
   lineHeight,
   color,
-  isTextOverflow = false,
+  enableTextEllipsis = false,
   children,
 }) => {
   switch (variant) {
@@ -98,7 +98,7 @@ export const Headline: FC<Props> = ({
           fontWeight={fontWeight}
           lineHeight={lineHeight}
           color={color}
-          isTextOverflow={isTextOverflow}
+          enableTextEllipsis={enableTextEllipsis}
         >
           {children}
         </StyledH2>
@@ -109,7 +109,7 @@ export const Headline: FC<Props> = ({
           fontWeight={fontWeight}
           lineHeight={lineHeight}
           color={color}
-          isTextOverflow={isTextOverflow}
+          enableTextEllipsis={enableTextEllipsis}
         >
           {children}
         </StyledH3>
@@ -120,7 +120,7 @@ export const Headline: FC<Props> = ({
           fontWeight={fontWeight}
           lineHeight={lineHeight}
           color={color}
-          isTextOverflow={isTextOverflow}
+          enableTextEllipsis={enableTextEllipsis}
         >
           {children}
         </StyledH4>
@@ -131,7 +131,7 @@ export const Headline: FC<Props> = ({
           fontWeight={fontWeight}
           lineHeight={lineHeight}
           color={color}
-          isTextOverflow={isTextOverflow}
+          enableTextEllipsis={enableTextEllipsis}
         >
           {children}
         </StyledH1>

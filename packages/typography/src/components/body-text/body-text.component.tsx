@@ -22,7 +22,7 @@ type Props = {
   /** Color */
   color?: string;
   /** Text overflow */
-  isTextOverflow?: boolean;
+  enableTextEllipsis?: boolean;
 };
 
 export const BodyText = styled.p<Props>`
@@ -51,14 +51,14 @@ export const BodyText = styled.p<Props>`
     line-height: ${props.lineHeight};
     font-weight: ${props.fontWeight};
 
-    ${props.isTextOverflow && TEXT_ELLIPSIS};
+    ${props.enableTextEllipsis && TEXT_ELLIPSIS};
   `};
 `;
 
 BodyText.defaultProps = {
   lineHeight: DEFAULT_LINE_HEIGHT,
   color: colors.black[100],
-  isTextOverflow: false,
+  enableTextEllipsis: false,
 };
 
 export default BodyText;

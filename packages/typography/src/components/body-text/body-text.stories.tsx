@@ -50,7 +50,7 @@ export const Variants = () => (
         lineHeight={text('Line height', '120%')}
         fontWeight={select('Font weight', fontWeightOptions, 400)}
         color={text('Color', colors.black[500])}
-        isTextOverflow={boolean('Text overflow', false)}
+        enableTextEllipsis={boolean('Text ellipsis', false)}
       >
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam quae
         ipsum nostrum explicabo beatae veritatis vel, numquam autem. Harum
