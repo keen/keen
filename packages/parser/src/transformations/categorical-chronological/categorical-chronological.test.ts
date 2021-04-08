@@ -251,3 +251,33 @@ test('transform categorical results by offset in minutes', () => {
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const result: IntervalResult[] = [
+    {
+      value: [
+        {
+          author: 200,
+          result: 95,
+        },
+        { author: 400, result: 719 },
+      ],
+      timeframe: {
+        start: '2019-01-01T01:00:00.000Z',
+        end: '2019-01-01T00:01:00.000Z',
+      },
+    },
+  ];
+
+  const keys = transformCategoricalChronological(
+    { result },
+    {
+      transformation: 'categorical-chronological',
+      fillEmptyIntervalsKeys: false,
+      mergePropertiesOrder: null,
+      dateModifier: -60,
+    }
+  ).keys;
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+});

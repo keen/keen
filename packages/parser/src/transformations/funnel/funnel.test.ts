@@ -64,3 +64,9 @@ test('transform funnel results', () => {
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const keys = transformFunnel(funnelAnalysis).keys;
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+});

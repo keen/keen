@@ -101,7 +101,6 @@ export const LineChart: FC<Props> = ({
     setLayoutReady,
     setLayoutMargins,
   } = useDynamicChartLayout(useDynamicLayout, margins);
-
   const {
     lines,
     marks,
@@ -119,7 +118,7 @@ export const LineChart: FC<Props> = ({
     margins: layoutMargins,
     dimension: svgDimensions,
     labelSelector,
-    keys,
+    keys: ['200 | 200', '504 | 200', '200', '400', '429'],
     disabledKeys,
     minValue,
     maxValue,

@@ -25,3 +25,11 @@ test('transform nominal data', () => {
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const result = ['Miss', 'Mr.', 'Mrs.', 'Ms.'];
+
+  const keys = transformNominal({ result }).keys;
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+});

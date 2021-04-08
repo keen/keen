@@ -153,3 +153,27 @@ test('transform chronological nominal results in "America/Grenada (-04:00)" name
     }
   `);
 });
+
+test('all keys should be string', () => {
+  const result = [
+    {
+      value: [
+        { 200: 'Afghanistan', result: [] },
+        {
+          200: 'Albania',
+          result: ['Dr.', 'Miss', 'Mr.', 'Mrs.', 'Ms.'],
+        },
+      ],
+      timeframe: {
+        start: '2019-01-01T20:00:00.000Z',
+        end: '2020-01-01T00:00:00.000Z',
+      },
+    },
+  ];
+
+  const keys = transformChronologicalCategoricalNominal({ result }, {
+    dateModifier: 'America/Grenada',
+  } as ParserSettings).keys;
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+});

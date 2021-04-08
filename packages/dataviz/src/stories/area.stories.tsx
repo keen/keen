@@ -19,7 +19,7 @@ export const simpleResults = () => {
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
     const dataviz = new KeenDataViz({
-      type: 'area',
+      type: 'line',
       container: container.current,
       widget: {
         title: {
@@ -34,12 +34,27 @@ export const simpleResults = () => {
     client
       .query({
         analysis_type: 'count',
-        event_collection: 'book_purchase',
-        timeframe: 'last_2_years',
+        event_collection: 'analysis_api_call',
+        timeframe: 'last_14_days',
         timezone: 'UTC',
-        interval: 'every_35_days',
+        interval: 'daily',
+        filters: [
+          {
+            operator: 'eq',
+            property_name: 'compute_source_info.system',
+            property_type: 'String',
+            property_value: 'cached_queries',
+          },
+        ],
+        group_by: [
+          'cached_queries_metadata.last_run_status',
+          'response.status_code',
+        ],
       })
-      .then((res: any) => dataviz.render(res));
+      .then((res: any) => {
+        console.log(res);
+        dataviz.render(res);
+      });
   }, []);
 
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
