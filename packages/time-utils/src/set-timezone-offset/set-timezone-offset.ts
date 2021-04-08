@@ -33,8 +33,8 @@ const setTimezoneOffset = (utcISODate: string, timezoneName: string) => {
     } else {
       const date = dayjs.utc(utcDate);
 
-      return date
-        .tz(timezone, false)
+      return dayjs
+        .tz(utcDate, timezone)
         .date(date.date())
         .month(date.month())
         .year(date.year())
