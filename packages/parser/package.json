@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/parser",
-  "version": "2.8.13",
+  "version": "2.8.14",
   "description": "Keen parser",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -29,7 +29,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@keen.io/time-utils": "^1.2.2",
+    "@keen.io/time-utils": "^1.2.3",
     "d3-time-format": "^2.2.3"
   },
   "devDependencies": {
