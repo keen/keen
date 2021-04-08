@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.4...@keen.io/ui-core@2.21.0) (2021-04-08)
+
+
+### Features
+
+* 🎸 Added transparent variant to dropable container ([e3d5da6](https://github.com/keen/keen/commit/e3d5da629a6b558da9c8efbbf638e55d7767331a))
+
+
+
+
+
 ## [2.20.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.3...@keen.io/ui-core@2.20.4) (2021-04-07)
 
 
