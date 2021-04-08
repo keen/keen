@@ -12,6 +12,9 @@ import { DEPRECATED_TIMEZONES, DEFAULT_TIMEZONES } from '../contants';
 /**
  * Change date timezone offset without modyfing time.
  *
+ * @TODO: Wait for dayjs signature fix
+ * https://github.com/iamkun/dayjs/issues/1370
+ *
  * @param utcISODate - Date UTC ISO string
  * @param timezone - named timezone
  * @return iso date string with timezone offset
@@ -33,8 +36,8 @@ const setTimezoneOffset = (utcISODate: string, timezoneName: string) => {
     } else {
       const date = dayjs.utc(utcDate);
 
-      return date
-        .tz(timezone, false)
+      return dayjs
+        .tz(utcDate, timezone)
         .date(date.date())
         .month(date.month())
         .year(date.year())
