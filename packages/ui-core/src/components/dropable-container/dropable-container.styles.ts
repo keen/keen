@@ -25,6 +25,10 @@ const containerVariants = {
       borderColor: transparentize(0.85, colors.blue[100]),
       color: colors.blue['500'],
     },
+    transparent: {
+      background: 'none',
+      color: colors.blue['500'],
+    },
   },
 };
 

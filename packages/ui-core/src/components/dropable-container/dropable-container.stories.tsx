@@ -21,7 +21,11 @@ export const Basic: React.FC = () => {
       isActive={editMode}
       variant={select(
         'Variant',
-        { primary: 'primary', secondary: 'secondary' },
+        {
+          primary: 'primary',
+          secondary: 'secondary',
+          transparent: 'transparent',
+        },
         'primary',
         'Options'
       )}
