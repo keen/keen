@@ -118,7 +118,7 @@ export const LineChart: FC<Props> = ({
     margins: layoutMargins,
     dimension: svgDimensions,
     labelSelector,
-    keys: ['200 | 200', '504 | 200', '200', '400', '429'],
+    keys,
     disabledKeys,
     minValue,
     maxValue,
