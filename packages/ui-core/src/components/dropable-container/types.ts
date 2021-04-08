@@ -1,1 +1,1 @@
-export type DropableContainerVariant = 'primary' | 'secondary';
+export type DropableContainerVariant = 'primary' | 'secondary' | 'transparent';
