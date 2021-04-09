@@ -3,6 +3,7 @@ import { Icon } from '@keen.io/icons';
 import { action } from '@storybook/addon-actions';
 
 import { Button } from './button.component';
+import { boolean } from '@storybook/addon-knobs';
 
 export default {
   title: 'Styleguide / Button',
@@ -49,7 +50,11 @@ primaryButtonLink.story = {
 };
 
 export const secondary = () => (
-  <Button onClick={action('click')} variant="secondary">
+  <Button
+    onClick={action('click')}
+    variant="secondary"
+    isDisabled={boolean('Is disabled', true)}
+  >
     Button
   </Button>
 );

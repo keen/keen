@@ -59,6 +59,16 @@ const activeVariants = {
   },
 };
 
+const disabledVariants = {
+  prop: 'variant',
+  variants: {
+    secondary: {
+      color: transparentize(0.5, colors.white['500']),
+      backgroundColor: transparentize(0.5, colors.blue['500']),
+    },
+  },
+};
+
 const buttonMixin = () => css`
   font-family: 'Lato Bold', sans-serif;
   text-decoration: none;
@@ -102,6 +112,13 @@ export const StyledButton = styled.button<Props>`
   ${(props) => props.body === 'solid' && variant(solidButtonVariants)};
   ${(props) => props.body === 'outline' && variant(outlineVariants)};
   ${(props) => props.isActive && variant(activeVariants)};
+  ${(props) => props.isDisabled && variant(disabledVariants)};
+  ${(props) =>
+    props.isDisabled &&
+    css`
+      cursor: not-allowed;
+    `};
+
   ${variant(sizeVariants)};
 `;
 
