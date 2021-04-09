@@ -171,9 +171,16 @@ test('all keys should be string', () => {
     },
   ];
 
-  const keys = transformChronologicalCategoricalNominal({ result }, {
+  const { data, keys } = transformChronologicalCategoricalNominal({ result }, {
     dateModifier: 'America/Grenada',
-  } as ParserSettings).keys;
+  } as ParserSettings);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
 
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });

@@ -269,7 +269,7 @@ test('all keys should be strings', () => {
     },
   ];
 
-  const keys = transformCategoricalChronological(
+  const { data, keys } = transformCategoricalChronological(
     { result },
     {
       transformation: 'categorical-chronological',
@@ -277,7 +277,14 @@ test('all keys should be strings', () => {
       mergePropertiesOrder: null,
       dateModifier: -60,
     }
-  ).keys;
+  );
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
 
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });

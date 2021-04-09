@@ -59,7 +59,14 @@ test('all keys should be strings', () => {
     },
   ];
 
-  const keys = transformCategoricalNominal({ result }).keys;
+  const { data, keys } = transformCategoricalNominal({ result });
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
 
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });

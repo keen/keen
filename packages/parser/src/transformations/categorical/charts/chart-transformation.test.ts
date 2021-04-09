@@ -187,7 +187,13 @@ test('all keys should be strings', () => {
     { country: 100, city: 200, result: 32 },
   ];
 
-  const keys = categoricalChartTransformation(input, parserSettings).keys;
+  const { data, keys } = categoricalChartTransformation(input, parserSettings);
 
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });

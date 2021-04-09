@@ -66,7 +66,14 @@ test('all keys should be strings', () => {
     { 200: 'Germany', 400: 100 },
   ];
 
-  const keys = tableChartTransformation(input).keys;
+  const { data, keys } = tableChartTransformation(input);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
 
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });

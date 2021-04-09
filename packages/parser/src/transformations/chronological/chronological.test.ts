@@ -142,9 +142,16 @@ test('all keys should be strings', () => {
     },
   ];
 
-  const keys = transformChronological({ result }, {
+  const { data, keys } = transformChronological({ result }, {
     dateModifier: 'Africa/Nairobi',
-  } as ParserSettings).keys;
+  } as ParserSettings);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
 
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });
