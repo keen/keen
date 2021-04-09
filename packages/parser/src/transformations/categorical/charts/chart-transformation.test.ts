@@ -173,3 +173,27 @@ test('transforms data with "null" values', () => {
     expectedResult
   );
 });
+
+test('all keys should be strings', () => {
+  const parserSettings: ParserSettings = {
+    fillEmptyIntervalsKeys: false,
+    mergePropertiesOrder: ['country', 'city'],
+    transformation: 'categorical',
+  };
+
+  const input = [
+    { country: 100, city: 200, result: 20 },
+    { country: 100, city: 200, result: 20 },
+    { country: 100, city: 200, result: 32 },
+  ];
+
+  const { data, keys } = categoricalChartTransformation(input, parserSettings);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

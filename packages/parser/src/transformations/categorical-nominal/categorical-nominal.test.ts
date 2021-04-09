@@ -45,3 +45,28 @@ test('transform categorized nominal results', () => {
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const result = [
+    {
+      200: 'Afghanistan',
+      result: ['Mr.', 'Mrs.', 'Ms.'],
+    },
+    { 200: 'Belize', result: ['Dr.', 'Ms.'] },
+    {
+      200: 'Guernsey',
+      result: ['Dr.'],
+    },
+  ];
+
+  const { data, keys } = transformCategoricalNominal({ result });
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

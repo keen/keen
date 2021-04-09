@@ -47,3 +47,38 @@ test('transform categorical results', () => {
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const query: Query = {
+    analysis_type: 'count',
+    event_collection: 'book_purchase',
+    timeframe: 'this_14_days',
+    group_by: ['name', 'author'],
+  };
+
+  const result = [
+    { result: 97, name: 'Love, Anger, Madness', author: 'Edwidge Danticat' },
+    { result: 730, name: 'Game of Thrones', author: 'George R. R. Martin' },
+    { result: 6, name: 'The Shining', author: 'Stephen King' },
+  ];
+
+  const parserSettings: ParserSettings = {
+    fillEmptyIntervalsKeys: false,
+    mergePropertiesOrder: ['author', 'name'],
+    transformation: 'categorical',
+  };
+
+  const { data, keys } = transformCategorical(
+    { query, result },
+    parserSettings
+  );
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});
