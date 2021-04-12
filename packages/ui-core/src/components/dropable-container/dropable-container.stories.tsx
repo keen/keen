@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import * as React from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
+import { select, boolean, text } from '@storybook/addon-knobs';
 
 import DropableContainer from './dropable-container.component';
 
@@ -35,6 +35,7 @@ export const Basic: React.FC = () => {
       onClick={() => !editMode && setEditMode(true)}
       onDefocus={() => setEditMode(false)}
       value={options}
+      borderRadius={text('Border radius', '', 'Options')}
     >
       {options}
     </DropableContainer>
