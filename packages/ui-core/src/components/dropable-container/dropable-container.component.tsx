@@ -38,6 +38,8 @@ type Props = {
   onSearch?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   /** Error */
   hasError?: boolean;
+  /** Custom border radius */
+  borderRadius?: string;
 };
 
 const DropableContainer: FC<Props> = ({
@@ -53,6 +55,7 @@ const DropableContainer: FC<Props> = ({
   dropIndicator,
   variant = 'primary',
   hasError = false,
+  borderRadius,
 }) => {
   const containerRef = useRef(null);
   const outsideClick = useCallback(
@@ -88,6 +91,7 @@ const DropableContainer: FC<Props> = ({
       hasError={hasError}
       onClick={onClick}
       ref={containerRef}
+      borderRadius={borderRadius}
     >
       {searchable && isActive ? (
         <>

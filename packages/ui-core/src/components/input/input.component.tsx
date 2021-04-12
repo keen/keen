@@ -9,6 +9,8 @@ export type Props = {
   hasError?: boolean;
   /** Input component variant */
   variant?: InputVariant;
+  /** Custom border radius */
+  borderRadius?: string;
   /** Render prefix elements handler */
   renderPrefix?: () => JSX.Element;
   /** Render suffix elements handler */
@@ -20,6 +22,7 @@ export const Input = forwardRef(
     {
       hasError = false,
       variant = 'outline',
+      borderRadius,
       renderPrefix,
       renderSuffix,
       ...props
@@ -33,6 +36,7 @@ export const Input = forwardRef(
         hasPrefix={!!renderPrefix}
         hasSuffix={!!renderSuffix}
         variant={variant}
+        borderRadius={borderRadius}
         {...props}
       />
       {renderPrefix && (
