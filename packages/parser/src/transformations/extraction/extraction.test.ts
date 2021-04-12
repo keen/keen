@@ -28,3 +28,21 @@ test('transform extraction results', () => {
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const result = [
+    { keen: { id: '@event/01' }, 100: { 200: 'John', 300: null } },
+    { keen: { id: '@event/02' }, 400: 'Nathan' },
+  ];
+
+  const { data, keys } = transformExtraction({ result });
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

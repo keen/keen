@@ -103,3 +103,41 @@ test('transforms data with double group by settings and ignores additional prope
     choroplethChartTransformation(input, parserSettings, groupBySettings)
   ).toMatchObject(expectedResult);
 });
+
+test('all keys should be strings', () => {
+  const parserSettings: ParserSettings = {
+    fillEmptyIntervalsKeys: false,
+    mergePropertiesOrder: null,
+    transformation: 'categorical',
+  };
+
+  const groupBySettings = [
+    'user.address.country',
+    'user.gender',
+    'user.prefix',
+  ];
+
+  const input = [
+    {
+      'user.prefix': 'Mr',
+      'user.gender': 'Trans*Female',
+      'user.address.country': 'Bhutan',
+      result: 10,
+    },
+  ];
+
+  const { data, keys } = choroplethChartTransformation(
+    input,
+    parserSettings,
+    groupBySettings
+  );
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

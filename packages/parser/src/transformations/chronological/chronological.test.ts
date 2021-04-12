@@ -123,3 +123,35 @@ test('transforms chronological results in "Africa/Nairobi (+03:00)" named timezo
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const result = [
+    {
+      value: 0,
+      timeframe: {
+        start: '2021-03-19T21:00:00.000Z',
+        end: '2021-03-20T21:00:00.000Z',
+      },
+    },
+    {
+      value: 0,
+      timeframe: {
+        start: '2021-03-20T21:00:00.000Z',
+        end: '2021-03-21T21:00:00.000Z',
+      },
+    },
+  ];
+
+  const { data, keys } = transformChronological({ result }, {
+    dateModifier: 'Africa/Nairobi',
+  } as ParserSettings);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

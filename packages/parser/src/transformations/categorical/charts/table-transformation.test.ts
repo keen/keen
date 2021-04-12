@@ -58,3 +58,22 @@ test('transforms data and fill records with missing keys', () => {
 
   expect(tableChartTransformation(input)).toMatchObject(expectedResult);
 });
+
+test('all keys should be strings', () => {
+  const input = [
+    { 200: 'Poland', 300: 'Keen.io', 400: 20 },
+    { 200: 'USA', 400: 32 },
+    { 200: 'Germany', 400: 100 },
+  ];
+
+  const { data, keys } = tableChartTransformation(input);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

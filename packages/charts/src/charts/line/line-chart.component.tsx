@@ -101,7 +101,6 @@ export const LineChart: FC<Props> = ({
     setLayoutReady,
     setLayoutMargins,
   } = useDynamicChartLayout(useDynamicLayout, margins);
-
   const {
     lines,
     marks,

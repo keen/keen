@@ -81,3 +81,28 @@ test('transform nominal results in "America/Anguilla (-04:00)" named timezone', 
     }
   `);
 });
+
+test('all keys should be strings', () => {
+  const result = [
+    {
+      value: ['Dr.', 'Miss', 'Mr.', 'Mrs.', 'Ms.'],
+      timeframe: {
+        start: '2020-01-01T16:00:00.000Z',
+        end: '2021-01-01T00:00:00.000Z',
+      },
+    },
+  ];
+
+  const { data, keys } = transformChronologicalNominal({ result }, {
+    dateModifier: 'America/Anguilla',
+  } as ParserSettings);
+
+  const dataKeys = [];
+
+  for (const property in data[0]) {
+    dataKeys.push(property);
+  }
+
+  expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
+  expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
+});

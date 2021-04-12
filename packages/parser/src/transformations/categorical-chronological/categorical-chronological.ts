@@ -49,7 +49,7 @@ export const transformCategoricalChronological = (
       [KEEN_KEY]: convertDate(timeframe.start, dateModifier),
       ...intervalData,
     });
-    intervalKeys.forEach((key) => keys.add(key));
+    intervalKeys.forEach((key) => keys.add(key.toString()));
   });
 
   if (fillEmptyIntervalsKeys) {
