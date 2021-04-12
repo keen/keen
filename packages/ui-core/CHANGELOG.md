@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.21.0...@keen.io/ui-core@2.22.0) (2021-04-12)
+
+
+### Features
+
+* 🎸 Disabled button styles added ([ccb0ebb](https://github.com/keen/keen/commit/ccb0ebb648be87c5fb16827a857a3b32c92e0194))
+
+
+
+
+
 # [2.21.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.4...@keen.io/ui-core@2.21.0) (2021-04-08)
 
 

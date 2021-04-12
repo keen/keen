@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.16](https://github.com/keen/keen/compare/@keen.io/parser@2.8.15...@keen.io/parser@2.8.16) (2021-04-12)
+
+
+### Bug Fixes
+
+* 🐛 Fix for keys transformations to strings ([d5582e5](https://github.com/keen/keen/commit/d5582e516f4405628c267dc179c1d6e254372323))
+
+
+
+
+
 ## [2.8.15](https://github.com/keen/keen/compare/@keen.io/parser@2.8.14...@keen.io/parser@2.8.15) (2021-04-08)
 
 **Note:** Version bump only for package @keen.io/parser

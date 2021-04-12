@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.17](https://github.com/keen/keen/compare/@keen.io/charts@2.12.16...@keen.io/charts@2.12.17) (2021-04-12)
+
+
+### Bug Fixes
+
+* 🐛 Fix for keys transformations to strings ([d5582e5](https://github.com/keen/keen/commit/d5582e516f4405628c267dc179c1d6e254372323))
+* 🐛 Testing clean up ([a58cbb4](https://github.com/keen/keen/commit/a58cbb4c3e5562ae39939a182fe8ef796df02b61))
+
+
+
+
+
 ## [2.12.16](https://github.com/keen/keen/compare/@keen.io/charts@2.12.15...@keen.io/charts@2.12.16) (2021-04-08)
 
 **Note:** Version bump only for package @keen.io/charts
