@@ -36,6 +36,7 @@ export const Container = styled.div<{
   variant: DropableContainerVariant;
   isActive?: boolean;
   hasError?: boolean;
+  borderRadius?: string;
 }>`
   ${variant(containerVariants)};
   display: flex;
@@ -52,6 +53,11 @@ export const Container = styled.div<{
     props.isActive &&
     css`
       box-shadow: 0 0 3px 1px rgba(29, 39, 41, 0.15);
+    `};
+  ${(props) =>
+    props.borderRadius &&
+    css`
+      border-radius: ${props.borderRadius};
     `};
 
   transition: box-shadow 0.2s;

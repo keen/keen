@@ -77,6 +77,7 @@ export const StyledInput = styled.input<{
   hasPrefix: boolean;
   hasSuffix: boolean;
   variant: InputVariant;
+  borderRadius?: string;
 }>`
   width: 100%;
 
@@ -100,6 +101,12 @@ export const StyledInput = styled.input<{
     props.hasSuffix &&
     css`
       padding-right: 35px;
+    `};
+
+  ${(props) =>
+    props.borderRadius &&
+    css`
+      border-radius: ${props.borderRadius};
     `};
 
   ${(props) =>
