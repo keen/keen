@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.22.0...@keen.io/ui-core@2.23.0) (2021-04-12)
+
+
+### Features
+
+* 🎸 extend components with custom border radius ([3f74293](https://github.com/keen/keen/commit/3f742936cb6cd01a6330e4554fae2b0f5f2b7c77))
+
+
+
+
+
 # [2.22.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.21.0...@keen.io/ui-core@2.22.0) (2021-04-12)
 
 
