@@ -32,6 +32,8 @@ const render = (overProps: any = {}, overChartBaseProps: any = {}) => {
     theme,
     margins,
     svgDimensions: { width: 100, height: 100 },
+    xScaleSettings: {},
+    yScaleSettings: {},
     ...overChartBaseProps,
   };
 
