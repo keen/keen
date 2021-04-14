@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.1](https://github.com/keen/keen/compare/@keen.io/charts@2.13.0...@keen.io/charts@2.13.1) (2021-04-14)
+
+
+### Bug Fixes
+
+* 🐛 debug() removed from test ([c3bce06](https://github.com/keen/keen/commit/c3bce06121c1196e38c392251b09d33c6f8fc9f0))
+* 🐛 Secondary value metric formatter ([51b967d](https://github.com/keen/keen/commit/51b967daa8762da4f05824087c8d5d6841f43f67))
+
+
+
+
+
 # [2.13.0](https://github.com/keen/keen/compare/@keen.io/charts@2.12.18...@keen.io/charts@2.13.0) (2021-04-14)
 
 
