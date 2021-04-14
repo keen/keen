@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/keen/keen/compare/@keen.io/charts@2.12.18...@keen.io/charts@2.13.0) (2021-04-14)
+
+
+### Features
+
+* 🎸 Compute widget layout on formatLabel change ([78db194](https://github.com/keen/keen/commit/78db1946d5f83f2aa6be5f11cf29b95ca6cd4593))
+
+
+
+
+
 ## [2.12.18](https://github.com/keen/keen/compare/@keen.io/charts@2.12.17...@keen.io/charts@2.12.18) (2021-04-12)
 
 **Note:** Version bump only for package @keen.io/charts
