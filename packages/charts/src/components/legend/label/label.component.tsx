@@ -9,7 +9,7 @@ type Props = {
   typography: Typography;
   markColor: string;
   onClick: (disabled: boolean) => void;
-  text?: string;
+  text?: string | boolean;
   truncate?: number;
 };
 
@@ -21,7 +21,7 @@ const Label: FC<Props> = ({
   truncate = 20,
 }) => {
   const [disabled, setDisable] = useState(false);
-
+  const label = text.toString();
   return (
     <StyledLabel
       onClick={() => {
@@ -31,14 +31,14 @@ const Label: FC<Props> = ({
     >
       <Wrapper
         role="button"
-        title={text}
+        title={label}
         style={{ opacity: disabled ? 0.6 : 1 }}
       >
         <Circle background={disabled ? colors.gray[400] : markColor} />
         <Text {...typography}>
-          {text && text.length > truncate
-            ? `${text.slice(0, truncate)}...`
-            : text}
+          {label && label.length > truncate
+            ? `${label.slice(0, truncate)}...`
+            : label}
         </Text>
       </Wrapper>
     </StyledLabel>

@@ -20,7 +20,7 @@ const TooltipItem: FC<Props> = ({ data, theme = defaultTheme }) => {
   ) : (
     <Container>
       <Text {...tooltipSettings.labels.typography}>
-        {data.label}
+        {data.label.toString()}
         <span>:&nbsp;</span>
       </Text>
       <Text {...tooltipSettings.values.typography}>{data.value}</Text>
