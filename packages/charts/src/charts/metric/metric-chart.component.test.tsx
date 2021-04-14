@@ -53,9 +53,8 @@ test('renders <Excerpt /> component with percent difference', () => {
 test('renders <Excerpt /> component with value difference', () => {
   const pattern = '${number; 0.00}';
   const {
-    wrapper: { getByText, debug },
+    wrapper: { getByText },
   } = render({ type: 'difference', formatValue: pattern });
-  debug();
   expect(getByText('1081.00')).toBeInTheDocument();
 });
 
