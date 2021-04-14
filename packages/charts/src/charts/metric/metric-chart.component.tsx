@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 import { Text } from '@keen.io/ui-core';
 import {
-  formatNumber,
   formatValue as valueFormatter,
   Formatter,
 } from '@keen.io/charts-utils';
@@ -205,7 +204,7 @@ export const MetricChart: FC<Props> = ({
                 <Text {...excerpt.typography}>
                   {type === 'difference' && usePercentDifference
                     ? `${excerptValue}%`
-                    : formatNumber(excerptValue)}
+                    : valueFormatter(excerptValue, formatValue)}
                 </Text>
               </Wrapper>
             </Excerpt>
