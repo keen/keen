@@ -21,7 +21,7 @@ const Label: FC<Props> = ({
   truncate = 20,
 }) => {
   const [disabled, setDisable] = useState(false);
-  const label = text.toString();
+  const label = `${text}`;
   return (
     <StyledLabel
       onClick={() => {
