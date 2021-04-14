@@ -113,6 +113,8 @@ const Axes = ({
     initialMargins,
     xTitle,
     yTitle,
+    yScaleSettings.formatLabel,
+    xScaleSettings.formatLabel,
   ]);
 
   const axisX = theme.axisX.enabled && {

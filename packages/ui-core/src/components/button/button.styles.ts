@@ -65,6 +65,12 @@ const disabledVariants = {
     secondary: {
       color: transparentize(0.5, colors.white['500']),
       backgroundColor: transparentize(0.5, colors.blue['500']),
+      boxShadow: 'none',
+      '&:hover': {
+        color: transparentize(0.5, colors.white['500']),
+        backgroundColor: transparentize(0.5, colors.blue['500']),
+        boxShadow: 'none',
+      },
     },
   },
 };
