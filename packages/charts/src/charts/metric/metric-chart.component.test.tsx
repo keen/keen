@@ -51,19 +51,21 @@ test('renders <Excerpt /> component with percent difference', () => {
 });
 
 test('renders <Excerpt /> component with value difference', () => {
+  const pattern = '${number; 0.00}';
   const {
-    wrapper: { getByText },
-  } = render({ type: 'difference' });
-
-  expect(getByText('1.1k')).toBeInTheDocument();
+    wrapper: { getByText, debug },
+  } = render({ type: 'difference', formatValue: pattern });
+  debug();
+  expect(getByText('1081.00')).toBeInTheDocument();
 });
 
 test('renders <Excerpt /> component with compared value', () => {
+  const pattern = '${number; 0a}';
   const {
     wrapper: { getByText },
-  } = render({ type: 'comparison' });
+  } = render({ type: 'comparison', formatValue: pattern });
 
-  expect(getByText('2.2k')).toBeInTheDocument();
+  expect(getByText('2k')).toBeInTheDocument();
 });
 
 test('not renders <Excerpt /> component for metric with single data serie', () => {
@@ -99,9 +101,11 @@ test('applies "typography" theming properties on metric value', () => {
 });
 
 test('applies "typography" theming properties on excerpt label', () => {
+  const pattern = '${number; 0.0a}';
+
   const {
     wrapper: { getByText },
-  } = render({ type: 'difference' });
+  } = render({ type: 'difference', formatValue: pattern });
   const el = getByText('1.1k');
   const { metric } = defaultTheme;
 
