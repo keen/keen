@@ -1,5 +1,6 @@
 import { useMemo, useCallback } from 'react';
 import {
+  formatValue,
   getFromPath,
   getKeysDifference,
   transformToPercent,
@@ -105,7 +106,7 @@ const useDistributedTooltip = ({
   return {
     label: getTooltipLabel(data[recordIndex], labelSelector, data.length > 1),
     percentValue,
-    totalValue,
+    totalValue: formatValue(totalValue, tooltipSettings.formatValue) as string,
     items,
   };
 };
