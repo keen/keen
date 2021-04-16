@@ -222,6 +222,9 @@ export const StackedNormal = () => {
             values: { typography: { fontColor: colors.black['500'] } },
           },
         },
+        tooltipSettings: {
+          formatValue: '${} pcs.',
+        },
       },
     });
 

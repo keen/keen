@@ -1,5 +1,6 @@
 import { useMemo, useCallback } from 'react';
 import {
+  formatValue,
   getFromPath,
   getKeysDifference,
   transformToPercent,
@@ -67,15 +68,19 @@ const useDistributedTooltip = ({
   );
 
   const totalValue = useMemo(() => {
-    return isStacked && selectors.length > 1
-      ? getKeysDifference(keys, disabledKeys).reduce(
-          (acc: number, keyName: string) => {
-            const value = data[recordIndex][keyName];
-            return acc + value;
-          },
-          0
-        )
-      : null;
+    if (isStacked && selectors.length > 1) {
+      const total = getKeysDifference(keys, disabledKeys).reduce(
+        (acc: number, keyName: string) => {
+          const value = data[recordIndex][keyName];
+          return acc + value;
+        },
+        0
+      );
+      return isPercentage
+        ? total
+        : (formatValue(total, tooltipSettings.formatValue) as string);
+    }
+    return null;
   }, [selectors.length > 1, recordIndex, disabledKeys]);
 
   const percentValue = isPercentage
