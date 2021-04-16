@@ -36,22 +36,10 @@ const options = {
 };
 
 const bulletList = [
-  {
-    color: 'red',
-    value: 'red',
-  },
-  {
-    color: 'blue',
-    value: 'blue',
-  },
-  {
-    color: 'green',
-    value: 'green',
-  },
-  {
-    color: 'black',
-    value: 'black',
-  },
+  { color: colors.blue[100], data: 'First' },
+  { color: colors.green[100], data: 'Second' },
+  { color: colors.red[100], data: 'Third' },
+  { color: colors.orange[100], data: 'Fourth' },
 ];
 
 export const withKnobs = () => (
@@ -113,7 +101,10 @@ DarkMode.story = {
 export const BulletPoints = () => (
   <Wrapper>
     <Tooltip>
-      <BulletList list={bulletList} />
+      <BulletList
+        items={bulletList}
+        renderItem={(index, element) => <>{element.data}</>}
+      />
     </Tooltip>
   </Wrapper>
 );
