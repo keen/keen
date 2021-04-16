@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.2](https://github.com/keen/keen/compare/@keen.io/charts@2.13.1...@keen.io/charts@2.13.2) (2021-04-16)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes ([08d77cb](https://github.com/keen/keen/commit/08d77cb5de7ea5ce8627c698e32ad59e751af675))
+* 🐛 Missing legend  labels - boolean to string ([b3878d4](https://github.com/keen/keen/commit/b3878d4918d8f8e573a331adab56ba1baede0d2f))
+
+
+
+
+
 ## [2.13.1](https://github.com/keen/keen/compare/@keen.io/charts@2.13.0...@keen.io/charts@2.13.1) (2021-04-14)
 
 
