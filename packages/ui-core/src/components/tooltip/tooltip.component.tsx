@@ -157,6 +157,7 @@ Tooltip.defaultProps = {
   hasArrow: true,
   hasSpacing: true,
   arrowDirection: 'bottom',
+  lineHeight: 'initial',
 };
 
 export default Tooltip;
