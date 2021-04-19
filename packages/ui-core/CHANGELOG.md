@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.23.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.1...@keen.io/ui-core@2.23.2) (2021-04-19)
+
+
+### Bug Fixes
+
+* 🐛 Line height in tooltip set to initial value ([d6b97e0](https://github.com/keen/keen/commit/d6b97e05037792592d9b2c819827595b003dac76))
+
+
+
+
+
 ## [2.23.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.0...@keen.io/ui-core@2.23.1) (2021-04-14)
 
 

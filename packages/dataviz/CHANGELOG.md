@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.21](https://github.com/keen/keen/compare/@keen.io/dataviz@2.11.20...@keen.io/dataviz@2.11.21) (2021-04-19)
+
+
+### Bug Fixes
+
+* 🐛 Bar chart - total value in tooltip formatter applied ([23ea7f4](https://github.com/keen/keen/commit/23ea7f4a47297e06e04ea117164d277792ffdfc3))
+
+
+
+
+
 ## [2.11.20](https://github.com/keen/keen/compare/@keen.io/dataviz@2.11.19...@keen.io/dataviz@2.11.20) (2021-04-16)
 
 **Note:** Version bump only for package @keen.io/dataviz

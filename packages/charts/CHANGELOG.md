@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.3](https://github.com/keen/keen/compare/@keen.io/charts@2.13.2...@keen.io/charts@2.13.3) (2021-04-19)
+
+
+### Bug Fixes
+
+* 🐛 Bar chart - total value in tooltip formatter applied ([23ea7f4](https://github.com/keen/keen/commit/23ea7f4a47297e06e04ea117164d277792ffdfc3))
+* 🐛 Percentage mode -total value formatter apply rule change ([161fd8e](https://github.com/keen/keen/commit/161fd8eff0639ba8ab5f96eb36a65838e8703873))
+* 🐛 Typefix ([c269c74](https://github.com/keen/keen/commit/c269c74a3d9ff39baf5c0157425da542d998d2ca))
+
+
+
+
+
 ## [2.13.2](https://github.com/keen/keen/compare/@keen.io/charts@2.13.1...@keen.io/charts@2.13.2) (2021-04-16)
 
 
