@@ -47,4 +47,5 @@ export const StyledButton = styled.button<Props>`
 export const IconSocket = styled.div`
   display: flex;
   align-items: center;
+  line-height: 1;
 `;
