@@ -21,6 +21,7 @@ type Props = Partial<Typography> & {
   hasSpacing?: boolean;
   arrowDirection?: Position;
   arrowTop?: string;
+  lineHeight?: string;
 };
 
 const LIGHT_MODE_BACKGROUND = Color(colors.white['500'])
@@ -46,6 +47,7 @@ const Wrapper = styled.div<Props>`
   font-family: ${(props) => props.fontFamily};
   font-size: ${(props) => props.fontSize + 'px'};
   color: ${(props) => props.fontColor};
+  line-height: ${(props) => props.lineHeight};
   box-shadow: ${(props) =>
     props.hasShadow ? '0 10px 24px 0 rgba(29, 39, 41, 0.15)' : 'none'};
   position: relative;
