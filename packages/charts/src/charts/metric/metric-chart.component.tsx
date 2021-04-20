@@ -127,7 +127,14 @@ export const MetricChart: FC<Props> = ({
       const offsetLeft = node.offsetLeft;
       const offsetTop = node.offsetTop;
       const { left, top } = node.getBoundingClientRect();
-      setChartPosition({ left, top, offsetLeft, offsetTop });
+      const absoluteTopPosition =
+        window.scrollY !== 0 ? window.scrollY + top - offsetTop : top;
+      setChartPosition({
+        left,
+        top: absoluteTopPosition,
+        offsetLeft,
+        offsetTop,
+      });
     }
   }, []);
 
@@ -172,7 +179,6 @@ export const MetricChart: FC<Props> = ({
               }}
               onMouseMove={(e) => {
                 e.persist();
-
                 const { left, top, offsetTop, offsetLeft } = chartPosition;
                 const x = e.clientX - (left - window.scrollX) + offsetLeft;
                 const y = e.clientY - (top - window.scrollY) + offsetTop;

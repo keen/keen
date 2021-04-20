@@ -73,6 +73,7 @@ test('renders `dark-mode`', () => {
       font-family: 'Lato Regular',sans-serif;
       font-size: 14px;
       color: #3A494D;
+      line-height: initial;
       box-shadow: 0 10px 24px 0 rgba(29,39,41,0.15);
       position: relative;
       background-color: rgba(58,73,77,0.95);
@@ -126,6 +127,7 @@ test('not renders box shadow', () => {
       font-family: 'Lato Regular',sans-serif;
       font-size: 14px;
       color: #3A494D;
+      line-height: initial;
       box-shadow: none;
       position: relative;
       background-color: rgba(255,255,255,0.95);
