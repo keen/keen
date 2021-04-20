@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.23.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.2...@keen.io/ui-core@2.23.3) (2021-04-20)
+
+
+### Bug Fixes
+
+* 🐛 align icons in CircleButton ([6ef943e](https://github.com/keen/keen/commit/6ef943edbbcc4b524f7eb77330e09f0688e10003))
+* 🐛 Broken tests fixed ([812f516](https://github.com/keen/keen/commit/812f516ba0afd67584ab9aaaba4087da99f52b7f))
+* 🐛 initial line height fix ([bdd64c7](https://github.com/keen/keen/commit/bdd64c7440ef555ddfed95ad55ed79bae5d33e7d))
+* 🐛 remove <Dropdown> shake while animating ([2091e25](https://github.com/keen/keen/commit/2091e25f49b8316f5d6b3213a40e76f7229119de))
+
+
+
+
+
 ## [2.23.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.1...@keen.io/ui-core@2.23.2) (2021-04-19)
 
 

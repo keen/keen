@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.76](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.75...@keen.io/embedded-registration@2.1.76) (2021-04-20)
+
+**Note:** Version bump only for package @keen.io/embedded-registration
+
+
+
+
+
 ## [2.1.75](https://github.com/keen/keen/compare/@keen.io/embedded-registration@2.1.74...@keen.io/embedded-registration@2.1.75) (2021-04-19)
 
 **Note:** Version bump only for package @keen.io/embedded-registration
