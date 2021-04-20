@@ -49,6 +49,7 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton blank va
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 1;
 }
 
 <button
@@ -112,6 +113,7 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton danger v
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 1;
 }
 
 <button
@@ -178,6 +180,7 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton primary 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 1;
 }
 
 <button
@@ -241,6 +244,7 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton secondar
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 1;
 }
 
 <button
@@ -304,6 +308,7 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton success 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  line-height: 1;
 }
 
 <button
