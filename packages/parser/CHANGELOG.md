@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.23](https://github.com/keen/keen/compare/@keen.io/parser@2.8.22...@keen.io/parser@2.8.23) (2021-04-21)
+
+
+### Bug Fixes
+
+* 🐛 issue with null in transformation ([6afe516](https://github.com/keen/keen/commit/6afe5160f120da8eca825b0720ab05fac76df4c9))
+
+
+
+
+
 ## [2.8.22](https://github.com/keen/keen/compare/@keen.io/parser@2.8.21...@keen.io/parser@2.8.22) (2021-04-20)
 
 **Note:** Version bump only for package @keen.io/parser
