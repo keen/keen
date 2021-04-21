@@ -288,3 +288,47 @@ test('all keys should be strings', () => {
   expect(keys.every((key) => typeof key === 'string')).toBeTruthy();
   expect(dataKeys.every((key) => typeof key === 'string')).toBeTruthy();
 });
+
+test('transform categorical results with "null" values', () => {
+  const result: IntervalResult[] = [
+    {
+      value: [
+        { 'geo_information.continent': 'Oceania', result: 0 },
+        { 'geo_information.continent': 'South America', result: 0 },
+        { 'geo_information.continent': null, result: 0 },
+      ],
+      timeframe: {
+        start: '2019-01-01T00:00:00.000Z',
+        end: '2019-01-01T00:00:00.000Z',
+      },
+    },
+  ];
+
+  expect(
+    transformCategoricalChronological(
+      { result },
+      {
+        transformation: 'categorical-chronological',
+        fillEmptyIntervalsKeys: false,
+        mergePropertiesOrder: null,
+        dateModifier: null,
+      }
+    )
+  ).toMatchInlineSnapshot(`
+    Object {
+      "data": Array [
+        Object {
+          "Oceania": 0,
+          "South America": 0,
+          "keen.key": "2019-01-01T00:00:00.000Z",
+          "null": 0,
+        },
+      ],
+      "keys": Array [
+        "Oceania",
+        "South America",
+        "null",
+      ],
+    }
+  `);
+});
