@@ -28,7 +28,7 @@ jobs:
           command: yarn && npx lerna bootstrap
       - run:
           name: Build packages
-          command: npx lerna run build --concurrency 4
+          command: npx lerna run build --concurrency 2
       - run:
           name: Bump version of changed packages
           command: npx lerna version --conventional-commits --no-push --yes
