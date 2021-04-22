@@ -1,7 +1,7 @@
 export const UI_LAYERS = {
   notification: 50,
+  tooltip: 45,
   modal: 40,
-  tooltip: 30,
   dropdown: 20,
   element: 10,
 };
