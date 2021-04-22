@@ -34,7 +34,7 @@ jobs:
           command: npx lerna version --conventional-commits --no-push --yes
       - run:
           name: Publish
-          command: npx lerna publish from-git --yes --concurrency 2
+          command: npx lerna publish from-git --yes
       - run:
           name: Push changes
           command: git push --follow-tags --no-verify origin master
@@ -66,7 +66,7 @@ jobs:
             fi
       - run:
           name: Build
-          command: npx lerna run build
+          command: npx lerna run build --concurrency 2
 
 workflows:
   version: 2
