@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Icon } from '@keen.io/icons';
+import { BodyText } from '@keen.io/typography';
 import { colors } from '@keen.io/colors';
 
-import { Header, Title, MotionIcon } from './tree-node.styles';
+import { Header, MotionIcon } from './tree-node.styles';
 
 import { PADDING } from './constants';
 
@@ -22,7 +23,15 @@ const TreeNode: FC<Props> = ({ name, deepnessLevel, isOpen, onClick }) => (
     style={{ paddingLeft: PADDING + deepnessLevel * PADDING }}
     onClick={onClick}
   >
-    <Title>{name}</Title>
+    <BodyText
+      variant="body2"
+      color={colors.blue[500]}
+      fontWeight="bold"
+      lineHeight={1}
+      enableTextEllipsis
+    >
+      {name}
+    </BodyText>
     <MotionIcon
       initial={false}
       animate={isOpen ? { rotate: 90 } : { rotate: 0 }}
