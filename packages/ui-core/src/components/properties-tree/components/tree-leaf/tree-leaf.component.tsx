@@ -1,9 +1,12 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { transparentize } from 'polished';
+import { BodyText } from '@keen.io/typography';
+import { colors } from '@keen.io/colors';
 import Tooltip from '../../../tooltip';
 import Portal from '../../../portal';
 
-import { Container, Type, Path, Name } from './tree-leaf.styles';
+import { Container, Type } from './tree-leaf.styles';
 
 import { SEPARATOR, PADDING } from './constants';
 
@@ -67,8 +70,24 @@ const TreeLeaf: FC<Props> = ({
       }}
       onClick={(e) => onClick(e, propertyPath)}
     >
-      <Name ref={nameRef}>{propertyName}</Name>
-      <Type>{propertyType}</Type>
+      <BodyText
+        ref={nameRef}
+        variant="body2"
+        lineHeight={1}
+        color={colors.blue[500]}
+        enableTextEllipsis
+      >
+        {propertyName}
+      </BodyText>
+      <Type>
+        <BodyText
+          variant="body2"
+          lineHeight={1}
+          color={transparentize(0.5, colors.black[500])}
+        >
+          {propertyType}
+        </BodyText>
+      </Type>
       <AnimatePresence>
         {tooltip.visible && (
           <Portal modalContainer={modalContainer}>
@@ -91,10 +110,17 @@ const TreeLeaf: FC<Props> = ({
                 {propertyPath
                   .split(SEPARATOR)
                   .map((path: string, idx: number, collection) => (
-                    <Path isBold={idx + 1 === collection.length} key={idx}>
+                    <BodyText
+                      key={idx}
+                      variant="body2"
+                      color={colors.white[500]}
+                      fontWeight={
+                        idx + 1 === collection.length ? 'bold' : 'normal'
+                      }
+                    >
                       {idx > 0 ? '.' : ''}
                       {path}
-                    </Path>
+                    </BodyText>
                   ))}
               </Tooltip>
             </motion.div>
