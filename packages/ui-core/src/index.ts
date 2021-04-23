@@ -88,6 +88,7 @@ import {
   Title as TitleComponent,
   PropertiesTree,
   EmptySearch,
+  DynamicPortal,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -195,4 +196,5 @@ export {
   convertRelativeTime,
   getInterval,
   createTree,
+  DynamicPortal,
 };

@@ -1,24 +1,20 @@
-import React, { FC, RefObject } from 'react';
+import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from '@keen.io/ui-core';
-
-import { Portal } from '../../../../components';
 import { TOOLTIP_MOTION } from '../../../../constants';
-
 import { Tooltip as TooltipSettings } from '../../../../types';
 
 type Props = {
   tooltipPosition: { x: number; y: number };
   tooltipSettings: Pick<TooltipSettings, 'mode' | 'labels'>;
   children: React.ReactNode;
-  portalRef?: RefObject<HTMLDivElement>;
 };
 
-const TooltipContent = ({
+export const MetricTooltip = ({
   tooltipPosition,
   tooltipSettings,
   children,
-}: Pick<Props, 'tooltipPosition' | 'tooltipSettings' | 'children'>) => (
+}: Props) => (
   <AnimatePresence>
     <motion.div
       {...TOOLTIP_MOTION}
@@ -44,31 +40,4 @@ const TooltipContent = ({
       </Tooltip>
     </motion.div>
   </AnimatePresence>
-);
-
-export const MetricTooltip: FC<Props> = ({
-  tooltipPosition,
-  tooltipSettings,
-  children,
-  portalRef,
-}) => (
-  <>
-    {portalRef && portalRef.current ? (
-      <Portal portalRef={portalRef.current}>
-        <TooltipContent
-          tooltipPosition={tooltipPosition}
-          tooltipSettings={tooltipSettings}
-        >
-          {children}
-        </TooltipContent>
-      </Portal>
-    ) : (
-      <TooltipContent
-        tooltipPosition={tooltipPosition}
-        tooltipSettings={tooltipSettings}
-      >
-        {children}
-      </TooltipContent>
-    )}
-  </>
 );
