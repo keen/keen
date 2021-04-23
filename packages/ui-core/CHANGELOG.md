@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.23.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.4...@keen.io/ui-core@2.23.5) (2021-04-23)
+
+
+### Bug Fixes
+
+* 🐛 Checkbox alignment ([d671ed0](https://github.com/keen/keen/commit/d671ed08eaf5f9c8ff142922a8e44deb7b2eec07))
+* 🐛 PropertiesTree line height ([54d6c34](https://github.com/keen/keen/commit/54d6c34870c8fc69b08ff3a77a37fa3cbabd0b57))
+
+
+
+
+
 ## [2.23.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.3...@keen.io/ui-core@2.23.4) (2021-04-22)
 
 **Note:** Version bump only for package @keen.io/ui-core
