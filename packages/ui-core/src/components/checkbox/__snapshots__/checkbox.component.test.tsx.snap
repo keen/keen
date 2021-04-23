@@ -4,6 +4,7 @@ exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] =
 .c0 {
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
 }
 
 .c2 {
@@ -75,6 +76,7 @@ exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`]
 .c0 {
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
 }
 
 .c2 {
