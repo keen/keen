@@ -9,6 +9,7 @@ import { Variant } from './types';
 export const Container = styled.div`
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
 `;
 
 const iconSocketVariants = {
