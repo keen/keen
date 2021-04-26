@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.24.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.0...@keen.io/ui-core@2.24.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* 🐛 Missing position in dynamic portal added ([1c49e7f](https://github.com/keen/keen/commit/1c49e7f903ca3ccc1f7ef5c1e9d36dba69e33989))
+* 🐛 Removed id from element ([724018c](https://github.com/keen/keen/commit/724018c4c1d445464498596ee0e76ae2b5051e4f))
+
+
+
+
+
 # [2.24.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.5...@keen.io/ui-core@2.24.0) (2021-04-26)
 
 
