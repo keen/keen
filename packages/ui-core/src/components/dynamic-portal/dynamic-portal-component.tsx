@@ -14,7 +14,6 @@ export const DynamicPortal = ({
   const el = useRef(null);
   useEffect(() => {
     el.current = document.createElement('div');
-    el.current.id = 'dynamic-portal';
     el.current.style.cssText = `z-index: ${zIndex || UI_LAYERS.tooltip};
                                 position: absolute;
                                 top: 0;
