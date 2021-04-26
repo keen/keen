@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.5...@keen.io/ui-core@2.24.0) (2021-04-26)
+
+
+### Features
+
+* 🎸 Dynamic portal component ([b6a2a22](https://github.com/keen/keen/commit/b6a2a22084b7908c2d4b87f213ed7e5fb92a06d7))
+
+
+
+
+
 ## [2.23.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.4...@keen.io/ui-core@2.23.5) (2021-04-23)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/keen/keen/compare/@keen.io/charts@2.13.6...@keen.io/charts@2.14.0) (2021-04-26)
+
+
+### Features
+
+* 🎸 Dynamic portal component ([b6a2a22](https://github.com/keen/keen/commit/b6a2a22084b7908c2d4b87f213ed7e5fb92a06d7))
+
+
+
+
+
 ## [2.13.6](https://github.com/keen/keen/compare/@keen.io/charts@2.13.5...@keen.io/charts@2.13.6) (2021-04-23)
 
 **Note:** Version bump only for package @keen.io/charts
