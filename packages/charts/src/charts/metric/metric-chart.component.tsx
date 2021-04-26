@@ -1,7 +1,7 @@
-import React, { FC, useState, useCallback, useRef } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
-import { Text } from '@keen.io/ui-core';
+import { Text, DynamicPortal } from '@keen.io/ui-core';
 import {
   formatValue as valueFormatter,
   Formatter,
@@ -81,7 +81,6 @@ export const MetricChart: FC<Props> = ({
   type = 'simple',
   usePercentDifference = false,
   secondaryValueDescription,
-  portalContainer,
 }) => {
   const { value, previousValue, difference } = generateMetric({
     labelSelector,
@@ -112,34 +111,11 @@ export const MetricChart: FC<Props> = ({
 
   const { tooltip: tooltipSettings } = theme;
   const excerptValue = type === 'difference' ? difference.value : previousValue;
-
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [chartPosition, setChartPosition] = useState({
-    left: 0,
-    top: 0,
-    offsetLeft: 0,
-    offsetTop: 0,
-  });
-
-  const layoutRef = useCallback((node) => {
-    if (node !== null) {
-      const offsetLeft = node.offsetLeft;
-      const offsetTop = node.offsetTop;
-      const { left, top } = node.getBoundingClientRect();
-      const absoluteTopPosition =
-        window.scrollY !== 0 ? window.scrollY + top - offsetTop : top;
-      setChartPosition({
-        left,
-        top: absoluteTopPosition,
-        offsetLeft,
-        offsetTop,
-      });
-    }
-  }, []);
 
   return (
-    <Layout ref={layoutRef}>
+    <Layout>
       <ValueContainer>
         <AnimatePresence>
           <motion.div {...textMotion}>
@@ -154,15 +130,16 @@ export const MetricChart: FC<Props> = ({
         </AnimatePresence>
         {caption && <Text {...captionSettings.typography}>{caption}</Text>}
         {secondaryValueDescription && tooltipVisible && (
-          <MetricTooltip
-            tooltipPosition={tooltipPosition}
-            tooltipSettings={tooltipSettings}
-            portalRef={portalContainer}
-          >
-            <Text {...tooltipSettings.labels.typography}>
-              {secondaryValueDescription}
-            </Text>
-          </MetricTooltip>
+          <DynamicPortal>
+            <MetricTooltip
+              tooltipPosition={tooltipPosition}
+              tooltipSettings={tooltipSettings}
+            >
+              <Text {...tooltipSettings.labels.typography}>
+                {secondaryValueDescription}
+              </Text>
+            </MetricTooltip>
+          </DynamicPortal>
         )}
         {difference && (
           <div>
@@ -171,22 +148,14 @@ export const MetricChart: FC<Props> = ({
               background={excerpt.backgroundColor}
               onMouseEnter={(e) => {
                 setTooltipVisible(true);
-
-                const { left, top, offsetTop, offsetLeft } = chartPosition;
-                const x = e.clientX - (left - window.scrollX) + offsetLeft;
-                const y = e.clientY - (top - window.scrollY) + offsetTop;
-                setTooltipPosition({ x, y });
+                setTooltipPosition({ x: e.clientX, y: e.clientY });
               }}
               onMouseMove={(e) => {
                 e.persist();
-                const { left, top, offsetTop, offsetLeft } = chartPosition;
-                const x = e.clientX - (left - window.scrollX) + offsetLeft;
-                const y = e.clientY - (top - window.scrollY) + offsetTop;
-
                 if (requestFrameRef.current)
                   cancelAnimationFrame(requestFrameRef.current);
                 requestFrameRef.current = requestAnimationFrame(() => {
-                  setTooltipPosition({ x, y });
+                  setTooltipPosition({ x: e.clientX, y: e.clientY });
                 });
               }}
               onMouseLeave={() => {

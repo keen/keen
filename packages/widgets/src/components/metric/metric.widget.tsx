@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC } from 'react';
 import { MetricChart, MetricChartSettings } from '@keen.io/charts';
 import { Card } from '@keen.io/ui-core';
 
@@ -8,16 +8,11 @@ type Props = WidgetSettings & MetricChartSettings;
 
 /** Metric Chart widget integrated with other components */
 export const MetricChartWidget: FC<Props> = ({ card, ...props }) => {
-  const portalContainer = useRef(null);
   return (
     <>
       <Card {...card} hideOverflow>
-        <MetricChart
-          {...props}
-          portalContainer={props.secondaryValueDescription && portalContainer}
-        />
+        <MetricChart {...props} />
       </Card>
-      <div ref={portalContainer} />
     </>
   );
 };
