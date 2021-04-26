@@ -14,8 +14,10 @@ export const DynamicPortal = ({
   const el = useRef(null);
   useEffect(() => {
     el.current = document.createElement('div');
-    el.current.id = 'dynamic-portal';
-    el.current.style.zIndex = `${zIndex || UI_LAYERS.tooltip}`;
+    el.current.style.cssText = `z-index: ${zIndex || UI_LAYERS.tooltip};
+                                position: absolute;
+                                top: 0;
+                                left: 0`;
     el.current.setAttribute('data-testid', 'dynamic-portal');
     document.body.appendChild(el.current);
     return () => {
