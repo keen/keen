@@ -16,12 +16,20 @@ export const useZoom = (
   initialScale: number
 ) => {
   const frameRequest = useRef(null);
+  const [zoomDirection, setZoomDirection] = useState<
+    'zoom-in' | 'zoom-out' | null
+  >(null);
 
   useEffect(() => {
     const handlers = zoom()
       .scaleExtent([1, 8])
       .on('zoom', () => {
         const zoom = event.transform;
+        if (event.sourceEvent?.wheelDelta) {
+          const zoomDirection =
+            event.sourceEvent.wheelDelta > 0 ? 'zoom-in' : 'zoom-out';
+          setZoomDirection(zoomDirection);
+        }
         if (frameRequest.current) cancelAnimationFrame(frameRequest.current);
         frameRequest.current = requestAnimationFrame(() => {
           setProjectionState((state: ProjectionState) => ({
@@ -29,6 +37,9 @@ export const useZoom = (
             scale: initialScale * zoom.k,
           }));
         });
+      })
+      .on('end', () => {
+        setZoomDirection(null);
       });
 
     select(element.current).call(handlers);
@@ -37,6 +48,10 @@ export const useZoom = (
       if (handlers) handlers.on('zoom', null);
     };
   }, [element.current]);
+
+  return {
+    zoomDirection,
+  };
 };
 
 export const useDragHandlers = (

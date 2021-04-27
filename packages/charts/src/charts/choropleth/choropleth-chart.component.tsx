@@ -6,6 +6,7 @@ import { ColorMode, RangeType } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
 
 import Map from './map.component';
+import { MapCursor } from './map.styles.';
 import { Tooltip } from './components';
 
 import { ChartBase } from '../../components';
@@ -128,11 +129,28 @@ export const ChoroplethChart: FC<Props> = ({
     THREE_DIMENSION_PROJECTIONS.includes(projection) ? 'rotate' : 'translate'
   );
 
-  useZoom(svgElement, setProjectionState, projectionScale);
+  const { zoomDirection } = useZoom(
+    svgElement,
+    setProjectionState,
+    projectionScale
+  );
 
   useEffect(() => {
     if (dragged && themeTooltipSettings.enabled) hideTooltip();
   }, [dragged]);
+
+  const getCursorType = () => {
+    if (dragged) {
+      return 'grabbing';
+    }
+    if (zoomDirection === 'zoom-in') {
+      return 'zoom-in';
+    }
+    if (zoomDirection === 'zoom-out') {
+      return 'zoom-out';
+    }
+    return 'grab';
+  };
 
   return (
     <>
@@ -174,27 +192,29 @@ export const ChoroplethChart: FC<Props> = ({
           svgDimensions={svgDimensions}
           margins={margins}
         >
-          <Map
-            topology={topology}
-            drawPath={drawPath}
-            graticule={graticule}
-            getColor={getColor}
-            labelKey={labelSelector}
-            geoData={geoData}
-            geoKey={geoKey}
-            valueKey={valueKey}
-            elementsKey={elementsKey}
-            valuesRange={valuesRange}
-            onUpdateGeoMatchStatus={onUpdateGeoMatchStatus}
-            onMouseEnter={(e, meta) => {
-              if (themeTooltipSettings.enabled && !dragged) {
-                updateTooltipPosition(e, null, meta);
-              }
-            }}
-            onMouseLeave={() => {
-              if (themeTooltipSettings.enabled) hideTooltip();
-            }}
-          />
+          <MapCursor cursor={getCursorType()}>
+            <Map
+              topology={topology}
+              drawPath={drawPath}
+              graticule={graticule}
+              getColor={getColor}
+              labelKey={labelSelector}
+              geoData={geoData}
+              geoKey={geoKey}
+              valueKey={valueKey}
+              elementsKey={elementsKey}
+              valuesRange={valuesRange}
+              onUpdateGeoMatchStatus={onUpdateGeoMatchStatus}
+              onMouseEnter={(e, meta) => {
+                if (themeTooltipSettings.enabled && !dragged) {
+                  updateTooltipPosition(e, null, meta);
+                }
+              }}
+              onMouseLeave={() => {
+                if (themeTooltipSettings.enabled) hideTooltip();
+              }}
+            />
+          </MapCursor>
         </ChartBase>
       )}
     </>

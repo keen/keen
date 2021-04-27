@@ -21,14 +21,14 @@ const render = (overProps: any = {}) => {
 
 test('renders tooltip when users hovers on label', () => {
   const {
-    wrapper: { getByText },
+    wrapper: { getByText, getByTestId },
     props,
   } = render();
 
   const labelElement = getByText(props.label);
   fireEvent.mouseEnter(labelElement);
 
-  expect(getByText(props.tooltipMessage)).toBeInTheDocument();
+  expect(getByTestId('dynamic-portal')).toBeInTheDocument();
 });
 
 test('renders disable select', () => {
