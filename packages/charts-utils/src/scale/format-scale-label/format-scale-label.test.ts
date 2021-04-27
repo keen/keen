@@ -28,7 +28,7 @@ test('applies default formatter for time scale based on ticks precision', () => 
     'day'
   );
 
-  expect(result).toMatchInlineSnapshot(`" 1 Sat 20"`);
+  expect(result).toMatchInlineSnapshot(`" 1 Feb 20"`);
 });
 
 test('applies formatter function from scale settings ', () => {
