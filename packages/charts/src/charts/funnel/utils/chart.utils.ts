@@ -1,6 +1,7 @@
 import { line } from 'd3-shape';
 import { scaleLinear, ScaleLinear } from 'd3-scale';
 import { Layout } from '@keen.io/ui-core';
+import { getPaletteColor } from '@keen.io/charts-utils';
 
 import { Dimension, Margins } from '../../../types';
 
@@ -114,7 +115,7 @@ export const generateFunnel = ({
         {
           nextPercentageValue: percentageValue,
           percentageValue,
-          color: colors[index],
+          color: getPaletteColor(index, colors),
           value,
           index,
         },
@@ -128,7 +129,7 @@ export const generateFunnel = ({
         nextPercentageValue:
           maximum === 0 ? 0 : (data[index + 1][key] / maximum) * 100,
         value,
-        color: colors[index],
+        color: getPaletteColor(index, colors),
         index,
       },
     ];

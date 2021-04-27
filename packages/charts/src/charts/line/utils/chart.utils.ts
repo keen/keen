@@ -7,6 +7,7 @@ import {
   transformToPercent,
   normalizeDate,
   sortKeysByValuesSum,
+  getPaletteColor,
 } from '@keen.io/charts-utils';
 import calculateLineStackedRange from './calculate-line-stacked-range';
 
@@ -147,7 +148,7 @@ export const generateGroupedLines = ({
           xScale,
           yScale,
           labelSelector,
-          colors[idx],
+          getPaletteColor(idx, colors),
           keyName,
           markRadius
         )
@@ -156,7 +157,7 @@ export const generateGroupedLines = ({
         key: keyName,
         selector: [idx, keyName],
         d: generateLine(localizedData),
-        color: colors[idx],
+        color: getPaletteColor(idx, colors),
         strokeWidth,
       });
 
@@ -200,7 +201,7 @@ export const generateGroupedLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            colors[idx],
+            getPaletteColor(idx, colors),
             GROUPED_GRADIENT.min,
             GROUPED_GRADIENT.max
           ),
@@ -351,7 +352,7 @@ export const generateStackLines = ({
           xScale,
           yScale,
           labelSelector,
-          colors[idx],
+          getPaletteColor(idx, colors),
           keyName,
           markRadius
         )
@@ -361,7 +362,7 @@ export const generateStackLines = ({
         key: keyName,
         selector: [idx, keyName],
         d: generatePath(newData),
-        color: colors[idx],
+        color: getPaletteColor(idx, colors),
         strokeWidth,
       });
 
@@ -391,7 +392,7 @@ export const generateStackLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            colors[idx],
+            getPaletteColor(idx, colors),
             STACKED_GRADIENT.min,
             STACKED_GRADIENT.max
           ),

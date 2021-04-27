@@ -1,7 +1,7 @@
 import { transparentize } from 'polished';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
-import { colors as colorPalette } from '@keen.io/colors';
 import { Layout, SortMode } from '@keen.io/ui-core';
+import { getPaletteColor } from '@keen.io/charts-utils';
 
 import { GroupMode, StackMode, DataSelector } from '../../../types';
 import { Bar } from '../types';
@@ -64,20 +64,6 @@ export const getBarColor = ({
   }
 
   return activeBar.key === barKey ? transparentize(0.05, color) : color;
-};
-
-/**
- * Get color for the bar, if the pallete ends return black
- *
- * @param idx - index of the bar
- * @param colors - colors array
- * @return a color for a bar
- *
- */
-
-export const getColor = (idx: number, colors: string[]): string => {
-  if (colors[idx]) return colors[idx];
-  return colorPalette.black[500];
 };
 
 /**
@@ -172,7 +158,7 @@ export const calculateGroupedBars = (
         bars.push({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          color: getColor(idx, colors),
+          color: getPaletteColor(idx, colors),
           value,
           ...bar,
         });
