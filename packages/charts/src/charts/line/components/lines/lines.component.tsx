@@ -28,14 +28,12 @@ import ClipPath from '../clip-path';
 
 const HOVER_BAR_HIDE_TIME = 300;
 
-const createLineMotion = (color: string) => ({
+const createLineMotion = () => ({
   hidden: {
     pathLength: 0,
-    stroke: 'rgba(0, 0, 0, 0)',
   },
   visible: {
     pathLength: 1,
-    stroke: color,
   },
 });
 
@@ -112,7 +110,7 @@ const Lines = ({
               areaMode ? 'area' : 'line'
             }`}
             d={d}
-            variants={createLineMotion(color)}
+            variants={createLineMotion()}
             transition={lineTransition}
             initial="hidden"
             animate="visible"

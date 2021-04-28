@@ -1,5 +1,5 @@
 /*eslint @typescript-eslint/no-empty-function: 0*/
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   AreaChart,
   AreaChartSettings,
@@ -28,6 +28,7 @@ export const AreaChartWidget: FC<Props> = ({
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
+  const [activeKey, setActiveKey] = useState(null);
 
   const sortedKeys = sortKeysByValuesSum(props.data, props.keys);
 
@@ -45,6 +46,8 @@ export const AreaChartWidget: FC<Props> = ({
           <SeriesLegend
             {...legend}
             onClick={updateKeys}
+            onMouseOver={(label: string) => setActiveKey(label)}
+            onMouseLeave={() => setActiveKey(null)}
             labels={sortedKeys.map((key: string, idx: number) => ({
               name: key,
               color: theme.colors[idx],
@@ -60,6 +63,7 @@ export const AreaChartWidget: FC<Props> = ({
               theme={theme}
               disabledKeys={disabledKeys}
               svgDimensions={{ width, height }}
+              activeKey={activeKey}
             />
           )}
         </ResponsiveWrapper>

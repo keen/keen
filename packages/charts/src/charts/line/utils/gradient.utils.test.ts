@@ -38,13 +38,13 @@ test('should generate correctly series block height ', () => {
   `);
 });
 
-test('should generate correctly gradient for the block gruped gradient', () => {
+test('should generate correctly default gradient for the block gruped gradient', () => {
   const gradient = generateAreaGradient(
     -5,
     12,
     'red',
-    GROUPED_GRADIENT.min,
-    GROUPED_GRADIENT.max
+    GROUPED_GRADIENT.default.min,
+    GROUPED_GRADIENT.default.max
   );
 
   expect(gradient).toMatchInlineSnapshot(`
@@ -57,13 +57,32 @@ test('should generate correctly gradient for the block gruped gradient', () => {
   `);
 });
 
-test('should generate correctly gradient for the block stacked gradient', () => {
+test('should generate correctly disabled gradient for the block gruped gradient', () => {
   const gradient = generateAreaGradient(
     -5,
     12,
     'red',
-    STACKED_GRADIENT.min,
-    STACKED_GRADIENT.max
+    GROUPED_GRADIENT.disabled.min,
+    GROUPED_GRADIENT.disabled.max
+  );
+
+  expect(gradient).toMatchInlineSnapshot(`
+    Object {
+      "gradientZeroPercent": 70.58823529411765,
+      "negativeColor": "rgba(255, 0, 0, 0.11250000000000002)",
+      "positiveColor": "rgba(255, 0, 0, 0.2)",
+      "zeroPointColor": "rgba(255, 0, 0, 0.05)",
+    }
+  `);
+});
+
+test('should generate correctly default gradient for the block stacked gradient', () => {
+  const gradient = generateAreaGradient(
+    -5,
+    12,
+    'red',
+    STACKED_GRADIENT.default.min,
+    STACKED_GRADIENT.default.max
   );
 
   expect(gradient).toMatchInlineSnapshot(`
@@ -72,6 +91,25 @@ test('should generate correctly gradient for the block stacked gradient', () => 
       "negativeColor": "rgba(255, 0, 0, 0.4666666666666667)",
       "positiveColor": "rgba(255, 0, 0, 0.7)",
       "zeroPointColor": "rgba(255, 0, 0, 0.3)",
+    }
+  `);
+});
+
+test('should generate correctly disabled gradient for the block stacked gradient', () => {
+  const gradient = generateAreaGradient(
+    -5,
+    12,
+    'red',
+    STACKED_GRADIENT.disabled.min,
+    STACKED_GRADIENT.disabled.max
+  );
+
+  expect(gradient).toMatchInlineSnapshot(`
+    Object {
+      "gradientZeroPercent": 70.58823529411765,
+      "negativeColor": "rgba(255, 0, 0, 0.11250000000000002)",
+      "positiveColor": "rgba(255, 0, 0, 0.2)",
+      "zeroPointColor": "rgba(255, 0, 0, 0.05)",
     }
   `);
 });
