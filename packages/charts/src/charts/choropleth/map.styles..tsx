@@ -5,4 +5,8 @@ export const MapCursor = styled.g<{
 }>`
   cursor: ${(props) => props.cursor || 'grab'};
   pointer-events: bounding-box;
+
+  g {
+    pointer-events: fill;
+  }
 `;

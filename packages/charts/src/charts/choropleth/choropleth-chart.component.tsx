@@ -26,6 +26,22 @@ const tooltipMotion = {
   exit: { opacity: 0 },
 };
 
+const getCursorType = (
+  dragged: boolean,
+  zoomDirection: 'zoom-in' | 'zoom-out'
+) => {
+  if (dragged) {
+    return 'grabbing';
+  }
+  if (zoomDirection === 'zoom-in') {
+    return 'zoom-in';
+  }
+  if (zoomDirection === 'zoom-out') {
+    return 'zoom-out';
+  }
+  return 'grab';
+};
+
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
@@ -139,19 +155,6 @@ export const ChoroplethChart: FC<Props> = ({
     if (dragged && themeTooltipSettings.enabled) hideTooltip();
   }, [dragged]);
 
-  const getCursorType = () => {
-    if (dragged) {
-      return 'grabbing';
-    }
-    if (zoomDirection === 'zoom-in') {
-      return 'zoom-in';
-    }
-    if (zoomDirection === 'zoom-out') {
-      return 'zoom-out';
-    }
-    return 'grab';
-  };
-
   return (
     <>
       <AnimatePresence>
@@ -192,7 +195,7 @@ export const ChoroplethChart: FC<Props> = ({
           svgDimensions={svgDimensions}
           margins={margins}
         >
-          <MapCursor cursor={getCursorType()}>
+          <MapCursor cursor={getCursorType(dragged, zoomDirection)}>
             <Map
               topology={topology}
               drawPath={drawPath}
