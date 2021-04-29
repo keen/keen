@@ -8,6 +8,7 @@ import {
   transformToPercent,
   normalizeDate,
   sortKeysByValuesSum,
+  getPaletteColor,
 } from '@keen.io/charts-utils';
 import calculateLineStackedRange from './calculate-line-stacked-range';
 
@@ -139,7 +140,7 @@ export const generateGroupedLines = ({
       const isKeyActive = activeKey && keyName !== activeKey;
       const color = isKeyActive
         ? transparentize(0.8, colors[idx])
-        : colors[idx];
+        : getPaletteColor(idx, colors);
       if (idx === 0)
         steps.push(
           ...generateSteps(
@@ -209,7 +210,7 @@ export const generateGroupedLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            colors[idx],
+            getPaletteColor(idx, colors),
             isKeyActive
               ? GROUPED_GRADIENT.disabled.min
               : GROUPED_GRADIENT.default.min,
@@ -359,7 +360,7 @@ export const generateStackLines = ({
       const isKeyActive = activeKey && keyName !== activeKey;
       const color = isKeyActive
         ? transparentize(0.8, colors[idx])
-        : colors[idx];
+        : getPaletteColor(idx, colors);
       if (idx === 0)
         steps.push(
           ...generateSteps(newData, xScale, yScale, labelSelector, keys[0])
@@ -410,7 +411,7 @@ export const generateStackLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            colors[idx],
+            getPaletteColor(idx, colors),
             isKeyActive
               ? STACKED_GRADIENT.disabled.min
               : STACKED_GRADIENT.default.min,

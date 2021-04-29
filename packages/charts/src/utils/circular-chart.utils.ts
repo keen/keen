@@ -1,7 +1,11 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
 import { colors } from '@keen.io/colors';
-import { getFromPath, calculateHypotenuse } from '@keen.io/charts-utils';
+import {
+  getFromPath,
+  calculateHypotenuse,
+  getPaletteColor,
+} from '@keen.io/charts-utils';
 
 import { Dimension, Margins, DataSelector } from '../types';
 
@@ -154,7 +158,7 @@ export const generateCircularChart = ({
         value: result,
         dataKey: label,
         selector: [idx],
-        color: colors[idx],
+        color: getPaletteColor(idx, colors),
       });
     }
   });

@@ -1,5 +1,5 @@
 import { scaleBand, scaleLinear } from 'd3-scale';
-import { getBarColor, getColor, calculateGroupedBars } from './bar.utils';
+import { getBarColor, calculateGroupedBars } from './bar.utils';
 
 import { chartData } from '../bar-chart.fixtures';
 
@@ -20,20 +20,6 @@ describe('getBarColor()', () => {
     };
     const result = getBarColor(parameters);
     expect(result).toBe('rgba(255,0,0,0.95)');
-  });
-});
-
-describe('getColor()', () => {
-  test('should return green color', () => {
-    const result = getColor(1, colors);
-
-    expect(result).toBe('green');
-  });
-
-  test('should return black color', () => {
-    const result = getColor(3, colors);
-
-    expect(result).toBe('#1D2729');
   });
 });
 
