@@ -38,7 +38,7 @@ test('should generate correctly series block height ', () => {
   `);
 });
 
-test('should generate correctly default gradient for the block gruped gradient', () => {
+test('should generate correctly default gradient for the block grouped gradient', () => {
   const gradient = generateAreaGradient(
     -5,
     12,
@@ -57,7 +57,7 @@ test('should generate correctly default gradient for the block gruped gradient',
   `);
 });
 
-test('should generate correctly disabled gradient for the block gruped gradient', () => {
+test('should generate correctly disabled gradient for the block grouped gradient', () => {
   const gradient = generateAreaGradient(
     -5,
     12,
