@@ -1,5 +1,9 @@
-import { scaleLinear, scaleOrdinal } from 'd3-scale';
-import { calculateRange, calculateScaleDomain } from '@keen.io/charts-utils';
+import { scaleLinear } from 'd3-scale';
+import {
+  calculateRange,
+  calculateScaleDomain,
+  getPaletteColor,
+} from '@keen.io/charts-utils';
 
 import { Dimension, Margins } from '../../../types';
 
@@ -53,8 +57,6 @@ export const generateBubbles = ({
 }: Options) => {
   const bubbles: Bubble[] = [];
 
-  const colorScale = scaleOrdinal(colors);
-
   const { scale: xScale, middlePoint: xScalePoint } = createScale({
     data,
     key: xDomainKey,
@@ -74,7 +76,7 @@ export const generateBubbles = ({
 
   data.forEach((item, idx) => {
     const label = item[labelSelector];
-    const color = colorScale(label);
+    const color = getPaletteColor(idx, colors);
     if (disabledKeys && !disabledKeys.includes(label)) {
       const bubble = {
         key: `${label}-${idx}`,

@@ -45,6 +45,8 @@ import {
   FormatFunction,
 } from './types';
 
+import { getPaletteColor } from './color';
+
 export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
 
 export {
@@ -76,4 +78,5 @@ export {
   getStepsFromInterval,
   sortKeysByValuesSum,
   INTERVAL_TO_PRECISION,
+  getPaletteColor,
 };
