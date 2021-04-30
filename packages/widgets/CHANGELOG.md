@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.4.2...@keen.io/widgets@2.5.0) (2021-04-30)
+
+
+### Features
+
+* 🎸 Area and line chart legend interactions ([d44d7a3](https://github.com/keen/keen/commit/d44d7a3751d2290f0d83e213d8f36f928853b9c6))
+
+
+
+
+
 ## [2.4.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.4.1...@keen.io/widgets@2.4.2) (2021-04-27)
 
 **Note:** Version bump only for package @keen.io/widgets

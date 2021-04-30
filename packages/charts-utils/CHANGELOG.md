@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.4...@keen.io/charts-utils@1.9.0) (2021-04-30)
+
+
+### Bug Fixes
+
+* 🐛 Fix for incorrect axis labels based on timeframe ([e4f5dea](https://github.com/keen/keen/commit/e4f5dea05667eea76a22296b57334731e4e641a9))
+
+
+### Features
+
+* 🎸 Support colors out of defined theme ([15af794](https://github.com/keen/keen/commit/15af794a1e9ea63c7518b6204626182089fcf989))
+
+
+
+
+
 ## [1.8.4](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.3...@keen.io/charts-utils@1.8.4) (2021-03-31)
 
 **Note:** Version bump only for package @keen.io/charts-utils

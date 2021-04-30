@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/keen/keen/compare/@keen.io/charts@2.14.2...@keen.io/charts@2.15.0) (2021-04-30)
+
+
+### Features
+
+* 🎸 Area and line chart legend interactions ([d44d7a3](https://github.com/keen/keen/commit/d44d7a3751d2290f0d83e213d8f36f928853b9c6))
+* 🎸 Support colors out of defined theme ([15af794](https://github.com/keen/keen/commit/15af794a1e9ea63c7518b6204626182089fcf989))
+
+
+
+
+
 ## [2.14.2](https://github.com/keen/keen/compare/@keen.io/charts@2.14.1...@keen.io/charts@2.14.2) (2021-04-27)
 
 **Note:** Version bump only for package @keen.io/charts
