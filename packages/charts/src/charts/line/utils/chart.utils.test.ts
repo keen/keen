@@ -52,7 +52,7 @@ test('applies colors for grouped lines', () => {
   const { lines } = generateGroupedLines(lineChartSettings);
   const colors = lines.map(({ color }) => color);
 
-  expect(colors).toEqual(['red', 'blue', 'green']);
+  expect(colors).toEqual(['red', 'green', 'blue']);
 });
 
 test('do not create grouped lines for disabled data series', () => {
@@ -63,7 +63,7 @@ test('do not create grouped lines for disabled data series', () => {
 
   const result = [
     { key: 'sale', selector: [0, 'sale'] },
-    { key: 'buy', selector: [1, 'buy'] },
+    { key: 'buy', selector: [2, 'buy'] },
   ];
 
   expect(lines).toMatchObject(result);
@@ -92,7 +92,7 @@ test('creates yScale domain for stacked line chart', () => {
 });
 
 test('applies colors for stacked lines', () => {
-  const { lines } = generateGroupedLines(lineChartSettings);
+  const { lines } = generateStackLines(lineChartSettings);
   const colors = lines.map(({ color }) => color);
 
   expect(colors).toEqual(['red', 'blue', 'green']);

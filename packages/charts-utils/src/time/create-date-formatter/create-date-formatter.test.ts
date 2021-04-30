@@ -24,7 +24,7 @@ test('fallbacks to "month" precision formatter', () => {
 test('creates formatter for "day" precision', () => {
   const format = createDateFormatter('day');
 
-  expect(format(date)).toMatchInlineSnapshot(`" 1 Tue 19"`);
+  expect(format(date)).toMatchInlineSnapshot(`" 1 Jan 19"`);
 });
 
 test('creates formatter for "week" precision', () => {

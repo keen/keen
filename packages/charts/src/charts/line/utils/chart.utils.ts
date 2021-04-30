@@ -1,5 +1,6 @@
 import { scaleLinear, scaleUtc } from 'd3-scale';
 import { v4 as uuid } from 'uuid';
+import { transparentize } from 'polished';
 import {
   calculateRange,
   calculateScaleDomain,
@@ -7,6 +8,7 @@ import {
   transformToPercent,
   normalizeDate,
   sortKeysByValuesSum,
+  getPaletteColor,
 } from '@keen.io/charts-utils';
 import calculateLineStackedRange from './calculate-line-stacked-range';
 
@@ -53,6 +55,7 @@ import {
  * @param curve - curve type connecting points
  * @param areaMode - if area path and gradient is needed
  * @param xScaleSettings - time scale settings
+ * @param sortedKeys - keys sorted when activeKey is selected(active draw last/on top)
  * @return stepMode, steps, marks, lines, xScale, yScale, areas, localizedData, gradientBlocks,
  *
  */
@@ -72,6 +75,8 @@ export const generateGroupedLines = ({
   curve,
   areaMode,
   xScaleSettings,
+  activeKey,
+  sortedKeys,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -121,7 +126,8 @@ export const generateGroupedLines = ({
     );
   }
 
-  keys.forEach((keyName: string, idx: number) => {
+  keys.forEach((keyName: string) => {
+    const idx: number = sortedKeys.indexOf(keyName);
     const generateLine: (data: Record<string, any>[]) => string = calculatePath(
       curve,
       xScale,
@@ -131,6 +137,10 @@ export const generateGroupedLines = ({
     );
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
+      const isKeyActive = activeKey && keyName !== activeKey;
+      const color = isKeyActive
+        ? transparentize(0.8, colors[idx])
+        : getPaletteColor(idx, colors);
       if (idx === 0)
         steps.push(
           ...generateSteps(
@@ -147,7 +157,7 @@ export const generateGroupedLines = ({
           xScale,
           yScale,
           labelSelector,
-          colors[idx],
+          color,
           keyName,
           markRadius
         )
@@ -156,7 +166,7 @@ export const generateGroupedLines = ({
         key: keyName,
         selector: [idx, keyName],
         d: generateLine(localizedData),
-        color: colors[idx],
+        color,
         strokeWidth,
       });
 
@@ -200,9 +210,13 @@ export const generateGroupedLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            colors[idx],
-            GROUPED_GRADIENT.min,
-            GROUPED_GRADIENT.max
+            getPaletteColor(idx, colors),
+            isKeyActive
+              ? GROUPED_GRADIENT.disabled.min
+              : GROUPED_GRADIENT.default.min,
+            isKeyActive
+              ? GROUPED_GRADIENT.disabled.max
+              : GROUPED_GRADIENT.default.max
           ),
         });
       }
@@ -241,6 +255,7 @@ export const generateGroupedLines = ({
  * @param stackMode - stack mode settings
  * @param groupMode - group mode settings
  * @param xScaleSettings - time scale settings
+ * @param sortedKeys - keys sorted when activeKey is selected(active draw last/on top)
  * @return stepMode, steps, marks, lines, xScale, yScale, areas, gradientBlocks,
  *
  */
@@ -262,6 +277,7 @@ export const generateStackLines = ({
   stackMode,
   groupMode,
   xScaleSettings,
+  activeKey,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -341,6 +357,10 @@ export const generateStackLines = ({
     );
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
+      const isKeyActive = activeKey && keyName !== activeKey;
+      const color = isKeyActive
+        ? transparentize(0.8, colors[idx])
+        : getPaletteColor(idx, colors);
       if (idx === 0)
         steps.push(
           ...generateSteps(newData, xScale, yScale, labelSelector, keys[0])
@@ -351,7 +371,7 @@ export const generateStackLines = ({
           xScale,
           yScale,
           labelSelector,
-          colors[idx],
+          color,
           keyName,
           markRadius
         )
@@ -361,7 +381,7 @@ export const generateStackLines = ({
         key: keyName,
         selector: [idx, keyName],
         d: generatePath(newData),
-        color: colors[idx],
+        color,
         strokeWidth,
       });
 
@@ -391,9 +411,13 @@ export const generateStackLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            colors[idx],
-            STACKED_GRADIENT.min,
-            STACKED_GRADIENT.max
+            getPaletteColor(idx, colors),
+            isKeyActive
+              ? STACKED_GRADIENT.disabled.min
+              : STACKED_GRADIENT.default.min,
+            isKeyActive
+              ? STACKED_GRADIENT.disabled.max
+              : STACKED_GRADIENT.default.max
           ),
           d: `${generatePath(areaData.firstDataPart)} L${generatePath(
             areaData.secondDataPart
@@ -425,14 +449,18 @@ export const generateStackLines = ({
  */
 
 export const generateLines = (options: Options) => {
-  const { groupMode, stackMode, data, keys } = options;
+  const { groupMode, stackMode, data, keys, activeKey } = options;
 
-  let newOptions = { ...options } as Options;
-  const sortedKeys = sortKeysByValuesSum(data, keys);
-  newOptions = { ...options, keys: sortedKeys };
+  const areaKeys = sortKeysByValuesSum(data, keys);
+  const sortedKeys = [...areaKeys];
+  if (activeKey) {
+    const activeKeyIndex = areaKeys.indexOf(activeKey);
+    if (activeKeyIndex > -1) areaKeys.splice(activeKeyIndex, 1);
+    areaKeys.push(activeKey);
+  }
 
   return groupMode === 'grouped' &&
     (stackMode === 'normal' || stackMode === 'percent')
-    ? generateGroupedLines(newOptions)
-    : generateStackLines(newOptions);
+    ? generateGroupedLines({ ...options, keys: areaKeys, sortedKeys })
+    : generateStackLines({ ...options, keys: sortedKeys });
 };

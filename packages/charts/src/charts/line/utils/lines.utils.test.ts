@@ -28,21 +28,21 @@ test('should generate grouped lines correctly', () => {
         "strokeWidth": 1,
       },
       Object {
-        "color": "blue",
+        "color": "green",
         "d": "M10,137.8181818181818L939.0322580645161,191.63636363636365L490,137.8181818181818",
         "key": "buy",
         "selector": Array [
-          1,
+          2,
           "buy",
         ],
         "strokeWidth": 1,
       },
       Object {
-        "color": "green",
+        "color": "blue",
         "d": "M10,10L939.0322580645161,353.0909090909091L490,10",
         "key": "revenue",
         "selector": Array [
-          2,
+          1,
           "revenue",
         ],
         "strokeWidth": 1,

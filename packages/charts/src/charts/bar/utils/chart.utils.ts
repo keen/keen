@@ -10,9 +10,10 @@ import {
   transformToPercent,
   normalizeDate,
   ScaleSettings,
+  getPaletteColor,
 } from '@keen.io/charts-utils';
 
-import { calculateGroupedBars, getColor } from './bar.utils';
+import { calculateGroupedBars } from './bar.utils';
 
 import { Bar } from '../types';
 import { Dimension, Margins, GroupMode, StackMode } from '../../../types';
@@ -326,7 +327,7 @@ export const generateHorizontalStackedBars = ({
         y: yScale(normalizedData[index][labelSelector]),
         width,
         height: barHeight,
-        color: getColor(keys.indexOf(keyName), colors),
+        color: getPaletteColor(keys.indexOf(keyName), colors),
         value: data[index][keyName],
       };
 
@@ -440,7 +441,7 @@ export const generateVerticalStackedBars = ({
         y: yScale(rangeMax),
         width: barWidth,
         height,
-        color: getColor(keys.indexOf(keyName), colors),
+        color: getPaletteColor(keys.indexOf(keyName), colors),
         value: data[index][keyName],
       };
 

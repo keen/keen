@@ -69,6 +69,8 @@ export type Props = {
   useDynamicLayout?: boolean;
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
+  /** Active key */
+  activeKey?: string;
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -94,6 +96,7 @@ export const LineChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
   tooltipSettings = {},
+  activeKey,
 }) => {
   const {
     layoutMargins,
@@ -129,6 +132,7 @@ export const LineChart: FC<Props> = ({
     stackMode,
     groupMode,
     areaMode,
+    activeKey,
   });
   const svgElement = useRef<SVGSVGElement>(null);
   const computeTooltipRelative = !showAllMarks(stepMode, marks, lines);
