@@ -20,6 +20,8 @@ export type Options = {
   groupMode?: GroupMode;
   stackMode?: StackMode;
   areaMode?: boolean;
+  activeKey?: string;
+  sortedKeys?: string[];
 };
 
 export type Line = {

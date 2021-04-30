@@ -28,25 +28,23 @@ import ClipPath from '../clip-path';
 
 const HOVER_BAR_HIDE_TIME = 300;
 
-const createLineMotion = (color: string) => ({
+const createLineMotion = {
   hidden: {
     pathLength: 0,
-    stroke: 'rgba(0, 0, 0, 0)',
   },
   visible: {
     pathLength: 1,
-    stroke: color,
   },
-});
+};
 
-const createAreaMotion = () => ({
+const createAreaMotion = {
   hidden: {
     opacity: 0,
   },
   visible: {
     opacity: 1,
   },
-});
+};
 
 const lineTransition = { delay: 0.5, duration: 0.8 };
 
@@ -112,7 +110,7 @@ const Lines = ({
               areaMode ? 'area' : 'line'
             }`}
             d={d}
-            variants={createLineMotion(color)}
+            variants={createLineMotion}
             transition={lineTransition}
             initial="hidden"
             animate="visible"
@@ -140,7 +138,7 @@ const Lines = ({
                 fill={gradient ? `url(#gradient-${areas[idx].id})` : color}
                 clipPath={`url(#clip-${areas[idx].id})`}
                 key={`${key}-${curve}-${stackMode}-${groupMode}-area-gradient`}
-                variants={createAreaMotion()}
+                variants={createAreaMotion}
                 transition={areaTransition}
                 initial="hidden"
                 animate="visible"

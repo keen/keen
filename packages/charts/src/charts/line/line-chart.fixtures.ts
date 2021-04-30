@@ -57,4 +57,5 @@ export const lineChart: any = {
   labelSelector: 'label',
   colors: ['red', 'blue', 'green'],
   xScaleSettings: { type: 'time', precision: 'month', useUTC: false },
+  sortedKeys: ['sale', 'revenue', 'buy'],
 };

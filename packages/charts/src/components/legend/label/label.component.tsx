@@ -9,6 +9,8 @@ type Props = {
   typography: Typography;
   markColor: string;
   onClick: (disabled: boolean) => void;
+  onMouseOver?: (label: string | boolean) => void;
+  onMouseLeave?: () => void;
   text?: string | boolean;
   truncate?: number;
 };
@@ -17,6 +19,8 @@ const Label: FC<Props> = ({
   text,
   markColor,
   onClick,
+  onMouseOver,
+  onMouseLeave,
   typography,
   truncate = 20,
 }) => {
@@ -28,6 +32,8 @@ const Label: FC<Props> = ({
         onClick(!disabled);
         setDisable(!disabled);
       }}
+      onMouseOver={() => !disabled && onMouseOver(text)}
+      onMouseLeave={onMouseLeave}
     >
       <Wrapper
         role="button"

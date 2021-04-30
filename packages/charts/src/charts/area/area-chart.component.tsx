@@ -49,6 +49,8 @@ export type Props = {
   useDynamicLayout?: boolean;
   /** Tooltip formatter */
   tooltipSettings?: TooltipSettings;
+  /** Active key */
+  activeKey?: string;
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {
