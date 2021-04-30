@@ -3,7 +3,7 @@ import { TimePrecision } from '../../types';
 export const DATE_FORMATS: Record<TimePrecision, string> = {
   minute: '%I:%M %p',
   hour: '%I:%M %p',
-  day: '%e %a %y',
+  day: '%e %b %y',
   week: '%d %a',
   month: '%b %y',
   year: '%Y',
