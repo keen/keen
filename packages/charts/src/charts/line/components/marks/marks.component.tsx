@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 
 import { Mark, CurveType, StepType } from '../../types';
 
 import { Mark as PointMark, markMotion } from '../../../../components';
 
+import { AnimationVariants } from './types';
 import { GroupMode, StackMode } from '../../../../types';
 
-const pointMotion = {
-  initial: 'hidden',
-  animate: 'show',
-  variants: { hidden: { opacity: 0 }, show: { opacity: 1 } },
-  transition: { delay: 1.2, duration: 0.3 },
-};
+const createPointMotion = (isActive: boolean) => ({
+  [AnimationVariants.Hidden]: { opacity: 0 },
+  [AnimationVariants.Visible]: { opacity: 1 },
+  [AnimationVariants.Active]: {
+    opacity: isActive ? 1 : 0.2,
+  },
+});
+
+const pointTransition = { duration: 0.3 };
 
 type Props = {
   marks: Mark[];
@@ -20,6 +24,7 @@ type Props = {
   curve: CurveType;
   groupMode?: GroupMode;
   stackMode?: StackMode;
+  activeKey?: string;
   onMouseEnter?: (e: React.MouseEvent, mark: Mark) => void;
   onMouseLeave?: (e: React.MouseEvent) => void;
 };
@@ -31,13 +36,37 @@ const Marks = ({
   curve,
   stackMode,
   groupMode,
+  activeKey,
 }: Props) => {
+  const [initialDrawFinished, setInitialDraw] = useState(false);
+  const marksControls = useAnimation();
+
   const [activeMark, setActiveMark] = useState(null);
+
+  useEffect(() => {
+    if (initialDrawFinished) {
+      setInitialDraw(false);
+    }
+
+    marksControls
+      .start(AnimationVariants.Visible, { delay: 1.2, duration: 0.3 })
+      .then(() => {
+        setInitialDraw(true);
+      });
+  }, [marks.length, curve, groupMode, stackMode]);
+
+  useEffect(() => {
+    if (initialDrawFinished && activeKey) {
+      marksControls.start(AnimationVariants.Active);
+    } else if (initialDrawFinished) {
+      marksControls.start(AnimationVariants.Visible);
+    }
+  }, [activeKey]);
 
   return (
     <>
       {marks.map((mark: Mark) => {
-        const { key, color, radius, x, y } = mark;
+        const { key, dataSerieKey, color, radius, x, y } = mark;
         return (
           <g
             key={key}
@@ -56,7 +85,10 @@ const Marks = ({
               cy={y}
               r={radius}
               fill={color}
-              {...pointMotion}
+              initial={AnimationVariants.Hidden}
+              animate={marksControls}
+              variants={createPointMotion(activeKey === dataSerieKey)}
+              transition={pointTransition}
             />
             <AnimatePresence>
               {activeMark === key && (

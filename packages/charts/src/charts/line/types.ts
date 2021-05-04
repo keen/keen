@@ -36,6 +36,7 @@ export type Mark = {
   key: string;
   radius: number;
   color: string;
+  dataSerieKey: string;
   selector: (number | string)[];
   x: number;
   y: number;
