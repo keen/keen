@@ -28,7 +28,7 @@ test('renders provided children', () => {
 test('shows tooltip when is active', async () => {
   const children = 'text';
   const {
-    wrapper: { getByText, queryByText },
+    wrapper: { getByText, queryByTestId },
   } = render({
     children,
     renderContent: () => 'Tooltip content',
@@ -38,15 +38,15 @@ test('shows tooltip when is active', async () => {
   const renderedChildren = getByText(children);
   fireEvent.mouseOver(renderedChildren);
 
-  const tooltipContent = await queryByText('Tooltip content');
+  const tooltip = await queryByTestId('dynamic-portal');
 
-  expect(tooltipContent).toBeInTheDocument();
+  expect(tooltip).toBeInTheDocument();
 });
 
 test('does not show tooltip when is not active', async () => {
   const children = 'text';
   const {
-    wrapper: { getByText, queryByText },
+    wrapper: { getByText, queryByTestId },
   } = render({
     children,
     renderContent: () => 'Tooltip content',
@@ -56,7 +56,7 @@ test('does not show tooltip when is not active', async () => {
   const renderedChildren = getByText(children);
   fireEvent.mouseOver(renderedChildren);
 
-  const tooltipContent = await queryByText('Tooltip content');
+  const tooltip = await queryByTestId('dynamic-portal');
 
-  expect(tooltipContent).not.toBeInTheDocument();
+  expect(tooltip).not.toBeInTheDocument();
 });

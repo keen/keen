@@ -2,6 +2,7 @@ import React, { useRef, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Portal from '../portal';
 import Tooltip from '../tooltip';
+import DynamicPortal from '../dynamic-portal';
 import { TooltipMode } from '../tooltip';
 import { UI_LAYERS } from '../../constants';
 
@@ -122,13 +123,17 @@ const MousePositionedTooltip = ({
               </TooltipContent>
             </Portal>
           ) : (
-            <TooltipContent
-              tooltipPosition={tooltipPosition}
-              tooltipVisible={tooltipVisible}
-              tooltipTheme={tooltipTheme}
-            >
-              {renderContent()}
-            </TooltipContent>
+            tooltipVisible && (
+              <DynamicPortal>
+                <TooltipContent
+                  tooltipPosition={tooltipPosition}
+                  tooltipVisible
+                  tooltipTheme={tooltipTheme}
+                >
+                  {renderContent()}
+                </TooltipContent>
+              </DynamicPortal>
+            )
           )}
         </>
       )}

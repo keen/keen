@@ -17,7 +17,9 @@ export const DynamicPortal = ({
     el.current.style.cssText = `z-index: ${zIndex || UI_LAYERS.tooltip};
                                 position: absolute;
                                 top: 0;
-                                left: 0`;
+                                left: 0;
+                                width: 100%;
+                                `;
     el.current.setAttribute('data-testid', 'dynamic-portal');
     document.body.appendChild(el.current);
     return () => {

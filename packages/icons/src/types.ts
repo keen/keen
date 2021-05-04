@@ -73,4 +73,6 @@ export type IconType =
   | 'clone'
   | 'resize'
   | 'share'
-  | 'warning';
+  | 'warning'
+  | 'move'
+  | 'zoom';
