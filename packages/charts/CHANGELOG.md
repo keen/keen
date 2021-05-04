@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/keen/keen/compare/@keen.io/charts@2.15.0...@keen.io/charts@2.15.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* 🐛 double animation trigger ([452ca34](https://github.com/keen/keen/commit/452ca343e3cb7500c54d35ad5c75315d27e86232))
+* 🐛 Handling zero values in area gradient generator ([51cf61c](https://github.com/keen/keen/commit/51cf61c620071c4a2ed1a3b3e35e4dad7f1564e1))
+
+
+
+
+
 # [2.15.0](https://github.com/keen/keen/compare/@keen.io/charts@2.14.2...@keen.io/charts@2.15.0) (2021-04-30)
 
 
