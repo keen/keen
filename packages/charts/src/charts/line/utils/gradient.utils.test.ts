@@ -113,3 +113,22 @@ test('should generate correctly disabled gradient for the block stacked gradient
     }
   `);
 });
+
+test('should generate gradient percent value as zero when max positive value and min positive value are zero', () => {
+  const gradient = generateAreaGradient(
+    0,
+    0,
+    'red',
+    STACKED_GRADIENT.disabled.min,
+    STACKED_GRADIENT.disabled.max
+  );
+
+  expect(gradient).toMatchInlineSnapshot(`
+    Object {
+      "gradientZeroPercent": 0,
+      "negativeColor": "rgba(255, 0, 0, 0.125)",
+      "positiveColor": "rgba(255, 0, 0, 0.125)",
+      "zeroPointColor": "rgba(255, 0, 0, 0.125)",
+    }
+  `);
+});
