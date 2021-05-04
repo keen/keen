@@ -65,6 +65,8 @@ export const generateAreaGradient = (
   const positiveMax = isMaxNegative ? 0 : Math.abs(maxKeyNameValue);
   const positiveMin = isMinNegative ? Math.abs(minKeyNameValue) : 0;
   const maxValue = positiveMax > positiveMin ? positiveMax : positiveMin;
+  const minAndMaxValueAreZero = positiveMax === 0 && positiveMin === 0;
+
   const colorScale = scaleLinear<string>()
     .domain([0, maxValue])
     .range([
@@ -76,6 +78,8 @@ export const generateAreaGradient = (
     positiveColor: colorScale(positiveMax),
     zeroPointColor: colorScale(0),
     negativeColor: colorScale(positiveMin),
-    gradientZeroPercent: (positiveMax / (positiveMax + positiveMin)) * 100,
+    gradientZeroPercent: minAndMaxValueAreZero
+      ? 0
+      : (positiveMax / (positiveMax + positiveMin)) * 100,
   };
 };
