@@ -66,6 +66,8 @@ import Actions from './actions.component';
 import Settings from './settings.component';
 import Share from './share.component';
 import Warning from './warning.component';
+import Move from './move.component';
+import Zoom from './zoom.component';
 
 import { IconType } from '../types';
 
@@ -207,5 +209,9 @@ export const getIcon = (type: IconType) => {
       return AlignRight;
     case 'warning':
       return Warning;
+    case 'move':
+      return Move;
+    case 'zoom':
+      return Zoom;
   }
 };

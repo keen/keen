@@ -11,7 +11,7 @@ import {
   theme as defaultTheme,
 } from '@keen.io/charts';
 
-import { GeoMatchError } from './components';
+import { ChartInteractionLegend, GeoMatchError } from './components';
 
 import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
@@ -91,19 +91,22 @@ export const ChoroplethChartWidget: FC<Props> = ({
                   {geoMatchError ? (
                     <GeoMatchError geographicArea={geographicArea} />
                   ) : (
-                    <ChoroplethChart
-                      theme={theme}
-                      svgDimensions={{ width, height }}
-                      topology={topology}
-                      colorSteps={colorSteps}
-                      valuesRange={range}
-                      onUpdateGeoMatchStatus={(status) =>
-                        setGeoMatchError(
-                          status === GeoAreaMatchStatus.NOT_MATCHED
-                        )
-                      }
-                      {...props}
-                    />
+                    <>
+                      <ChoroplethChart
+                        theme={theme}
+                        svgDimensions={{ width, height }}
+                        topology={topology}
+                        colorSteps={colorSteps}
+                        valuesRange={range}
+                        onUpdateGeoMatchStatus={(status) =>
+                          setGeoMatchError(
+                            status === GeoAreaMatchStatus.NOT_MATCHED
+                          )
+                        }
+                        {...props}
+                      />
+                      <ChartInteractionLegend />
+                    </>
                   )}
                 </>
               )}
