@@ -1,6 +1,5 @@
 import { scaleLinear, scaleUtc } from 'd3-scale';
 import { v4 as uuid } from 'uuid';
-import { transparentize } from 'polished';
 import {
   calculateRange,
   calculateScaleDomain,
@@ -138,9 +137,8 @@ export const generateGroupedLines = ({
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
       const isKeyActive = activeKey && keyName !== activeKey;
-      const color = isKeyActive
-        ? transparentize(0.8, colors[idx])
-        : getPaletteColor(idx, colors);
+      const color = getPaletteColor(idx, colors);
+
       if (idx === 0)
         steps.push(
           ...generateSteps(
@@ -358,9 +356,7 @@ export const generateStackLines = ({
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
       const isKeyActive = activeKey && keyName !== activeKey;
-      const color = isKeyActive
-        ? transparentize(0.8, colors[idx])
-        : getPaletteColor(idx, colors);
+      const color = getPaletteColor(idx, colors);
       if (idx === 0)
         steps.push(
           ...generateSteps(newData, xScale, yScale, labelSelector, keys[0])

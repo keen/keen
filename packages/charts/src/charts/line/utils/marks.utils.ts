@@ -90,6 +90,7 @@ export const generateLineMarks = (
     if (keyName !== labelSelector) {
       const mark = {
         key: `${index}.${keyName}.mark`,
+        dataSerieKey: keyName,
         color,
         selector: [index, keyName],
         x: xScale(data[index][labelSelector]),

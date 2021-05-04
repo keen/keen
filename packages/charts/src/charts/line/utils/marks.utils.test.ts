@@ -155,6 +155,7 @@ test('should generate marks correctly', () => {
     Array [
       Object {
         "color": "red",
+        "dataSerieKey": "revenue",
         "key": "0.revenue.mark",
         "radius": undefined,
         "selector": Array [
@@ -166,6 +167,7 @@ test('should generate marks correctly', () => {
       },
       Object {
         "color": "blue",
+        "dataSerieKey": "buy",
         "key": "0.buy.mark",
         "radius": undefined,
         "selector": Array [
@@ -177,6 +179,7 @@ test('should generate marks correctly', () => {
       },
       Object {
         "color": "green",
+        "dataSerieKey": "sale",
         "key": "0.sale.mark",
         "radius": undefined,
         "selector": Array [
