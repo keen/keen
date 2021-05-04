@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/widgets",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "description": "Keen widgets",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -32,14 +32,14 @@
     "styled-components": ">=5"
   },
   "dependencies": {
-    "@keen.io/charts": "^2.15.1",
+    "@keen.io/charts": "^2.16.0",
     "@keen.io/charts-utils": "^1.9.0",
     "@keen.io/colors": "^1.1.0",
     "@keen.io/react-hooks": "^1.0.7",
-    "@keen.io/ui-core": "^2.24.2"
+    "@keen.io/ui-core": "^2.25.0"
   },
   "devDependencies": {
-    "@keen.io/storybook-utils": "^2.0.89"
+    "@keen.io/storybook-utils": "^2.0.90"
   },
   "publishConfig": {
     "access": "public"

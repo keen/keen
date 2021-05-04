@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.2...@keen.io/ui-core@2.25.0) (2021-05-04)
+
+
+### Features
+
+* 🎸 Choropleth interaction legend added ([a42fcc6](https://github.com/keen/keen/commit/a42fcc6647b9d7c098f107fb5f9471e1fa9b8479))
+
+
+
+
+
 ## [2.24.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.1...@keen.io/ui-core@2.24.2) (2021-04-27)
 
 **Note:** Version bump only for package @keen.io/ui-core

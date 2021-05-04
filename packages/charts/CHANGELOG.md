@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/keen/keen/compare/@keen.io/charts@2.15.1...@keen.io/charts@2.16.0) (2021-05-04)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes, tooltip firing on country bounding-box fixed ([01eb797](https://github.com/keen/keen/commit/01eb79795a9ed2cfcea300fc72ba2b95885d648e))
+
+
+### Features
+
+* 🎸 Choropleth interaction legend added ([a42fcc6](https://github.com/keen/keen/commit/a42fcc6647b9d7c098f107fb5f9471e1fa9b8479))
+
+
+
+
+
 ## [2.15.1](https://github.com/keen/keen/compare/@keen.io/charts@2.15.0...@keen.io/charts@2.15.1) (2021-05-04)
 
 
