@@ -30,7 +30,7 @@ test('creates formatter for "day" precision', () => {
 test('creates formatter for "week" precision', () => {
   const format = createDateFormatter('week');
 
-  expect(format(date)).toMatchInlineSnapshot(`"01 Tue"`);
+  expect(format(date)).toMatchInlineSnapshot(`"01 Jan"`);
 });
 
 test('creates formatter for "month" precision', () => {
