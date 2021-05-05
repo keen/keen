@@ -4,7 +4,7 @@ export const DATE_FORMATS: Record<TimePrecision, string> = {
   minute: '%I:%M %p',
   hour: '%I:%M %p',
   day: '%e %b %y',
-  week: '%d %a',
+  week: '%d %b',
   month: '%b %y',
   year: '%Y',
 };
