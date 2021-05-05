@@ -56,7 +56,7 @@ const areaMotion = {
   },
 };
 
-const lineTransition = { duration: 0.3 };
+const lineTransition = { duration: 0.3, delay: 0.2 };
 
 const areaTransition = { delay: 0.7, duration: 0.8 };
 

@@ -16,7 +16,7 @@ const createPointMotion = (isActive: boolean) => ({
   },
 });
 
-const pointTransition = { duration: 0.3 };
+const pointTransition = { duration: 0.3, delay: 0.2 };
 
 type Props = {
   marks: Mark[];
