@@ -8,9 +8,9 @@ import { StyledLabel, Wrapper, Circle } from './label.styles';
 type Props = {
   typography: Typography;
   markColor: string;
-  onClick: (disabled: boolean) => void;
-  onMouseOver?: (label: string | boolean) => void;
-  onMouseLeave?: () => void;
+  onClick: (disabled: boolean, label: string) => void;
+  onMouseEnter?: (label: string) => void;
+  onMouseLeave?: (label: string) => void;
   text?: string | boolean;
   truncate?: number;
 };
@@ -19,7 +19,7 @@ const Label: FC<Props> = ({
   text,
   markColor,
   onClick,
-  onMouseOver,
+  onMouseEnter,
   onMouseLeave,
   typography,
   truncate = 20,
@@ -29,11 +29,11 @@ const Label: FC<Props> = ({
   return (
     <StyledLabel
       onClick={() => {
-        onClick(!disabled);
+        onClick(!disabled, label);
         setDisable(!disabled);
       }}
-      onMouseOver={() => !disabled && onMouseOver(text)}
-      onMouseLeave={onMouseLeave}
+      onMouseEnter={() => !disabled && onMouseEnter(label)}
+      onMouseLeave={() => onMouseLeave(label)}
     >
       <Wrapper
         role="button"

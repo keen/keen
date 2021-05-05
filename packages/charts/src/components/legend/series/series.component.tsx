@@ -23,10 +23,10 @@ type Props = {
   card: CardSettings;
   /** Handler for item click event */
   onClick: (key: string, disabled: boolean, index: number) => void;
-  /** Handler for item hover event */
-  onMouseOver?: (label: string | boolean) => void;
-  /** Handler for item hover event */
-  onMouseLeave?: () => void;
+  /** Activate data serie handler */
+  onActivate?: (dataSerie: string | boolean) => void;
+  /** Deactive data serie handler */
+  onDeactivate?: () => void;
 };
 
 export const SeriesLegend: FC<Props> = ({
@@ -36,17 +36,25 @@ export const SeriesLegend: FC<Props> = ({
   typography,
   card,
   onClick,
-  onMouseOver,
-  onMouseLeave,
+  onActivate,
+  onDeactivate,
 }) => {
   const items = labels.map(({ name, color }: DataSerie, idx: number) => (
     <SingleSerie key={name}>
       <Label
         typography={typography}
         markColor={color}
-        onClick={(disabled: boolean) => onClick(name, disabled, idx)}
-        onMouseOver={(label) => onMouseOver(label)}
-        onMouseLeave={onMouseLeave}
+        onClick={(disabled, label) => {
+          onClick(label, disabled, idx);
+          if (onDeactivate && disabled) onDeactivate();
+          if (onActivate && !disabled) onActivate(label);
+        }}
+        onMouseEnter={(label) => {
+          if (onActivate) onActivate(label);
+        }}
+        onMouseLeave={() => {
+          onDeactivate && onDeactivate();
+        }}
         text={name}
       />
     </SingleSerie>

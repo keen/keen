@@ -126,8 +126,10 @@ const Lines = ({
   }, [curve, groupMode, stackMode, stepMode, lines.length]);
 
   useEffect(() => {
-    if (initialDrawFinished && activeKey) {
-      lineControls.start(AnimationVariants.Active);
+    if (activeKey) {
+      lineControls.start(AnimationVariants.Active).then(() => {
+        setInitialDraw(true);
+      });
     } else if (initialDrawFinished) {
       lineControls.start(AnimationVariants.Visible);
     }
