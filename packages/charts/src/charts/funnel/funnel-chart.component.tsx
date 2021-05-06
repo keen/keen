@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Layout } from '@keen.io/ui-core';
 import {
-  formatNumber,
   formatValue as valueFormatter,
   Formatter,
 } from '@keen.io/charts-utils';
@@ -37,7 +36,7 @@ export const FunnelChart: FC<Props> = ({
   valueKey = 'value',
   layout = 'horizontal',
   theme = defaultTheme,
-  formatValues = formatNumber,
+  formatValues,
   margins = { top: 0, left: 0, right: 0, bottom: 0 },
 }) => {
   const { steps, scale } = generateFunnel({
