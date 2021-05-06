@@ -155,7 +155,6 @@ export const calculateGroupedBars = (
                 height: barSize,
               };
 
-        console.log(keyName, index > colors.length);
         bars.push({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
