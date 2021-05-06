@@ -56,7 +56,7 @@ const areaMotion = {
   },
 };
 
-const lineTransition = { duration: 0.3 };
+const lineTransition = { duration: 0.3, delay: 0.2 };
 
 const areaTransition = { delay: 0.7, duration: 0.8 };
 
@@ -126,8 +126,10 @@ const Lines = ({
   }, [curve, groupMode, stackMode, stepMode, lines.length]);
 
   useEffect(() => {
-    if (initialDrawFinished && activeKey) {
-      lineControls.start(AnimationVariants.Active);
+    if (activeKey) {
+      lineControls.start(AnimationVariants.Active).then(() => {
+        setInitialDraw(true);
+      });
     } else if (initialDrawFinished) {
       lineControls.start(AnimationVariants.Visible);
     }

@@ -46,8 +46,8 @@ export const AreaChartWidget: FC<Props> = ({
           <SeriesLegend
             {...legend}
             onClick={updateKeys}
-            onMouseOver={(label: string) => setActiveKey(label)}
-            onMouseLeave={() => setActiveKey(null)}
+            onActivate={(label: string) => setActiveKey(label)}
+            onDeactivate={() => setActiveKey(null)}
             labels={sortedKeys.map((key: string, idx: number) => ({
               name: key,
               color: theme.colors[idx],
