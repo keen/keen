@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.1](https://github.com/keen/keen/compare/@keen.io/charts@2.16.0...@keen.io/charts@2.16.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* 🐛 legend interactions ([7084009](https://github.com/keen/keen/commit/7084009140b2d8b51abb9d79489d98ea877d6d44))
+
+
+
+
+
 # [2.16.0](https://github.com/keen/keen/compare/@keen.io/charts@2.15.1...@keen.io/charts@2.16.0) (2021-05-04)
 
 

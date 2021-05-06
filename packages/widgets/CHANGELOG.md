@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.0...@keen.io/widgets@2.6.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* 🐛 legend interactions ([7084009](https://github.com/keen/keen/commit/7084009140b2d8b51abb9d79489d98ea877d6d44))
+
+
+
+
+
 # [2.6.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.5.1...@keen.io/widgets@2.6.0) (2021-05-04)
 
 

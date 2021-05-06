@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.9.0...@keen.io/charts-utils@1.9.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* 🐛 Axis labels fix for weeks ([f31793e](https://github.com/keen/keen/commit/f31793e346b879af424e93a025ede4d984d08a9c))
+
+
+
+
+
 # [1.9.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.4...@keen.io/charts-utils@1.9.0) (2021-04-30)
 
 
