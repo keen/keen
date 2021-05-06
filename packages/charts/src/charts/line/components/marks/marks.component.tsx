@@ -16,7 +16,7 @@ const createPointMotion = (isActive: boolean) => ({
   },
 });
 
-const pointTransition = { duration: 0.3 };
+const pointTransition = { duration: 0.3, delay: 0.2 };
 
 type Props = {
   marks: Mark[];
@@ -56,8 +56,10 @@ const Marks = ({
   }, [marks.length, curve, groupMode, stackMode]);
 
   useEffect(() => {
-    if (initialDrawFinished && activeKey) {
-      marksControls.start(AnimationVariants.Active);
+    if (activeKey) {
+      marksControls.start(AnimationVariants.Active).then(() => {
+        setInitialDraw(true);
+      });
     } else if (initialDrawFinished) {
       marksControls.start(AnimationVariants.Visible);
     }
