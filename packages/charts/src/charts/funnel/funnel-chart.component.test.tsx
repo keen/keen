@@ -50,6 +50,17 @@ test('renders correct amount of steps based on provided data', () => {
   expect(steps.length).toEqual(props.data.length);
 });
 
+test('renders values without formatting', () => {
+  const {
+    wrapper: { getByText },
+    props,
+  } = render();
+
+  props.data.forEach((item) =>
+    expect(getByText(`${item.value}`)).toBeInTheDocument()
+  );
+});
+
 test('renders correct value after string formatter', () => {
   const {
     wrapper: { getByText },
