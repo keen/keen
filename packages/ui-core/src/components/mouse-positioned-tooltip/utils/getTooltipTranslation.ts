@@ -1,16 +1,14 @@
 import { TooltipPinPlacements } from '../types';
 
 export const getTooltipTranslation = (position: TooltipPinPlacements) => {
-  let translation = { x: '0', y: '0' };
   switch (position) {
     case 'top-left':
-      translation = { x: '-100%', y: '-100%' };
-      break;
+      return { x: '-100%', y: '-100%' };
     case 'top-right':
-      translation.y = '-100%';
-      break;
+      return { x: '0', y: '-100%' };
     case 'bottom-left':
-      translation.x = '-100%';
+      return { x: '-100%', y: '0' };
+    case 'bottom-right':
+      return { x: '0', y: '0' };
   }
-  return translation;
 };

@@ -85,7 +85,7 @@ const MousePositionedTooltip = ({
   isActive,
   tooltipPortal,
   tooltipTheme = 'light',
-  tooltipPinPlacement,
+  tooltipPinPlacement = 'bottom-right',
   renderContent,
 }: Props) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);

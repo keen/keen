@@ -1,1 +1,5 @@
-export type TooltipPinPlacements = 'top-left' | 'top-right' | 'bottom-left';
+export type TooltipPinPlacements =
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right';
