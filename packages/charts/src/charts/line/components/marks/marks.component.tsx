@@ -13,6 +13,7 @@ const createPointMotion = (isActive: boolean) => ({
   [AnimationVariants.Visible]: { opacity: 1 },
   [AnimationVariants.Active]: {
     opacity: isActive ? 1 : 0.2,
+    transition: isActive ? { delay: 0.2, duration: 0.3 } : { duration: 0.3 },
   },
 });
 
@@ -61,7 +62,10 @@ const Marks = ({
         setInitialDraw(true);
       });
     } else if (initialDrawFinished) {
-      marksControls.start(AnimationVariants.Visible);
+      marksControls.start(AnimationVariants.Visible, {
+        delay: 0.4,
+        duration: 0.3,
+      });
     }
   }, [activeKey]);
 
