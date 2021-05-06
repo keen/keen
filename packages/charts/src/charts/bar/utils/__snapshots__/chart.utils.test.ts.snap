@@ -4,6 +4,7 @@ exports[`generateHorizontalGroupedBars() should sort bars in "ascending" order 1
 Array [
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "0.people",
     "selector": Array [
@@ -17,6 +18,7 @@ Array [
   },
   Object {
     "color": "green",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "0.rooms",
     "selector": Array [
@@ -30,6 +32,7 @@ Array [
   },
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "1.people",
     "selector": Array [
@@ -43,6 +46,7 @@ Array [
   },
   Object {
     "color": "green",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "1.rooms",
     "selector": Array [
@@ -61,6 +65,7 @@ exports[`generateHorizontalGroupedBars() should sort bars in "descending" order 
 Array [
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "0.people",
     "selector": Array [
@@ -74,6 +79,7 @@ Array [
   },
   Object {
     "color": "green",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "0.rooms",
     "selector": Array [
@@ -87,6 +93,7 @@ Array [
   },
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "1.people",
     "selector": Array [
@@ -100,6 +107,7 @@ Array [
   },
   Object {
     "color": "green",
+    "colorOutOfRange": false,
     "height": 66.25,
     "key": "1.rooms",
     "selector": Array [
@@ -118,6 +126,7 @@ exports[`generateVerticalGroupedBars() should sort bars in "ascending" order 1`]
 Array [
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 370,
     "key": "0.people",
     "selector": Array [
@@ -131,6 +140,7 @@ Array [
   },
   Object {
     "color": "blue",
+    "colorOutOfRange": false,
     "height": 111,
     "key": "0.rooms",
     "selector": Array [
@@ -144,6 +154,7 @@ Array [
   },
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 74,
     "key": "1.people",
     "selector": Array [
@@ -157,6 +168,7 @@ Array [
   },
   Object {
     "color": "blue",
+    "colorOutOfRange": false,
     "height": 370,
     "key": "1.rooms",
     "selector": Array [
@@ -175,6 +187,7 @@ exports[`generateVerticalGroupedBars() should sort bars in "descending" order 1`
 Array [
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 158.57142857142858,
     "key": "0.people",
     "selector": Array [
@@ -188,6 +201,7 @@ Array [
   },
   Object {
     "color": "blue",
+    "colorOutOfRange": false,
     "height": 359.42857142857144,
     "key": "0.rooms",
     "selector": Array [
@@ -201,6 +215,7 @@ Array [
   },
   Object {
     "color": "red",
+    "colorOutOfRange": false,
     "height": 222,
     "key": "1.people",
     "selector": Array [
@@ -214,6 +229,7 @@ Array [
   },
   Object {
     "color": "blue",
+    "colorOutOfRange": false,
     "height": 105.71428571428572,
     "key": "1.rooms",
     "selector": Array [
