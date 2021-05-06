@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/keen/keen/compare/@keen.io/charts@2.16.1...@keen.io/charts@2.16.2) (2021-05-06)
+
+
+### Bug Fixes
+
+* 🐛 remove default format value for funnel ([6687215](https://github.com/keen/keen/commit/6687215b483c79c6303a8e155d6cabcbee745847))
+
+
+
+
+
 ## [2.16.1](https://github.com/keen/keen/compare/@keen.io/charts@2.16.0...@keen.io/charts@2.16.1) (2021-05-06)
 
 
