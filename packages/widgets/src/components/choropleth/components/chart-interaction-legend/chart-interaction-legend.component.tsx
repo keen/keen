@@ -15,6 +15,7 @@ const ChartInteractionLegend = () => (
   <InteractionLegendWrapper>
     <MousePositionedTooltip
       isActive
+      tooltipPinPlacement="top-left"
       tooltipTheme="dark"
       renderContent={() =>
         chartInteractionTooltip('Drag and drop to move the map.')
@@ -24,6 +25,7 @@ const ChartInteractionLegend = () => (
     </MousePositionedTooltip>
     <MousePositionedTooltip
       isActive
+      tooltipPinPlacement="top-left"
       tooltipTheme="dark"
       renderContent={() =>
         chartInteractionTooltip('Scroll to zoom-in or zoom-out.')

@@ -6,6 +6,7 @@ import { TooltipMode } from '../tooltip';
 import MousePositionedTooltip from './mouse-positioned-tooltip';
 import { BodyText } from '@keen.io/typography';
 import styled from 'styled-components';
+import { TooltipPinPlacements } from './types';
 
 export default {
   title: 'Components / Mouse Positioned Tooltip',
@@ -23,6 +24,13 @@ const options = {
   },
 };
 
+const pinPositions = {
+  topRight: 'top-right',
+  topLeft: 'top-left',
+  bottomLeft: 'bottom-left',
+  bottomRight: 'bottom-right',
+};
+
 const Wrapper = styled.div`
   width: 250px;
 `;
@@ -34,6 +42,14 @@ export const LightMode = () => (
         select('Mode', options.mode, options.mode.light, 'Mode') as TooltipMode
       }
       isActive={true}
+      tooltipPinPlacement={
+        select(
+          'Placement',
+          pinPositions,
+          pinPositions.bottomRight,
+          'Mode'
+        ) as TooltipPinPlacements
+      }
       renderContent={() => (
         <BodyText variant="body3" fontWeight={400} color={colors.black[500]}>
           This is a description
@@ -58,6 +74,14 @@ export const DarkMode = () => (
     <MousePositionedTooltip
       tooltipTheme={
         select('Mode', options.mode, options.mode.dark, 'Mode') as TooltipMode
+      }
+      tooltipPinPlacement={
+        select(
+          'Placement',
+          pinPositions,
+          pinPositions.bottomRight,
+          'Mode'
+        ) as TooltipPinPlacements
       }
       isActive={true}
       renderContent={() => (
