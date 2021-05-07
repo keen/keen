@@ -5,6 +5,9 @@ import Tooltip from '../tooltip';
 import DynamicPortal from '../dynamic-portal';
 import { TooltipMode } from '../tooltip';
 import { UI_LAYERS } from '../../constants';
+import { TooltipWrapper } from './mouse-positioned-tooltip.styles';
+import { TooltipPinPlacements } from './types';
+import { getTooltipTranslation } from './utils/getTooltipTranslation';
 
 export const TOOLTIP_MOTION = {
   transition: { duration: 0.3 },
@@ -18,6 +21,7 @@ type TooltipContentProps = {
   children: React.ReactNode;
   tooltipVisible: boolean;
   tooltipTheme: TooltipMode;
+  tooltipPinPlacement?: TooltipPinPlacements;
 };
 
 const TooltipContent = ({
@@ -25,37 +29,47 @@ const TooltipContent = ({
   children,
   tooltipVisible,
   tooltipTheme,
-}: TooltipContentProps) => (
-  <AnimatePresence>
-    {tooltipVisible && (
-      <motion.div
-        {...TOOLTIP_MOTION}
-        initial={{
-          opacity: 0,
-          x: tooltipPosition.x,
-          y: tooltipPosition.y,
-          top: 0,
-          left: 0,
-        }}
-        animate={{
-          x: tooltipPosition.x,
-          y: tooltipPosition.y,
-          opacity: 1,
-        }}
-        style={{
-          position: 'absolute',
-          pointerEvents: 'none',
-          zIndex: UI_LAYERS.tooltip,
-          maxWidth: 225,
-        }}
-      >
-        <Tooltip hasArrow={false} mode={tooltipTheme}>
-          {children}
-        </Tooltip>
-      </motion.div>
-    )}
-  </AnimatePresence>
-);
+  tooltipPinPlacement,
+}: TooltipContentProps) => {
+  const tooltipTranslation = getTooltipTranslation(tooltipPinPlacement);
+
+  return (
+    <AnimatePresence>
+      {tooltipVisible && (
+        <motion.div
+          {...TOOLTIP_MOTION}
+          initial={{
+            opacity: 0,
+            x: tooltipPosition.x,
+            y: tooltipPosition.y,
+            top: 0,
+            left: 0,
+          }}
+          animate={{
+            x: tooltipPosition.x,
+            y: tooltipPosition.y,
+            opacity: 1,
+          }}
+          style={{
+            position: 'absolute',
+            pointerEvents: 'none',
+            zIndex: UI_LAYERS.tooltip,
+            maxWidth: 225,
+          }}
+        >
+          <TooltipWrapper
+            translateX={tooltipTranslation.x}
+            translateY={tooltipTranslation.y}
+          >
+            <Tooltip hasArrow={false} mode={tooltipTheme}>
+              {children}
+            </Tooltip>
+          </TooltipWrapper>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 type Props = {
   children: React.ReactNode;
@@ -63,6 +77,7 @@ type Props = {
   tooltipPortal?: string;
   tooltipTheme?: TooltipMode;
   renderContent: () => React.ReactNode;
+  tooltipPinPlacement?: TooltipPinPlacements;
 };
 
 const MousePositionedTooltip = ({
@@ -70,6 +85,7 @@ const MousePositionedTooltip = ({
   isActive,
   tooltipPortal,
   tooltipTheme = 'light',
+  tooltipPinPlacement = 'bottom-right',
   renderContent,
 }: Props) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -78,7 +94,7 @@ const MousePositionedTooltip = ({
   const tooltipContainerRef = useRef<HTMLDivElement>(null);
   const requestFrameRef = React.useRef(null);
 
-  const calculateTooltipPosotion = useCallback(
+  const calculateTooltipPosition = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (tooltipPortal) {
         return { x: e.clientX, y: e.clientY + window.scrollY };
@@ -95,14 +111,14 @@ const MousePositionedTooltip = ({
       onMouseEnter={(e) => {
         e.persist();
         setTooltipVisible(true);
-        setTooltipPosition(calculateTooltipPosotion(e));
+        setTooltipPosition(calculateTooltipPosition(e));
       }}
       onMouseMove={(e) => {
         e.persist();
         if (requestFrameRef.current)
           cancelAnimationFrame(requestFrameRef.current);
         requestFrameRef.current = requestAnimationFrame(() => {
-          setTooltipPosition(calculateTooltipPosotion(e));
+          setTooltipPosition(calculateTooltipPosition(e));
         });
       }}
       onMouseLeave={() => {
@@ -118,6 +134,7 @@ const MousePositionedTooltip = ({
                 tooltipPosition={tooltipPosition}
                 tooltipVisible={tooltipVisible}
                 tooltipTheme={tooltipTheme}
+                tooltipPinPlacement={tooltipPinPlacement}
               >
                 {renderContent()}
               </TooltipContent>
@@ -129,6 +146,7 @@ const MousePositionedTooltip = ({
                   tooltipPosition={tooltipPosition}
                   tooltipVisible
                   tooltipTheme={tooltipTheme}
+                  tooltipPinPlacement={tooltipPinPlacement}
                 >
                   {renderContent()}
                 </TooltipContent>
