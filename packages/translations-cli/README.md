@@ -26,10 +26,14 @@ After installation can be run with command:
 keen-translations <SOURCE_DIR> <TARGET_FILE>
 ```
 
-To run it, two arguments need to be set, SOURCE_DIR and TARGET_FILE. The script will take translations from TARGET_FILE(api call) and merge it with translations locally, available in SOURCE_DIR. In the end in terminal diff between the files will be printed and in SOURCE_DIR new file will be created with two files merged(output.json);
+To run it, two arguments need to be set, SOURCE_DIR and TARGET_FILE. The script will take translations from TARGET_FILE(api call or json file) and merge it with translations locally, available in SOURCE_DIR. In the end in terminal diff between the files will be printed and in SOURCE_DIR new file will be created with two files merged(output.json);
 
 Example:
 
 ```sh
 keen-translations explorer/public/locales/en https://cdn.jsdelivr.net/npm/@keen.io/dashboard-creator@next/dist/locales/en/translation.json
+```
+
+```sh
+keen-translations explorer/public/locales/en dashboard-creator/public/locales/en/translation.json
 ```
