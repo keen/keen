@@ -1,5 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`generateHorizontalGroupedBars() should generate horizontal grouped bars with one missing color 1`] = `
+Array [
+  Object {
+    "color": "red",
+    "colorOutOfRange": false,
+    "height": 66.25,
+    "key": "0.people",
+    "selector": Array [
+      0,
+      "people",
+    ],
+    "value": 15,
+    "width": 162.85714285714286,
+    "x": 10,
+    "y": 81.25,
+  },
+  Object {
+    "color": "rgba(205,207,211,0.5)",
+    "colorOutOfRange": true,
+    "height": 66.25,
+    "key": "0.rooms",
+    "selector": Array [
+      0,
+      "rooms",
+    ],
+    "value": 34,
+    "width": 369.1428571428571,
+    "x": 10,
+    "y": 15,
+  },
+  Object {
+    "color": "red",
+    "colorOutOfRange": false,
+    "height": 66.25,
+    "key": "1.people",
+    "selector": Array [
+      1,
+      "people",
+    ],
+    "value": 21,
+    "width": 228,
+    "x": 10,
+    "y": 147.5,
+  },
+  Object {
+    "color": "rgba(205,207,211,0.5)",
+    "colorOutOfRange": true,
+    "height": 66.25,
+    "key": "1.rooms",
+    "selector": Array [
+      1,
+      "rooms",
+    ],
+    "value": 10,
+    "width": 108.57142857142856,
+    "x": 10,
+    "y": 213.75,
+  },
+]
+`;
+
 exports[`generateHorizontalGroupedBars() should sort bars in "ascending" order 1`] = `
 Array [
   Object {
@@ -118,6 +179,67 @@ Array [
     "width": 108.57142857142856,
     "x": 10,
     "y": 213.75,
+  },
+]
+`;
+
+exports[`generateVerticalGroupedBars() should generate vertical grouped bars with one missing color 1`] = `
+Array [
+  Object {
+    "color": "red",
+    "colorOutOfRange": false,
+    "height": 158.57142857142858,
+    "key": "0.people",
+    "selector": Array [
+      0,
+      "people",
+    ],
+    "value": 15,
+    "width": 120,
+    "x": 130,
+    "y": 221.42857142857142,
+  },
+  Object {
+    "color": "rgba(205,207,211,0.5)",
+    "colorOutOfRange": true,
+    "height": 359.42857142857144,
+    "key": "0.rooms",
+    "selector": Array [
+      0,
+      "rooms",
+    ],
+    "value": 34,
+    "width": 120,
+    "x": 10,
+    "y": 20.571428571428577,
+  },
+  Object {
+    "color": "red",
+    "colorOutOfRange": false,
+    "height": 222,
+    "key": "1.people",
+    "selector": Array [
+      1,
+      "people",
+    ],
+    "value": 21,
+    "width": 120,
+    "x": 250,
+    "y": 158,
+  },
+  Object {
+    "color": "rgba(205,207,211,0.5)",
+    "colorOutOfRange": true,
+    "height": 105.71428571428572,
+    "key": "1.rooms",
+    "selector": Array [
+      1,
+      "rooms",
+    ],
+    "value": 10,
+    "width": 120,
+    "x": 370,
+    "y": 274.2857142857143,
   },
 ]
 `;
