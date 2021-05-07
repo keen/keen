@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.0...@keen.io/ui-core@2.25.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* 🐛 Default pin position added, 'bottom-right' type option, tooltip translation tests added ([1ebbb55](https://github.com/keen/keen/commit/1ebbb55a832d12890bd6dacd19898fb852fa54bb))
+* 🐛 Tooltip pin to cursor position ([c07f98a](https://github.com/keen/keen/commit/c07f98a6a6069a86f1940caf0b354dcea35c6d2c))
+
+
+
+
+
 # [2.25.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.2...@keen.io/ui-core@2.25.0) (2021-05-04)
 
 

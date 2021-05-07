@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.2...@keen.io/widgets@2.6.3) (2021-05-07)
+
+
+### Bug Fixes
+
+* 🐛 Choropleth interaction legend - tooltip position changed ([f262c64](https://github.com/keen/keen/commit/f262c6440893d677b8aea0f7617d57c9a4db87d3))
+
+
+
+
+
 ## [2.6.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.1...@keen.io/widgets@2.6.2) (2021-05-06)
 
 **Note:** Version bump only for package @keen.io/widgets
