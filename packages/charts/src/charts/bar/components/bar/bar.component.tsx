@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
 
 import { createBarMotion } from '../../utils/animate.utils';
 
@@ -14,6 +15,7 @@ type Props = {
   height: number;
   width: number;
   color: string;
+  colorOutOfRange: boolean;
   layout: Layout;
   groupMode: GroupMode;
   animate?: boolean;
@@ -25,6 +27,7 @@ export const Bar: FC<Props> = ({
   width,
   height,
   color,
+  colorOutOfRange,
   layout,
   groupMode,
   animate = true,
@@ -40,6 +43,7 @@ export const Bar: FC<Props> = ({
     <motion.rect
       {...commonProps}
       {...createBarMotion({ layout, groupMode, width, height, x, y })}
+      whileHover={colorOutOfRange && { fill: colors.gray[500] }}
     />
   ) : (
     <rect {...commonProps} x={x} y={y} />

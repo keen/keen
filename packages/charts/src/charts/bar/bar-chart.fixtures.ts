@@ -17,6 +17,7 @@ export const bars: Bar[] = [
     height: 20,
     width: 30,
     color: 'red',
+    colorOutOfRange: false,
   },
   {
     key: 'IT',
@@ -27,6 +28,7 @@ export const bars: Bar[] = [
     height: 40,
     width: 20,
     color: 'blue',
+    colorOutOfRange: false,
   },
 ];
 

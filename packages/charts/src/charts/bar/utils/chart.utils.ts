@@ -328,6 +328,7 @@ export const generateHorizontalStackedBars = ({
         width,
         height: barHeight,
         color: getPaletteColor(keys.indexOf(keyName), colors),
+        colorOutOfRange: !colors[index],
         value: data[index][keyName],
       };
 
@@ -442,6 +443,7 @@ export const generateVerticalStackedBars = ({
         width: barWidth,
         height,
         color: getPaletteColor(keys.indexOf(keyName), colors),
+        colorOutOfRange: !colors[index],
         value: data[index][keyName],
       };
 

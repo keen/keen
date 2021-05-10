@@ -51,7 +51,17 @@ const Bars = ({
     <>
       <AnimatePresence>
         {bars.map(
-          ({ key, selector, x, y, width, height, color, value }: Bar) => (
+          ({
+            key,
+            selector,
+            x,
+            y,
+            width,
+            height,
+            color,
+            value,
+            colorOutOfRange,
+          }: Bar) => (
             <g
               key={key}
               onMouseEnter={(e) => {
@@ -79,6 +89,7 @@ const Bars = ({
                 y={y}
                 height={height}
                 width={width}
+                colorOutOfRange={colorOutOfRange}
                 color={getBarColor({
                   activeBar,
                   stackMode,
