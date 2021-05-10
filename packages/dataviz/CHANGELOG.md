@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.35](https://github.com/keen/keen/compare/@keen.io/dataviz@2.11.34...@keen.io/dataviz@2.11.35) (2021-05-10)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
 ## [2.11.34](https://github.com/keen/keen/compare/@keen.io/dataviz@2.11.33...@keen.io/dataviz@2.11.34) (2021-05-07)
 
 **Note:** Version bump only for package @keen.io/dataviz

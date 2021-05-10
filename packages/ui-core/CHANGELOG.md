@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.1...@keen.io/ui-core@2.25.2) (2021-05-10)
+
+
+### Bug Fixes
+
+* 🐛 MousePositionedTooltip - scroll position added ([5d96b96](https://github.com/keen/keen/commit/5d96b9646480f96c030b6d9efd9ef3ae9fb1932d))
+
+
+
+
+
 ## [2.25.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.0...@keen.io/ui-core@2.25.1) (2021-05-07)
 
 
