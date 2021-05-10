@@ -6,6 +6,7 @@ import { Container, Content } from './table-header.styles';
 import SortIndicators from './sort-indicators.component';
 
 import { SortByType, SortMode } from '../../types';
+import { CellTextAlignment } from './types';
 
 type Props = {
   /** Header background color */
@@ -18,6 +19,8 @@ type Props = {
   isColumnDragged: boolean;
   /** Sort settings */
   sortOptions?: SortByType;
+  /** Text alignment */
+  textAlignment: CellTextAlignment;
   /** Column sort event handler */
   onSort?: (sortMeta: { propertyName: string; sortMode: SortMode }) => void;
 };
@@ -29,6 +32,7 @@ const TableHeader: FC<Props> = ({
   onSort,
   isColumnDragged,
   sortOptions,
+  textAlignment,
 }) => {
   const [isHovered, setHover] = useState(false);
   const [columnMeta, setState] = useState({
@@ -52,11 +56,12 @@ const TableHeader: FC<Props> = ({
     <>
       <Container
         backgroundColor={backgroundColor}
+        textAlignment={textAlignment}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         onClick={() => onSort && !isColumnDragged && sortHandler()}
       >
-        <Content>
+        <Content textAlignment={textAlignment}>
           {children}
           <motion.div
             animate={showColumnActions ? { opacity: 1 } : { opacity: 0 }}

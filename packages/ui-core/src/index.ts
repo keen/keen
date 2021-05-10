@@ -64,6 +64,7 @@ import {
   TableHeader,
   TableRow,
   CellValue,
+  CellTextAlignment,
   Brand,
   ModalContent,
   ModalHeader,
@@ -114,6 +115,7 @@ export type {
   OAuthConfig,
   DropableContainerVariant,
   CellValue,
+  CellTextAlignment,
   RulerTick,
   Point,
 };

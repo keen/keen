@@ -22,6 +22,7 @@ export const generateHeader = (
     header.push({
       key: key,
       value: formatFunc ? formatFunc(key) : key,
+      align: typeof data[key] === 'number' ? 'right' : 'left',
     });
   });
   return header;

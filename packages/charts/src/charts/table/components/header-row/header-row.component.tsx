@@ -35,13 +35,14 @@ export const HeaderRow = ({
 }: Props) => (
   <thead>
     <Container typography={typography} data-testid="header-row-container">
-      {data.map(({ key, value }: HeaderCell) => (
+      {data.map(({ key, value, align }: HeaderCell) => (
         <StickyCell key={key} backgroundColor={color}>
           <TableHeader
             propertyName={key}
             backgroundColor={color}
             sortOptions={sortOptions}
             isColumnDragged={isColumnDragged}
+            textAlignment={align}
             onSort={onSort}
           >
             {value}
