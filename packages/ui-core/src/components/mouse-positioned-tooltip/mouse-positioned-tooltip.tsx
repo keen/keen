@@ -95,13 +95,10 @@ const MousePositionedTooltip = ({
   const requestFrameRef = React.useRef(null);
 
   const calculateTooltipPosition = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (tooltipPortal) {
-        return { x: e.clientX, y: e.clientY + window.scrollY };
-      } else {
-        return { x: e.clientX, y: e.clientY };
-      }
-    },
+    (e: React.MouseEvent<HTMLDivElement>) => ({
+      x: e.clientX,
+      y: e.clientY + window.scrollY,
+    }),
     [tooltipPortal]
   );
 

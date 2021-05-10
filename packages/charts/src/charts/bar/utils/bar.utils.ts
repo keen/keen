@@ -160,6 +160,7 @@ export const calculateGroupedBars = (
           selector: [index, keyName],
           color: getPaletteColor(idx, colors),
           value,
+          colorOutOfRange: !colors[idx],
           ...bar,
         });
       }

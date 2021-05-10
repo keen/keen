@@ -11,6 +11,9 @@ describe('@keen.io/charts - <Bar />', () => {
     width: 100,
     height: 100,
     color: 'red',
+    layout: 'horizontal',
+    groupMode: 'grouped',
+    colorOutOfRange: false,
   };
 
   it('should render "animated" rect element', () => {

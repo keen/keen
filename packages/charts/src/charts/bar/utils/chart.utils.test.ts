@@ -124,6 +124,23 @@ describe('generateHorizontalGroupedBars()', () => {
 
     expect(bars).toMatchSnapshot();
   });
+
+  test('should generate horizontal grouped bars with one missing color', () => {
+    const data = [
+      { label: 'Marketing', people: 15, rooms: 34 },
+      { label: 'Customer Success', people: 21, rooms: 10 },
+    ];
+
+    const { bars } = generateHorizontalGroupedBars({
+      data,
+      ...horizontalBarChart,
+      keys: ['people', 'rooms'],
+      barsOrder: 'descending',
+      colors: ['red'],
+    });
+
+    expect(bars).toMatchSnapshot();
+  });
 });
 
 describe('generateVerticalGroupedBars()', () => {
@@ -251,6 +268,23 @@ describe('generateVerticalGroupedBars()', () => {
       ...verticalBarChart,
       keys: ['people', 'rooms'],
       barsOrder: 'descending',
+    });
+
+    expect(bars).toMatchSnapshot();
+  });
+
+  test('should generate vertical grouped bars with one missing color', () => {
+    const data = [
+      { label: 'Marketing', people: 15, rooms: 34 },
+      { label: 'Customer Success', people: 21, rooms: 10 },
+    ];
+
+    const { bars } = generateVerticalGroupedBars({
+      data,
+      ...verticalBarChart,
+      keys: ['people', 'rooms'],
+      barsOrder: 'descending',
+      colors: ['red'],
     });
 
     expect(bars).toMatchSnapshot();

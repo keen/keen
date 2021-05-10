@@ -7,4 +7,5 @@ export type Bar = {
   height: number;
   width: number;
   color: string;
+  colorOutOfRange: boolean;
 };
