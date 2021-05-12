@@ -28,6 +28,36 @@ test('transforms data and generates corresponding keys', () => {
   expect(tableChartTransformation(input)).toMatchObject(expectedResult);
 });
 
+test('transforms data and generates corresponding keys with formatted result', () => {
+  const input = [
+    { country: 'Poland', result: 20 },
+    { country: 'USA', result: 32 },
+    { country: 'Germany', result: 42 },
+  ];
+
+  const expectedResult = {
+    data: [
+      {
+        country: 'Poland',
+        'count.page_views': 20,
+      },
+      {
+        country: 'USA',
+        'count.page_views': 32,
+      },
+      {
+        country: 'Germany',
+        'count.page_views': 42,
+      },
+    ],
+    keys: ['country', 'count.page_views'],
+  };
+
+  expect(tableChartTransformation(input, 'count', 'page_views')).toMatchObject(
+    expectedResult
+  );
+});
+
 test('transforms data and fill records with missing keys', () => {
   const input = [
     { country: 'Poland', company: 'Keen.io', result: 20 },

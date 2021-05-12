@@ -1,7 +1,7 @@
 import { Query } from '@keen.io/query';
 import { convertDate } from '@keen.io/time-utils';
 
-import { KEEN_KEY } from '../../constants';
+import { KEEN_KEY, KEEN_TABLE_INTERVAL } from '../../constants';
 
 import { mergePropertiesGroup, fillWithEmptyKeys } from '../../utils';
 
@@ -16,12 +16,18 @@ import { IntervalResult, GroupByResult, ParserSettings } from '../../types';
  */
 export const transformCategoricalChronological = (
   {
+    query,
     result,
   }: {
     query?: Query;
     result: IntervalResult[];
   },
-  { mergePropertiesOrder, fillEmptyIntervalsKeys, dateModifier }: ParserSettings
+  {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    dateModifier,
+  }: ParserSettings,
+  visualization?: string
 ) => {
   let data: Record<string, any>[] = [];
   const keys: Set<string> = new Set();
@@ -34,21 +40,41 @@ export const transformCategoricalChronological = (
     const intervalData: Record<string, any> = {};
     const intervalKeys: Set<string> = new Set();
 
-    value
-      .map((groupedProperties) =>
-        mergePropertiesGroup(groupedProperties, mergePropertiesOrder)
-      )
-      .forEach(({ result, ...properties }) => {
-        Object.values(properties).forEach((name) => {
+    const enableTableFormatter =
+      query?.analysis_type &&
+      query?.event_collection &&
+      visualization === 'table';
+
+    if (enableTableFormatter) {
+      const tableValue = `${query?.analysis_type}.${query?.event_collection}`;
+      value.forEach(({ result, ...record }) => {
+        Object.keys(record).forEach((name) => {
           intervalKeys.add(name as string);
-          intervalData[name] = result;
+          intervalData[name] = record[name];
+          intervalData[tableValue] = result;
+        });
+        data.push({
+          [KEEN_TABLE_INTERVAL]: convertDate(timeframe.start, dateModifier),
+          ...intervalData,
         });
       });
+    } else {
+      value
+        .map((groupedProperties) =>
+          mergePropertiesGroup(groupedProperties, mergePropertiesOrder)
+        )
+        .forEach(({ result, ...properties }) => {
+          Object.values(properties).forEach((name) => {
+            intervalKeys.add(name as string);
+            intervalData[name] = result;
+          });
+        });
 
-    data.push({
-      [KEEN_KEY]: convertDate(timeframe.start, dateModifier),
-      ...intervalData,
-    });
+      data.push({
+        [KEEN_KEY]: convertDate(timeframe.start, dateModifier),
+        ...intervalData,
+      });
+    }
     intervalKeys.forEach((key) => keys.add(`${key}`));
   });
 
