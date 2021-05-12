@@ -1,6 +1,6 @@
 import { Query } from '@keen.io/query';
 
-import { KEEN_TABLE_VALUE, KEEN_TABLE_ANALYSIS } from '../../../constants';
+import { KEEN_TABLE_VALUE, KEEN_TABLE_ANALYSIS } from './constants';
 
 /**
  * Singular transformation dedicated for table chart
