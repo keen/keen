@@ -20,34 +20,6 @@ test('transform singular result', () => {
   `);
 });
 
-test('transform singular result for table', () => {
-  const result = transformSingular(
-    {
-      query: {
-        analysis_type: 'count',
-        event_collection: 'page_views',
-      },
-      result: 120,
-    },
-    {},
-    'table'
-  );
-
-  expect(result).toMatchInlineSnapshot(`
-    Object {
-      "data": Array [
-        Object {
-          "Analysis": "count.page_views",
-          "Value": 120,
-        },
-      ],
-      "keys": Array [
-        "Value",
-      ],
-    }
-  `);
-});
-
 test('all keys should be strings', () => {
   const { data, keys } = transformSingular({
     result: 120,
