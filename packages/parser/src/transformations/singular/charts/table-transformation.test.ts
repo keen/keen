@@ -6,7 +6,9 @@ test('transform singular result for table', () => {
       analysis_type: 'count',
       event_collection: 'page_views',
     },
-    120
+    120,
+    'Analysis',
+    'Value'
   );
 
   expect(result).toMatchInlineSnapshot(`

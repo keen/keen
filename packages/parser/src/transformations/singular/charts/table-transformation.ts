@@ -1,7 +1,5 @@
 import { Query } from '@keen.io/query';
 
-import { KEEN_TABLE_VALUE, KEEN_TABLE_ANALYSIS } from '../../../constants';
-
 /**
  * Singular transformation dedicated for table chart
  *
@@ -13,16 +11,18 @@ import { KEEN_TABLE_VALUE, KEEN_TABLE_ANALYSIS } from '../../../constants';
 
 export const tableChartTransformation = (
   query: Pick<Query, 'analysis_type' | 'event_collection'>,
-  value: number
+  value: number,
+  analysisLabel: string,
+  valueLabel: string
 ) => {
   const { analysis_type, event_collection } = query;
   return {
     data: [
       {
-        [KEEN_TABLE_ANALYSIS]: `${analysis_type}.${event_collection}`,
-        [KEEN_TABLE_VALUE]: value,
+        [analysisLabel]: `${analysis_type}.${event_collection}`,
+        [valueLabel]: value,
       },
     ],
-    keys: [KEEN_TABLE_VALUE],
+    keys: [valueLabel],
   };
 };

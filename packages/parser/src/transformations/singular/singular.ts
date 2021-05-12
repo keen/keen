@@ -3,7 +3,13 @@ import { Query } from '@keen.io/query';
 import { tableChartTransformation } from './charts';
 import { ParserSettings } from '../../types';
 
-import { DEFAULT_NAME, KEEN_KEY, KEEN_VALUE } from '../../constants';
+import {
+  DEFAULT_NAME,
+  KEEN_KEY,
+  KEEN_VALUE,
+  KEEN_TABLE_ANALYSIS,
+  KEEN_TABLE_VALUE,
+} from '../../constants';
 
 /**
  * Transforms singular data.
@@ -30,7 +36,12 @@ export const transformSingular = (
     query?.event_collection &&
     visualization === 'table'
   ) {
-    return tableChartTransformation(query, value);
+    return tableChartTransformation(
+      query,
+      value,
+      KEEN_TABLE_ANALYSIS,
+      KEEN_TABLE_VALUE
+    );
   }
 
   return {
