@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.2...@keen.io/ui-core@2.26.0) (2021-05-13)
+
+
+### Features
+
+* 🎸 add enhancements to table ([e8c1e9b](https://github.com/keen/keen/commit/e8c1e9b510d125e1303819c9cc0c5fd36ce17d67))
+
+
+
+
+
 ## [2.25.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.1...@keen.io/ui-core@2.25.2) (2021-05-10)
 
 
