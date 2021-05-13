@@ -9,6 +9,10 @@ exports[`applies typography settings to table header 1`] = `
   text-align: left;
   background: inherit;
   background: #44748C;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c3 {
@@ -20,9 +24,13 @@ exports[`applies typography settings to table header 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 5px;
   box-sizing: border-box;
   min-height: 20px;
   padding: 20px;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .c4 {
@@ -30,13 +38,9 @@ exports[`applies typography settings to table header 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   -webkit-flex-wrap: no-wrap;
   -ms-flex-wrap: no-wrap;
   flex-wrap: no-wrap;
-  padding-left: 5px;
   position: relative;
 }
 

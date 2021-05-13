@@ -43,7 +43,6 @@ const TableRow: FC<Props> = ({
           ? {}
           : {
               backgroundColor: rgbaBackground,
-              borderLeft: `solid 8px ${backgroundColor}`,
             }
       }
     >

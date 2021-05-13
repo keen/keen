@@ -1,7 +1,8 @@
 import { Query } from '@keen.io/query';
-import { convertDate } from '@keen.io/time-utils';
 
-import { KEEN_KEY, KEEN_VALUE } from '../../constants';
+import { tableChartTransformation } from './charts';
+import { defaultTransformation } from './default-transformation';
+
 import { ParserSettings, IntervalResult } from '../../types';
 
 /**
@@ -13,33 +14,21 @@ import { ParserSettings, IntervalResult } from '../../types';
  */
 export const transformChronological = (
   {
+    query,
     result,
   }: {
     query?: Query;
     result: IntervalResult[];
   },
-  { dateModifier }: ParserSettings
+  { dateModifier }: ParserSettings,
+  visualization?: string
 ) => {
-  const data: Record<string, any>[] = [];
-  const keys: Set<string> = new Set();
+  const enableTableFormatter =
+    query?.analysis_type &&
+    query?.event_collection &&
+    visualization === 'table';
 
-  result.forEach((interval) => {
-    const {
-      value,
-      timeframe: { start: startDate },
-    } = interval as {
-      timeframe: { start: string; end: string };
-      value: number | null | string;
-    };
-    keys.add(KEEN_VALUE);
-    data.push({
-      [KEEN_KEY]: convertDate(startDate, dateModifier),
-      [KEEN_VALUE]: value,
-    });
-  });
-
-  return {
-    data,
-    keys: [...keys],
-  };
+  return enableTableFormatter
+    ? tableChartTransformation(query, result, dateModifier)
+    : defaultTransformation(result, dateModifier);
 };

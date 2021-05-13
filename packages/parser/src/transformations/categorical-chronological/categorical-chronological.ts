@@ -1,11 +1,9 @@
 import { Query } from '@keen.io/query';
-import { convertDate } from '@keen.io/time-utils';
 
-import { KEEN_KEY } from '../../constants';
+import { defaultTransformation } from './default-transformation';
+import { tableChartTransformation } from './charts';
 
-import { mergePropertiesGroup, fillWithEmptyKeys } from '../../utils';
-
-import { IntervalResult, GroupByResult, ParserSettings } from '../../types';
+import { IntervalResult, ParserSettings } from '../../types';
 
 /**
  * Transforms categorical data with chronological order.
@@ -16,48 +14,32 @@ import { IntervalResult, GroupByResult, ParserSettings } from '../../types';
  */
 export const transformCategoricalChronological = (
   {
+    query,
     result,
   }: {
     query?: Query;
     result: IntervalResult[];
   },
-  { mergePropertiesOrder, fillEmptyIntervalsKeys, dateModifier }: ParserSettings
+  {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    dateModifier,
+  }: ParserSettings,
+  visualization?: string
 ) => {
-  let data: Record<string, any>[] = [];
-  const keys: Set<string> = new Set();
+  const enableTableFormatter =
+    query?.analysis_type &&
+    query?.event_collection &&
+    visualization === 'table';
 
-  result.forEach((interval) => {
-    const { timeframe, value } = interval as {
-      timeframe: { start: string; end: string };
-      value: GroupByResult[];
-    };
-    const intervalData: Record<string, any> = {};
-    const intervalKeys: Set<string> = new Set();
-
-    value
-      .map((groupedProperties) =>
-        mergePropertiesGroup(groupedProperties, mergePropertiesOrder)
+  return enableTableFormatter
+    ? tableChartTransformation(
+        { query, result },
+        { fillEmptyIntervalsKeys, dateModifier }
       )
-      .forEach(({ result, ...properties }) => {
-        Object.values(properties).forEach((name) => {
-          intervalKeys.add(name as string);
-          intervalData[name] = result;
-        });
+    : defaultTransformation(result, {
+        mergePropertiesOrder,
+        fillEmptyIntervalsKeys,
+        dateModifier,
       });
-
-    data.push({
-      [KEEN_KEY]: convertDate(timeframe.start, dateModifier),
-      ...intervalData,
-    });
-    intervalKeys.forEach((key) => keys.add(`${key}`));
-  });
-
-  if (fillEmptyIntervalsKeys) {
-    data = fillWithEmptyKeys([...keys], data, 0);
-  }
-
-  return {
-    data,
-    keys: [...keys],
-  };
 };

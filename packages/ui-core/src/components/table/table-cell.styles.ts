@@ -6,6 +6,7 @@ import { CellTextAlignment } from './types';
 export const StyledCell = styled.td`
   padding: 0;
   border-right: 1px solid ${colors.gray[200]};
+  position: relative;
 
   &:last-of-type {
     border-right: none;
