@@ -38,7 +38,13 @@ import TagManager from './tag-manager';
 import TagManagement from './tag-management';
 import Error from './error';
 
-import { TableCell, TableRow, TableHeader, CellValue } from './table';
+import {
+  TableCell,
+  TableRow,
+  TableHeader,
+  CellValue,
+  CellTextAlignment,
+} from './table';
 
 import { Brand } from './brand';
 
@@ -95,6 +101,7 @@ export {
   ColorAdjuster,
   ContentSeparator,
   CellValue,
+  CellTextAlignment,
   Dropdown,
   DropdownMenu,
   DropdownList,

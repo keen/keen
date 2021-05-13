@@ -10,14 +10,17 @@ describe('generateHeader()', () => {
     expect(header).toMatchInlineSnapshot(`
       Array [
         Object {
+          "align": "left",
           "key": "name",
           "value": "name",
         },
         Object {
+          "align": "right",
           "key": "age",
           "value": "User Age",
         },
         Object {
+          "align": "left",
           "key": "city",
           "value": "city",
         },

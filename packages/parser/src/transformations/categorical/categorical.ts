@@ -35,7 +35,11 @@ export const transformCategorical = (
   }
 
   if (visualization === 'table') {
-    return tableChartTransformation(result);
+    return tableChartTransformation(
+      result,
+      query?.analysis_type,
+      query?.event_collection
+    );
   }
 
   if (
