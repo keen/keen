@@ -7,10 +7,11 @@ import { PieLabel } from '../../components';
 import { StyledPath } from './donut-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
+import { SliceState } from '../../types';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-const hoverTransition = { duration: 0.2, ease: 'easeInOut' };
+const sliceTransition = { duration: 0.2, ease: 'easeInOut' };
 
 const sliceVariants = {
   hidden: { opacity: 0 },
@@ -24,6 +25,25 @@ const sliceVariants = {
   },
 };
 
+const activeVariants = {
+  initial: {
+    opacity: 1,
+    scale: 1,
+  },
+  inactive: {
+    opacity: 0.2,
+    scale: 1,
+  },
+  hover: {
+    opacity: 1,
+    scale: 1.05,
+  },
+  active: {
+    opacity: 1,
+    scale: 1.05,
+  },
+};
+
 type Props = {
   draw: Arc<any, DefaultArcObject>;
   startAngle: number;
@@ -34,6 +54,7 @@ type Props = {
   label: string;
   background: string;
   id: string;
+  activeKey?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
@@ -47,6 +68,7 @@ const DonutSlice: FC<Props> = ({
   endAngle,
   labelPosition,
   id,
+  activeKey,
   onMouseLeave,
   onMouseMove,
 }) => {
@@ -57,7 +79,7 @@ const DonutSlice: FC<Props> = ({
   const element = useRef(null);
   const path = useRef(null);
 
-  const [isActive, setActive] = useState(false);
+  const [sliceState, setSliceState] = useState<SliceState>(null);
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme.donut;
   const [labelX, labelY] = labelPosition;
@@ -79,6 +101,14 @@ const DonutSlice: FC<Props> = ({
     });
   }, [startAngle, endAngle]);
 
+  useEffect(() => {
+    if (activeKey) {
+      setSliceState(activeKey === id ? 'active' : 'inactive');
+    } else {
+      setSliceState('initial');
+    }
+  }, [activeKey]);
+
   return (
     <motion.g
       variants={sliceVariants}
@@ -89,18 +119,20 @@ const DonutSlice: FC<Props> = ({
     >
       <motion.g
         onMouseMove={onMouseMove}
-        onMouseEnter={() => setActive(true)}
+        onMouseEnter={() => setSliceState('hover')}
         onMouseLeave={(e) => {
           onMouseLeave(e);
-          setActive(false);
+          setSliceState('initial');
         }}
-        transition={hoverTransition}
-        whileHover={{ scale: 1.05 }}
+        transition={sliceTransition}
+        variants={activeVariants}
+        animate={sliceState}
+        initial="initial"
         style={{ originX: '0', originY: '0' }}
         ref={path}
       >
         <StyledPath
-          dropShadow={isActive}
+          dropShadow={sliceState === 'hover'}
           ref={element}
           d={draw(arcProperties as DefaultArcObject)}
           key={background}

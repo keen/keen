@@ -179,6 +179,8 @@ export type Pie = {
   };
 };
 
+export type SliceState = 'active' | 'inactive' | 'hover' | 'initial';
+
 export type Gauge = {
   labels: {
     enabled: boolean;

@@ -32,6 +32,7 @@ export const PieChartWidget: FC<Props> = ({
   const { disabledKeys, updateKeys } = useLegend();
 
   const [stackedElem, setStackedElem] = useState([]);
+  const [activeKey, setActiveKey] = useState(null);
 
   return (
     <ChartWidget
@@ -53,6 +54,8 @@ export const PieChartWidget: FC<Props> = ({
                 updateKeys(key, disabled);
               }
             }}
+            onActivate={(label: string) => setActiveKey(label)}
+            onDeactivate={() => setActiveKey(null)}
             labels={createLegendLabels(
               props.data,
               theme.colors,
@@ -70,6 +73,7 @@ export const PieChartWidget: FC<Props> = ({
               onDataStack={(res) => setStackedElem(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
+              activeKey={activeKey}
               theme={theme}
             />
           )}
