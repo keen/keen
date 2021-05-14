@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useRef, useState, useContext, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
 import { PieLabel } from '../../components';
 import { StyledPath } from './donut-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
-import { SliceState } from '../../types';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
@@ -33,10 +32,6 @@ const activeVariants = {
   inactive: {
     opacity: 0.2,
     scale: 1,
-  },
-  hover: {
-    opacity: 1,
-    scale: 1.05,
   },
   active: {
     opacity: 1,
@@ -79,7 +74,10 @@ const DonutSlice: FC<Props> = ({
   const element = useRef(null);
   const path = useRef(null);
 
-  const [sliceState, setSliceState] = useState<SliceState>(null);
+  const [isDelayed, setDelay] = useState(false);
+  const [isActive, setActive] = useState(false);
+
+  const activeControls = useAnimation();
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme.donut;
   const [labelX, labelY] = labelPosition;
@@ -99,13 +97,22 @@ const DonutSlice: FC<Props> = ({
         });
       });
     });
+    setDelay(true);
   }, [startAngle, endAngle]);
 
   useEffect(() => {
     if (activeKey) {
-      setSliceState(activeKey === id ? 'active' : 'inactive');
+      activeControls.start(
+        activeKey === id ? activeVariants.active : activeVariants.inactive
+      );
     } else {
-      setSliceState('initial');
+      activeControls
+        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .then(() => {
+          if (isDelayed) {
+            setDelay(false);
+          }
+        });
     }
   }, [activeKey]);
 
@@ -119,20 +126,21 @@ const DonutSlice: FC<Props> = ({
     >
       <motion.g
         onMouseMove={onMouseMove}
-        onMouseEnter={() => setSliceState('hover')}
+        onMouseEnter={() => setActive(true)}
         onMouseLeave={(e) => {
           onMouseLeave(e);
-          setSliceState('initial');
+          setActive(false);
         }}
         transition={sliceTransition}
         variants={activeVariants}
-        animate={sliceState}
-        initial="initial"
+        animate={activeControls}
+        initial={activeVariants.initial}
+        whileHover={activeVariants.active}
         style={{ originX: '0', originY: '0' }}
         ref={path}
       >
         <StyledPath
-          dropShadow={sliceState === 'hover'}
+          dropShadow={isActive}
           ref={element}
           d={draw(arcProperties as DefaultArcObject)}
           key={background}

@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useRef, useState, useContext, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
 import { PieLabel } from '../../components';
 import { StyledPath } from './pie-slice.styles';
 
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
-import { SliceState } from '../../types';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
@@ -59,7 +58,6 @@ const PieSlice: FC<Props> = ({
     endAngle,
   });
   const element = useRef(null);
-  const [sliceState, setSliceState] = useState<SliceState>(null);
 
   const { theme } = useContext(ChartContext) as ChartContextType;
   const {
@@ -69,6 +67,10 @@ const PieSlice: FC<Props> = ({
   const [x, y] = activePosition;
   const [labelX, labelY] = labelPosition;
 
+  const [isDelayed, setDelay] = useState(false);
+  const [isActive, setActive] = useState(false);
+
+  const activeControls = useAnimation();
   const activeVariants = {
     initial: {
       opacity: 1,
@@ -79,11 +81,6 @@ const PieSlice: FC<Props> = ({
       opacity: 0.2,
       x: 0,
       y: 0,
-    },
-    hover: {
-      opacity: 1,
-      x,
-      y,
     },
     active: {
       opacity: 1,
@@ -107,13 +104,22 @@ const PieSlice: FC<Props> = ({
         });
       });
     });
+    setDelay(true);
   }, [startAngle, endAngle]);
 
   useEffect(() => {
     if (activeKey) {
-      setSliceState(activeKey === id ? 'active' : 'inactive');
+      activeControls.start(
+        activeKey === id ? activeVariants.active : activeVariants.inactive
+      );
     } else {
-      setSliceState('initial');
+      activeControls
+        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .then(() => {
+          if (isDelayed) {
+            setDelay(false);
+          }
+        });
     }
   }, [activeKey]);
 
@@ -127,19 +133,20 @@ const PieSlice: FC<Props> = ({
     >
       <motion.g
         onMouseMove={onMouseMove}
-        onMouseEnter={() => setSliceState('hover')}
+        onMouseEnter={() => setActive(true)}
         onMouseLeave={(e) => {
           onMouseLeave(e);
-          setSliceState('initial');
+          setActive(false);
         }}
         variants={activeVariants}
-        animate={sliceState}
-        initial="initial"
+        animate={activeControls}
+        initial={activeVariants.initial}
+        whileHover={activeVariants.active}
         style={{ originX: '0', originY: '0' }}
         transition={sliceTransition}
       >
         <StyledPath
-          dropShadow={sliceState === 'hover'}
+          dropShadow={isActive}
           ref={element}
           d={draw(arcProperties as DefaultArcObject)}
           key={background}
