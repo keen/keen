@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.37](https://github.com/keen/keen/compare/@keen.io/parser@2.8.36...@keen.io/parser@2.8.37) (2021-05-17)
+
+
+### Bug Fixes
+
+* 🐛 categorical transformation for table ([ff8340c](https://github.com/keen/keen/commit/ff8340ca2ad66b311482c19daeff6ea07178150e))
+
+
+
+
+
 ## [2.8.36](https://github.com/keen/keen/compare/@keen.io/parser@2.8.35...@keen.io/parser@2.8.36) (2021-05-13)
 
 **Note:** Version bump only for package @keen.io/parser
