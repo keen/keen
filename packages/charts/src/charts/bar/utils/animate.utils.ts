@@ -46,6 +46,12 @@ export const createBarMotion = ({
         duration: 0.4,
       },
     },
+    active: {
+      opacity: 1,
+    },
+    inactive: {
+      opacity: 0.2,
+    },
   };
 
   if (groupMode === 'grouped') {
