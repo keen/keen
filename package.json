@@ -108,7 +108,7 @@
     "jest-date-mock": "^1.0.8",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-styled-components": "^7.0.2",
-    "lerna": "^3.18.4",
+    "lerna": "^4.0.0",
     "lerna-update-wizard": "^0.17.8",
     "lint-staged": "^9.5.0",
     "lorem-ipsum": "^2.0.3",
