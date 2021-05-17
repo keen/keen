@@ -69,7 +69,7 @@ export type Props = {
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
   /** Active key */
-  activeKey?: string;
+  activeKey?: string | null;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -95,7 +95,7 @@ export const BarChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
   tooltipSettings = {},
-  activeKey,
+  activeKey = null,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
 

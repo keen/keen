@@ -30,7 +30,7 @@ export type Props = {
   groupMode: GroupMode;
   showValues: boolean;
   valuesAutocolor: boolean;
-  activeKey?: string;
+  activeKey?: string | null;
 };
 
 const Bars = ({

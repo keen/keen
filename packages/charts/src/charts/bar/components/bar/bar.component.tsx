@@ -19,7 +19,7 @@ type Props = {
   layout: Layout;
   groupMode: GroupMode;
   animate?: boolean;
-  isActive?: boolean;
+  isActive?: boolean | null;
 };
 
 export const Bar: FC<Props> = ({
@@ -46,7 +46,7 @@ export const Bar: FC<Props> = ({
   useEffect(() => {
     barControls.start(barVariants.animate);
 
-    if (typeof isActive !== 'boolean') {
+    if (isActive === null) {
       return;
     }
     if (isActive) {
