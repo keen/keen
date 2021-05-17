@@ -6,6 +6,7 @@ import { Arc, DefaultArcObject } from 'd3-shape';
 import { PieLabel } from '../../components';
 import { StyledPath } from './pie-slice.styles';
 
+import { getActiveKeyVariants } from './utils';
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
@@ -71,23 +72,7 @@ const PieSlice: FC<Props> = ({
   const [isActive, setActive] = useState(false);
 
   const activeControls = useAnimation();
-  const activeVariants = {
-    initial: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-    },
-    inactive: {
-      opacity: 0.2,
-      x: 0,
-      y: 0,
-    },
-    active: {
-      opacity: 1,
-      x,
-      y,
-    },
-  };
+  const activeVariants = getActiveKeyVariants(x, y);
 
   useEffect(() => {
     const motion = createArcTween(
