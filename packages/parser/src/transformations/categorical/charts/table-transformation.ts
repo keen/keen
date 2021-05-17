@@ -21,7 +21,7 @@ export const tableChartTransformation = (
     analysisType && eventCollection
       ? result.map((record) => {
           const { result, ...rest } = record;
-          return result
+          return typeof result !== 'undefined'
             ? {
                 ...rest,
                 [`${analysisType}.${eventCollection}`]: result,
