@@ -10,9 +10,20 @@ import { VisualizationOptions } from './types';
 
 export const setChartSettings = ({
   query,
+  componentSettings,
 }: VisualizationOptions): Partial<BarChartSettings> => {
   const { interval, order_by: orderBy } = query;
   let settings = {};
+
+  const barChartSettings = componentSettings as BarChartSettings;
+
+  if (barChartSettings.stackMode === 'percent') {
+    settings = {
+      yScaleSettings: {
+        formatLabel: '${}%',
+      },
+    };
+  }
 
   if (interval) {
     const precision = getPrecisionForInterval(interval);
