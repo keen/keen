@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useRef, useState, useContext, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
 import { PieLabel } from '../../components';
 import { StyledPath } from './pie-slice.styles';
 
+import { getActiveKeyVariants } from './utils';
 import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-const hoverTransition = { duration: 0.2, ease: 'easeInOut' };
+const sliceTransition = { duration: 0.2, ease: 'easeInOut' };
 
 const sliceVariants = {
   hidden: { opacity: 0 },
@@ -34,6 +35,7 @@ type Props = {
   label: string;
   background: string;
   id: string;
+  activeKey?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
@@ -48,6 +50,7 @@ const PieSlice: FC<Props> = ({
   endAngle,
   labelPosition,
   id,
+  activeKey,
   onMouseLeave,
   onMouseMove,
 }) => {
@@ -56,7 +59,6 @@ const PieSlice: FC<Props> = ({
     endAngle,
   });
   const element = useRef(null);
-  const [isActive, setActive] = useState(false);
 
   const { theme } = useContext(ChartContext) as ChartContextType;
   const {
@@ -65,6 +67,12 @@ const PieSlice: FC<Props> = ({
 
   const [x, y] = activePosition;
   const [labelX, labelY] = labelPosition;
+
+  const [isDelayed, setDelay] = useState(false);
+  const [isActive, setActive] = useState(false);
+
+  const activeControls = useAnimation();
+  const activeVariants = getActiveKeyVariants(x, y);
 
   useEffect(() => {
     const motion = createArcTween(
@@ -81,7 +89,24 @@ const PieSlice: FC<Props> = ({
         });
       });
     });
+    setDelay(true);
   }, [startAngle, endAngle]);
+
+  useEffect(() => {
+    if (activeKey) {
+      activeControls.start(
+        activeKey === id ? activeVariants.active : activeVariants.inactive
+      );
+    } else {
+      activeControls
+        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .then(() => {
+          if (isDelayed) {
+            setDelay(false);
+          }
+        });
+    }
+  }, [activeKey]);
 
   return (
     <motion.g
@@ -98,12 +123,12 @@ const PieSlice: FC<Props> = ({
           onMouseLeave(e);
           setActive(false);
         }}
+        variants={activeVariants}
+        animate={activeControls}
+        initial={activeVariants.initial}
+        whileHover={activeVariants.active}
         style={{ originX: '0', originY: '0' }}
-        transition={hoverTransition}
-        whileHover={{
-          x,
-          y,
-        }}
+        transition={sliceTransition}
       >
         <StyledPath
           dropShadow={isActive}

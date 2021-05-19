@@ -48,10 +48,12 @@ export type Props = {
   labelsAutocolor?: boolean;
   /** Stack the arcs if percent value is lower than provided treshold */
   stackTreshold?: number;
-  /** Return dataKeys after stacking */
-  onDataStack?: (keys: string[]) => void;
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
+  /** Active key */
+  activeKey?: string;
+  /** Return dataKeys after stacking */
+  onDataStack?: (keys: string[]) => void;
 } & CommonChartSettings;
 
 export const DonutChart: FC<Props> = ({
@@ -72,6 +74,7 @@ export const DonutChart: FC<Props> = ({
   stackTreshold = 4,
   onDataStack,
   tooltipSettings = {},
+  activeKey,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -191,6 +194,7 @@ export const DonutChart: FC<Props> = ({
                   <DonutSlice
                     key={dataKey}
                     id={dataKey}
+                    activeKey={activeKey}
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}

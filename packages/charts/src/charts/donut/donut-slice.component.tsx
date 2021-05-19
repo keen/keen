@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useRef, useState, useContext, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { Arc, DefaultArcObject } from 'd3-shape';
 
 import { PieLabel } from '../../components';
@@ -10,7 +10,7 @@ import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
-const hoverTransition = { duration: 0.2, ease: 'easeInOut' };
+const sliceTransition = { duration: 0.2, ease: 'easeInOut' };
 
 const sliceVariants = {
   hidden: { opacity: 0 },
@@ -24,6 +24,21 @@ const sliceVariants = {
   },
 };
 
+const activeVariants = {
+  initial: {
+    opacity: 1,
+    scale: 1,
+  },
+  inactive: {
+    opacity: 0.2,
+    scale: 1,
+  },
+  active: {
+    opacity: 1,
+    scale: 1.05,
+  },
+};
+
 type Props = {
   draw: Arc<any, DefaultArcObject>;
   startAngle: number;
@@ -34,6 +49,7 @@ type Props = {
   label: string;
   background: string;
   id: string;
+  activeKey?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
 };
@@ -47,6 +63,7 @@ const DonutSlice: FC<Props> = ({
   endAngle,
   labelPosition,
   id,
+  activeKey,
   onMouseLeave,
   onMouseMove,
 }) => {
@@ -57,7 +74,10 @@ const DonutSlice: FC<Props> = ({
   const element = useRef(null);
   const path = useRef(null);
 
+  const [isDelayed, setDelay] = useState(false);
   const [isActive, setActive] = useState(false);
+
+  const activeControls = useAnimation();
   const { theme } = useContext(ChartContext) as ChartContextType;
   const { labels } = theme.donut;
   const [labelX, labelY] = labelPosition;
@@ -77,7 +97,24 @@ const DonutSlice: FC<Props> = ({
         });
       });
     });
+    setDelay(true);
   }, [startAngle, endAngle]);
+
+  useEffect(() => {
+    if (activeKey) {
+      activeControls.start(
+        activeKey === id ? activeVariants.active : activeVariants.inactive
+      );
+    } else {
+      activeControls
+        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .then(() => {
+          if (isDelayed) {
+            setDelay(false);
+          }
+        });
+    }
+  }, [activeKey]);
 
   return (
     <motion.g
@@ -94,8 +131,11 @@ const DonutSlice: FC<Props> = ({
           onMouseLeave(e);
           setActive(false);
         }}
-        transition={hoverTransition}
-        whileHover={{ scale: 1.05 }}
+        transition={sliceTransition}
+        variants={activeVariants}
+        animate={activeControls}
+        initial={activeVariants.initial}
+        whileHover={activeVariants.active}
         style={{ originX: '0', originY: '0' }}
         ref={path}
       >
