@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/keen/keen/compare/@keen.io/charts@2.18.0...@keen.io/charts@2.19.0) (2021-05-19)
+
+
+### Features
+
+* 🎸 pie/donut legend interactions ([78524c4](https://github.com/keen/keen/commit/78524c4d2f4d1a467b6086eb62c176da3fc96388))
+
+
+
+
+
 # [2.18.0](https://github.com/keen/keen/compare/@keen.io/charts@2.17.0...@keen.io/charts@2.18.0) (2021-05-13)
 
 
