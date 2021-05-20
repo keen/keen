@@ -36,7 +36,16 @@ export const Bar: FC<Props> = ({
 }) => {
   const barControls = useAnimation();
   const barVariants = {
-    ...createBarMotion({ layout, groupMode, width, height, x, y }),
+    ...createBarMotion({
+      layout,
+      groupMode,
+      width,
+      height,
+      x,
+      y,
+      color,
+      colorOutOfRange,
+    }),
   };
 
   useEffect(() => {
@@ -44,6 +53,7 @@ export const Bar: FC<Props> = ({
   }, [x, y]);
 
   useEffect(() => {
+    if (colorOutOfRange) barControls.start(barVariants.defaultColor);
     barControls.start(barVariants.animate);
 
     if (isActive === null) {
