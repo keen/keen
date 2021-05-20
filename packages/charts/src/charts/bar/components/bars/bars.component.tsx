@@ -30,6 +30,7 @@ export type Props = {
   groupMode: GroupMode;
   showValues: boolean;
   valuesAutocolor: boolean;
+  activeKey?: string | null;
 };
 
 const Bars = ({
@@ -39,6 +40,7 @@ const Bars = ({
   showValues,
   valuesAutocolor,
   layout,
+  activeKey,
   onBarMouseEnter,
   onBarMouseLeave,
 }: Props) => {
@@ -83,6 +85,7 @@ const Bars = ({
             >
               <BarComponent
                 key={key}
+                isActive={activeKey && selector.includes(activeKey)}
                 layout={layout}
                 groupMode={groupMode}
                 x={x}

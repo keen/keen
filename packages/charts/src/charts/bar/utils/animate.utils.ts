@@ -1,4 +1,5 @@
 import { Layout } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
 
 import { GroupMode } from '../../../types';
 
@@ -9,6 +10,8 @@ type BarMotionProps = {
   width: number;
   groupMode: GroupMode;
   layout: Layout;
+  color: string;
+  colorOutOfRange: boolean;
 };
 
 /**
@@ -20,6 +23,8 @@ type BarMotionProps = {
  * @param width - width of the bar
  * @param x - x position of the bar
  * @param y - y position of the bar
+ * @param color - bar color
+ * @param colorOutOfRange - defines if color is of of range
  * @return animation object with data for framer
  *
  */
@@ -31,6 +36,8 @@ export const createBarMotion = ({
   width,
   x,
   y,
+  color,
+  colorOutOfRange,
 }: BarMotionProps) => {
   const motion = {
     exit: {
@@ -45,6 +52,14 @@ export const createBarMotion = ({
       transition: {
         duration: 0.4,
       },
+    },
+    ...(colorOutOfRange && { defaultColor: { fill: color } }),
+    active: {
+      opacity: 1,
+      ...(colorOutOfRange && { fill: colors.gray[500] }),
+    },
+    inactive: {
+      opacity: 0.2,
     },
   };
 

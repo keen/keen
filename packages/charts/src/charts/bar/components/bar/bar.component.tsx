@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { motion } from 'framer-motion';
+import React, { FC, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
@@ -19,6 +19,7 @@ type Props = {
   layout: Layout;
   groupMode: GroupMode;
   animate?: boolean;
+  isActive?: boolean | null;
 };
 
 export const Bar: FC<Props> = ({
@@ -31,7 +32,40 @@ export const Bar: FC<Props> = ({
   layout,
   groupMode,
   animate = true,
+  isActive,
 }) => {
+  const barControls = useAnimation();
+  const barVariants = {
+    ...createBarMotion({
+      layout,
+      groupMode,
+      width,
+      height,
+      x,
+      y,
+      color,
+      colorOutOfRange,
+    }),
+  };
+
+  useEffect(() => {
+    barControls.start(barVariants.animate);
+  }, [x, y]);
+
+  useEffect(() => {
+    if (colorOutOfRange) barControls.start(barVariants.defaultColor);
+    barControls.start(barVariants.animate);
+
+    if (isActive === null) {
+      return;
+    }
+    if (isActive) {
+      barControls.start(barVariants.active);
+    } else {
+      barControls.start(barVariants.inactive);
+    }
+  }, [isActive]);
+
   const commonProps = {
     height,
     width,
@@ -42,7 +76,8 @@ export const Bar: FC<Props> = ({
   return animate ? (
     <motion.rect
       {...commonProps}
-      {...createBarMotion({ layout, groupMode, width, height, x, y })}
+      {...barVariants}
+      animate={barControls}
       whileHover={colorOutOfRange && { fill: colors.gray[500] }}
     />
   ) : (
