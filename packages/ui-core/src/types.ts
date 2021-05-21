@@ -47,3 +47,5 @@ export type ButtonVariant =
   | 'success'
   | 'danger'
   | 'blank';
+
+export type RadioItem = { id: string; label: string; value: string | number };

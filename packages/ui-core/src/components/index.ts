@@ -30,6 +30,7 @@ import FakeInput from './fake-input';
 import Input from './input';
 import Select from './select';
 import RadioGroup from './radio-group';
+import RadioSelect from './radio-select';
 import Image from './image';
 
 import PasswordInput from './password-input';
@@ -115,6 +116,7 @@ export {
   Select,
   Radio,
   RadioGroup,
+  RadioSelect,
   Image,
   Tooltip,
   Modal,

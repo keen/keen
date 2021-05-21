@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { Container, Item } from './radio-group.styles';
 
-import { RadioItem } from './types';
+import { RadioItem } from '../../types';
 
 type Props = {
   /** Collection of items */
