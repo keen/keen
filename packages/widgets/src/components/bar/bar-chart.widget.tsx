@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   BarChart,
   BarChartSettings,
@@ -26,6 +26,7 @@ export const BarChartWidget: FC<Props> = ({
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
+  const [activeKey, setActiveKey] = useState<string>(null);
 
   return (
     <ChartWidget
@@ -41,6 +42,8 @@ export const BarChartWidget: FC<Props> = ({
           <SeriesLegend
             {...legend}
             onClick={updateKeys}
+            onActivate={(label: string) => setActiveKey(label)}
+            onDeactivate={() => setActiveKey(null)}
             labels={props.keys.map((key, idx) => ({
               name: key,
               color: theme.colors[idx],
@@ -54,6 +57,7 @@ export const BarChartWidget: FC<Props> = ({
             <BarChart
               theme={theme}
               disabledKeys={disabledKeys}
+              activeKey={activeKey}
               svgDimensions={{ width, height }}
               {...props}
             />

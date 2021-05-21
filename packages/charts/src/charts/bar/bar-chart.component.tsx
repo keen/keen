@@ -68,6 +68,8 @@ export type Props = {
   barsOrder?: SortMode;
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
+  /** Active key */
+  activeKey?: string | null;
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -93,6 +95,7 @@ export const BarChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
   tooltipSettings = {},
+  activeKey = null,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
 
@@ -170,6 +173,7 @@ export const BarChart: FC<Props> = ({
             <ZeroIntersection xScale={xScale} yScale={yScale} layout={layout} />
             <Bars
               bars={bars}
+              activeKey={activeKey}
               stackMode={stackMode}
               groupMode={groupMode}
               layout={layout}
