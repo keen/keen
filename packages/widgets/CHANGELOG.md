@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.7.0...@keen.io/widgets@2.8.0) (2021-05-21)
+
+
+### Features
+
+* 🎸 bar chart legend interactions ([fc1fe91](https://github.com/keen/keen/commit/fc1fe913a2c0cf944ce86df872cd1d1f01215bef))
+
+
+
+
+
 # [2.7.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.5...@keen.io/widgets@2.7.0) (2021-05-19)
 
 
