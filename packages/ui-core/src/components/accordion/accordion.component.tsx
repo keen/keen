@@ -41,7 +41,12 @@ export const Accordion: FC<Props> = ({
           initial="close"
           animate={isAccordionOpen ? 'open' : 'close'}
         >
-          <Icon width={14} fill={colors.green[500]} type="caret-right" />
+          <Icon
+            width={14}
+            fill={colors.green[500]}
+            opacity={0.7}
+            type="caret-right"
+          />
         </IconContainer>
       </TitleContainer>
       <AnimatePresence initial={false}>
