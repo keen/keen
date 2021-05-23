@@ -102,6 +102,7 @@ export const HeatmapChart: FC<Props> = ({
     minValue,
     maxValue,
     layout,
+    colors: theme.colors,
     colorMode,
     steps,
     range,
