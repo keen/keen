@@ -3,7 +3,7 @@
 exports[`<Heatmap /> - utils generateHorizontalBlocks() should calculate blocks and apply colors 1`] = `
 Array [
   Object {
-    "color": "rgb(158, 146, 137)",
+    "color": "rgb(162, 0, 93)",
     "height": 123.33333333333333,
     "key": "1.sale.block",
     "selector": Array [
@@ -16,7 +16,7 @@ Array [
     "y": 256.66666666666663,
   },
   Object {
-    "color": "rgb(156, 149, 142)",
+    "color": "rgb(170, 0, 85)",
     "height": 123.33333333333333,
     "key": "0.buy.block",
     "selector": Array [
@@ -29,7 +29,7 @@ Array [
     "y": 133.33333333333331,
   },
   Object {
-    "color": "rgb(139, 171, 180)",
+    "color": "rgb(232, 0, 23)",
     "height": 123.33333333333333,
     "key": "1.buy.block",
     "selector": Array [
@@ -42,7 +42,7 @@ Array [
     "y": 133.33333333333331,
   },
   Object {
-    "color": "rgb(156, 149, 142)",
+    "color": "rgb(170, 0, 85)",
     "height": 123.33333333333333,
     "key": "2.buy.block",
     "selector": Array [
@@ -55,7 +55,7 @@ Array [
     "y": 133.33333333333331,
   },
   Object {
-    "color": "rgb(197, 95, 50)",
+    "color": "rgb(23, 0, 232)",
     "height": 123.33333333333333,
     "key": "0.revenue.block",
     "selector": Array [
@@ -68,7 +68,7 @@ Array [
     "y": 10,
   },
   Object {
-    "color": "rgb(178, 120, 93)",
+    "color": "rgb(93, 0, 162)",
     "height": 123.33333333333333,
     "key": "1.revenue.block",
     "selector": Array [
@@ -81,7 +81,7 @@ Array [
     "y": 10,
   },
   Object {
-    "color": "rgb(197, 95, 50)",
+    "color": "rgb(23, 0, 232)",
     "height": 123.33333333333333,
     "key": "2.revenue.block",
     "selector": Array [
@@ -99,7 +99,7 @@ Array [
 exports[`<Heatmap /> - utils generateVerticalBlocks() should calculate blocks and apply colors 1`] = `
 Array [
   Object {
-    "color": "rgb(158, 146, 137)",
+    "color": "rgb(162, 0, 93)",
     "height": 123.33333333333333,
     "key": "1.sale.block",
     "selector": Array [
@@ -112,7 +112,7 @@ Array [
     "y": 133.33333333333331,
   },
   Object {
-    "color": "rgb(156, 149, 142)",
+    "color": "rgb(170, 0, 85)",
     "height": 123.33333333333333,
     "key": "0.buy.block",
     "selector": Array [
@@ -125,7 +125,7 @@ Array [
     "y": 256.66666666666663,
   },
   Object {
-    "color": "rgb(139, 171, 180)",
+    "color": "rgb(232, 0, 23)",
     "height": 123.33333333333333,
     "key": "1.buy.block",
     "selector": Array [
@@ -138,7 +138,7 @@ Array [
     "y": 133.33333333333331,
   },
   Object {
-    "color": "rgb(156, 149, 142)",
+    "color": "rgb(170, 0, 85)",
     "height": 123.33333333333333,
     "key": "2.buy.block",
     "selector": Array [
@@ -151,7 +151,7 @@ Array [
     "y": 10,
   },
   Object {
-    "color": "rgb(197, 95, 50)",
+    "color": "rgb(23, 0, 232)",
     "height": 123.33333333333333,
     "key": "0.revenue.block",
     "selector": Array [
@@ -164,7 +164,7 @@ Array [
     "y": 256.66666666666663,
   },
   Object {
-    "color": "rgb(178, 120, 93)",
+    "color": "rgb(93, 0, 162)",
     "height": 123.33333333333333,
     "key": "1.revenue.block",
     "selector": Array [
@@ -177,7 +177,7 @@ Array [
     "y": 133.33333333333331,
   },
   Object {
-    "color": "rgb(197, 95, 50)",
+    "color": "rgb(23, 0, 232)",
     "height": 123.33333333333333,
     "key": "2.revenue.block",
     "selector": Array [

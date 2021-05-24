@@ -12,6 +12,7 @@ export type Options = {
   colorMode: ColorMode;
   steps: number;
   dimension: Dimension;
+  colors: string[];
   margins: Margins;
   minValue?: number | 'auto';
   maxValue?: number | 'auto';
