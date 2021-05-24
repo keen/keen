@@ -21,6 +21,7 @@ const pointTransition = { duration: 0.3, delay: 0.2 };
 
 type Props = {
   marks: Mark[];
+  colorPalette: string[];
   steps: StepType[];
   curve: CurveType;
   groupMode?: GroupMode;
@@ -35,6 +36,7 @@ const Marks = ({
   onMouseEnter,
   onMouseLeave,
   curve,
+  colorPalette,
   stackMode,
   groupMode,
   activeKey,
@@ -54,7 +56,7 @@ const Marks = ({
       .then(() => {
         setInitialDraw(true);
       });
-  }, [marks.length, curve, groupMode, stackMode]);
+  }, [marks.length, colorPalette, curve, groupMode, stackMode]);
 
   useEffect(() => {
     if (activeKey) {
@@ -86,7 +88,7 @@ const Marks = ({
             }}
           >
             <motion.circle
-              key={`${key}-${curve}-${stackMode}-${groupMode}`}
+              key={`${key}-${curve}-${stackMode}-${groupMode}-${color}`}
               cx={x}
               cy={y}
               r={radius}

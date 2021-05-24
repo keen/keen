@@ -91,6 +91,7 @@ import {
   PropertiesTree,
   EmptySearch,
   DynamicPortal,
+  Accordion,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -195,6 +196,7 @@ export {
   TitleComponent,
   PropertiesTree,
   EmptySearch,
+  Accordion,
   OAuthUserAction,
   getDefaultAbsoluteTime,
   convertRelativeTime,

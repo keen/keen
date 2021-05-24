@@ -2,7 +2,11 @@
 import * as React from 'react';
 import { object, number } from '@storybook/addon-knobs';
 
-import { geoProjectionKnobs, colorModeKnobs } from '@keen.io/storybook-utils';
+import {
+  geoProjectionKnobs,
+  colorModeKnobs,
+  themeColorsKnobs,
+} from '@keen.io/storybook-utils';
 
 import { ChoroplethChart } from './choropleth-chart.component';
 import { Projection } from './types';
@@ -22,6 +26,7 @@ export default {
 
 const createThemeKnobs = () => ({
   ...keenTheme,
+  colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
 });
 
 const projectionRotateRange = {
