@@ -38,7 +38,7 @@ test('allows user to close modal by pressing "ESC" key', () => {
   expect(mockFn).toHaveBeenCalled();
 });
 
-test('do not allows user to close modal by click on fade mask', () => {
+test('allows user to close modal by click on fade mask', () => {
   const children = 'content';
   const mockFn = jest.fn();
 
