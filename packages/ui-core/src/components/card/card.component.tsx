@@ -6,7 +6,6 @@ export type Props = {
   borderRadius?: number;
   hasShadow?: boolean;
   hideOverflow?: boolean;
-  hasPadding?: boolean;
   borderWidth?: number;
   borderColor?: string;
   padding?: number;
@@ -22,12 +21,7 @@ export const Card = styled.div<Props>`
   box-sizing: border-box;
   box-shadow: ${(props) =>
     props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
-
-  ${(props) =>
-    props.hasPadding &&
-    css`
-      padding: ${props.padding}px;
-    `};
+  padding: ${(props) => props.padding}px;
 
   ${(props) =>
     props.hideOverflow &&
@@ -38,10 +32,9 @@ export const Card = styled.div<Props>`
 
 Card.defaultProps = {
   backgroundColor: colors.white['500'],
-  hasPadding: true,
   hasShadow: true,
   padding: 20,
-  borderWidth: 20,
+  borderWidth: 0,
   borderColor: 'initial',
   borderRadius: 0,
 };
