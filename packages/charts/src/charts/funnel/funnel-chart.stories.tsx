@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { object, boolean, color, select, text } from '@storybook/addon-knobs';
-import { layoutKnobs, typographyKnobs } from '@keen.io/storybook-utils';
+import {
+  layoutKnobs,
+  typographyKnobs,
+  themeColorsKnobs,
+} from '@keen.io/storybook-utils';
 import { colors } from '@keen.io/colors';
 import { Layout } from '@keen.io/ui-core';
 
@@ -18,7 +22,7 @@ const chartData = [
 ];
 
 const createThemeKnobs = () => ({
-  colors: keenTheme.colors,
+  colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
   funnel: {
     step: {
       backgroundColor: color(

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { object, select, boolean, number, text } from '@storybook/addon-knobs';
 
-import { typographyKnobs } from '@keen.io/storybook-utils';
+import { typographyKnobs, themeColorsKnobs } from '@keen.io/storybook-utils';
 
 import { theme as defaultTheme } from '../../theme';
 
@@ -20,6 +20,7 @@ export default {
 export const plot = () => {
   const theme = {
     ...defaultTheme,
+    colors: themeColorsKnobs('Theme Colors', defaultTheme.colors),
     donut: {
       total: {
         enabled: boolean('Enabled', true, 'Total') as boolean,

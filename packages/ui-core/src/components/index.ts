@@ -71,6 +71,7 @@ import DropdownListContainer from './dropdown-list-container';
 import RelativeTime from './relative-time';
 import TimePeriod from './time-period';
 import Timezone, { TimezoneError } from './timezone';
+import Accordion from './accordion';
 
 import Title from './title';
 import PropertiesTree, { createTree } from './properties-tree';
@@ -157,4 +158,5 @@ export {
   createTree,
   EmptySearch,
   DynamicPortal,
+  Accordion,
 };

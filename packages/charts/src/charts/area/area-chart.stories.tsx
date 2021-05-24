@@ -9,6 +9,7 @@ import {
   curveKnobs,
   groupModeKnobs,
   stackModeKnobs,
+  themeColorsKnobs,
 } from '@keen.io/storybook-utils';
 
 import { AreaChart } from './area-chart.component';
@@ -34,6 +35,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
 });
 
 export const plot = () => {
