@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
-import { Layout, CardSettings } from '@keen.io/ui-core';
+import { Layout } from '@keen.io/ui-core';
 
 import { Container, Spacing } from './legend-base.styles';
 
 import Card from './card';
 
+import { LegendCardSettings } from './types';
+
 type Props = {
   layout: Layout;
-  card: CardSettings;
+  card: LegendCardSettings;
   children: React.ReactNode;
   spacing?: Spacing;
   fullDimension?: boolean;

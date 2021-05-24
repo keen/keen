@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
-import { CardSettings, Position } from '@keen.io/ui-core';
+import { Position } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
 import { LegendCard } from './card.styles';
+import { LegendCardSettings } from '../types';
 
 type Props = {
   borderPosition: Position;
   fullDimension?: boolean;
-} & CardSettings;
+} & LegendCardSettings;
 
 const Card: FC<Props> = ({
   backgroundColor = colors.white['500'],

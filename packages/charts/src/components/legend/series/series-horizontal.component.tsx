@@ -1,5 +1,5 @@
 import React, { FC, useRef } from 'react';
-import { CardSettings, Group, Position, Typography } from '@keen.io/ui-core';
+import { Group, Position, Typography } from '@keen.io/ui-core';
 
 import { Layout, GroupedSeries } from './series-horizontal.styles';
 
@@ -7,11 +7,12 @@ import Card from '../card';
 import Slider from '../slider';
 
 import { useRenderMode } from '../legend.utils';
+import { LegendCardSettings } from '../types';
 
 type Props = {
   children: React.ReactNode;
   typography: Typography;
-  card: CardSettings;
+  card: LegendCardSettings;
   position: Position;
   labelsLength?: number;
 };

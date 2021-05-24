@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
-import { Layout, Alignment, Position, CardSettings } from '@keen.io/ui-core';
+import { Layout, Alignment, Position } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
 
 import { RenderMode } from './legend.utils';
+import { LegendCardSettings } from './types';
 
 const borderMixin = (layout: Layout) => css`
   border-${layout === 'vertical' ? 'top' : 'left'}: solid 3px ${
@@ -21,7 +22,7 @@ export const LegendCard = styled.div<
     renderMode: RenderMode;
     alignment: Alignment;
     position: Position;
-  } & CardSettings
+  } & LegendCardSettings
 >`
   ${(props) =>
     (props.renderMode === 'list' || props.renderMode === 'group') &&
