@@ -71,6 +71,7 @@ type Props = {
   areaMode: boolean;
   stepMode: boolean;
   areas?: AreaType[];
+  colorPalette: string[];
   gradientBlocks?: GradientBlockType[];
   gradient?: boolean;
   activeKey?: string;
@@ -86,6 +87,7 @@ const Lines = ({
   marks,
   steps,
   areas,
+  colorPalette,
   curve,
   activeKey,
   stackMode,
@@ -124,7 +126,7 @@ const Lines = ({
       .then(() => {
         setInitialDraw(true);
       });
-  }, [curve, groupMode, stackMode, stepMode, lines.length]);
+  }, [curve, groupMode, stackMode, stepMode, lines.length, colorPalette]);
 
   useEffect(() => {
     if (activeKey) {
@@ -149,7 +151,7 @@ const Lines = ({
           <motion.path
             key={`${key}-${curve}-${stackMode}-${groupMode}-${
               areaMode ? 'area' : 'line'
-            }`}
+            }-${color}`}
             d={d}
             variants={createLineMotion(color, key === activeKey)}
             animate={lineControls}
@@ -243,6 +245,7 @@ const Lines = ({
         <Marks
           marks={marks}
           curve={curve}
+          colorPalette={colorPalette}
           groupMode={groupMode}
           stackMode={stackMode}
           steps={steps}

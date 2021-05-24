@@ -10,6 +10,7 @@ import {
   groupModeKnobs,
   stackModeKnobs,
   hoverBarKnobs,
+  themeColorsKnobs,
 } from '@keen.io/storybook-utils';
 
 import { LineChart } from './line-chart.component';
@@ -36,6 +37,7 @@ const createThemeKnobs = () => ({
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
   hoverBar: hoverBarKnobs('Hover bar'),
+  colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
 });
 
 export const plot = () => {

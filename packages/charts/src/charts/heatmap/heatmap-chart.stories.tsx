@@ -6,6 +6,7 @@ import {
   axisYKnobs,
   layoutKnobs,
   colorModeKnobs,
+  themeColorsKnobs,
 } from '@keen.io/storybook-utils';
 
 import Heatmap from './heatmap-chart.component';
@@ -28,6 +29,7 @@ const createThemeKnobs = () => ({
   ...keenTheme,
   axisX: axisXKnobs('Axis X'),
   axisY: axisYKnobs('Axis Y'),
+  colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
 });
 
 export const plot = () => {

@@ -9,6 +9,7 @@ import {
   groupModeKnobs,
   layoutKnobs,
   typographyKnobs,
+  themeColorsKnobs,
 } from '@keen.io/storybook-utils';
 
 import { BarChart } from './bar-chart.component';
@@ -34,6 +35,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
   bar: {
     values: {
       typography: typographyKnobs('Values', keenTheme.bar.values.typography),

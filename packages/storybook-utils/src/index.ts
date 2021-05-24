@@ -13,7 +13,12 @@ import {
   iconKnobs,
   colorModeKnobs,
 } from './select.knobs';
-import { axisXKnobs, axisYKnobs, gridKnobs } from './theme.knobs';
+import {
+  axisXKnobs,
+  axisYKnobs,
+  gridKnobs,
+  themeColorsKnobs,
+} from './theme.knobs';
 import { legendKnobs } from './legend.knobs';
 import { cardKnobs } from './card.knobs';
 import { metricIconKnobs } from './metric.knobs';
@@ -42,4 +47,5 @@ export {
   legendKnobs,
   gridKnobs,
   hoverBarKnobs,
+  themeColorsKnobs,
 };
