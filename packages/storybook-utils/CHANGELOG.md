@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.94](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.0.93...@keen.io/storybook-utils@2.0.94) (2021-05-24)
+
+
+### Bug Fixes
+
+* 🐛 line / area respect color palette change ([c2cd1da](https://github.com/keen/keen/commit/c2cd1da03f560dd9da863b595d27d0a6b1791448))
+
+
+
+
+
 ## [2.0.93](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.0.92...@keen.io/storybook-utils@2.0.93) (2021-05-13)
 
 **Note:** Version bump only for package @keen.io/storybook-utils

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/keen/keen/compare/@keen.io/charts@2.20.0...@keen.io/charts@2.21.0) (2021-05-24)
+
+
+### Bug Fixes
+
+* 🐛 line / area respect color palette change ([c2cd1da](https://github.com/keen/keen/commit/c2cd1da03f560dd9da863b595d27d0a6b1791448))
+
+
+### Features
+
+* 🎸 modal fade mask close + heatpam respect theme colors ([f972d30](https://github.com/keen/keen/commit/f972d30f3820ca77bdfe0f2fd4e5970ea56a112c))
+
+
+
+
+
 # [2.20.0](https://github.com/keen/keen/compare/@keen.io/charts@2.19.0...@keen.io/charts@2.20.0) (2021-05-21)
 
 

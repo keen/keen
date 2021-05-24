@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.120](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.119...@keen.io/widget-picker@1.2.120) (2021-05-24)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
 ## [1.2.119](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.118...@keen.io/widget-picker@1.2.119) (2021-05-21)
 
 **Note:** Version bump only for package @keen.io/widget-picker

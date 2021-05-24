@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.26.0...@keen.io/ui-core@2.27.0) (2021-05-24)
+
+
+### Features
+
+* 🎸 Accordion component ([e28f7b2](https://github.com/keen/keen/commit/e28f7b2260ce9851e9f687405d14edafa2bd1915))
+* 🎸 modal fade mask close + heatpam respect theme colors ([f972d30](https://github.com/keen/keen/commit/f972d30f3820ca77bdfe0f2fd4e5970ea56a112c))
+
+
+
+
+
 # [2.26.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.2...@keen.io/ui-core@2.26.0) (2021-05-13)
 
 
