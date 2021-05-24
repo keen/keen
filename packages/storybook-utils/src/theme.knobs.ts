@@ -27,10 +27,25 @@ const yAxisTitleAlignment = {
   bottom: 'bottom',
 };
 
+const createThemeColors = (
+  defaultColors: string[]
+): Record<string, string[]> => ({
+  default: defaultColors,
+  dracula: ['#50fa7b', '#ffb86c', '#6272a4', '#bd93f9', '#ff5555', '#f1fa8c'],
+});
+
 export const gridKnobs = (namespace: string) => ({
   enabled: boolean('Enabled', true, namespace),
   color: color('Color', colors.gray['400'], namespace),
 });
+
+export const themeColorsKnobs = (
+  namespace: string,
+  defaultColors: string[]
+) => {
+  const colorPalette = createThemeColors(defaultColors);
+  return select('Colors', colorPalette, colorPalette.default, `${namespace}`);
+};
 
 export const axisXKnobs = (namespace: string) => ({
   enabled: boolean('Enabled', true, namespace),

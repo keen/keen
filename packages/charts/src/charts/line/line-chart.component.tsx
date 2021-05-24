@@ -184,6 +184,7 @@ export const LineChart: FC<Props> = ({
             areaMode={areaMode}
             stepMode={stepMode}
             activeKey={activeKey}
+            colorPalette={theme.colors}
             gradientBlocks={gradientBlocks}
             onMarkMouseEnter={(e, selectors) => {
               if (themeTooltipSettings.enabled) {
