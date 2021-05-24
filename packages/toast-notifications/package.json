@@ -43,7 +43,7 @@
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "11.2.2",
     "@types/react-toast-notifications": "^2.4.0",
-    "@types/styled-components": "5.1.0",
+    "@types/styled-components": "^5.1.9",
     "@types/styled-system": "5.1.9"
   },
   "publishConfig": {
