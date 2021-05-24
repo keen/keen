@@ -13,6 +13,8 @@ type Props = {
   title: string;
   /** Accordion state */
   isOpen?: boolean;
+  /** Change open state handler */
+  onChange?: (isOpen: boolean) => void;
   /** Content max height */
   maxHeight?: number;
   /** React children nodes */
@@ -22,6 +24,7 @@ type Props = {
 export const Accordion: FC<Props> = ({
   title,
   isOpen = false,
+  onChange,
   maxHeight,
   children,
 }) => {
@@ -30,7 +33,10 @@ export const Accordion: FC<Props> = ({
   return (
     <>
       <TitleContainer
-        onClick={() => setAccordionOpen(!isAccordionOpen)}
+        onClick={() => {
+          if (onChange) onChange(!isAccordionOpen);
+          setAccordionOpen(!isAccordionOpen);
+        }}
         whileHover={{ backgroundColor: transparentize(0.5, colors.green[100]) }}
       >
         <Headline variant="h3" enableTextEllipsis>
