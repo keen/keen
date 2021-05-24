@@ -44,6 +44,19 @@ test('should render content when the user clicks on title', () => {
   expect(getByText(props.children)).toBeInTheDocument();
 });
 
+test('calls "onChange" handler with open state', async () => {
+  const mockFn = jest.fn();
+  const {
+    wrapper: { getByText },
+    props,
+  } = render({ isOpen: false, onChange: mockFn });
+
+  const element = getByText(props.title);
+  fireEvent.click(element);
+
+  expect(mockFn).toHaveBeenCalledWith(true);
+});
+
 test('should render content for open accordion', () => {
   const {
     wrapper: { getByText },
