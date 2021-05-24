@@ -13,7 +13,7 @@ type Props = {
   title: string;
   /** Accordion state */
   isOpen?: boolean;
-  /** */
+  /** Change open state handler */
   onChange?: (isOpen: boolean) => void;
   /** Content max height */
   maxHeight?: number;
