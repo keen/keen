@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { UI_LAYERS } from '@keen.io/ui-core';
+import { UI_LAYERS } from '../../../../constants';
 
 export const Container = styled.div`
   width: 66px;

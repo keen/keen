@@ -1,5 +1,6 @@
 import React, { FC, useState, useRef, useCallback, useEffect } from 'react';
-import { Dropdown, UI_LAYERS } from '@keen.io/ui-core';
+import Dropdown from '../../../dropdown';
+import { UI_LAYERS } from '../../../../constants';
 
 import { Container } from './attribute-dropdown.styles';
 import OptionHeader from '../option-header';

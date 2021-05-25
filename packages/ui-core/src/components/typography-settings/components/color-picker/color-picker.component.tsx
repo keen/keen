@@ -1,8 +1,9 @@
 import React, { FC, useState, useRef, useEffect, useCallback } from 'react';
 import { transparentize } from 'polished';
-import { Dropdown } from '@keen.io/ui-core';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
+
+import Dropdown from '../../../dropdown';
 
 import OptionHeader from '../option-header';
 import {
@@ -22,6 +23,8 @@ type Props = {
   /** Select color event handler */
   onSelectColor: (color: string) => void;
 };
+
+type ColorName = keyof typeof colors;
 
 const ColorPicker: FC<Props> = ({ currentColor, onSelectColor }) => {
   const [isOpen, setOpen] = useState(false);
@@ -68,16 +71,19 @@ const ColorPicker: FC<Props> = ({ currentColor, onSelectColor }) => {
       <DropdownContainer>
         <Dropdown isOpen={isOpen}>
           <Grid>
-            {Object.keys(colors).map((name) => (
+            {Object.keys(colors).map((name: ColorName) => (
               <ColorTone key={name} data-testid={`color-tone-${name}`}>
-                {Object.keys(colors[name]).map((saturation) => (
-                  <Square
-                    key={saturation}
-                    data-testid={`color-${colors[name][saturation]}`}
-                    onClick={() => onSelectColor(colors[name][saturation])}
-                    style={{ background: colors[name][saturation] }}
-                  />
-                ))}
+                {Object.keys(colors[name]).map((saturation) => {
+                  const color: string = colors[name][saturation];
+                  return (
+                    <Square
+                      key={saturation}
+                      data-testid={`color-${color}`}
+                      onClick={() => onSelectColor(color)}
+                      style={{ background: color }}
+                    />
+                  );
+                })}
               </ColorTone>
             ))}
           </Grid>
