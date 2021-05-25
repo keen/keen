@@ -1,3 +1,9 @@
-import { useTooltip, useSlider, useLegend, useSearch } from './hooks';
+import {
+  useTooltip,
+  useSlider,
+  useLegend,
+  useSearch,
+  useOnClickOutside,
+} from './hooks';
 
-export { useTooltip, useSlider, useLegend, useSearch };
+export { useTooltip, useSlider, useLegend, useSearch, useOnClickOutside };
