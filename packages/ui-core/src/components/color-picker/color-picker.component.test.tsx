@@ -19,30 +19,28 @@ const render = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/ui-core - <ColorPicker/>', () => {
-  test('Should call onColorChange function on color save', () => {
-    const mockFn = jest.fn();
-    const mockColor = '#00ff00';
-    const {
-      wrapper: { getByText },
-    } = render({
-      onColorChange: mockFn,
-      color: mockColor,
-    });
-    const saveButton = getByText('Save');
-    fireEvent.click(saveButton);
-    expect(mockFn).toHaveBeenCalledWith(mockColor);
+test('Should call onColorChange function on color save', () => {
+  const mockFn = jest.fn();
+  const mockColor = '#00ff00';
+  const {
+    wrapper: { getByText },
+  } = render({
+    onColorChange: mockFn,
+    color: mockColor,
   });
+  const saveButton = getByText('Save');
+  fireEvent.click(saveButton);
+  expect(mockFn).toHaveBeenCalledWith(mockColor);
+});
 
-  test('Should call onClosePicker function on picker close', () => {
-    const mockFn = jest.fn();
-    const {
-      wrapper: { getByText },
-    } = render({
-      onClosePicker: mockFn,
-    });
-    const cancelButton = getByText('Cancel');
-    fireEvent.click(cancelButton);
-    expect(mockFn).toHaveBeenCalled();
+test('Should call onClosePicker function on picker close', () => {
+  const mockFn = jest.fn();
+  const {
+    wrapper: { getByText },
+  } = render({
+    onClosePicker: mockFn,
   });
+  const cancelButton = getByText('Cancel');
+  fireEvent.click(cancelButton);
+  expect(mockFn).toHaveBeenCalled();
 });

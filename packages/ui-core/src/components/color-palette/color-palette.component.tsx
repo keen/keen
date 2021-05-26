@@ -94,8 +94,9 @@ const ColorPalette = ({
           evt.oldIndex,
           evt.newIndex
         );
-        setIsDragged(false);
         onColorsChange(colorsOrderRef.current);
+        setColors(colorsOrderRef.current);
+        setIsDragged(false);
       },
     });
   }, [colors]);
@@ -103,10 +104,10 @@ const ColorPalette = ({
   return (
     <StyledColorPalette>
       <SortableContainer ref={sortableContainerRef}>
-        {colors.map((color) => (
+        {colors.map((color, id) => (
           <Color
             color={color}
-            key={color}
+            key={color + id}
             isDragged={isDragged}
             toggleColorPicker={(color) => toggleColorPicker(color)}
             onColorChange={(color) => onColorChange(color)}

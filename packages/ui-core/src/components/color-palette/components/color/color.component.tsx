@@ -43,7 +43,7 @@ const Color = ({
         data-testid="color"
         color={color}
         onClick={() => toggleColorPicker(color)}
-        onMouseOver={() => setIsHovered(true)}
+        onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {isHovered && !isDragged && (

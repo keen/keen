@@ -18,24 +18,22 @@ const render = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/ui-core - <ColorPalette/>', () => {
-  test('Should render all colors', () => {
-    const {
-      wrapper: { getAllByTestId },
-    } = render();
-    const elements = getAllByTestId('color');
-    expect(elements.length).toEqual(3);
-  });
+test('Should render all colors', () => {
+  const {
+    wrapper: { getAllByTestId },
+  } = render();
+  const elements = getAllByTestId('color');
+  expect(elements.length).toEqual(3);
+});
 
-  test('Should show color picker component on add color button click', () => {
-    const {
-      wrapper: { getByTestId },
-    } = render();
+test('Should show color picker component on add color button click', () => {
+  const {
+    wrapper: { getByTestId },
+  } = render();
 
-    const addColorButton = getByTestId('add-color-button');
-    fireEvent.click(addColorButton);
+  const addColorButton = getByTestId('add-color-button');
+  fireEvent.click(addColorButton);
 
-    const colorPickerComponent = getByTestId('color-picker');
-    expect(colorPickerComponent).toBeInTheDocument();
-  });
+  const colorPickerComponent = getByTestId('color-picker');
+  expect(colorPickerComponent).toBeInTheDocument();
 });
