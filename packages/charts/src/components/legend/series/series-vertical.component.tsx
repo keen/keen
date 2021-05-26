@@ -1,5 +1,5 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-import { CardSettings, Position, Typography } from '@keen.io/ui-core';
+import { Position, Typography } from '@keen.io/ui-core';
 
 import { Layout } from './series-vertical.styles';
 
@@ -7,11 +7,12 @@ import Slider from '../slider';
 import Card from '../card';
 
 import { useRenderMode } from '../legend.utils';
+import { LegendCardSettings } from '../types';
 
 type Props = {
   children: React.ReactNode;
   typography: Typography;
-  card: CardSettings;
+  card: LegendCardSettings;
   adaptiveHeight: boolean;
   position: Position;
   labelsLength?: number;

@@ -23,7 +23,7 @@ export const TableChartWidget: FC<Props> = ({
   ...props
 }) => {
   return (
-    <Card {...card} hasPadding={false}>
+    <Card {...card} padding={0}>
       {(title.content || subtitle.content) && (
         <HeaderContainer>
           <WidgetHeading title={title} subtitle={subtitle} />

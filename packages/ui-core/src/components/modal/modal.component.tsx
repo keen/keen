@@ -117,9 +117,7 @@ export const Modal: FC<Props> = ({
             scrollY={scrollY}
             data-testid="modal-container"
           >
-            <Card hasPadding={false}>
-              {children(closableIndicator, closeHandler)}
-            </Card>
+            <Card padding={0}>{children(closableIndicator, closeHandler)}</Card>
           </MotionContainer>
         )}
       </AnimatePresence>

@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
-import { Position, CardSettings } from '@keen.io/ui-core';
+import { Position } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
+import { LegendCardSettings } from '../types';
 
 export const LegendCard = styled.div<
-  { borderPosition: Position; fullDimension: boolean } & CardSettings
+  { borderPosition: Position; fullDimension: boolean } & LegendCardSettings
 >`
   width: 100%;
 
