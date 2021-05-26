@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.27.1...@keen.io/ui-core@2.28.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes ([d27a2c0](https://github.com/keen/keen/commit/d27a2c0616f53c95352faae211324279cb3d4271))
+* 🐛 Drag and drop fixed, tests fixed ([1c5990d](https://github.com/keen/keen/commit/1c5990d1a4166b2e578537d3b860f1bf21be2f3d))
+
+
+### Features
+
+* 🎸 Added new props to Card component ([e8ca454](https://github.com/keen/keen/commit/e8ca454df358a4c680f4cf7472b66592234e7aa7))
+* 🎸 Color palette, color picker components ([0526b3d](https://github.com/keen/keen/commit/0526b3d89fcdaf1d1f025cc3b3ef5b87a0d70f51))
+
+
+
+
+
 ## [2.27.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.27.0...@keen.io/ui-core@2.27.1) (2021-05-24)
 
 **Note:** Version bump only for package @keen.io/ui-core

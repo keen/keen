@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.0.95...@keen.io/storybook-utils@2.1.0) (2021-05-26)
+
+
+### Features
+
+* 🎸 Added new props to Card component ([e8ca454](https://github.com/keen/keen/commit/e8ca454df358a4c680f4cf7472b66592234e7aa7))
+
+
+
+
+
 ## [2.0.95](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.0.94...@keen.io/storybook-utils@2.0.95) (2021-05-24)
 
 **Note:** Version bump only for package @keen.io/storybook-utils

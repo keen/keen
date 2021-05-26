@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.2...@keen.io/widgets@2.8.3) (2021-05-26)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes ([d27a2c0](https://github.com/keen/keen/commit/d27a2c0616f53c95352faae211324279cb3d4271))
+
+
+
+
+
 ## [2.8.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.1...@keen.io/widgets@2.8.2) (2021-05-24)
 
 **Note:** Version bump only for package @keen.io/widgets

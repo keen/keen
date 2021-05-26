@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.0.7...@keen.io/react-hooks@1.1.0) (2021-05-26)
+
+
+### Features
+
+* 🎸 Color palette, color picker components ([0526b3d](https://github.com/keen/keen/commit/0526b3d89fcdaf1d1f025cc3b3ef5b87a0d70f51))
+
+
+
+
+
 ## [1.0.7](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.0.6...@keen.io/react-hooks@1.0.7) (2021-01-11)
 
 **Note:** Version bump only for package @keen.io/react-hooks

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/keen/keen/compare/@keen.io/charts@2.21.1...@keen.io/charts@2.22.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* 🐛 Unused legend card type fields removed ([bae2f07](https://github.com/keen/keen/commit/bae2f0761877344e06338dcabcac143cd5faceaa))
+
+
+### Features
+
+* 🎸 Added new props to Card component ([e8ca454](https://github.com/keen/keen/commit/e8ca454df358a4c680f4cf7472b66592234e7aa7))
+
+
+
+
+
 ## [2.21.1](https://github.com/keen/keen/compare/@keen.io/charts@2.21.0...@keen.io/charts@2.21.1) (2021-05-24)
 
 **Note:** Version bump only for package @keen.io/charts
