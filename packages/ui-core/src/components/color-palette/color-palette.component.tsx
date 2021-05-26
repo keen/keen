@@ -82,6 +82,11 @@ const ColorPalette = ({
   };
 
   useEffect(() => {
+    colorsOrderRef.current = palette;
+    setColors(palette);
+  }, [palette]);
+
+  useEffect(() => {
     new Sortable(sortableContainerRef.current, {
       animation: 200,
       handle: '.drag-handle',
