@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Layout, Typography, Position, CardSettings } from '@keen.io/ui-core';
+import { Layout, Typography, Position } from '@keen.io/ui-core';
 
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
@@ -9,6 +9,7 @@ import { SingleSerie } from './series.styles';
 import Label from '../label';
 
 import { DataSerie } from './types';
+import { LegendCardSettings } from '../types';
 
 type Props = {
   /** Layout used on list elements */
@@ -20,7 +21,7 @@ type Props = {
   /** typography styles */
   typography: Typography;
   /** Legend card styles */
-  card: CardSettings;
+  card: LegendCardSettings;
   /** Handler for item click event */
   onClick: (key: string, disabled: boolean, index: number) => void;
   /** Activate data serie handler */
