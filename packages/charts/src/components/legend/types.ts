@@ -3,6 +3,4 @@ export type LegendCardSettings = {
   border?: string;
   borderRadius?: string;
   hasShadow?: boolean;
-  hideOverflow?: boolean;
-  hasPadding?: boolean;
 };
