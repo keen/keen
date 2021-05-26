@@ -91,6 +91,8 @@ import {
   EmptySearch,
   DynamicPortal,
   Accordion,
+  ColorPalette,
+  ColorPicker,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -123,7 +125,7 @@ export type {
 
 export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
 
-export { isElementInViewport, exportToHtml } from './utils';
+export { isElementInViewport, exportToHtml, mutateArray } from './utils';
 
 export {
   Anchor,
@@ -201,4 +203,6 @@ export {
   getInterval,
   createTree,
   DynamicPortal,
+  ColorPalette,
+  ColorPicker,
 };

@@ -10,6 +10,9 @@ import Checkbox from './checkbox';
 import Radio from './radio';
 import ColorAdjuster from './color-adjuster';
 import ColorScale from './color-scale';
+import ColorPalette from './color-palette';
+import ColorPicker from './color-picker';
+
 import ContentSeparator from './content-separator';
 import Dropdown from './dropdown';
 import DropdownMenu from './dropdown-menu';
@@ -159,4 +162,6 @@ export {
   EmptySearch,
   DynamicPortal,
   Accordion,
+  ColorPalette,
+  ColorPicker,
 };
