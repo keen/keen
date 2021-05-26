@@ -23,7 +23,7 @@ const ColorPicker = ({
 }: Props) => {
   const [selectedColor, setColor] = useState(color);
   return (
-    <StyledColorPicker>
+    <StyledColorPicker data-testid="color-picker">
       <SketchPicker
         disableAlpha
         color={selectedColor}

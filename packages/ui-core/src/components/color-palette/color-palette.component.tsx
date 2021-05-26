@@ -117,7 +117,10 @@ const ColorPalette = ({
         ))}
       </SortableContainer>
       <div ref={containerRef}>
-        <AddColorButton onClick={() => toggleColorPicker(initialPickerColor)}>
+        <AddColorButton
+          onClick={() => toggleColorPicker(initialPickerColor)}
+          data-testid="add-color-button"
+        >
           <Icon type="plus" fill={styleColors.gray[500]} width={18} />
         </AddColorButton>
         <Dropdown isOpen={activeColor === initialPickerColor} fullWidth={false}>

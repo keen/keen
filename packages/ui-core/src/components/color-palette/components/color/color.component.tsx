@@ -40,6 +40,7 @@ const Color = ({
   return (
     <div ref={containerRef}>
       <StyledColor
+        data-testid="color"
         color={color}
         onClick={() => toggleColorPicker(color)}
         onMouseOver={() => setIsHovered(true)}
@@ -47,15 +48,19 @@ const Color = ({
       >
         {isHovered && !isDragged && (
           <div>
-            <DragHandle className="drag-handle">
+            <DragHandle className="drag-handle" data-testid="drag-handle">
               <Icon type="drag" fill={colors.black[100]} width={10} />
             </DragHandle>
-            <DeleteButton onClick={() => onDelete(color)}>
+            <DeleteButton
+              onClick={() => onDelete(color)}
+              data-testid="delete-button"
+            >
               <Icon type="close" fill={colors.black[100]} width={8} />
             </DeleteButton>
           </div>
         )}
       </StyledColor>
+
       <Dropdown isOpen={activeColorPicker === color} fullWidth={false}>
         <ColorPicker
           color={color}
