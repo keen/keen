@@ -14,14 +14,14 @@ export const calculateIntervalValue = ({
   interval,
 }: Options) => {
   const dimensionOffset = currentIndex * stepDimension;
-  const absosulteIntervalPosition =
+  const absoluteIntervalPosition =
     ((controlPosition - dimensionOffset) / stepDimension) * 100;
 
   const { minimum, maximum, step } = interval;
 
   const stepsInInterval = (maximum - minimum) / step;
   const intervalValue = Math.round(
-    (absosulteIntervalPosition * stepsInInterval) / 100
+    (absoluteIntervalPosition * stepsInInterval) / 100
   );
 
   return intervalValue * step + minimum;

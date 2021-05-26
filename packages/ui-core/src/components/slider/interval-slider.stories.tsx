@@ -84,7 +84,7 @@ withRuler.story = {
   },
 };
 
-const themingIntervals = [{ minimum: 0, maximum: 35, step: 5 }];
+const themingIntervals = [{ minimum: 0, maximum: 35, step: 1 }];
 
 const generateRulerSettings = ({ minimum, maximum, step }) => {
   const middlePoints = [];
@@ -149,7 +149,11 @@ export const withRulerTheming = () => {
       />
       <Ruler
         layout="horizontal"
-        ticks={generateRulerSettings(themingIntervals[0])}
+        ticks={generateRulerSettings({
+          minimum: themingIntervals[0].minimum,
+          maximum: themingIntervals[0].maximum,
+          step: 5,
+        })}
         onClick={onRulerClick}
         renderLabel={(label) => (
           <LabelWrapper>
