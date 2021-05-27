@@ -82,8 +82,8 @@ const ColorPalette = ({
   };
 
   useEffect(() => {
-    colorsOrderRef.current = palette;
-    setColors(palette);
+    colorsOrderRef.current = [...palette];
+    setColors([...palette]);
   }, [palette]);
 
   useEffect(() => {
