@@ -1,6 +1,7 @@
 import WebFont from 'webfontloader';
 import { theme } from '../theme';
 
+const predefinedFonts = [theme.font.GangsterGrotesk, theme.font.Lato];
 class FontLoader {
   private static instance: FontLoader;
   private fonts: string[] = [];
@@ -15,25 +16,42 @@ class FontLoader {
     }
     return FontLoader.instance;
   }
-  loadFont(font: string) {
-    if (font && !this.fonts.includes(font)) {
-      this.fonts.push(font);
+
+  loadFont(fonts: string[]) {
+    const customFamilies = predefinedFonts.filter(
+      (font) => !this.fonts.includes(font)
+    );
+    const googleFamilies = fonts.filter(
+      (font) => !this.fonts.includes(font) && !predefinedFonts.includes(font)
+    );
+
+    if (customFamilies.length || googleFamilies.length) {
       WebFont.load({
-        google: {
-          families: [font],
+        ...(googleFamilies.length && {
+          google: {
+            families: googleFamilies,
+          },
+        }),
+        ...(customFamilies.length && {
+          custom: {
+            families: customFamilies,
+          },
+        }),
+        loading: () => console.log('loading'),
+        fontloading: (familyName, fvd) =>
+          console.log('fontloading ', familyName, fvd),
+        fontactive: (familyName, fvd) => {
+          this.fonts.push(familyName);
+          console.log('fontactive ', familyName, fvd);
         },
-        custom: {
-          families: [
-            theme.font.GangsterGroteskLight,
-            theme.font.GangsterGroteskRegular,
-            theme.font.GangsterGroteskBold,
-            theme.font.LatoLight,
-            theme.font.LatoRegular,
-            theme.font.LatoBold,
-          ],
-        },
+        fontinactive: (familyName, fvd) =>
+          console.log('fontinactive ', familyName, fvd),
       });
     }
+  }
+
+  getActiveFonts() {
+    return this.fonts;
   }
 }
 

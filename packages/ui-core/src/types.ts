@@ -1,6 +1,6 @@
 export type Typography = {
   fontStyle: 'normal' | 'italic';
-  fontWeight: 'normal' | 'bold';
+  fontWeight: 'normal' | 'bold' | 'lighter';
   fontSize: number;
   fontColor: string;
   fontFamily?: string;

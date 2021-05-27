@@ -9,12 +9,7 @@ describe('FontLoaderInstance', () => {
   const fontFamily = 'Roboto';
 
   it('should call load function', () => {
-    FontLoaderInstance.loadFont(fontFamily);
+    FontLoaderInstance.loadFont([fontFamily]);
     expect(WebFont.load).toHaveBeenCalled();
-  });
-
-  it('should not call load function once again', () => {
-    FontLoaderInstance.loadFont(fontFamily);
-    expect(WebFont.load).toHaveBeenCalledTimes(1);
   });
 });

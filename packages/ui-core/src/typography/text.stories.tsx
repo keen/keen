@@ -6,7 +6,7 @@ import { typographyKnobs, getGoogleFonts } from '@keen.io/storybook-utils';
 import Text from './text.component';
 import { useFontLoader } from './text.utils';
 
-import { textVariants } from '../theme';
+import { textVariants, theme } from '../theme';
 
 export default {
   title: 'Components / Typography',
@@ -29,7 +29,7 @@ export const TextKnobs = () => {
 
   const knobs = typographyKnobs('typography', {}, [], fonts);
 
-  useFontLoader(knobs.fontFamily);
+  useFontLoader([knobs.fontFamily]);
 
   return (
     <Text {...knobs} {...predefinedOptions}>
@@ -40,4 +40,62 @@ export const TextKnobs = () => {
 
 TextKnobs.story = {
   name: 'Text',
+};
+
+const themeFonts = [
+  'Oswald',
+  'Roboto',
+  'Raleway',
+  'Rubik',
+  'Lora',
+  'Quicksand',
+  'Inter',
+  'Karla',
+  'Josefin Sans',
+  'Dosis',
+  'Orbitron',
+  'Alegreya',
+  'Lemonada',
+  'Podkova',
+  'Imbue',
+  'Grandstander',
+  'Fira Code',
+  'Kufam',
+  'Varta',
+];
+
+const defaultFonts = [theme.font.GangsterGrotesk, theme.font.Lato];
+
+const availableFonts = [...defaultFonts, ...themeFonts];
+
+export const ThemeableText = () => {
+  const headerFont = select('Title', availableFonts, availableFonts[0]);
+  const contentFont = select('Content', availableFonts, availableFonts[0]);
+  const activeFonts = useFontLoader([headerFont, contentFont]);
+  console.log(activeFonts);
+
+  return (
+    <>
+      <Text
+        htmlElement="h1"
+        fontStyle="normal"
+        fontWeight="normal"
+        fontSize={24}
+        fontColor="black"
+        fontFamily={headerFont}
+      >
+        Custom title
+      </Text>
+      <Text
+        htmlElement="p"
+        fontStyle="normal"
+        fontWeight="normal"
+        fontSize={16}
+        fontColor="black"
+        fontFamily={contentFont}
+      >
+        {loremIpsum()}
+      </Text>
+    </>
+  );
 };
