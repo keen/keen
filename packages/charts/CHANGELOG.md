@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.1](https://github.com/keen/keen/compare/@keen.io/charts@2.22.0...@keen.io/charts@2.22.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* 🐛 Fix: Bar groupd not centered when turning series on/off ([f3b13f4](https://github.com/keen/keen/commit/f3b13f4ccd8f8aec15e3d1b0ec1b470fc4a8067e))
+
+
+
+
+
 # [2.22.0](https://github.com/keen/keen/compare/@keen.io/charts@2.21.1...@keen.io/charts@2.22.0) (2021-05-26)
 
 
