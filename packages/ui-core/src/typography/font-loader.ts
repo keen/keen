@@ -37,15 +37,9 @@ class FontLoader {
             families: customFamilies,
           },
         }),
-        loading: () => console.log('loading'),
-        fontloading: (familyName, fvd) =>
-          console.log('fontloading ', familyName, fvd),
-        fontactive: (familyName, fvd) => {
-          this.fonts.push(familyName);
-          console.log('fontactive ', familyName, fvd);
-        },
+        fontactive: (familyName) => this.fonts.push(familyName),
         fontinactive: (familyName, fvd) =>
-          console.log('fontinactive ', familyName, fvd),
+          console.error(`We're not able to load ${familyName} ${fvd} font`),
       });
     }
   }
