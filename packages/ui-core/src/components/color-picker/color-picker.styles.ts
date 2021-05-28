@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { colors } from '@keen.io/colors';
 
 export const StyledColorPicker = styled.div`
+  width: 220px;
   .sketch-picker {
     box-shadow: none !important;
   }
