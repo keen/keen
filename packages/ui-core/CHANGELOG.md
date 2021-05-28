@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.29.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.28.1...@keen.io/ui-core@2.29.0) (2021-05-28)
+
+
+### Bug Fixes
+
+* 🐛 Preventing direct modification of colors array from prop ([b1a6b41](https://github.com/keen/keen/commit/b1a6b41d5543fa5fff1e6b124fca3ceb1c297f38))
+
+
+### Features
+
+* 🎸 font loader ([da13944](https://github.com/keen/keen/commit/da139446a2bd622410198af174277e3692d65468))
+* 🎸 slider for theming ([d2afba0](https://github.com/keen/keen/commit/d2afba05ee86b6e50749b21b036462788e3ebaec))
+
+
+
+
+
 ## [2.28.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.28.0...@keen.io/ui-core@2.28.1) (2021-05-27)
 
 
