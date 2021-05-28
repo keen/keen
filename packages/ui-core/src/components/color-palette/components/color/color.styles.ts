@@ -9,7 +9,6 @@ export const StyledColor = styled.div<{
   width: 70px;
   height: 37px;
   position: relative;
-  margin-right: 3px;
   box-shadow: 0 2px 4px 0 ${transparentize(0.85, colors.black[500])};
 `;
 
