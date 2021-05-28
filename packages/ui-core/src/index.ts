@@ -1,4 +1,4 @@
-import { FontLoader, Title, Text, RefText } from './typography';
+import { FontLoader, Title, Text, RefText, useFontLoader } from './typography';
 
 import {
   Typography,
@@ -157,6 +157,7 @@ export {
   Label,
   Loader,
   FontLoader,
+  useFontLoader,
   Tooltip,
   Input,
   Select,
