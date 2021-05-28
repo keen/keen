@@ -23,8 +23,8 @@ import Tooltip, { TooltipMode, ARROW_SIZE } from './tooltip';
 import Modal from './modal';
 import Loader from './loader';
 import FadeLoader from './fade-loader';
-import { IntervalSlider, RangeSlider } from './slider';
-import { calculateIntervalValue } from './slider/utils';
+import { IntervalSlider, RangeSlider, Interval } from './slider';
+import { calculateIntervalValue, getIndex } from './slider/utils';
 
 import Toggle from './toggle';
 import Ruler, { RulerTick } from './ruler';
@@ -123,8 +123,10 @@ export {
   Tooltip,
   Modal,
   RangeSlider,
+  Interval,
   IntervalSlider,
   calculateIntervalValue,
+  getIndex,
   ColorScale,
   Toggle,
   PasswordInput,

@@ -1,5 +1,12 @@
 import RangeSlider from './range-slider.component';
 import IntervalSlider from './interval-slider.component';
-import { calculateIntervalValue } from './utils';
+import { calculateIntervalValue, getIndex } from './utils';
+import { Interval } from './types';
 
-export { IntervalSlider, RangeSlider, calculateIntervalValue };
+export {
+  IntervalSlider,
+  RangeSlider,
+  calculateIntervalValue,
+  getIndex,
+  Interval,
+};

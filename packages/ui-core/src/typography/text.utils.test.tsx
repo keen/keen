@@ -1,27 +1,22 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React from 'react';
-import { mount } from 'enzyme';
+import { renderHook } from '@testing-library/react-hooks';
 import FontLoaderInstance from './font-loader';
 
 import { useFontLoader } from './text.utils';
 
+const fonts = ['Roboto', 'Lato'];
+
 jest.mock('./font-loader', () => ({
   loadFont: jest.fn(),
+  getActiveFonts: () => fonts,
 }));
 
-describe('@keen/ui-core - <Text /> utils', () => {
-  describe('useFontLoader', () => {
-    const testHook = (runHook: () => any) => {
-      const HookWrapper = () => <div hook-result={runHook()} />;
+test('should fetch fonts from Google API', () => {
+  renderHook(() => useFontLoader(fonts));
+  expect(FontLoaderInstance.loadFont).toHaveBeenCalled();
+});
 
-      const wrapper = mount(<HookWrapper />);
-      return wrapper.find('div').props()['hook-result'];
-    };
+test('should return loaded fonts', () => {
+  const { result } = renderHook(() => useFontLoader(fonts));
 
-    it('should fetch fonts from Google API', () => {
-      const runHook = () => useFontLoader('Roboto');
-      testHook(runHook);
-      expect(FontLoaderInstance.loadFont).toHaveBeenCalled();
-    });
-  });
+  expect(result.current).toEqual(fonts);
 });
