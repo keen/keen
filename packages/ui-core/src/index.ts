@@ -47,7 +47,9 @@ import {
   TooltipMode,
   RangeSlider,
   IntervalSlider,
+  Interval,
   calculateIntervalValue,
+  getIndex,
   ColorScale,
   Toggle,
   Portal,
@@ -121,6 +123,7 @@ export type {
   CellTextAlignment,
   RulerTick,
   Point,
+  Interval,
 };
 
 export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
@@ -166,6 +169,7 @@ export {
   RangeSlider,
   IntervalSlider,
   calculateIntervalValue,
+  getIndex,
   Portal,
   Ruler,
   Radio,
