@@ -27,6 +27,8 @@ type Props = {
   onClose?: () => void;
   /** Use modal mask indicator */
   useMask?: boolean;
+  /** Is mask transparent */
+  isMaskTransparent?: boolean;
   /** Disable scroll when modal is open */
   blockScrollOnOpen?: boolean;
   /** Adjust modal position based on page scroll Y */
@@ -43,6 +45,7 @@ export const Modal: FC<Props> = ({
   adjustPositionToScroll = true,
   closeOnFadeMaskClick = true,
   blockScrollOnOpen = false,
+  isMaskTransparent = false,
 }) => {
   const [closeable, setClosable] = useState(true);
   const [scrollY, setScrollY] = useState(0);
@@ -108,6 +111,7 @@ export const Modal: FC<Props> = ({
         <FadeMask
           onClick={closeOnFadeMaskClick ? closeHandler : null}
           data-testid="fade-mask"
+          isMaskTransparent={isMaskTransparent}
         />
       )}
       <AnimatePresence>

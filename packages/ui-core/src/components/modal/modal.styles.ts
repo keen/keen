@@ -5,15 +5,17 @@ import { colors } from '@keen.io/colors';
 
 import { UI_LAYERS } from '../../constants';
 
-export const FadeMask = styled.div`
+export const FadeMask = styled.div<{ isMaskTransparent: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: ${UI_LAYERS.modal - 5};
-
-  background: ${transparentize(0.7, colors.black['500'])};
+  background: ${(props) =>
+    props.isMaskTransparent
+      ? 'transparent'
+      : transparentize(0.7, colors.black['500'])};
 `;
 
 export const MotionContainer = styled(motion.div)<{
