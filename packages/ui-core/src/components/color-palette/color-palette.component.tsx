@@ -11,11 +11,7 @@ import { mutateArray } from '../../utils';
 import Dropdown from '../dropdown';
 import ColorPicker from '../color-picker';
 
-import {
-  StyledColorPalette,
-  SortableContainer,
-  AddColorButton,
-} from './color-palette.styles';
+import { SortableContainer, AddColorButton } from './color-palette.styles';
 import { Color } from './components/color';
 
 type Props = {
@@ -27,6 +23,8 @@ type Props = {
   onColorsChange: (colors: string[]) => void;
   /** Default color value for color picker */
   initialPickerColor?: string;
+  /** Max number of colors */
+  maxNumberOfColors?: number;
 };
 
 const ColorPalette = ({
@@ -34,19 +32,21 @@ const ColorPalette = ({
   onColorsChange,
   colorSuggestions,
   initialPickerColor = '#00FF00',
+  maxNumberOfColors = 14,
 }: Props) => {
   const [isDragged, setIsDragged] = useState(false);
   const [colors, setColors] = useState(palette);
   const [activeColor, setActiveColor] = useState(null);
+  const [addColorPickerOpen, setAddColorPickerOpen] = useState(false);
   const colorsOrderRef = useRef(colors);
   const sortableContainerRef = useRef(null);
   const containerRef = useRef(null);
 
   const onColorPickerClickOutside = useCallback(() => {
-    if (activeColor === initialPickerColor) {
-      toggleColorPicker(null);
+    if (addColorPickerOpen) {
+      setAddColorPickerOpen(false);
     }
-  }, [containerRef, activeColor]);
+  }, [containerRef, addColorPickerOpen]);
 
   useOnClickOutside(containerRef, onColorPickerClickOutside);
 
@@ -93,6 +93,9 @@ const ColorPalette = ({
       onStart: () => {
         setIsDragged(true);
       },
+      onMove: (event) => {
+        return !event.related.classList.contains('add-color-button-wrapper');
+      },
       onEnd: (evt) => {
         colorsOrderRef.current = mutateArray(
           colorsOrderRef.current,
@@ -107,38 +110,41 @@ const ColorPalette = ({
   }, [colors]);
 
   return (
-    <StyledColorPalette>
-      <SortableContainer ref={sortableContainerRef}>
-        {colors.map((color, id) => (
-          <Color
-            color={color}
-            key={color + id}
-            isDragged={isDragged}
-            toggleColorPicker={(color) => toggleColorPicker(color)}
-            onColorChange={(color) => onColorChange(color)}
-            activeColorPicker={activeColor}
-            colorSuggestions={colorSuggestions}
-            onDelete={(color) => onColorDelete(color)}
-          />
-        ))}
-      </SortableContainer>
-      <div ref={containerRef}>
-        <AddColorButton
-          onClick={() => toggleColorPicker(initialPickerColor)}
-          data-testid="add-color-button"
-        >
-          <Icon type="plus" fill={styleColors.gray[500]} width={18} />
-        </AddColorButton>
-        <Dropdown isOpen={activeColor === initialPickerColor} fullWidth={false}>
-          <ColorPicker
-            color={initialPickerColor}
-            colorSuggestions={colorSuggestions}
-            onClosePicker={() => toggleColorPicker(null)}
-            onColorChange={(color) => addColor(color)}
-          />
-        </Dropdown>
-      </div>
-    </StyledColorPalette>
+    <SortableContainer ref={sortableContainerRef}>
+      {colors.map((color, id) => (
+        <Color
+          color={color}
+          key={color + id}
+          isDragged={isDragged}
+          toggleColorPicker={(color) => toggleColorPicker(color)}
+          onColorChange={(color) => onColorChange(color)}
+          activeColorPicker={activeColor}
+          colorSuggestions={colorSuggestions}
+          onDelete={(color) => onColorDelete(color)}
+        />
+      ))}
+      {colors.length < maxNumberOfColors && (
+        <div ref={containerRef} className="add-color-button-wrapper">
+          <AddColorButton
+            onClick={() => setAddColorPickerOpen(true)}
+            data-testid="add-color-button"
+          >
+            <Icon type="plus" fill={styleColors.gray[500]} width={18} />
+          </AddColorButton>
+          <Dropdown isOpen={addColorPickerOpen} fullWidth={false}>
+            <ColorPicker
+              color={initialPickerColor}
+              colorSuggestions={colorSuggestions}
+              onClosePicker={() => setAddColorPickerOpen(false)}
+              onColorChange={(color) => {
+                addColor(color);
+                setAddColorPickerOpen(false);
+              }}
+            />
+          </Dropdown>
+        </div>
+      )}
+    </SortableContainer>
   );
 };
 

@@ -157,7 +157,7 @@ export const IntervalSlider: FC<Props> = ({
         setTooltip((state) => ({ ...state, visible: true, y: 0, x }));
       }
     },
-    [dimension, stepDimension, tooltipSettings.enabled]
+    [dimension, stepDimension, tooltipSettings.enabled, onChange]
   );
 
   return (
