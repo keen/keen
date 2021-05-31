@@ -43,10 +43,10 @@ const ColorPalette = ({
   const containerRef = useRef(null);
 
   const onColorPickerClickOutside = useCallback(() => {
-    if (activeColor === initialPickerColor) {
-      toggleColorPicker(null);
+    if (addColorPickerOpen) {
+      setAddColorPickerOpen(false);
     }
-  }, [containerRef, activeColor]);
+  }, [containerRef, addColorPickerOpen]);
 
   useOnClickOutside(containerRef, onColorPickerClickOutside);
 
@@ -93,6 +93,9 @@ const ColorPalette = ({
       onStart: () => {
         setIsDragged(true);
       },
+      onMove: (event) => {
+        return !event.related.classList.contains('add-color-button-wrapper');
+      },
       onEnd: (evt) => {
         colorsOrderRef.current = mutateArray(
           colorsOrderRef.current,
@@ -121,7 +124,7 @@ const ColorPalette = ({
         />
       ))}
       {colors.length < maxNumberOfColors && (
-        <div ref={containerRef}>
+        <div ref={containerRef} className="add-color-button-wrapper">
           <AddColorButton
             onClick={() => setAddColorPickerOpen(true)}
             data-testid="add-color-button"
