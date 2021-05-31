@@ -4,11 +4,13 @@ import { colors } from '@keen.io/colors';
 export const StyledColorPalette = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 3px;
 `;
 
 export const SortableContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 3px;
 `;
 
 export const AddColorButton = styled.div`
