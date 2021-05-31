@@ -29,8 +29,8 @@ describe('@keen.io/charts - colors - utils', () => {
         const color = calculateColorScale(0, 20);
 
         expect(color(0)).toEqual('rgb(133, 180, 195)');
-        expect(color(20)).toEqual('rgb(203, 86, 35)');
-        expect(color(10)).toEqual('rgb(168, 133, 115)');
+        expect(color(20)).toEqual('rgb(72, 118, 80)');
+        expect(color(10)).toEqual('rgb(103, 149, 138)');
       });
     });
     describe('colorMode === discrete', () => {
