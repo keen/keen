@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.3](https://github.com/keen/keen/compare/@keen.io/charts@2.22.2...@keen.io/charts@2.22.3) (2021-05-31)
+
+
+### Bug Fixes
+
+* 🐛 Palette drag exculde fix, default theme colors changed ([fb284a0](https://github.com/keen/keen/commit/fb284a0e40a48cc2223730f6c951785e1313ae05))
+
+
+
+
+
 ## [2.22.2](https://github.com/keen/keen/compare/@keen.io/charts@2.22.1...@keen.io/charts@2.22.2) (2021-05-28)
 
 **Note:** Version bump only for package @keen.io/charts

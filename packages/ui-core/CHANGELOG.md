@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.29.0...@keen.io/ui-core@2.30.0) (2021-05-31)
+
+
+### Bug Fixes
+
+* 🐛 color palette spacing ([93c5611](https://github.com/keen/keen/commit/93c5611b86478e7a630e2746100f00bc7b2d2835))
+* 🐛 Palette drag exculde fix, default theme colors changed ([fb284a0](https://github.com/keen/keen/commit/fb284a0e40a48cc2223730f6c951785e1313ae05))
+* 🐛 update handleClick dependencies for IntervalSlider ([6cd16d7](https://github.com/keen/keen/commit/6cd16d7b228849eb4fb1e7bba3bbab8af0533701))
+
+
+### Features
+
+* 🎸 Transparent mask in modal, picker - max number of color ([8ee7122](https://github.com/keen/keen/commit/8ee7122e722a4a2afcc932bb20d1cba0978fad43))
+
+
+
+
+
 # [2.29.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.28.1...@keen.io/ui-core@2.29.0) (2021-05-28)
 
 
