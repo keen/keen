@@ -37,7 +37,7 @@ const setColorPickerPosition = (colorPickerPosition: {
   payload: { colorPickerPosition },
 });
 
-export const sliderActions = {
+export const colorPaletteActions = {
   setIsDragged,
   setColors,
   setActiveColor,

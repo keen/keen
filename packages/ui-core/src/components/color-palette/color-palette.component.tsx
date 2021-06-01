@@ -18,8 +18,8 @@ import {
 } from './color-palette.styles';
 import { Color } from './components/color';
 import { DynamicPortal } from '../index';
-import { colorPaletteReducer, initialState } from './reducer/reducer';
-import { sliderActions } from './reducer/actions';
+import { colorPaletteReducer, initialState } from './reducer';
+import { colorPaletteActions } from './reducer';
 
 type Props = {
   /** Colors of the palette */
@@ -56,7 +56,7 @@ const ColorPalette = ({
 
   const onColorPickerClickOutside = useCallback(() => {
     if (addColorPickerOpen) {
-      dispatch(sliderActions.setAddColorPickerOpen(false));
+      dispatch(colorPaletteActions.setAddColorPickerOpen(false));
     }
   }, [colorPickerDropdownRef, addColorPickerOpen]);
 
@@ -67,40 +67,40 @@ const ColorPalette = ({
       (color: string) => color !== deletedColor
     );
     colorsOrderRef.current = filteredColors;
-    dispatch(sliderActions.setColors(filteredColors));
+    dispatch(colorPaletteActions.setColors(filteredColors));
     onColorsChange(filteredColors);
   };
 
   const toggleColorPicker = (color: string) => {
     if (color === activeColor) {
-      return dispatch(sliderActions.setActiveColor(null));
+      return dispatch(colorPaletteActions.setActiveColor(null));
     }
-    dispatch(sliderActions.setActiveColor(color));
+    dispatch(colorPaletteActions.setActiveColor(color));
   };
 
   const onColorChange = (color: string) => {
     const colorToChangeIndex = colorsOrderRef.current.indexOf(activeColor);
     colorsOrderRef.current[colorToChangeIndex] = color;
-    dispatch(sliderActions.setColors(colorsOrderRef.current));
+    dispatch(colorPaletteActions.setColors(colorsOrderRef.current));
     toggleColorPicker(null);
     onColorsChange(colorsOrderRef.current);
   };
 
   const addColor = (color: string) => {
     colorsOrderRef.current.push(color);
-    dispatch(sliderActions.setColors(colorsOrderRef.current));
+    dispatch(colorPaletteActions.setColors(colorsOrderRef.current));
     toggleColorPicker(null);
     onColorsChange(colorsOrderRef.current);
   };
 
   useEffect(() => {
     colorsOrderRef.current = [...palette];
-    dispatch(sliderActions.setColors([...palette]));
+    dispatch(colorPaletteActions.setColors([...palette]));
   }, [palette]);
 
   const hideColorPicker = useCallback(() => {
-    dispatch(sliderActions.setAddColorPickerOpen(false));
-  }, [sliderActions.setAddColorPickerOpen]);
+    dispatch(colorPaletteActions.setAddColorPickerOpen(false));
+  }, [colorPaletteActions.setAddColorPickerOpen]);
 
   useEffect(() => {
     const scrollableRef = scrollableParentRef?.current;
@@ -115,7 +115,7 @@ const ColorPalette = ({
       animation: 200,
       handle: '.drag-handle',
       onStart: () => {
-        sliderActions.setIsDragged(true);
+        colorPaletteActions.setIsDragged(true);
       },
       onMove: (event) => {
         return !event.related.classList.contains('add-color-button-wrapper');
@@ -127,8 +127,8 @@ const ColorPalette = ({
           evt.newIndex
         );
         onColorsChange(colorsOrderRef.current);
-        dispatch(sliderActions.setColors(colorsOrderRef.current));
-        dispatch(sliderActions.setIsDragged(false));
+        dispatch(colorPaletteActions.setColors(colorsOrderRef.current));
+        dispatch(colorPaletteActions.setIsDragged(false));
       },
     });
   }, [colors]);
@@ -136,7 +136,7 @@ const ColorPalette = ({
   const setPickerPosition = () => {
     const addColorButtonRect = addColorButtonRef.current.getBoundingClientRect();
     dispatch(
-      sliderActions.setColorPickerPosition({
+      colorPaletteActions.setColorPickerPosition({
         x: addColorButtonRect.x,
         y: addColorButtonRect.y + window.scrollY + addColorButtonRect.height,
       })
@@ -163,7 +163,7 @@ const ColorPalette = ({
           <AddColorButton
             onClick={() => {
               setPickerPosition();
-              dispatch(sliderActions.setAddColorPickerOpen(true));
+              dispatch(colorPaletteActions.setAddColorPickerOpen(true));
             }}
             data-testid="add-color-button"
             ref={addColorButtonRef}
@@ -182,11 +182,13 @@ const ColorPalette = ({
                     color={initialPickerColor}
                     colorSuggestions={colorSuggestions}
                     onClosePicker={() =>
-                      dispatch(sliderActions.setAddColorPickerOpen(false))
+                      dispatch(colorPaletteActions.setAddColorPickerOpen(false))
                     }
                     onColorChange={(color) => {
                       addColor(color);
-                      dispatch(sliderActions.setAddColorPickerOpen(false));
+                      dispatch(
+                        colorPaletteActions.setAddColorPickerOpen(false)
+                      );
                     }}
                   />
                 </Dropdown>
