@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { StyledColor, DragHandle, DeleteButton } from './color.styles';
-import { useCallback, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
 import { useOnClickOutside } from '@keen.io/react-hooks';
 
 import Dropdown from '../../../dropdown';
 import ColorPicker from '../../../color-picker';
+import DynamicPortal from '../../../dynamic-portal';
+import { StyledContainer } from '../../color-palette.styles';
 
 type Props = {
   color: string;
@@ -16,6 +18,7 @@ type Props = {
   toggleColorPicker: (color: string) => void;
   onColorChange: (color: string) => void;
   colorSuggestions: string[];
+  scrollableParentRef?: RefObject<HTMLDivElement>;
 };
 const Color = ({
   color,
@@ -25,26 +28,56 @@ const Color = ({
   activeColorPicker,
   onColorChange,
   colorSuggestions,
+  scrollableParentRef,
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
-  const containerRef = useRef(null);
+  const colorPickerContainerRef = useRef(null);
+  const [colorPickerPosition, setColorPickerPosition] = useState({
+    x: 0,
+    y: 0,
+  });
+  const colorButtonRef = useRef(null);
 
   const onClickOutside = useCallback(() => {
     if (activeColorPicker === color) {
       toggleColorPicker(null);
     }
-  }, [containerRef, activeColorPicker]);
+  }, [colorPickerContainerRef, activeColorPicker]);
 
-  useOnClickOutside(containerRef, onClickOutside);
+  useOnClickOutside(colorPickerContainerRef, onClickOutside);
+
+  const setPickerPosition = () => {
+    const colorButtonRect = colorButtonRef.current.getBoundingClientRect();
+    setColorPickerPosition({
+      x: colorButtonRect.x,
+      y: colorButtonRect.y + window.scrollY + colorButtonRect.height,
+    });
+  };
+
+  const hideColorPicker = useCallback(() => {
+    toggleColorPicker(null);
+  }, [toggleColorPicker]);
+
+  useEffect(() => {
+    const scrollableRef = scrollableParentRef?.current;
+    scrollableRef?.addEventListener('scroll', hideColorPicker);
+    return () => {
+      scrollableRef?.removeEventListener('scroll', hideColorPicker);
+    };
+  }, [scrollableParentRef, hideColorPicker]);
 
   return (
-    <div ref={containerRef}>
+    <div>
       <StyledColor
         data-testid="color"
         color={color}
-        onClick={() => toggleColorPicker(color)}
+        onClick={() => {
+          setPickerPosition();
+          toggleColorPicker(color);
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        ref={colorButtonRef}
       >
         {isHovered && !isDragged && (
           <div>
@@ -60,15 +93,22 @@ const Color = ({
           </div>
         )}
       </StyledColor>
-
-      <Dropdown isOpen={activeColorPicker === color} fullWidth={false}>
-        <ColorPicker
-          color={color}
-          colorSuggestions={colorSuggestions}
-          onClosePicker={() => toggleColorPicker(color)}
-          onColorChange={onColorChange}
-        />
-      </Dropdown>
+      <DynamicPortal>
+        <StyledContainer
+          x={colorPickerPosition.x}
+          y={colorPickerPosition.y}
+          ref={colorPickerContainerRef}
+        >
+          <Dropdown isOpen={activeColorPicker === color} fullWidth={false}>
+            <ColorPicker
+              color={color}
+              colorSuggestions={colorSuggestions}
+              onClosePicker={() => toggleColorPicker(color)}
+              onColorChange={onColorChange}
+            />
+          </Dropdown>
+        </StyledContainer>
+      </DynamicPortal>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import Sortable from 'sortablejs';
 
 import { useOnClickOutside } from '@keen.io/react-hooks';
@@ -11,8 +11,13 @@ import { mutateArray } from '../../utils';
 import Dropdown from '../dropdown';
 import ColorPicker from '../color-picker';
 
-import { SortableContainer, AddColorButton } from './color-palette.styles';
+import {
+  SortableContainer,
+  AddColorButton,
+  StyledContainer,
+} from './color-palette.styles';
 import { Color } from './components/color';
+import { DynamicPortal } from '../index';
 
 type Props = {
   /** Colors of the palette */
@@ -25,6 +30,8 @@ type Props = {
   initialPickerColor?: string;
   /** Max number of colors */
   maxNumberOfColors?: number;
+  /** Ref of scrollable parent element */
+  scrollableParentRef?: RefObject<HTMLDivElement>;
 };
 
 const ColorPalette = ({
@@ -33,6 +40,7 @@ const ColorPalette = ({
   colorSuggestions,
   initialPickerColor = '#00FF00',
   maxNumberOfColors = 14,
+  scrollableParentRef,
 }: Props) => {
   const [isDragged, setIsDragged] = useState(false);
   const [colors, setColors] = useState(palette);
@@ -40,15 +48,21 @@ const ColorPalette = ({
   const [addColorPickerOpen, setAddColorPickerOpen] = useState(false);
   const colorsOrderRef = useRef(colors);
   const sortableContainerRef = useRef(null);
-  const containerRef = useRef(null);
+  const colorPickerDropdownRef = useRef(null);
+  const addColorButtonRef = useRef(null);
+
+  const [colorPickerPosition, setColorPickerPosition] = useState({
+    x: 0,
+    y: 0,
+  });
 
   const onColorPickerClickOutside = useCallback(() => {
     if (addColorPickerOpen) {
       setAddColorPickerOpen(false);
     }
-  }, [containerRef, addColorPickerOpen]);
+  }, [colorPickerDropdownRef, addColorPickerOpen]);
 
-  useOnClickOutside(containerRef, onColorPickerClickOutside);
+  useOnClickOutside(colorPickerDropdownRef, onColorPickerClickOutside);
 
   const onColorDelete = (deletedColor: string) => {
     const filteredColors = colorsOrderRef.current.filter(
@@ -86,6 +100,18 @@ const ColorPalette = ({
     setColors([...palette]);
   }, [palette]);
 
+  const hideColorPicker = useCallback(() => {
+    setAddColorPickerOpen(false);
+  }, [setAddColorPickerOpen]);
+
+  useEffect(() => {
+    const scrollableRef = scrollableParentRef?.current;
+    scrollableRef?.addEventListener('scroll', hideColorPicker);
+    return () => {
+      scrollableRef?.removeEventListener('scroll', hideColorPicker);
+    };
+  }, [scrollableParentRef, hideColorPicker]);
+
   useEffect(() => {
     new Sortable(sortableContainerRef.current, {
       animation: 200,
@@ -109,6 +135,14 @@ const ColorPalette = ({
     });
   }, [colors]);
 
+  const setPickerPosition = () => {
+    const addColorButtonRect = addColorButtonRef.current.getBoundingClientRect();
+    setColorPickerPosition({
+      x: addColorButtonRect.x,
+      y: addColorButtonRect.y + window.scrollY + addColorButtonRect.height,
+    });
+  };
+
   return (
     <SortableContainer ref={sortableContainerRef}>
       {colors.map((color, id) => (
@@ -121,27 +155,40 @@ const ColorPalette = ({
           activeColorPicker={activeColor}
           colorSuggestions={colorSuggestions}
           onDelete={(color) => onColorDelete(color)}
+          scrollableParentRef={scrollableParentRef}
         />
       ))}
       {colors.length < maxNumberOfColors && (
-        <div ref={containerRef} className="add-color-button-wrapper">
+        <div className="add-color-button-wrapper">
           <AddColorButton
-            onClick={() => setAddColorPickerOpen(true)}
+            onClick={() => {
+              setPickerPosition();
+              setAddColorPickerOpen(true);
+            }}
             data-testid="add-color-button"
+            ref={addColorButtonRef}
           >
             <Icon type="plus" fill={styleColors.gray[500]} width={18} />
           </AddColorButton>
-          <Dropdown isOpen={addColorPickerOpen} fullWidth={false}>
-            <ColorPicker
-              color={initialPickerColor}
-              colorSuggestions={colorSuggestions}
-              onClosePicker={() => setAddColorPickerOpen(false)}
-              onColorChange={(color) => {
-                addColor(color);
-                setAddColorPickerOpen(false);
-              }}
-            />
-          </Dropdown>
+          <DynamicPortal>
+            <StyledContainer
+              x={colorPickerPosition.x}
+              y={colorPickerPosition.y}
+              ref={colorPickerDropdownRef}
+            >
+              <Dropdown isOpen={addColorPickerOpen} fullWidth={false}>
+                <ColorPicker
+                  color={initialPickerColor}
+                  colorSuggestions={colorSuggestions}
+                  onClosePicker={() => setAddColorPickerOpen(false)}
+                  onColorChange={(color) => {
+                    addColor(color);
+                    setAddColorPickerOpen(false);
+                  }}
+                />
+              </Dropdown>
+            </StyledContainer>
+          </DynamicPortal>
         </div>
       )}
     </SortableContainer>
