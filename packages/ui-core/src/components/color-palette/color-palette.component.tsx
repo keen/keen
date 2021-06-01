@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useReducer, useRef } from 'react';
 import Sortable from 'sortablejs';
 
 import { useOnClickOutside } from '@keen.io/react-hooks';
@@ -18,6 +18,8 @@ import {
 } from './color-palette.styles';
 import { Color } from './components/color';
 import { DynamicPortal } from '../index';
+import { colorPaletteReducer, initialState } from './reducer/reducer';
+import { sliderActions } from './reducer/actions';
 
 type Props = {
   /** Colors of the palette */
@@ -42,23 +44,19 @@ const ColorPalette = ({
   maxNumberOfColors = 14,
   scrollableParentRef,
 }: Props) => {
-  const [isDragged, setIsDragged] = useState(false);
-  const [colors, setColors] = useState(palette);
-  const [activeColor, setActiveColor] = useState(null);
-  const [addColorPickerOpen, setAddColorPickerOpen] = useState(false);
+  const [
+    { isDragged, colors, activeColor, addColorPickerOpen, colorPickerPosition },
+    dispatch,
+  ] = useReducer(colorPaletteReducer, initialState);
+
   const colorsOrderRef = useRef(colors);
   const sortableContainerRef = useRef(null);
   const colorPickerDropdownRef = useRef(null);
   const addColorButtonRef = useRef(null);
 
-  const [colorPickerPosition, setColorPickerPosition] = useState({
-    x: 0,
-    y: 0,
-  });
-
   const onColorPickerClickOutside = useCallback(() => {
     if (addColorPickerOpen) {
-      setAddColorPickerOpen(false);
+      dispatch(sliderActions.setAddColorPickerOpen(false));
     }
   }, [colorPickerDropdownRef, addColorPickerOpen]);
 
@@ -66,43 +64,43 @@ const ColorPalette = ({
 
   const onColorDelete = (deletedColor: string) => {
     const filteredColors = colorsOrderRef.current.filter(
-      (color) => color !== deletedColor
+      (color: string) => color !== deletedColor
     );
     colorsOrderRef.current = filteredColors;
-    setColors(filteredColors);
+    dispatch(sliderActions.setColors(filteredColors));
     onColorsChange(filteredColors);
   };
 
   const toggleColorPicker = (color: string) => {
     if (color === activeColor) {
-      return setActiveColor(null);
+      return dispatch(sliderActions.setActiveColor(null));
     }
-    setActiveColor(color);
+    dispatch(sliderActions.setActiveColor(color));
   };
 
   const onColorChange = (color: string) => {
     const colorToChangeIndex = colorsOrderRef.current.indexOf(activeColor);
     colorsOrderRef.current[colorToChangeIndex] = color;
-    setColors(colorsOrderRef.current);
+    dispatch(sliderActions.setColors(colorsOrderRef.current));
     toggleColorPicker(null);
     onColorsChange(colorsOrderRef.current);
   };
 
   const addColor = (color: string) => {
     colorsOrderRef.current.push(color);
-    setColors(colorsOrderRef.current);
+    dispatch(sliderActions.setColors(colorsOrderRef.current));
     toggleColorPicker(null);
     onColorsChange(colorsOrderRef.current);
   };
 
   useEffect(() => {
     colorsOrderRef.current = [...palette];
-    setColors([...palette]);
+    dispatch(sliderActions.setColors([...palette]));
   }, [palette]);
 
   const hideColorPicker = useCallback(() => {
-    setAddColorPickerOpen(false);
-  }, [setAddColorPickerOpen]);
+    dispatch(sliderActions.setAddColorPickerOpen(false));
+  }, [sliderActions.setAddColorPickerOpen]);
 
   useEffect(() => {
     const scrollableRef = scrollableParentRef?.current;
@@ -117,7 +115,7 @@ const ColorPalette = ({
       animation: 200,
       handle: '.drag-handle',
       onStart: () => {
-        setIsDragged(true);
+        sliderActions.setIsDragged(true);
       },
       onMove: (event) => {
         return !event.related.classList.contains('add-color-button-wrapper');
@@ -129,23 +127,25 @@ const ColorPalette = ({
           evt.newIndex
         );
         onColorsChange(colorsOrderRef.current);
-        setColors(colorsOrderRef.current);
-        setIsDragged(false);
+        dispatch(sliderActions.setColors(colorsOrderRef.current));
+        dispatch(sliderActions.setIsDragged(false));
       },
     });
   }, [colors]);
 
   const setPickerPosition = () => {
     const addColorButtonRect = addColorButtonRef.current.getBoundingClientRect();
-    setColorPickerPosition({
-      x: addColorButtonRect.x,
-      y: addColorButtonRect.y + window.scrollY + addColorButtonRect.height,
-    });
+    dispatch(
+      sliderActions.setColorPickerPosition({
+        x: addColorButtonRect.x,
+        y: addColorButtonRect.y + window.scrollY + addColorButtonRect.height,
+      })
+    );
   };
 
   return (
     <SortableContainer ref={sortableContainerRef}>
-      {colors.map((color, id) => (
+      {colors.map((color: string, id: number) => (
         <Color
           color={color}
           key={color + id}
@@ -163,7 +163,7 @@ const ColorPalette = ({
           <AddColorButton
             onClick={() => {
               setPickerPosition();
-              setAddColorPickerOpen(true);
+              dispatch(sliderActions.setAddColorPickerOpen(true));
             }}
             data-testid="add-color-button"
             ref={addColorButtonRef}
@@ -181,10 +181,12 @@ const ColorPalette = ({
                   <ColorPicker
                     color={initialPickerColor}
                     colorSuggestions={colorSuggestions}
-                    onClosePicker={() => setAddColorPickerOpen(false)}
+                    onClosePicker={() =>
+                      dispatch(sliderActions.setAddColorPickerOpen(false))
+                    }
                     onColorChange={(color) => {
                       addColor(color);
-                      setAddColorPickerOpen(false);
+                      dispatch(sliderActions.setAddColorPickerOpen(false));
                     }}
                   />
                 </Dropdown>
