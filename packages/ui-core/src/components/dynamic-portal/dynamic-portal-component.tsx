@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { UI_LAYERS } from '../../constants';
@@ -14,7 +12,7 @@ export const DynamicPortal = ({
   zIndex,
 }: Props): React.ReactPortal => {
   const el = useRef(null);
-  const [_, setIsBootstrapped] = useState(false); // since ref value is set as side effect, we need to call setState in order to force react to rerender component
+  const [, setIsBootstrapped] = useState(false); // since ref value is set as side effect, we need to call setState in order to force react to rerender component
   useEffect(() => {
     el.current = document.createElement('div');
     el.current.style.cssText = `z-index: ${zIndex || UI_LAYERS.tooltip};
