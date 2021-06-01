@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.31.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.30.0...@keen.io/ui-core@2.31.0) (2021-06-01)
+
+
+### Bug Fixes
+
+* 🐛 ColorPaletteActions renamed ([d1461b7](https://github.com/keen/keen/commit/d1461b7419a7019af885578e5d65e4d90827389e))
+* 🐛 Unused variable removed ([1db7862](https://github.com/keen/keen/commit/1db786285d15c65453c7a0fc1ebc899ed4b8bb2f))
+
+
+### Features
+
+* 🎸 Hiding color picker on scroll ([05e69c3](https://github.com/keen/keen/commit/05e69c3637d12bbb0e7168713a5cea3dfc627bd0))
+
+
+
+
+
 # [2.30.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.29.0...@keen.io/ui-core@2.30.0) (2021-05-31)
 
 
