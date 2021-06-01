@@ -36,3 +36,9 @@ export const DeleteButton = styled.div`
   cursor: pointer;
   background: ${transparentize(0.4, colors.white[400])};
 `;
+
+export const StyledContainer = styled.div<{ x: number; y: number }>`
+  position: absolute;
+  top: ${(props) => props.y}px;
+  left: ${(props) => props.x}px;
+`;

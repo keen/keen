@@ -25,3 +25,9 @@ export const AddColorButton = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const StyledContainer = styled.div<{ x: number; y: number }>`
+  position: absolute;
+  top: ${(props) => props.y}px;
+  left: ${(props) => props.x}px;
+`;
