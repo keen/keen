@@ -11,7 +11,7 @@ const render = (overProps: any = {}) => {
     toggleColorPicker: jest.fn(),
     activeColorPicker: null,
     onColorChange: jest.fn(),
-    colorSuggestions: [],
+    colorSuggestions: [test],
     ...overProps,
   };
 
@@ -29,7 +29,7 @@ test('Should show color picker when active color is the same as current color', 
   } = render({
     activeColorPicker: testColor,
   });
-  const colorPicker = getByTestId('color-picker');
+  const colorPicker = getByTestId('dynamic-portal');
   expect(colorPicker).toBeInTheDocument();
 });
 
@@ -39,7 +39,7 @@ test('Should not show color picker when active color is different than current c
   } = render({
     activeColorPicker: '#0000ff',
   });
-  const colorPicker = queryByTestId('color-picker');
+  const colorPicker = queryByTestId('dynamic-portal');
   expect(colorPicker).not.toBeInTheDocument();
 });
 

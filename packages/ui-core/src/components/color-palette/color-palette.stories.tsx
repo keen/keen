@@ -25,6 +25,7 @@ export const basic = () => {
     styleColors.purple[300],
     styleColors.orange[300],
   ];
+
   return (
     <ColorPalette
       colors={colors}
