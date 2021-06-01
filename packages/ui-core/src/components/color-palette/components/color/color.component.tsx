@@ -93,22 +93,24 @@ const Color = ({
           </div>
         )}
       </StyledColor>
-      <DynamicPortal>
-        <StyledContainer
-          x={colorPickerPosition.x}
-          y={colorPickerPosition.y}
-          ref={colorPickerContainerRef}
-        >
-          <Dropdown isOpen={activeColorPicker === color} fullWidth={false}>
-            <ColorPicker
-              color={color}
-              colorSuggestions={colorSuggestions}
-              onClosePicker={() => toggleColorPicker(color)}
-              onColorChange={onColorChange}
-            />
-          </Dropdown>
-        </StyledContainer>
-      </DynamicPortal>
+      {activeColorPicker === color && (
+        <DynamicPortal>
+          <StyledContainer
+            x={colorPickerPosition.x}
+            y={colorPickerPosition.y}
+            ref={colorPickerContainerRef}
+          >
+            <Dropdown isOpen={activeColorPicker === color} fullWidth={false}>
+              <ColorPicker
+                color={color}
+                colorSuggestions={colorSuggestions}
+                onClosePicker={() => toggleColorPicker(color)}
+                onColorChange={onColorChange}
+              />
+            </Dropdown>
+          </StyledContainer>
+        </DynamicPortal>
+      )}
     </div>
   );
 };

@@ -170,25 +170,27 @@ const ColorPalette = ({
           >
             <Icon type="plus" fill={styleColors.gray[500]} width={18} />
           </AddColorButton>
-          <DynamicPortal>
-            <StyledContainer
-              x={colorPickerPosition.x}
-              y={colorPickerPosition.y}
-              ref={colorPickerDropdownRef}
-            >
-              <Dropdown isOpen={addColorPickerOpen} fullWidth={false}>
-                <ColorPicker
-                  color={initialPickerColor}
-                  colorSuggestions={colorSuggestions}
-                  onClosePicker={() => setAddColorPickerOpen(false)}
-                  onColorChange={(color) => {
-                    addColor(color);
-                    setAddColorPickerOpen(false);
-                  }}
-                />
-              </Dropdown>
-            </StyledContainer>
-          </DynamicPortal>
+          {addColorPickerOpen && (
+            <DynamicPortal>
+              <StyledContainer
+                x={colorPickerPosition.x}
+                y={colorPickerPosition.y}
+                ref={colorPickerDropdownRef}
+              >
+                <Dropdown isOpen fullWidth={false}>
+                  <ColorPicker
+                    color={initialPickerColor}
+                    colorSuggestions={colorSuggestions}
+                    onClosePicker={() => setAddColorPickerOpen(false)}
+                    onColorChange={(color) => {
+                      addColor(color);
+                      setAddColorPickerOpen(false);
+                    }}
+                  />
+                </Dropdown>
+              </StyledContainer>
+            </DynamicPortal>
+          )}
         </div>
       )}
     </SortableContainer>
