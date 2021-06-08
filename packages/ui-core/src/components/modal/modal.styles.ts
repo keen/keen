@@ -12,6 +12,7 @@ export const FadeMask = styled.div<{ isMaskTransparent: boolean }>`
   width: 100%;
   height: 100%;
   z-index: ${UI_LAYERS.modal - 5};
+  transition: background 250ms ease-in-out;
   background: ${(props) =>
     props.isMaskTransparent
       ? 'transparent'
