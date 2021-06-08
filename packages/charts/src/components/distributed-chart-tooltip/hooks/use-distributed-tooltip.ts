@@ -76,9 +76,7 @@ const useDistributedTooltip = ({
         },
         0
       );
-      return isPercentage
-        ? total
-        : (formatValue(total, tooltipSettings.formatValue) as string);
+      return formatValue(total, tooltipSettings.formatValue) as string;
     }
     return null;
   }, [selectors.length > 1, recordIndex, disabledKeys]);
