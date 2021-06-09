@@ -195,6 +195,10 @@ test('calculates percentage value for records', () => {
     },
   ];
 
+  const tooltipSettings = {
+    formatValue: jest.fn().mockImplementation((value) => value.toFixed(2)),
+  };
+
   const { result } = renderHook({
     data,
     keys: ['male', 'female'],
@@ -204,13 +208,14 @@ test('calculates percentage value for records', () => {
       { selector: [0, 'male'], color: 'red' },
       { selector: [0, 'female'], color: 'blue' },
     ],
+    tooltipSettings,
   });
 
   const items = [
     {
       color: 'red',
       data: {
-        change: '(40)',
+        change: '(40.00)',
         label: 'male',
         value: '40.0%',
       },
@@ -218,7 +223,7 @@ test('calculates percentage value for records', () => {
     {
       color: 'blue',
       data: {
-        change: '(60)',
+        change: '(60.00)',
         label: 'female',
         value: '60.0%',
       },
@@ -226,4 +231,5 @@ test('calculates percentage value for records', () => {
   ];
 
   expect(result.current.items).toEqual(items);
+  expect(result.current.totalValue).toEqual('100.00');
 });
