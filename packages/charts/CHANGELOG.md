@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.5](https://github.com/keen/keen/compare/@keen.io/charts@2.22.4...@keen.io/charts@2.22.5) (2021-06-09)
+
+
+### Bug Fixes
+
+* 🐛 Fix for first bar not rerender problem ([8041502](https://github.com/keen/keen/commit/80415025780b46bec439d44a4e36f66eeaf742a8))
+* 🐛 Fix for total value formatter in tooltips ([103cb3d](https://github.com/keen/keen/commit/103cb3d78f39cdba4511046799e3617a621f85e7))
+
+
+
+
+
 ## [2.22.4](https://github.com/keen/keen/compare/@keen.io/charts@2.22.3...@keen.io/charts@2.22.4) (2021-06-01)
 
 **Note:** Version bump only for package @keen.io/charts

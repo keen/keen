@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.7...@keen.io/widgets@2.9.0) (2021-06-09)
+
+
+### Features
+
+* 🎸 Table widget - heading padding set from dataviz setting ([9b724a2](https://github.com/keen/keen/commit/9b724a243432c7179a5efa257a0b3e0c49e3640c))
+
+
+
+
+
 ## [2.8.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.6...@keen.io/widgets@2.8.7) (2021-06-01)
 
 **Note:** Version bump only for package @keen.io/widgets

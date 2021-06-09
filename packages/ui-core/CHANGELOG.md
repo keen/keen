@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.31.0...@keen.io/ui-core@2.31.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* 🐛 FadeMask background animation ([6bbfa67](https://github.com/keen/keen/commit/6bbfa67ea392903a43b4a38844cd7d3c341f037a))
+
+
+
+
+
 # [2.31.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.30.0...@keen.io/ui-core@2.31.0) (2021-06-01)
 
 
