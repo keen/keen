@@ -50,7 +50,7 @@ export const Bar: FC<Props> = ({
 
   useEffect(() => {
     barControls.start(barVariants.animate);
-  }, [x, y]);
+  }, [x, y, width, height]);
 
   useEffect(() => {
     if (colorOutOfRange) barControls.start(barVariants.defaultColor);
