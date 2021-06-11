@@ -77,6 +77,7 @@ export const widget = () => {
         keys={['users']}
         theme={theme}
         data={chartData}
+        tags={[{ label: 'Widget tag', variant: 'gray' }]}
       />
     </div>
   );

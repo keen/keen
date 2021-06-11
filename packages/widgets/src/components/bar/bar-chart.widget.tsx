@@ -23,6 +23,7 @@ export const BarChartWidget: FC<Props> = ({
   title,
   subtitle,
   card,
+  tags,
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
@@ -36,7 +37,9 @@ export const BarChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      title={() => (
+        <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
+      )}
       legend={() =>
         legend.enabled && (
           <SeriesLegend

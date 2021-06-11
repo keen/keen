@@ -49,8 +49,9 @@ export const Badge: FC<Props> = ({
 
   return (
     <Container
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
+      onMouseEnter={() => onClick && setActive(true)}
+      onMouseLeave={() => onClick && setActive(false)}
+      pointer={!!onClick}
     >
       <TextWrapper
         variant={variant}

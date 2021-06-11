@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { select, boolean } from '@storybook/addon-knobs';
+import { select, boolean, action } from '@storybook/addon-knobs';
 import { colors } from '@keen.io/colors';
 
 import { Badge } from './badge.component';
@@ -36,6 +36,7 @@ export const variants = () => (
             'Badge'
           ) as Variant
         }
+        onClick={() => action('Click')}
       >
         Badge
       </Badge>
@@ -65,6 +66,7 @@ export const truncated = () => (
             'Badge'
           ) as Variant
         }
+        onClick={action('Click')}
       >
         This is a very very long text
       </Badge>

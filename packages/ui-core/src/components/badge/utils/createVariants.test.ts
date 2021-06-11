@@ -15,7 +15,7 @@ test('create variants for active state', () => {
           "color": "#27566D",
         },
         "gray": Object {
-          "backgroundColor": "rgba(237,237,237,0.6)",
+          "backgroundColor": "rgba(205,207,211,0.6)",
           "color": "#4F5B5F",
         },
         "green": Object {
@@ -70,7 +70,7 @@ test('create variants for inactive state', () => {
           "color": "#27566D",
         },
         "gray": Object {
-          "backgroundColor": "rgba(237,237,237,0.3)",
+          "backgroundColor": "rgba(205,207,211,0.3)",
           "color": "#4F5B5F",
         },
         "green": Object {

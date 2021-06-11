@@ -51,6 +51,7 @@ export const widget = () => (
       colorSteps={number('Color steps', 2, {}, 'Chart')}
       colorMode={colorModeKnobs('Chart', 'continuous') as any}
       data={chartData}
+      tags={[{ label: 'Widget tag', variant: 'gray' }]}
     />
   </div>
 );

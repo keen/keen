@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 import { motion } from 'framer-motion';
 
@@ -6,12 +6,18 @@ import { Variant } from './types';
 import { createVariants } from './utils';
 import { UI_LAYERS } from '../../constants';
 
-export const Container = styled.div`
+export const Container = styled.div<{
+  pointer: boolean;
+}>`
   display: inline-flex;
   align-items: stretch;
   justify-content: center;
   position: relative;
-  cursor: pointer;
+  ${(props) =>
+    props.pointer &&
+    css`
+      cursor: pointer;
+    `};
 `;
 
 type TextWrapperProps = {

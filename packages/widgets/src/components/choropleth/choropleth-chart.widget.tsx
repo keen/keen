@@ -32,6 +32,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
   title,
   subtitle,
   card,
+  tags,
   geographicArea = 'world',
   colorSteps,
   ...props
@@ -61,7 +62,9 @@ export const ChoroplethChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      title={() => (
+        <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
+      )}
       legend={() =>
         legend.enabled &&
         !geoMatchError && (

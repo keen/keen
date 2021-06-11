@@ -26,6 +26,7 @@ export const HeatmapChartWidget: FC<Props> = ({
   legend = legendSettings,
   theme = defaultTheme,
   card,
+  tags,
   steps,
   ...props
 }) => {
@@ -40,7 +41,9 @@ export const HeatmapChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      title={() => (
+        <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
+      )}
       legend={() =>
         legend.enabled && (
           <LegendBase fullDimension spacing="thin" {...legend}>
