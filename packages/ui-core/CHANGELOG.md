@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.32.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.31.1...@keen.io/ui-core@2.32.0) (2021-06-11)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([f3abbfb](https://github.com/keen/keen/commit/f3abbfbb3be8387c143c20a16865287eea242a87))
+
+
+### Features
+
+* 🎸 Widget tags added ([4c0580e](https://github.com/keen/keen/commit/4c0580e93bfed0bb952f68f0037a641491045f3d))
+
+
+
+
+
 ## [2.31.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.31.0...@keen.io/ui-core@2.31.1) (2021-06-09)
 
 
