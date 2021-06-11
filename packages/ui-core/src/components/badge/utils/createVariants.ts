@@ -37,7 +37,7 @@ const createVariants = (isActive: boolean) => {
       },
       gray: {
         color: colors.black[100],
-        backgroundColor: transparentize(opacity, colors.gray[300]),
+        backgroundColor: transparentize(opacity, colors.gray[500]),
       },
       pink: {
         color: colors.pink[500],

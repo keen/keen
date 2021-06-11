@@ -25,6 +25,7 @@ export const AreaChartWidget: FC<Props> = ({
   legend = legendSettings,
   theme = defaultTheme,
   card,
+  tags,
   ...props
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
@@ -40,7 +41,9 @@ export const AreaChartWidget: FC<Props> = ({
         alignment: legend.alignment,
         layout: legend.layout,
       }}
-      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      title={() => (
+        <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
+      )}
       legend={() =>
         legend.enabled && (
           <SeriesLegend

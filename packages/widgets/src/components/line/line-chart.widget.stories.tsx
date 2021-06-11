@@ -81,6 +81,7 @@ export const widget = () => {
         yAxisTitle={text('Title', 'Vertical Title', 'Axis Y Title')}
         theme={createThemeKnobs()}
         data={chartData}
+        tags={[{ label: 'Widget tag', variant: 'gray' }]}
       />
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import ChartWidget from './chart-widget.component';
+import WidgetHeading from '../widget-heading.component';
 
 const render = (overProps: any = {}) => {
   const props = {
@@ -58,4 +59,22 @@ test('renders component as a children of legend socket', () => {
   const legendSocket = getByTestId('legend-socket');
 
   expect(legendSocket).toContainElement(getByTestId('legend'));
+});
+
+test('renders tags for widget', () => {
+  const tags = [
+    {
+      label: 'Saved query',
+      variant: 'gray',
+    },
+  ];
+
+  const title = () => <WidgetHeading tags={tags} />;
+
+  const {
+    wrapper: { getByTestId, getByText },
+  } = render({ title });
+
+  const TagsContainer = getByTestId('widget-tags');
+  expect(TagsContainer).toContainElement(getByText('Saved query'));
 });

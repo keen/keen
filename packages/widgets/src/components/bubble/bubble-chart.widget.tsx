@@ -32,6 +32,7 @@ export const BubbleChartWidget: FC<Props> = ({
   title,
   subtitle,
   card,
+  tags,
   ...props
 }) => {
   const { data, valueKey } = props;
@@ -59,7 +60,9 @@ export const BubbleChartWidget: FC<Props> = ({
         alignment,
         layout,
       }}
-      title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+      title={() => (
+        <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
+      )}
       legend={() => (
         <LegendContainer position={position} maxHeight={maxHeight}>
           {series.enabled && (

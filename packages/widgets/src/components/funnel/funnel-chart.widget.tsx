@@ -22,6 +22,7 @@ export const FunnelChartWidget: FC<Props> = ({
   title,
   subtitle,
   card,
+  tags,
   ...props
 }) => (
   <ChartWidget
@@ -31,7 +32,9 @@ export const FunnelChartWidget: FC<Props> = ({
       alignment: legend.alignment,
       layout: legend.layout,
     }}
-    title={() => <WidgetHeading title={title} subtitle={subtitle} />}
+    title={() => (
+      <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
+    )}
     legend={() => null}
     content={() => (
       <Content>

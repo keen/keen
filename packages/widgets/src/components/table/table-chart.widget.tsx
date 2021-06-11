@@ -20,13 +20,14 @@ export const TableChartWidget: FC<Props> = ({
   title,
   subtitle,
   card,
+  tags,
   ...props
 }) => {
   return (
     <Card {...card} padding={0}>
       {(title.content || subtitle.content) && (
         <HeaderContainer padding={card.padding}>
-          <WidgetHeading title={title} subtitle={subtitle} />
+          <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
         </HeaderContainer>
       )}
       <TableChart {...props} theme={theme} />

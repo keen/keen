@@ -56,6 +56,7 @@ export const widget = () => (
       )}
       theme={keenTheme}
       data={chartData}
+      tags={[{ label: 'Widget tag', variant: 'gray' }]}
     />
   </div>
 );
