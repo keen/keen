@@ -28,36 +28,49 @@ const Title = ({
   </Heading>
 );
 
-const Tags = (tags: Tag[], marginTop: boolean, marginLeft: boolean) =>
-  tags && (
-    <TagContainer
-      marginTop={marginTop}
-      marginLeft={marginLeft}
-      data-testid="widget-tags"
-    >
-      {tags.map(({ label, variant }: Tag) => (
-        <Badge key={label} variant={variant}>
-          {label}
-        </Badge>
-      ))}
-    </TagContainer>
-  );
+const Tags = ({
+  tags,
+  marginTop,
+  marginLeft,
+}: {
+  tags: Tag[];
+  marginTop: number;
+  marginLeft: number;
+}) => (
+  <TagContainer
+    marginTop={marginTop}
+    marginLeft={marginLeft}
+    data-testid="widget-tags"
+  >
+    {tags.map(({ label, variant }: Tag) => (
+      <Badge key={label} variant={variant}>
+        {label}
+      </Badge>
+    ))}
+  </TagContainer>
+);
 
 export const WidgetHeading: FC<Props> = ({ title, subtitle, tags }) => (
   <Container data-testid="widget-heading">
     {title?.content && (
       <Header>
         <Title {...title} data-testid="widget-title" />{' '}
-        {Tags(tags, !!title, !!title)}
+        {tags && tags.length > 0 && (
+          <Tags tags={tags} marginTop={5} marginLeft={title ? 5 : 0} />
+        )}
       </Header>
     )}
     {subtitle?.content && (
       <Header>
         <Title {...subtitle} data-testid="widget-subtitle" />{' '}
-        {!title && Tags(tags, !!title, !!subtitle)}
+        {!title && tags && tags.length > 0 && (
+          <Tags tags={tags} marginTop={0} marginLeft={subtitle ? 5 : 0} />
+        )}
       </Header>
     )}
-    {!title && !subtitle && Tags(tags, !!title, !!subtitle)}
+    {!title && !subtitle && tags && tags.length > 0 && (
+      <Tags tags={tags} marginTop={0} marginLeft={0} />
+    )}
   </Container>
 );
 

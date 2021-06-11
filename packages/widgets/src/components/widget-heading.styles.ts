@@ -14,17 +14,17 @@ export const Header = styled.div`
 `;
 
 export const TagContainer = styled.div<{
-  marginTop: boolean;
-  marginLeft: boolean;
+  marginTop: number;
+  marginLeft: number;
 }>`
   ${(props) =>
     props.marginTop &&
     css`
-      margin-top: 5px;
+      margin-top: ${props.marginTop}px;
     `}
   ${(props) =>
     props.marginLeft &&
     css`
-      margin-left: 5px;
+      margin-left: ${props.marginLeft}px;
     `}
 `;
