@@ -30,7 +30,11 @@ const Title = ({
 
 const Tags = (tags: Tag[], marginTop: boolean, marginLeft: boolean) =>
   tags && (
-    <TagContainer marginTop={marginTop} marginLeft={marginLeft}>
+    <TagContainer
+      marginTop={marginTop}
+      marginLeft={marginLeft}
+      data-testid="widget-tags"
+    >
       {tags.map(({ label, variant }: Tag) => (
         <Badge key={label} variant={variant}>
           {label}
