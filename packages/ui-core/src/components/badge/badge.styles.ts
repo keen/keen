@@ -17,7 +17,7 @@ export const Container = styled.div<{
     props.pointer &&
     css`
       cursor: pointer;
-    `}
+    `};
 `;
 
 type TextWrapperProps = {
