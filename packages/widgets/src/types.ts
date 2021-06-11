@@ -5,6 +5,7 @@ import {
   Layout,
   CardSettings,
 } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
 
 export type Widgets =
   | 'bar'
@@ -47,10 +48,17 @@ export type WidgetSettings = {
   subtitle?: TextSettings;
   /** Widget card settings */
   card: CardSettings;
+  /** Tags */
+  tags?: Tag[];
 };
 
 export type BubbleWidgetLegendSettings = {
   position: Position;
   series?: Omit<LegendSettings, 'position'>;
   bubble?: Omit<LegendSettings, 'position'>;
+};
+
+export type Tag = {
+  label: string;
+  variant: keyof typeof colors;
 };

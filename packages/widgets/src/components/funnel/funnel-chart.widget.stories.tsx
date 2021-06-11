@@ -102,6 +102,7 @@ export const widget = () => {
         )}
         theme={theme}
         data={chartData}
+        tags={[{ label: 'Widget tag', variant: 'gray' }]}
       />
     </div>
   );

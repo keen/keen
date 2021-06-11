@@ -80,6 +80,7 @@ export const widget = () => (
       )}
       theme={createThemeKnobs()}
       data={chartData}
+      tags={[{ label: 'Widget tag', variant: 'gray' }]}
     />
   </div>
 );
