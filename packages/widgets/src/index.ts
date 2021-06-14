@@ -24,6 +24,7 @@ import {
   WidgetSettings,
   TextSettings,
   BubbleWidgetLegendSettings,
+  Tag,
 } from './types';
 
 export {
@@ -50,4 +51,5 @@ export {
   ErrorWidget,
   BubbleWidgetLegendSettings,
   Widgets,
+  Tag,
 };
