@@ -56,19 +56,19 @@ export const WidgetHeading: FC<Props> = ({ title, subtitle, tags }) => (
       <Header>
         <Title {...title} data-testid="widget-title" />{' '}
         {tags && tags.length > 0 && (
-          <Tags tags={tags} marginTop={5} marginLeft={title ? 5 : 0} />
+          <Tags tags={tags} marginTop={5} marginLeft={5} />
         )}
       </Header>
     )}
     {subtitle?.content && (
       <Header>
         <Title {...subtitle} data-testid="widget-subtitle" />{' '}
-        {!title && tags && tags.length > 0 && (
-          <Tags tags={tags} marginTop={0} marginLeft={subtitle ? 5 : 0} />
+        {!title?.content && tags && tags.length > 0 && (
+          <Tags tags={tags} marginTop={0} marginLeft={5} />
         )}
       </Header>
     )}
-    {!title && !subtitle && tags && tags.length > 0 && (
+    {!title?.content && !subtitle?.content && tags && tags.length > 0 && (
       <Tags tags={tags} marginTop={0} marginLeft={0} />
     )}
   </Container>

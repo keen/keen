@@ -14,7 +14,7 @@ export const MetricChartWidget: FC<Props> = ({ card, tags, ...props }) => {
     <>
       <Card {...card} hideOverflow>
         <Container>
-          {tags && (
+          {tags && tags.length > 0 && (
             <TagContainer>
               {tags.map(({ label, variant }: Tag) => (
                 <Badge key={label} variant={variant}>
