@@ -14,7 +14,7 @@ import {
 import { AnalysisResult } from '@keen.io/parser';
 import { Query, Step } from '@keen.io/query';
 import { CardSettings } from '@keen.io/ui-core';
-import { TextSettings, LegendSettings, Widgets } from '@keen.io/widgets';
+import { TextSettings, LegendSettings, Widgets, Tag } from '@keen.io/widgets';
 
 export type VisualizationInput = Partial<{
   query: Query;
@@ -25,6 +25,7 @@ export type VisualizationInput = Partial<{
 export type VisualizerWidgetSettings = {
   title?: Partial<TextSettings>;
   subtitle?: Partial<TextSettings>;
+  tags?: Tag[];
   legend?: Partial<LegendSettings>;
   card?: Partial<CardSettings>;
   geographicArea?: string;
