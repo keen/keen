@@ -18,12 +18,10 @@ export const TagContainer = styled.div<{
   marginLeft: number;
 }>`
   ${(props) =>
-    props.marginTop &&
     css`
       margin-top: ${props.marginTop}px;
     `}
   ${(props) =>
-    props.marginLeft &&
     css`
       margin-left: ${props.marginLeft}px;
     `}
