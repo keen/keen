@@ -6,7 +6,7 @@ import { MousePositionedTooltip } from '@keen.io/ui-core';
 import { BodyText } from '@keen.io/typography';
 
 const chartInteractionTooltip = (text: string) => (
-  <BodyText variant="body3" fontWeight="normal" color={colors.white[500]}>
+  <BodyText variant="body3" fontWeight="normal">
     {text}
   </BodyText>
 );
@@ -16,7 +16,7 @@ const ChartInteractionLegend = () => (
     <MousePositionedTooltip
       isActive
       tooltipPinPlacement="top-left"
-      tooltipTheme="dark"
+      tooltipTheme="light"
       renderContent={() =>
         chartInteractionTooltip('Drag and drop to move the map.')
       }
@@ -26,7 +26,7 @@ const ChartInteractionLegend = () => (
     <MousePositionedTooltip
       isActive
       tooltipPinPlacement="top-left"
-      tooltipTheme="dark"
+      tooltipTheme="light"
       renderContent={() =>
         chartInteractionTooltip('Scroll to zoom-in or zoom-out.')
       }
