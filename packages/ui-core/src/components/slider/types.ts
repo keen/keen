@@ -7,6 +7,7 @@ import {
   SET_DRAG_MOVING,
   SET_DRAG_STATE,
 } from './constants';
+import { TooltipMode } from '../tooltip';
 
 export type Interval = {
   minimum: number;
@@ -37,7 +38,7 @@ export type TooltipSettings = {
   position: Position;
   typography?: Typography;
   renderText?: (value: number) => React.ReactNode;
-  theme?: 'dark' | 'light';
+  theme?: TooltipMode;
 };
 
 /* Actions */
