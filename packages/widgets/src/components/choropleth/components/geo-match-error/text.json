@@ -1,5 +1,5 @@
 {
-  "message": "To show data on the choropleth map, you need to provide locations as ISO-compliant country names or country codes.",
+  "message": "To show data on the choropleth map, you need to provide locations as ISO-compliant country names or country codes. You can also use two–letter state abbreviations for US map",
   "map": "map",
   "title": "Cannot display data on the"
 }

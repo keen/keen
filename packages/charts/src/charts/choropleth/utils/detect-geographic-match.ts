@@ -6,7 +6,7 @@ export enum GeoAreaMatchStatus {
 }
 
 /**
- * Detects map topology match with chart geaographic area keys.
+ * Detects map topology match with chart geographic area keys.
  *
  * @param topology - map topology
  * @param geographicAreaKeys - collection of geo keys
@@ -20,14 +20,17 @@ const detectGeographicMatch = (
   const { features } = topology;
   let matchedGeographicalAreas = 0;
 
-  features.forEach(({ properties: { name, iso_3166_2: iso3166 } }) => {
-    if (
-      geographicAreaKeys.includes(name) ||
-      geographicAreaKeys.includes(iso3166)
-    ) {
-      matchedGeographicalAreas++;
+  features.forEach(
+    ({ properties: { name, iso_3166_2: iso3166, postAbbreviation } }) => {
+      if (
+        geographicAreaKeys.includes(name) ||
+        geographicAreaKeys.includes(iso3166) ||
+        geographicAreaKeys.includes(postAbbreviation)
+      ) {
+        matchedGeographicalAreas++;
+      }
     }
-  });
+  );
 
   if (geographicAreaKeys.length > 0 && matchedGeographicalAreas === 0) {
     return GeoAreaMatchStatus.NOT_MATCHED;
