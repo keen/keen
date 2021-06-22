@@ -71,6 +71,7 @@ export const RangeSlider: FC<Props> = ({
     enabled: true,
     position: 'bottom',
     typography: undefined,
+    theme: 'dark',
   },
   railSettings = { size: 4, borderRadius: 3 },
   minimum,
@@ -272,7 +273,7 @@ export const RangeSlider: FC<Props> = ({
                           arrowDirection={arrowReverse(
                             tooltipSettings.position
                           )}
-                          mode="dark"
+                          mode={tooltipSettings.theme}
                         >
                           <Text
                             {...(tooltipSettings.typography
@@ -370,7 +371,7 @@ export const RangeSlider: FC<Props> = ({
                           arrowDirection={arrowReverse(
                             tooltipSettings.position
                           )}
-                          mode="dark"
+                          mode={tooltipSettings.theme}
                         >
                           <Text
                             {...(tooltipSettings.typography

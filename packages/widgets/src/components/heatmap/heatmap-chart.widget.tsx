@@ -16,6 +16,7 @@ import WidgetHeading from '../widget-heading.component';
 
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
+import { colors } from '@keen.io/colors';
 
 type Props = { legend: LegendSettings } & WidgetSettings & HeatmapChartSettings;
 
@@ -57,6 +58,17 @@ export const HeatmapChartWidget: FC<Props> = ({
                 setRange({ min, max });
               }}
               colorSteps={steps}
+              tooltipSettings={{
+                enabled: true,
+                position: 'bottom',
+                theme: 'light',
+                typography: {
+                  fontSize: 11,
+                  fontStyle: 'normal',
+                  fontWeight: 'normal',
+                  fontColor: colors.black['500'],
+                },
+              }}
             />
           </LegendBase>
         )

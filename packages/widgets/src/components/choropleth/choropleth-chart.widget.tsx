@@ -19,6 +19,7 @@ import WidgetLoader from '../widget-loader.component';
 
 import { choroplethLegendSettings } from './widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
+import { colors } from '@keen.io/colors';
 
 export type Props = { legend: LegendSettings } & WidgetSettings &
   ChoroplethChartSettings & {
@@ -75,6 +76,13 @@ export const ChoroplethChartWidget: FC<Props> = ({
               tooltipSettings={{
                 enabled: true,
                 position: 'right',
+                theme: 'light',
+                typography: {
+                  fontSize: 11,
+                  fontStyle: 'normal',
+                  fontWeight: 'normal',
+                  fontColor: colors.black['500'],
+                },
               }}
               layout={legend.layout}
               colors={theme.colors}
