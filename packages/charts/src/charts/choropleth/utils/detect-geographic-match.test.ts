@@ -3,7 +3,7 @@ import detectGeographicMatch, {
   GeoAreaMatchStatus,
 } from './detect-geographic-match';
 
-import { topology } from '../choropleth-chart.fixtures';
+import { topology, usTopology } from '../choropleth-chart.fixtures';
 
 test('returns "MATCHED" status for at least one succesfully matched geographic area', () => {
   const status = detectGeographicMatch(topology as ExtendedFeatureCollection, [
@@ -30,4 +30,12 @@ test('returns "NOT_MATCHED" status for not matching at least once geographic are
   ]);
 
   expect(status).toEqual(GeoAreaMatchStatus.NOT_MATCHED);
+});
+
+test('returns "MATCHED" status for matched state abbreviation', () => {
+  const status = detectGeographicMatch(
+    usTopology as ExtendedFeatureCollection,
+    ['AZ']
+  );
+  expect(status).toEqual(GeoAreaMatchStatus.MATCHED);
 });
