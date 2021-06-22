@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.32.0...@keen.io/ui-core@2.33.0) (2021-06-22)
+
+
+### Features
+
+* 🎸 Light mode applied to chart tooltips ([fb62e62](https://github.com/keen/keen/commit/fb62e623d1bed0e6509e82bdea3df69da4ad68c5))
+* 🎸 TooltipMode as theme type added to TooltipSettings ([f982111](https://github.com/keen/keen/commit/f982111254f3041d807ad1df35e4e00204063eb3))
+
+
+
+
+
 # [2.32.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.31.1...@keen.io/ui-core@2.32.0) (2021-06-11)
 
 

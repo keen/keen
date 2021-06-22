@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.10.1...@keen.io/widgets@2.11.0) (2021-06-22)
+
+
+### Features
+
+* 🎸 Light mode applied to chart tooltips ([fb62e62](https://github.com/keen/keen/commit/fb62e623d1bed0e6509e82bdea3df69da4ad68c5))
+* 🎸 US map - postAbbreviation handing added ([ac4b588](https://github.com/keen/keen/commit/ac4b58876fe025fb9a8fc03c5e76c6a71316832c))
+
+
+
+
+
 ## [2.10.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.10.0...@keen.io/widgets@2.10.1) (2021-06-14)
 
 **Note:** Version bump only for package @keen.io/widgets
