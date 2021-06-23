@@ -62,21 +62,22 @@ export const createStackedSlice = ({
   slices,
   total,
   treshold,
+  slicesToStack,
 }: {
   slices: Slice[];
   total: number;
   treshold: number;
+  slicesToStack: Slice[];
 }) => {
-  const stack: { selector: DataSelector; color: string }[] = [];
   let filteredSlices: Slice[] = slices;
-  let stackValue = 0;
-
-  slices.forEach(({ value, selector, color }) => {
-    if ((value * 100) / total <= treshold) {
-      stackValue = stackValue + value;
-      stack.push({ selector, color });
-    }
-  });
+  const stackValue = slicesToStack.reduce(
+    (total: number, element: Slice) => total + element.value,
+    0
+  );
+  const stack = slicesToStack.map(({ color, selector }) => ({
+    color,
+    selector,
+  }));
 
   filteredSlices = slices.filter(
     ({ value }) => (value * 100) / total > treshold
@@ -92,6 +93,16 @@ export const createStackedSlice = ({
   });
 
   return filteredSlices;
+};
+
+export const getSlicesToStack = (
+  slices: Slice[],
+  total: number,
+  threshold: number
+) => {
+  return (
+    slices.filter((slice) => (slice.value * 100) / total <= threshold) || []
+  );
 };
 
 export const calculateTresholdPercent = (
@@ -170,11 +181,14 @@ export const generateCircularChart = ({
 
   const tresholdPercent = calculateTresholdPercent(total, treshold);
 
-  if (treshold > 0) {
+  const slicesToStack = getSlicesToStack(slices, total, tresholdPercent);
+
+  if (treshold > 0 && slicesToStack.length > 1) {
     slices = createStackedSlice({
       slices,
       treshold: tresholdPercent,
       total,
+      slicesToStack,
     });
   }
 

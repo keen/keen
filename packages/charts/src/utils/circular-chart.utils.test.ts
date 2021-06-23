@@ -3,29 +3,64 @@ import {
   createStackedSlice,
   calculateTresholdPercent,
   calculateTotalValue,
+  getSlicesToStack,
 } from './circular-chart.utils';
 
 import { pieChart } from '../charts/pie/pie-chart.fixtures';
 
 describe('@keen/charts - circular chart utils', () => {
+  const slices = [
+    { color: 'red', value: 100, selector: [0] },
+    { color: 'blue', value: 100, selector: [1] },
+    { color: 'yellow', value: 5, selector: [2] },
+    { color: 'violet', value: 3, selector: [3] },
+    { color: 'green', value: 2, selector: [4] },
+  ];
+
+  describe('getSlicesToStack()', () => {
+    it('should get all slices with values less than or equal to threshold value', () => {
+      const slicesToStack = [
+        {
+          color: 'yellow',
+          selector: [2],
+          value: 5,
+        },
+        {
+          color: 'violet',
+          selector: [3],
+          value: 3,
+        },
+        {
+          color: 'green',
+          selector: [4],
+          value: 2,
+        },
+      ];
+      const result = getSlicesToStack(slices, 210, 5);
+      expect(result).toStrictEqual(slicesToStack);
+    });
+  });
+
   describe('createStackedSlice()', () => {
-    const slices = [
-      { color: 'red', value: 100, selector: [0] },
-      { color: 'blue', value: 100, selector: [1] },
-      { color: 'yellow', value: 5, selector: [2] },
-      { color: 'violet', value: 3, selector: [3] },
-      { color: 'green', value: 2, selector: [4] },
-    ];
-
     it('should create "stack" from 3 slices', () => {
-      const result = createStackedSlice({ slices, treshold: 5, total: 210 });
-
+      const slicesToStack = getSlicesToStack(slices, 210, 5);
+      const result = createStackedSlice({
+        slices,
+        treshold: 5,
+        total: 210,
+        slicesToStack,
+      });
       expect(result).toMatchSnapshot();
     });
 
     it('should not create "stack" and return original slices', () => {
-      const result = createStackedSlice({ slices, treshold: 1, total: 210 });
-
+      const slicesToStack = getSlicesToStack(slices, 210, 1);
+      const result = createStackedSlice({
+        slices,
+        treshold: 1,
+        total: 210,
+        slicesToStack,
+      });
       expect(result).toMatchSnapshot();
     });
   });
