@@ -18,7 +18,7 @@ describe('@keen/charts - circular chart utils', () => {
   ];
 
   describe('getSlicesToStack()', () => {
-    it('should get all slices with values less than or equal to threshold value', () => {
+    it('should get all slices with values that fit threshold percent value', () => {
       const slicesToStack = [
         {
           color: 'yellow',
@@ -36,14 +36,22 @@ describe('@keen/charts - circular chart utils', () => {
           value: 2,
         },
       ];
-      const result = getSlicesToStack(slices, 210, 5);
+      const result = getSlicesToStack({
+        slices,
+        total: 210,
+        tresholdPercent: 5,
+      });
       expect(result).toStrictEqual(slicesToStack);
     });
   });
 
   describe('createStackedSlice()', () => {
     it('should create "stack" from 3 slices', () => {
-      const slicesToStack = getSlicesToStack(slices, 210, 5);
+      const slicesToStack = getSlicesToStack({
+        slices,
+        total: 210,
+        tresholdPercent: 5,
+      });
       const result = createStackedSlice({
         slices,
         treshold: 5,
@@ -54,7 +62,11 @@ describe('@keen/charts - circular chart utils', () => {
     });
 
     it('should not create "stack" and return original slices', () => {
-      const slicesToStack = getSlicesToStack(slices, 210, 1);
+      const slicesToStack = getSlicesToStack({
+        slices,
+        total: 210,
+        tresholdPercent: 1,
+      });
       const result = createStackedSlice({
         slices,
         treshold: 1,
