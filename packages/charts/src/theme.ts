@@ -86,15 +86,6 @@ export const theme: Theme = {
     },
   },
   metric: {
-    caption: {
-      typography: {
-        fontStyle: 'normal',
-        fontWeight: 'normal',
-        fontSize: 12,
-        fontFamily: 'Gangster Grotesk Regular, sans-serif',
-        fontColor: colors.black['300'],
-      },
-    },
     value: {
       typography: {
         fontStyle: 'normal',

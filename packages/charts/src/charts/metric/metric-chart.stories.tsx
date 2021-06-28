@@ -30,7 +30,6 @@ export const plot = () => {
       value: {
         typography: typographyKnobs('Value', keenTheme.metric.value.typography),
       },
-      caption: keenTheme.metric.caption,
       icon: metricIconKnobs('Icon'),
       excerpt: {
         icons: {
@@ -80,7 +79,6 @@ export const plot = () => {
     >
       <MetricChart
         labelSelector="day"
-        caption={text('Caption', 'Metric caption', 'Chart')}
         type={metricTypeKnobs('Chart') as any}
         usePercentDifference={
           boolean('usePercentDifference', false, 'Chart') as boolean

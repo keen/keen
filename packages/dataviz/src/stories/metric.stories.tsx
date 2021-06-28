@@ -97,7 +97,6 @@ export const customizedMetric = () => {
       settings: {
         type: 'difference',
         usePercentDifference: true,
-        caption: 'Book purchases',
         formatValue: (v: number) => `${v} Qty.`,
         theme: {
           metric: {
@@ -105,11 +104,6 @@ export const customizedMetric = () => {
               enabled: true,
               style: 'regular',
               type: 'click-outline',
-            },
-            caption: {
-              typography: {
-                fontColor: '#fff',
-              },
             },
             excerpt: {
               backgroundColor: '#213642',
