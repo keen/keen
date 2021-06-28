@@ -95,6 +95,7 @@ import {
   Accordion,
   ColorPalette,
   ColorPicker,
+  Color,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -210,4 +211,5 @@ export {
   DynamicPortal,
   ColorPalette,
   ColorPicker,
+  Color,
 };

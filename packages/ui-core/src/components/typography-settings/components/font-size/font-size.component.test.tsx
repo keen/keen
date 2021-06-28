@@ -5,7 +5,8 @@ import FontSize from './font-size.component';
 
 const render = (overProps: any = {}) => {
   const props = {
-    currentFontSize: '18',
+    currentFontSize: 18,
+    fontSizeSuggestions: [14, 15, 18],
     onUpdateFontSize: jest.fn(),
     ...overProps,
   };
@@ -32,12 +33,12 @@ test('allows user to edit font size', () => {
     props,
     wrapper: { getByTestId, getByText },
   } = render({});
-  const fontSize = '24';
+  const fontSize = 14;
 
   const element = getByTestId('font-size-header');
   fireEvent.click(element);
 
-  const option = getByText(fontSize);
+  const option = getByText(fontSize.toString());
   fireEvent.click(option);
 
   expect(props.onUpdateFontSize).toHaveBeenCalledWith(fontSize);

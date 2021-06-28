@@ -1,21 +1,19 @@
-import { InlineStyleOption } from './types';
+import { FontStyles } from './types';
 
-export const DEFAULT_FONT_SIZE = '20';
+export const DEFAULT_FONT_SIZE = 20;
+export const DEFAULT_FONT_SIZES = [10, 12, 14, 18, 20, 24, 30, 36];
 
-export const INLINE_OPTIONS: InlineStyleOption[] = [
+export const FONT_STYLES: FontStyles[] = [
   {
-    id: 'bold',
     icon: 'bold-text',
-    inlineStyleType: 'BOLD',
+    name: 'bold',
   },
   {
-    id: 'italic',
     icon: 'italic-text',
-    inlineStyleType: 'ITALIC',
+    name: 'italic',
   },
   {
-    id: 'underline',
     icon: 'underline-text',
-    inlineStyleType: 'UNDERLINE',
+    name: 'underline',
   },
 ];

@@ -17,7 +17,7 @@ const Option = styled.div<{ isActive?: boolean }>`
     props.isActive &&
     css`
       background: ${transparentize(0.8, colors.green[100])};
-    `}
+    `};
 `;
 
 export default Option;

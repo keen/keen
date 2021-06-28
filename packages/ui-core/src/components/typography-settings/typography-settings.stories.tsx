@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
-import {
-  EditorState,
-  RichUtils,
-  convertFromRaw,
-  RawDraftContentState,
-} from 'draft-js';
-
-import { styles } from './customStyles';
-import { TextAlignment } from './types';
-
 import TypographySettings from './typography-settings.component';
+import { FontSettings } from './types';
+
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components / Typography Settings',
@@ -19,41 +12,26 @@ export default {
   },
 };
 
-const initialTextAlignment = 'left';
-const initialContent: RawDraftContentState = { blocks: [], entityMap: {} };
-
 export const Basic = () => {
-  const [textAlignment, setTextAlignment] = useState<TextAlignment>(
-    initialTextAlignment
-  );
-  const [editorState, setEditorState] = useState(
-    EditorState.createWithContent(convertFromRaw(initialContent))
-  );
+  const initialSettings = {
+    color: 'green',
+    size: 12,
+    bold: true,
+    italic: false,
+    underline: true,
+    alignment: 'left',
+  } as FontSettings;
 
-  console.log(editorState);
+  const [settings, setSettings] = useState(initialSettings);
 
   return (
     <TypographySettings
-      editorState={editorState}
-      textAlignment={textAlignment}
-      onUpdateInlineStyleAttribute={(inlineStyleType) => {
-        const updatedEditorState = RichUtils.toggleInlineStyle(
-          editorState,
-          inlineStyleType
-        );
-        setEditorState(updatedEditorState);
-      }}
-      onUpdateColor={(color) => {
-        const updatedEditorState = styles.color.toggle(editorState, color);
-        setEditorState(updatedEditorState);
-      }}
-      onUpdateTextAlignment={(alignment) => setTextAlignment(alignment)}
-      onUpdateFontSize={(fontSize) => {
-        const updatedEditorState = styles.fontSize.toggle(
-          editorState,
-          `${fontSize}px`
-        );
-        setEditorState(updatedEditorState);
+      settings={settings}
+      colorSuggestions={['red', 'green', 'blue']}
+      fontSizeSuggestions={[10, 12, 16, 18]}
+      onChange={(newSettings) => {
+        action('change')(newSettings);
+        setSettings(newSettings);
       }}
     />
   );
@@ -62,7 +40,7 @@ export const Basic = () => {
 Basic.story = {
   parameters: {
     docs: {
-      storyDesciption: 'Typogprahy settings',
+      storyDescription: 'Typography settings',
     },
   },
 };

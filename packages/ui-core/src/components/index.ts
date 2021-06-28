@@ -81,6 +81,7 @@ import PropertiesTree, { createTree } from './properties-tree';
 import EmptySearch from './empty-search';
 
 import DynamicPortal from './dynamic-portal';
+import Color from './color';
 
 export { ARROW_SIZE, TIME_PICKER_CLASS };
 
@@ -166,4 +167,5 @@ export {
   Accordion,
   ColorPalette,
   ColorPicker,
+  Color,
 };

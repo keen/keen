@@ -8,16 +8,20 @@ import { Header, CaretDown } from './font-size.styles';
 import AttributeDropdown from '../attribute-dropdown';
 import Option from '../option';
 
-import { OPTIONS } from './constants';
-
 type Props = {
   /** Current font size */
-  currentFontSize: string;
+  currentFontSize: number;
   /** Update font size event handler */
-  onUpdateFontSize: (fontSize: string) => void;
+  onUpdateFontSize: (fontSize: number) => void;
+  /** Font sizes that will be available inside dropdown */
+  fontSizeSuggestions: number[];
 };
 
-const FontSize: FC<Props> = ({ currentFontSize, onUpdateFontSize }) => (
+const FontSize: FC<Props> = ({
+  currentFontSize,
+  onUpdateFontSize,
+  fontSizeSuggestions,
+}) => (
   <AttributeDropdown
     renderHeader={() => (
       <Header data-testid="font-size-header">
@@ -33,7 +37,7 @@ const FontSize: FC<Props> = ({ currentFontSize, onUpdateFontSize }) => (
       </Header>
     )}
   >
-    {OPTIONS.map((fontSize) => (
+    {fontSizeSuggestions.map((fontSize) => (
       <Option
         key={fontSize}
         isActive={currentFontSize === fontSize}

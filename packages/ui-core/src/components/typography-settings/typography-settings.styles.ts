@@ -17,7 +17,7 @@ export const TextOption = styled.div<{ isActive?: boolean }>`
     props.isActive &&
     css`
       background: ${transparentize(0.85, colors.blue[500])};
-    `}
+    `};
 `;
 
 export const PickerContainer = styled.div`
