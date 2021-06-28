@@ -40,6 +40,10 @@ import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
 import TagManagement from './tag-management';
 import Error from './error';
+import TypographySettings, {
+  FontSettings,
+  TextAlignment,
+} from './typography-settings';
 
 import {
   TableCell,
@@ -91,6 +95,8 @@ export type {
   OAuthConfig,
   DropableContainerVariant,
   Point,
+  FontSettings,
+  TextAlignment,
 };
 
 export {
@@ -168,4 +174,5 @@ export {
   ColorPalette,
   ColorPicker,
   Color,
+  TypographySettings,
 };
