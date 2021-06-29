@@ -27,7 +27,7 @@ export type Props = {
   data: Record<string, any>[];
   /** Name of data object property used to create series */
   labelSelector?: string;
-  /** Keys picked from data object used to genrate slices */
+  /** Keys picked from data object used to generate slices */
   keys?: string[];
   /** Labels that are disabled for rendering data series */
   disabledLabels?: string[];

@@ -8,9 +8,12 @@ import {
   iconKnobs,
 } from '@keen.io/storybook-utils';
 import { theme as keenTheme } from '@keen.io/charts';
+import { Typography } from '@keen.io/ui-core';
 
 import { MetricChartWidget } from './metric.widget';
 import { chartData } from './metric.widget.fixtures';
+
+import { widgetSettings } from '../../widget-settings';
 
 export default {
   title: 'Visualizations /Metric Chart / Widget',
@@ -24,7 +27,6 @@ export const widget = () => {
   const theme = {
     ...keenTheme,
     metric: {
-      caption: keenTheme.metric.caption,
       value: {
         typography: typographyKnobs('Value', keenTheme.metric.value.typography),
       },
@@ -70,9 +72,22 @@ export const widget = () => {
   return (
     <div style={{ width: '300px', height: '200px' }}>
       <MetricChartWidget
+        title={{
+          content: text('Title', 'Widget Title', 'Title Settings'),
+          typography: typographyKnobs(
+            'Title Settings',
+            widgetSettings.title.typography as Typography
+          ),
+        }}
+        subtitle={{
+          content: text('Subtitle', 'Widget Subtitle', 'Subtitle Settings'),
+          typography: typographyKnobs(
+            'Subtitle Settings',
+            widgetSettings.subtitle.typography as Typography
+          ),
+        }}
         card={cardKnobs('Card')}
         labelSelector="day"
-        caption={text('Caption', 'Metric caption', 'Chart')}
         type={metricTypeKnobs('Chart')}
         keys={['users']}
         theme={theme}

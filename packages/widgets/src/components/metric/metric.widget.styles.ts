@@ -6,8 +6,8 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const TagContainer = styled.div`
+export const HeadingPosition = styled.div`
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0;
+  left: 0;
 `;

@@ -314,7 +314,6 @@ export const metricChartPlot = () => {
     <div style={{ width: 240, height: 120 }}>
       <MetricChart
         labelSelector="day"
-        caption={'Metric caption'}
         type={'difference'}
         secondaryValueDescription={'Change from the previous month'}
         keys={['users']}

@@ -3,6 +3,7 @@ import { fireEvent, render as rtlRender } from '@testing-library/react';
 import { Color } from './index';
 
 const testColor = '#00ff00';
+
 const render = (overProps: any = {}) => {
   const props = {
     color: testColor,
@@ -11,7 +12,7 @@ const render = (overProps: any = {}) => {
     toggleColorPicker: jest.fn(),
     activeColorPicker: null,
     onColorChange: jest.fn(),
-    colorSuggestions: [test],
+    colorSuggestions: ['blue'],
     ...overProps,
   };
 
@@ -22,6 +23,17 @@ const render = (overProps: any = {}) => {
     props,
   };
 };
+
+beforeEach(() => {
+  HTMLCanvasElement.prototype.getContext = jest.fn();
+  Element.prototype.getBoundingClientRect = jest
+    .fn()
+    .mockImplementation(() => ({
+      x: 1,
+      y: 1,
+      height: 100,
+    }));
+});
 
 test('Should show color picker when active color is the same as current color', () => {
   const {

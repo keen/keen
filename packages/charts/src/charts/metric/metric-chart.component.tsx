@@ -50,8 +50,6 @@ export const increaseMotion = {
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
-  /** Caption for describing metric */
-  caption?: string;
   /** Name of data object property used to create label */
   labelSelector?: string;
   /** Keys picked from data object used to create metric */
@@ -71,7 +69,6 @@ export type Props = {
 
 export const MetricChart: FC<Props> = ({
   data,
-  caption,
   valuePrefix,
   valueSuffix,
   formatValue,
@@ -91,14 +88,7 @@ export const MetricChart: FC<Props> = ({
   });
 
   const {
-    metric: {
-      excerpt,
-      caption: captionSettings,
-      value: valueSettings,
-      icon,
-      prefix,
-      suffix,
-    },
+    metric: { excerpt, value: valueSettings, icon, prefix, suffix },
   } = theme;
 
   const statusIcon = {
@@ -128,7 +118,6 @@ export const MetricChart: FC<Props> = ({
             </TextWrapper>
           </motion.div>
         </AnimatePresence>
-        {caption && <Text {...captionSettings.typography}>{caption}</Text>}
         {secondaryValueDescription && tooltipVisible && (
           <DynamicPortal>
             <MetricTooltip

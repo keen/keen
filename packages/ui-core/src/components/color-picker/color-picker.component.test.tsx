@@ -19,6 +19,10 @@ const render = (overProps: any = {}) => {
   };
 };
 
+beforeEach(() => {
+  HTMLCanvasElement.prototype.getContext = jest.fn();
+});
+
 test('Should call onColorChange function on color save', () => {
   const mockFn = jest.fn();
   const mockColor = '#00ff00';
