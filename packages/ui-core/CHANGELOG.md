@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.33.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.33.0...@keen.io/ui-core@2.33.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* 🐛 Color picker components - tests console errors fixed ([1839f9f](https://github.com/keen/keen/commit/1839f9fb99fe55fbbdf504b8d89ce220a1101208))
+
+
+
+
+
 # [2.33.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.32.0...@keen.io/ui-core@2.33.0) (2021-06-22)
 
 

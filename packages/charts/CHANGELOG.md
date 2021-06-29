@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/keen/keen/compare/@keen.io/charts@2.23.0...@keen.io/charts@2.24.0) (2021-06-29)
+
+
+### Features
+
+* 🎸 Pie chart single series - no stacking when one value ([e2e2c39](https://github.com/keen/keen/commit/e2e2c39a8d33f1b1efe776098e4556360e7d84d7))
+
+
+
+
+
 # [2.23.0](https://github.com/keen/keen/compare/@keen.io/charts@2.22.6...@keen.io/charts@2.23.0) (2021-06-22)
 
 
