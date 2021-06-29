@@ -96,9 +96,6 @@ export type Metric = {
   suffix: {
     typography: Typography;
   };
-  caption: {
-    typography: Typography;
-  };
   icon?: {
     enabled: boolean;
     position: 'top' | 'center' | 'bottom';
