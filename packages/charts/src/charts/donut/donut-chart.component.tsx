@@ -2,6 +2,7 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
+import { formatValue } from '@keen.io/charts-utils';
 
 import {
   generateCircularChart,
@@ -125,6 +126,7 @@ export const DonutChart: FC<Props> = ({
     label: donutTotalLabel,
     value: donutTotalValue,
   } = donutSettings.total;
+
   return (
     <>
       <AnimatePresence>
@@ -221,7 +223,7 @@ export const DonutChart: FC<Props> = ({
                   value: donutTotalValue.typography,
                 }}
               >
-                {totalValue}
+                {formatValue(totalValue, tooltipSettings.formatValue)}
               </DonutTotal>
             )}
           </g>
