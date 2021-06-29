@@ -8,10 +8,16 @@ export type FontStyles = {
 export type TextAlignment = 'left' | 'center' | 'right';
 
 export type FontSettings = {
-  color: string;
-  size: number;
-  bold: boolean;
-  italic: boolean;
-  underline: boolean;
-  alignment: TextAlignment;
+  color?: string;
+  size?: number;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  alignment?: TextAlignment;
+};
+export type AvailableSettings = {
+  color?: boolean;
+  fontSize?: boolean;
+  fontStyle?: boolean;
+  alignment?: boolean;
 };

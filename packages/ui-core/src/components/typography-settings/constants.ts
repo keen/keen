@@ -17,3 +17,10 @@ export const FONT_STYLES: FontStyles[] = [
     name: 'underline',
   },
 ];
+
+export const DEFAULT_AVAILABLE_SETTINGS = {
+  color: true,
+  fontSize: true,
+  fontStyle: true,
+  alignment: true,
+};

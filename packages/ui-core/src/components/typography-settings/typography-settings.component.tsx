@@ -3,8 +3,12 @@ import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
 import { Container, Separator, TextOption } from './typography-settings.styles';
 import { FontSize, TextAlignment } from './components';
-import { DEFAULT_FONT_SIZES, FONT_STYLES } from './constants';
-import { FontSettings } from './types';
+import {
+  DEFAULT_FONT_SIZES,
+  FONT_STYLES,
+  DEFAULT_AVAILABLE_SETTINGS,
+} from './constants';
+import { AvailableSettings, FontSettings } from './types';
 import { Color } from '../index';
 
 type Props = {
@@ -18,6 +22,8 @@ type Props = {
   fontSizeSuggestions?: number[];
   /** Ref to scrollable parent element - it can be used to hide color picker or dropdowns on scroll event */
   scrollableContainerRef?: RefObject<HTMLDivElement>;
+  /** Object with specified options which are configurable */
+  availableSettings?: AvailableSettings;
 };
 
 const TypographySettings: FC<Props> = ({
@@ -26,6 +32,7 @@ const TypographySettings: FC<Props> = ({
   colorSuggestions = [],
   fontSizeSuggestions = DEFAULT_FONT_SIZES,
   scrollableContainerRef,
+  availableSettings = DEFAULT_AVAILABLE_SETTINGS,
 }) => {
   const onSettingsChange = (name: keyof FontSettings, value: any) => {
     const newSettings = {
@@ -37,35 +44,45 @@ const TypographySettings: FC<Props> = ({
 
   return (
     <Container onMouseDown={(e) => e.preventDefault()}>
-      <Color
-        color={settings.color}
-        colorSuggestions={colorSuggestions}
-        scrollableContainerRef={scrollableContainerRef}
-        onColorChange={(color: string) => onSettingsChange('color', color)}
-      />
-      <FontSize
-        currentFontSize={settings.size}
-        fontSizeSuggestions={fontSizeSuggestions}
-        onUpdateFontSize={(size) => onSettingsChange('size', size)}
-      />
-      {FONT_STYLES.map(({ name, icon }) => (
-        <TextOption
-          key={name}
-          isActive={settings[name]}
-          onClick={() => {
-            onSettingsChange(name, !settings[name]);
-          }}
-        >
-          <Icon type={icon} width={15} height={15} fill={colors.black[100]} />
-        </TextOption>
-      ))}
-      <Separator />
-      <TextAlignment
-        currentAlignment={settings.alignment}
-        onUpdateTextAlignment={(alignment) =>
-          onSettingsChange('alignment', alignment)
-        }
-      />
+      {availableSettings.color && (
+        <Color
+          color={settings.color}
+          colorSuggestions={colorSuggestions}
+          scrollableContainerRef={scrollableContainerRef}
+          onColorChange={(color: string) => onSettingsChange('color', color)}
+        />
+      )}
+      {availableSettings.fontSize && (
+        <FontSize
+          currentFontSize={settings.size}
+          fontSizeSuggestions={fontSizeSuggestions}
+          onUpdateFontSize={(size) => onSettingsChange('size', size)}
+        />
+      )}
+      {availableSettings.fontStyle &&
+        FONT_STYLES.map(({ name, icon }) => (
+          <TextOption
+            data-testid="font-style"
+            key={name}
+            isActive={settings[name]}
+            onClick={() => {
+              onSettingsChange(name, !settings[name]);
+            }}
+          >
+            <Icon type={icon} width={15} height={15} fill={colors.black[100]} />
+          </TextOption>
+        ))}
+      {availableSettings.alignment && (
+        <>
+          <Separator />
+          <TextAlignment
+            currentAlignment={settings.alignment}
+            onUpdateTextAlignment={(alignment) =>
+              onSettingsChange('alignment', alignment)
+            }
+          />
+        </>
+      )}
     </Container>
   );
 };
