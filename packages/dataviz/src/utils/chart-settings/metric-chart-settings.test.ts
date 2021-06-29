@@ -8,7 +8,7 @@ test('getSuffix()', () => {
   expect(getSuffix('yearly', '- Last')).toEqual('- Last year');
 });
 
-test('Should set the correct ooltip value for the comparison type', () => {
+test('Should set the correct tooltip value for the comparison type', () => {
   const query: any = {
     analysis_type: 'sum',
     interval: 'every_46_hours',

@@ -8,6 +8,7 @@ const render = (overProps: any = {}) => {
   const props = {
     title: '',
     subtitle: '',
+    tags: [],
     data: chartData,
     ...overProps,
   };
@@ -61,4 +62,60 @@ test('renders metric title and subtitle correctly', () => {
 
   expect(widgetHeading).toContainElement(getByText('Metric title'));
   expect(widgetHeading).toContainElement(getByText('Metric subtitle'));
+});
+
+test('renders metric tags with title correctly', () => {
+  const title = {
+    content: 'Metric title',
+  };
+  const tags = [
+    {
+      label: 'Tag',
+      variant: 'gray',
+    },
+  ];
+  const {
+    wrapper: { getByTestId, getByText },
+  } = render({ title, tags });
+
+  const widgetHeading = getByTestId('widget-heading');
+
+  expect(widgetHeading).toContainElement(getByText('Metric title'));
+  expect(widgetHeading).toContainElement(getByText('Tag'));
+});
+
+test('renders metric tags with subtitle correctly', () => {
+  const subtitle = {
+    content: 'Metric subtitle',
+  };
+  const tags = [
+    {
+      label: 'Tag',
+      variant: 'gray',
+    },
+  ];
+  const {
+    wrapper: { getByTestId, getByText },
+  } = render({ subtitle, tags });
+
+  const widgetHeading = getByTestId('widget-heading');
+
+  expect(widgetHeading).toContainElement(getByText('Metric subtitle'));
+  expect(widgetHeading).toContainElement(getByText('Tag'));
+});
+
+test('renders metric tags without title and subtitle correctly', () => {
+  const tags = [
+    {
+      label: 'Tag',
+      variant: 'gray',
+    },
+  ];
+  const {
+    wrapper: { getByTestId, getByText },
+  } = render({ tags });
+
+  const widgetHeading = getByTestId('widget-heading');
+
+  expect(widgetHeading).toContainElement(getByText('Tag'));
 });
