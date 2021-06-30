@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.24.1](https://github.com/keen/keen/compare/@keen.io/charts@2.24.0...@keen.io/charts@2.24.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* 🐛 donut chart total formatter ([cdc72ea](https://github.com/keen/keen/commit/cdc72eaa8e86097a9427bee1021b4490d69a2fb3))
+
+
+
+
+
 # [2.24.0](https://github.com/keen/keen/compare/@keen.io/charts@2.23.0...@keen.io/charts@2.24.0) (2021-06-29)
 
 
