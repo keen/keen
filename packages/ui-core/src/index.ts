@@ -95,6 +95,10 @@ import {
   Accordion,
   ColorPalette,
   ColorPicker,
+  Color,
+  TypographySettings,
+  TextAlignment,
+  FontSettings,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -124,6 +128,8 @@ export type {
   RulerTick,
   Point,
   Interval,
+  TextAlignment,
+  FontSettings,
 };
 
 export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
@@ -210,4 +216,6 @@ export {
   DynamicPortal,
   ColorPalette,
   ColorPicker,
+  Color,
+  TypographySettings,
 };

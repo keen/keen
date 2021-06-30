@@ -40,6 +40,10 @@ import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
 import TagManagement from './tag-management';
 import Error from './error';
+import TypographySettings, {
+  FontSettings,
+  TextAlignment,
+} from './typography-settings';
 
 import {
   TableCell,
@@ -81,6 +85,7 @@ import PropertiesTree, { createTree } from './properties-tree';
 import EmptySearch from './empty-search';
 
 import DynamicPortal from './dynamic-portal';
+import Color from './color';
 
 export { ARROW_SIZE, TIME_PICKER_CLASS };
 
@@ -90,6 +95,8 @@ export type {
   OAuthConfig,
   DropableContainerVariant,
   Point,
+  FontSettings,
+  TextAlignment,
 };
 
 export {
@@ -166,4 +173,6 @@ export {
   Accordion,
   ColorPalette,
   ColorPicker,
+  Color,
+  TypographySettings,
 };
