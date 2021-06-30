@@ -6,6 +6,8 @@ import {
 } from '@testing-library/react';
 import { chartData as data } from './donut-chart.fixtures';
 
+import { theme as defaultTheme } from '../../theme';
+
 import DonutChart from './donut-chart.component';
 
 const render = (overProps: any = {}) => {
@@ -70,5 +72,36 @@ test('formats tooltip value by string formatter', async () => {
   await waitFor(() => {
     expect(getByText(label)).toBeInTheDocument();
     expect(getByText('22.00')).toBeInTheDocument();
+  });
+});
+
+test('applies tooltip formater to total value', async () => {
+  const {
+    wrapper: { getByText },
+  } = render();
+
+  await waitFor(() => {
+    expect(getByText('$126')).toBeInTheDocument();
+  });
+});
+
+test('do not renders total value', async () => {
+  const {
+    wrapper: { queryByText },
+  } = render({
+    theme: {
+      ...defaultTheme,
+      donut: {
+        ...defaultTheme.donut,
+        total: {
+          ...defaultTheme.donut.total,
+          enabled: false,
+        },
+      },
+    },
+  });
+
+  await waitFor(() => {
+    expect(queryByText('$126')).not.toBeInTheDocument();
   });
 });
