@@ -3,7 +3,9 @@ import React, { FC, memo } from 'react';
 import { Typography } from '@keen.io/ui-core';
 
 type Props = {
-  children: string | number;
+  /* React children nodes */
+  children: React.ReactNode;
+  /** Theme settings for total value typography */
   total: {
     label: Typography;
     value: Typography;
