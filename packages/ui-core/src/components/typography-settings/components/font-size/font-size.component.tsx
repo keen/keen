@@ -7,6 +7,7 @@ import { Header, CaretDown } from './font-size.styles';
 
 import AttributeDropdown from '../attribute-dropdown';
 import Option from '../option';
+import { BodyText } from '@keen.io/typography';
 
 type Props = {
   /** Current font size */
@@ -25,7 +26,9 @@ const FontSize: FC<Props> = ({
   <AttributeDropdown
     renderHeader={() => (
       <Header data-testid="font-size-header">
-        {currentFontSize}
+        <BodyText variant="body2" color={colors.blue[500]}>
+          {currentFontSize}
+        </BodyText>
         <CaretDown>
           <Icon
             type="caret-down"
@@ -43,7 +46,7 @@ const FontSize: FC<Props> = ({
         isActive={currentFontSize === fontSize}
         onClick={() => onUpdateFontSize(fontSize)}
       >
-        {fontSize}
+        <BodyText variant="body2">{fontSize}</BodyText>
       </Option>
     ))}
   </AttributeDropdown>
