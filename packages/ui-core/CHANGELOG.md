@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.34.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.33.1...@keen.io/ui-core@2.34.0) (2021-07-01)
+
+
+### Bug Fixes
+
+* 🐛 Missing imports added ([6b7f075](https://github.com/keen/keen/commit/6b7f0750601c4a7b19c217a6c37b8b53df569e06))
+* 🐛 Typography fixes ([01a01ca](https://github.com/keen/keen/commit/01a01ca0f51b9c633c80369cf3529bc9b78334d9))
+
+
+### Features
+
+* 🎸 Added functionality to disable settings ([120fea0](https://github.com/keen/keen/commit/120fea01b8db13c778df251005de7686ad8167d4))
+* 🎸 Typography component ([1370c99](https://github.com/keen/keen/commit/1370c99d7abc7ba49a26714d30281ad49c5caa6d))
+* 🎸 TypographySettings component ([225f244](https://github.com/keen/keen/commit/225f244b63b7b25e96c82df68c42e7646176c036))
+
+
+
+
+
 ## [2.33.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.33.0...@keen.io/ui-core@2.33.1) (2021-06-29)
 
 
