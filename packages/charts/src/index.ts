@@ -38,12 +38,13 @@ import {
 
 import { theme, margins } from './theme';
 
-import { Theme, StackMode, GroupMode } from './types';
+import { Theme, Axis, StackMode, GroupMode } from './types';
 
 import { OTHERS_DATA_KEY, bubbleColorScale } from './utils';
 
 export type {
   Theme,
+  Axis,
   BarChartSettings,
   BubbleChartSettings,
   GaugeChartSettings,
