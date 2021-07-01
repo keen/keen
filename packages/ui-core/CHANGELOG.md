@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.35.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.34.0...@keen.io/ui-core@2.35.0) (2021-07-01)
+
+
+### Bug Fixes
+
+* 🐛 Removed bodyText component from attribute-dropdown ([7d6cc01](https://github.com/keen/keen/commit/7d6cc01e1c30dff41a8cd41554734f5a289304a9))
+
+
+### Features
+
+* 🎸 typography settings options ([1df4f61](https://github.com/keen/keen/commit/1df4f618726ca122a4415572f785395aaae23f7f))
+
+
+
+
+
 # [2.34.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.33.1...@keen.io/ui-core@2.34.0) (2021-07-01)
 
 
