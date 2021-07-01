@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  render as rtlRender,
-  fireEvent,
-  waitFor,
-} from '@testing-library/react';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Accordion from './accordion.component';
@@ -32,18 +28,6 @@ test('should render accordion title, content should not be visible', () => {
   expect(queryByText(props.children)).toBeNull();
 });
 
-test('should render content when the user clicks on title', () => {
-  const {
-    wrapper: { getByText },
-    props,
-  } = render();
-
-  const element = getByText(props.title);
-  fireEvent.click(element);
-
-  expect(getByText(props.children)).toBeInTheDocument();
-});
-
 test('calls "onChange" handler with open state', async () => {
   const mockFn = jest.fn();
   const {
@@ -64,16 +48,4 @@ test('should render content for open accordion', () => {
   } = render({ isOpen: true });
 
   expect(getByText(props.children)).toBeInTheDocument();
-});
-
-test('should hide content when the user click on title', async () => {
-  const {
-    wrapper: { getByText, queryByText },
-    props,
-  } = render({ isOpen: true });
-
-  const element = getByText(props.title);
-  fireEvent.click(element);
-
-  await waitFor(() => expect(queryByText(props.children)).toBeNull());
 });
