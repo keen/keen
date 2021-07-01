@@ -18,6 +18,8 @@ export type FontSettings = {
 export type AvailableSettings = {
   color?: boolean;
   fontSize?: boolean;
-  fontStyle?: boolean;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
   alignment?: boolean;
 };

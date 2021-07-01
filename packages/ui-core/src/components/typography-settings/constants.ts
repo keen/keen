@@ -21,6 +21,8 @@ export const FONT_STYLES: FontStyles[] = [
 export const DEFAULT_AVAILABLE_SETTINGS = {
   color: true,
   fontSize: true,
-  fontStyle: true,
+  bold: true,
+  italic: true,
+  underline: true,
   alignment: true,
 };
