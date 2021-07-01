@@ -26,48 +26,60 @@ const render = (overProps: any = {}) => {
   };
 };
 
-test('should not show disabled options', () => {
-  const {
-    wrapper: { queryByTestId, queryAllByTestId },
-  } = render({
-    availableSettings: {
-      color: false,
-      fontSize: false,
-      fontStyle: false,
-      alignment: false,
-    },
-  });
+test.each([
+  { availableSettings: { color: false }, testIdSelector: 'color-selector' },
+  {
+    availableSettings: { fontSize: false },
+    testIdSelector: 'font-size-header',
+  },
+  {
+    availableSettings: { alignment: false },
+    testIdSelector: 'text-alignment-header',
+  },
+  { availableSettings: { bold: false }, testIdSelector: 'bold-font-style' },
+  { availableSettings: { italic: false }, testIdSelector: 'italic-font-style' },
+  {
+    availableSettings: { underline: false },
+    testIdSelector: 'underline-font-style',
+  },
+])(
+  'should not show disabled options',
+  ({ availableSettings, testIdSelector }) => {
+    const {
+      wrapper: { queryByTestId },
+    } = render({
+      availableSettings,
+    });
 
-  const colorSelector = queryByTestId('color-selector');
-  const fontSize = queryByTestId('font-size-header');
-  const textAlignment = queryByTestId('text-alignment-header');
-  const fontStyle = queryAllByTestId('font-style');
+    expect(queryByTestId(testIdSelector)).not.toBeInTheDocument();
+  }
+);
 
-  expect(colorSelector).not.toBeInTheDocument();
-  expect(fontSize).not.toBeInTheDocument();
-  expect(textAlignment).not.toBeInTheDocument();
-  expect(fontStyle).toHaveLength(0);
-});
+test.each([
+  { availableSettings: { color: true }, testIdSelector: 'color-selector' },
+  {
+    availableSettings: { fontSize: true },
+    testIdSelector: 'font-size-header',
+  },
+  {
+    availableSettings: { alignment: true },
+    testIdSelector: 'text-alignment-header',
+  },
+  { availableSettings: { bold: true }, testIdSelector: 'bold-font-style' },
+  { availableSettings: { italic: true }, testIdSelector: 'italic-font-style' },
+  {
+    availableSettings: { underline: true },
+    testIdSelector: 'underline-font-style',
+  },
+])(
+  'should show all enabled options',
+  ({ availableSettings, testIdSelector }) => {
+    const {
+      wrapper: { queryByTestId },
+    } = render({
+      availableSettings,
+    });
 
-test('should show all enabled options', () => {
-  const {
-    wrapper: { queryByTestId, queryAllByTestId },
-  } = render({
-    availableSettings: {
-      color: true,
-      fontSize: true,
-      alignment: true,
-      fontStyle: true,
-    },
-  });
-
-  const colorSelector = queryByTestId('color-selector');
-  const fontSize = queryByTestId('font-size-header');
-  const textAlignment = queryByTestId('text-alignment-header');
-  const fontStyle = queryAllByTestId('font-style');
-
-  expect(colorSelector).toBeInTheDocument();
-  expect(fontSize).toBeInTheDocument();
-  expect(textAlignment).toBeInTheDocument();
-  expect(fontStyle).toHaveLength(3);
-});
+    expect(queryByTestId(testIdSelector)).toBeInTheDocument();
+  }
+);

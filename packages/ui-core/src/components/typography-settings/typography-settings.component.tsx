@@ -1,15 +1,18 @@
 import React, { FC, RefObject } from 'react';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
+
 import { Container, Separator, TextOption } from './typography-settings.styles';
+
 import { FontSize, TextAlignment } from './components';
+import Color from '../color';
+
 import {
   DEFAULT_FONT_SIZES,
   FONT_STYLES,
   DEFAULT_AVAILABLE_SETTINGS,
 } from './constants';
 import { AvailableSettings, FontSettings } from './types';
-import { Color } from '../index';
 
 type Props = {
   /** Settings that are customizable */
@@ -59,10 +62,10 @@ const TypographySettings: FC<Props> = ({
           onUpdateFontSize={(size) => onSettingsChange('size', size)}
         />
       )}
-      {availableSettings.fontStyle &&
-        FONT_STYLES.map(({ name, icon }) => (
+      {FONT_STYLES.filter(({ name }) => !!availableSettings[name]).map(
+        ({ name, icon }) => (
           <TextOption
-            data-testid="font-style"
+            data-testid={`${name}-font-style`}
             key={name}
             isActive={settings[name]}
             onClick={() => {
@@ -71,7 +74,8 @@ const TypographySettings: FC<Props> = ({
           >
             <Icon type={icon} width={15} height={15} fill={colors.black[100]} />
           </TextOption>
-        ))}
+        )
+      )}
       {availableSettings.alignment && (
         <>
           <Separator />
