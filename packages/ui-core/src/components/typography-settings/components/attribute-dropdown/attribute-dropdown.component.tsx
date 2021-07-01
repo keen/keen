@@ -4,7 +4,6 @@ import { UI_LAYERS } from '../../../../constants';
 
 import { Container } from './attribute-dropdown.styles';
 import OptionHeader from '../option-header';
-import { BodyText } from '@keen.io/typography';
 
 type Props = {
   /** React children nodes */
@@ -30,17 +29,15 @@ const AttributeDropdown: FC<Props> = ({ children, renderHeader }) => {
 
   return (
     <Container ref={containerRef}>
-      <BodyText variant="body2">
-        <OptionHeader
-          data-testid="rich-utils-header"
-          onClick={() => setOpen(true)}
-        >
-          {renderHeader()}
-        </OptionHeader>
-        <div style={{ zIndex: UI_LAYERS.dropdown }}>
-          <Dropdown isOpen={isOpen}>{children}</Dropdown>
-        </div>
-      </BodyText>
+      <OptionHeader
+        data-testid="rich-utils-header"
+        onClick={() => setOpen(true)}
+      >
+        {renderHeader()}
+      </OptionHeader>
+      <div style={{ zIndex: UI_LAYERS.dropdown }}>
+        <Dropdown isOpen={isOpen}>{children}</Dropdown>
+      </div>
     </Container>
   );
 };
