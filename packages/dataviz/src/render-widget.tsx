@@ -63,7 +63,7 @@ export const renderWidget = ({
     case 'bubble':
       return (
         <BubbleChartWidget
-          legend={legend as BubbleWidgetLegendSettings}
+          legend={legend as LegendSettings}
           {...(chartSettings as BubbleChartSettings)}
           {...widgetSettings}
         />
