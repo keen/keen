@@ -13,7 +13,6 @@ export const useDynamicContentPosition = (
 
   const setPosition = () => {
     const parentRect = parentRef.current.getBoundingClientRect();
-    console.log('parentRect', parentRect);
     setContentPosition({
       x: parentRect.x,
       y: parentRect.y + window.scrollY + parentRect.height,
