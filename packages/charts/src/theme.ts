@@ -240,7 +240,7 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 11,
+        fontSize: 12,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.black['500'],
       },
@@ -249,7 +249,7 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'bold',
-        fontSize: 11,
+        fontSize: 12,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.black['500'],
       },
