@@ -45,10 +45,10 @@ describe('<AxisTitle />', () => {
       <text
         data-elementid="horizontal-axis-title"
         fill="#27566D"
-        fontFamily="Lato Bold, sans-serif"
+        fontFamily="Lato, sans-serif"
         fontSize={14}
         fontStyle="normal"
-        fontWeight="normal"
+        fontWeight="bold"
         style={Object {}}
         textAnchor="middle"
         x={50}
@@ -65,10 +65,10 @@ describe('<AxisTitle />', () => {
       <text
         data-elementid="vertical-axis-title"
         fill="#27566D"
-        fontFamily="Lato Bold, sans-serif"
+        fontFamily="Lato, sans-serif"
         fontSize={14}
         fontStyle="normal"
-        fontWeight="normal"
+        fontWeight="bold"
         style={
           Object {
             "transform": "rotate(-90deg)",
