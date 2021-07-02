@@ -8,7 +8,7 @@ export const legendSettings: LegendSettings = {
   layout: 'horizontal',
   typography: {
     fontSize: 11,
-    fontFamily: 'Gangster Grotesk Regular, sans-serif',
+    fontFamily: 'Gangster Grotesk, sans-serif',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontColor: colors.black['500'],
@@ -28,7 +28,7 @@ export const widgetSettings: WidgetSettings = {
     content: '',
     typography: {
       fontSize: 20,
-      fontFamily: 'Gangster Grotesk Regular, sans-serif',
+      fontFamily: 'Gangster Grotesk, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontColor: colors.blue['500'],
@@ -38,7 +38,7 @@ export const widgetSettings: WidgetSettings = {
     content: '',
     typography: {
       fontSize: 14,
-      fontFamily: 'Lato Regular, sans-serif',
+      fontFamily: 'Lato, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontColor: colors.black['500'],
