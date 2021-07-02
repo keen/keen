@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.36.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.35.1...@keen.io/ui-core@2.36.0) (2021-07-02)
+
+
+### Features
+
+* 🎸 Position of typographt dropdowns changed ([5b98383](https://github.com/keen/keen/commit/5b98383b24574b0301c777f29e7d1cec03e57024))
+* 🎸 RadioSelect component ([d4bba57](https://github.com/keen/keen/commit/d4bba577a6827404f4c22053cfde71fbe4638be3))
+* 🎸 Typography position changes ([84c0241](https://github.com/keen/keen/commit/84c024121c87044d982244ee0b9593352376cf0e))
+
+
+
+
+
 ## [2.35.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.35.0...@keen.io/ui-core@2.35.1) (2021-07-01)
 
 **Note:** Version bump only for package @keen.io/ui-core

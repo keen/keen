@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.1.0...@keen.io/react-hooks@1.2.0) (2021-07-02)
+
+
+### Bug Fixes
+
+* 🐛 removed console.log ([8e22700](https://github.com/keen/keen/commit/8e227006e191e6cb7e03571cec0073a3f6a913aa))
+
+
+### Features
+
+* 🎸 Position of typographt dropdowns changed ([5b98383](https://github.com/keen/keen/commit/5b98383b24574b0301c777f29e7d1cec03e57024))
+* 🎸 Typography position changes ([84c0241](https://github.com/keen/keen/commit/84c024121c87044d982244ee0b9593352376cf0e))
+
+
+
+
+
 # [1.1.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.0.7...@keen.io/react-hooks@1.1.0) (2021-05-26)
 
 
