@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.8](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.7...@keen.io/widgets@2.11.8) (2021-07-02)
+
+
+### Bug Fixes
+
+* 🐛 Font family changes in widget and legend settings ([638d6a3](https://github.com/keen/keen/commit/638d6a3004dfe71ff34fe9c97688008e1b9c3521))
+* 🐛 Test fixes ([afe519c](https://github.com/keen/keen/commit/afe519c0b552add14c49f2cbf58d8c9b75ee01bd))
+* 🐛 Widget settings - typefixes ([dd8d188](https://github.com/keen/keen/commit/dd8d188d1d7028395aba5429f9512f675302b669))
+
+
+
+
+
 ## [2.11.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.6...@keen.io/widgets@2.11.7) (2021-07-02)
 
 **Note:** Version bump only for package @keen.io/widgets
