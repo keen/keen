@@ -25,7 +25,7 @@ test('overrides single nested theme property', () => {
       "radiusAngle": 0,
       "typography": Object {
         "fontColor": "#1D2729",
-        "fontFamily": "Gangster Grotesk Regular, sans-serif",
+        "fontFamily": "Gangster Grotesk, sans-serif",
         "fontSize": 10,
         "fontStyle": "normal",
         "fontWeight": "normal",

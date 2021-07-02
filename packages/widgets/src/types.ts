@@ -50,6 +50,10 @@ export type WidgetSettings = {
   card: CardSettings;
   /** Tags */
   tags?: Tag[];
+  /** Legend settings*/
+  legend?: LegendSettings;
+  /** Geographic area*/
+  geographicArea?: 'us' | 'world';
 };
 
 export type BubbleWidgetLegendSettings = {

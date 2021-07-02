@@ -49,9 +49,7 @@ test('applies font family from theme "typography" on value element', () => {
   } = render();
   const element = getByText(`${props.value}`);
 
-  expect(element.getAttribute('font-family')).toEqual(
-    'Lato Regular, sans-serif'
-  );
+  expect(element.getAttribute('font-family')).toEqual('Lato, sans-serif');
 });
 
 test('do not renders value element based on theme configuration', () => {
@@ -105,9 +103,7 @@ test('applies font family from theme "typography" on label element', () => {
   } = render();
   const element = getByText(props.label);
 
-  expect(element.getAttribute('font-family')).toEqual(
-    'Lato Regular, sans-serif'
-  );
+  expect(element.getAttribute('font-family')).toEqual('Lato, sans-serif');
 });
 
 test('renders "badge" element with percentage value', () => {
@@ -160,9 +156,7 @@ test('applies font family from theme "typography" on badge element', () => {
   } = render();
   const element = getByText(`${props.percentageValue}%`);
 
-  expect(element.getAttribute('font-family')).toEqual(
-    'Lato Regular, sans-serif'
-  );
+  expect(element.getAttribute('font-family')).toEqual('Lato, sans-serif');
 });
 
 test('applies "title" data attribute on step label', () => {

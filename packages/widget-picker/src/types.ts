@@ -1,5 +1,8 @@
 import { GroupMode, StackMode, CurveType, MetricType } from '@keen.io/charts';
-import { Widgets } from '@keen.io/widgets';
+import {
+  Widgets,
+  WidgetSettings as BaseWidgetSettings,
+} from '@keen.io/widgets';
 import { Layout } from '@keen.io/ui-core';
 import { IconType } from '@keen.io/icons';
 
@@ -15,9 +18,7 @@ export type ChartSettings = {
   type?: MetricType;
 };
 
-export type WidgetSettings = {
-  geographicArea?: 'us' | 'world';
-};
+export type WidgetSettings = Partial<BaseWidgetSettings>;
 
 export type OptionValue = ChartSettings | WidgetSettings;
 
