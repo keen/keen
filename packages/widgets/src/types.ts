@@ -47,7 +47,7 @@ export type WidgetSettings = {
   /** Widget subtitle */
   subtitle?: TextSettings;
   /** Widget card settings */
-  card: CardSettings;
+  card?: CardSettings;
   /** Tags */
   tags?: Tag[];
   /** Legend settings*/
