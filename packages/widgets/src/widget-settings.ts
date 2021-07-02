@@ -1,5 +1,5 @@
 import { colors } from '@keen.io/colors';
-import { LegendSettings } from './types';
+import { LegendSettings, WidgetSettings } from './types';
 
 export const legendSettings: LegendSettings = {
   enabled: true,
@@ -8,7 +8,7 @@ export const legendSettings: LegendSettings = {
   layout: 'horizontal',
   typography: {
     fontSize: 11,
-    fontFamily: 'Gangster Grotesk Regular, sans-serif',
+    fontFamily: 'Gangster Grotesk, sans-serif',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontColor: colors.black['500'],
@@ -17,27 +17,28 @@ export const legendSettings: LegendSettings = {
   title: undefined,
 };
 
-export const widgetSettings = {
+export const widgetSettings: WidgetSettings = {
   legend: legendSettings,
   card: {
     backgroundColor: colors.white['500'],
-    borderRadius: '0px',
-    border: 'none',
+    borderRadius: 0,
     hasShadow: true,
   },
   title: {
+    content: '',
     typography: {
       fontSize: 20,
-      fontFamily: 'Gangster Grotesk Regular, sans-serif',
+      fontFamily: 'Gangster Grotesk, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontColor: colors.blue['500'],
     },
   },
   subtitle: {
+    content: '',
     typography: {
       fontSize: 14,
-      fontFamily: 'Lato Regular, sans-serif',
+      fontFamily: 'Lato, sans-serif',
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontColor: colors.black['500'],
