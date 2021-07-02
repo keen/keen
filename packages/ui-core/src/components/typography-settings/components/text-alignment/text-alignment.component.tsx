@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, RefObject } from 'react';
 import { transparentize } from 'polished';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
@@ -15,13 +15,17 @@ type Props = {
   currentAlignment: 'left' | 'center' | 'right';
   /** Update font size event handler */
   onUpdateTextAlignment: (fontSize: string) => void;
+  /** Ref to scrollable parent element - it can be used to hide dropdown on scroll event */
+  scrollableContainerRef?: RefObject<HTMLDivElement>;
 };
 
 const TextAlignment: FC<Props> = ({
   currentAlignment,
   onUpdateTextAlignment,
+  scrollableContainerRef,
 }) => (
   <AttributeDropdown
+    scrollableContainerRef={scrollableContainerRef}
     renderHeader={() => (
       <Header data-testid="text-alignment-header">
         <Icon

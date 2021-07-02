@@ -4,6 +4,16 @@ import {
   useLegend,
   useSearch,
   useOnClickOutside,
+  useDynamicContentPosition,
+  useOnParentScroll,
 } from './hooks';
 
-export { useTooltip, useSlider, useLegend, useSearch, useOnClickOutside };
+export {
+  useTooltip,
+  useSlider,
+  useLegend,
+  useSearch,
+  useOnClickOutside,
+  useDynamicContentPosition,
+  useOnParentScroll,
+};

@@ -59,6 +59,7 @@ const TypographySettings: FC<Props> = ({
         <FontSize
           currentFontSize={settings.size}
           fontSizeSuggestions={fontSizeSuggestions}
+          scrollableContainerRef={scrollableContainerRef}
           onUpdateFontSize={(size) => onSettingsChange('size', size)}
         />
       )}
@@ -81,6 +82,7 @@ const TypographySettings: FC<Props> = ({
           <Separator />
           <TextAlignment
             currentAlignment={settings.alignment}
+            scrollableContainerRef={scrollableContainerRef}
             onUpdateTextAlignment={(alignment) =>
               onSettingsChange('alignment', alignment)
             }
