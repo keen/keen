@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
-import Color from './color';
+import Color from './color.component';
 
 const render = (overProps: any = {}) => {
   const props = {

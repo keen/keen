@@ -5,10 +5,11 @@ import {
   useOnParentScroll,
 } from '@keen.io/react-hooks';
 
-import { ColorBox, DropdownWrapper, ColorWrapper } from './color.styles';
 import DynamicPortal from '../dynamic-portal';
 import Dropdown from '../dropdown';
 import ColorPicker from '../color-picker';
+
+import { ColorBox, DropdownWrapper, ColorWrapper } from './color.styles';
 
 type Props = {
   color: string;

@@ -1,5 +1,9 @@
 import { RefObject, useCallback, useEffect } from 'react';
-
+/**
+ * Hook that allows to detect click outside of the element and call function passed as parameter
+ * @param containerRef ref of element
+ * @param onClickOutside: function to call on click outside
+ */
 export const useOnClickOutside = (
   containerRef: RefObject<HTMLElement>,
   onClickOutside: () => void

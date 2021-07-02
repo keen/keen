@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, RefObject } from 'react';
 import { transparentize } from 'polished';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
@@ -16,14 +16,18 @@ type Props = {
   onUpdateFontSize: (fontSize: number) => void;
   /** Font sizes that will be available inside dropdown */
   fontSizeSuggestions: number[];
+  /** Ref to scrollable parent element - it can be used to hide dropdown on scroll event */
+  scrollableContainerRef?: RefObject<HTMLDivElement>;
 };
 
 const FontSize: FC<Props> = ({
   currentFontSize,
   onUpdateFontSize,
   fontSizeSuggestions,
+  scrollableContainerRef,
 }) => (
   <AttributeDropdown
+    scrollableContainerRef={scrollableContainerRef}
     renderHeader={() => (
       <Header data-testid="font-size-header">
         <BodyText variant="body2" color={colors.blue[500]}>

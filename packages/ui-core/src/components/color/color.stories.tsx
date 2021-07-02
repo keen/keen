@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Color from './color';
 import { action } from '@storybook/addon-actions';
+import Color from './color.component';
 
 export default {
   title: 'Components /Color Selector',
