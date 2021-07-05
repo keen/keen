@@ -5,7 +5,7 @@ export const StyledColorPicker = styled.div`
   width: 220px;
   .sketch-picker {
     box-shadow: none !important;
-    font-family: Lato Regular, sans-serif;
+    font-family: Lato, sans-serif;
   }
 `;
 
