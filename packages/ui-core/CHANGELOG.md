@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.2...@keen.io/ui-core@2.36.3) (2021-07-05)
+
+
+### Bug Fixes
+
+* 🐛 Typography settings background fix ([0e7af43](https://github.com/keen/keen/commit/0e7af43a59c6293179ac795b51ed43e86b31f75f))
+
+
+
+
+
 ## [2.36.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.1...@keen.io/ui-core@2.36.2) (2021-07-05)
 
 
