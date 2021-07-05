@@ -39,7 +39,7 @@ const AttributeDropdown: FC<Props> = ({
         data-testid="rich-utils-header"
         onClick={() => {
           setPosition();
-          setOpen(true);
+          setOpen(!isOpen);
         }}
       >
         {renderHeader()}
