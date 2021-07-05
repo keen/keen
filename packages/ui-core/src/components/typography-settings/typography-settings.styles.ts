@@ -7,7 +7,7 @@ export const TextOption = styled.div<{ isActive?: boolean }>`
   display: inline-flex;
   align-items: center;
   height: 37px;
-  background: ${colors.white[500]};
+  background: ${transparentize(0.85, colors.blue[100])};
   border-radius: 4px;
   box-sizing: border-box;
 
@@ -16,7 +16,7 @@ export const TextOption = styled.div<{ isActive?: boolean }>`
   ${(props) =>
     props.isActive &&
     css`
-      background: ${transparentize(0.85, colors.blue[500])};
+      background: ${transparentize(0.5, colors.blue[100])};
     `};
 `;
 
