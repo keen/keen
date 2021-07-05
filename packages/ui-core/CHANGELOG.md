@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.1...@keen.io/ui-core@2.36.2) (2021-07-05)
+
+
+### Bug Fixes
+
+* 🐛 Chart theminng fixes ([1524344](https://github.com/keen/keen/commit/1524344d4a280b093b67825893e73f03a618fd92))
+* 🐛 font weight removed from font type ([1c9d9a0](https://github.com/keen/keen/commit/1c9d9a097bb23f848a66c9db36a60ae1d5be76b3))
+
+
+
+
+
 ## [2.36.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.0...@keen.io/ui-core@2.36.1) (2021-07-02)
 
 
