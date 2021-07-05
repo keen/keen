@@ -7,7 +7,7 @@ const OptionHeader = styled.div`
   display: flex;
   align-items: center;
   height: 37px;
-  background: ${transparentize(0.85, colors.blue[500])};
+  background: ${transparentize(0.85, colors.blue[100])};
   border-radius: 4px;
   box-sizing: border-box;
 `;
