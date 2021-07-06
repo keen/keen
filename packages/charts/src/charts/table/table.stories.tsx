@@ -6,6 +6,8 @@ import { action } from '@storybook/addon-actions';
 
 import TableChart from './table-chart.component';
 
+import { theme } from '../../theme';
+
 export default {
   title: 'Visualizations /Table Chart / Plot',
   parameters: {
@@ -23,7 +25,13 @@ export const Plot = () => {
     <Container>
       <TableChart
         data={data}
-        color={color('Main color', '#27566d', 'Chart')}
+        theme={{
+          ...theme,
+          table: {
+            ...theme.table,
+            mainColor: color('Main color', '#27566d', 'Chart'),
+          },
+        }}
         onResize={action('onResize')}
       />
     </Container>
