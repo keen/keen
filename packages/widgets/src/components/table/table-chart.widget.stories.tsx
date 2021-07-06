@@ -19,6 +19,10 @@ export default {
 
 const createThemeKnobs = () => ({
   ...keenTheme,
+  table: {
+    ...keenTheme.table,
+    mainColor: color('Main color', '#27566D', 'Chart'),
+  },
 });
 
 export const widget = () => (
@@ -38,7 +42,6 @@ export const widget = () => (
           widgetSettings.subtitle.typography as Typography
         ),
       }}
-      color={color('Main color', '#27566D', 'Chart')}
       card={cardKnobs('Card')}
       margins={object(
         'Margins',

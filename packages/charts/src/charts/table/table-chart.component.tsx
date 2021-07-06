@@ -19,7 +19,6 @@ import {
   hasContentOverflow,
   copyToClipboard,
 } from '@keen.io/charts-utils';
-import { colors } from '@keen.io/colors';
 
 import { HeaderRow } from './components';
 import {
@@ -49,8 +48,6 @@ import { TOOLTIP_MOTION } from '../../constants';
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
-  /** Main color */
-  color: string;
   /** Object of functions to format headers separately */
   formatHeader?: Record<string, FormatFunction>;
   /** Columns order */
@@ -63,7 +60,6 @@ export type Props = {
 
 export const TableChart = ({
   data: tableData,
-  color = colors.blue['500'],
   formatHeader,
   columnsOrder,
   formatValue,
@@ -128,7 +124,7 @@ export const TableChart = ({
     : sortedData;
 
   const {
-    table: { header, body },
+    table: { header, body, mainColor },
     tooltip: tooltipSettings,
   } = theme;
 
@@ -191,7 +187,7 @@ export const TableChart = ({
             <HeaderRow
               data={generateHeader(data[0], formatHeader)}
               isColumnDragged={isColumnDragged}
-              color={color}
+              color={mainColor}
               onSort={({
                 propertyName,
                 sortMode,
@@ -207,7 +203,7 @@ export const TableChart = ({
                 <TableRow
                   key={`${idx}-${el[0]}`}
                   data={el}
-                  backgroundColor={color}
+                  backgroundColor={mainColor}
                   onCellClick={(e, value) => {
                     if (tooltipHide.current) clearTimeout(tooltipHide.current);
                     copyToClipboard(value);

@@ -1,7 +1,6 @@
 import { TableChartSettings } from '@keen.io/charts';
 import { extractGroupBySettings } from '@keen.io/query';
 import { KEEN_TABLE_INTERVAL } from '@keen.io/parser';
-import { colors } from '@keen.io/colors';
 
 import { VisualizationOptions } from './types';
 
@@ -29,6 +28,5 @@ export const setChartSettings = ({
 
   return {
     ...settings,
-    color: colors.blue[500],
   };
 };

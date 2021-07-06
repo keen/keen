@@ -191,6 +191,7 @@ export type Gauge = {
 };
 
 export type Table = {
+  mainColor: string;
   header: {
     typography: Typography;
   };

@@ -212,6 +212,7 @@ export const theme: Theme = {
     },
   },
   table: {
+    mainColor: colors.blue['500'],
     header: {
       typography: {
         fontStyle: 'normal',
