@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/keen/keen/compare/@keen.io/charts@2.24.11...@keen.io/charts@2.25.0) (2021-07-07)
+
+
+### Features
+
+* 🎸 line chart theme ([2334e4e](https://github.com/keen/keen/commit/2334e4e3cd4385365f3642895ed6f2e54a079565))
+
+
+
+
+
 ## [2.24.11](https://github.com/keen/keen/compare/@keen.io/charts@2.24.10...@keen.io/charts@2.24.11) (2021-07-06)
 
 **Note:** Version bump only for package @keen.io/charts
