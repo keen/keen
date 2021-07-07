@@ -28,7 +28,7 @@ test('returns "false" for empty marks and lines collection', () => {
 
   const result = showAllMarks(
     stepMode,
-    [{ ...mark, radius: 2 }],
+    [{ ...mark, radius: 2, dataSerieKey: '@data-serie/01' }],
     [{ ...line, strokeWidth: 2 }]
   );
 
@@ -40,7 +40,7 @@ test('returns "false" for disabled step mode and when marksRadius is smaller tha
 
   const result = showAllMarks(
     stepMode,
-    [{ ...mark, radius: 2 }],
+    [{ ...mark, radius: 2, dataSerieKey: '@data-serie/01' }],
     [{ ...line, strokeWidth: 2 }]
   );
 
@@ -52,7 +52,7 @@ test('returns "true" for enabled step mode', () => {
 
   const result = showAllMarks(
     stepMode,
-    [{ ...mark, radius: 2 }],
+    [{ ...mark, radius: 2, dataSerieKey: '@data-serie/01' }],
     [{ ...line, strokeWidth: 2 }]
   );
 
@@ -64,7 +64,7 @@ test('returns "true" when marksRadius is smaller than lines strokeWidth / 2', ()
 
   const result = showAllMarks(
     stepMode,
-    [{ ...mark, radius: 1 }],
+    [{ ...mark, radius: 1, dataSerieKey: '@data-serie/01' }],
     [{ ...line, strokeWidth: 2 }]
   );
 
@@ -73,8 +73,8 @@ test('returns "true" when marksRadius is smaller than lines strokeWidth / 2', ()
 
 test('should group marks by position', () => {
   const result = groupMarksByPosition([
-    { ...mark, radius: 1 },
-    { ...mark, radius: 1 },
+    { ...mark, radius: 1, dataSerieKey: '@data-serie/01' },
+    { ...mark, radius: 1, dataSerieKey: '@data-serie/02' },
   ]);
 
   expect(result[10].length).toBe(2);
@@ -82,7 +82,7 @@ test('should group marks by position', () => {
 
 test('should not group marks by position', () => {
   const result = groupMarksByPosition([
-    { ...mark, radius: 1 },
+    { ...mark, radius: 1, dataSerieKey: '@data-serie/01' },
     {
       key: '@mark',
       color: 'grey',
@@ -90,6 +90,7 @@ test('should not group marks by position', () => {
       y: 20,
       selector: ['selector'],
       radius: 1,
+      dataSerieKey: '@data-serie/01',
     },
   ]);
 
@@ -99,10 +100,10 @@ test('should not group marks by position', () => {
 
 test('should find all marks in cluster', () => {
   const result = findMarksInCluster(
-    { ...mark, radius: 1 },
+    { ...mark, radius: 1, dataSerieKey: '@data-serie/01' },
     {
       10: [
-        { ...mark, radius: 1 },
+        { ...mark, radius: 1, dataSerieKey: '@data-serie/02' },
         {
           key: '@mark',
           color: 'grey',
@@ -110,6 +111,7 @@ test('should find all marks in cluster', () => {
           y: 25,
           selector: ['selector'],
           radius: 1,
+          dataSerieKey: '@data-serie/03',
         },
       ],
     }
@@ -120,10 +122,10 @@ test('should find all marks in cluster', () => {
 
 test('should not find all marks in cluster', () => {
   const result = findMarksInCluster(
-    { ...mark, radius: 1 },
+    { ...mark, radius: 1, dataSerieKey: '@data-serie/01' },
     {
       10: [
-        { ...mark, radius: 1 },
+        { ...mark, radius: 1, dataSerieKey: '@data-serie/02' },
         {
           key: '@mark',
           color: 'grey',
@@ -131,6 +133,7 @@ test('should not find all marks in cluster', () => {
           y: 40,
           selector: ['selector'],
           radius: 1,
+          dataSerieKey: '@data-serie/03',
         },
       ],
     }

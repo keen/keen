@@ -38,6 +38,10 @@ const createThemeKnobs = () => ({
   gridY: gridKnobs('Grid Y'),
   hoverBar: hoverBarKnobs('Hover bar'),
   colors: themeColorsKnobs('Theme Colors', keenTheme.colors),
+  line: {
+    markRadius: number('Marks radius', 4, {}, 'Chart'),
+    strokeWidth: number('Line thickness', 2, {}, 'Chart'),
+  },
 });
 
 export const plot = () => {
@@ -60,8 +64,6 @@ export const plot = () => {
           precision: 'month',
           formatLabel: createLabelFormatter(formatKnob),
         }}
-        markRadius={number('Marks radius', 4, {}, 'Chart')}
-        strokeWidth={number('Line thickness', 2, {}, 'Chart')}
         curve={curveKnobs('Chart') as CurveType}
         groupMode={groupModeKnobs('Chart') as GroupMode}
         stackMode={stackModeKnobs('Chart') as StackMode}
