@@ -34,6 +34,10 @@ export const theme: Theme = {
       },
     },
   },
+  line: {
+    markRadius: 4,
+    strokeWidth: 1,
+  },
   choropleth: {
     map: {
       stroke: colors.black['500'],

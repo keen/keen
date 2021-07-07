@@ -200,6 +200,11 @@ export type Table = {
   };
 };
 
+export type LineChartTheme = {
+  markRadius: number;
+  strokeWidth: number;
+};
+
 export type HoverBarType = 'dark' | 'light';
 
 export type HoverBarSettings = {
@@ -212,18 +217,19 @@ export type Theme = {
   funnel: Funnel;
   choropleth: Choropleth;
   bar: Bar;
-  metric?: Metric;
+  line: LineChartTheme;
+  metric: Metric;
   donut: Donut;
   pie: Pie;
   gauge: Gauge;
   table: Table;
   tooltip: Tooltip;
-  axisX?: Axis;
-  axisY?: Axis;
-  gridX?: Grid;
-  gridY?: Grid;
-  zeroIntersection?: ZeroIntersection;
-  hoverBar?: HoverBarSettings;
+  axisX: Axis;
+  axisY: Axis;
+  gridX: Grid;
+  gridY: Grid;
+  zeroIntersection: ZeroIntersection;
+  hoverBar: HoverBarSettings;
 };
 
 export type CommonChartSettings = {

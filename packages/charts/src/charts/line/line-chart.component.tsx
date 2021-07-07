@@ -47,10 +47,6 @@ export type Props = {
   keys?: string[];
   /** Keys that are disabled for rendering data series */
   disabledKeys?: string[];
-  /** Marks radius */
-  markRadius?: number;
-  /** Line thickness */
-  strokeWidth?: number;
   /** X scale settings */
   xScaleSettings?: ScaleSettings;
   /** Y scale settings */
@@ -84,8 +80,6 @@ export const LineChart: FC<Props> = ({
   maxValue = 'auto',
   keys = ['value'],
   disabledKeys = [],
-  markRadius = 4,
-  strokeWidth = 1,
   curve = 'linear',
   stackMode = 'normal',
   groupMode = 'grouped',
@@ -104,6 +98,10 @@ export const LineChart: FC<Props> = ({
     setLayoutReady,
     setLayoutMargins,
   } = useDynamicChartLayout(useDynamicLayout, margins);
+  const {
+    line: { markRadius, strokeWidth },
+  } = theme;
+
   const {
     lines,
     marks,
