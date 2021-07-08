@@ -59,7 +59,7 @@ export const theme: Theme = {
         typography: {
           fontStyle: 'normal',
           fontWeight: 'normal',
-          fontSize: 14,
+          fontSize: 12,
           fontFamily: 'Lato, sans-serif',
           fontColor: 'inherit',
         },
@@ -78,7 +78,7 @@ export const theme: Theme = {
         typography: {
           fontStyle: 'normal',
           fontWeight: 'normal',
-          fontSize: 12,
+          fontSize: 13,
           fontFamily: 'Lato, sans-serif',
           fontColor: colors.black['500'],
         },
@@ -94,7 +94,7 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'lighter',
-        fontSize: 60,
+        fontSize: 50,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.blue['500'],
       },
@@ -139,7 +139,7 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 16,
+        fontSize: 14,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.black['500'],
       },
@@ -188,7 +188,7 @@ export const theme: Theme = {
       typography: {
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 10,
+        fontSize: 12,
         fontFamily: 'Gangster Grotesk, sans-serif',
         fontColor: colors.black['500'],
       },
