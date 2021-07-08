@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/keen/keen/compare/@keen.io/charts@2.25.1...@keen.io/charts@2.26.0) (2021-07-08)
+
+
+### Features
+
+* 🎸 update charts default font sizes ([696c880](https://github.com/keen/keen/commit/696c8808a56c16648cd78ac6c98f97046dd655bc))
+
+
+
+
+
 ## [2.25.1](https://github.com/keen/keen/compare/@keen.io/charts@2.25.0...@keen.io/charts@2.25.1) (2021-07-07)
 
 **Note:** Version bump only for package @keen.io/charts
