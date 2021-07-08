@@ -93,7 +93,7 @@ test('applies font size from theme "typography" on label element', () => {
   } = render();
   const element = getByText(props.label);
 
-  expect(element.getAttribute('font-size')).toEqual('12');
+  expect(element.getAttribute('font-size')).toEqual('13');
 });
 
 test('applies font family from theme "typography" on label element', () => {
@@ -146,7 +146,7 @@ test('applies font size from theme "typography" on badge element', () => {
   } = render();
   const element = getByText(`${props.percentageValue}%`);
 
-  expect(element.getAttribute('font-size')).toEqual('14');
+  expect(element.getAttribute('font-size')).toEqual('12');
 });
 
 test('applies font family from theme "typography" on badge element', () => {
