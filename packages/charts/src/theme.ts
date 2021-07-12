@@ -93,7 +93,7 @@ export const theme: Theme = {
     value: {
       typography: {
         fontStyle: 'normal',
-        fontWeight: 'lighter',
+        fontWeight: 'normal',
         fontSize: 50,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.blue['500'],
@@ -102,7 +102,7 @@ export const theme: Theme = {
     prefix: {
       typography: {
         fontStyle: 'normal',
-        fontWeight: 'lighter',
+        fontWeight: 'normal',
         fontSize: 20,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.blue['500'],
@@ -111,7 +111,7 @@ export const theme: Theme = {
     suffix: {
       typography: {
         fontStyle: 'normal',
-        fontWeight: 'lighter',
+        fontWeight: 'normal',
         fontSize: 20,
         fontFamily: 'Lato, sans-serif',
         fontColor: colors.blue['500'],
