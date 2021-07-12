@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.26.1](https://github.com/keen/keen/compare/@keen.io/charts@2.26.0...@keen.io/charts@2.26.1) (2021-07-12)
+
+
+### Bug Fixes
+
+* 🐛 metric fonts ([3201c73](https://github.com/keen/keen/commit/3201c736fc8475ec8343f8ad2e314817b2a1e4d9))
+
+
+
+
+
 # [2.26.0](https://github.com/keen/keen/compare/@keen.io/charts@2.25.1...@keen.io/charts@2.26.0) (2021-07-08)
 
 
