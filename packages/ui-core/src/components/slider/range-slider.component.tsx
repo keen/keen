@@ -26,6 +26,7 @@ import { Text } from '../../typography';
 
 import { ControlSettings, TooltipSettings, RailSettings } from './types';
 import { Layout } from '../../types';
+import { generateContinousColorScale } from '@keen.io/charts-utils';
 
 const initialDragControlsState = {
   minimum: {
@@ -144,6 +145,16 @@ export const RangeSlider: FC<Props> = ({
       };
 
   const [currentMinimum, currentMaximum] = value as number[];
+  const colorScale = generateContinousColorScale(
+    minimum,
+    maximum,
+    colorSteps,
+    colors
+  );
+  const colorScaleRange = colorScale.range();
+  const absoluteMinimum = Math.abs(minimum);
+  const zeroPoint: number =
+    (absoluteMinimum * 100) / (absoluteMinimum + maximum);
 
   return (
     <div ref={slider} style={{ position: 'relative', ...layoutStyle }}>
@@ -151,8 +162,9 @@ export const RangeSlider: FC<Props> = ({
         type={layout}
         size={railSettings.size}
         borderRadius={railSettings.borderRadius}
-        colors={colors}
+        colors={colorScaleRange}
         colorSteps={colorSteps}
+        zeroPoint={zeroPoint}
       />
       {dimension !== null && (
         <>

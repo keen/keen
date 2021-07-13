@@ -10,9 +10,17 @@ type Props = {
   borderRadius: number;
   colors: string[];
   colorSteps: number;
+  zeroPoint?: number;
 };
 
-const Rail: FC<Props> = ({ type, colors, colorSteps, borderRadius, size }) => {
+const Rail: FC<Props> = ({
+  type,
+  colors,
+  colorSteps,
+  zeroPoint,
+  borderRadius,
+  size,
+}) => {
   const gradientAngle = type === 'horizontal' ? 90 : 180;
   const layoutStyles =
     type === 'horizontal'
@@ -33,7 +41,7 @@ const Rail: FC<Props> = ({ type, colors, colorSteps, borderRadius, size }) => {
     colorSteps > 1
       ? `linear-gradient(${gradientAngle}deg, ${stringifyColors(
           colors,
-          colorSteps
+          zeroPoint
         )}`
       : colors[0];
 
