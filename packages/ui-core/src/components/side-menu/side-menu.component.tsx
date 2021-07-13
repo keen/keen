@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { MenuItem, Menu } from './side-menu.styles';
-import { Title } from '../../typography';
 import { colors } from '@keen.io/colors';
+import { BodyText } from '@keen.io/typography';
 
 type Props = {
   menuItems: string[];
@@ -16,7 +16,7 @@ const SideMenu: FC<Props> = ({ menuItems, onChange, activeItem }) => {
 
   return (
     <Menu>
-      <Title variant="body-bold" color={colors.black[300]}>
+      <BodyText variant="body2" fontWeight="bold" color={colors.black[300]}>
         {menuItems.map((item) => (
           <MenuItem
             isActive={item === activeItem}
@@ -26,7 +26,7 @@ const SideMenu: FC<Props> = ({ menuItems, onChange, activeItem }) => {
             {item}
           </MenuItem>
         ))}
-      </Title>
+      </BodyText>
     </Menu>
   );
 };
