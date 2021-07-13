@@ -87,6 +87,7 @@ import EmptySearch from './empty-search';
 
 import DynamicPortal from './dynamic-portal';
 import Color from './color';
+import SideMenu from './side-menu';
 
 export { ARROW_SIZE, TIME_PICKER_CLASS };
 
@@ -177,4 +178,5 @@ export {
   ColorPicker,
   Color,
   TypographySettings,
+  SideMenu,
 };

@@ -100,6 +100,7 @@ import {
   TypographySettings,
   TextAlignment,
   FontSettings,
+  SideMenu,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -220,4 +221,5 @@ export {
   ColorPicker,
   Color,
   TypographySettings,
+  SideMenu,
 };
