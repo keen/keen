@@ -9,7 +9,7 @@ type Props = {
   activeItem?: string;
 };
 
-const SideMenuComponent: FC<Props> = ({ menuItems, onChange, activeItem }) => {
+const SideMenu: FC<Props> = ({ menuItems, onChange, activeItem }) => {
   const onActiveItemChange = (activeItem: string) => {
     onChange(activeItem);
   };
@@ -31,4 +31,4 @@ const SideMenuComponent: FC<Props> = ({ menuItems, onChange, activeItem }) => {
   );
 };
 
-export default SideMenuComponent;
+export default SideMenu;
