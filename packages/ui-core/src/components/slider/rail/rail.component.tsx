@@ -9,18 +9,10 @@ type Props = {
   size: number;
   borderRadius: number;
   colors: string[];
-  colorSteps: number;
   zeroPoint?: number;
 };
 
-const Rail: FC<Props> = ({
-  type,
-  colors,
-  colorSteps,
-  zeroPoint,
-  borderRadius,
-  size,
-}) => {
+const Rail: FC<Props> = ({ type, colors, zeroPoint, borderRadius, size }) => {
   const gradientAngle = type === 'horizontal' ? 90 : 180;
   const layoutStyles =
     type === 'horizontal'
@@ -37,13 +29,10 @@ const Rail: FC<Props> = ({
           transform: 'translateX(-50%)',
         };
 
-  const background =
-    colorSteps > 1
-      ? `linear-gradient(${gradientAngle}deg, ${stringifyColors(
-          colors,
-          zeroPoint
-        )}`
-      : colors[0];
+  const background = `linear-gradient(${gradientAngle}deg, ${stringifyColors(
+    colors,
+    zeroPoint
+  )}`;
 
   return (
     <div

@@ -162,7 +162,6 @@ export const RangeSlider: FC<Props> = ({
         size={railSettings.size}
         borderRadius={railSettings.borderRadius}
         colors={colorScaleRange}
-        colorSteps={colorSteps}
         zeroPoint={zeroPoint}
       />
       {dimension !== null && (

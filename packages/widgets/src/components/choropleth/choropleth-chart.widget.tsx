@@ -42,7 +42,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
   const [topology, setTopology] = useState<any>(null);
   const [loading, setLoading] = useState(null);
 
-  const { max } = useSlider(props.data, [props.valueKey]);
+  const { min, max } = useSlider(props.data, [props.valueKey]);
   const [range, setRange] = useState(null);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
         !geoMatchError && (
           <LegendBase spacing="thin" fullDimension {...legend}>
             <RangeSlider
-              minimum={0}
+              minimum={min}
               maximum={max}
               tooltipSettings={{
                 enabled: true,

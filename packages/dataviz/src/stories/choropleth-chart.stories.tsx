@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks, @typescript-eslint/naming-convention */
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
+import { theme as keenTheme } from '@keen.io/charts';
 
 import KeenDataViz from '../visualizer';
 
@@ -244,4 +245,338 @@ export const unitedStatesMap = () => {
   }, []);
 
   return <div style={{ width: '400px', height: '300px' }} ref={container} />;
+};
+
+export const PositiveValuesOnly = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: 310,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: 70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: 120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: 200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: 37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: 24,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const NegativeValuesOnly = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: -310,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: -70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: -120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: -200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: -37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: -24,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const PositiveValuesBigger = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: 3000000,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: 70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: 120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: 200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: 37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: -20,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const NegativeValuesBigger = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: 30,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: -70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: -120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: -200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: -37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: -8000000,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const OneKeenThemeColor = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+      settings: {
+        theme: {
+          colors: [keenTheme.colors[0]],
+        },
+      },
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: 30,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: -70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: 120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: -200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: -37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: 800,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
+
+export const OneCustomThemeColor = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'choropleth',
+      container: container.current,
+      settings: {
+        theme: {
+          colors: ['#ed404f'],
+        },
+      },
+    });
+
+    dataviz.render({
+      query: {
+        analysis_type: 'count',
+        event_collection: 'logins',
+        timeframe: 'last_14_days',
+        group_by: ['user.address.country', 'product.name'],
+      },
+      result: [
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Germany',
+          result: 30,
+        },
+        {
+          'product.name': 'Trial',
+          'user.address.country': 'Germany',
+          result: -70,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'Poland',
+          result: 120,
+        },
+        {
+          'product.name': 'Free',
+          'user.address.country': 'United States',
+          result: -200,
+        },
+        {
+          'product.name': 'Business',
+          'user.address.country': 'United States',
+          result: -37,
+        },
+        {
+          'product.name': 'Team',
+          'user.address.country': 'United States',
+          result: 800,
+        },
+      ],
+    });
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
