@@ -144,14 +144,6 @@ export const PositiveValuesOnly = () => {
     new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Multiple results',
-        },
-      },
       settings: {
         data,
         keys: ['users', 'licenses', 'shops'],
@@ -177,14 +169,6 @@ export const NegativeValuesOnly = () => {
     new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Multiple results',
-        },
-      },
       settings: {
         data,
         keys: ['users', 'licenses', 'shops'],
@@ -210,14 +194,6 @@ export const PositiveValuesBigger = () => {
     new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Multiple results',
-        },
-      },
       settings: {
         data,
         keys: ['users', 'licenses', 'shops'],
@@ -243,14 +219,6 @@ export const NegativeValuesBigger = () => {
     new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Multiple results',
-        },
-      },
       settings: {
         data,
         keys: ['users', 'licenses', 'shops'],
@@ -276,17 +244,9 @@ export const OneKeenThemeColor = () => {
     new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Multiple results',
-        },
-      },
       settings: {
         data,
-        keys: ['users', 'licenses', 'shops'],
+        keys: ['people', 'licenses', 'cars', 'documents'],
         labelSelector: 'name',
         theme: {
           colors: [keenTheme.colors[0]],
@@ -312,20 +272,12 @@ export const OneCustomThemeColor = () => {
     new KeenDataViz({
       type: 'heatmap',
       container: container.current,
-      widget: {
-        title: {
-          content: 'Book purchases',
-        },
-        subtitle: {
-          content: 'Multiple results',
-        },
-      },
       settings: {
         data,
-        keys: ['users', 'licenses', 'shops'],
+        keys: ['people', 'licenses', 'cars', 'documents'],
         labelSelector: 'name',
         theme: {
-          colors: ['#900C3F'],
+          colors: ['#ed404f'],
         },
       },
     }).render();

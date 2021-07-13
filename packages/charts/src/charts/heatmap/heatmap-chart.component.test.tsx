@@ -102,6 +102,6 @@ test('formats tooltip value by string formatter', async () => {
   fireEvent.mouseOver(chart.querySelector('rect'));
 
   await waitFor(() => {
-    expect(getByText('3.00$')).toBeInTheDocument();
+    expect(getByText('-3.00$')).toBeInTheDocument();
   });
 });

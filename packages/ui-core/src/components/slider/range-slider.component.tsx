@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useReducer,
   useEffect,
+  useMemo,
 } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -26,7 +27,7 @@ import { Text } from '../../typography';
 
 import { ControlSettings, TooltipSettings, RailSettings } from './types';
 import { Layout } from '../../types';
-import { generateContinousColorScale } from '@keen.io/charts-utils';
+import { generateContinuousColorScale } from '@keen.io/charts-utils';
 
 const initialDragControlsState = {
   minimum: {
@@ -145,11 +146,9 @@ export const RangeSlider: FC<Props> = ({
       };
 
   const [currentMinimum, currentMaximum] = value as number[];
-  const colorScale = generateContinousColorScale(
-    minimum,
-    maximum,
-    colorSteps,
-    colors
+  const colorScale = useMemo(
+    () => generateContinuousColorScale(minimum, maximum, colorSteps, colors),
+    [minimum, maximum, colorSteps, colors]
   );
   const colorScaleRange = colorScale.range();
   const absoluteMinimum = Math.abs(minimum);

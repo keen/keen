@@ -1,5 +1,5 @@
 import { ColorMode } from '@keen.io/ui-core';
-import { generateContinousColorScale } from '@keen.io/charts-utils';
+import { generateContinuousColorScale } from '@keen.io/charts-utils';
 import { theme } from '../theme';
 
 export const calculateColorScale = (
@@ -27,5 +27,5 @@ export const calculateColorScale = (
   }
 
   // continuous
-  return generateContinousColorScale(minValue, maxValue, steps, colors);
+  return generateContinuousColorScale(minValue, maxValue, steps, colors);
 };

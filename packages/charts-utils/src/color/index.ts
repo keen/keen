@@ -1,4 +1,4 @@
 import getPaletteColor from './get-palette-color';
-import generateContinousColorScale from './generate-continous-color-scale';
+import generateContinuousColorScale from './generate-continous-color-scale';
 
-export { getPaletteColor, generateContinousColorScale };
+export { getPaletteColor, generateContinuousColorScale };

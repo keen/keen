@@ -45,7 +45,7 @@ import {
   FormatFunction,
 } from './types';
 
-import { getPaletteColor, generateContinousColorScale } from './color';
+import { getPaletteColor, generateContinuousColorScale } from './color';
 
 export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
 
@@ -79,5 +79,5 @@ export {
   sortKeysByValuesSum,
   INTERVAL_TO_PRECISION,
   getPaletteColor,
-  generateContinousColorScale,
+  generateContinuousColorScale,
 };

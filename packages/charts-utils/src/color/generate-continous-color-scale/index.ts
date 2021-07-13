@@ -1,3 +1,3 @@
-import generateContinousColorScale from './generate-continous-color-scale';
+import generateContinuousColorScale from './generate-continous-color-scale';
 
-export default generateContinousColorScale;
+export default generateContinuousColorScale;

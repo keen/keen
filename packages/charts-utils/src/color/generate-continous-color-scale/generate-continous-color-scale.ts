@@ -1,5 +1,6 @@
 import { scaleLinear } from 'd3-scale';
 import { colors as palette } from '@keen.io/colors';
+import invertColor from '../invert-color';
 
 /**
  * Generate a linear color scale for heatmap, choropleth and sliders
@@ -12,14 +13,15 @@ import { colors as palette } from '@keen.io/colors';
  *
  */
 
-const generateContinousColorScale = (
+const generateContinuousColorScale = (
   minValue: number,
   maxValue: number,
   steps = 2,
   colors: string[]
 ) => {
   if (steps <= 1 || colors.length === 1) {
-    const positiveColor = colors.length === 1 ? 'red' : colors[1];
+    const positiveColor =
+      colors.length === 1 ? invertColor(colors[0]) : colors[1];
     const domainValues =
       minValue < 0 && maxValue > 0
         ? [minValue, 0, maxValue]
@@ -71,4 +73,4 @@ const generateContinousColorScale = (
     .range(colors.slice(0, steps));
 };
 
-export default generateContinousColorScale;
+export default generateContinuousColorScale;
