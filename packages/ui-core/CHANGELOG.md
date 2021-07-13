@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.3...@keen.io/ui-core@2.37.0) (2021-07-13)
+
+
+### Features
+
+* 🎸 Side menu component added ([de5dd0e](https://github.com/keen/keen/commit/de5dd0e5ccd245f1b1d147a9af6ae1a2d82d96d5))
+
+
+
+
+
 ## [2.36.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.2...@keen.io/ui-core@2.36.3) (2021-07-05)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.92](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.91...@keen.io/toast-notifications@1.1.92) (2021-07-13)
+
+**Note:** Version bump only for package @keen.io/toast-notifications
+
+
+
+
+
 ## [1.1.91](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.90...@keen.io/toast-notifications@1.1.91) (2021-07-05)
 
 **Note:** Version bump only for package @keen.io/toast-notifications
