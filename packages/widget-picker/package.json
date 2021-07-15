@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/widget-picker",
-  "version": "1.2.148",
+  "version": "1.2.149",
   "description": "Keen widget picker component",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -37,10 +37,10 @@
     "framer-motion": "^1.11.1"
   },
   "devDependencies": {
-    "@keen.io/charts": "^2.26.3",
-    "@keen.io/storybook-utils": "^2.1.17",
-    "@keen.io/ui-core": "^2.37.1",
-    "@keen.io/widgets": "^2.11.18"
+    "@keen.io/charts": "^2.26.4",
+    "@keen.io/storybook-utils": "^2.2.0",
+    "@keen.io/ui-core": "^2.38.0",
+    "@keen.io/widgets": "^2.12.0"
   },
   "publishConfig": {
     "access": "public"

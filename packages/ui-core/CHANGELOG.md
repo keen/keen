@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.38.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.37.1...@keen.io/ui-core@2.38.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Disable card interface ([aea5813](https://github.com/keen/keen/commit/aea581340b7c0ec4f0e48c00b3505cbc04e08382))
+
+
+
+
+
 ## [2.37.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.37.0...@keen.io/ui-core@2.37.1) (2021-07-15)
 
 **Note:** Version bump only for package @keen.io/ui-core

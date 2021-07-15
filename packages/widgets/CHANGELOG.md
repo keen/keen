@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.18...@keen.io/widgets@2.12.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* 🐛 Disabling cards in metric and table component ([124f636](https://github.com/keen/keen/commit/124f636d156a7d812e4de0e3d04a58c67b895328))
+
+
+### Features
+
+* 🎸 Disable card interface ([aea5813](https://github.com/keen/keen/commit/aea581340b7c0ec4f0e48c00b3505cbc04e08382))
+
+
+
+
+
 ## [2.11.18](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.17...@keen.io/widgets@2.11.18) (2021-07-15)
 
 **Note:** Version bump only for package @keen.io/widgets
