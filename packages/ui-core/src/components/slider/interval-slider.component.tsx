@@ -51,8 +51,6 @@ type Props = {
   railSettings?: RailSettings;
   /** Colors applied to rail container  */
   colors: string[];
-  /** Number of colors steps */
-  colorSteps?: number;
   /** Initial value */
   initialValue?: number;
 };
@@ -61,7 +59,6 @@ export const IntervalSlider: FC<Props> = ({
   intervals,
   onChange,
   colors,
-  colorSteps = 2,
   tooltipSettings = {
     enabled: true,
     position: 'bottom',
@@ -175,7 +172,6 @@ export const IntervalSlider: FC<Props> = ({
         size={railSettings.size}
         borderRadius={railSettings.borderRadius}
         colors={colors}
-        colorSteps={colorSteps}
       />
       <OffRange
         borderRadius={railSettings.borderRadius}

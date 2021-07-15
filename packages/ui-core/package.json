@@ -35,6 +35,7 @@
     "styled-components": ">=5"
   },
   "dependencies": {
+    "@keen.io/charts-utils": "^1.8.3",
     "@keen.io/colors": "^1.1.0",
     "@keen.io/icons": "^1.4.0",
     "@keen.io/query": "^1.1.1",
@@ -44,15 +45,15 @@
     "fuse.js": "^6.4.1",
     "polished": "^3.4.4",
     "rc-time-picker": "^3.7.3",
+    "react-color": "^2.18.1",
     "react-column-resizer": "^1.1.9",
     "react-dates": "^21.8.0",
     "react-select": "^3.1.0",
     "react-vtree": "2.0.4",
     "react-window": "^1.8.6",
-    "styled-system": "^5.1.5",
-    "webfontloader": "^1.6.28",
     "sortablejs": "^1.13.0",
-    "react-color": "^2.18.1"
+    "styled-system": "^5.1.5",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.13.8",
@@ -65,9 +66,9 @@
     "@types/react-dates": "^21.8.1",
     "@types/react-select": "^3.0.13",
     "@types/react-window": "^1.8.2",
+    "@types/sortablejs": "^1.10.6",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
-    "@types/sortablejs": "^1.10.6",
     "@types/webfontloader": "^1.6.29",
     "babel-plugin-styled-components": "^1.12.0"
   },

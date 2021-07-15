@@ -49,7 +49,7 @@ export const generateVerticalBlocks = ({
     localizedData.forEach((_d: any, index: number) => {
       const value = localizedData[index]?.[keyName];
       const inRange = range ? value >= range.min && value <= range.max : true;
-      if (keyName !== labelSelector && value >= 0 && inRange) {
+      if (keyName !== labelSelector && inRange) {
         const block = {
           key: `${index}.${keyName}.block`,
           selector: [index, keyName],
@@ -117,7 +117,7 @@ export const generateHorizontalBlocks = ({
     localizedData.forEach((_d: any, index: number) => {
       const value = data[index]?.[keyName];
       const inRange = range ? value >= range.min && value <= range.max : true;
-      if (keyName !== labelSelector && value >= 0 && inRange) {
+      if (keyName !== labelSelector && inRange) {
         const block = {
           key: `${index}.${keyName}.block`,
           selector: [index, keyName],
