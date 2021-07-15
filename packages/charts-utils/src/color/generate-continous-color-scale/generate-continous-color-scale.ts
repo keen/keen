@@ -32,6 +32,7 @@ const generateContinuousColorScale = (
       if (minValue < 0 && maxValue <= 0) return [colors[0], palette.white[500]];
       return [palette.white[500], colors[0]];
     };
+
     return scaleLinear<string>()
       .domain(domainValues)
       .range(rangeColors(minValue, maxValue));
