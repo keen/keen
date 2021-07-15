@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { colors } from '@keen.io/colors';
 
 export type Props = {
-  enabled?: true;
+  enabled?: boolean;
   backgroundColor?: string;
   borderRadius?: number;
   hasShadow?: boolean;
