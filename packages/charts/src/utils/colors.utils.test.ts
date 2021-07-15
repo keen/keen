@@ -12,7 +12,7 @@ describe('@keen.io/charts - colors - utils', () => {
 
         expect(color(0)).toEqual('rgb(255, 255, 0)');
         expect(color(20)).toEqual('rgb(255, 0, 0)');
-        expect(color(10)).toEqual('rgb(0, 128, 0)');
+        expect(color(10)).toEqual('rgb(127, 64, 0)');
       });
       it('should return specific colors for 2 provided colors', () => {
         const color = calculateColorScale(0, 20, 'continuous', 2, [
@@ -22,15 +22,15 @@ describe('@keen.io/charts - colors - utils', () => {
 
         expect(color(0)).toEqual('rgb(255, 255, 255)');
         expect(color(20)).toEqual('rgb(0, 0, 0)');
-        expect(color(10)).toEqual('rgb(128, 128, 128)');
+        expect(color(10)).toEqual('rgb(0, 0, 0)');
       });
 
       it('should return specific colors for 0 provided colors', () => {
         const color = calculateColorScale(0, 20);
 
         expect(color(0)).toEqual('rgb(133, 180, 195)');
-        expect(color(20)).toEqual('rgb(72, 118, 80)');
-        expect(color(10)).toEqual('rgb(103, 149, 138)');
+        expect(color(20)).toEqual('rgb(11, 56, 0)');
+        expect(color(10)).toEqual('rgb(72, 118, 80)');
       });
     });
     describe('colorMode === discrete', () => {

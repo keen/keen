@@ -1,8 +1,6 @@
-import { scaleLinear } from 'd3-scale';
-
-import { theme } from '../theme';
-
 import { ColorMode } from '@keen.io/ui-core';
+import { generateContinuousColorScale } from '@keen.io/charts-utils';
+import { theme } from '../theme';
 
 export const calculateColorScale = (
   minValue: number,
@@ -27,11 +25,7 @@ export const calculateColorScale = (
       return colors[index];
     };
   }
-  // continuous
-  const step = (maxValue - minValue) / (steps - 1);
-  const domainValues = colors.map((_el: string, idx: number) => {
-    return step * idx;
-  });
 
-  return scaleLinear<string>().domain(domainValues).range(colors);
+  // continuous
+  return generateContinuousColorScale(minValue, maxValue, steps, colors);
 };
