@@ -62,7 +62,6 @@ exports[`@keen.io/ui-core - <RangeSlider /> should set initial value 1`] = `
   >
     <Rail
       borderRadius={3}
-      colorSteps={2}
       colors={
         Array [
           "blue",
