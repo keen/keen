@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.9.1...@keen.io/charts-utils@1.10.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
 ## [1.9.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.9.0...@keen.io/charts-utils@1.9.1) (2021-05-06)
 
 

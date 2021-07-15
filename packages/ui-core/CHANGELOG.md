@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.39.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.38.0...@keen.io/ui-core@2.39.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([1c79afe](https://github.com/keen/keen/commit/1c79afe4aa10a3b3d446e263ec1cdb89c429a650))
+* 🐛 Prop type fix ([107055d](https://github.com/keen/keen/commit/107055d3f5b46896dfaf45860b48664469e8262e))
+* 🐛 set scroll position once the modal is open ([1e9d114](https://github.com/keen/keen/commit/1e9d114c4a1a9fb12799d941ecc5c0cab9fe1afa))
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
 # [2.38.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.37.1...@keen.io/ui-core@2.38.0) (2021-07-15)
 
 

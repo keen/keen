@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/keen/keen/compare/@keen.io/charts@2.26.4...@keen.io/charts@2.27.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
 ## [2.26.4](https://github.com/keen/keen/compare/@keen.io/charts@2.26.3...@keen.io/charts@2.26.4) (2021-07-15)
 
 **Note:** Version bump only for package @keen.io/charts

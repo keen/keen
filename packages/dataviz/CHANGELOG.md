@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.12.31...@keen.io/dataviz@2.13.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
 ## [2.12.31](https://github.com/keen/keen/compare/@keen.io/dataviz@2.12.30...@keen.io/dataviz@2.12.31) (2021-07-15)
 
 **Note:** Version bump only for package @keen.io/dataviz
