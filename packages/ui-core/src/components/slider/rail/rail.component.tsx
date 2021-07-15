@@ -29,10 +29,13 @@ const Rail: FC<Props> = ({ type, colors, zeroPoint, borderRadius, size }) => {
           transform: 'translateX(-50%)',
         };
 
-  const background = `linear-gradient(${gradientAngle}deg, ${stringifyColors(
-    colors,
-    zeroPoint
-  )}`;
+  const background =
+    colors.length > 1
+      ? `linear-gradient(${gradientAngle}deg, ${stringifyColors(
+          colors,
+          zeroPoint
+        )}`
+      : colors[0];
 
   return (
     <div
