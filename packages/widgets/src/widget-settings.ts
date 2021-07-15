@@ -23,6 +23,7 @@ export const widgetSettings: WidgetSettings = {
     backgroundColor: colors.white['500'],
     borderRadius: 0,
     hasShadow: true,
+    enabled: true,
   },
   title: {
     content: '',
