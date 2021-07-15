@@ -11,3 +11,9 @@ export const HeadingPosition = styled.div`
   top: 0;
   left: 0;
 `;
+
+export const WidgetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;

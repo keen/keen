@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { colors } from '@keen.io/colors';
 
 export type Props = {
+  enabled?: true;
   backgroundColor?: string;
   borderRadius?: number;
   hasShadow?: boolean;
@@ -31,6 +32,7 @@ export const Card = styled.div<Props>`
 `;
 
 Card.defaultProps = {
+  enabled: true,
   backgroundColor: colors.white['500'],
   hasShadow: true,
   padding: 20,
