@@ -9,7 +9,9 @@ const render = (overProps: any = {}) => {
     title: () => null,
     legend: () => null,
     content: () => null,
-    cardSettings: {},
+    cardSettings: {
+      enabled: true,
+    },
     legendSettings: {},
     ...overProps,
   };
