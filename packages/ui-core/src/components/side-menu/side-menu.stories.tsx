@@ -11,14 +11,29 @@ export default {
 };
 
 const SideMenu = () => {
-  const menuItems = ['Menu item 1', 'Menu item 2', 'Menu item 3'];
-  const [activeItem, setActiveItem] = useState(menuItems[0]);
+  const menuItems = [
+    {
+      id: 'item1',
+      label: 'Menu item 1',
+    },
+    {
+      id: 'item2',
+      label: 'Menu item 2',
+    },
+    {
+      id: 'item3',
+      label: 'Menu item 3',
+    },
+  ];
+
+  const [activeItemId, setActiveItemId] = useState(menuItems[0].id);
+
   return (
     <div style={{ width: '400px', height: '300px' }}>
       <SideMenuComponent
         menuItems={menuItems}
-        activeItem={activeItem}
-        onChange={(activeItem) => setActiveItem(activeItem)}
+        activeItemId={activeItemId}
+        onChange={(activeItem) => setActiveItemId(activeItem)}
       />
     </div>
   );
