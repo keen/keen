@@ -2,7 +2,12 @@ import React from 'react';
 
 import { Card, CardSettings } from '@keen.io/ui-core';
 
-import { Layout, TitleSocket, LegendSocket } from './chart-widget.styles';
+import {
+  Layout,
+  TitleSocket,
+  LegendSocket,
+  WidgetWrapper,
+} from './chart-widget.styles';
 
 import { LegendSettings } from '../../types';
 
@@ -19,19 +24,12 @@ type Props = {
   legendSettings: Pick<LegendSettings, 'position' | 'layout' | 'alignment'>;
 };
 
-const ChartWidget = ({
-  title,
-  legend,
-  content,
-  cardSettings,
-  legendSettings,
-}: Props) => {
+const Widget = ({ title, legendSettings, content, legend }: Partial<Props>) => {
   const legendComponent = legend();
   const titleComponent = title();
   const contentComponent = content();
-
   return (
-    <Card {...cardSettings}>
+    <>
       <TitleSocket data-testid="title-socket">{titleComponent}</TitleSocket>
       <Layout legendPosition={legendSettings.position}>
         {legendComponent && (
@@ -41,7 +39,35 @@ const ChartWidget = ({
         )}
         {contentComponent}
       </Layout>
+    </>
+  );
+};
+
+const ChartWidget = ({
+  title,
+  legend,
+  content,
+  cardSettings,
+  legendSettings,
+}: Props) => {
+  return cardSettings.enabled ? (
+    <Card {...cardSettings}>
+      <Widget
+        title={title}
+        legendSettings={legendSettings}
+        legend={legend}
+        content={content}
+      />
     </Card>
+  ) : (
+    <WidgetWrapper>
+      <Widget
+        title={title}
+        legendSettings={legendSettings}
+        legend={legend}
+        content={content}
+      />
+    </WidgetWrapper>
   );
 };
 

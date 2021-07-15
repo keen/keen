@@ -25,6 +25,12 @@ export const TitleSocket = styled.div`
   flexgrow: 0;
 `;
 
+export const WidgetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
 export const LegendSocket = styled.div<{
   layout: 'vertical' | 'horizontal';
   alignment: Alignment;

@@ -9,6 +9,9 @@ const render = (overProps: any = {}) => {
     title: '',
     subtitle: '',
     tags: [],
+    card: {
+      enabled: true,
+    },
     data: chartData,
     ...overProps,
   };
