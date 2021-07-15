@@ -101,7 +101,7 @@ export const Modal: FC<Props> = ({
     if (adjustPositionToScroll) {
       setScrollY(window.scrollY);
     }
-  }, [adjustPositionToScroll, window.scrollY]);
+  }, [isOpen]);
 
   const showMask = useMask && isOpen;
 
