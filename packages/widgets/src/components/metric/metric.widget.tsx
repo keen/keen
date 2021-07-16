@@ -4,11 +4,7 @@ import { Card } from '@keen.io/ui-core';
 
 import WidgetHeading from '../widget-heading.component';
 
-import {
-  Container,
-  HeadingPosition,
-  WidgetWrapper,
-} from './metric.widget.styles';
+import { Container, HeadingPosition } from './metric.widget.styles';
 
 import { WidgetSettings } from '../../types';
 type Props = WidgetSettings & MetricChartSettings;
@@ -31,20 +27,10 @@ export const MetricChartWidget: FC<Props> = ({
   subtitle,
   tags,
   ...props
-}) => {
-  return (
-    <>
-      {card.enabled ? (
-        <Card {...card} hideOverflow>
-          <Widget title={title} subtitle={subtitle} tags={tags} {...props} />
-        </Card>
-      ) : (
-        <WidgetWrapper>
-          <Widget title={title} subtitle={subtitle} tags={tags} {...props} />
-        </WidgetWrapper>
-      )}
-    </>
-  );
-};
+}) => (
+  <Card {...card} hideOverflow>
+    <Widget title={title} subtitle={subtitle} tags={tags} {...props} />
+  </Card>
+);
 
 export default MetricChartWidget;
