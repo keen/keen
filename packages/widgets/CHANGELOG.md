@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.1...@keen.io/widgets@2.13.2) (2021-07-16)
+
+
+### Bug Fixes
+
+* 🐛 Choropleth range slider fix ([1ae113e](https://github.com/keen/keen/commit/1ae113ef7768cf9a4d1de68b44b4713529f26b2e))
+
+
+
+
+
 ## [2.13.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.0...@keen.io/widgets@2.13.1) (2021-07-16)
 
 
