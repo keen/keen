@@ -2,12 +2,7 @@ import React from 'react';
 
 import { Card, CardSettings } from '@keen.io/ui-core';
 
-import {
-  Layout,
-  TitleSocket,
-  LegendSocket,
-  WidgetWrapper,
-} from './chart-widget.styles';
+import { Layout, TitleSocket, LegendSocket } from './chart-widget.styles';
 
 import { LegendSettings } from '../../types';
 
@@ -49,26 +44,15 @@ const ChartWidget = ({
   content,
   cardSettings,
   legendSettings,
-}: Props) => {
-  return cardSettings.enabled ? (
-    <Card {...cardSettings}>
-      <Widget
-        title={title}
-        legendSettings={legendSettings}
-        legend={legend}
-        content={content}
-      />
-    </Card>
-  ) : (
-    <WidgetWrapper>
-      <Widget
-        title={title}
-        legendSettings={legendSettings}
-        legend={legend}
-        content={content}
-      />
-    </WidgetWrapper>
-  );
-};
+}: Props) => (
+  <Card {...cardSettings}>
+    <Widget
+      title={title}
+      legendSettings={legendSettings}
+      legend={legend}
+      content={content}
+    />
+  </Card>
+);
 
 export default ChartWidget;

@@ -16,18 +16,24 @@ export const Card = styled.div<Props>`
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: ${(props) => props.backgroundColor};
-  border: ${(props) => `${props.borderWidth}px solid ${props.borderColor}`};
-  border-radius: ${(props) => props.borderRadius}px;
   box-sizing: border-box;
-  box-shadow: ${(props) =>
-    props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
   padding: ${(props) => props.padding}px;
+  border: ${(props) => `${props.borderWidth}px solid transparent`};
 
   ${(props) =>
     props.hideOverflow &&
     css`
       overflow: hidden;
+    `};
+
+  ${(props) =>
+    props.enabled &&
+    css`
+      background: ${(props: Props) => props.backgroundColor};
+      border: ${(props) => `${props.borderWidth}px solid ${props.borderColor}`};
+      border-radius: ${(props) => props.borderRadius}px;
+      box-shadow: ${(props) =>
+        props.hasShadow ? '0px 2px 4px 0px rgba(29,39,41,0.15)' : 'none'};
     `};
 `;
 
