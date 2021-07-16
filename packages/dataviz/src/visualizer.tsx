@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
+import { extendTheme } from '@keen.io/charts';
 
 import { renderWidget } from './render-widget';
 import text from './text.json';
 
 import {
-  extendTheme,
   extendChartSettings,
   extendWidgetSettings,
   prepareVisualization,

@@ -1,8 +1,6 @@
 import deepMerge from 'deepmerge';
-import {
-  Theme as ChartTheme,
-  theme as defaultChartTheme,
-} from '@keen.io/charts';
+import { Theme as ChartTheme } from '../types';
+import { theme as defaultChartTheme } from '../theme';
 
 /**
  * Extends visualization theme with custom settings
