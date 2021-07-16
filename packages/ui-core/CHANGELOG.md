@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.39.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.0...@keen.io/ui-core@2.39.1) (2021-07-16)
+
+
+### Bug Fixes
+
+* 🐛 Disable chart card - implementation change ([089be26](https://github.com/keen/keen/commit/089be2624e8352835acf410f0131b0a87ecb226e))
+
+
+
+
+
 # [2.39.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.38.0...@keen.io/ui-core@2.39.0) (2021-07-15)
 
 
