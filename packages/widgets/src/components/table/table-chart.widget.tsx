@@ -6,7 +6,7 @@ import {
 } from '@keen.io/charts';
 import { Card } from '@keen.io/ui-core';
 
-import { HeaderContainer, WidgetWrapper } from './table-chart.widget.styles';
+import { HeaderContainer } from './table-chart.widget.styles';
 
 import WidgetHeading from '../widget-heading.component';
 
@@ -35,29 +35,16 @@ export const TableChartWidget: FC<Props> = ({
   card,
   tags,
   ...props
-}) => {
-  return card.enabled ? (
-    <Card {...card} padding={0}>
-      <Widget
-        tags={tags}
-        title={title}
-        subtitle={subtitle}
-        theme={theme}
-        card={card}
-        {...props}
-      />
-    </Card>
-  ) : (
-    <WidgetWrapper>
-      <Widget
-        tags={tags}
-        title={title}
-        subtitle={subtitle}
-        theme={theme}
-        card={card}
-        {...props}
-      />
-    </WidgetWrapper>
-  );
-};
+}) => (
+  <Card {...card} padding={0}>
+    <Widget
+      tags={tags}
+      title={title}
+      subtitle={subtitle}
+      theme={theme}
+      card={card}
+      {...props}
+    />
+  </Card>
+);
 export default TableChartWidget;
