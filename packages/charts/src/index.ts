@@ -40,7 +40,7 @@ import { theme, margins } from './theme';
 
 import { Theme, Axis, StackMode, GroupMode, Tooltip } from './types';
 
-import { OTHERS_DATA_KEY, bubbleColorScale } from './utils';
+import { OTHERS_DATA_KEY, bubbleColorScale, extendTheme } from './utils';
 
 export type {
   Theme,
@@ -87,4 +87,5 @@ export {
   margins,
   OTHERS_DATA_KEY,
   bubbleColorScale,
+  extendTheme,
 };
