@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/keen/keen/compare/@keen.io/charts@2.27.2...@keen.io/charts@2.28.0) (2021-07-20)
+
+
+### Features
+
+* 🎸 Grid type exported from charts ([55f23b6](https://github.com/keen/keen/commit/55f23b6b40b6e98def6b411927bf7df2e84447cb))
+
+
+
+
+
 ## [2.27.2](https://github.com/keen/keen/compare/@keen.io/charts@2.27.1...@keen.io/charts@2.27.2) (2021-07-16)
 
 **Note:** Version bump only for package @keen.io/charts
