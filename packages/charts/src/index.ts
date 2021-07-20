@@ -38,7 +38,7 @@ import {
 
 import { theme, margins } from './theme';
 
-import { Theme, Axis, StackMode, GroupMode, Tooltip } from './types';
+import { Theme, Axis, StackMode, GroupMode, Tooltip, Grid } from './types';
 
 import { OTHERS_DATA_KEY, bubbleColorScale, extendTheme } from './utils';
 
@@ -62,6 +62,7 @@ export type {
   GroupMode,
   CurveType,
   Tooltip,
+  Grid,
 };
 
 export {
