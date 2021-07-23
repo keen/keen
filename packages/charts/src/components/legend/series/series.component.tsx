@@ -48,6 +48,27 @@ const SERIES = [
   { name: 'l3r', color: 'aqua' },
 ];
 
+
+/*
+<Label
+  typography={typography}
+  markColor={color}
+  onClick={(disabled, label) => {
+    onClick(label, disabled, idx);
+    if (onDeactivate && disabled) onDeactivate();
+    if (onActivate && !disabled) onActivate(label);
+  }}
+  onMouseEnter={(label) => {
+    if (onActivate) onActivate(label);
+  }}
+  onMouseLeave={() => {
+    onDeactivate && onDeactivate();
+  }}
+  text={name}
+/>
+
+*/
+
 export const SeriesLegend: FC<Props> = ({
   layout,
   labels,
@@ -63,6 +84,9 @@ export const SeriesLegend: FC<Props> = ({
     typography,
     position,
     card,
+    onItemClick: onClick,
+    onItemActivate: onActivate,
+    onItemDeactivate: onDeactivate,
   };
 
   return (

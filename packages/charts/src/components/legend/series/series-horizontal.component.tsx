@@ -7,7 +7,7 @@ import { Container, Layout } from './series-horizontal.styles';
 import Card from '../card';
 import Slider from '../slider';
 
-import Label, { MAX_LABEL_WIDTH } from '../label';
+import Label from '../label';
 
 import { DataSerie } from './types';
 
@@ -28,6 +28,16 @@ type Props = {
   dataSeries: DataSerie[];
   /** Update visibile data series offset */
   onOffsetUpdate: (offset: [number, number]) => void;
+  /** Legend item width */
+  itemWidth?: number;
+  /** Space between items */
+  itemGap?: number;
+  /** Handler for item click event */
+  onItemClick: (key: string, disabled: boolean, index: number) => void;
+  /** Activate data serie handler */
+  onItemActivate?: (dataSerie: string | boolean) => void;
+  /** Deactive data serie handler */
+  onItemDeactivate?: () => void;
 };
 
 const SeriesHorizontal: FC<Props> = ({
@@ -36,6 +46,11 @@ const SeriesHorizontal: FC<Props> = ({
   typography,
   dataSeries,
   colorPalette,
+  onItemClick,
+  onItemActivate,
+  onItemDeactivate,
+  itemWidth = 65,
+  itemGap = 10,
 }) => {
   const containerRef = useRef(null);
   const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
@@ -51,27 +66,24 @@ const SeriesHorizontal: FC<Props> = ({
 
   const [startOffset, endOffset] = dataSeriesOffset;
 
-
   useEffect(() => {
     if (renderMode === 'slider') {
-      const colorPaletteCapacity = colorPalette.length;
-
+      const colorsInPallete = colorPalette.length;
       const containerWidth = containerRef.current.offsetWidth;
-      const containerHeight = containerRef.current.offsetHeight;
 
       const SLIDER_CONTROL_WIDTH = 15;
 
-      const itemsFit = Math.floor(
-        (containerWidth - 30) / (MAX_LABEL_WIDTH + 10)
+      const dimensionCapacity = Math.floor(
+        (containerWidth - 2 * SLIDER_CONTROL_WIDTH) / (itemWidth + itemGap)
       );
+
       const itemsInSlider =
-        itemsFit > colorPaletteCapacity ? colorPaletteCapacity : itemsFit;
+        dimensionCapacity > colorsInPallete
+          ? colorsInPallete
+          : dimensionCapacity;
 
-      // nie może być większy niż containerWidth
       const sliderWidth =
-        itemsInSlider * (MAX_LABEL_WIDTH + 10) + 2 * SLIDER_CONTROL_WIDTH;
-
-      console.log(sliderWidth, 'sliderWidth', containerHeight);
+        itemsInSlider * (itemWidth + itemGap) + 2 * SLIDER_CONTROL_WIDTH;
 
       setSliderDimension(([, height]) => [sliderWidth, height]);
       setDataSeriesOffset([0, itemsInSlider]);
@@ -79,27 +91,38 @@ const SeriesHorizontal: FC<Props> = ({
   }, [renderMode]);
 
   useEffect(() => {
-    const colorPaletteMatch = dataSeries.length <= colorPalette.length;
-    const overflow = hasContentOverflow('horizontal', containerRef.current);
+    const notEnoughColors = dataSeries.length > colorPalette.length;
+    const contentOverflow = hasContentOverflow(
+      'horizontal',
+      containerRef.current
+    );
 
-    const containerHeight = containerRef.current.offsetHeight;
+    if (contentOverflow || notEnoughColors) {
+      const sliderHeight = containerRef.current.offsetHeight;
 
-    setSliderDimension([0, containerHeight]);
-
-    if (overflow || !colorPaletteMatch) {
+      setSliderDimension([0, sliderHeight]);
       setRenderMode('slider');
     }
   }, []);
 
   const renderNodes = (series: DataSerie[]) =>
-    series.map(({ name, color }: DataSerie) => (
+    series.map(({ name, color }: DataSerie, index: number) => (
       <div key={name}>
         <Label
+          maxWidth={itemWidth}
           typography={typography}
           markColor={color}
-          onClick={(disabled, label) => {}}
-          onMouseEnter={(label) => {}}
-          onMouseLeave={() => {}}
+          onClick={(disabled, label) => {
+            onItemClick(label, disabled, index);
+            if (onItemDeactivate && disabled) onItemDeactivate();
+            if (onItemActivate && !disabled) onItemActivate(label);
+          }}
+          onMouseEnter={(label) => {
+            if (onItemActivate) onItemActivate(label);
+          }}
+          onMouseLeave={() => {
+            onItemDeactivate && onItemDeactivate();
+          }}
           text={name}
         />
       </div>
@@ -112,7 +135,7 @@ const SeriesHorizontal: FC<Props> = ({
       <Container ref={containerRef}>
         <Card borderPosition="left" {...card}>
           {renderMode === 'list' ? (
-            <Layout>
+            <Layout itemSpace={itemGap}>
               {renderNodes(dataSeries.slice(0, colorPalette.length))}
             </Layout>
           ) : (
@@ -121,13 +144,21 @@ const SeriesHorizontal: FC<Props> = ({
               dimension={sliderDimension}
               nextDisabled={endOffset === dataSeries.length}
               previousDisabled={startOffset === 0}
-              onNext={() =>
+              animation={(itemIndex) => {
+                const itemPosition = itemIndex * (itemWidth + itemGap);
+                return {
+                  initial: { opacity: 0, x: itemPosition, y: '-50%' },
+                  animate: { x: itemPosition, opacity: 1 },
+                  exit: { x: '-50%', opacity: 0 },
+                };
+              }}
+              onNextSlide={() =>
                 setDataSeriesOffset(([startOffset, endOffset]) => [
                   startOffset + 1,
                   endOffset + 1,
                 ])
               }
-              onPrevious={() =>
+              onPreviousSlide={() =>
                 setDataSeriesOffset(([startOffset, endOffset]) => [
                   startOffset - 1,
                   endOffset - 1,

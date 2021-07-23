@@ -1,4 +1,5 @@
 import React from 'react';
+import { MotionProps } from 'framer-motion';
 
 import { Container } from './slider.styles';
 
@@ -12,24 +13,21 @@ type Props = {
   /** Container width and height */
   dimension: [number, number];
   /** Next slide event handler */
-  onNext: () => void;
+  onNextSlide: () => void;
   /** Previous slide event handler */
-  onPrevious: () => void;
+  onPreviousSlide: () => void;
   nextDisabled?: boolean;
   previousDisabled?: boolean;
+  /* */
+  animation: (idx: number) => MotionProps;
 };
-
-const anim = (idx: number) => ({
-  initial: { opacity: 0, x: idx * (65 + 10), y: '-50%' },
-  animate: { x: idx * (65 + 10), opacity: 1 },
-  exit: { x: '-50%', opacity: 0 },
-});
 
 const LegendSlider = ({
   children,
   dimension,
-  onNext,
-  onPrevious,
+  animation,
+  onNextSlide,
+  onPreviousSlide,
   nextDisabled,
   previousDisabled,
 }: Props) => {
@@ -39,13 +37,13 @@ const LegendSlider = ({
     <Container width={width} height={height}>
       <div
         style={{ position: 'absolute', left: 0, top: 0, zIndex: 9999 }}
-        onClick={!previousDisabled && onPrevious}
+        onClick={!previousDisabled && onPreviousSlide}
       >
         {'<'}
       </div>
-      <ShiftGroup shiftAnimation={anim}>{children}</ShiftGroup>
+      <ShiftGroup shiftAnimation={animation}>{children}</ShiftGroup>
       <div
-        onClick={!nextDisabled && onNext}
+        onClick={!nextDisabled && onNextSlide}
         style={{ position: 'absolute', right: 0, top: 0 }}
       >
         {'>'}
