@@ -1,5 +1,4 @@
 import React, { FC, useRef, useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Position, Alignment, Typography } from '@keen.io/ui-core';
 import { hasContentOverflow } from '@keen.io/charts-utils';
 
@@ -8,12 +7,16 @@ import { Container, Layout } from './series-horizontal.styles';
 import Card from '../card';
 import Label, { MAX_LABEL_WIDTH } from '../label';
 
+import ShiftGroup from './shift-group';
+
 import { DataSerie } from './types';
 
 import { LegendCardSettings, RenderMode } from '../types';
 
 type Props = {
+  /** Labels typography */
   typography: Typography;
+  /** Card settings */
   card: LegendCardSettings;
   /* Component position */
   position: Position;
@@ -26,16 +29,6 @@ type Props = {
   /** Update visibile data series offset */
   onOffsetUpdate: (offset: [number, number]) => void;
 };
-
-// Color pallete = data series or series lare ower than color palette and all fits then leave list
-
-// slider
-/*
-a) maximum rendered items eq colorPallete.length
-b)
-*/
-
-// jeżeli slider z powodu braku kolorow ale overflow = false to rederujemy slider z N items eq ilosc kolorow
 
 const SeriesHorizontal: FC<Props> = ({
   card,
@@ -51,15 +44,19 @@ const SeriesHorizontal: FC<Props> = ({
   ]);
 
   const [renderMode, setRenderMode] = useState<RenderMode>('list');
-  const [sliderWidth, setSliderWidth] = useState<number>(0);
+  const [sliderDimension, setSliderDimension] = useState<[number, number]>([0, 0]);
 
   const [startOffset, endOffset] = dataSeriesOffset;
+  const [sliderWidth, sliderHeight] = sliderDimension;
 
   useEffect(() => {
     if (renderMode === 'slider') {
       const colorPaletteCapacity = colorPalette.length;
 
       const containerWidth = containerRef.current.offsetWidth;
+      const containerHeight = containerRef.current.offsetHeight;
+
+
       const SLIDER_CONTROL_WIDTH = 15;
 
       const itemsFit = Math.floor(
@@ -72,9 +69,9 @@ const SeriesHorizontal: FC<Props> = ({
       const sliderWidth =
         itemsInSlider * (MAX_LABEL_WIDTH + 10) + 2 * SLIDER_CONTROL_WIDTH;
 
-      console.log(sliderWidth, 'sliderWidth');
+      console.log(sliderWidth, 'sliderWidth', containerHeight);
 
-      setSliderWidth(sliderWidth);
+      setSliderDimension(([, height]) => [sliderWidth, height]);
       setDataSeriesOffset([0, itemsInSlider]);
     }
   }, [renderMode]);
@@ -82,6 +79,10 @@ const SeriesHorizontal: FC<Props> = ({
   useEffect(() => {
     const colorPaletteMatch = dataSeries.length <= colorPalette.length;
     const overflow = hasContentOverflow('horizontal', containerRef.current);
+
+      const containerHeight = containerRef.current.offsetHeight;
+
+    setSliderDimension([0, containerHeight]);
 
     if (overflow || !colorPaletteMatch) {
       setRenderMode('slider');
@@ -112,7 +113,7 @@ const SeriesHorizontal: FC<Props> = ({
                 ))}
             </Layout>
           ) : (
-            <div style={{ width: `${sliderWidth}px` }}>
+            <div style={{ width: `${sliderWidth}px`, height: `${sliderHeight}px` }}>
               <div
                 style={{ position: 'absolute', left: 0, top: 0, zIndex: 9999 }}
                 onClick={() => {
@@ -127,17 +128,12 @@ const SeriesHorizontal: FC<Props> = ({
                   });
                 }}
               >{`<`}</div>
-              <Layout>
-                <AnimatePresence>
+              <ShiftGroup nodeWidth={MAX_LABEL_WIDTH} gapWidth={10}>
                   {dataSeries
                     .slice(dataSeriesOffset[0], dataSeriesOffset[1])
                     .map(({ name, color }, idx) => (
-                      <motion.div
+                      <div
                         key={`${name}`}
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2 }}
-                        exit={{}}
                       >
                         <Label
                           typography={typography}
@@ -147,10 +143,9 @@ const SeriesHorizontal: FC<Props> = ({
                           onMouseLeave={() => {}}
                           text={name}
                         />
-                      </motion.div>
+                      </div>
                     ))}
-                </AnimatePresence>
-              </Layout>
+                      </ShiftGroup>
               <div
                 style={{ position: 'absolute', right: 0, top: 0 }}
                 onClick={() => {

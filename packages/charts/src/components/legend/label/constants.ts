@@ -1,1 +1,1 @@
-export const MAX_LABEL_WIDTH = 60;
+export const MAX_LABEL_WIDTH = 65;

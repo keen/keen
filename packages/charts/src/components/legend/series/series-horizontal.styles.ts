@@ -15,4 +15,7 @@ export const Layout = styled.div`
   -webkit-box-pack: start;
   justify-content: flex-start;
   position: relative;
+
+  overflow: hidden;
+  
 `;

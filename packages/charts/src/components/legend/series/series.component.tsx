@@ -35,7 +35,7 @@ const SERIES = [
   { name: 'ka', color: '#487650' },
   { name: 'l2a', color: 'pink' },
   { name: 'li1', color: 'gray' },
-  { name: 'la33x', color: 'black' },
+  { name: 'la3ffffsd3x', color: 'black' },
   { name: 'licfsdfdsfsdenkaka', color: 'pink' },
   { name: ' walca na 6', color: 'gray' },
   { name: 'lor', color: 'aqua' },
