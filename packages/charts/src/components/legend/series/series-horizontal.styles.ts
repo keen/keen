@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  overflow: hidden;
+  outline: none;
+`;
+
+// kiedy overflow ale kolorow jest wystarczajaco to nie moze byc inline-flex
+
 export const Layout = styled.div`
   padding: 15px;
   display: grid;
-  grid-gap: 8px 10px;
+  gap: 8px 10px;
   grid-auto-flow: column;
+  -webkit-box-pack: start;
   justify-content: flex-start;
-`;
-
-export const GroupedSeries = styled.div`
-  display: grid;
-  grid-auto-flow: row;
-  grid-row-gap: 8px;
-  justify-content: flex-start;
+  position: relative;
 `;

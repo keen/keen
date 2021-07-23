@@ -4,3 +4,5 @@ export type LegendCardSettings = {
   borderRadius?: string;
   hasShadow?: boolean;
 };
+
+export type RenderMode = 'list' | 'slider';

@@ -28,7 +28,25 @@ type Props = {
   onActivate?: (dataSerie: string | boolean) => void;
   /** Deactive data serie handler */
   onDeactivate?: () => void;
+  colorPalette?: string[];
 };
+
+const SERIES = [
+  { name: 'ka', color: '#487650' },
+  { name: 'l2a', color: 'pink' },
+  { name: 'li1', color: 'gray' },
+  { name: 'la33x', color: 'black' },
+  { name: 'licfsdfdsfsdenkaka', color: 'pink' },
+  { name: ' walca na 6', color: 'gray' },
+  { name: 'lor', color: 'aqua' },
+  { name: 'sa3333331sa', color: 'blue' },
+  { name: 'licen', color: 'yellow' },
+  { name: '1  411', color: 'red' },
+  { name: 'af', color: 'black' },
+  { name: 'r', color: 'aqua' },
+  { name: 'a31r', color: 'aqua' },
+  { name: 'l3r', color: 'aqua' },
+];
 
 export const SeriesLegend: FC<Props> = ({
   layout,
@@ -39,47 +57,22 @@ export const SeriesLegend: FC<Props> = ({
   onClick,
   onActivate,
   onDeactivate,
+  colorPalette,
 }) => {
-  const items = labels.map(({ name, color }: DataSerie, idx: number) => (
-    <SingleSerie key={name}>
-      <Label
-        typography={typography}
-        markColor={color}
-        onClick={(disabled, label) => {
-          onClick(label, disabled, idx);
-          if (onDeactivate && disabled) onDeactivate();
-          if (onActivate && !disabled) onActivate(label);
-        }}
-        onMouseEnter={(label) => {
-          if (onActivate) onActivate(label);
-        }}
-        onMouseLeave={() => {
-          onDeactivate && onDeactivate();
-        }}
-        text={name}
-      />
-    </SingleSerie>
-  ));
-
   const commonProps = {
     typography,
     position,
     card,
-    labelsLength: labels.length,
   };
 
   return (
     <>
-      {layout === 'horizontal' ? (
-        <SeriesHorizontal {...commonProps}>{items}</SeriesHorizontal>
-      ) : (
-        <SeriesVertical
-          {...commonProps}
-          adaptiveHeight={position === 'top' || position === 'bottom'}
-        >
-          {items}
-        </SeriesVertical>
-      )}
+      <SeriesHorizontal
+        {...commonProps}
+        onOffsetUpdate={() => {}}
+        colorPalette={colorPalette}
+        dataSeries={SERIES}
+      />
     </>
   );
 };

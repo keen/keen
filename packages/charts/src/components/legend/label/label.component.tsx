@@ -41,10 +41,8 @@ const Label: FC<Props> = ({
         style={{ opacity: disabled ? 0.6 : 1 }}
       >
         <Circle background={disabled ? colors.gray[400] : markColor} />
-        <Text {...typography}>
-          {label && label.length > truncate
-            ? `${label.slice(0, truncate)}...`
-            : label}
+        <Text {...typography} truncate>
+          {label}
         </Text>
       </Wrapper>
     </StyledLabel>

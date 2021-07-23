@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { MAX_LABEL_WIDTH } from './constants';
+
 export const Circle = styled.div<{ background: string }>`
   margin-right: 5px;
   border-radius: 50%;
@@ -13,7 +15,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  white-space: nowrap;
+  max-width: ${MAX_LABEL_WIDTH}px;
 `;
 
 export const StyledLabel = styled.div`

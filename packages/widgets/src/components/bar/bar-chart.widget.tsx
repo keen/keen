@@ -44,6 +44,7 @@ export const BarChartWidget: FC<Props> = ({
         legend.enabled && (
           <SeriesLegend
             {...legend}
+            colorPalette={theme.colors}
             onClick={updateKeys}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
