@@ -17,5 +17,4 @@ export const Layout = styled.div`
   position: relative;
 
   overflow: hidden;
-  
 `;
