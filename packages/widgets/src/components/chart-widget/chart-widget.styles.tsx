@@ -21,8 +21,8 @@ export const Layout = styled.div<{
 
 export const TitleSocket = styled.div`
   display: flex;
-  flexdirection: column;
-  flexgrow: 0;
+  flex-direction: column;
+  flex-grow: 0;
 `;
 
 export const LegendSocket = styled.div<{

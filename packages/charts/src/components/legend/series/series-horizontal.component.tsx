@@ -51,6 +51,7 @@ const SeriesHorizontal: FC<Props> = ({
 }) => {
   const containerRef = useRef(null);
   const elementRef = useRef(null);
+  const [calculationReady, setCalculationReady] = useState(false);
   const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
     0,
     0,
@@ -83,6 +84,7 @@ const SeriesHorizontal: FC<Props> = ({
 
       setSliderDimension(([, height]) => [sliderWidth, height]);
       setDataSeriesOffset([0, itemsInSlider]);
+      setCalculationReady(true);
     }
   }, [renderMode]);
 
@@ -98,6 +100,8 @@ const SeriesHorizontal: FC<Props> = ({
 
       setSliderDimension([0, sliderHeight]);
       setRenderMode('slider');
+    } else {
+      setCalculationReady(true);
     }
   }, []);
 
@@ -105,7 +109,7 @@ const SeriesHorizontal: FC<Props> = ({
     <div
       style={{ background: 'transparent', width: '100%', position: 'relative' }}
     >
-      <Container ref={containerRef}>
+      <Container ref={containerRef} calculationReady={calculationReady}>
         <AlignmentContainer alignment={alignment}>
           <Card borderPosition="left" {...card}>
             {renderMode === 'list' ? (

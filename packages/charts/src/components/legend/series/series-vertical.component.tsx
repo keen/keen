@@ -44,6 +44,7 @@ const SeriesVertical: FC<Props> = ({
 }) => {
   const containerRef = useRef(null);
   const elementRef = useRef(null);
+  const [calculationReady, setCalculationReady] = useState(false);
 
   const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
     0,
@@ -76,6 +77,7 @@ const SeriesVertical: FC<Props> = ({
 
       setSliderDimension(([width]) => [width, sliderHeight]);
       setDataSeriesOffset([0, itemsInSlider]);
+      setCalculationReady(true);
     }
   }, [renderMode]);
 
@@ -86,8 +88,6 @@ const SeriesVertical: FC<Props> = ({
       containerRef.current
     );
 
-    console.log(contentOverflow,notEnoughColors, 'notEnoughColors' )
-
     if (contentOverflow || notEnoughColors) {
       const { height } = elementRef.current.getBoundingClientRect();
       setElementHeight(height);
@@ -97,6 +97,8 @@ const SeriesVertical: FC<Props> = ({
 
       setSliderDimension([sliderWidth, sliderHeight]);
       setRenderMode('slider');
+    } else {
+      setCalculationReady(true);
     }
   }, []);
 
@@ -110,7 +112,7 @@ const SeriesVertical: FC<Props> = ({
         position: 'relative',
       }}
     >
-      <Container alignment={alignment}   ref={containerRef}>
+      <Container calculationReady={calculationReady} alignment={alignment} ref={containerRef}>
         <Card borderPosition="top" {...card}>
           {renderMode === 'list' ? (
             <Layout itemSpace={itemGap}>
