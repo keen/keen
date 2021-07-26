@@ -12,8 +12,6 @@ type Props = {
   onMouseEnter?: (label: string) => void;
   onMouseLeave?: (label: string) => void;
   text?: string | boolean;
-  truncate?: number;
-
   maxWidth?: number;
 };
 
@@ -25,7 +23,6 @@ const Label: FC<Props> = ({
   onMouseLeave,
   typography,
   maxWidth,
-  truncate = 20,
 }) => {
   const [disabled, setDisable] = useState(false);
   const label = `${text}`;

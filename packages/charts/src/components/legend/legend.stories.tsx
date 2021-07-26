@@ -2,8 +2,9 @@ import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
 import { RangeSlider, Typography } from '@keen.io/ui-core';
-
 import { typographyKnobs, cardKnobs } from '@keen.io/storybook-utils';
+
+import { chartColors } from '../../theme';
 
 import LegendBase from './legend-base.component';
 import BubbleLegend from './bubble';
@@ -11,7 +12,7 @@ import { SeriesLegend } from './series/series.component';
 import { labels } from './legend.fixtures';
 
 const legendTypography = {
-  fontSize: 12,
+  fontSize: 10,
   fontFamily: 'Lato Regular',
   fontStyle: 'normal',
   fontWeight: 'normal',
@@ -26,7 +27,7 @@ export default {
   },
 };
 
-export const Row = () => (
+export const List = () => (
   <div style={{ width: '650px' }}>
     <SeriesLegend
       position="top"
@@ -34,33 +35,13 @@ export const Row = () => (
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="horizontal"
-      labels={labels}
+      colorPalette={chartColors}
+      dataSeries={labels}
     />
   </div>
 );
 
-export const Group = () => (
-  <div style={{ width: '500px' }}>
-    <SeriesLegend
-      position="top"
-      card={cardKnobs('Card')}
-      onClick={action('Legend element click')}
-      typography={typographyKnobs('typography', legendTypography as Typography)}
-      layout="horizontal"
-      labels={labels}
-    />
-  </div>
-);
-
-Group.story = {
-  parameters: {
-    docs: {
-      storyDescription: 'Grouped data series.',
-    },
-  },
-};
-
-export const GroupSlider = () => (
+export const ListSlider = () => (
   <div style={{ width: '270px' }}>
     <SeriesLegend
       position="top"
@@ -68,15 +49,16 @@ export const GroupSlider = () => (
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="horizontal"
-      labels={labels}
+      colorPalette={chartColors}
+      dataSeries={labels}
     />
   </div>
 );
 
-GroupSlider.story = {
+ListSlider.story = {
   parameters: {
     docs: {
-      storyDescription: 'Grouped data series displayed as slider.',
+      storyDescription: 'Data series displayed as slider.',
     },
   },
 };
@@ -89,7 +71,8 @@ export const Column = () => (
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
-      labels={labels}
+      colorPalette={chartColors}
+      dataSeries={labels}
     />
   </div>
 );
@@ -103,14 +86,16 @@ Column.story = {
 };
 
 export const ColumnSlider = () => (
-  <div style={{ width: '260px', height: '120px', background: 'red' }}>
+  <div style={{ width: '260px', height: '150px' }}>
     <SeriesLegend
       position="top"
+      alignment="left"
       card={cardKnobs('Card')}
       onClick={action('Legend element click')}
       typography={typographyKnobs('typography', legendTypography as Typography)}
       layout="vertical"
-      labels={labels}
+      colorPalette={chartColors}
+      dataSeries={labels}
     />
   </div>
 );
@@ -137,6 +122,7 @@ export const ValuesSlider = () => (
     <LegendBase
       card={cardKnobs('Card') as any}
       layout="horizontal"
+      fullDimension
       spacing="thin"
     >
       <RangeSlider colors={colorArray} minimum={0} maximum={100} />

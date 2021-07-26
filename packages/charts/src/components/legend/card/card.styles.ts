@@ -9,6 +9,10 @@ export const LegendCard = styled.div<
   display: inline-block;
   position: relative;
 
+  ${props => props.fullDimension && css`
+    width: 100%;
+  `}
+
   background: ${(props) => props.backgroundColor};
   border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius};

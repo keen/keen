@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import { Layout, Typography, Position, Alignment } from '@keen.io/ui-core';
 
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
+
+import Label from '../label';
 
 import { DataSerie } from './types';
 import { LegendCardSettings } from '../types';
@@ -14,7 +16,8 @@ type Props = {
   position: Position;
   /** Array of legend items */
   alignment: Alignment;
-  labels: DataSerie[];
+  /* Legend data series */
+  dataSeries: DataSerie[];
   /** typography styles */
   typography: Typography;
   /** Legend card styles */
@@ -25,49 +28,13 @@ type Props = {
   onActivate?: (dataSerie: string | boolean) => void;
   /** Deactive data serie handler */
   onDeactivate?: () => void;
+  /** Color palette */
   colorPalette?: string[];
 };
 
-const SERIES = [
-  { name: 'a', color: '#487650' },
-  { name: 'lfdsfdsfdsfssfd2a', color: 'pink' },
-  { name: 'c', color: 'gray' },
-  { name: 'la3fdsffffsd3x', color: 'black' },
-  { name: 'licfsdfdsfsdenkaka', color: 'pink' },
-  { name: ' wafdsfdslca na 6', color: 'gray' },
-  { name: 'lfdsfsdr', color: 'aqua' },
-  { name: 'sa3333331sa', color: 'blue' },
-  { name: 'licen', color: 'yellow' },
-  { name: '1  411', color: 'red' },
-  { name: 'af', color: 'black' },
-  { name: 'r', color: 'aqua' },
-  { name: 'a31r', color: 'aqua' },
-  { name: 'l3r', color: 'aqua' },
-];
-
-/*
-<Label
-  typography={typography}
-  markColor={color}
-  onClick={(disabled, label) => {
-    onClick(label, disabled, idx);
-    if (onDeactivate && disabled) onDeactivate();
-    if (onActivate && !disabled) onActivate(label);
-  }}
-  onMouseEnter={(label) => {
-    if (onActivate) onActivate(label);
-  }}
-  onMouseLeave={() => {
-    onDeactivate && onDeactivate();
-  }}
-  text={name}
-/>
-
-*/
-
 export const SeriesLegend: FC<Props> = ({
   layout,
-  labels,
+  dataSeries,
   position,
   alignment,
   typography,
@@ -82,19 +49,55 @@ export const SeriesLegend: FC<Props> = ({
     position,
     alignment,
     card,
-    onItemClick: onClick,
-    onItemActivate: onActivate,
-    onItemDeactivate: onDeactivate,
+    colorPalette,
+    dataSeries,
   };
+
+  const renderNodes = useCallback(
+    (
+      series: DataSerie[],
+      elementRef: React.MutableRefObject<any>,
+      itemWidth?: number
+    ) =>
+      series.map(({ name, color }: DataSerie, index: number) => (
+        <div key={name} ref={index === 0 ? elementRef : null}>
+          <Label
+            text={name}
+            maxWidth={itemWidth}
+            typography={typography}
+            markColor={color}
+            onClick={(disabled: boolean, label: string) => {
+              onClick(label, disabled, index);
+              if (onDeactivate && disabled) onDeactivate();
+              if (onActivate && !disabled) onActivate(label);
+            }}
+            onMouseEnter={(label: string) => {
+              if (onActivate) onActivate(label);
+            }}
+            onMouseLeave={() => {
+              onDeactivate && onDeactivate();
+            }}
+          />
+        </div>
+      )),
+    []
+  );
 
   return (
     <>
-      <SeriesHorizontal
-        {...commonProps}
-        onOffsetUpdate={() => {}}
-        colorPalette={colorPalette}
-        dataSeries={SERIES}
-      />
+      {layout === 'horizontal' ? (
+        <SeriesHorizontal
+          {...commonProps}
+          renderNodes={renderNodes}
+          onOffsetUpdate={() => {}}
+        />
+      ) : (
+        <SeriesVertical
+          {...commonProps}
+          renderNodes={renderNodes}
+          onOffsetUpdate={() => {}}
+        />
+      )}
     </>
   );
 };

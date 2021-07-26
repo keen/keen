@@ -1,9 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Alignment } from '@keen.io/ui-core';
 
-export const Layout = styled.div`
+export const Container = styled.div<{ alignment: Alignment }>`
+  overflow: hidden;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  ${(props) =>
+    props.alignment === 'center' &&
+    css`
+      justify-content: center;
+    `};
+
+  ${(props) =>
+    props.alignment === 'right' &&
+    css`
+      justify-content: flex-end;
+    `};
+`;
+
+export const Layout = styled.div<{
+  itemSpace: number;
+}>`
+  flex-direction: column;
   padding: 15px;
-  display: grid;
-  grid-gap: 8px 10px;
-  grid-auto-flow: row;
-  justify-content: flex-start;
+  grid-gap: ${(props) => props.itemSpace}px 10px;
+  display: flex;
 `;

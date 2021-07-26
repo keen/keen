@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState, useEffect } from 'react';
-import { Position, Alignment, Typography } from '@keen.io/ui-core';
+import { Position, Alignment } from '@keen.io/ui-core';
 import { hasContentOverflow } from '@keen.io/charts-utils';
 
 import {
@@ -10,15 +10,12 @@ import {
 
 import Card from '../card';
 import Slider from '../slider';
-import Label from '../label';
 
 import { BUTTON_DIMENSION } from '../slider-button';
 import { DataSerie } from './types';
 import { LegendCardSettings, RenderMode } from '../types';
 
 type Props = {
-  /** Labels typography */
-  typography: Typography;
   /** Card settings */
   card: LegendCardSettings;
   /* Component position */
@@ -35,27 +32,25 @@ type Props = {
   itemWidth?: number;
   /** Space between items */
   itemGap?: number;
-  /** Handler for item click event */
-  onItemClick: (key: string, disabled: boolean, index: number) => void;
-  /** Activate data serie handler */
-  onItemActivate?: (dataSerie: string | boolean) => void;
-  /** Deactive data serie handler */
-  onItemDeactivate?: () => void;
+  /** Render legend nodes */
+  renderNodes: (
+    series: DataSerie[],
+    elementRef: React.MutableRefObject<any>,
+    itemWidth?: number
+  ) => JSX.Element[];
 };
 
 const SeriesHorizontal: FC<Props> = ({
   card,
   alignment,
-  typography,
   dataSeries,
   colorPalette,
-  onItemClick,
-  onItemActivate,
-  onItemDeactivate,
   itemWidth = 65,
   itemGap = 10,
+  renderNodes,
 }) => {
   const containerRef = useRef(null);
+  const elementRef = useRef(null);
   const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
     0,
     0,
@@ -106,29 +101,6 @@ const SeriesHorizontal: FC<Props> = ({
     }
   }, []);
 
-  const renderNodes = (series: DataSerie[]) =>
-    series.map(({ name, color }: DataSerie, index: number) => (
-      <div key={name}>
-        <Label
-          maxWidth={itemWidth}
-          typography={typography}
-          markColor={color}
-          onClick={(disabled, label) => {
-            onItemClick(label, disabled, index);
-            if (onItemDeactivate && disabled) onItemDeactivate();
-            if (onItemActivate && !disabled) onItemActivate(label);
-          }}
-          onMouseEnter={(label) => {
-            if (onItemActivate) onItemActivate(label);
-          }}
-          onMouseLeave={() => {
-            onItemDeactivate && onItemDeactivate();
-          }}
-          text={name}
-        />
-      </div>
-    ));
-
   return (
     <div
       style={{ background: 'transparent', width: '100%', position: 'relative' }}
@@ -138,7 +110,11 @@ const SeriesHorizontal: FC<Props> = ({
           <Card borderPosition="left" {...card}>
             {renderMode === 'list' ? (
               <Layout itemSpace={itemGap}>
-                {renderNodes(dataSeries.slice(0, colorPalette.length))}
+                {renderNodes(
+                  dataSeries.slice(0, colorPalette.length),
+                  elementRef,
+                  itemWidth
+                )}
               </Layout>
             ) : (
               <Slider
@@ -150,7 +126,12 @@ const SeriesHorizontal: FC<Props> = ({
                   const itemPosition =
                     itemIndex * (itemWidth + itemGap) + BUTTON_DIMENSION;
                   return {
-                    initial: { opacity: 0, x: itemPosition, y: '-50%' },
+                    initial: {
+                      opacity: 0,
+                      x: itemPosition,
+                      y: '-50%',
+                      top: '50%',
+                    },
                     animate: { x: itemPosition, opacity: 1 },
                     exit: { x: '-50%', opacity: 0 },
                   };
@@ -169,7 +150,9 @@ const SeriesHorizontal: FC<Props> = ({
                 }
               >
                 {renderNodes(
-                  dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1])
+                  dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1]),
+                  elementRef,
+                  itemWidth
                 )}
               </Slider>
             )}

@@ -51,7 +51,8 @@ export const LineChartWidget: FC<Props> = ({
             onClick={updateKeys}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
-            labels={sortedKeys.map((key: string, idx: number) => ({
+            colorPalette={theme.colors}
+            dataSeries={sortedKeys.map((key: string, idx: number) => ({
               name: key,
               color: theme.colors[idx],
             }))}

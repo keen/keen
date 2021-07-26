@@ -50,7 +50,7 @@ const LegendSlider = ({
         position={previousButton.position}
         shadow={previousButton.shadow}
         gradientTransmition={previousButton.gradient}
-        onClick={!previousDisabled && onPreviousSlide}
+        onClick={!previousDisabled ? onPreviousSlide : undefined}
       >
         <Icon
           type={previousButton.icon}
@@ -66,7 +66,7 @@ const LegendSlider = ({
         position={nextButton.position}
         shadow={nextButton.shadow}
         gradientTransmition={previousButton.gradient}
-        onClick={!nextDisabled && onNextSlide}
+        onClick={!nextDisabled ? onNextSlide : undefined}
       >
         <Icon
           type={nextButton.icon}

@@ -23,13 +23,13 @@ export const sliderSettings: Record<'vertical' | 'horizontal', Settings> = {
       position: 'top',
       icon: 'caret-up',
       gradient: 'to bottom',
-      shadow: `0px 10px 5px ${transparentize(0.1, colors.white['500'])}`,
+      shadow: `0px 5px 5px ${transparentize(0.1, colors.white['500'])}`,
     },
     nextButton: {
       position: 'bottom',
       icon: 'caret-down',
       gradient: 'to top',
-      shadow: `0px -10px 5px ${transparentize(0.1, colors.white['500'])}`,
+      shadow: `0px -5px 5px ${transparentize(0.1, colors.white['500'])}`,
     },
   },
   horizontal: {
@@ -38,13 +38,13 @@ export const sliderSettings: Record<'vertical' | 'horizontal', Settings> = {
       position: 'left',
       icon: 'caret-left',
       gradient: 'to right',
-      shadow: `6px 0px 5px ${transparentize(0.1, colors.white['500'])}`,
+      shadow: `5px 0px 5px ${transparentize(0.1, colors.white['500'])}`,
     },
     nextButton: {
       position: 'right',
       icon: 'caret-right',
       gradient: 'to left',
-      shadow: `-6px 0px 5px ${transparentize(0.1, colors.white['500'])}`,
+      shadow: `-5px 0px 5px ${transparentize(0.1, colors.white['500'])}`,
     },
   },
 };

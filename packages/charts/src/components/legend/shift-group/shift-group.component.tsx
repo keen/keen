@@ -11,10 +11,7 @@ type Props = {
 const ShiftGroup: FC<Props> = ({ children, shiftAnimation }) => (
   <AnimatePresence>
     {React.Children.map(children, (childNode, idx) => (
-      <motion.div
-        style={{ position: 'absolute', top: '50%' }}
-        {...shiftAnimation(idx)}
-      >
+      <motion.div style={{ position: 'absolute' }} {...shiftAnimation(idx)}>
         {childNode}
       </motion.div>
     ))}
