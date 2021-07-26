@@ -1,16 +1,21 @@
 import styled, { css } from 'styled-components';
 import { Alignment } from '@keen.io/ui-core';
 
-export const Container = styled.div<{ alignment: Alignment; calculationReady?: boolean }>`
+export const Container = styled.div<{
+  alignment: Alignment;
+  calculationReady?: boolean;
+}>`
   overflow: hidden;
   outline: none;
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  ${props => props.calculationReady && css`
-    overflow: visible;
-  `};
+  ${(props) =>
+    props.calculationReady &&
+    css`
+      overflow: visible;
+    `};
 
   ${(props) =>
     props.alignment === 'center' &&

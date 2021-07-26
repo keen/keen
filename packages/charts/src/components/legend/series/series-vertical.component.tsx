@@ -24,6 +24,8 @@ type Props = {
   dataSeries: DataSerie[];
   /** Space between items */
   itemGap?: number;
+  /** Legend item width */
+  itemWidth?: number;
   /** Update visibile data series offset */
   onOffsetUpdate: (offset: [number, number]) => void;
   /** Render legend nodes */
@@ -40,6 +42,7 @@ const SeriesVertical: FC<Props> = ({
   colorPalette,
   dataSeries,
   renderNodes,
+  itemWidth = 80,
   itemGap = 8,
 }) => {
   const containerRef = useRef(null);
@@ -112,13 +115,18 @@ const SeriesVertical: FC<Props> = ({
         position: 'relative',
       }}
     >
-      <Container calculationReady={calculationReady} alignment={alignment} ref={containerRef}>
+      <Container
+        calculationReady={calculationReady}
+        alignment={alignment}
+        ref={containerRef}
+      >
         <Card borderPosition="top" {...card}>
           {renderMode === 'list' ? (
             <Layout itemSpace={itemGap}>
               {renderNodes(
                 dataSeries.slice(0, colorPalette.length),
-                elementRef
+                elementRef,
+                itemWidth
               )}
             </Layout>
           ) : (
@@ -131,7 +139,12 @@ const SeriesVertical: FC<Props> = ({
                 const itemPosition =
                   itemIndex * (elementHeight + itemGap) + BUTTON_DIMENSION;
                 return {
-                  initial: { opacity: 0, y: itemPosition, x: 15 },
+                  initial: {
+                    opacity: 0,
+                    y: itemPosition,
+                    x: 15,
+                    width: 'calc(100% - 30px)',
+                  },
                   animate: { y: itemPosition, opacity: 1 },
                   exit: { y: '50%', opacity: 0 },
                 };
@@ -151,7 +164,8 @@ const SeriesVertical: FC<Props> = ({
             >
               {renderNodes(
                 dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1]),
-                elementRef
+                elementRef,
+                itemWidth,
               )}
             </Slider>
           )}
