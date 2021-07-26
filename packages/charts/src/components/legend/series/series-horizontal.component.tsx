@@ -2,15 +2,18 @@ import React, { FC, useRef, useState, useEffect } from 'react';
 import { Position, Alignment, Typography } from '@keen.io/ui-core';
 import { hasContentOverflow } from '@keen.io/charts-utils';
 
-import { Container, Layout } from './series-horizontal.styles';
+import {
+  Container,
+  AlignmentContainer,
+  Layout,
+} from './series-horizontal.styles';
 
 import Card from '../card';
 import Slider from '../slider';
-
 import Label from '../label';
 
+import { BUTTON_DIMENSION } from '../slider-button';
 import { DataSerie } from './types';
-
 import { LegendCardSettings, RenderMode } from '../types';
 
 type Props = {
@@ -21,7 +24,7 @@ type Props = {
   /* Component position */
   position: Position;
   /* Legend container alignment */
-  alignment?: Alignment;
+  alignment: Alignment;
   /* Color palette */
   colorPalette: string[];
   /* Collection of data series */
@@ -42,7 +45,7 @@ type Props = {
 
 const SeriesHorizontal: FC<Props> = ({
   card,
-  position,
+  alignment,
   typography,
   dataSeries,
   colorPalette,
@@ -71,10 +74,8 @@ const SeriesHorizontal: FC<Props> = ({
       const colorsInPallete = colorPalette.length;
       const containerWidth = containerRef.current.offsetWidth;
 
-      const SLIDER_CONTROL_WIDTH = 15;
-
       const dimensionCapacity = Math.floor(
-        (containerWidth - 2 * SLIDER_CONTROL_WIDTH) / (itemWidth + itemGap)
+        (containerWidth - 2 * BUTTON_DIMENSION) / (itemWidth + itemGap)
       );
 
       const itemsInSlider =
@@ -83,7 +84,7 @@ const SeriesHorizontal: FC<Props> = ({
           : dimensionCapacity;
 
       const sliderWidth =
-        itemsInSlider * (itemWidth + itemGap) + 2 * SLIDER_CONTROL_WIDTH;
+        itemsInSlider * (itemWidth + itemGap) + 2 * BUTTON_DIMENSION;
 
       setSliderDimension(([, height]) => [sliderWidth, height]);
       setDataSeriesOffset([0, itemsInSlider]);
@@ -133,44 +134,47 @@ const SeriesHorizontal: FC<Props> = ({
       style={{ background: 'transparent', width: '100%', position: 'relative' }}
     >
       <Container ref={containerRef}>
-        <Card borderPosition="left" {...card}>
-          {renderMode === 'list' ? (
-            <Layout itemSpace={itemGap}>
-              {renderNodes(dataSeries.slice(0, colorPalette.length))}
-            </Layout>
-          ) : (
-            <Slider
-              mode="horizontal"
-              dimension={sliderDimension}
-              nextDisabled={endOffset === dataSeries.length}
-              previousDisabled={startOffset === 0}
-              animation={(itemIndex) => {
-                const itemPosition = itemIndex * (itemWidth + itemGap);
-                return {
-                  initial: { opacity: 0, x: itemPosition, y: '-50%' },
-                  animate: { x: itemPosition, opacity: 1 },
-                  exit: { x: '-50%', opacity: 0 },
-                };
-              }}
-              onNextSlide={() =>
-                setDataSeriesOffset(([startOffset, endOffset]) => [
-                  startOffset + 1,
-                  endOffset + 1,
-                ])
-              }
-              onPreviousSlide={() =>
-                setDataSeriesOffset(([startOffset, endOffset]) => [
-                  startOffset - 1,
-                  endOffset - 1,
-                ])
-              }
-            >
-              {renderNodes(
-                dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1])
-              )}
-            </Slider>
-          )}
-        </Card>
+        <AlignmentContainer alignment={alignment}>
+          <Card borderPosition="left" {...card}>
+            {renderMode === 'list' ? (
+              <Layout itemSpace={itemGap}>
+                {renderNodes(dataSeries.slice(0, colorPalette.length))}
+              </Layout>
+            ) : (
+              <Slider
+                mode="horizontal"
+                dimension={sliderDimension}
+                nextDisabled={endOffset === dataSeries.length}
+                previousDisabled={startOffset === 0}
+                animation={(itemIndex) => {
+                  const itemPosition =
+                    itemIndex * (itemWidth + itemGap) + BUTTON_DIMENSION;
+                  return {
+                    initial: { opacity: 0, x: itemPosition, y: '-50%' },
+                    animate: { x: itemPosition, opacity: 1 },
+                    exit: { x: '-50%', opacity: 0 },
+                  };
+                }}
+                onNextSlide={() =>
+                  setDataSeriesOffset(([startOffset, endOffset]) => [
+                    startOffset + 1,
+                    endOffset + 1,
+                  ])
+                }
+                onPreviousSlide={() =>
+                  setDataSeriesOffset(([startOffset, endOffset]) => [
+                    startOffset - 1,
+                    endOffset - 1,
+                  ])
+                }
+              >
+                {renderNodes(
+                  dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1])
+                )}
+              </Slider>
+            )}
+          </Card>
+        </AlignmentContainer>
       </Container>
     </div>
   );

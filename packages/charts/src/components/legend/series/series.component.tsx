@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
-import { Layout, Typography, Position } from '@keen.io/ui-core';
+import { Layout, Typography, Position, Alignment } from '@keen.io/ui-core';
 
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
-
-import { SingleSerie } from './series.styles';
-
-import Label from '../label';
 
 import { DataSerie } from './types';
 import { LegendCardSettings } from '../types';
@@ -17,6 +13,7 @@ type Props = {
   /** Legend position in widget */
   position: Position;
   /** Array of legend items */
+  alignment: Alignment;
   labels: DataSerie[];
   /** typography styles */
   typography: Typography;
@@ -32,13 +29,13 @@ type Props = {
 };
 
 const SERIES = [
-  { name: 'ka', color: '#487650' },
-  { name: 'l2a', color: 'pink' },
-  { name: 'li1', color: 'gray' },
-  { name: 'la3ffffsd3x', color: 'black' },
+  { name: 'a', color: '#487650' },
+  { name: 'lfdsfdsfdsfssfd2a', color: 'pink' },
+  { name: 'c', color: 'gray' },
+  { name: 'la3fdsffffsd3x', color: 'black' },
   { name: 'licfsdfdsfsdenkaka', color: 'pink' },
-  { name: ' walca na 6', color: 'gray' },
-  { name: 'lor', color: 'aqua' },
+  { name: ' wafdsfdslca na 6', color: 'gray' },
+  { name: 'lfdsfsdr', color: 'aqua' },
   { name: 'sa3333331sa', color: 'blue' },
   { name: 'licen', color: 'yellow' },
   { name: '1  411', color: 'red' },
@@ -47,7 +44,6 @@ const SERIES = [
   { name: 'a31r', color: 'aqua' },
   { name: 'l3r', color: 'aqua' },
 ];
-
 
 /*
 <Label
@@ -73,6 +69,7 @@ export const SeriesLegend: FC<Props> = ({
   layout,
   labels,
   position,
+  alignment,
   typography,
   card,
   onClick,
@@ -83,6 +80,7 @@ export const SeriesLegend: FC<Props> = ({
   const commonProps = {
     typography,
     position,
+    alignment,
     card,
     onItemClick: onClick,
     onItemActivate: onActivate,

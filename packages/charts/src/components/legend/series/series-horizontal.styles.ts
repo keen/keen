@@ -1,8 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Alignment } from '@keen.io/ui-core';
 
 export const Container = styled.div`
   overflow: hidden;
   outline: none;
+  display: flex;
+`;
+
+export const AlignmentContainer = styled.div<{ alignment: Alignment }>`
+  ${(props) =>
+    props.alignment === 'center' &&
+    css`
+      margin: 0 auto;
+    `};
+
+  ${(props) =>
+    props.alignment === 'right' &&
+    css`
+      margin-left: auto;
+    `};
 `;
 
 export const Layout = styled.div<{

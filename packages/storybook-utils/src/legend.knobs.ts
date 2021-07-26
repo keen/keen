@@ -28,7 +28,7 @@ export const legendKnobs = (namespace: string) => ({
   alignment: select(
     'Alignment',
     alignmentOptions,
-    alignmentOptions.left,
+    alignmentOptions.right,
     namespace
   ),
   layout: layoutKnobs(namespace, 'horizontal'),

@@ -7,14 +7,6 @@ export const LegendCard = styled.div<
   { borderPosition: Position; fullDimension: boolean } & LegendCardSettings
 >`
   display: inline-block;
-
-  ${(props) =>
-    props.fullDimension &&
-    css`
-      width: 100%;
-      display: block;
-    `};
-
   position: relative;
 
   background: ${(props) => props.backgroundColor};

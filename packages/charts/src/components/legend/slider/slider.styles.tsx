@@ -3,5 +3,6 @@ import { layout, LayoutProps } from 'styled-system';
 
 export const Container = styled.div<LayoutProps>`
   position: relative;
+  overflow: hidden;
   ${layout};
 `;

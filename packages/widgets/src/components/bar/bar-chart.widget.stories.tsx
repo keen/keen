@@ -31,7 +31,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
-  //  colors: ['green', 'violet'],
+//  colors: ['green', 'violet'],
 });
 
 export const widget = () => (

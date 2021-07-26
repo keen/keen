@@ -5,16 +5,14 @@ import { colors } from '@keen.io/colors';
 
 import { Variant } from './types';
 
-export const VERTICAL_BUTTON_HEIGHT = 34;
-
 const getPosition = (position: Position) => css`
   ${position}: 0;
 `;
 
-export const getDimension = (variant: Variant) =>
+export const setDimension = (variant: Variant, dimension: number) =>
   variant === 'vertical'
     ? css`
-        width: 34px;
+        width: ${dimension}px;
         height: 100%;
 
         top: 50%;
@@ -22,7 +20,7 @@ export const getDimension = (variant: Variant) =>
       `
     : css`
         width: 100%;
-        height: ${VERTICAL_BUTTON_HEIGHT}px;
+        height: ${dimension}px;
 
         left: 50%;
         transform: translateX(-50%);
@@ -30,13 +28,13 @@ export const getDimension = (variant: Variant) =>
 
 export const Gradient = styled(motion.div)<{
   transmition: string;
+  dimension: number;
   variant: Variant;
 }>`
   top: 0;
   position: absolute;
 
-  ${(props) => getDimension(props.variant)};
-
+  ${(props) => setDimension(props.variant, props.dimension)};
   background-image: linear-gradient(
     ${(props) => props.transmition},
     ${colors.white['400']},
@@ -56,16 +54,18 @@ export const Block = styled.div<{
   disabled: boolean;
   variant: Variant;
   shadow: string;
+  dimension: number;
 }>`
   position: absolute;
   ${(props) => getPosition(props.position)};
 
   background: ${colors.white['500']};
+  z-index: 99;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  ${(props) => getDimension(props.variant)};
+  ${(props) => setDimension(props.variant, props.dimension)};
   ${(props) =>
     !props.disabled &&
     css`

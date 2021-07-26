@@ -1,9 +1,14 @@
 import React from 'react';
 import { MotionProps } from 'framer-motion';
+import { Icon } from '@keen.io/icons';
 
+import { sliderSettings } from './slider.settings';
 import { Container } from './slider.styles';
 
-import ShiftGroup from './shift-group';
+import { getIconColor } from '../utils';
+
+import SliderButton from '../slider-button';
+import ShiftGroup from '../shift-group';
 
 type Props = {
   /** Children nodes */
@@ -16,14 +21,17 @@ type Props = {
   onNextSlide: () => void;
   /** Previous slide event handler */
   onPreviousSlide: () => void;
+  /* Disable next button */
   nextDisabled?: boolean;
+  /* Disable previous button */
   previousDisabled?: boolean;
-  /* */
+  /* Animation settings */
   animation: (idx: number) => MotionProps;
 };
 
 const LegendSlider = ({
   children,
+  mode,
   dimension,
   animation,
   onNextSlide,
@@ -32,22 +40,41 @@ const LegendSlider = ({
   previousDisabled,
 }: Props) => {
   const [width, height] = dimension;
+  const { nextButton, previousButton, buttonVariant } = sliderSettings[mode];
 
   return (
     <Container width={width} height={height}>
-      <div
-        style={{ position: 'absolute', left: 0, top: 0, zIndex: 9999 }}
+      <SliderButton
+        variant={buttonVariant}
+        disabled={previousDisabled}
+        position={previousButton.position}
+        shadow={previousButton.shadow}
+        gradientTransmition={previousButton.gradient}
         onClick={!previousDisabled && onPreviousSlide}
       >
-        {'<'}
-      </div>
+        <Icon
+          type={previousButton.icon}
+          width={12}
+          height={12}
+          fill={getIconColor(previousDisabled)}
+        />
+      </SliderButton>
       <ShiftGroup shiftAnimation={animation}>{children}</ShiftGroup>
-      <div
+      <SliderButton
+        variant={buttonVariant}
+        disabled={nextDisabled}
+        position={nextButton.position}
+        shadow={nextButton.shadow}
+        gradientTransmition={previousButton.gradient}
         onClick={!nextDisabled && onNextSlide}
-        style={{ position: 'absolute', right: 0, top: 0 }}
       >
-        {'>'}
-      </div>
+        <Icon
+          type={nextButton.icon}
+          width={12}
+          height={12}
+          fill={getIconColor(nextDisabled)}
+        />
+      </SliderButton>
     </Container>
   );
 };
