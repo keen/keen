@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Position } from '@keen.io/ui-core';
 import { hasContentOverflow } from '@keen.io/charts-utils';
 
+import { Variant } from './slider/types';
+import { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE } from './slider-button';
+
 export type RenderMode = 'list' | 'group' | 'slider';
 
 export type ContentDimension = {
@@ -59,4 +62,39 @@ export const useRenderMode = (
   }, [mode, layout, element, labelsLength]);
 
   return { mode, initialDimension };
+};
+
+export const createSliderTransition = (
+  variant: Variant,
+  index: number,
+  itemSize: number,
+  itemGap: number
+) => {
+  const itemPosition =
+    index * (itemSize + itemGap) + (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
+  const itemPositionPrevious = itemPosition - itemSize - itemGap;
+  const itemPositionNext = itemPosition + itemSize + itemGap;
+  if (variant === 'horizontal')
+    return {
+      initial: (direction: number) => ({
+        x: direction > 0 ? itemPositionNext : itemPositionPrevious,
+        y: '-50%',
+        top: '50%',
+      }),
+      animate: { x: itemPosition },
+      exit: (direction: number) => ({
+        x: direction < 0 ? itemPositionNext : itemPositionPrevious,
+      }),
+    };
+  return {
+    initial: (direction: number) => ({
+      y: direction > 0 ? itemPositionNext : itemPositionPrevious,
+      x: 15,
+      width: 'calc(100% - 30px)',
+    }),
+    animate: { y: itemPosition },
+    exit: (direction: number) => ({
+      y: direction < 0 ? itemPositionNext : itemPositionPrevious,
+    }),
+  };
 };

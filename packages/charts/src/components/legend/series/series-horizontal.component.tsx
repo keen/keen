@@ -11,6 +11,8 @@ import {
 import Card from '../card';
 import Slider from '../slider';
 
+import { createSliderTransition } from '../legend.utils';
+
 import { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE } from '../slider-button';
 import { DataSerie } from './types';
 import { LegendCardSettings, RenderMode } from '../types';
@@ -131,32 +133,14 @@ const SeriesHorizontal: FC<Props> = ({
                 nextDisabled={endOffset === dataSeries.length}
                 previousDisabled={startOffset === 0}
                 direction={direction}
-                animation={(itemIndex) => {
-                  const itemPosition =
-                    itemIndex * (itemWidth + itemGap) +
-                    (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
-                  const itemPositionInToLeft =
-                    itemPosition - itemWidth - itemGap;
-                  const itemPositionInToRight =
-                    itemPosition + itemWidth + itemGap;
-                  return {
-                    initial: (direction: number) => ({
-                      x:
-                        direction > 0
-                          ? itemPositionInToRight
-                          : itemPositionInToLeft,
-                      y: '-50%',
-                      top: '50%',
-                    }),
-                    animate: { x: itemPosition },
-                    exit: (direction: number) => ({
-                      x:
-                        direction < 0
-                          ? itemPositionInToRight
-                          : itemPositionInToLeft,
-                    }),
-                  };
-                }}
+                animation={(itemIndex) =>
+                  createSliderTransition(
+                    'horizontal',
+                    itemIndex,
+                    itemWidth,
+                    itemGap
+                  )
+                }
                 onNextSlide={() => {
                   setDataSeriesOffset(([startOffset, endOffset]) => [
                     startOffset + 1,

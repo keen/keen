@@ -1,5 +1,5 @@
 import React from 'react';
-import { MotionProps } from 'framer-motion';
+import { AnimationProps } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
 
 import { sliderSettings } from './slider.settings';
@@ -26,7 +26,7 @@ type Props = {
   /* Disable previous button */
   previousDisabled?: boolean;
   /* Animation settings */
-  animation: (idx: number) => MotionProps;
+  animation: (idx: number) => AnimationProps;
   /** Slider direction */
   direction: number;
 };

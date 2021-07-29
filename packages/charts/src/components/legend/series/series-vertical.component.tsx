@@ -7,6 +7,8 @@ import { Container, Layout } from './series-vertical.styles';
 import Slider from '../slider';
 import Card from '../card';
 
+import { createSliderTransition } from '../legend.utils';
+
 import { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE } from '../slider-button';
 import { DataSerie } from './types';
 import { LegendCardSettings, RenderMode } from '../types';
@@ -140,32 +142,14 @@ const SeriesVertical: FC<Props> = ({
               nextDisabled={endOffset === dataSeries.length}
               previousDisabled={startOffset === 0}
               direction={direction}
-              animation={(itemIndex) => {
-                const itemPosition =
-                  itemIndex * (elementHeight + itemGap) +
-                  (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
-                const itemPositionInToLeft =
-                  itemPosition - elementHeight - itemGap;
-                const itemPositionInToRight =
-                  itemPosition + elementHeight + itemGap;
-                return {
-                  initial: (direction: number) => ({
-                    y:
-                      direction > 0
-                        ? itemPositionInToRight
-                        : itemPositionInToLeft,
-                    x: 15,
-                    width: 'calc(100% - 30px)',
-                  }),
-                  animate: { y: itemPosition },
-                  exit: (direction: number) => ({
-                    y:
-                      direction < 0
-                        ? itemPositionInToRight
-                        : itemPositionInToLeft,
-                  }),
-                };
-              }}
+              animation={(itemIndex) =>
+                createSliderTransition(
+                  'vertical',
+                  itemIndex,
+                  elementHeight,
+                  itemGap
+                )
+              }
               onNextSlide={() => {
                 setDataSeriesOffset(([startOffset, endOffset]) => [
                   startOffset + 1,
