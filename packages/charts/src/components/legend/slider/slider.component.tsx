@@ -27,6 +27,8 @@ type Props = {
   previousDisabled?: boolean;
   /* Animation settings */
   animation: (idx: number) => MotionProps;
+  /** Slider direction */
+  direction: number;
 };
 
 const LegendSlider = ({
@@ -38,6 +40,7 @@ const LegendSlider = ({
   onPreviousSlide,
   nextDisabled,
   previousDisabled,
+  direction,
 }: Props) => {
   const [width, height] = dimension;
   const { nextButton, previousButton, buttonVariant } = sliderSettings[mode];
@@ -59,13 +62,15 @@ const LegendSlider = ({
           fill={getIconColor(previousDisabled)}
         />
       </SliderButton>
-      <ShiftGroup shiftAnimation={animation}>{children}</ShiftGroup>
+      <ShiftGroup direction={direction} shiftAnimation={animation}>
+        {children}
+      </ShiftGroup>
       <SliderButton
         variant={buttonVariant}
         disabled={nextDisabled}
         position={nextButton.position}
         shadow={nextButton.shadow}
-        gradientTransmition={previousButton.gradient}
+        gradientTransmition={nextButton.gradient}
         onClick={!nextDisabled ? onNextSlide : undefined}
       >
         <Icon

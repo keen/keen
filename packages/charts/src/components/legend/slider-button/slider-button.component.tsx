@@ -27,7 +27,7 @@ type Props = {
   dimension?: number;
 };
 
-const Button: FC<Props> = ({
+const SliderButton: FC<Props> = ({
   children,
   position,
   variant,
@@ -41,6 +41,7 @@ const Button: FC<Props> = ({
 
   return (
     <Block
+      data-testid="slider-button"
       {...props}
       position={position}
       variant={variant}
@@ -53,6 +54,7 @@ const Button: FC<Props> = ({
       <AnimatePresence>
         {showGradient && (
           <Gradient
+            data-testid="slider-button-gradient"
             variant={variant}
             dimension={dimension}
             transmition={gradientTransmition}
@@ -64,4 +66,4 @@ const Button: FC<Props> = ({
   );
 };
 
-export default Button;
+export default SliderButton;

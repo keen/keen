@@ -1,5 +1,5 @@
 import SliderButton from './slider-button.component';
-import { BUTTON_DIMENSION } from './constants';
+import { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE } from './constants';
 
 export default SliderButton;
-export { BUTTON_DIMENSION };
+export { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE };

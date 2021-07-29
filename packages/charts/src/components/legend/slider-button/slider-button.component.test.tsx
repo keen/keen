@@ -1,22 +1,16 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 
-import Button from './button.component';
+import SliderButton from './slider-button.component';
 
-import { Gradient } from './button.styles';
-
-const setup = (overProps: any = {}) => {
+const render = (overProps: any = {}) => {
   const props = {
     ...overProps,
     onClick: jest.fn(),
     variant: 'horizontal',
-    position: 'top',
-    shadow: '0px 10px',
-    disabled: false,
-    gradientTransmition: 'top left',
   };
 
-  const wrapper = mount(<Button {...props} />);
+  const wrapper = rtlRender(<SliderButton {...props} />);
 
   return {
     props,
@@ -24,39 +18,27 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/charts - <Button />', () => {
-  it('should call "onClick" handler', () => {
-    const { wrapper, props } = setup();
-    wrapper.simulate('click');
+test('should call "onClick" handler', () => {
+  const {
+    wrapper: { getByTestId },
+    props,
+  } = render();
 
-    expect(props.onClick).toHaveBeenCalled();
-  });
+  const button = getByTestId('slider-button');
+  fireEvent.click(button);
 
-  it('should render <Gradient /> component', () => {
-    const { wrapper } = setup();
-    wrapper.simulate('mouseEnter');
+  expect(props.onClick).toHaveBeenCalled();
+});
 
-    expect(wrapper.find(Gradient).length).toBeTruthy();
-  });
+test('should render <Gradient /> component', () => {
+  const {
+    wrapper: { getByTestId },
+  } = render();
 
-  it('shoul set properties for <Gradient /> component', () => {
-    const { wrapper } = setup();
-    wrapper.simulate('mouseEnter');
+  const button = getByTestId('slider-button');
+  fireEvent.mouseEnter(button);
 
-    expect(wrapper.find(Gradient).props()).toMatchInlineSnapshot(`
-      Object {
-        "animate": Object {
-          "opacity": 1,
-        },
-        "exit": Object {
-          "opacity": 0,
-        },
-        "initial": Object {
-          "opacity": 0,
-        },
-        "transmition": "top left",
-        "variant": "horizontal",
-      }
-    `);
-  });
+  const gradient = getByTestId('slider-button-gradient');
+
+  expect(gradient).toBeInTheDocument();
 });

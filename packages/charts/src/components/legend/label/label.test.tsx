@@ -14,7 +14,6 @@ const render = (overProps: any = {}) => {
     } as Typography,
     text: '@text',
     markColor: 'green',
-    truncate: 10,
     onClick: jest.fn(),
     ...overProps,
   };
@@ -26,15 +25,6 @@ const render = (overProps: any = {}) => {
     props,
   };
 };
-
-test('truncates text based on "truncate" property', () => {
-  const text = 'Lorem ipsum dolor sit amet';
-  const {
-    wrapper: { getByText },
-  } = render({ text });
-
-  expect(getByText('Lorem ipsu...')).toBeInTheDocument();
-});
 
 test('calls "onClick" handler', () => {
   const {

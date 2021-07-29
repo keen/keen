@@ -11,7 +11,7 @@ import {
 import Card from '../card';
 import Slider from '../slider';
 
-import { BUTTON_DIMENSION } from '../slider-button';
+import { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE } from '../slider-button';
 import { DataSerie } from './types';
 import { LegendCardSettings, RenderMode } from '../types';
 
@@ -45,7 +45,7 @@ const SeriesHorizontal: FC<Props> = ({
   alignment,
   dataSeries,
   colorPalette,
-  itemWidth = 65,
+  itemWidth = 100,
   itemGap = 10,
   renderNodes,
 }) => {
@@ -62,6 +62,7 @@ const SeriesHorizontal: FC<Props> = ({
     0,
     0,
   ]);
+  const [direction, setDirection] = useState(0);
 
   const [startOffset, endOffset] = dataSeriesOffset;
 
@@ -71,7 +72,8 @@ const SeriesHorizontal: FC<Props> = ({
       const containerWidth = containerRef.current.offsetWidth;
 
       const dimensionCapacity = Math.floor(
-        (containerWidth - 2 * BUTTON_DIMENSION) / (itemWidth + itemGap)
+        (containerWidth - 2 * (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE)) /
+          (itemWidth + itemGap)
       );
 
       const itemsInSlider =
@@ -80,7 +82,9 @@ const SeriesHorizontal: FC<Props> = ({
           : dimensionCapacity;
 
       const sliderWidth =
-        itemsInSlider * (itemWidth + itemGap) + 2 * BUTTON_DIMENSION;
+        itemsInSlider * (itemWidth + itemGap) +
+        2 * (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE) -
+        itemGap;
 
       setSliderDimension(([, height]) => [sliderWidth, height]);
       setDataSeriesOffset([0, itemsInSlider]);
@@ -126,32 +130,47 @@ const SeriesHorizontal: FC<Props> = ({
                 dimension={sliderDimension}
                 nextDisabled={endOffset === dataSeries.length}
                 previousDisabled={startOffset === 0}
+                direction={direction}
                 animation={(itemIndex) => {
                   const itemPosition =
-                    itemIndex * (itemWidth + itemGap) + BUTTON_DIMENSION;
+                    itemIndex * (itemWidth + itemGap) +
+                    (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
+                  const itemPositionInToLeft =
+                    itemPosition - itemWidth - itemGap;
+                  const itemPositionInToRight =
+                    itemPosition + itemWidth + itemGap;
                   return {
-                    initial: {
-                      opacity: 0,
-                      x: itemPosition,
+                    initial: (direction: number) => ({
+                      x:
+                        direction > 0
+                          ? itemPositionInToRight
+                          : itemPositionInToLeft,
                       y: '-50%',
                       top: '50%',
-                    },
-                    animate: { x: itemPosition, opacity: 1 },
-                    exit: { x: '-50%', opacity: 0 },
+                    }),
+                    animate: { x: itemPosition },
+                    exit: (direction: number) => ({
+                      x:
+                        direction < 0
+                          ? itemPositionInToRight
+                          : itemPositionInToLeft,
+                    }),
                   };
                 }}
-                onNextSlide={() =>
+                onNextSlide={() => {
                   setDataSeriesOffset(([startOffset, endOffset]) => [
                     startOffset + 1,
                     endOffset + 1,
-                  ])
-                }
-                onPreviousSlide={() =>
+                  ]);
+                  setDirection(1);
+                }}
+                onPreviousSlide={() => {
                   setDataSeriesOffset(([startOffset, endOffset]) => [
                     startOffset - 1,
                     endOffset - 1,
-                  ])
-                }
+                  ]);
+                  setDirection(-1);
+                }}
               >
                 {renderNodes(
                   dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1]),

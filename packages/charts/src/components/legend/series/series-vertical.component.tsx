@@ -7,7 +7,7 @@ import { Container, Layout } from './series-vertical.styles';
 import Slider from '../slider';
 import Card from '../card';
 
-import { BUTTON_DIMENSION } from '../slider-button';
+import { BUTTON_DIMENSION, BUTTON_SHADOW_SIZE } from '../slider-button';
 import { DataSerie } from './types';
 import { LegendCardSettings, RenderMode } from '../types';
 
@@ -42,8 +42,8 @@ const SeriesVertical: FC<Props> = ({
   colorPalette,
   dataSeries,
   renderNodes,
-  itemWidth = 80,
-  itemGap = 8,
+  itemWidth = 100,
+  itemGap = 10,
 }) => {
   const containerRef = useRef(null);
   const elementRef = useRef(null);
@@ -60,6 +60,7 @@ const SeriesVertical: FC<Props> = ({
     0,
     0,
   ]);
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     if (renderMode === 'slider') {
@@ -67,7 +68,8 @@ const SeriesVertical: FC<Props> = ({
       const containerHeight = containerRef.current.offsetHeight;
 
       const dimensionCapacity = Math.floor(
-        (containerHeight - 2 * BUTTON_DIMENSION) / (elementHeight + 10)
+        (containerHeight - 2 * (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE)) /
+          (elementHeight + itemGap)
       );
 
       const itemsInSlider =
@@ -76,7 +78,9 @@ const SeriesVertical: FC<Props> = ({
           : dimensionCapacity;
 
       const sliderHeight =
-        itemsInSlider * (elementHeight + 10) + 2 * BUTTON_DIMENSION;
+        itemsInSlider * (elementHeight + itemGap) +
+        2 * (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE) -
+        itemGap;
 
       setSliderDimension(([width]) => [width, sliderHeight]);
       setDataSeriesOffset([0, itemsInSlider]);
@@ -135,37 +139,52 @@ const SeriesVertical: FC<Props> = ({
               dimension={sliderDimension}
               nextDisabled={endOffset === dataSeries.length}
               previousDisabled={startOffset === 0}
+              direction={direction}
               animation={(itemIndex) => {
                 const itemPosition =
-                  itemIndex * (elementHeight + itemGap) + BUTTON_DIMENSION;
+                  itemIndex * (elementHeight + itemGap) +
+                  (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
+                const itemPositionInToLeft =
+                  itemPosition - elementHeight - itemGap;
+                const itemPositionInToRight =
+                  itemPosition + elementHeight + itemGap;
                 return {
-                  initial: {
-                    opacity: 0,
-                    y: itemPosition,
+                  initial: (direction: number) => ({
+                    y:
+                      direction > 0
+                        ? itemPositionInToRight
+                        : itemPositionInToLeft,
                     x: 15,
                     width: 'calc(100% - 30px)',
-                  },
-                  animate: { y: itemPosition, opacity: 1 },
-                  exit: { y: '50%', opacity: 0 },
+                  }),
+                  animate: { y: itemPosition },
+                  exit: (direction: number) => ({
+                    y:
+                      direction < 0
+                        ? itemPositionInToRight
+                        : itemPositionInToLeft,
+                  }),
                 };
               }}
-              onNextSlide={() =>
+              onNextSlide={() => {
                 setDataSeriesOffset(([startOffset, endOffset]) => [
                   startOffset + 1,
                   endOffset + 1,
-                ])
-              }
-              onPreviousSlide={() =>
+                ]);
+                setDirection(1);
+              }}
+              onPreviousSlide={() => {
                 setDataSeriesOffset(([startOffset, endOffset]) => [
                   startOffset - 1,
                   endOffset - 1,
-                ])
-              }
+                ]);
+                setDirection(-1);
+              }}
             >
               {renderNodes(
                 dataSeries.slice(dataSeriesOffset[0], dataSeriesOffset[1]),
                 elementRef,
-                itemWidth,
+                itemWidth
               )}
             </Slider>
           )}

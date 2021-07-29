@@ -6,12 +6,19 @@ type Props = {
   children: React.ReactNode;
   /** Shift animation */
   shiftAnimation: (idx: number) => MotionProps;
+  /** Slider direction */
+  direction: number;
 };
 
-const ShiftGroup: FC<Props> = ({ children, shiftAnimation }) => (
-  <AnimatePresence>
+const ShiftGroup: FC<Props> = ({ children, shiftAnimation, direction }) => (
+  <AnimatePresence custom={direction}>
     {React.Children.map(children, (childNode, idx) => (
-      <motion.div style={{ position: 'absolute' }} {...shiftAnimation(idx)}>
+      <motion.div
+        transition={{ x: { type: 'spring', stiffness: 300, damping: 30 } }}
+        custom={direction}
+        style={{ position: 'absolute' }}
+        {...shiftAnimation(idx)}
+      >
         {childNode}
       </motion.div>
     ))}
