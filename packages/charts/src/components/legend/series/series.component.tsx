@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import { Layout, Typography, Position, Alignment } from '@keen.io/ui-core';
 
 import SeriesHorizontal from './series-horizontal.component';
@@ -53,35 +53,32 @@ export const SeriesLegend: FC<Props> = ({
     dataSeries,
   };
 
-  const renderNodes = useCallback(
-    (
-      series: DataSerie[],
-      elementRef: React.MutableRefObject<any>,
-      itemWidth?: number
-    ) =>
-      series.map(({ name, color }: DataSerie, index: number) => (
-        <div key={name} ref={index === 0 ? elementRef : null}>
-          <Label
-            text={name}
-            maxWidth={itemWidth}
-            typography={typography}
-            markColor={color}
-            onClick={(disabled: boolean, label: string) => {
-              onClick(label, disabled, index);
-              if (onDeactivate && disabled) onDeactivate();
-              if (onActivate && !disabled) onActivate(label);
-            }}
-            onMouseEnter={(label: string) => {
-              if (onActivate) onActivate(label);
-            }}
-            onMouseLeave={() => {
-              onDeactivate && onDeactivate();
-            }}
-          />
-        </div>
-      )),
-    []
-  );
+  const renderNodes = (
+    series: DataSerie[],
+    elementRef: React.MutableRefObject<any>,
+    itemWidth?: number
+  ) =>
+    series.map(({ name, color }: DataSerie, index: number) => (
+      <div key={name} ref={index === 0 ? elementRef : null}>
+        <Label
+          text={name}
+          maxWidth={itemWidth}
+          typography={typography}
+          markColor={color}
+          onClick={(disabled: boolean, label: string) => {
+            onClick(label, disabled, index);
+            if (onDeactivate && disabled) onDeactivate();
+            if (onActivate && !disabled) onActivate(label);
+          }}
+          onMouseEnter={(label: string) => {
+            if (onActivate) onActivate(label);
+          }}
+          onMouseLeave={() => {
+            onDeactivate && onDeactivate();
+          }}
+        />
+      </div>
+    ));
 
   return (
     <>
