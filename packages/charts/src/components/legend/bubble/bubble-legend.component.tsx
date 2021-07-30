@@ -63,7 +63,7 @@ export const BubbleLegend: FC<Props> = ({
   } = useTooltip(wrapperRef);
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="bubble-legend">
       <AnimatePresence>
         {tooltipVisible && truncate && (
           <motion.div

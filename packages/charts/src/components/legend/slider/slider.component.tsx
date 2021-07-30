@@ -1,133 +1,86 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useMotionValue, useSpring } from 'framer-motion';
-import { Group } from '@keen.io/ui-core';
+import React from 'react';
+import { AnimationProps } from 'framer-motion';
 import { Icon } from '@keen.io/icons';
-import { getElementOffset } from '@keen.io/charts-utils';
-
-import { Slider, SliderItem, SliderLayout, ScrollMask } from './slider.styles';
-import Button from './button.component';
 
 import { sliderSettings } from './slider.settings';
+import { Container } from './slider.styles';
+
 import { getIconColor } from '../utils';
 
-type Props = {
-  children: React.ReactNode;
-  slidesPerRow: number;
-  mode: 'vertical' | 'horizontal';
-  offsetUpdate?: number;
-};
+import SliderButton from '../slider-button';
+import ShiftGroup from '../shift-group';
 
-const mapChildren = (children: React.ReactNode, chunks: number) => {
-  if (chunks > 1)
-    return (
-      <Group chunks={chunks}>
-        {React.Children.map(children, (child) => (
-          <SliderItem>{child}</SliderItem>
-        ))}
-      </Group>
-    );
-  return children;
+type Props = {
+  /** Children nodes */
+  children: React.ReactNode;
+  /* Slider mode */
+  mode: 'vertical' | 'horizontal';
+  /** Container width and height */
+  dimension: [number, number];
+  /** Next slide event handler */
+  onNextSlide: () => void;
+  /** Previous slide event handler */
+  onPreviousSlide: () => void;
+  /* Disable next button */
+  nextDisabled?: boolean;
+  /* Disable previous button */
+  previousDisabled?: boolean;
+  /* Animation settings */
+  animation: (idx: number) => AnimationProps;
+  /** Slider direction */
+  direction: number;
 };
 
 const LegendSlider = ({
   children,
   mode,
-  slidesPerRow,
-  offsetUpdate = 50,
+  dimension,
+  animation,
+  onNextSlide,
+  onPreviousSlide,
+  nextDisabled,
+  previousDisabled,
+  direction,
 }: Props) => {
-  const slider = useRef(null);
-  const motionValue = useMotionValue(0);
-  const motionScroll = useSpring(motionValue, {
-    stiffness: 300,
-    damping: 200,
-  });
-
-  const {
-    buttonVariant,
-    nextButton,
-    previousButton,
-    sliderProperty,
-  } = sliderSettings[mode];
-
-  const [{ scroll, maxScroll }, setScroll] = useState<{
-    scroll: number;
-    maxScroll: number;
-  }>({
-    scroll: 0,
-    maxScroll: 0,
-  });
-
-  useEffect(() => {
-    const { offset, scroll: offsetScroll } = getElementOffset(
-      slider.current,
-      mode
-    );
-    setScroll((state) => ({
-      ...state,
-      maxScroll: offsetScroll - offset,
-    }));
-
-    const offsetSubscription = motionScroll.onChange((position) => {
-      slider.current[sliderProperty] = position;
-    });
-
-    return () => {
-      offsetSubscription();
-    };
-  }, []);
-
-  const previousDisabled = scroll <= 0;
-  const nextDisabled = scroll >= maxScroll;
+  const [width, height] = dimension;
+  const { nextButton, previousButton, buttonVariant } = sliderSettings[mode];
 
   return (
-    <SliderLayout mode={mode}>
-      <Button
+    <Container width={width} height={height}>
+      <SliderButton
         variant={buttonVariant}
+        disabled={previousDisabled}
+        position={previousButton.position}
         shadow={previousButton.shadow}
         gradientTransmition={previousButton.gradient}
-        position={previousButton.position}
-        disabled={previousDisabled}
-        onClick={() => {
-          const upatePosition = scroll - offsetUpdate;
-          if (upatePosition < offsetUpdate) {
-            motionScroll.set(0);
-          } else {
-            motionScroll.set(upatePosition);
-          }
-        }}
+        onClick={!previousDisabled ? onPreviousSlide : undefined}
       >
         <Icon
           type={previousButton.icon}
+          width={12}
+          height={12}
           fill={getIconColor(previousDisabled)}
         />
-      </Button>
-      <Button
+      </SliderButton>
+      <ShiftGroup direction={direction} shiftAnimation={animation}>
+        {children}
+      </ShiftGroup>
+      <SliderButton
         variant={buttonVariant}
+        disabled={nextDisabled}
+        position={nextButton.position}
         shadow={nextButton.shadow}
         gradientTransmition={nextButton.gradient}
-        position={nextButton.position}
-        disabled={nextDisabled}
-        onClick={() => {
-          motionScroll.set(scroll + offsetUpdate);
-        }}
+        onClick={!nextDisabled ? onNextSlide : undefined}
       >
-        <Icon type={nextButton.icon} fill={getIconColor(nextDisabled)} />
-      </Button>
-      <ScrollMask
-        ref={slider}
-        onScroll={(e) => {
-          e.persist();
-          const offset = e.currentTarget[sliderProperty];
-          motionScroll.set(offset, false);
-          setScroll((state) => ({
-            ...state,
-            scroll: offset,
-          }));
-        }}
-      >
-        <Slider mode={mode}>{mapChildren(children, slidesPerRow)}</Slider>
-      </ScrollMask>
-    </SliderLayout>
+        <Icon
+          type={nextButton.icon}
+          width={12}
+          height={12}
+          fill={getIconColor(nextDisabled)}
+        />
+      </SliderButton>
+    </Container>
   );
 };
 

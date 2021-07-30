@@ -1,10 +1,8 @@
-import React, { FC } from 'react';
-import { Layout, Typography, Position } from '@keen.io/ui-core';
+import React, { FC, useCallback } from 'react';
+import { Layout, Typography, Position, Alignment } from '@keen.io/ui-core';
 
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
-
-import { SingleSerie } from './series.styles';
 
 import Label from '../label';
 
@@ -17,7 +15,9 @@ type Props = {
   /** Legend position in widget */
   position: Position;
   /** Array of legend items */
-  labels: DataSerie[];
+  alignment: Alignment;
+  /* Legend data series */
+  dataSeries: DataSerie[];
   /** typography styles */
   typography: Typography;
   /** Legend card styles */
@@ -28,57 +28,67 @@ type Props = {
   onActivate?: (dataSerie: string | boolean) => void;
   /** Deactive data serie handler */
   onDeactivate?: () => void;
+  /** Color palette */
+  colorPalette?: string[];
 };
 
 export const SeriesLegend: FC<Props> = ({
   layout,
-  labels,
+  dataSeries,
   position,
+  alignment,
   typography,
   card,
   onClick,
   onActivate,
   onDeactivate,
+  colorPalette,
 }) => {
-  const items = labels.map(({ name, color }: DataSerie, idx: number) => (
-    <SingleSerie key={name}>
-      <Label
-        typography={typography}
-        markColor={color}
-        onClick={(disabled, label) => {
-          onClick(label, disabled, idx);
-          if (onDeactivate && disabled) onDeactivate();
-          if (onActivate && !disabled) onActivate(label);
-        }}
-        onMouseEnter={(label) => {
-          if (onActivate) onActivate(label);
-        }}
-        onMouseLeave={() => {
-          onDeactivate && onDeactivate();
-        }}
-        text={name}
-      />
-    </SingleSerie>
-  ));
-
   const commonProps = {
     typography,
     position,
+    alignment,
     card,
-    labelsLength: labels.length,
+    colorPalette,
+    dataSeries,
   };
+
+  const renderNodes = useCallback(
+    (
+      series: DataSerie[],
+      elementRef: React.MutableRefObject<any>,
+      itemWidth?: number
+    ) =>
+      series.map(({ name, color }: DataSerie, index: number) => (
+        <div key={name} ref={index === 0 ? elementRef : null}>
+          <Label
+            text={name}
+            maxWidth={itemWidth}
+            typography={typography}
+            markColor={color}
+            onClick={(disabled: boolean, label: string) => {
+              onClick(label, disabled, index);
+              if (onDeactivate && disabled) onDeactivate();
+              if (onActivate && !disabled) onActivate(label);
+            }}
+            onMouseEnter={(label: string) => {
+              if (onActivate) onActivate(label);
+            }}
+            onMouseLeave={() => {
+              onDeactivate && onDeactivate();
+            }}
+          />
+        </div>
+      )),
+    []
+  );
 
   return (
     <>
       {layout === 'horizontal' ? (
-        <SeriesHorizontal {...commonProps}>{items}</SeriesHorizontal>
+        <SeriesHorizontal {...commonProps} renderNodes={renderNodes} />
       ) : (
-        <SeriesVertical
-          {...commonProps}
-          adaptiveHeight={position === 'top' || position === 'bottom'}
-        >
-          {items}
-        </SeriesVertical>
+        <SeriesVertical {...commonProps} renderNodes={renderNodes} />
       )}
     </>
   );

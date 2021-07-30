@@ -1,9 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import BubbleLegend from './bubble-legend.component';
 
-const setup = (overProps: Record<string, any> = {}) => {
+const render = (overProps: Record<string, any> = {}) => {
   const props = {
     typography: {
       fontSize: 12,
@@ -28,7 +28,7 @@ const setup = (overProps: Record<string, any> = {}) => {
     ...overProps,
   };
 
-  const wrapper = mount(
+  const wrapper = rtlRender(
     <svg>
       <BubbleLegend {...props} />
     </svg>
@@ -40,24 +40,35 @@ const setup = (overProps: Record<string, any> = {}) => {
   };
 };
 
-describe('@keen.io/components - <BubbleLegend />', () => {
-  it('should render component', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find(BubbleLegend).length).toBeTruthy();
-  });
+test('should render component', () => {
+  const {
+    wrapper: { getByTestId },
+  } = render();
 
-  it('should render Title', () => {
-    const { wrapper, props } = setup();
-    expect(wrapper.html().includes(props.title.value)).toBeTruthy();
-  });
+  const element = getByTestId('bubble-legend');
+  expect(element).toBeInTheDocument();
+});
 
-  it('should render valid number of bubbles', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('circle').length).toEqual(3);
-  });
+test('should render Title', () => {
+  const {
+    wrapper: { getByText },
+    props,
+  } = render();
 
-  it('should render valid number of labels', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('text').length).toEqual(3);
-  });
+  const title = getByText(props.title.value);
+  expect(title).toBeInTheDocument();
+});
+
+test('should render valid number of bubbles', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  expect(container.querySelectorAll('circle').length).toEqual(3);
+});
+
+test('should render valid number of labels', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  expect(container.querySelectorAll('text').length).toEqual(3);
 });

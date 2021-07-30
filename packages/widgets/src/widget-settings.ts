@@ -7,7 +7,7 @@ export const legendSettings: LegendSettings = {
   alignment: 'left',
   layout: 'horizontal',
   typography: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: 'Gangster Grotesk, sans-serif',
     fontStyle: 'normal',
     fontWeight: 'normal',

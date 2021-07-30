@@ -1,16 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Alignment } from '@keen.io/ui-core';
 
-export const Layout = styled.div`
-  padding: 15px;
-  display: grid;
-  grid-gap: 8px 10px;
-  grid-auto-flow: column;
-  justify-content: flex-start;
+export const Container = styled.div<{ calculationReady?: boolean }>`
+  overflow: hidden;
+  outline: none;
+  display: flex;
+
+  ${(props) =>
+    props.calculationReady &&
+    css`
+      overflow: visible;
+    `};
 `;
 
-export const GroupedSeries = styled.div`
+export const AlignmentContainer = styled.div<{ alignment: Alignment }>`
+  ${(props) =>
+    props.alignment === 'center' &&
+    css`
+      margin: 0 auto;
+    `};
+
+  ${(props) =>
+    props.alignment === 'right' &&
+    css`
+      margin-left: auto;
+    `};
+`;
+
+export const Layout = styled.div<{
+  itemSpace: number;
+}>`
+  padding: 15px;
   display: grid;
-  grid-auto-flow: row;
-  grid-row-gap: 8px;
+  gap: 8px ${(props) => props.itemSpace}px;
+  grid-auto-flow: column;
+  -webkit-box-pack: start;
   justify-content: flex-start;
 `;

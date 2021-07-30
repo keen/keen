@@ -21,8 +21,8 @@ export const Layout = styled.div<{
 
 export const TitleSocket = styled.div`
   display: flex;
-  flexdirection: column;
-  flexgrow: 0;
+  flex-direction: column;
+  flex-grow: 0;
 `;
 
 export const LegendSocket = styled.div<{
@@ -31,27 +31,6 @@ export const LegendSocket = styled.div<{
   position: Position;
 }>`
   display: flex;
-  position: relative;
-  align-items: center;
-
-  ${(props) =>
-    props.alignment === 'left' &&
-    css`
-      align-items: flex-start;
-    `}
-
-  ${(props) =>
-    props.alignment === 'center' &&
-    css`
-      align-items: center;
-    `}
-
-  ${(props) =>
-    props.alignment === 'right' &&
-    css`
-      align-items: flex-end;
-    `}
-
 
   ${(props) =>
     (props.position === 'top' || props.position === 'bottom') &&
@@ -76,21 +55,5 @@ export const LegendSocket = styled.div<{
     (props.position === 'left' || props.position === 'right') &&
     css`
       max-width: 25%;
-    `}
-
-  ${(props) =>
-    props.alignment === 'center' &&
-    (props.position === 'left' || props.position === 'right') &&
-    css`
-      top: 50%;
-      transform: translateY(-50%);
-    `}
-
-    ${(props) =>
-    props.alignment === 'right' &&
-    (props.position === 'left' || props.position === 'right') &&
-    css`
-      top: 100%;
-      transform: translateY(-100%);
     `}
 `;

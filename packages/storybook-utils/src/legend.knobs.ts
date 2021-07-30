@@ -22,7 +22,7 @@ export const legendKnobs = (namespace: string) => ({
   position: select(
     'Position',
     positionOptions,
-    positionOptions.top,
+    positionOptions.left,
     namespace
   ) as any,
   alignment: select(
@@ -31,7 +31,7 @@ export const legendKnobs = (namespace: string) => ({
     alignmentOptions.left,
     namespace
   ),
-  layout: layoutKnobs(namespace, 'horizontal'),
+  layout: layoutKnobs(namespace, 'vertical'),
   typography: typographyKnobs(namespace, { fontSize: 10 }),
   card: cardKnobs(namespace),
 });

@@ -2,32 +2,38 @@ import React, { FC, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Position } from '@keen.io/ui-core';
 
-import { Gradient, Content, Block } from './button.styles';
+import { Gradient, Content, Block } from './slider-button.styles';
+import { gradientMotion } from './motion';
 
+import { BUTTON_DIMENSION } from './constants';
 import { Variant } from './types';
 
-const gradientMotion = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
 type Props = {
+  /* Click event handler */
   onClick: () => void;
+  /* React children nodes */
   children: React.ReactNode;
+  /* Button variant */
   variant: Variant;
+  /* Shadow definition */
   shadow: string;
+  /* Gradient definition */
   gradientTransmition: string;
+  /* Component position */
   position: Position;
+  /* Disabled state */
   disabled: boolean;
+  /* Main dimension */
+  dimension?: number;
 };
 
-const Button: FC<Props> = ({
+const SliderButton: FC<Props> = ({
   children,
   position,
   variant,
   gradientTransmition,
   disabled,
+  dimension = BUTTON_DIMENSION,
   ...props
 }) => {
   const [hover, setHover] = useState(false);
@@ -35,9 +41,11 @@ const Button: FC<Props> = ({
 
   return (
     <Block
+      data-testid="slider-button"
       {...props}
       position={position}
       variant={variant}
+      dimension={dimension}
       disabled={disabled}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -46,7 +54,9 @@ const Button: FC<Props> = ({
       <AnimatePresence>
         {showGradient && (
           <Gradient
+            data-testid="slider-button-gradient"
             variant={variant}
+            dimension={dimension}
             transmition={gradientTransmition}
             {...gradientMotion}
           />
@@ -56,4 +66,4 @@ const Button: FC<Props> = ({
   );
 };
 
-export default Button;
+export default SliderButton;
