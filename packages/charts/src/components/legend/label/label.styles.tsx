@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Circle = styled.div<{ background: string }>`
   margin-right: 5px;
@@ -9,11 +9,16 @@ export const Circle = styled.div<{ background: string }>`
   flex-shrink: 0;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ maxWidth?: number }>`
   display: flex;
   align-items: center;
   cursor: pointer;
-  white-space: nowrap;
+
+  ${(props) =>
+    props.maxWidth &&
+    css`
+      max-width: ${props.maxWidth}px;
+    `};
 `;
 
 export const StyledLabel = styled.div`

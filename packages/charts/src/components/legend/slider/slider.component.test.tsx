@@ -1,29 +1,57 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Slider from './slider.component';
 
-import { SliderItem } from './slider.styles';
-
-describe('@keen.io/charts - <Slider />', () => {
-  it('should group children based on "slidesPerRow" property', () => {
-    const wrapper = mount(
-      <Slider mode="vertical" slidesPerRow={2}>
+const render = (overProps: any = {}) => {
+  const props = {
+    dimension: [200, 200],
+    onNextSlide: jest.fn(),
+    onPreviousSlide: jest.fn(),
+    animation: (itemIndex) => {
+      return {
+        initial: {
+          opacity: 0,
+          x: itemIndex,
+          y: '-50%',
+          top: '50%',
+        },
+        animate: { x: itemIndex, opacity: 1 },
+        exit: { x: '-50%', opacity: 0 },
+      };
+    },
+    children: (
+      <>
         <div key="1">slide #1</div>
         <div key="2">slide #2</div>
-      </Slider>
-    );
+      </>
+    ),
+    ...overProps,
+  };
 
-    expect(
-      wrapper.contains([
-        <SliderItem key="1">
-          <div>slide #1</div>
-        </SliderItem>,
-        <SliderItem key="2">
-          <div>slide #2</div>
-        </SliderItem>,
-      ])
-    ).toEqual(true);
-  });
+  const wrapper = rtlRender(<Slider {...props} />);
+
+  return {
+    wrapper,
+    props,
+  };
+};
+
+test('should render horizontal slider with 2 slides', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ mode: 'horizontal' });
+
+  expect(getByText('slide #1')).toBeInTheDocument();
+  expect(getByText('slide #2')).toBeInTheDocument();
+});
+
+test('should render vertical slider with 2 slides', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ mode: 'vertical' });
+
+  expect(getByText('slide #1')).toBeInTheDocument();
+  expect(getByText('slide #2')).toBeInTheDocument();
 });

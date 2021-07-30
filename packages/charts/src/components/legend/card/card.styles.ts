@@ -6,16 +6,15 @@ import { LegendCardSettings } from '../types';
 export const LegendCard = styled.div<
   { borderPosition: Position; fullDimension: boolean } & LegendCardSettings
 >`
-  width: 100%;
+  display: inline-block;
+  position: relative;
 
   ${(props) =>
     props.fullDimension &&
     css`
-      height: 100%;
+      width: 100%;
     `}
 
-  position: relative;
-  box-sizing: border-box;
   background: ${(props) => props.backgroundColor};
   border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius};

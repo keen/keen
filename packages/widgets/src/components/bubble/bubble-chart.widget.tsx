@@ -70,7 +70,8 @@ export const BubbleChartWidget: FC<Props> = ({
               {...series}
               position={position}
               onClick={updateKeys}
-              labels={labels.map((el: string) => ({
+              colorPalette={theme.colors}
+              dataSeries={labels.map((el: string) => ({
                 name: el,
                 color: scaleColor(el),
               }))}

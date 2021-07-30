@@ -47,7 +47,8 @@ export const BarChartWidget: FC<Props> = ({
             onClick={updateKeys}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
-            labels={props.keys.map((key, idx) => ({
+            colorPalette={theme.colors}
+            dataSeries={props.keys.map((key, idx) => ({
               name: key,
               color: theme.colors[idx],
             }))}

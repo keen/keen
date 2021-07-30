@@ -59,7 +59,8 @@ export const DonutChartWidget: FC<Props> = ({
             }}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
-            labels={createLegendLabels(
+            colorPalette={theme.colors}
+            dataSeries={createLegendLabels(
               props.data,
               theme.colors,
               props.labelSelector,

@@ -12,7 +12,7 @@ type Props = {
   onMouseEnter?: (label: string) => void;
   onMouseLeave?: (label: string) => void;
   text?: string | boolean;
-  truncate?: number;
+  maxWidth?: number;
 };
 
 const Label: FC<Props> = ({
@@ -22,7 +22,7 @@ const Label: FC<Props> = ({
   onMouseEnter,
   onMouseLeave,
   typography,
-  truncate = 20,
+  maxWidth,
 }) => {
   const [disabled, setDisable] = useState(false);
   const label = `${text}`;
@@ -38,13 +38,12 @@ const Label: FC<Props> = ({
       <Wrapper
         role="button"
         title={label}
+        maxWidth={maxWidth}
         style={{ opacity: disabled ? 0.6 : 1 }}
       >
         <Circle background={disabled ? colors.gray[400] : markColor} />
-        <Text {...typography}>
-          {label && label.length > truncate
-            ? `${label.slice(0, truncate)}...`
-            : label}
+        <Text {...typography} truncate>
+          {label}
         </Text>
       </Wrapper>
     </StyledLabel>

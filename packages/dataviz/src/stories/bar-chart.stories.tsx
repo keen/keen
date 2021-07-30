@@ -460,3 +460,145 @@ ColorsOutOfRange.story = {
     },
   },
 };
+
+export const SliderLegendHorizontal = () => {
+  const container = React.useRef(null);
+
+  const data = [
+    {
+      name: 'Books',
+      'Da Vinci Code,The': 3,
+      'Harry Potter and the Deathly Hallows	': 52,
+      'Fifty Shades of Grey': 12,
+      'Angels and Demons': 24,
+      'Harry Potter and the Half-blood Prince:Childrens Edition': 33,
+      Twilight: 12,
+      'Girl with the Dragon Tattoo,The:Millennium Trilogy': 43,
+      'Lost Symbol,The': 32,
+      'New Moon': 24,
+      'Deception Point': 4,
+      Eclipse: 1,
+      'Lovely Bones,The': 31,
+      'Curious Incident of the Dog in the Night-time,The': 12,
+      'Digital Fortress': 56,
+      'Very Hungry Caterpillar,The:The Very Hungry Caterpillar': 1,
+      'Gruffalo,The': 32,
+      'One Day': 5,
+    },
+  ];
+
+  React.useEffect(() => {
+    new KeenDataViz({
+      type: 'bar',
+      container: container.current,
+      settings: {
+        data,
+        keys: [
+          'Da Vinci Code,The',
+          'Harry Potter and the Deathly Hallows	',
+          'Fifty Shades of Grey',
+          'Angels and Demons',
+          'Harry Potter and the Half-blood Prince:Childrens Edition',
+          'Twilight',
+          'Girl with the Dragon Tattoo,The:Millennium Trilogy',
+          'Lost Symbol,The',
+          'New Moon',
+          'Deception Point',
+          'Eclipse',
+          'Lovely Bones,The',
+          'Curious Incident of the Dog in the Night-time,The',
+          'Digital Fortress',
+          'Very Hungry Caterpillar,The:The Very Hungry Caterpillar',
+          'Gruffalo,The',
+          'One Day',
+        ],
+        labelSelector: 'name',
+      },
+    }).render();
+  }, []);
+
+  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+};
+
+SliderLegendHorizontal.story = {
+  parameters: {
+    docs: {
+      storyDescription:
+        'Chart shows example when only two colors are available',
+    },
+  },
+};
+
+export const SliderLegendVertical = () => {
+  const container = React.useRef(null);
+
+  const data = [
+    {
+      name: 'Books',
+      'Da Vinci Code,The': 3,
+      'Harry Potter and the Deathly Hallows	': 52,
+      'Fifty Shades of Grey': 12,
+      'Angels and Demons': 24,
+      'Harry Potter and the Half-blood Prince:Childrens Edition': 33,
+      Twilight: 12,
+      'Girl with the Dragon Tattoo,The:Millennium Trilogy': 43,
+      'Lost Symbol,The': 32,
+      'New Moon': 24,
+      'Deception Point': 4,
+      Eclipse: 1,
+      'Lovely Bones,The': 31,
+      'Curious Incident of the Dog in the Night-time,The': 12,
+      'Digital Fortress': 56,
+      'Very Hungry Caterpillar,The:The Very Hungry Caterpillar': 1,
+      'Gruffalo,The': 32,
+      'One Day': 5,
+    },
+  ];
+
+  React.useEffect(() => {
+    new KeenDataViz({
+      type: 'bar',
+      container: container.current,
+      settings: {
+        data,
+        keys: [
+          'Da Vinci Code,The',
+          'Harry Potter and the Deathly Hallows	',
+          'Fifty Shades of Grey',
+          'Angels and Demons',
+          'Harry Potter and the Half-blood Prince:Childrens Edition',
+          'Twilight',
+          'Girl with the Dragon Tattoo,The:Millennium Trilogy',
+          'Lost Symbol,The',
+          'New Moon',
+          'Deception Point',
+          'Eclipse',
+          'Lovely Bones,The',
+          'Curious Incident of the Dog in the Night-time,The',
+          'Digital Fortress',
+          'Very Hungry Caterpillar,The:The Very Hungry Caterpillar',
+          'Gruffalo,The',
+          'One Day',
+        ],
+        labelSelector: 'name',
+      },
+      widget: {
+        legend: {
+          position: 'left',
+          layout: 'vertical',
+        },
+      },
+    }).render();
+  }, []);
+
+  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+};
+
+SliderLegendVertical.story = {
+  parameters: {
+    docs: {
+      storyDescription:
+        'Chart shows example when only two colors are available',
+    },
+  },
+};

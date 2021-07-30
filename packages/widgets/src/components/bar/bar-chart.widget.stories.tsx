@@ -31,10 +31,11 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
+  colors: ['red', 'blue'],
 });
 
 export const widget = () => (
-  <div style={{ width: '700px', height: '400px' }}>
+  <div style={{ width: '500px', height: '700px' }}>
     <BarChartWidget
       title={{
         content: text('Title', 'Widget Title', 'Title Settings'),
