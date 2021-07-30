@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/keen/keen/compare/@keen.io/charts@2.28.0...@keen.io/charts@2.28.1) (2021-07-30)
+
+
+### Bug Fixes
+
+* 🐛 Lint fix ([42a3d6f](https://github.com/keen/keen/commit/42a3d6f96a70a3c813fa4be4e6797079c8507e14))
+
+
+
+
+
 # [2.28.0](https://github.com/keen/keen/compare/@keen.io/charts@2.27.2...@keen.io/charts@2.28.0) (2021-07-20)
 
 
