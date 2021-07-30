@@ -29,7 +29,7 @@ type Props = {
   /** Legend item width */
   itemWidth?: number;
   /** Update visibile data series offset */
-  onOffsetUpdate: (offset: [number, number]) => void;
+  onOffsetUpdate?: (offset: [number, number]) => void;
   /** Render legend nodes */
   renderNodes: (
     series: DataSerie[],

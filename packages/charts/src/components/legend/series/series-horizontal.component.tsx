@@ -29,7 +29,7 @@ type Props = {
   /* Collection of data series */
   dataSeries: DataSerie[];
   /** Update visibile data series offset */
-  onOffsetUpdate: (offset: [number, number]) => void;
+  onOffsetUpdate?: (offset: [number, number]) => void;
   /** Legend item width */
   itemWidth?: number;
   /** Space between items */
