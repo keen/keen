@@ -60,7 +60,7 @@ export const Block = styled.div<{
   ${(props) => getPosition(props.position)};
 
   background: ${colors.white['500']};
-  z-index: 99;
+  z-index: 2;
 
   display: flex;
   justify-content: center;
