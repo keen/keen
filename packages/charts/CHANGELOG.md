@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.3](https://github.com/keen/keen/compare/@keen.io/charts@2.28.2...@keen.io/charts@2.28.3) (2021-07-30)
+
+
+### Bug Fixes
+
+* 🐛 Legend - render nodes not detecting changes fix ([adab30b](https://github.com/keen/keen/commit/adab30b2926a4ba762bbc05680d4b5fda48213e6))
+
+
+
+
+
 ## [2.28.2](https://github.com/keen/keen/compare/@keen.io/charts@2.28.1...@keen.io/charts@2.28.2) (2021-07-30)
 
 **Note:** Version bump only for package @keen.io/charts
