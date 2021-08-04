@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   useTable,
@@ -12,11 +15,10 @@ import {
   LeftOverflow,
   RightOverflow,
 } from '@keen.io/charts/dist/charts/table/table-chart.styles';
-import { Theme } from '@keen.io/charts';
 
 type Props = {
   data: Record<string, any>[];
-  theme: Theme;
+  theme: any; // todo add type
 };
 
 const PaginatedTable = ({ data, theme }: Props) => {

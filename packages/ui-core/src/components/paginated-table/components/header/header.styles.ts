@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { Typography } from '../../../../types';
 
 export const Head = styled.thead<{
-  typography?: Typography;
+  typography?: any;
   backgroundColor: string;
 }>`
-  ${(props) => props.typography}
+  ${(props) => props.typography};
   color: ${(props) => props.typography.fontColor};
   background: ${(props) => props.backgroundColor};
   display: flex;
@@ -15,8 +14,6 @@ export const Head = styled.thead<{
   min-height: 20px;
   padding: 20px;
 `;
-
-//flex-direction: ${({ textAlignment }) => textAlignment === 'left' ? 'row' : 'row-reverse'};
 
 export const HeadContent = styled.div`
   display: flex;

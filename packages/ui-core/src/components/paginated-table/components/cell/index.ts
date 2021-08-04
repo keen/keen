@@ -1,3 +1,3 @@
-import { Cell } from './Cell';
+import { Cell } from './cell';
 
 export { Cell };
