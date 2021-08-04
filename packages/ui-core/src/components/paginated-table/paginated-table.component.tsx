@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-nocheck
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
@@ -8,13 +8,14 @@ import {
   useBlockLayout,
   useSortBy,
 } from 'react-table';
-import { TableContainer, TableScrollWrapper } from './paginated-table.styles';
-import { Body, Header, Pagination } from './components';
-import { getElementOffset, hasContentOverflow } from '@keen.io/charts-utils';
 import {
+  TableContainer,
+  TableScrollWrapper,
   LeftOverflow,
   RightOverflow,
-} from '@keen.io/charts/dist/charts/table/table-chart.styles';
+} from './paginated-table.styles';
+import { Body, Header, Pagination } from './components';
+import { getElementOffset, hasContentOverflow } from '@keen.io/charts-utils';
 
 type Props = {
   data: Record<string, any>[];
