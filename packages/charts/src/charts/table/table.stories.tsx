@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { color } from '@storybook/addon-knobs';
 import { data } from './table.fixtures';
-import { action } from '@storybook/addon-actions';
+// import { action } from '@storybook/addon-actions';
 
 import TableChart from './table-chart.component';
 
 import { theme } from '../../theme';
+import { PaginatedTable } from '@keen.io/ui-core';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
@@ -23,7 +24,18 @@ const Container = styled.div`
 export const Plot = () => {
   return (
     <Container>
-      <TableChart
+      {/*<TableChart*/}
+      {/*  data={data}*/}
+      {/*  theme={{*/}
+      {/*    ...theme,*/}
+      {/*    table: {*/}
+      {/*      ...theme.table,*/}
+      {/*      mainColor: color('Main color', '#27566d', 'Chart'),*/}
+      {/*    },*/}
+      {/*  }}*/}
+      {/*  onResize={action('onResize')}*/}
+      {/*/>*/}
+      <PaginatedTable
         data={data}
         theme={{
           ...theme,
@@ -32,7 +44,6 @@ export const Plot = () => {
             mainColor: color('Main color', '#27566d', 'Chart'),
           },
         }}
-        onResize={action('onResize')}
       />
     </Container>
   );

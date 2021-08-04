@@ -101,6 +101,7 @@ import {
   TextAlignment,
   FontSettings,
   SideMenu,
+  PaginatedTable,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -222,4 +223,5 @@ export {
   Color,
   TypographySettings,
   SideMenu,
+  PaginatedTable,
 };
