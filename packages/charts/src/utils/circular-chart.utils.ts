@@ -5,6 +5,8 @@ import {
   getFromPath,
   calculateHypotenuse,
   getPaletteColor,
+  Formatter,
+  formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
 
 import { Dimension, Margins, DataSelector } from '../types';
@@ -29,11 +31,13 @@ export type Options = {
   labelsPosition: LabelsPosition;
   type?: SliceType;
   treshold?: number;
+  formatValue?: Formatter;
 };
 
 type Arc = {
   index: string;
-  label: string;
+  labelNumeric: string | number | Date | boolean;
+  labelPercentage: string;
   activePosition: [number, number];
   labelPosition: [number, number];
   color: string;
@@ -149,6 +153,7 @@ export const generateCircularChart = ({
   margins,
   type = 'pie',
   treshold,
+  formatValue,
 }: Options) => {
   let slices: Slice[] = [];
 
@@ -236,7 +241,10 @@ export const generateCircularChart = ({
 
       if (value > 0) {
         arcs.push({
-          label: String(`${(Math.round(value * 100) / total).toFixed(1)}%`),
+          labelNumeric: valueFormatter(value, formatValue),
+          labelPercentage: String(
+            `${(Math.round(value * 100) / total).toFixed(1)}%`
+          ),
           labelPosition: calculateLabelPosition(startAngle, endAngle),
           activePosition: [x, y],
           index: String(index),

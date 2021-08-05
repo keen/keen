@@ -18,7 +18,12 @@ import { ChartBase, Delayed } from '../../components';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ItemData, TooltipSettings } from '../../types';
+import {
+  CommonChartSettings,
+  ItemData,
+  TooltipSettings,
+  CircularValueMode,
+} from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -53,6 +58,8 @@ export type Props = {
   activeKey?: string;
   /** Return dataKeys after stacking */
   onDataStack?: (keys: string[]) => void;
+  /** Value mode */
+  valueMode?: CircularValueMode;
 } & CommonChartSettings;
 
 export const PieChart: FC<Props> = ({
@@ -74,6 +81,7 @@ export const PieChart: FC<Props> = ({
   onDataStack,
   tooltipSettings = {},
   activeKey,
+  valueMode = 'percentage',
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -141,6 +149,7 @@ export const PieChart: FC<Props> = ({
                     selectors: tooltipSelectors,
                     disabledLabels,
                     formatValue: tooltipSettings.formatValue,
+                    valueMode,
                   })}
                   renderItem={(_idx, item) => (
                     <TooltipItem data={item.data as ItemData} theme={theme} />
@@ -169,7 +178,8 @@ export const PieChart: FC<Props> = ({
             <AnimatePresence>
               {arcs.map(
                 ({
-                  label,
+                  labelNumeric,
+                  labelPercentage,
                   labelPosition,
                   activePosition,
                   dataKey,
@@ -187,7 +197,11 @@ export const PieChart: FC<Props> = ({
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}
-                    label={label}
+                    label={
+                      valueMode === 'percentage'
+                        ? labelPercentage
+                        : labelNumeric
+                    }
                     autocolor={labelsAutocolor}
                     activePosition={activePosition}
                     labelPosition={labelPosition}

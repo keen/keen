@@ -42,6 +42,12 @@ export const plot = () => {
           'inside',
           'Chart'
         )}
+        valueMode={select(
+          'Value mode',
+          { percentage: 'percentage', numeric: 'numeric' },
+          'percentage',
+          'Chart'
+        )}
         svgDimensions={object(
           'svg',
           {
