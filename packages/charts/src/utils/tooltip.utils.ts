@@ -9,7 +9,7 @@ import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
 
-import { DataSelector } from '../types';
+import { DataSelector, CircularChartValueMode } from '../types';
 
 type Options = {
   data: Record<string, any>[];
@@ -18,6 +18,7 @@ type Options = {
   selectors: { selector: DataSelector; color: string }[];
   disabledLabels?: string[];
   formatValue?: Formatter;
+  valueMode?: CircularChartValueMode;
 };
 
 export const getCircularChartTooltipContent = ({
@@ -27,11 +28,18 @@ export const getCircularChartTooltipContent = ({
   selectors,
   disabledLabels = [],
   formatValue,
+  valueMode,
 }: Options) => {
   const content: Point[] = [];
+  const isPercentageMode = valueMode === 'percentage';
 
   selectors.length > 1 &&
     content.push({ color: colors.gray[500], data: OTHERS_DATA_KEY });
+
+  const filteredData = data.filter(
+    (el) => !disabledLabels.includes(el[labelSelector])
+  );
+  const allValuesTotal = calculateTotalValue(filteredData, labelSelector, keys);
 
   selectors.forEach(({ selector, color }) => {
     const item = getFromPath(data, selector);
@@ -40,26 +48,19 @@ export const getCircularChartTooltipContent = ({
     }, 0);
     const formattedTotal = valueFormatter(total, formatValue);
 
-    let value = `${formattedTotal}`;
+    const valuePercent = String(
+      `${(Math.round(total * 100) / allValuesTotal).toFixed(1)}%`
+    );
+
+    const value = isPercentageMode ? valuePercent : `${formattedTotal}`;
     let label = item[labelSelector];
-    let change = '';
+    const change = isPercentageMode
+      ? `(${formattedTotal})`
+      : `(${valuePercent})`;
     let newColor = color;
 
     if (selectors.length > 1) {
-      const filteredData = data.filter(
-        (el) => !disabledLabels.includes(el[labelSelector])
-      );
-      const allValuesTotal = calculateTotalValue(
-        filteredData,
-        labelSelector,
-        keys
-      );
-      const valuePercent = String(
-        `${(Math.round(total * 100) / allValuesTotal).toFixed(1)}%`
-      );
       label = item[labelSelector];
-      value = `${formattedTotal}`;
-      change = `(${valuePercent})`;
       newColor = 'rgba(0, 0, 0, 0)';
     }
 

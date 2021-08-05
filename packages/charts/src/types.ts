@@ -276,3 +276,5 @@ export type TooltipSettings = {
   formatValue?: Formatter;
   formatTime?: FormatFunction;
 };
+
+export type CircularChartValueMode = 'percentage' | 'numeric';
