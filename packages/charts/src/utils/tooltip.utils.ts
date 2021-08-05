@@ -9,7 +9,7 @@ import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
 
-import { DataSelector, CircularValueMode } from '../types';
+import { DataSelector, CircularChartValueMode } from '../types';
 
 type Options = {
   data: Record<string, any>[];
@@ -18,7 +18,7 @@ type Options = {
   selectors: { selector: DataSelector; color: string }[];
   disabledLabels?: string[];
   formatValue?: Formatter;
-  valueMode?: CircularValueMode;
+  valueMode?: CircularChartValueMode;
 };
 
 export const getCircularChartTooltipContent = ({

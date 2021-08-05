@@ -22,7 +22,7 @@ import {
   CommonChartSettings,
   ItemData,
   TooltipSettings,
-  CircularValueMode,
+  CircularChartValueMode,
 } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
@@ -59,7 +59,7 @@ export type Props = {
   /** Return dataKeys after stacking */
   onDataStack?: (keys: string[]) => void;
   /** Value mode */
-  valueMode?: CircularValueMode;
+  valueMode?: CircularChartValueMode;
 } & CommonChartSettings;
 
 export const PieChart: FC<Props> = ({
