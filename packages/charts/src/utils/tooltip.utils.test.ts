@@ -22,7 +22,7 @@ describe('@keen/charts - tooltip utils', () => {
           Object {
             "color": "red",
             "data": Object {
-              "change": "",
+              "change": "(31.0%)",
               "label": "Games",
               "value": "39",
             },
@@ -139,7 +139,7 @@ describe('@keen/charts - tooltip utils', () => {
           Object {
             "color": "red",
             "data": Object {
-              "change": "",
+              "change": "(31.0%)",
               "label": "Games",
               "value": "$39",
             },
@@ -164,7 +164,7 @@ describe('@keen/charts - tooltip utils', () => {
           Object {
             "color": "red",
             "data": Object {
-              "change": "",
+              "change": "(31.0%)",
               "label": "Games",
               "value": "39.00",
             },

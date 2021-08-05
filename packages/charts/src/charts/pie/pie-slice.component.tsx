@@ -32,7 +32,7 @@ type Props = {
   autocolor: boolean;
   labelPosition: [number, number];
   activePosition: [number, number];
-  label: string;
+  label: string | number | Date | boolean;
   background: string;
   id: string;
   activeKey?: string;

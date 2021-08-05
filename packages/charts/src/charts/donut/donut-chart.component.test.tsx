@@ -51,7 +51,7 @@ test('formats tooltip value', async () => {
   await waitFor(() => {
     expect(getByText(label)).toBeInTheDocument();
     expect(
-      getByText(`${tooltipSettings.formatValue(result)}`)
+      getByText(`(${tooltipSettings.formatValue(result)})`)
     ).toBeInTheDocument();
   });
 });
@@ -71,7 +71,45 @@ test('formats tooltip value by string formatter', async () => {
 
   await waitFor(() => {
     expect(getByText(label)).toBeInTheDocument();
-    expect(getByText('22.00')).toBeInTheDocument();
+    expect(getByText('(22.00)')).toBeInTheDocument();
+  });
+});
+
+test('render tooltip value for percentage value mode', async () => {
+  const {
+    wrapper: { getByTestId, getByText, getAllByText },
+    props: { data, labelSelector },
+  } = render({ valueMode: 'percentage' });
+
+  const [firstSeries] = data;
+  const label = firstSeries[labelSelector];
+
+  const slice = getByTestId(label);
+  fireEvent.mouseMove(slice.querySelector('path'));
+
+  await waitFor(() => {
+    expect(getByText(label)).toBeInTheDocument();
+    expect(getAllByText('17.5%').length).toBe(2);
+    expect(getByText('($22)')).toBeInTheDocument();
+  });
+});
+
+test('render tooltip value for numeric value mode', async () => {
+  const {
+    wrapper: { getByTestId, getByText, getAllByText },
+    props: { data, labelSelector },
+  } = render({ valueMode: 'numeric' });
+
+  const [firstSeries] = data;
+  const label = firstSeries[labelSelector];
+
+  const slice = getByTestId(label);
+  fireEvent.mouseMove(slice.querySelector('path'));
+
+  await waitFor(() => {
+    expect(getByText(label)).toBeInTheDocument();
+    expect(getAllByText('$22').length).toBe(2);
+    expect(getByText('(17.5%)')).toBeInTheDocument();
   });
 });
 

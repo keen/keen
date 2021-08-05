@@ -47,6 +47,12 @@ export const widget = () => (
         'inside',
         'Chart'
       )}
+      valueMode={select(
+        'Value mode',
+        { percentage: 'percentage', numeric: 'numeric' },
+        'percentage',
+        'Chart'
+      )}
       keys={['buy', 'sold']}
       labelSelector="name"
       margins={object(

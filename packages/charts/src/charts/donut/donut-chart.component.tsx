@@ -20,7 +20,12 @@ import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ItemData, TooltipSettings } from '../../types';
+import {
+  CommonChartSettings,
+  ItemData,
+  TooltipSettings,
+  CircularChartValueMode,
+} from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -55,6 +60,8 @@ export type Props = {
   activeKey?: string;
   /** Return dataKeys after stacking */
   onDataStack?: (keys: string[]) => void;
+  /** Value mode */
+  valueMode?: CircularChartValueMode;
 } & CommonChartSettings;
 
 export const DonutChart: FC<Props> = ({
@@ -76,6 +83,7 @@ export const DonutChart: FC<Props> = ({
   onDataStack,
   tooltipSettings = {},
   activeKey,
+  valueMode = 'percentage',
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -104,6 +112,7 @@ export const DonutChart: FC<Props> = ({
     colors: theme.colors,
     type: 'donut',
     treshold,
+    formatValue: tooltipSettings.formatValue,
   });
 
   useEffect(() => {
@@ -154,6 +163,7 @@ export const DonutChart: FC<Props> = ({
                     selectors: tooltipSelectors,
                     disabledLabels,
                     formatValue: tooltipSettings.formatValue,
+                    valueMode,
                   })}
                   renderItem={(_idx, item) => (
                     <TooltipItem data={item.data as ItemData} theme={theme} />
@@ -183,7 +193,8 @@ export const DonutChart: FC<Props> = ({
               {arcs.map(
                 ({
                   dataKey,
-                  label,
+                  labelNumeric,
+                  labelPercentage,
                   labelPosition,
                   activePosition,
                   startAngle,
@@ -200,7 +211,11 @@ export const DonutChart: FC<Props> = ({
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}
-                    label={label}
+                    label={
+                      valueMode === 'percentage'
+                        ? labelPercentage
+                        : labelNumeric
+                    }
                     autocolor={labelsAutocolor}
                     activePosition={activePosition}
                     labelPosition={labelPosition}
