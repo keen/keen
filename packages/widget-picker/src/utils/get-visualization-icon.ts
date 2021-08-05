@@ -1,6 +1,5 @@
-import { WIDGETS } from '@keen.io/widget-picker';
-
 import { PickerWidgets } from '../types';
+import { WIDGETS } from '../constants';
 
 type Params = {
   type: PickerWidgets;
