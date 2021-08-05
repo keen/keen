@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.157...@keen.io/widget-picker@1.3.0) (2021-08-05)
+
+
+### Bug Fixes
+
+* 🐛 Import path fixed ([f50293c](https://github.com/keen/keen/commit/f50293c6ffb5134fd7d872b9cd1e113c7468533a))
+
+
+### Features
+
+* 🎸 getVisualization icon added to widget-picker module ([b267705](https://github.com/keen/keen/commit/b26770590ddd9112741b2eab41b6d95e53bce64b))
+
+
+
+
+
 ## [1.2.157](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.2.156...@keen.io/widget-picker@1.2.157) (2021-08-05)
 
 **Note:** Version bump only for package @keen.io/widget-picker
