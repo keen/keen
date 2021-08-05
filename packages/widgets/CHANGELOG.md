@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.6...@keen.io/widgets@2.14.0) (2021-08-05)
+
+
+### Features
+
+* 🎸 Pie and donut value mode ([71ec86b](https://github.com/keen/keen/commit/71ec86b5cff2bab112aeae212b7c665db9d00ca4))
+
+
+
+
+
 ## [2.13.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.5...@keen.io/widgets@2.13.6) (2021-07-30)
 
 **Note:** Version bump only for package @keen.io/widgets
