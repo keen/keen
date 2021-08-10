@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.0...@keen.io/widgets@2.14.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* 🐛 default metric title ([a6c21bf](https://github.com/keen/keen/commit/a6c21bf8a76b5c907a9edba345e7ec843ad339f0))
+
+
+
+
+
 # [2.14.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.6...@keen.io/widgets@2.14.0) (2021-08-05)
 
 
