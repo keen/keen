@@ -104,6 +104,7 @@ export const PieChart: FC<Props> = ({
     dimension: svgDimensions,
     colors: theme.colors,
     treshold,
+    formatValue: tooltipSettings.formatValue,
   });
 
   useEffect(() => {
