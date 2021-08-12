@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.39.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.2...@keen.io/ui-core@2.39.3) (2021-08-12)
+
+
+### Bug Fixes
+
+* 🐛 animation glitch for accordion ([cc88c9e](https://github.com/keen/keen/commit/cc88c9e2556946bd4ce35fccae1348756e40ae1f))
+
+
+
+
+
 ## [2.39.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.1...@keen.io/ui-core@2.39.2) (2021-07-30)
 
 **Note:** Version bump only for package @keen.io/ui-core
