@@ -20,14 +20,13 @@ export const IconContainer = styled(motion.div)`
   transform-origin: 50% 50%;
 `;
 
-export const ContentContainer = styled.div`
-  margin-bottom: 5px;
+export const ContentContainer = styled(motion.div)`
+  will-change: height;
+  overflow: hidden;
 `;
 
-export const Content = styled(motion.div)<{ maxHeight?: number }>`
+export const Content = styled.div<{ maxHeight?: number }>`
   margin: 15px 10px 10px 10px;
-  will-change: margin;
-  overflow: hidden;
 
   ${({ maxHeight }) =>
     maxHeight &&

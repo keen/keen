@@ -10,14 +10,11 @@ export const iconMotion = {
 export const contentMotion = {
   open: {
     height: 'auto',
-    marginTop: 15,
-    marginBottom: 15,
     opacity: 1,
+    transition: { ease: 'easeInOut', duration: 0.25, delay: 0 },
   },
   close: {
     height: 0,
-    marginTop: 0,
-    marginBottom: 0,
     opacity: 0,
   },
 };
