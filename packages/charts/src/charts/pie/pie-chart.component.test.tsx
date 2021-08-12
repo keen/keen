@@ -96,7 +96,7 @@ test('render tooltip value for percentage value mode', async () => {
 
 test('render tooltip value for numeric value mode', async () => {
   const {
-    wrapper: { getByTestId, getByText },
+    wrapper: { getByTestId, getByText, getAllByText },
     props: { data, labelSelector },
   } = render({ valueMode: 'numeric' });
 
@@ -108,7 +108,7 @@ test('render tooltip value for numeric value mode', async () => {
 
   await waitFor(() => {
     expect(getByText(label)).toBeInTheDocument();
-    expect(getByText('$22')).toBeInTheDocument();
+    expect(getAllByText('$22').length).toBe(2);
     expect(getByText('(13.3%)')).toBeInTheDocument();
   });
 });

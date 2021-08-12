@@ -61,7 +61,9 @@ export const plot = () => {
           { top: 50, right: 20, bottom: 50, left: 40 },
           'Chart'
         )}
-        formatTooltip={text('Format tooltip', '${number; 0.00a}', 'Chart')}
+        tooltipSettings={{
+          formatValue: text('Format tooltip', '${number; 0.00a}', 'Chart'),
+        }}
       />
     </div>
   );
