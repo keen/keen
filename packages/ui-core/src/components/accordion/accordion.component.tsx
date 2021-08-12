@@ -5,7 +5,12 @@ import { Headline } from '@keen.io/typography';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
 
-import { TitleContainer, IconContainer, Content } from './accordion.styles';
+import {
+  TitleContainer,
+  IconContainer,
+  Content,
+  ContentContainer,
+} from './accordion.styles';
 import { iconMotion, contentMotion } from './motion';
 
 type Props = {
@@ -53,15 +58,14 @@ export const Accordion: FC<Props> = ({
     </TitleContainer>
     <AnimatePresence initial={false}>
       {isOpen && (
-        <Content
+        <ContentContainer
           variants={contentMotion}
           initial="close"
           animate="open"
           exit="close"
-          maxHeight={maxHeight}
         >
-          {children}
-        </Content>
+          <Content maxHeight={maxHeight}>{children}</Content>
+        </ContentContainer>
       )}
     </AnimatePresence>
   </>
