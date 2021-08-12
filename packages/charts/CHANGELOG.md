@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.2](https://github.com/keen/keen/compare/@keen.io/charts@2.29.1...@keen.io/charts@2.29.2) (2021-08-12)
+
+
+### Bug Fixes
+
+* 🐛 Fix for pie chart value not formatted ([40c29ad](https://github.com/keen/keen/commit/40c29ad70132743d7f141b4703081e970291913f))
+
+
+
+
+
 ## [2.29.1](https://github.com/keen/keen/compare/@keen.io/charts@2.29.0...@keen.io/charts@2.29.1) (2021-08-12)
 
 **Note:** Version bump only for package @keen.io/charts
