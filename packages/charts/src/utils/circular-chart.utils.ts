@@ -1,6 +1,6 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
-import { colors } from '@keen.io/colors';
+import { colors as palette } from '@keen.io/colors';
 import {
   getFromPath,
   calculateHypotenuse,
@@ -67,11 +67,13 @@ export const createStackedSlice = ({
   total,
   treshold,
   slicesToStack,
+  colors,
 }: {
   slices: Slice[];
   total: number;
   treshold: number;
   slicesToStack: Slice[];
+  colors: string[];
 }) => {
   let filteredSlices: Slice[] = slices;
   const stackValue = slicesToStack.reduce(
@@ -83,12 +85,15 @@ export const createStackedSlice = ({
     selector,
   }));
 
-  filteredSlices = slices.filter(
-    ({ value }) => (value * 100) / total > treshold
-  );
+  filteredSlices = slices
+    .filter(({ value }) => (value * 100) / total > treshold)
+    .map((el, idx) => ({
+      ...el,
+      color: getPaletteColor(idx, colors),
+    }));
 
   filteredSlices.push({
-    color: colors.gray['500'],
+    color: palette.gray['500'],
     dataKey: OTHERS_DATA_KEY,
     value: stackValue,
     selector: [],
@@ -198,6 +203,7 @@ export const generateCircularChart = ({
       treshold: tresholdPercent,
       total,
       slicesToStack,
+      colors,
     });
   }
 

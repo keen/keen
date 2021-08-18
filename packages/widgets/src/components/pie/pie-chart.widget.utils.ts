@@ -8,11 +8,11 @@ export const createLegendLabels = (
   stackElem: string[]
 ) => {
   const labels = data
+    .filter((item) => !stackElem.includes(item[labelSelector]))
     .map((item, idx) => ({
       name: item[labelSelector],
       color: colors[idx],
-    }))
-    .filter((item) => !stackElem.includes(item.name));
+    }));
 
   if (stackElem.length) {
     labels.push({
