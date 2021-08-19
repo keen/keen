@@ -105,36 +105,159 @@ export const multipleResults = () => {
   return <div style={{ width: '500px', height: '500px' }} ref={container} />;
 };
 
-const keenAnalysisConfig = {
-  projectId: '5de6365c46e0fb00016563bc',
-  readKey:
-    'E6100206A8F145BB407AD97B2928CB53BA965CBC9C2304FA3BCBC8CFAA10A290F341286293F89CE884E52E20A9922FBC3300043834A0448285197AAE4669D34248A2D5CD15DB9D5E1C9551F870E43E0156DB478D635B99C125CDFC0B4ED52F5E',
-  host: 'staging-api.keen.io',
-};
-
 export const multipleResultOthersSlice = () => {
   const container = React.useRef(null);
 
   React.useEffect(() => {
-    const client = new KeenAnalysis(keenAnalysisConfig);
     const dataviz = new KeenDataViz({
       type: 'donut',
       container: container.current,
       widget: {
         title: {
-          content: 'Book purchases',
+          content: 'Purchases',
         },
       },
     });
 
-    client
-      .query({
+    dataviz.render({
+      query: {
         analysis_type: 'count',
         event_collection: 'purchases',
-        timeframe: 'this_1400_days',
         group_by: ['geo_information.country', 'platform'],
-      })
-      .then((res: any) => dataviz.render(res));
+        timeframe: 'this_1400_days',
+      },
+      result: [
+        {
+          platform: 'Mobile',
+          result: 2,
+          'geo_information.country': 'Argentina',
+        },
+        {
+          platform: 'Mobile',
+          result: 3,
+          'geo_information.country': 'Australia',
+        },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Austria' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Belgium' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Bolivia' },
+        {
+          platform: 'Web',
+          result: 1,
+          'geo_information.country': 'Bosnia and Herzegovina',
+        },
+        { platform: 'Mobile', result: 4, 'geo_information.country': 'Brazil' },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Brazil' },
+        { platform: 'Mobile', result: 5, 'geo_information.country': 'Canada' },
+        { platform: 'Web', result: 2, 'geo_information.country': 'Canada' },
+        { platform: 'Mobile', result: 17, 'geo_information.country': 'China' },
+        { platform: 'Web', result: 2, 'geo_information.country': 'China' },
+        {
+          platform: 'Mobile',
+          result: 3,
+          'geo_information.country': 'Colombia',
+        },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Colombia' },
+        { platform: 'Mobile', result: 2, 'geo_information.country': 'Congo' },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Costa Rica' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Croatia' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Czechia' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Denmark' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Ecuador' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Finland' },
+        { platform: 'Mobile', result: 5, 'geo_information.country': 'France' },
+        { platform: 'Web', result: 3, 'geo_information.country': 'France' },
+        { platform: 'Mobile', result: 3, 'geo_information.country': 'Germany' },
+        { platform: 'Web', result: 2, 'geo_information.country': 'Germany' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Greece' },
+        { platform: 'Mobile', result: 2, 'geo_information.country': 'Hungary' },
+        { platform: 'Mobile', result: 3, 'geo_information.country': 'India' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Ireland' },
+        { platform: 'Mobile', result: 5, 'geo_information.country': 'Italy' },
+        { platform: 'Mobile', result: 11, 'geo_information.country': 'Japan' },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Japan' },
+        {
+          platform: 'Mobile',
+          result: 2,
+          'geo_information.country': 'Malaysia',
+        },
+        { platform: 'Mobile', result: 3, 'geo_information.country': 'Mexico' },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Mexico' },
+        {
+          platform: 'Mobile',
+          result: 3,
+          'geo_information.country': 'Netherlands',
+        },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Norway' },
+        { platform: 'Mobile', result: 2, 'geo_information.country': 'Poland' },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Poland' },
+        {
+          platform: 'Mobile',
+          result: 11,
+          'geo_information.country': 'Republic of Korea',
+        },
+        {
+          platform: 'Web',
+          result: 1,
+          'geo_information.country': 'Republic of Lithuania',
+        },
+        {
+          platform: 'Mobile',
+          result: 1,
+          'geo_information.country': 'Republic of Moldova',
+        },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Romania' },
+        { platform: 'Mobile', result: 3, 'geo_information.country': 'Russia' },
+        {
+          platform: 'Mobile',
+          result: 2,
+          'geo_information.country': 'Singapore',
+        },
+        {
+          platform: 'Mobile',
+          result: 1,
+          'geo_information.country': 'Slovakia',
+        },
+        {
+          platform: 'Mobile',
+          result: 1,
+          'geo_information.country': 'South Africa',
+        },
+        {
+          platform: 'Web',
+          result: 1,
+          'geo_information.country': 'South Africa',
+        },
+        { platform: 'Mobile', result: 2, 'geo_information.country': 'Sweden' },
+        { platform: 'Web', result: 1, 'geo_information.country': 'Sweden' },
+        { platform: 'Mobile', result: 4, 'geo_information.country': 'Taiwan' },
+        { platform: 'Web', result: 5, 'geo_information.country': 'Taiwan' },
+        {
+          platform: 'Mobile',
+          result: 1,
+          'geo_information.country': 'Thailand',
+        },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Turkey' },
+        { platform: 'Mobile', result: 1, 'geo_information.country': 'Ukraine' },
+        {
+          platform: 'Mobile',
+          result: 3,
+          'geo_information.country': 'United Kingdom',
+        },
+        {
+          platform: 'Mobile',
+          result: 82,
+          'geo_information.country': 'United States',
+        },
+        {
+          platform: 'Web',
+          result: 17,
+          'geo_information.country': 'United States',
+        },
+        { platform: 'Mobile', result: 2, 'geo_information.country': 'Vietnam' },
+        { platform: 'Mobile', result: 36, 'geo_information.country': null },
+        { platform: 'Web', result: 11, 'geo_information.country': null },
+      ],
+    });
   }, []);
 
   return <div style={{ width: '600px', height: '450px' }} ref={container} />;
