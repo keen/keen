@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Layout, Typography, Position, Alignment } from '@keen.io/ui-core';
-import { OTHERS_DATA_KEY } from '@keen.io/charts';
+import { OTHERS_DATA_KEY } from '../../../utils/circular-chart.utils';
 
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
