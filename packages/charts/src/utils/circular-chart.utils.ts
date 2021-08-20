@@ -1,6 +1,6 @@
 import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
-import { colors } from '@keen.io/colors';
+import { colors as palette } from '@keen.io/colors';
 import {
   getFromPath,
   calculateHypotenuse,
@@ -67,11 +67,13 @@ export const createStackedSlice = ({
   total,
   treshold,
   slicesToStack,
+  colors,
 }: {
   slices: Slice[];
   total: number;
   treshold: number;
   slicesToStack: Slice[];
+  colors: string[];
 }) => {
   let filteredSlices: Slice[] = slices;
   const stackValue = slicesToStack.reduce(
@@ -83,12 +85,15 @@ export const createStackedSlice = ({
     selector,
   }));
 
-  filteredSlices = slices.filter(
-    ({ value }) => (value * 100) / total > treshold
-  );
+  filteredSlices = slices
+    .filter(({ value }) => (value * 100) / total > treshold)
+    .map((el, idx) => ({
+      ...el,
+      color: getPaletteColor(idx, colors),
+    }));
 
   filteredSlices.push({
-    color: colors.gray['500'],
+    color: palette.gray['500'],
     dataKey: OTHERS_DATA_KEY,
     value: stackValue,
     selector: [],
@@ -165,22 +170,19 @@ export const generateCircularChart = ({
     ) / 2;
 
   const relativeInnerRadius = radius * Math.min(innerRadius, 1);
-
   data.forEach((item, idx) => {
     const label = item[labelSelector];
-    if (!disabledLabels.includes(label)) {
-      const result = keys.reduce((acc, currentKey) => {
-        if (currentKey !== label) return acc + item[currentKey];
-        return acc;
-      }, 0) as number;
+    const result = keys.reduce((acc, currentKey) => {
+      if (currentKey !== label) return acc + item[currentKey];
+      return acc;
+    }, 0) as number;
 
-      slices.push({
-        value: result,
-        dataKey: label,
-        selector: [idx],
-        color: getPaletteColor(idx, colors),
-      });
-    }
+    slices.push({
+      value: result,
+      dataKey: label,
+      selector: [idx],
+      color: getPaletteColor(idx, colors),
+    });
   });
 
   const total = sum(slices, (d) => d.value);
@@ -198,8 +200,18 @@ export const generateCircularChart = ({
       treshold: tresholdPercent,
       total,
       slicesToStack,
+      colors,
     });
   }
+
+  const stackedSlices = slicesToStack.map((slice) => slice.dataKey);
+
+  const disabledSlices = [
+    ...disabledLabels,
+    disabledLabels.includes(stackedSlices[0]) && OTHERS_DATA_KEY,
+  ];
+
+  slices = slices.filter((slice) => !disabledSlices.includes(slice.dataKey));
 
   const calculateLabelPosition = (
     startAngle: number,

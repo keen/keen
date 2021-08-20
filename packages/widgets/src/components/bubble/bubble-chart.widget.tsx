@@ -68,6 +68,7 @@ export const BubbleChartWidget: FC<Props> = ({
           {series.enabled && (
             <SeriesLegend
               {...series}
+              disabledKeys={disabledKeys}
               position={position}
               onClick={updateKeys}
               colorPalette={theme.colors}

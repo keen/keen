@@ -57,6 +57,8 @@ export const DonutChartWidget: FC<Props> = ({
                 updateKeys(key, disabled);
               }
             }}
+            disabledKeys={disabledKeys}
+            stackedElem={stackedElem}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
             colorPalette={theme.colors}

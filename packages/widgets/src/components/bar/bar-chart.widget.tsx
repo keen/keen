@@ -44,6 +44,7 @@ export const BarChartWidget: FC<Props> = ({
         legend.enabled && (
           <SeriesLegend
             {...legend}
+            disabledKeys={disabledKeys}
             onClick={updateKeys}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}

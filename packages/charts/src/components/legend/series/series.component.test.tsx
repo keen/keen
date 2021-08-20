@@ -18,6 +18,7 @@ const render = (overProps: any = {}) => {
     card: {},
     dataSeries,
     colorPalette,
+    disabledKeys: [],
     typography: {
       fontSize: 12,
       fontColor: 'black',

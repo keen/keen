@@ -17,6 +17,8 @@ describe('@keen/charts - circular chart utils', () => {
     { color: 'green', value: 2, selector: [4] },
   ];
 
+  const colors = ['red', 'blue', 'yellow', 'violet', 'green'];
+
   describe('getSlicesToStack()', () => {
     it('should get all slices with values that fit threshold percent value', () => {
       const slicesToStack = [
@@ -57,6 +59,7 @@ describe('@keen/charts - circular chart utils', () => {
         treshold: 5,
         total: 210,
         slicesToStack,
+        colors,
       });
       expect(result).toMatchSnapshot();
     });
@@ -72,6 +75,7 @@ describe('@keen/charts - circular chart utils', () => {
         treshold: 1,
         total: 210,
         slicesToStack,
+        colors,
       });
       expect(result).toMatchSnapshot();
     });

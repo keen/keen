@@ -2,9 +2,11 @@
 import * as React from 'react';
 import KeenAnalysis from 'keen-analysis';
 
-import KeenDataviz from '../visualizer';
+import KeenDataViz from '../visualizer';
 
 import { analysisConfig } from '../fixture';
+
+import { query } from './circular-chart.fixtures';
 
 export default {
   title: 'Visualizations /Pie Chart/Dataviz',
@@ -27,7 +29,7 @@ export const ownData = () => {
   ];
 
   React.useEffect(() => {
-    new KeenDataviz({
+    new KeenDataViz({
       type: 'pie',
       container: container.current,
       widget: {
@@ -54,7 +56,7 @@ export const singleResult = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new KeenDataviz({
+    const dataviz = new KeenDataViz({
       type: 'pie',
       container: container.current,
       widget: {
@@ -84,7 +86,7 @@ export const simpleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new KeenDataviz({
+    const dataviz = new KeenDataViz({
       type: 'pie',
       container: container.current,
       widget: {
@@ -115,7 +117,7 @@ export const multipleResults = () => {
 
   React.useEffect(() => {
     const client = new KeenAnalysis(analysisConfig);
-    const dataviz = new KeenDataviz({
+    const dataviz = new KeenDataViz({
       type: 'pie',
       container: container.current,
       widget: {
@@ -136,6 +138,26 @@ export const multipleResults = () => {
         group_by: ['name'],
       })
       .then((res: any) => dataviz.render(res));
+  }, []);
+
+  return <div style={{ width: '600px', height: '450px' }} ref={container} />;
+};
+
+export const multipleResultOthersSlice = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'pie',
+      container: container.current,
+      widget: {
+        title: {
+          content: 'Purchases',
+        },
+      },
+    });
+
+    dataviz.render(query);
   }, []);
 
   return <div style={{ width: '600px', height: '450px' }} ref={container} />;
