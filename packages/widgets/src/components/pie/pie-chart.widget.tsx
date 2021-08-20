@@ -50,6 +50,8 @@ export const PieChartWidget: FC<Props> = ({
         legend.enabled && (
           <SeriesLegend
             {...legend}
+            disabledKeys={disabledKeys}
+            stackedElem={stackedElem}
             onClick={(key, disabled) => {
               if (key === OTHERS_DATA_KEY) {
                 stackedElem.forEach((el) => updateKeys(el, disabled));

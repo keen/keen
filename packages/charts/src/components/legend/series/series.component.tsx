@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Layout, Typography, Position, Alignment } from '@keen.io/ui-core';
+import { OTHERS_DATA_KEY } from '@keen.io/charts';
 
 import SeriesHorizontal from './series-horizontal.component';
 import SeriesVertical from './series-vertical.component';
@@ -30,6 +31,10 @@ type Props = {
   onDeactivate?: () => void;
   /** Color palette */
   colorPalette?: string[];
+  /** Disabled keys */
+  disabledKeys?: string[];
+  /** Stacked keys */
+  stackedElem?: string[];
 };
 
 export const SeriesLegend: FC<Props> = ({
@@ -43,6 +48,8 @@ export const SeriesLegend: FC<Props> = ({
   onActivate,
   onDeactivate,
   colorPalette,
+  disabledKeys,
+  stackedElem,
 }) => {
   const commonProps = {
     typography,
@@ -76,6 +83,11 @@ export const SeriesLegend: FC<Props> = ({
           onMouseLeave={() => {
             onDeactivate && onDeactivate();
           }}
+          isDisabled={
+            name === OTHERS_DATA_KEY
+              ? disabledKeys.includes(stackedElem[0])
+              : disabledKeys.includes(name)
+          }
         />
       </div>
     ));
