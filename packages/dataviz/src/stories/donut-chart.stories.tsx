@@ -6,6 +6,8 @@ import KeenDataViz from '../visualizer';
 
 import { analysisConfig } from '../fixture';
 
+import { query } from './circular-chart.fixtures';
+
 export default {
   title: 'Visualizations /Donut Chart/Dataviz',
   parameters: {
@@ -103,4 +105,24 @@ export const multipleResults = () => {
   }, []);
 
   return <div style={{ width: '500px', height: '500px' }} ref={container} />;
+};
+
+export const multipleResultOthersSlice = () => {
+  const container = React.useRef(null);
+
+  React.useEffect(() => {
+    const dataviz = new KeenDataViz({
+      type: 'donut',
+      container: container.current,
+      widget: {
+        title: {
+          content: 'Purchases',
+        },
+      },
+    });
+
+    dataviz.render(query);
+  }, []);
+
+  return <div style={{ width: '600px', height: '450px' }} ref={container} />;
 };
