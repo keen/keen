@@ -8,7 +8,10 @@ import {
   theme as defaultTheme,
 } from '@keen.io/charts';
 import { useLegend } from '@keen.io/react-hooks';
-import { sortKeysByValuesSum } from '@keen.io/charts-utils';
+import {
+  sortKeysByValuesSum,
+  getOffsetRangeColor,
+} from '@keen.io/charts-utils';
 
 import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
@@ -30,6 +33,10 @@ export const AreaChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
   const [activeKey, setActiveKey] = useState(null);
+  const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
+    0,
+    theme.colors.length,
+  ]);
 
   const sortedKeys = sortKeysByValuesSum(props.data, props.keys);
 
@@ -55,8 +62,9 @@ export const AreaChartWidget: FC<Props> = ({
             colorPalette={theme.colors}
             dataSeries={sortedKeys.map((key: string, idx: number) => ({
               name: key,
-              color: theme.colors[idx],
+              color: getOffsetRangeColor(idx, theme.colors, dataSeriesOffset),
             }))}
+            onOffsetUpdate={(offset) => setDataSeriesOffset(offset)}
           />
         )
       }
@@ -69,6 +77,7 @@ export const AreaChartWidget: FC<Props> = ({
               disabledKeys={disabledKeys}
               svgDimensions={{ width, height }}
               activeKey={activeKey}
+              dataSeriesOffset={dataSeriesOffset}
             />
           )}
         </ResponsiveWrapper>

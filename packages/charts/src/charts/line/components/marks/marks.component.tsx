@@ -88,7 +88,7 @@ const Marks = ({
             }}
           >
             <motion.circle
-              key={`${key}-${curve}-${stackMode}-${groupMode}-${color}`}
+              key={`${key}-${curve}-${stackMode}-${groupMode}`}
               cx={x}
               cy={y}
               r={radius}

@@ -38,6 +38,7 @@ type Props = {
   activeKey?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
+  dataSeriesOffset?: [number, number];
 };
 
 const PieSlice: FC<Props> = ({
@@ -53,6 +54,7 @@ const PieSlice: FC<Props> = ({
   activeKey,
   onMouseLeave,
   onMouseMove,
+  dataSeriesOffset,
 }) => {
   const [arcProperties, setArcProperties] = useState<ArcProperties>({
     startAngle,
@@ -99,7 +101,7 @@ const PieSlice: FC<Props> = ({
       );
     } else {
       activeControls
-        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .start(activeVariants.default, { delay: isDelayed ? 0.5 : 0 })
         .then(() => {
           if (isDelayed) {
             setDelay(false);
@@ -107,6 +109,10 @@ const PieSlice: FC<Props> = ({
         });
     }
   }, [activeKey]);
+
+  useEffect(() => {
+    activeControls.start(activeVariants.offsetChange);
+  }, [dataSeriesOffset]);
 
   return (
     <motion.g
@@ -117,6 +123,7 @@ const PieSlice: FC<Props> = ({
       exit="remove"
     >
       <motion.g
+        key={`slice-${background}`}
         onMouseMove={onMouseMove}
         onMouseEnter={() => setActive(true)}
         onMouseLeave={(e) => {

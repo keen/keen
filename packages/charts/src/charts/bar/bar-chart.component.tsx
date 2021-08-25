@@ -70,6 +70,8 @@ export type Props = {
   tooltipSettings?: TooltipSettings;
   /** Active key */
   activeKey?: string | null;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const BarChart: FC<Props> = ({
@@ -96,6 +98,7 @@ export const BarChart: FC<Props> = ({
   yAxisTitle,
   tooltipSettings = {},
   activeKey = null,
+  dataSeriesOffset,
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
 
@@ -132,8 +135,8 @@ export const BarChart: FC<Props> = ({
     yScaleSettings,
     xAxisTitle,
     yAxisTitle,
+    dataSeriesOffset,
   });
-
   const { tooltip: themeTooltipsSettings } = theme;
 
   const clearTooltip = useRef(null);
@@ -204,6 +207,7 @@ export const BarChart: FC<Props> = ({
                   }, TOOLTIP_HIDE_TIME);
                 }
               }}
+              dataSeriesOffset={dataSeriesOffset}
             />
             <ChartTooltip
               visible={tooltip.visible}

@@ -20,6 +20,7 @@ type Props = {
   groupMode: GroupMode;
   animate?: boolean;
   isActive?: boolean | null;
+  dataSeriesOffset?: [number, number];
 };
 
 export const Bar: FC<Props> = ({
@@ -33,6 +34,7 @@ export const Bar: FC<Props> = ({
   groupMode,
   animate = true,
   isActive,
+  dataSeriesOffset,
 }) => {
   const barControls = useAnimation();
   const barVariants = {
@@ -66,13 +68,17 @@ export const Bar: FC<Props> = ({
     }
   }, [isActive]);
 
+  useEffect(() => {
+    barControls.start(barVariants.offsetChange);
+  }, [dataSeriesOffset]);
+
   const commonProps = {
     height,
     width,
     fill: color,
     style: transitionStyle,
   };
-
+  console.log(colorOutOfRange);
   return animate ? (
     <motion.rect
       {...commonProps}

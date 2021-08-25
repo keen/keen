@@ -50,13 +50,14 @@ const SeriesHorizontal: FC<Props> = ({
   itemWidth = 100,
   itemGap = 10,
   renderNodes,
+  onOffsetUpdate,
 }) => {
   const containerRef = useRef(null);
   const elementRef = useRef(null);
   const [calculationReady, setCalculationReady] = useState(false);
   const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
     0,
-    0,
+    colorPalette.length,
   ]);
 
   const [renderMode, setRenderMode] = useState<RenderMode>('list');
@@ -67,6 +68,8 @@ const SeriesHorizontal: FC<Props> = ({
   const [direction, setDirection] = useState(0);
 
   const [startOffset, endOffset] = dataSeriesOffset;
+
+  const itemsInSlider = endOffset - startOffset;
 
   useEffect(() => {
     if (renderMode === 'slider') {
@@ -111,6 +114,10 @@ const SeriesHorizontal: FC<Props> = ({
     }
   }, []);
 
+  useEffect(() => {
+    onOffsetUpdate([startOffset, endOffset]);
+  }, [startOffset, endOffset]);
+
   return (
     <div
       style={{ background: 'transparent', width: '100%', position: 'relative' }}
@@ -130,7 +137,7 @@ const SeriesHorizontal: FC<Props> = ({
               <Slider
                 mode="horizontal"
                 dimension={sliderDimension}
-                nextDisabled={endOffset === dataSeries.length}
+                nextDisabled={endOffset > dataSeries.length}
                 previousDisabled={startOffset === 0}
                 direction={direction}
                 animation={(itemIndex) =>
@@ -138,20 +145,21 @@ const SeriesHorizontal: FC<Props> = ({
                     'horizontal',
                     itemIndex,
                     itemWidth,
-                    itemGap
+                    itemGap,
+                    sliderDimension[0]
                   )
                 }
                 onNextSlide={() => {
                   setDataSeriesOffset(([startOffset, endOffset]) => [
-                    startOffset + 1,
-                    endOffset + 1,
+                    startOffset + itemsInSlider,
+                    endOffset + itemsInSlider,
                   ]);
                   setDirection(1);
                 }}
                 onPreviousSlide={() => {
                   setDataSeriesOffset(([startOffset, endOffset]) => [
-                    startOffset - 1,
-                    endOffset - 1,
+                    startOffset - itemsInSlider,
+                    endOffset - itemsInSlider,
                   ]);
                   setDirection(-1);
                 }}

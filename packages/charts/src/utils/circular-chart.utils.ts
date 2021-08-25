@@ -4,9 +4,9 @@ import { colors as palette } from '@keen.io/colors';
 import {
   getFromPath,
   calculateHypotenuse,
-  getPaletteColor,
   Formatter,
   formatValue as valueFormatter,
+  getOffsetRangeColor,
 } from '@keen.io/charts-utils';
 
 import { Dimension, Margins, DataSelector } from '../types';
@@ -32,6 +32,7 @@ export type Options = {
   type?: SliceType;
   treshold?: number;
   formatValue?: Formatter;
+  dataSeriesOffset?: [number, number];
 };
 
 type Arc = {
@@ -56,6 +57,7 @@ type Slice = {
   selector: DataSelector;
   stacked?: boolean;
   stack?: { selector: DataSelector; color: string }[];
+  index?: number;
 };
 
 export const HOVER_RADIUS = 5;
@@ -68,12 +70,14 @@ export const createStackedSlice = ({
   treshold,
   slicesToStack,
   colors,
+  dataSeriesOffset,
 }: {
   slices: Slice[];
   total: number;
   treshold: number;
   slicesToStack: Slice[];
   colors: string[];
+  dataSeriesOffset: [number, number];
 }) => {
   let filteredSlices: Slice[] = slices;
   const stackValue = slicesToStack.reduce(
@@ -89,16 +93,24 @@ export const createStackedSlice = ({
     .filter(({ value }) => (value * 100) / total > treshold)
     .map((el, idx) => ({
       ...el,
-      color: getPaletteColor(idx, colors),
+      color: getOffsetRangeColor(idx, colors, dataSeriesOffset),
+      index: idx,
     }));
 
+  const inOffsetRange =
+    filteredSlices.length >= dataSeriesOffset[0] &&
+    filteredSlices.length < dataSeriesOffset[1];
+
   filteredSlices.push({
-    color: palette.gray['500'],
+    color: inOffsetRange
+      ? palette.gray['500']
+      : getOffsetRangeColor(filteredSlices.length, colors, dataSeriesOffset),
     dataKey: OTHERS_DATA_KEY,
     value: stackValue,
     selector: [],
     stacked: true,
     stack,
+    index: filteredSlices.length,
   });
 
   return filteredSlices;
@@ -159,6 +171,7 @@ export const generateCircularChart = ({
   type = 'pie',
   treshold,
   formatValue,
+  dataSeriesOffset,
 }: Options) => {
   let slices: Slice[] = [];
 
@@ -181,12 +194,14 @@ export const generateCircularChart = ({
       value: result,
       dataKey: label,
       selector: [idx],
-      color: getPaletteColor(idx, colors),
+      color: getOffsetRangeColor(idx, colors, dataSeriesOffset),
     });
   });
 
   const total = sum(slices, (d) => d.value);
-  const createPie = pie().value((d: any) => d.value);
+  const createPie = pie()
+    .sort((a, b) => b.index - a.index)
+    .value((d: any) => d.value);
 
   const createArc = arc().padAngle(padAngle);
 
@@ -201,6 +216,7 @@ export const generateCircularChart = ({
       total,
       slicesToStack,
       colors,
+      dataSeriesOffset,
     });
   }
 
@@ -236,7 +252,7 @@ export const generateCircularChart = ({
   const stackedElem: string[] = [];
 
   createPie(slices as any).forEach(
-    ({ startAngle, endAngle, value, index, data: sliceData }) => {
+    ({ startAngle, endAngle, value, data: sliceData }, index) => {
       const { color, selector, stacked, stack, dataKey } = sliceData as any;
       const [x, y] = createArc.centroid({
         innerRadius: relativeInnerRadius,

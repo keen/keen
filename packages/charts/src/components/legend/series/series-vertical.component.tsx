@@ -46,6 +46,7 @@ const SeriesVertical: FC<Props> = ({
   renderNodes,
   itemWidth = 100,
   itemGap = 10,
+  onOffsetUpdate,
 }) => {
   const containerRef = useRef(null);
   const elementRef = useRef(null);
@@ -53,7 +54,7 @@ const SeriesVertical: FC<Props> = ({
 
   const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
     0,
-    0,
+    colorPalette.length,
   ]);
 
   const [renderMode, setRenderMode] = useState<RenderMode>('list');
@@ -113,6 +114,12 @@ const SeriesVertical: FC<Props> = ({
 
   const [startOffset, endOffset] = dataSeriesOffset;
 
+  const itemsInSlider = endOffset - startOffset;
+
+  useEffect(() => {
+    onOffsetUpdate([startOffset, endOffset]);
+  }, [startOffset, endOffset]);
+
   return (
     <div
       style={{
@@ -139,7 +146,7 @@ const SeriesVertical: FC<Props> = ({
             <Slider
               mode="vertical"
               dimension={sliderDimension}
-              nextDisabled={endOffset === dataSeries.length}
+              nextDisabled={endOffset > dataSeries.length}
               previousDisabled={startOffset === 0}
               direction={direction}
               animation={(itemIndex) =>
@@ -147,20 +154,21 @@ const SeriesVertical: FC<Props> = ({
                   'vertical',
                   itemIndex,
                   elementHeight,
-                  itemGap
+                  itemGap,
+                  sliderDimension[1]
                 )
               }
               onNextSlide={() => {
                 setDataSeriesOffset(([startOffset, endOffset]) => [
-                  startOffset + 1,
-                  endOffset + 1,
+                  startOffset + itemsInSlider,
+                  endOffset + itemsInSlider,
                 ]);
                 setDirection(1);
               }}
               onPreviousSlide={() => {
                 setDataSeriesOffset(([startOffset, endOffset]) => [
-                  startOffset - 1,
-                  endOffset - 1,
+                  startOffset - itemsInSlider,
+                  endOffset - itemsInSlider,
                 ]);
                 setDirection(-1);
               }}

@@ -35,6 +35,8 @@ type Props = {
   disabledKeys?: string[];
   /** Stacked keys */
   stackedElem?: string[];
+  /** Update visibile data series offset */
+  onOffsetUpdate?: (offset: [number, number]) => void;
 };
 
 export const SeriesLegend: FC<Props> = ({
@@ -50,6 +52,7 @@ export const SeriesLegend: FC<Props> = ({
   colorPalette,
   disabledKeys,
   stackedElem,
+  onOffsetUpdate,
 }) => {
   const commonProps = {
     typography,
@@ -95,9 +98,17 @@ export const SeriesLegend: FC<Props> = ({
   return (
     <>
       {layout === 'horizontal' ? (
-        <SeriesHorizontal {...commonProps} renderNodes={renderNodes} />
+        <SeriesHorizontal
+          {...commonProps}
+          renderNodes={renderNodes}
+          onOffsetUpdate={(offset) => onOffsetUpdate(offset)}
+        />
       ) : (
-        <SeriesVertical {...commonProps} renderNodes={renderNodes} />
+        <SeriesVertical
+          {...commonProps}
+          renderNodes={renderNodes}
+          onOffsetUpdate={(offset) => onOffsetUpdate(offset)}
+        />
       )}
     </>
   );

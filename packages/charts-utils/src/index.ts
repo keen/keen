@@ -45,7 +45,11 @@ import {
   FormatFunction,
 } from './types';
 
-import { getPaletteColor, generateContinuousColorScale } from './color';
+import {
+  getPaletteColor,
+  generateContinuousColorScale,
+  getOffsetRangeColor,
+} from './color';
 
 export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
 
@@ -80,4 +84,5 @@ export {
   INTERVAL_TO_PRECISION,
   getPaletteColor,
   generateContinuousColorScale,
+  getOffsetRangeColor,
 };

@@ -37,6 +37,13 @@ const activeVariants = {
     opacity: 1,
     scale: 1.05,
   },
+  offsetChange: {
+    opacity: 1,
+    transition: {
+      delay: 0,
+      duration: 0.5,
+    },
+  },
 };
 
 type Props = {
@@ -52,6 +59,7 @@ type Props = {
   activeKey?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
+  dataSeriesOffset?: [number, number];
 };
 
 const DonutSlice: FC<Props> = ({
@@ -66,6 +74,7 @@ const DonutSlice: FC<Props> = ({
   activeKey,
   onMouseLeave,
   onMouseMove,
+  dataSeriesOffset,
 }) => {
   const [arcProperties, setArcProperties] = useState<ArcProperties>({
     startAngle,
@@ -116,6 +125,10 @@ const DonutSlice: FC<Props> = ({
     }
   }, [activeKey]);
 
+  useEffect(() => {
+    activeControls.start(activeVariants.offsetChange);
+  }, [dataSeriesOffset]);
+
   return (
     <motion.g
       variants={sliceVariants}
@@ -125,6 +138,7 @@ const DonutSlice: FC<Props> = ({
       data-testid={id}
     >
       <motion.g
+        key={`slice-${background}`}
         onMouseMove={onMouseMove}
         onMouseEnter={() => setActive(true)}
         onMouseLeave={(e) => {
@@ -148,6 +162,7 @@ const DonutSlice: FC<Props> = ({
         />
         {labels.enabled && (
           <motion.g
+            initial={false}
             animate={{ x: labelX, y: labelY }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >

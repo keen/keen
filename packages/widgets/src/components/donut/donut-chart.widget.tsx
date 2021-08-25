@@ -34,6 +34,10 @@ export const DonutChartWidget: FC<Props> = ({
 
   const [stackedElem, setStackedElem] = useState([]);
   const [activeKey, setActiveKey] = useState(null);
+  const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
+    0,
+    theme.colors.length,
+  ]);
 
   return (
     <ChartWidget
@@ -66,8 +70,10 @@ export const DonutChartWidget: FC<Props> = ({
               props.data,
               theme.colors,
               props.labelSelector,
-              stackedElem
+              stackedElem,
+              dataSeriesOffset
             )}
+            onOffsetUpdate={(offset) => setDataSeriesOffset(offset)}
           />
         )
       }
@@ -81,6 +87,7 @@ export const DonutChartWidget: FC<Props> = ({
               svgDimensions={{ width, height }}
               activeKey={activeKey}
               theme={theme}
+              dataSeriesOffset={dataSeriesOffset}
             />
           )}
         </ResponsiveWrapper>

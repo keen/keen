@@ -62,6 +62,8 @@ export type Props = {
   onDataStack?: (keys: string[]) => void;
   /** Value mode */
   valueMode?: CircularChartValueMode;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const DonutChart: FC<Props> = ({
@@ -84,6 +86,7 @@ export const DonutChart: FC<Props> = ({
   tooltipSettings = {},
   activeKey,
   valueMode = 'percentage',
+  dataSeriesOffset,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -113,6 +116,7 @@ export const DonutChart: FC<Props> = ({
     type: 'donut',
     treshold,
     formatValue: tooltipSettings.formatValue,
+    dataSeriesOffset,
   });
 
   useEffect(() => {
@@ -227,6 +231,7 @@ export const DonutChart: FC<Props> = ({
                       }
                     }}
                     onMouseLeave={() => hideTooltip()}
+                    dataSeriesOffset={dataSeriesOffset}
                   />
                 )
               )}

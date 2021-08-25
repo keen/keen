@@ -60,6 +60,8 @@ export type Props = {
   onDataStack?: (keys: string[]) => void;
   /** Value mode */
   valueMode?: CircularChartValueMode;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const PieChart: FC<Props> = ({
@@ -82,6 +84,7 @@ export const PieChart: FC<Props> = ({
   tooltipSettings = {},
   activeKey,
   valueMode = 'percentage',
+  dataSeriesOffset,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -105,6 +108,7 @@ export const PieChart: FC<Props> = ({
     colors: theme.colors,
     treshold,
     formatValue: tooltipSettings.formatValue,
+    dataSeriesOffset,
   });
 
   useEffect(() => {
@@ -214,6 +218,7 @@ export const PieChart: FC<Props> = ({
                       }
                     }}
                     onMouseLeave={() => hideTooltip()}
+                    dataSeriesOffset={dataSeriesOffset}
                   />
                 )
               )}

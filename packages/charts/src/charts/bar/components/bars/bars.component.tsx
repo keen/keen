@@ -31,6 +31,7 @@ export type Props = {
   showValues: boolean;
   valuesAutocolor: boolean;
   activeKey?: string | null;
+  dataSeriesOffset?: [number, number];
 };
 
 const Bars = ({
@@ -43,6 +44,7 @@ const Bars = ({
   activeKey,
   onBarMouseEnter,
   onBarMouseLeave,
+  dataSeriesOffset,
 }: Props) => {
   const [activeBar, setActiveBar] = useState<{
     selector: DataSelector;
@@ -101,6 +103,7 @@ const Bars = ({
                   color,
                   groupMode,
                 })}
+                dataSeriesOffset={dataSeriesOffset}
               />
             </g>
           )
