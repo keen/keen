@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.3...@keen.io/widgets@2.14.4) (2021-08-25)
+
+
+### Bug Fixes
+
+* 🐛 Fix for circular chart color palette assignement ([77d2585](https://github.com/keen/keen/commit/77d2585d601a0810c7b45aeaa3b003345f9976c5))
+* 🐛 Fix for disabledKeys and disabledLabels ([bebf5c5](https://github.com/keen/keen/commit/bebf5c55348658055dd1ab8f9381343f04eafa22))
+* 🐛 Fixes ([9b5592a](https://github.com/keen/keen/commit/9b5592a620e82e6214a299b7218b5180705286d2))
+
+
+
+
+
 ## [2.14.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.2...@keen.io/widgets@2.14.3) (2021-08-12)
 
 **Note:** Version bump only for package @keen.io/widgets

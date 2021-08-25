@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.13.10...@keen.io/dataviz@2.13.11) (2021-08-25)
+
+
+### Bug Fixes
+
+* 🐛 Fix for circular chart color palette assignement ([77d2585](https://github.com/keen/keen/commit/77d2585d601a0810c7b45aeaa3b003345f9976c5))
+
+
+
+
+
 ## [2.13.10](https://github.com/keen/keen/compare/@keen.io/dataviz@2.13.9...@keen.io/dataviz@2.13.10) (2021-08-12)
 
 **Note:** Version bump only for package @keen.io/dataviz

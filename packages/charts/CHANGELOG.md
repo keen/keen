@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.3](https://github.com/keen/keen/compare/@keen.io/charts@2.29.2...@keen.io/charts@2.29.3) (2021-08-25)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([97e14e2](https://github.com/keen/keen/commit/97e14e2f5e6f571b34b9916689a7164ac6454f3f))
+* 🐛 Fix for circular chart color palette assignement ([77d2585](https://github.com/keen/keen/commit/77d2585d601a0810c7b45aeaa3b003345f9976c5))
+* 🐛 Fix for disabledKeys and disabledLabels ([bebf5c5](https://github.com/keen/keen/commit/bebf5c55348658055dd1ab8f9381343f04eafa22))
+
+
+
+
+
 ## [2.29.2](https://github.com/keen/keen/compare/@keen.io/charts@2.29.1...@keen.io/charts@2.29.2) (2021-08-12)
 
 
