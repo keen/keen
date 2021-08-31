@@ -1,5 +1,6 @@
 import React from 'react';
 import { CellTextAlignment } from '@keen.io/ui-core';
+import { Formatter } from '@keen.io/charts-utils';
 
 export type HeaderCell = {
   key: string;
@@ -9,4 +10,4 @@ export type HeaderCell = {
 
 export type FormatFunction = (value: string | number) => React.ReactNode;
 
-export type ValueFormatter = FormatFunction | Record<string, FormatFunction>;
+export type ValueFormatter = Record<string, Formatter>;
