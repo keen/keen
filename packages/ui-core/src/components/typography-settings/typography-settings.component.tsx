@@ -46,7 +46,7 @@ const TypographySettings: FC<Props> = ({
   };
 
   return (
-    <Container onMouseDown={(e) => e.preventDefault()}>
+    <Container>
       {availableSettings.color && (
         <Color
           color={settings.color}
