@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.39.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.4...@keen.io/ui-core@2.39.5) (2021-08-31)
+
+
+### Bug Fixes
+
+* 🐛 Color copy/paste enabled ([118b64c](https://github.com/keen/keen/commit/118b64ca36e91e9eb86b1a100ed8a658f353f096))
+
+
+
+
+
 ## [2.39.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.3...@keen.io/ui-core@2.39.4) (2021-08-25)
 
 **Note:** Version bump only for package @keen.io/ui-core
