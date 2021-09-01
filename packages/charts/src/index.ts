@@ -24,6 +24,8 @@ import {
   GaugeChartSettings,
   TableChart,
   TableChartSettings,
+  TableEvents,
+  ColumnSelection,
   CurveType,
   GeoAreaMatchStatus,
   fetchMapTopology,
@@ -36,6 +38,8 @@ import {
   BubbleLegend,
 } from './components';
 
+import { ChartEvents } from './events';
+
 import { theme, margins } from './theme';
 
 import { Theme, Axis, StackMode, GroupMode, Tooltip, Grid } from './types';
@@ -45,6 +49,8 @@ import { OTHERS_DATA_KEY, bubbleColorScale, extendTheme } from './utils';
 export type {
   Theme,
   Axis,
+  TableEvents,
+  ColumnSelection,
   BarChartSettings,
   BubbleChartSettings,
   GaugeChartSettings,
@@ -66,6 +72,7 @@ export type {
 };
 
 export {
+  ChartEvents,
   BarChart,
   BubbleChart,
   ChoroplethChart,

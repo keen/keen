@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@keen.io/charts-utils": "^1.8.3",
+    "@keen.io/pubsub": "^1.1.1",
     "@keen.io/colors": "^1.1.0",
     "@keen.io/react-hooks": "^1.0.7",
     "@keen.io/ui-core": "^2.16.0",

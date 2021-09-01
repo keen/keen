@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
+import { getPubSub, PubSub } from '@keen.io/pubsub';
 import { extendTheme } from '@keen.io/charts';
 
 import { renderWidget } from './render-widget';
@@ -31,6 +32,12 @@ class Visualizer {
   /** Container used to mount widget */
   private container: HTMLElement | string;
 
+  /** Event bus used to communicate with charts */
+  private eventBus: PubSub;
+
+  /** Flag responsible for rendering chart in edit mode */
+  private inEditMode: boolean;
+
   /** Declarations for labels and keys mappings */
   private mappings: Record<string, string>;
 
@@ -52,10 +59,15 @@ class Visualizer {
       mappings,
       widget,
       settings,
+      eventBus,
+      inEditMode,
     } = options;
 
     this.mappings = mappings || null;
     this.presentationTimezone = presentationTimezone;
+
+    this.eventBus = eventBus || getPubSub();
+    this.inEditMode = inEditMode || false;
 
     this.componentSettings = settings || {};
     this.widgetSettings = widget || {};
@@ -142,6 +154,8 @@ class Visualizer {
     ReactDOM.render(
       renderWidget({
         type: this.type,
+        eventBus: this.eventBus,
+        inEditMode: this.inEditMode,
         widgetSettings: this.setWidgetSettings(),
         componentSettings: this.setComponentSettings(input, this.type, keys),
         data: results,
