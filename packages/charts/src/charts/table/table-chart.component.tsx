@@ -34,6 +34,7 @@ import {
   Table,
   LeftOverflow,
   RightOverflow,
+  StyledCol,
 } from './table-chart.styles';
 
 import text from './text.json';
@@ -80,6 +81,8 @@ export const TableChart = ({
     x: 0,
     y: 0,
   });
+  const [hoveredColumn, setHoveredColumn] = useState<number>();
+  const [selectedColumns, setSelectedColumns] = useState<number[]>([]);
 
   const tableRef = useRef(null);
   const containerRef = useRef(null);
@@ -156,6 +159,8 @@ export const TableChart = ({
     calculateMaxScroll();
   }, []);
 
+  const activeColumns = new Set([...selectedColumns, hoveredColumn]);
+
   return (
     <>
       <Container data-testid="table-chart-plot">
@@ -184,6 +189,15 @@ export const TableChart = ({
             )}
           </AnimatePresence>
           <Table ref={tableRef}>
+            <colgroup>
+              {formattedData.map((_: any, idx: number) => (
+                <StyledCol
+                  key={`col-${idx}`}
+                  isHovered={hoveredColumn === idx}
+                  isSelected={selectedColumns.includes(idx)}
+                />
+              ))}
+            </colgroup>
             <HeaderRow
               data={generateHeader(data[0], formatHeader)}
               isColumnDragged={isColumnDragged}
@@ -197,6 +211,7 @@ export const TableChart = ({
               }) => setSort({ property: propertyName, sort: sortMode })}
               sortOptions={sort && sort}
               typography={header.typography}
+              activeColumns={[...activeColumns]}
             />
             <tbody>
               {formattedData.map((el: any, idx: number) => (
@@ -204,7 +219,7 @@ export const TableChart = ({
                   key={`${idx}-${el[0]}`}
                   data={el}
                   backgroundColor={mainColor}
-                  onCellClick={(e, value) => {
+                  onCellClick={(e, value, cellIdx) => {
                     if (tooltipHide.current) clearTimeout(tooltipHide.current);
                     copyToClipboard(value);
 
@@ -230,7 +245,21 @@ export const TableChart = ({
                         y: 0,
                       }));
                     }, TOOLTIP_HIDE);
+
+                    setSelectedColumns((state) => {
+                      const index = state.indexOf(cellIdx);
+                      const arr = [...state];
+                      if (index > -1) {
+                        arr.splice(index, 1);
+                      } else {
+                        arr.push(cellIdx);
+                      }
+                      return arr;
+                    });
                   }}
+                  onCellMouseEnter={(_e, cellIdx) => setHoveredColumn(cellIdx)}
+                  onCellMouseLeave={() => setHoveredColumn(null)}
+                  activeColumn={hoveredColumn}
                   isColumnDragged={isColumnDragged}
                   typography={body.typography}
                 />

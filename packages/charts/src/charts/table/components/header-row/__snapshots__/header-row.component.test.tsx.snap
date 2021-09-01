@@ -62,6 +62,7 @@ exports[`applies typography settings to table header 1`] = `
   top: 0;
   z-index: 1;
   background: #44748C;
+  position: relative;
 }
 
 <tr

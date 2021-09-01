@@ -21,6 +21,8 @@ type Props = {
   sortOptions?: SortByType;
   /** Column drag indicator */
   isColumnDragged: boolean;
+  /** Active columns array */
+  activeColumns?: number[];
   /** Column sort event handler */
   onSort?: (sortMeta: { propertyName: string; sortMode: SortMode }) => void;
 };
@@ -28,15 +30,20 @@ type Props = {
 export const HeaderRow = ({
   data,
   color,
-  onSort,
   sortOptions,
   isColumnDragged,
   typography,
+  activeColumns = [],
+  onSort,
 }: Props) => (
   <thead>
     <Container typography={typography} data-testid="header-row-container">
-      {data.map(({ key, value, align }: HeaderCell) => (
-        <StickyCell key={key} backgroundColor={color}>
+      {data.map(({ key, value, align }: HeaderCell, idx: number) => (
+        <StickyCell
+          key={key}
+          backgroundColor={color}
+          isActive={activeColumns.includes(idx)}
+        >
           <TableHeader
             propertyName={key}
             backgroundColor={color}
