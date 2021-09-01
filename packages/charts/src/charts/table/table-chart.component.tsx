@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, {
   useState,
   useRef,
@@ -21,6 +22,8 @@ import {
 } from '@keen.io/charts-utils';
 
 import { HeaderRow } from './components';
+import { ChartEvents } from '../../events';
+
 import {
   generateHeader,
   generateTable,
@@ -40,7 +43,7 @@ import text from './text.json';
 import { theme as defaultTheme } from '../../theme';
 import { DRAG_CLASS, TOOLTIP_HIDE } from './constants';
 
-import { FormatFunction, ValueFormatter } from './types';
+import { FormatFunction, ValueFormatter, TableEvents } from './types';
 import { TooltipState, CommonChartSettings } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
@@ -56,6 +59,8 @@ export type Props = {
   formatValue?: ValueFormatter;
   /** Resize table layout event handler */
   onResize?: () => void;
+  /** Chart events communication bus */
+  chartEvents?: ChartEvents<TableEvents>;
 } & CommonChartSettings;
 
 export const TableChart = ({
@@ -64,6 +69,7 @@ export const TableChart = ({
   columnsOrder,
   formatValue,
   onResize,
+  chartEvents,
   theme = defaultTheme,
 }: Props) => {
   const [sort, setSort] = useState<SortByType>(null);
@@ -144,6 +150,17 @@ export const TableChart = ({
       },
     });
   }, [onResize, calculateMaxScroll]);
+
+  useEffect(() => {
+    let unsubscribe: () => void = null;
+
+    if (chartEvents) {
+      //@TODO: Manage table events here
+      unsubscribe = chartEvents.subscribe(() => {});
+    }
+
+    return () => unsubscribe && unsubscribe();
+  }, [chartEvents]);
 
   useEffect(() => {
     const hasOverflow = hasContentOverflow('horizontal', containerRef.current);

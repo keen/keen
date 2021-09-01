@@ -15,6 +15,7 @@ import { AnalysisResult } from '@keen.io/parser';
 import { Query, Step } from '@keen.io/query';
 import { CardSettings } from '@keen.io/ui-core';
 import { TextSettings, LegendSettings, Widgets, Tag } from '@keen.io/widgets';
+import { PubSub } from '@keen.io/pubsub';
 
 export type VisualizationInput = Partial<{
   query: Query;
@@ -53,4 +54,6 @@ export type Options = {
   widget?: Partial<VisualizerWidgetSettings>;
   settings?: ComponentSettings;
   visualization?: Widgets;
+  eventBus?: PubSub;
+  inEditMode?: boolean;
 };
