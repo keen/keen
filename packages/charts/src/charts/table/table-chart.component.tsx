@@ -55,7 +55,7 @@ export type Props = {
   formatHeader?: Record<string, FormatFunction>;
   /** Columns order */
   columnsOrder?: string[];
-  /** Format function for values, or object of functions to format values separately */
+  /** Object of formatter functions to format values separately */
   formatValue?: ValueFormatter;
   /** Resize table layout event handler */
   onResize?: () => void;
