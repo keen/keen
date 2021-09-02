@@ -28,6 +28,7 @@ const render = (overProps: any = {}) => {
     onClick: jest.fn(),
     onActivate: jest.fn(),
     onDeactivate: jest.fn(),
+    onOffsetUpdate: jest.fn(),
     ...overProps,
   };
 

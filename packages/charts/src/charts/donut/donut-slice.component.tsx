@@ -25,8 +25,12 @@ const sliceVariants = {
 };
 
 const activeVariants = {
-  initial: {
+  default: {
     opacity: 1,
+    scale: 1,
+  },
+  initial: {
+    opacity: 0,
     scale: 1,
   },
   inactive: {
@@ -116,7 +120,7 @@ const DonutSlice: FC<Props> = ({
       );
     } else {
       activeControls
-        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .start(activeVariants.default, { delay: isDelayed ? 0.5 : 0 })
         .then(() => {
           if (isDelayed) {
             setDelay(false);

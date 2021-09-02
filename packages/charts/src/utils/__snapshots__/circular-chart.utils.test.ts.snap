@@ -98,25 +98,47 @@ exports[`@keen/charts - circular chart utils generateCircularChart() should calc
 Array [
   Object {
     "activePosition": Array [
-      -14.795169021596411,
-      -13.457450487458384,
+      13.457450487458381,
+      -14.795169021596415,
     ],
-    "color": "#85B4C3",
-    "dataKey": "Books",
-    "endAngle": 5.866829654294192,
-    "index": "4",
-    "labelNumeric": 22,
-    "labelPercentage": "13.3%",
+    "color": "#D95B24",
+    "dataKey": "Games",
+    "endAngle": 1.4761700420482162,
+    "index": "0",
+    "labelNumeric": 39,
+    "labelPercentage": "23.5%",
     "labelPosition": Array [
-      -51.78309157558744,
-      -47.101076706104344,
+      47.10107670610433,
+      -51.78309157558745,
     ],
     "selector": Array [
-      0,
+      2,
     ],
     "stack": undefined,
     "stacked": undefined,
-    "startAngle": 5.034118348523403,
+    "startAngle": 0,
+  },
+  Object {
+    "activePosition": Array [
+      16.4431202338962,
+      11.385244704161323,
+    ],
+    "color": "#E29B1E",
+    "dataKey": "Cars",
+    "endAngle": 2.876639056299088,
+    "index": "1",
+    "labelNumeric": 37,
+    "labelPercentage": "22.3%",
+    "labelPosition": Array [
+      57.55092081863669,
+      39.84835646456463,
+    ],
+    "selector": Array [
+      4,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 1.4761700420482162,
   },
   Object {
     "activePosition": Array [
@@ -142,28 +164,6 @@ Array [
   },
   Object {
     "activePosition": Array [
-      13.457450487458381,
-      -14.795169021596415,
-    ],
-    "color": "#D95B24",
-    "dataKey": "Games",
-    "endAngle": 1.4761700420482162,
-    "index": "0",
-    "labelNumeric": 39,
-    "labelPercentage": "23.5%",
-    "labelPosition": Array [
-      47.10107670610433,
-      -51.78309157558745,
-    ],
-    "selector": Array [
-      2,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 0,
-  },
-  Object {
-    "activePosition": Array [
       -19.771211711837772,
       3.0164859432274804,
     ],
@@ -186,25 +186,25 @@ Array [
   },
   Object {
     "activePosition": Array [
-      16.4431202338962,
-      11.385244704161323,
+      -14.795169021596411,
+      -13.457450487458384,
     ],
-    "color": "#E29B1E",
-    "dataKey": "Cars",
-    "endAngle": 2.876639056299088,
-    "index": "1",
-    "labelNumeric": 37,
-    "labelPercentage": "22.3%",
+    "color": "#85B4C3",
+    "dataKey": "Books",
+    "endAngle": 5.866829654294192,
+    "index": "4",
+    "labelNumeric": 22,
+    "labelPercentage": "13.3%",
     "labelPosition": Array [
-      57.55092081863669,
-      39.84835646456463,
+      -51.78309157558744,
+      -47.101076706104344,
     ],
     "selector": Array [
-      4,
+      0,
     ],
     "stack": undefined,
     "stacked": undefined,
-    "startAngle": 1.4761700420482162,
+    "startAngle": 5.034118348523403,
   },
   Object {
     "activePosition": Array [
@@ -257,25 +257,47 @@ exports[`@keen/charts - circular chart utils generateCircularChart() should calc
 Array [
   Object {
     "activePosition": Array [
-      -14.795169021596411,
-      -13.457450487458384,
+      13.457450487458381,
+      -14.795169021596415,
     ],
-    "color": "#85B4C3",
-    "dataKey": "Books",
-    "endAngle": 5.866829654294192,
-    "index": "4",
-    "labelNumeric": 22,
-    "labelPercentage": "13.3%",
+    "color": "#D95B24",
+    "dataKey": "Games",
+    "endAngle": 1.4761700420482162,
+    "index": "0",
+    "labelNumeric": 39,
+    "labelPercentage": "23.5%",
     "labelPosition": Array [
-      -40.68671480939013,
-      -37.007988840510556,
+      37.00798884051054,
+      -40.68671480939014,
     ],
     "selector": Array [
-      0,
+      2,
     ],
     "stack": undefined,
     "stacked": undefined,
-    "startAngle": 5.034118348523403,
+    "startAngle": 0,
+  },
+  Object {
+    "activePosition": Array [
+      16.4431202338962,
+      11.385244704161323,
+    ],
+    "color": "#E29B1E",
+    "dataKey": "Cars",
+    "endAngle": 2.876639056299088,
+    "index": "1",
+    "labelNumeric": 37,
+    "labelPercentage": "22.3%",
+    "labelPosition": Array [
+      45.218580643214544,
+      31.30942293644364,
+    ],
+    "selector": Array [
+      4,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 1.4761700420482162,
   },
   Object {
     "activePosition": Array [
@@ -301,28 +323,6 @@ Array [
   },
   Object {
     "activePosition": Array [
-      13.457450487458381,
-      -14.795169021596415,
-    ],
-    "color": "#D95B24",
-    "dataKey": "Games",
-    "endAngle": 1.4761700420482162,
-    "index": "0",
-    "labelNumeric": 39,
-    "labelPercentage": "23.5%",
-    "labelPosition": Array [
-      37.00798884051054,
-      -40.68671480939014,
-    ],
-    "selector": Array [
-      2,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 0,
-  },
-  Object {
-    "activePosition": Array [
       -19.771211711837772,
       3.0164859432274804,
     ],
@@ -345,25 +345,25 @@ Array [
   },
   Object {
     "activePosition": Array [
-      16.4431202338962,
-      11.385244704161323,
+      -14.795169021596411,
+      -13.457450487458384,
     ],
-    "color": "#E29B1E",
-    "dataKey": "Cars",
-    "endAngle": 2.876639056299088,
-    "index": "1",
-    "labelNumeric": 37,
-    "labelPercentage": "22.3%",
+    "color": "#85B4C3",
+    "dataKey": "Books",
+    "endAngle": 5.866829654294192,
+    "index": "4",
+    "labelNumeric": 22,
+    "labelPercentage": "13.3%",
     "labelPosition": Array [
-      45.218580643214544,
-      31.30942293644364,
+      -40.68671480939013,
+      -37.007988840510556,
     ],
     "selector": Array [
-      4,
+      0,
     ],
     "stack": undefined,
     "stacked": undefined,
-    "startAngle": 1.4761700420482162,
+    "startAngle": 5.034118348523403,
   },
   Object {
     "activePosition": Array [

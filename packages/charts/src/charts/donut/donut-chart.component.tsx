@@ -59,7 +59,7 @@ export type Props = {
   /** Active key */
   activeKey?: string;
   /** Return dataKeys after stacking */
-  onDataStack?: (keys: string[]) => void;
+  onFinalDataStack?: (keys: string[]) => void;
   /** Value mode */
   valueMode?: CircularChartValueMode;
   /** Visibile data series offset */
@@ -82,7 +82,7 @@ export const DonutChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
-  onDataStack,
+  onFinalDataStack,
   tooltipSettings = {},
   activeKey,
   valueMode = 'percentage',
@@ -98,7 +98,7 @@ export const DonutChart: FC<Props> = ({
     total: totalValue,
     arcs,
     drawArc,
-    stackedElem,
+    sortedDataSeries,
   } = generateCircularChart({
     data,
     margins,
@@ -120,7 +120,7 @@ export const DonutChart: FC<Props> = ({
   });
 
   useEffect(() => {
-    onDataStack && onDataStack(stackedElem);
+    onFinalDataStack && onFinalDataStack(sortedDataSeries);
   }, []);
 
   const svgElement = useRef<SVGSVGElement>(null);

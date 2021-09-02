@@ -2,7 +2,6 @@ import { sum } from 'd3-array';
 import { arc, pie } from 'd3-shape';
 import { colors as palette } from '@keen.io/colors';
 import {
-  getFromPath,
   calculateHypotenuse,
   Formatter,
   formatValue as valueFormatter,
@@ -70,7 +69,7 @@ export const createStackedSlice = ({
   treshold,
   slicesToStack,
   colors,
-  dataSeriesOffset,
+  dataSeriesOffset = [0, colors.length],
 }: {
   slices: Slice[];
   total: number;
@@ -94,7 +93,6 @@ export const createStackedSlice = ({
     .map((el, idx) => ({
       ...el,
       color: getOffsetRangeColor(idx, colors, dataSeriesOffset),
-      index: idx,
     }));
 
   const inOffsetRange =
@@ -110,7 +108,6 @@ export const createStackedSlice = ({
     selector: [],
     stacked: true,
     stack,
-    index: filteredSlices.length,
   });
 
   return filteredSlices;
@@ -174,7 +171,6 @@ export const generateCircularChart = ({
   dataSeriesOffset,
 }: Options) => {
   let slices: Slice[] = [];
-
   const { width, height } = dimension;
   const radius =
     Math.min(
@@ -183,6 +179,7 @@ export const generateCircularChart = ({
     ) / 2;
 
   const relativeInnerRadius = radius * Math.min(innerRadius, 1);
+
   data.forEach((item, idx) => {
     const label = item[labelSelector];
     const result = keys.reduce((acc, currentKey) => {
@@ -198,9 +195,18 @@ export const generateCircularChart = ({
     });
   });
 
+  // get rid of that line after implementing orderBy
+  slices = slices
+    .sort((a, b) => b.value - a.value)
+    .map((slice, idx) => ({
+      ...slice,
+      color: getOffsetRangeColor(idx, colors, dataSeriesOffset),
+    }));
+
   const total = sum(slices, (d) => d.value);
+
   const createPie = pie()
-    .sort((a, b) => b.index - a.index)
+    .sortValues(null)
     .value((d: any) => d.value);
 
   const createArc = arc().padAngle(padAngle);
@@ -249,7 +255,7 @@ export const generateCircularChart = ({
 
   const arcs: Arc[] = [];
 
-  const stackedElem: string[] = [];
+  const sortedDataSeries: string[] = [];
 
   createPie(slices as any).forEach(
     ({ startAngle, endAngle, value, data: sliceData }, index) => {
@@ -261,13 +267,8 @@ export const generateCircularChart = ({
         endAngle,
       });
 
-      if (stacked) {
-        stack.forEach((el: { selector: DataSelector; color: string }) => {
-          stackedElem.push(getFromPath(data, el.selector)[labelSelector]);
-        });
-      }
-
       if (value > 0) {
+        sortedDataSeries.push(dataKey);
         arcs.push({
           labelNumeric: valueFormatter(value, formatValue),
           labelPercentage: String(
@@ -291,7 +292,7 @@ export const generateCircularChart = ({
   return {
     total,
     arcs,
-    stackedElem,
+    sortedDataSeries,
     drawArc: arc()
       .padAngle(padAngle)
       .innerRadius(relativeInnerRadius)

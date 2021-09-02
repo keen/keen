@@ -146,7 +146,7 @@ const SeriesVertical: FC<Props> = ({
             <Slider
               mode="vertical"
               dimension={sliderDimension}
-              nextDisabled={endOffset > dataSeries.length}
+              nextDisabled={endOffset >= dataSeries.length}
               previousDisabled={startOffset === 0}
               direction={direction}
               animation={(itemIndex) =>

@@ -78,7 +78,7 @@ export const Bar: FC<Props> = ({
     fill: color,
     style: transitionStyle,
   };
-  console.log(colorOutOfRange);
+
   return animate ? (
     <motion.rect
       {...commonProps}

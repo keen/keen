@@ -57,7 +57,7 @@ export type Props = {
   /** Active key */
   activeKey?: string;
   /** Return dataKeys after stacking */
-  onDataStack?: (keys: string[]) => void;
+  onFinalDataStack?: (keys: string[]) => void;
   /** Value mode */
   valueMode?: CircularChartValueMode;
   /** Visibile data series offset */
@@ -80,7 +80,7 @@ export const PieChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
-  onDataStack,
+  onFinalDataStack,
   tooltipSettings = {},
   activeKey,
   valueMode = 'percentage',
@@ -92,7 +92,7 @@ export const PieChart: FC<Props> = ({
     return total * (stackTreshold / 100);
   });
 
-  const { arcs, drawArc, stackedElem } = generateCircularChart({
+  const { arcs, drawArc, sortedDataSeries } = generateCircularChart({
     data,
     margins,
     padAngle,
@@ -112,7 +112,7 @@ export const PieChart: FC<Props> = ({
   });
 
   useEffect(() => {
-    onDataStack && onDataStack(stackedElem);
+    onFinalDataStack && onFinalDataStack(sortedDataSeries);
   }, []);
 
   const svgElement = useRef<SVGSVGElement>(null);
