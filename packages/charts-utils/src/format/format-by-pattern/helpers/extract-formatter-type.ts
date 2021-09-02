@@ -1,5 +1,7 @@
 import { VARIABLE_REGEX } from '../constants';
 
+import { PatternFormatterDataType } from '../../../types';
+
 /**
  * Get data type from string format pattern.
  *
@@ -7,11 +9,13 @@ import { VARIABLE_REGEX } from '../constants';
  * @return formatter data type
  *
  */
-export const extractFormatterType = (pattern: string) => {
+export const extractFormatterType = (
+  pattern: string
+): PatternFormatterDataType => {
   const variable = pattern.match(VARIABLE_REGEX);
   if (variable) {
     const [variableType] = variable[1].split(';');
-    return variableType;
+    return variableType as PatternFormatterDataType;
   }
 
   return null;

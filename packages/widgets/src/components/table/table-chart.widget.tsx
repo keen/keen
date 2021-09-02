@@ -54,7 +54,12 @@ export const TableChartWidget: FC<Props> = ({
             <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
           </HeaderContainer>
         )}
-        <TableChart {...props} chartEvents={chartEvents} theme={theme} />
+        <TableChart
+          {...props}
+          theme={theme}
+          chartEvents={chartEvents}
+          enableEditMode={inEditMode}
+        />
       </>
     </Card>
   );

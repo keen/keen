@@ -1,3 +1,5 @@
+import { PatternFormatterDataType } from '@keen.io/charts-utils';
+
 /**
  * Classifies data in table column
  *
@@ -9,7 +11,7 @@
 export const classifyColumnData = (
   columnName: string,
   data: Record<string, any>[]
-) => {
+): PatternFormatterDataType => {
   const dataTypes: Record<string, number> = {};
   const specifyDataType = (type: string) => {
     if (dataTypes[type]) dataTypes[type] = dataTypes[type] + 1;
@@ -25,9 +27,10 @@ export const classifyColumnData = (
   const maximumOccurencies = Math.max(...Object.values(dataTypes));
 
   const [dataType] = Object.keys(dataTypes).filter(
-    (keyName: string | null) => dataTypes[keyName] === maximumOccurencies
+    (keyName: PatternFormatterDataType | null) =>
+      dataTypes[keyName] === maximumOccurencies
   );
 
-  if (dataType) return dataType;
+  if (dataType) return dataType as PatternFormatterDataType;
   return null;
 };

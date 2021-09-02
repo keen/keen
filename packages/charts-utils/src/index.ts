@@ -43,11 +43,18 @@ import {
   ScaleSettings,
   Formatter,
   FormatFunction,
+  PatternFormatterDataType,
 } from './types';
 
 import { getPaletteColor, generateContinuousColorScale } from './color';
 
-export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
+export {
+  PatternFormatterDataType,
+  TimePrecision,
+  ScaleSettings,
+  Formatter,
+  FormatFunction,
+};
 
 export {
   createDateFormatter,
