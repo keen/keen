@@ -53,6 +53,8 @@ export type Props = {
   formatHeader?: Record<string, FormatFunction>;
   /** Columns order */
   columnsOrder?: string[];
+  /** Table edit mode identicator */
+  enableEditMode?: boolean;
   /** Format function for values, or object of functions to format values separately */
   formatValue?: ValueFormatter;
   /** Resize table layout event handler */
@@ -66,6 +68,7 @@ export const TableChart = ({
   formatValue,
   onResize,
   theme = defaultTheme,
+  enableEditMode = false,
 }: Props) => {
   const [sort, setSort] = useState<SortByType>(null);
   const [maxScroll, setMaxScroll] = useState(0);
@@ -132,21 +135,22 @@ export const TableChart = ({
   } = theme;
 
   useEffect(() => {
-    new ColumnResizer(tableRef.current, {
-      liveDrag: true,
-      flush: true,
-      resizeMode: 'overflow',
-      draggingClass: DRAG_CLASS,
-      onResize: () => {
-        calculateMaxScroll();
-        setColumnDragged(false);
-        onResize && onResize();
-      },
-      onDrag: () => {
-        if (!isColumnDragged) setColumnDragged(true);
-      },
-    });
-  }, [onResize, calculateMaxScroll]);
+    !enableEditMode &&
+      new ColumnResizer(tableRef.current, {
+        liveDrag: true,
+        flush: true,
+        resizeMode: 'overflow',
+        draggingClass: DRAG_CLASS,
+        onResize: () => {
+          calculateMaxScroll();
+          setColumnDragged(false);
+          onResize && onResize();
+        },
+        onDrag: () => {
+          if (!isColumnDragged) setColumnDragged(true);
+        },
+      });
+  }, [onResize, calculateMaxScroll, enableEditMode]);
 
   useEffect(() => {
     const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
@@ -160,6 +164,19 @@ export const TableChart = ({
   }, []);
 
   const activeColumns = new Set([...selectedColumns, hoveredColumn]);
+
+  const handleSelectColumns = (cellIdx: number) => {
+    setSelectedColumns((state) => {
+      const index = state.indexOf(cellIdx);
+      const arr = [...state];
+      if (index > -1) {
+        arr.splice(index, 1);
+      } else {
+        arr.push(cellIdx);
+      }
+      return arr;
+    });
+  };
 
   return (
     <>
@@ -208,10 +225,18 @@ export const TableChart = ({
               }: {
                 propertyName: string;
                 sortMode: SortMode;
-              }) => setSort({ property: propertyName, sort: sortMode })}
+              }) =>
+                !enableEditMode &&
+                setSort({ property: propertyName, sort: sortMode })
+              }
               sortOptions={sort && sort}
               typography={header.typography}
               activeColumns={[...activeColumns]}
+              {...(enableEditMode && {
+                onEditModeClick: (_e, cellIdx) => handleSelectColumns(cellIdx),
+                onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
+                onCellMouseLeave: () => setHoveredColumn(null),
+              })}
             />
             <tbody>
               {formattedData.map((el: any, idx: number) => (
@@ -220,48 +245,46 @@ export const TableChart = ({
                   data={el}
                   backgroundColor={mainColor}
                   onCellClick={(e, value, cellIdx) => {
-                    if (tooltipHide.current) clearTimeout(tooltipHide.current);
-                    copyToClipboard(value);
+                    if (enableEditMode) {
+                      handleSelectColumns(cellIdx);
+                    } else {
+                      if (tooltipHide.current)
+                        clearTimeout(tooltipHide.current);
+                      copyToClipboard(value);
 
-                    const {
-                      top,
-                      left,
-                    }: ClientRect = containerRef.current.getBoundingClientRect();
-                    const tooltipX = e.pageX - left - window.scrollX;
-                    const tooltipY = e.pageY - top - window.scrollY;
+                      const {
+                        top,
+                        left,
+                      }: ClientRect = containerRef.current.getBoundingClientRect();
+                      const tooltipX = e.pageX - left - window.scrollX;
+                      const tooltipY = e.pageY - top - window.scrollY;
 
-                    setTooltip((state) => ({
-                      ...state,
-                      visible: true,
-                      x: tooltipX,
-                      y: tooltipY,
-                    }));
-
-                    tooltipHide.current = setTimeout(() => {
                       setTooltip((state) => ({
                         ...state,
-                        visible: false,
-                        x: 0,
-                        y: 0,
+                        visible: true,
+                        x: tooltipX,
+                        y: tooltipY,
                       }));
-                    }, TOOLTIP_HIDE);
 
-                    setSelectedColumns((state) => {
-                      const index = state.indexOf(cellIdx);
-                      const arr = [...state];
-                      if (index > -1) {
-                        arr.splice(index, 1);
-                      } else {
-                        arr.push(cellIdx);
-                      }
-                      return arr;
-                    });
+                      tooltipHide.current = setTimeout(() => {
+                        setTooltip((state) => ({
+                          ...state,
+                          visible: false,
+                          x: 0,
+                          y: 0,
+                        }));
+                      }, TOOLTIP_HIDE);
+                    }
                   }}
-                  onCellMouseEnter={(_e, cellIdx) => setHoveredColumn(cellIdx)}
-                  onCellMouseLeave={() => setHoveredColumn(null)}
                   activeColumn={hoveredColumn}
+                  enableEditMode={enableEditMode}
                   isColumnDragged={isColumnDragged}
                   typography={body.typography}
+                  {...(enableEditMode && {
+                    onCellMouseEnter: (_e, cellIdx) =>
+                      setHoveredColumn(cellIdx),
+                    onCellMouseLeave: () => setHoveredColumn(null),
+                  })}
                 />
               ))}
             </tbody>

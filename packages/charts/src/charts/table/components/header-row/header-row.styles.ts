@@ -6,7 +6,7 @@ import { colors } from '@keen.io/colors';
 export const Container = styled.tr<{
   typography: Typography;
 }>`
-  ${(props) => props.typography}
+  ${(props) => props.typography};
   color: ${(props) => props.typography.fontColor};
 `;
 
@@ -35,5 +35,13 @@ export const StickyCell = styled.td<{
         width: 100%;
         background-color: ${transparentize(0.85, colors.green[300])};
       }
-    `}
+    `};
+`;
+
+export const DisableInteractions = styled.div<{ disableInteraction: boolean }>`
+  ${({ disableInteraction }) =>
+    disableInteraction &&
+    css`
+      pointer-events: none;
+    `};
 `;

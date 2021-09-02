@@ -18,6 +18,8 @@ type Props = {
   isColumnDragged: boolean;
   /** Active column index */
   activeColumn?: number;
+  /** Edit mode indicator */
+  enableEditMode?: boolean;
   /** Cell element click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
@@ -42,6 +44,7 @@ const TableRow: FC<Props> = ({
   isColumnDragged,
   backgroundColor,
   activeColumn,
+  enableEditMode,
   onCellClick,
   onCellMouseEnter,
   onCellMouseLeave,
@@ -54,8 +57,9 @@ const TableRow: FC<Props> = ({
     <Container
       mainColor={backgroundColor}
       isColumnDragged={isColumnDragged}
+      disableHover={enableEditMode}
       whileHover={
-        isColumnDragged
+        enableEditMode || isColumnDragged
           ? {}
           : {
               backgroundColor: rgbaBackground,

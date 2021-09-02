@@ -41,6 +41,7 @@ export const TableContainer = styled.div`
 
 export const Table = styled.table`
   border-collapse: collapse;
+  border: 1px solid transparent;
   cursor: pointer;
   width: 100%;
   margin: 0;
