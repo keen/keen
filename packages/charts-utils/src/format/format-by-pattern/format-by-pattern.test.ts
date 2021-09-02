@@ -41,3 +41,31 @@ test('should not apply mathematical operation if operation value is not a number
   const result = formatByPattern(pattern, value);
   expect(result).toEqual('1000.0$');
 });
+
+test('should format date in iso', () => {
+  const pattern = '${datetime;YYYY; hh:mm}';
+  const value = '2021-07-17T00:00:00.000+01:00';
+  const result = formatByPattern(pattern, value);
+  expect(result).toEqual('2021 11:00');
+});
+
+test('should format date in iso', () => {
+  const pattern = '${datetime;YYYY-MM-DD; HH:mm}';
+  const value = '2021-07-17T00:00:00.000+01:00';
+  const result = formatByPattern(pattern, value);
+  expect(result).toEqual('2021-07-16 23:00');
+});
+
+test('should format time in UTC', () => {
+  const pattern = '${datetime;hidden;hh:mm}';
+  const value = '2021-07-17T00:00:00.000Z';
+  const result = formatByPattern(pattern, value);
+  expect(result).toEqual('12:00');
+});
+
+test('should format time in linux timestamp', () => {
+  const pattern = '${datetime;YYYY-MM-DD; HH:mm}';
+  const value = '1630487135';
+  const result = formatByPattern(pattern, value);
+  expect(result).toEqual('2021-09-01 09:05');
+});

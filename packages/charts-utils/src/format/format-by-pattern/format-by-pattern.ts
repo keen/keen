@@ -1,11 +1,6 @@
-import numeral from 'numeral';
+import { formatDate, formatNumber, MathOperations } from './helpers';
 
-enum MathOperations {
-  'add' = 'add',
-  'subtract' = 'subtract',
-  'multiply' = 'multiply',
-  'divide' = 'divide',
-}
+import { VARIABLE_REGEX } from './constants';
 
 /**
  * Formats value based on provided pattern.
@@ -16,20 +11,19 @@ enum MathOperations {
  *
  */
 const formatByPattern = (pattern: string, value: string | number | Date) => {
-  const variableRegex = /\${(.*?)}+/;
-  const variable = pattern.match(variableRegex);
+  const variable = pattern.match(VARIABLE_REGEX);
   if (variable) {
-    const [
-      variableType,
-      formatString,
-      operationType,
-      operationValue,
-    ] = variable[1].split(';');
-    const parsedOperationType =
-      operationType &&
-      (operationType.trim().toLocaleLowerCase() as MathOperations);
+    const [variableType, ...additionalParameters] = variable[1].split(';');
     let parsedValue = value;
     if (variableType === 'number' && !(value instanceof Date)) {
+      const [
+        formatString,
+        operationType,
+        operationValue,
+      ] = additionalParameters;
+      const parsedOperationType =
+        operationType &&
+        (operationType.trim().toLocaleLowerCase() as MathOperations);
       const numberToFormat =
         typeof value === 'string' ? parseInt(value, 10) : value;
       parsedValue = formatNumber(
@@ -39,52 +33,13 @@ const formatByPattern = (pattern: string, value: string | number | Date) => {
         parseInt(operationValue, 10)
       );
     }
+    if (variableType === 'datetime') {
+      const [dateFormatter, timeFormatter] = additionalParameters;
+      parsedValue = formatDate(value, dateFormatter, timeFormatter);
+    }
     return pattern.replace(variable[0], parsedValue.toString());
   }
   return value.toString();
-};
-
-const formatNumber = (
-  value: number,
-  formatString: string,
-  operationType: MathOperations | null,
-  operationValue: number
-) => {
-  const availableOperations = Object.values(MathOperations);
-  let valueToFormat = value;
-  if (
-    operationType &&
-    availableOperations.includes(operationType) &&
-    !isNaN(operationValue)
-  ) {
-    valueToFormat = applyMathOperation(value, operationType, operationValue);
-  }
-  return numeral(valueToFormat).format(formatString);
-};
-
-const applyMathOperation = (
-  value: number,
-  operationType: MathOperations,
-  operationFactor: number
-) => {
-  let output = value;
-  switch (operationType) {
-    case MathOperations.add:
-      output += operationFactor;
-      break;
-    case MathOperations.subtract:
-      output -= operationFactor;
-      break;
-    case MathOperations.divide:
-      output /= operationFactor;
-      break;
-    case MathOperations.multiply:
-      output *= operationFactor;
-      break;
-    default:
-      break;
-  }
-  return output;
 };
 
 export default formatByPattern;

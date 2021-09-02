@@ -10,7 +10,7 @@ import {
 
 import { getElementOffset, hasContentOverflow } from './elements';
 
-import { formatByPattern, formatValue } from './format';
+import { formatByPattern, formatValue, extractFormatterType } from './format';
 import { copyToClipboard } from './text';
 import {
   normalizeDate,
@@ -80,4 +80,5 @@ export {
   INTERVAL_TO_PRECISION,
   getPaletteColor,
   generateContinuousColorScale,
+  extractFormatterType,
 };
