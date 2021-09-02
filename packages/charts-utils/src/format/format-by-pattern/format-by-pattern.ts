@@ -1,5 +1,7 @@
 import { formatDate, formatNumber, MathOperations } from './helpers';
 
+import { VARIABLE_REGEX } from './constants';
+
 /**
  * Formats value based on provided pattern.
  *
@@ -9,8 +11,7 @@ import { formatDate, formatNumber, MathOperations } from './helpers';
  *
  */
 const formatByPattern = (pattern: string, value: string | number | Date) => {
-  const variableRegex = /\${(.*?)}+/;
-  const variable = pattern.match(variableRegex);
+  const variable = pattern.match(VARIABLE_REGEX);
   if (variable) {
     const [variableType, ...additionalParameters] = variable[1].split(';');
     let parsedValue = value;

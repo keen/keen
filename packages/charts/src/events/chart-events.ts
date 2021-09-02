@@ -12,6 +12,10 @@ class ChartEvents<E extends { eventName: string; meta?: Record<string, any> }> {
     this.pubsub = pubsub;
   }
 
+  publish({ eventName, meta }: E) {
+    this.pubsub.publish(eventName, meta);
+  }
+
   subscribe(callback: (events: E) => void) {
     return this.pubsub.subscribe((eventName: string, meta = {}) =>
       callback({ eventName, meta } as E)
