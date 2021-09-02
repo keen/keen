@@ -37,6 +37,7 @@ import {
   Table,
   LeftOverflow,
   RightOverflow,
+  StyledCol,
 } from './table-chart.styles';
 
 import text from './text.json';
@@ -55,6 +56,8 @@ export type Props = {
   formatHeader?: Record<string, FormatFunction>;
   /** Columns order */
   columnsOrder?: string[];
+  /** Table edit mode identicator */
+  enableEditMode?: boolean;
   /** Object of formatter functions to format values separately */
   formatValue?: ValueFormatter;
   /** Resize table layout event handler */
@@ -71,6 +74,7 @@ export const TableChart = ({
   onResize,
   chartEvents,
   theme = defaultTheme,
+  enableEditMode = false,
 }: Props) => {
   const [sort, setSort] = useState<SortByType>(null);
   const [maxScroll, setMaxScroll] = useState(0);
@@ -86,6 +90,8 @@ export const TableChart = ({
     x: 0,
     y: 0,
   });
+  const [hoveredColumn, setHoveredColumn] = useState<number>();
+  const [selectedColumns, setSelectedColumns] = useState<number[]>([]);
 
   const tableRef = useRef(null);
   const containerRef = useRef(null);
@@ -135,21 +141,22 @@ export const TableChart = ({
   } = theme;
 
   useEffect(() => {
-    new ColumnResizer(tableRef.current, {
-      liveDrag: true,
-      flush: true,
-      resizeMode: 'overflow',
-      draggingClass: DRAG_CLASS,
-      onResize: () => {
-        calculateMaxScroll();
-        setColumnDragged(false);
-        onResize && onResize();
-      },
-      onDrag: () => {
-        if (!isColumnDragged) setColumnDragged(true);
-      },
-    });
-  }, [onResize, calculateMaxScroll]);
+    !enableEditMode &&
+      new ColumnResizer(tableRef.current, {
+        liveDrag: true,
+        flush: true,
+        resizeMode: 'overflow',
+        draggingClass: DRAG_CLASS,
+        onResize: () => {
+          calculateMaxScroll();
+          setColumnDragged(false);
+          onResize && onResize();
+        },
+        onDrag: () => {
+          if (!isColumnDragged) setColumnDragged(true);
+        },
+      });
+  }, [onResize, calculateMaxScroll, enableEditMode]);
 
   useEffect(() => {
     let unsubscribe: () => void = null;
@@ -172,6 +179,21 @@ export const TableChart = ({
     }
     calculateMaxScroll();
   }, []);
+
+  const activeColumns = new Set([...selectedColumns, hoveredColumn]);
+
+  const handleSelectColumns = (cellIdx: number) => {
+    setSelectedColumns((state) => {
+      const index = state.indexOf(cellIdx);
+      const arr = [...state];
+      if (index > -1) {
+        arr.splice(index, 1);
+      } else {
+        arr.push(cellIdx);
+      }
+      return arr;
+    });
+  };
 
   return (
     <>
@@ -201,6 +223,15 @@ export const TableChart = ({
             )}
           </AnimatePresence>
           <Table ref={tableRef}>
+            <colgroup>
+              {formattedData.map((_: any, idx: number) => (
+                <StyledCol
+                  key={`col-${idx}`}
+                  isHovered={hoveredColumn === idx}
+                  isSelected={selectedColumns.includes(idx)}
+                />
+              ))}
+            </colgroup>
             <HeaderRow
               data={generateHeader(data[0], formatHeader)}
               isColumnDragged={isColumnDragged}
@@ -211,9 +242,18 @@ export const TableChart = ({
               }: {
                 propertyName: string;
                 sortMode: SortMode;
-              }) => setSort({ property: propertyName, sort: sortMode })}
+              }) =>
+                !enableEditMode &&
+                setSort({ property: propertyName, sort: sortMode })
+              }
               sortOptions={sort && sort}
               typography={header.typography}
+              activeColumns={[...activeColumns]}
+              {...(enableEditMode && {
+                onEditModeClick: (_e, cellIdx) => handleSelectColumns(cellIdx),
+                onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
+                onCellMouseLeave: () => setHoveredColumn(null),
+              })}
             />
             <tbody>
               {formattedData.map((el: any, idx: number) => (
@@ -221,35 +261,47 @@ export const TableChart = ({
                   key={`${idx}-${el[0]}`}
                   data={el}
                   backgroundColor={mainColor}
-                  onCellClick={(e, value) => {
-                    if (tooltipHide.current) clearTimeout(tooltipHide.current);
-                    copyToClipboard(value);
+                  onCellClick={(e, value, cellIdx) => {
+                    if (enableEditMode) {
+                      handleSelectColumns(cellIdx);
+                    } else {
+                      if (tooltipHide.current)
+                        clearTimeout(tooltipHide.current);
+                      copyToClipboard(value);
 
-                    const {
-                      top,
-                      left,
-                    }: ClientRect = containerRef.current.getBoundingClientRect();
-                    const tooltipX = e.pageX - left - window.scrollX;
-                    const tooltipY = e.pageY - top - window.scrollY;
+                      const {
+                        top,
+                        left,
+                      }: ClientRect = containerRef.current.getBoundingClientRect();
+                      const tooltipX = e.pageX - left - window.scrollX;
+                      const tooltipY = e.pageY - top - window.scrollY;
 
-                    setTooltip((state) => ({
-                      ...state,
-                      visible: true,
-                      x: tooltipX,
-                      y: tooltipY,
-                    }));
-
-                    tooltipHide.current = setTimeout(() => {
                       setTooltip((state) => ({
                         ...state,
-                        visible: false,
-                        x: 0,
-                        y: 0,
+                        visible: true,
+                        x: tooltipX,
+                        y: tooltipY,
                       }));
-                    }, TOOLTIP_HIDE);
+
+                      tooltipHide.current = setTimeout(() => {
+                        setTooltip((state) => ({
+                          ...state,
+                          visible: false,
+                          x: 0,
+                          y: 0,
+                        }));
+                      }, TOOLTIP_HIDE);
+                    }
                   }}
+                  activeColumn={hoveredColumn}
+                  enableEditMode={enableEditMode}
                   isColumnDragged={isColumnDragged}
                   typography={body.typography}
+                  {...(enableEditMode && {
+                    onCellMouseEnter: (_e, cellIdx) =>
+                      setHoveredColumn(cellIdx),
+                    onCellMouseLeave: () => setHoveredColumn(null),
+                  })}
                 />
               ))}
             </tbody>
