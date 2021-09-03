@@ -31,6 +31,8 @@ import {
 } from './utils/chart.utils';
 import { sortData } from './utils/data.utils';
 
+import { useTableEvents } from './hooks';
+
 import {
   Container,
   TableContainer,
@@ -91,7 +93,17 @@ export const TableChart = ({
     y: 0,
   });
   const [hoveredColumn, setHoveredColumn] = useState<number>();
-  const [selectedColumns, setSelectedColumns] = useState<number[]>([]);
+  const [selectedColumns, setSelectedColumns] = useState<
+    {
+      columnName: string;
+      index: number;
+    }[]
+  >([]);
+
+  const { publishColumnSelection } = useTableEvents({
+    chartEvents,
+    onDeselectColumns: () => setSelectedColumns([]),
+  });
 
   const tableRef = useRef(null);
   const containerRef = useRef(null);
@@ -123,6 +135,22 @@ export const TableChart = ({
       }
     },
     [maxScroll, overflowLeft, overflowRight]
+  );
+
+  const reduceColumnsSelection = useCallback(
+    (columnName: string, columnIndex: number) => {
+      const index = selectedColumns.findIndex(
+        ({ index }) => columnIndex === index
+      );
+      const arr = [...selectedColumns];
+      if (index > -1) {
+        arr.splice(index, 1);
+      } else {
+        arr.push({ columnName, index: columnIndex });
+      }
+      return arr;
+    },
+    [selectedColumns]
   );
 
   const data = useMemo(() => {
@@ -159,17 +187,6 @@ export const TableChart = ({
   }, [onResize, calculateMaxScroll, enableEditMode]);
 
   useEffect(() => {
-    let unsubscribe: () => void = null;
-
-    if (chartEvents) {
-      //@TODO: Manage table events here
-      unsubscribe = chartEvents.subscribe(() => {});
-    }
-
-    return () => unsubscribe && unsubscribe();
-  }, [chartEvents]);
-
-  useEffect(() => {
     const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
     if (hasOverflow) {
       setOverflow((state) => ({
@@ -180,20 +197,8 @@ export const TableChart = ({
     calculateMaxScroll();
   }, []);
 
-  const activeColumns = new Set([...selectedColumns, hoveredColumn]);
-
-  const handleSelectColumns = (cellIdx: number) => {
-    setSelectedColumns((state) => {
-      const index = state.indexOf(cellIdx);
-      const arr = [...state];
-      if (index > -1) {
-        arr.splice(index, 1);
-      } else {
-        arr.push(cellIdx);
-      }
-      return arr;
-    });
-  };
+  const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
+  const activeColumns = new Set([...indexesOfSelectedColumns, hoveredColumn]);
 
   return (
     <>
@@ -228,7 +233,7 @@ export const TableChart = ({
                 <StyledCol
                   key={`col-${idx}`}
                   isHovered={hoveredColumn === idx}
-                  isSelected={selectedColumns.includes(idx)}
+                  isSelected={indexesOfSelectedColumns.includes(idx)}
                 />
               ))}
             </colgroup>
@@ -250,7 +255,15 @@ export const TableChart = ({
               typography={header.typography}
               activeColumns={[...activeColumns]}
               {...(enableEditMode && {
-                onEditModeClick: (_e, cellIdx) => handleSelectColumns(cellIdx),
+                onEditModeClick: (_e, columnName, cellIdx) => {
+                  const selectedColumns = reduceColumnsSelection(
+                    columnName,
+                    cellIdx
+                  );
+                  publishColumnSelection(data, formatValue, selectedColumns);
+
+                  setSelectedColumns(selectedColumns);
+                },
                 onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
                 onCellMouseLeave: () => setHoveredColumn(null),
               })}
@@ -261,9 +274,15 @@ export const TableChart = ({
                   key={`${idx}-${el[0]}`}
                   data={el}
                   backgroundColor={mainColor}
-                  onCellClick={(e, value, cellIdx) => {
+                  onCellClick={(e, columnName, value, cellIdx) => {
                     if (enableEditMode) {
-                      handleSelectColumns(cellIdx);
+                      const columns = reduceColumnsSelection(
+                        columnName,
+                        cellIdx
+                      );
+
+                      publishColumnSelection(data, formatValue, columns);
+                      setSelectedColumns(columns);
                     } else {
                       if (tooltipHide.current)
                         clearTimeout(tooltipHide.current);

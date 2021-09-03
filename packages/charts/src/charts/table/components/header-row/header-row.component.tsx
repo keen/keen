@@ -30,6 +30,7 @@ type Props = {
   /** Edit mode click handler */
   onEditModeClick?: (
     e: React.MouseEvent<HTMLTableDataCellElement>,
+    columnName: string,
     idx: number
   ) => void;
   /** Column sort event handler */
@@ -65,7 +66,7 @@ export const HeaderRow = ({
           key={key}
           backgroundColor={color}
           isActive={activeColumns.includes(idx)}
-          onClick={(e) => onEditModeClick && onEditModeClick(e, idx)}
+          onClick={(e) => onEditModeClick && onEditModeClick(e, key, idx)}
           onMouseEnter={(e) => onCellMouseEnter && onCellMouseEnter(e, idx)}
           onMouseLeave={(e) => onCellMouseLeave && onCellMouseLeave(e, idx)}
         >

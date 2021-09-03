@@ -23,6 +23,7 @@ type Props = {
   /** Cell element click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
+    columnName: string,
     value: CellValue,
     idx: number
   ) => void;
@@ -70,7 +71,7 @@ const TableRow: FC<Props> = ({
         <TableCell
           key={key}
           index={idx}
-          onClick={onCellClick}
+          onClick={(e, value, idx) => onCellClick(e, key, value, idx)}
           onMouseEnter={onCellMouseEnter}
           onMouseLeave={onCellMouseLeave}
           disableBorder={activeColumn !== undefined}

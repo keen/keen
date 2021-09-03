@@ -18,9 +18,11 @@ export type ColumnSelection = {
   dataType: 'string' | 'number' | 'datetime' | 'boolean';
 };
 
+export type ColumnsSelectionEvent = {
+  eventName: '@table/columns-selected';
+  meta: { selection: ColumnSelection[] };
+};
+
 export type TableEvents =
-  | {
-      eventName: '@table/columns-selected';
-      meta: { selection: ColumnSelection[] };
-    }
+  | ColumnsSelectionEvent
   | { eventName: '@table/deselect-columns' };
