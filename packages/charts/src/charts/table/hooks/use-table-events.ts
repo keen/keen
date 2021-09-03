@@ -10,6 +10,14 @@ type Options = {
   onDeselectColumns: () => void;
 };
 
+/**
+ * Hook responsible for handling ChartEvents logic.
+ *
+ * @param chartEvents - chart events bus
+ * @param onDeselectColumns - Deselect columns event handler
+ * @return table events handlers
+ *
+ */
 export const useTableEvents = ({ chartEvents, onDeselectColumns }: Options) => {
   useEffect(() => {
     let unsubscribe: () => void = null;
