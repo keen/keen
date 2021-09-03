@@ -37,7 +37,7 @@ test('creates event structure for single column selection with applied formatter
         {
           name: 'createdAt',
           formatter: '${datetime; YYYY-MM; hidden}',
-          dataType: 'string',
+          dataType: 'datetime',
         },
       ],
     },
@@ -77,7 +77,7 @@ test('creates event structure for single column selection without applied format
         {
           name: 'createdAt',
           formatter: null,
-          dataType: 'string',
+          dataType: 'datetime',
         },
       ],
     },
@@ -128,7 +128,7 @@ test('creates event structure for multiple column selection and ignores formatte
         {
           name: 'createdAt',
           formatter: '${datetime; YYYY-MM; hidden}',
-          dataType: 'string',
+          dataType: 'datetime',
         },
         {
           name: 'company',

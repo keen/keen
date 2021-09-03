@@ -21,6 +21,8 @@ export const classifyColumnData = (
   data
     .map((rowProperties) => rowProperties[columnName])
     .forEach((value) => {
+      if (typeof value === 'string' && Date.parse(value))
+        specifyDataType('datetime');
       if (value !== null) specifyDataType(typeof value);
     });
 
