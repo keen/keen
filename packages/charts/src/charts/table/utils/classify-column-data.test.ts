@@ -32,7 +32,7 @@ test('classifies column with ISO string date as "datetime"', () => {
   expect(classifyColumnData('createdAt', records)).toEqual('datetime');
 });
 
-test('classifies column with partial date string pattern as "datetine"', () => {
+test('classifies column with partial date string pattern as "datetime"', () => {
   const records = [
     {
       createdAt: '2021-03',
