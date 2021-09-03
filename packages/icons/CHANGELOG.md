@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/keen/keen/compare/@keen.io/icons@1.4.1...@keen.io/icons@1.5.0) (2021-05-04)
+
+
+### Features
+
+* 🎸 Choropleth interaction legend added ([a42fcc6](https://github.com/keen/keen/commit/a42fcc6647b9d7c098f107fb5f9471e1fa9b8479))
+
+
+
+
+
+## [1.4.1](https://github.com/keen/keen/compare/@keen.io/icons@1.4.0...@keen.io/icons@1.4.1) (2021-04-01)
+
+**Note:** Version bump only for package @keen.io/icons
+
+
+
+
+
 # [1.4.0](https://github.com/keen/keen/compare/@keen.io/icons@1.3.4...@keen.io/icons@1.4.0) (2021-01-21)
 
 

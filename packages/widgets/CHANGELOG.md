@@ -3,6 +3,694 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.5...@keen.io/widgets@2.14.6) (2021-08-31)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.14.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.4...@keen.io/widgets@2.14.5) (2021-08-25)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.14.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.3...@keen.io/widgets@2.14.4) (2021-08-25)
+
+
+### Bug Fixes
+
+* 🐛 Fix for circular chart color palette assignement ([77d2585](https://github.com/keen/keen/commit/77d2585d601a0810c7b45aeaa3b003345f9976c5))
+* 🐛 Fix for disabledKeys and disabledLabels ([bebf5c5](https://github.com/keen/keen/commit/bebf5c55348658055dd1ab8f9381343f04eafa22))
+* 🐛 Fixes ([9b5592a](https://github.com/keen/keen/commit/9b5592a620e82e6214a299b7218b5180705286d2))
+
+
+
+
+
+## [2.14.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.2...@keen.io/widgets@2.14.3) (2021-08-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.14.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.1...@keen.io/widgets@2.14.2) (2021-08-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.14.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.0...@keen.io/widgets@2.14.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* 🐛 default metric title ([a6c21bf](https://github.com/keen/keen/commit/a6c21bf8a76b5c907a9edba345e7ec843ad339f0))
+
+
+
+
+
+# [2.14.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.6...@keen.io/widgets@2.14.0) (2021-08-05)
+
+
+### Features
+
+* 🎸 Pie and donut value mode ([71ec86b](https://github.com/keen/keen/commit/71ec86b5cff2bab112aeae212b7c665db9d00ca4))
+
+
+
+
+
+## [2.13.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.5...@keen.io/widgets@2.13.6) (2021-07-30)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.13.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.4...@keen.io/widgets@2.13.5) (2021-07-30)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.13.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.3...@keen.io/widgets@2.13.4) (2021-07-30)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.13.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.2...@keen.io/widgets@2.13.3) (2021-07-20)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.13.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.1...@keen.io/widgets@2.13.2) (2021-07-16)
+
+
+### Bug Fixes
+
+* 🐛 Choropleth range slider fix ([1ae113e](https://github.com/keen/keen/commit/1ae113ef7768cf9a4d1de68b44b4713529f26b2e))
+
+
+
+
+
+## [2.13.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.13.0...@keen.io/widgets@2.13.1) (2021-07-16)
+
+
+### Bug Fixes
+
+* 🐛 Disable chart card - implementation change ([089be26](https://github.com/keen/keen/commit/089be2624e8352835acf410f0131b0a87ecb226e))
+
+
+
+
+
+# [2.13.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.12.0...@keen.io/widgets@2.13.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
+# [2.12.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.18...@keen.io/widgets@2.12.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* 🐛 Disabling cards in metric and table component ([124f636](https://github.com/keen/keen/commit/124f636d156a7d812e4de0e3d04a58c67b895328))
+
+
+### Features
+
+* 🎸 Disable card interface ([aea5813](https://github.com/keen/keen/commit/aea581340b7c0ec4f0e48c00b3505cbc04e08382))
+
+
+
+
+
+## [2.11.18](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.17...@keen.io/widgets@2.11.18) (2021-07-15)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.17](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.16...@keen.io/widgets@2.11.17) (2021-07-13)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.16](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.15...@keen.io/widgets@2.11.16) (2021-07-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.15](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.14...@keen.io/widgets@2.11.15) (2021-07-08)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.14](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.13...@keen.io/widgets@2.11.14) (2021-07-07)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.13](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.12...@keen.io/widgets@2.11.13) (2021-07-07)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.12](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.11...@keen.io/widgets@2.11.12) (2021-07-06)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.11](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.10...@keen.io/widgets@2.11.11) (2021-07-05)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.10](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.9...@keen.io/widgets@2.11.10) (2021-07-05)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.9](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.8...@keen.io/widgets@2.11.9) (2021-07-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.8](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.7...@keen.io/widgets@2.11.8) (2021-07-02)
+
+
+### Bug Fixes
+
+* 🐛 Font family changes in widget and legend settings ([638d6a3](https://github.com/keen/keen/commit/638d6a3004dfe71ff34fe9c97688008e1b9c3521))
+* 🐛 Test fixes ([afe519c](https://github.com/keen/keen/commit/afe519c0b552add14c49f2cbf58d8c9b75ee01bd))
+* 🐛 Widget settings - typefixes ([dd8d188](https://github.com/keen/keen/commit/dd8d188d1d7028395aba5429f9512f675302b669))
+
+
+
+
+
+## [2.11.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.6...@keen.io/widgets@2.11.7) (2021-07-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.5...@keen.io/widgets@2.11.6) (2021-07-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.4...@keen.io/widgets@2.11.5) (2021-07-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.3...@keen.io/widgets@2.11.4) (2021-07-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.2...@keen.io/widgets@2.11.3) (2021-07-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.1...@keen.io/widgets@2.11.2) (2021-06-30)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.11.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.11.0...@keen.io/widgets@2.11.1) (2021-06-29)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.11.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.10.1...@keen.io/widgets@2.11.0) (2021-06-22)
+
+
+### Features
+
+* 🎸 Light mode applied to chart tooltips ([fb62e62](https://github.com/keen/keen/commit/fb62e623d1bed0e6509e82bdea3df69da4ad68c5))
+* 🎸 US map - postAbbreviation handing added ([ac4b588](https://github.com/keen/keen/commit/ac4b58876fe025fb9a8fc03c5e76c6a71316832c))
+
+
+
+
+
+## [2.10.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.10.0...@keen.io/widgets@2.10.1) (2021-06-14)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.10.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.9.0...@keen.io/widgets@2.10.0) (2021-06-11)
+
+
+### Features
+
+* 🎸 Widget tags added ([4c0580e](https://github.com/keen/keen/commit/4c0580e93bfed0bb952f68f0037a641491045f3d))
+
+
+
+
+
+# [2.9.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.7...@keen.io/widgets@2.9.0) (2021-06-09)
+
+
+### Features
+
+* 🎸 Table widget - heading padding set from dataviz setting ([9b724a2](https://github.com/keen/keen/commit/9b724a243432c7179a5efa257a0b3e0c49e3640c))
+
+
+
+
+
+## [2.8.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.6...@keen.io/widgets@2.8.7) (2021-06-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.8.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.5...@keen.io/widgets@2.8.6) (2021-05-31)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.8.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.4...@keen.io/widgets@2.8.5) (2021-05-28)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.8.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.3...@keen.io/widgets@2.8.4) (2021-05-27)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.8.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.2...@keen.io/widgets@2.8.3) (2021-05-26)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes ([d27a2c0](https://github.com/keen/keen/commit/d27a2c0616f53c95352faae211324279cb3d4271))
+
+
+
+
+
+## [2.8.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.1...@keen.io/widgets@2.8.2) (2021-05-24)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.8.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.8.0...@keen.io/widgets@2.8.1) (2021-05-24)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.8.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.7.0...@keen.io/widgets@2.8.0) (2021-05-21)
+
+
+### Features
+
+* 🎸 bar chart legend interactions ([fc1fe91](https://github.com/keen/keen/commit/fc1fe913a2c0cf944ce86df872cd1d1f01215bef))
+
+
+
+
+
+# [2.7.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.5...@keen.io/widgets@2.7.0) (2021-05-19)
+
+
+### Features
+
+* 🎸 pie/donut legend interactions ([78524c4](https://github.com/keen/keen/commit/78524c4d2f4d1a467b6086eb62c176da3fc96388))
+
+
+
+
+
+## [2.6.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.4...@keen.io/widgets@2.6.5) (2021-05-13)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.6.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.3...@keen.io/widgets@2.6.4) (2021-05-10)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.6.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.2...@keen.io/widgets@2.6.3) (2021-05-07)
+
+
+### Bug Fixes
+
+* 🐛 Choropleth interaction legend - tooltip position changed ([f262c64](https://github.com/keen/keen/commit/f262c6440893d677b8aea0f7617d57c9a4db87d3))
+
+
+
+
+
+## [2.6.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.1...@keen.io/widgets@2.6.2) (2021-05-06)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.6.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.6.0...@keen.io/widgets@2.6.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* 🐛 legend interactions ([7084009](https://github.com/keen/keen/commit/7084009140b2d8b51abb9d79489d98ea877d6d44))
+
+
+
+
+
+# [2.6.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.5.1...@keen.io/widgets@2.6.0) (2021-05-04)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes, tooltip firing on country bounding-box fixed ([01eb797](https://github.com/keen/keen/commit/01eb79795a9ed2cfcea300fc72ba2b95885d648e))
+
+
+### Features
+
+* 🎸 Choropleth interaction legend added ([a42fcc6](https://github.com/keen/keen/commit/a42fcc6647b9d7c098f107fb5f9471e1fa9b8479))
+
+
+
+
+
+## [2.5.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.5.0...@keen.io/widgets@2.5.1) (2021-05-04)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.5.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.4.2...@keen.io/widgets@2.5.0) (2021-04-30)
+
+
+### Features
+
+* 🎸 Area and line chart legend interactions ([d44d7a3](https://github.com/keen/keen/commit/d44d7a3751d2290f0d83e213d8f36f928853b9c6))
+
+
+
+
+
+## [2.4.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.4.1...@keen.io/widgets@2.4.2) (2021-04-27)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.4.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.4.0...@keen.io/widgets@2.4.1) (2021-04-26)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.4.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.33...@keen.io/widgets@2.4.0) (2021-04-26)
+
+
+### Features
+
+* 🎸 Dynamic portal component ([b6a2a22](https://github.com/keen/keen/commit/b6a2a22084b7908c2d4b87f213ed7e5fb92a06d7))
+
+
+
+
+
+## [2.3.33](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.32...@keen.io/widgets@2.3.33) (2021-04-23)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.32](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.31...@keen.io/widgets@2.3.32) (2021-04-22)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.31](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.30...@keen.io/widgets@2.3.31) (2021-04-20)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.30](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.29...@keen.io/widgets@2.3.30) (2021-04-19)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.29](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.28...@keen.io/widgets@2.3.29) (2021-04-16)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.28](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.27...@keen.io/widgets@2.3.28) (2021-04-14)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.27](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.26...@keen.io/widgets@2.3.27) (2021-04-14)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.26](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.25...@keen.io/widgets@2.3.26) (2021-04-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.25](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.24...@keen.io/widgets@2.3.25) (2021-04-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.24](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.23...@keen.io/widgets@2.3.24) (2021-04-08)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.23](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.22...@keen.io/widgets@2.3.23) (2021-04-07)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.22](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.21...@keen.io/widgets@2.3.22) (2021-04-07)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.21](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.20...@keen.io/widgets@2.3.21) (2021-04-06)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.20](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.19...@keen.io/widgets@2.3.20) (2021-04-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.19](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.18...@keen.io/widgets@2.3.19) (2021-04-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.18](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.17...@keen.io/widgets@2.3.18) (2021-04-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.17](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.16...@keen.io/widgets@2.3.17) (2021-04-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.16](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.15...@keen.io/widgets@2.3.16) (2021-04-01)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.15](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.14...@keen.io/widgets@2.3.15) (2021-03-31)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.3.14](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.13...@keen.io/widgets@2.3.14) (2021-03-31)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.3.13](https://github.com/keen/keen/compare/@keen.io/widgets@2.3.12...@keen.io/widgets@2.3.13) (2021-03-31)
 
 
