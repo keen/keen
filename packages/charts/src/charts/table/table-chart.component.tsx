@@ -46,7 +46,7 @@ import text from './text.json';
 import { theme as defaultTheme } from '../../theme';
 import { DRAG_CLASS, TOOLTIP_HIDE } from './constants';
 
-import { FormatFunction, ValueFormatter, TableEvents } from './types';
+import { ValueFormatter, TableEvents } from './types';
 import { TooltipState, CommonChartSettings } from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
@@ -54,14 +54,14 @@ import { TOOLTIP_MOTION } from '../../constants';
 export type Props = {
   /** Chart data */
   data: Record<string, any>[];
-  /** Object of functions to format headers separately */
-  formatHeader?: Record<string, FormatFunction>;
   /** Columns order */
   columnsOrder?: string[];
   /** Table edit mode identicator */
   enableEditMode?: boolean;
   /** Object of formatter functions to format values separately */
   formatValue?: ValueFormatter;
+  /** Renaming columns settings */
+  columnsNamesMapping?: Record<string, string>;
   /** Resize table layout event handler */
   onResize?: () => void;
   /** Chart events communication bus */
@@ -70,11 +70,11 @@ export type Props = {
 
 export const TableChart = ({
   data: tableData,
-  formatHeader,
   columnsOrder,
   formatValue,
   onResize,
   chartEvents,
+  columnsNamesMapping = {},
   theme = defaultTheme,
   enableEditMode = false,
 }: Props) => {
@@ -238,7 +238,8 @@ export const TableChart = ({
               ))}
             </colgroup>
             <HeaderRow
-              data={generateHeader(data[0], formatHeader)}
+              data={generateHeader(data[0])}
+              columnsNamesMapping={columnsNamesMapping}
               isColumnDragged={isColumnDragged}
               color={mainColor}
               onSort={({

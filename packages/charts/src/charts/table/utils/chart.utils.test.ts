@@ -4,25 +4,21 @@ describe('generateHeader()', () => {
   const data = { name: 'John', age: 31, city: 'San Antonio' };
 
   test('generates header with formatted "age" property', () => {
-    const format = { age: () => `User Age` };
-    const header = generateHeader(data, format);
+    const header = generateHeader(data);
 
     expect(header).toMatchInlineSnapshot(`
       Array [
         Object {
           "align": "left",
           "key": "name",
-          "value": "name",
         },
         Object {
           "align": "right",
           "key": "age",
-          "value": "User Age",
         },
         Object {
           "align": "left",
           "key": "city",
-          "value": "city",
         },
       ]
     `);
