@@ -58,6 +58,20 @@ test('allows user to sort data', () => {
   });
 });
 
+test('renames columns based on configuration', () => {
+  const columnsNamesMapping = {
+    title: 'Product name',
+  };
+
+  const {
+    wrapper: { getByText },
+  } = render({ columnsNamesMapping });
+
+  const element = getByText('Product name');
+
+  expect(element).toBeInTheDocument();
+});
+
 test('applies typography settings to table header', () => {
   const {
     wrapper: { getByTestId },

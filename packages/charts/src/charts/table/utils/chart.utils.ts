@@ -9,20 +9,11 @@ import { FormatFunction, ValueFormatter, HeaderCell } from '../types';
  * @return data collection used to render table header
  *
  */
-export const generateHeader = (
-  data: Record<string, any>,
-  format: Record<string, FormatFunction>
-) => {
+export const generateHeader = (data: Record<string, any>) => {
   const header: HeaderCell[] = [];
   Object.keys(data).map((key: string) => {
-    const formatFunc =
-      format !== null && typeof format === 'object' && format[key]
-        ? format[key]
-        : null;
-
     header.push({
       key: key,
-      value: formatFunc ? formatFunc(key) : key,
       align: typeof data[key] === 'number' ? 'right' : 'left',
     });
   });
