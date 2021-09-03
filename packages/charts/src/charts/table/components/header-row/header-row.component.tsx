@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   TableHeader,
   SortMode,
@@ -27,6 +27,8 @@ type Props = {
   isColumnDragged: boolean;
   /** Active columns array */
   activeColumns?: number[];
+  /** Renaming columns settings */
+  columnsNamesMapping?: Record<string, string>;
   /** Edit mode click handler */
   onEditModeClick?: (
     e: React.MouseEvent<HTMLTableDataCellElement>,
@@ -51,6 +53,7 @@ export const HeaderRow = ({
   data,
   color,
   sortOptions,
+  columnsNamesMapping,
   isColumnDragged,
   typography,
   activeColumns = [],
@@ -58,34 +61,45 @@ export const HeaderRow = ({
   onSort,
   onCellMouseEnter,
   onCellMouseLeave,
-}: Props) => (
-  <thead>
-    <Container typography={typography} data-testid="header-row-container">
-      {data.map(({ key, value, align }: HeaderCell, idx: number) => (
-        <StickyCell
-          key={key}
-          backgroundColor={color}
-          isActive={activeColumns.includes(idx)}
-          onClick={(e) => onEditModeClick && onEditModeClick(e, key, idx)}
-          onMouseEnter={(e) => onCellMouseEnter && onCellMouseEnter(e, idx)}
-          onMouseLeave={(e) => onCellMouseLeave && onCellMouseLeave(e, idx)}
-        >
-          <DisableInteractions disableInteraction={!!onEditModeClick}>
-            <TableHeader
-              propertyName={key}
-              backgroundColor={color}
-              sortOptions={sortOptions}
-              isColumnDragged={isColumnDragged}
-              textAlignment={align}
-              onSort={onSort}
-            >
-              {value}
-            </TableHeader>
-          </DisableInteractions>
-        </StickyCell>
-      ))}
-    </Container>
-  </thead>
-);
+}: Props) => {
+  const getColumnName = useCallback(
+    (columnName: string) => {
+      if (columnsNamesMapping?.[columnName])
+        return columnsNamesMapping?.[columnName];
+      return columnName;
+    },
+    [columnsNamesMapping]
+  );
+
+  return (
+    <thead>
+      <Container typography={typography} data-testid="header-row-container">
+        {data.map(({ key, align }: HeaderCell, idx: number) => (
+          <StickyCell
+            key={key}
+            backgroundColor={color}
+            isActive={activeColumns.includes(idx)}
+            onClick={(e) => onEditModeClick && onEditModeClick(e, key, idx)}
+            onMouseEnter={(e) => onCellMouseEnter && onCellMouseEnter(e, idx)}
+            onMouseLeave={(e) => onCellMouseLeave && onCellMouseLeave(e, idx)}
+          >
+            <DisableInteractions disableInteraction={!!onEditModeClick}>
+              <TableHeader
+                propertyName={key}
+                backgroundColor={color}
+                sortOptions={sortOptions}
+                isColumnDragged={isColumnDragged}
+                textAlignment={align}
+                onSort={onSort}
+              >
+                {getColumnName(key)}
+              </TableHeader>
+            </DisableInteractions>
+          </StickyCell>
+        ))}
+      </Container>
+    </thead>
+  );
+};
 
 export default HeaderRow;

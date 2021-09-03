@@ -75,6 +75,9 @@ export const simpleResultsEditMode = () => {
         },
       },
       settings: {
+        columnsNamesMapping: {
+          name: 'Book name',
+        },
         margins: { top: 30, left: 45, right: 30, bottom: 60 },
       },
     });
