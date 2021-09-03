@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.40.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.5...@keen.io/ui-core@2.40.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 enhance table with columns selection ([d311197](https://github.com/keen/keen/commit/d311197dcc1698fb91e89d0e3eb127183b4ce39a))
+
+
+
+
+
 ## [2.39.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.4...@keen.io/ui-core@2.39.5) (2021-08-31)
 
 

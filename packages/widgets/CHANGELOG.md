@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.6...@keen.io/widgets@2.15.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 table events ([86038ac](https://github.com/keen/keen/commit/86038ac8c0e330a10933702cd5a649cadddbdbaf))
+
+
+
+
+
 ## [2.14.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.5...@keen.io/widgets@2.14.6) (2021-08-31)
 
 **Note:** Version bump only for package @keen.io/widgets

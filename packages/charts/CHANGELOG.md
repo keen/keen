@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/keen/keen/compare/@keen.io/charts@2.29.5...@keen.io/charts@2.30.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 enhance table formatters ([710e99f](https://github.com/keen/keen/commit/710e99f3246935c7b87cac950c4f0ca4dd229bed))
+* 🎸 enhance table with columns selection ([d311197](https://github.com/keen/keen/commit/d311197dcc1698fb91e89d0e3eb127183b4ce39a))
+* 🎸 table events ([86038ac](https://github.com/keen/keen/commit/86038ac8c0e330a10933702cd5a649cadddbdbaf))
+
+
+
+
+
 ## [2.29.5](https://github.com/keen/keen/compare/@keen.io/charts@2.29.4...@keen.io/charts@2.29.5) (2021-08-31)
 
 **Note:** Version bump only for package @keen.io/charts

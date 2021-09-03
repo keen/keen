@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.10.0...@keen.io/charts-utils@1.11.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 Datetime formatter added ([51a75da](https://github.com/keen/keen/commit/51a75dac230c73e1c8dcb7b8de5ba2ead0c5661d))
+
+
+
+
+
 # [1.10.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.9.1...@keen.io/charts-utils@1.10.0) (2021-07-15)
 
 

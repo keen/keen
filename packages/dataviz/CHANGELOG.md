@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.13.13...@keen.io/dataviz@2.14.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 table events ([86038ac](https://github.com/keen/keen/commit/86038ac8c0e330a10933702cd5a649cadddbdbaf))
+
+
+
+
+
 ## [2.13.13](https://github.com/keen/keen/compare/@keen.io/dataviz@2.13.12...@keen.io/dataviz@2.13.13) (2021-08-31)
 
 **Note:** Version bump only for package @keen.io/dataviz
