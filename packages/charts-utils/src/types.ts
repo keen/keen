@@ -27,3 +27,9 @@ export type FormatFunction = (
 ) => string | number | boolean;
 
 export type Formatter = string | FormatFunction;
+
+export type PatternFormatterDataType =
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'datetime';

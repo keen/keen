@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
 import { DRAG_CLASS } from './constants';
@@ -40,6 +41,7 @@ export const TableContainer = styled.div`
 
 export const Table = styled.table`
   border-collapse: collapse;
+  border: 1px solid transparent;
   cursor: pointer;
   width: 100%;
   margin: 0;
@@ -63,4 +65,22 @@ export const RightOverflow = styled.div`
   top: 0;
   right: -10px;
   box-shadow: 0 -4px 8px ${colors.gray['500']};
+`;
+
+export const StyledCol = styled.col<{
+  isHovered: boolean;
+  isSelected: boolean;
+}>`
+  ${({ isHovered }) =>
+    isHovered &&
+    css`
+      background-color: ${transparentize(0.85, colors.green[300])};
+    `};
+
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background-color: ${transparentize(0.85, colors.green[300])};
+      border: 1px solid ${colors.green[500]};
+    `};
 `;

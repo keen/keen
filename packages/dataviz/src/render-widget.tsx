@@ -1,4 +1,5 @@
 import React from 'react';
+import { PubSub } from '@keen.io/pubsub';
 import {
   BarChartWidget,
   LineChartWidget,
@@ -42,6 +43,8 @@ type Options = {
   componentSettings?: Record<string, any>;
   widgetSettings?: WidgetSettings;
   legend?: LegendSettings | BubbleWidgetLegendSettings;
+  eventBus: PubSub;
+  inEditMode: boolean;
 };
 
 export const renderWidget = ({
@@ -51,6 +54,8 @@ export const renderWidget = ({
   componentSettings,
   widgetSettings,
   legend,
+  eventBus,
+  inEditMode,
 }: Options) => {
   const chartSettings: unknown = {
     keys,
@@ -119,6 +124,8 @@ export const renderWidget = ({
     case 'table':
       return (
         <TableChartWidget
+          inEditMode={inEditMode}
+          eventBus={eventBus}
           {...(chartSettings as TableChartSettings)}
           {...widgetSettings}
         />

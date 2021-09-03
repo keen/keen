@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color } from '@storybook/addon-knobs';
+import { color, text } from '@storybook/addon-knobs';
 import { data } from './table.fixtures';
 import { action } from '@storybook/addon-actions';
 
@@ -33,6 +33,14 @@ export const Plot = () => {
           },
         }}
         onResize={action('onResize')}
+        formatValue={{
+          platform: (val) => (Array.isArray(val) ? 'Multi-platform' : val),
+          price: text(
+            'Format price values',
+            '${number; 0.00; add; 100}$',
+            'Chart'
+          ),
+        }}
       />
     </Container>
   );
