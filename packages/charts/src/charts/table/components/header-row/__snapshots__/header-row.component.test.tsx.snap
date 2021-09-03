@@ -62,6 +62,7 @@ exports[`applies typography settings to table header 1`] = `
   top: 0;
   z-index: 1;
   background: #44748C;
+  position: relative;
 }
 
 <tr
@@ -72,53 +73,57 @@ exports[`applies typography settings to table header 1`] = `
     class="c1"
   >
     <div
-      class="c2"
+      class=""
     >
       <div
-        class="c3"
+        class="c2"
       >
-        id
         <div
-          style="visibility: hidden;"
+          class="c3"
         >
+          id
           <div
-            class="c4"
-            data-testid="sort-indicators"
+            style="visibility: hidden;"
           >
             <div
-              style="opacity: 0;"
+              class="c4"
+              data-testid="sort-indicators"
             >
-              <svg
-                height="15"
-                opacity="1"
-                viewBox="0 0 24 30"
-                width="10"
+              <div
+                style="opacity: 0;"
               >
-                <polygon
-                  fill="#FFFFFF"
-                  fill-rule="evenodd"
-                  points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
-                  transform="matrix(1 0 0 -1 0 29.744)"
-                />
-              </svg>
-            </div>
-            <div
-              class="c5"
-              style="opacity: 0;"
-            >
-              <svg
-                height="15"
-                opacity="1"
-                viewBox="0 0 24 30"
-                width="10"
+                <svg
+                  height="15"
+                  opacity="1"
+                  viewBox="0 0 24 30"
+                  width="10"
+                >
+                  <polygon
+                    fill="#FFFFFF"
+                    fill-rule="evenodd"
+                    points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
+                    transform="matrix(1 0 0 -1 0 29.744)"
+                  />
+                </svg>
+              </div>
+              <div
+                class="c5"
+                style="opacity: 0;"
               >
-                <polygon
-                  fill="#FFFFFF"
-                  fill-rule="evenodd"
-                  points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
-                  transform="translate(0 .256)"
-                />
-              </svg>
+                <svg
+                  height="15"
+                  opacity="1"
+                  viewBox="0 0 24 30"
+                  width="10"
+                >
+                  <polygon
+                    fill="#FFFFFF"
+                    fill-rule="evenodd"
+                    points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
+                    transform="translate(0 .256)"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -129,53 +134,57 @@ exports[`applies typography settings to table header 1`] = `
     class="c1"
   >
     <div
-      class="c2"
+      class=""
     >
       <div
-        class="c3"
+        class="c2"
       >
-        title
         <div
-          style="visibility: hidden;"
+          class="c3"
         >
+          title
           <div
-            class="c4"
-            data-testid="sort-indicators"
+            style="visibility: hidden;"
           >
             <div
-              style="opacity: 0;"
+              class="c4"
+              data-testid="sort-indicators"
             >
-              <svg
-                height="15"
-                opacity="1"
-                viewBox="0 0 24 30"
-                width="10"
+              <div
+                style="opacity: 0;"
               >
-                <polygon
-                  fill="#FFFFFF"
-                  fill-rule="evenodd"
-                  points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
-                  transform="matrix(1 0 0 -1 0 29.744)"
-                />
-              </svg>
-            </div>
-            <div
-              class="c5"
-              style="opacity: 0;"
-            >
-              <svg
-                height="15"
-                opacity="1"
-                viewBox="0 0 24 30"
-                width="10"
+                <svg
+                  height="15"
+                  opacity="1"
+                  viewBox="0 0 24 30"
+                  width="10"
+                >
+                  <polygon
+                    fill="#FFFFFF"
+                    fill-rule="evenodd"
+                    points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
+                    transform="matrix(1 0 0 -1 0 29.744)"
+                  />
+                </svg>
+              </div>
+              <div
+                class="c5"
+                style="opacity: 0;"
               >
-                <polygon
-                  fill="#FFFFFF"
-                  fill-rule="evenodd"
-                  points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
-                  transform="translate(0 .256)"
-                />
-              </svg>
+                <svg
+                  height="15"
+                  opacity="1"
+                  viewBox="0 0 24 30"
+                  width="10"
+                >
+                  <polygon
+                    fill="#FFFFFF"
+                    fill-rule="evenodd"
+                    points="10.768 0 10.768 23.16 3.245 15.637 .776 18.106 12.414 29.744 24.052 18.106 21.583 15.637 14.06 23.16 14.06 0"
+                    transform="translate(0 .256)"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>

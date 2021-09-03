@@ -1,4 +1,4 @@
-export type CallbackFn = (event: any, meta?: Record<string, any>) => void;
+export type CallbackFn = (event: string, meta?: Record<string, any>) => void;
 
 export type Subscription = {
   id: number;

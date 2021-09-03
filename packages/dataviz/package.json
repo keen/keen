@@ -54,6 +54,7 @@
     "@keen.io/parser": "^2.8.83",
     "@keen.io/query": "^1.2.0",
     "@keen.io/widgets": "^2.14.6",
+    "@keen.io/pubsub": "^1.1.1",
     "deepmerge": "4.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

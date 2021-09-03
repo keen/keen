@@ -39,6 +39,7 @@
     "@keen.io/ui-core": "^2.39.5"
   },
   "devDependencies": {
+    "@keen.io/pubsub": "^1.1.1",
     "@keen.io/storybook-utils": "^2.2.6"
   },
   "publishConfig": {

@@ -29,6 +29,7 @@
     "styled-components": ">=5"
   },
   "dependencies": {
+    "@keen.io/pubsub": "^1.1.1",
     "@keen.io/charts-utils": "^1.10.0",
     "@keen.io/colors": "^1.1.0",
     "@keen.io/react-hooks": "^1.2.0",
