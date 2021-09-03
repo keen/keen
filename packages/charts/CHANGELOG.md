@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.31.0](https://github.com/keen/keen/compare/@keen.io/charts@2.30.0...@keen.io/charts@2.31.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 rename table columns ([cadc9e2](https://github.com/keen/keen/commit/cadc9e2d43c2e53e469a2a97eb4b5c1b501f6637))
+
+
+
+
+
 # [2.30.0](https://github.com/keen/keen/compare/@keen.io/charts@2.29.5...@keen.io/charts@2.30.0) (2021-09-03)
 
 
