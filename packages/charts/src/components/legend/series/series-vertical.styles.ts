@@ -10,11 +10,13 @@ export const Container = styled.div<{
   display: flex;
   flex-direction: column;
   height: 100%;
+  visibility: hidden;
 
   ${(props) =>
     props.calculationReady &&
     css`
       overflow: visible;
+      visibility: visible;
     `};
 
   ${(props) =>

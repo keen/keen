@@ -73,8 +73,8 @@ export const createSliderTransition = (
 ) => {
   const itemPosition =
     index * (itemSize + itemGap) + (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
-  const itemPositionPrevious = itemPosition - sliderSize;
-  const itemPositionNext = itemPosition + sliderSize;
+  const itemPositionPrevious = itemPosition - sliderSize - itemSize - itemGap;
+  const itemPositionNext = itemPosition + sliderSize + itemSize + itemGap;
 
   if (variant === 'horizontal')
     return {
@@ -90,13 +90,13 @@ export const createSliderTransition = (
     };
   return {
     initial: (direction: number) => ({
-      y: direction > 0 ? itemPositionNext + 100 : itemPositionPrevious - 100,
+      y: direction > 0 ? itemPositionNext : itemPositionPrevious,
       x: 15,
       width: 'calc(100% - 30px)',
     }),
     animate: { y: itemPosition },
     exit: (direction: number) => ({
-      y: direction < 0 ? itemPositionNext + 100 : itemPositionPrevious - 100,
+      y: direction < 0 ? itemPositionNext : itemPositionPrevious,
     }),
   };
 };

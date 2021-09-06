@@ -50,7 +50,8 @@ export const PieChartWidget: FC<Props> = ({
         <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
       )}
       legend={() =>
-        legend.enabled && (
+        legend.enabled &&
+        !!sortedDataSeries.length && (
           <SeriesLegend
             {...legend}
             disabledKeys={disabledKeys}
