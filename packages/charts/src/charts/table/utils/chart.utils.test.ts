@@ -1,28 +1,24 @@
 import { generateHeader, generateTable, setColumnsOrder } from './chart.utils';
 
 describe('generateHeader()', () => {
-  const data = { name: 'John', age: 31, city: 'San antonio' };
+  const data = { name: 'John', age: 31, city: 'San Antonio' };
 
   test('generates header with formatted "age" property', () => {
-    const format = { age: () => `User Age` };
-    const header = generateHeader(data, format);
+    const header = generateHeader(data);
 
     expect(header).toMatchInlineSnapshot(`
       Array [
         Object {
           "align": "left",
           "key": "name",
-          "value": "name",
         },
         Object {
           "align": "right",
           "key": "age",
-          "value": "User Age",
         },
         Object {
           "align": "left",
           "key": "city",
-          "value": "city",
         },
       ]
     `);
@@ -31,44 +27,44 @@ describe('generateHeader()', () => {
 
 describe('generateTable()', () => {
   const data = [
-    { name: 'Logan', age: 31, city: 'San antonio' },
+    { name: 'Logan', age: 31, city: 'San Antonio' },
     { name: 'Clementine', age: 22, city: 'Las Vegas' },
   ];
 
-  test('generates table and applies format function to all values', () => {
-    const format = (element: string | number) => `(${element})`;
-    const header = generateTable(data, format);
-
-    expect(header).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "age": "(31)",
-          "city": "(San antonio)",
-          "name": "(Logan)",
-        },
-        Object {
-          "age": "(22)",
-          "city": "(Las Vegas)",
-          "name": "(Clementine)",
-        },
-      ]
-    `);
-  });
-
   test('generates table and applies format function for "city" property', () => {
-    const format = { city: (element: string) => `Viva ${element}` };
+    const format = { city: (value) => `(${value})` };
     const header = generateTable(data, format);
 
     expect(header).toMatchInlineSnapshot(`
       Array [
         Object {
           "age": 31,
-          "city": "Viva San antonio",
+          "city": "(San Antonio)",
           "name": "Logan",
         },
         Object {
           "age": 22,
-          "city": "Viva Las Vegas",
+          "city": "(Las Vegas)",
+          "name": "Clementine",
+        },
+      ]
+    `);
+  });
+
+  test('generates table and applies formattter for "age" property', () => {
+    const format = { age: '${number; 0; add; 5} yo' };
+    const header = generateTable(data, format);
+
+    expect(header).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "age": "36 yo",
+          "city": "San Antonio",
+          "name": "Logan",
+        },
+        Object {
+          "age": "27 yo",
+          "city": "Las Vegas",
           "name": "Clementine",
         },
       ]

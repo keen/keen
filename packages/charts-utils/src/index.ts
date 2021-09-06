@@ -10,7 +10,7 @@ import {
 
 import { getElementOffset, hasContentOverflow } from './elements';
 
-import { formatByPattern, formatValue } from './format';
+import { formatByPattern, formatValue, extractFormatterType } from './format';
 import { copyToClipboard } from './text';
 import {
   normalizeDate,
@@ -43,6 +43,7 @@ import {
   ScaleSettings,
   Formatter,
   FormatFunction,
+  PatternFormatterDataType,
 } from './types';
 
 import {
@@ -51,7 +52,13 @@ import {
   getOffsetRangeColor,
 } from './color';
 
-export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
+export {
+  PatternFormatterDataType,
+  TimePrecision,
+  ScaleSettings,
+  Formatter,
+  FormatFunction,
+};
 
 export {
   createDateFormatter,
@@ -85,4 +92,5 @@ export {
   getPaletteColor,
   generateContinuousColorScale,
   getOffsetRangeColor,
+  extractFormatterType,
 };

@@ -1,3 +1,4 @@
+import { Formatter, formatValue } from '@keen.io/charts-utils';
 import { FormatFunction, ValueFormatter, HeaderCell } from '../types';
 
 /**
@@ -8,20 +9,11 @@ import { FormatFunction, ValueFormatter, HeaderCell } from '../types';
  * @return data collection used to render table header
  *
  */
-export const generateHeader = (
-  data: Record<string, any>,
-  format: Record<string, FormatFunction>
-) => {
+export const generateHeader = (data: Record<string, any>) => {
   const header: HeaderCell[] = [];
   Object.keys(data).map((key: string) => {
-    const formatFunc =
-      format !== null && typeof format === 'object' && format[key]
-        ? format[key]
-        : null;
-
     header.push({
       key: key,
-      value: formatFunc ? formatFunc(key) : key,
       align: typeof data[key] === 'number' ? 'right' : 'left',
     });
   });
@@ -45,10 +37,10 @@ export const generateTable = (
     Object.keys(el).map((key: string) => {
       if (format !== null && typeof format === 'object') {
         const formatObj = format && (format as Record<string, FormatFunction>);
-        const formatFunc = formatObj[key] && formatObj[key];
+        const formatter = formatObj[key] && (formatObj[key] as Formatter);
         return (table = {
           ...table,
-          [key]: formatFunc ? formatFunc(el[key]) : el[key],
+          [key]: formatter ? formatValue(el[key], formatter) : el[key],
         });
       }
       return (table = {

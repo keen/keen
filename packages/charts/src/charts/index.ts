@@ -8,7 +8,12 @@ import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
 import { BubbleChart, BubbleChartSettings } from './bubble';
 import { GaugeChart, GaugeChartSettings } from './gauge';
-import { TableChart, TableChartSettings } from './table';
+import {
+  TableChart,
+  TableChartSettings,
+  ColumnSelection,
+  TableEvents,
+} from './table';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,
@@ -29,6 +34,8 @@ export type {
   FunnelChartSettings,
   HeatmapChartSettings,
   TableChartSettings,
+  TableEvents,
+  ColumnSelection,
   CurveType,
   MetricType,
 };

@@ -1,4 +1,4 @@
-import formatByPattern from './format-by-pattern';
+import formatByPattern, { extractFormatterType } from './format-by-pattern';
 import formatValue from './format-value';
 
-export { formatByPattern, formatValue };
+export { formatByPattern, formatValue, extractFormatterType };
