@@ -1,3 +1,5 @@
+import { Formatter } from '@keen.io/charts-utils';
+
 export type Projection =
   | 'mercator'
   | 'geoAlbersUsa'
@@ -16,4 +18,8 @@ export type TooltipMeta = {
   color: string;
   label: string;
   value: number;
+};
+
+export type TooltipSettings = {
+  formatValue?: Formatter;
 };

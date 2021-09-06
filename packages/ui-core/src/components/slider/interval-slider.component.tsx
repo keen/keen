@@ -46,7 +46,9 @@ type Props = {
   /** Drag control settings  */
   controlSettings?: ControlSettings;
   /** Tooltip settings  */
-  tooltipSettings?: TooltipSettings;
+  tooltipSettings?: TooltipSettings & {
+    renderText?: (value: number) => React.ReactNode;
+  };
   /** Rail settings  */
   railSettings?: RailSettings;
   /** Colors applied to rail container  */

@@ -8,6 +8,10 @@ import React, {
   useMemo,
 } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import {
+  Formatter,
+  formatValue as valueFormatter,
+} from '@keen.io/charts-utils';
 
 import Rail from './rail';
 import Mark from './mark';
@@ -56,7 +60,7 @@ type Props = {
   /** Drag controls settings  */
   controlSettings?: ControlSettings;
   /** Tooltip settings  */
-  tooltipSettings?: TooltipSettings;
+  tooltipSettings?: TooltipSettings & { formatValue?: Formatter };
   /** Rail settings  */
   railSettings?: RailSettings;
   /** Number of colors steps */
@@ -290,9 +294,10 @@ export const RangeSlider: FC<Props> = ({
                               ? tooltipSettings.typography
                               : tooltipTypography)}
                           >
-                            {tooltipSettings.renderText
-                              ? tooltipSettings.renderText(
-                                  currentMinimum as number
+                            {tooltipSettings.formatValue
+                              ? valueFormatter(
+                                  currentMinimum,
+                                  tooltipSettings.formatValue
                                 )
                               : currentMinimum}
                           </Text>
@@ -388,9 +393,10 @@ export const RangeSlider: FC<Props> = ({
                               ? tooltipSettings.typography
                               : tooltipTypography)}
                           >
-                            {tooltipSettings.renderText
-                              ? tooltipSettings.renderText(
-                                  currentMaximum as number
+                            {tooltipSettings.formatValue
+                              ? valueFormatter(
+                                  currentMaximum,
+                                  tooltipSettings.formatValue
                                 )
                               : currentMaximum}
                           </Text>

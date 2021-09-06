@@ -37,7 +37,6 @@ export type TooltipSettings = {
   enabled: boolean;
   position: Position;
   typography?: Typography;
-  renderText?: (value: number) => React.ReactNode;
   theme?: TooltipMode;
 };
 
