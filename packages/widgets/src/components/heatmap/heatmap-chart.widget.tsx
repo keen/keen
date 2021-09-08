@@ -68,6 +68,7 @@ export const HeatmapChartWidget: FC<Props> = ({
                   fontWeight: 'normal',
                   fontColor: colors.black['500'],
                 },
+                formatValue: props?.tooltipSettings?.formatValue,
               }}
             />
           </LegendBase>

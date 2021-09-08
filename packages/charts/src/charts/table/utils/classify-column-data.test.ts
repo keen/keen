@@ -16,6 +16,38 @@ test('classifies column data type as "string"', () => {
   expect(classifyColumnData('country', records)).toEqual('string');
 });
 
+test('classifies column with ISO string date as "datetime"', () => {
+  const records = [
+    {
+      createdAt: '2021-03-02T12:00:00Z',
+    },
+    {
+      createdAt: '2021-03-02T12:00:00Z',
+    },
+    {
+      createdAt: null,
+    },
+  ];
+
+  expect(classifyColumnData('createdAt', records)).toEqual('datetime');
+});
+
+test('classifies column with partial date string pattern as "datetime"', () => {
+  const records = [
+    {
+      createdAt: '2021-03',
+    },
+    {
+      createdAt: '2021-02',
+    },
+    {
+      createdAt: null,
+    },
+  ];
+
+  expect(classifyColumnData('createdAt', records)).toEqual('datetime');
+});
+
 test('classifies column data type as "null"', () => {
   const records = [
     {

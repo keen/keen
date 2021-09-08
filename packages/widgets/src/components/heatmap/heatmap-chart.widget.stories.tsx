@@ -61,6 +61,9 @@ export const widget = () => (
       theme={createThemeKnobs()}
       data={chartData}
       tags={[{ label: 'Widget tag', variant: 'gray' }]}
+      tooltipSettings={{
+        formatValue: text('Format value', '${number; 0,0.00}', 'Chart'),
+      }}
     />
   </div>
 );

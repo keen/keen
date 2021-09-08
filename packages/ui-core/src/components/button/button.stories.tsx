@@ -66,13 +66,22 @@ export const secondarySmall = () => (
 );
 
 export const successOutline = () => (
-  <Button onClick={action('click')} variant="success" style="outline">
+  <Button
+    onClick={action('click')}
+    variant="success"
+    style="outline"
+    isDisabled={boolean('Is disabled', false)}
+  >
     Button
   </Button>
 );
 
 export const successSolid = () => (
-  <Button onClick={action('click')} variant="success">
+  <Button
+    onClick={action('click')}
+    variant="success"
+    isDisabled={boolean('Is disabled', false)}
+  >
     Button
   </Button>
 );

@@ -1,5 +1,5 @@
 import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
-import { ScaleSettings } from '@keen.io/charts-utils';
+import { Formatter, ScaleSettings } from '@keen.io/charts-utils';
 
 import { Dimension, Margins } from '../../types';
 
@@ -32,4 +32,8 @@ export type BlockType = {
   selector: (string | number)[];
   color: string;
   value: number;
+};
+
+export type TooltipSettings = {
+  formatValue?: Formatter;
 };
