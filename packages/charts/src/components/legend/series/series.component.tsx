@@ -93,13 +93,13 @@ export const SeriesLegend: FC<Props> = ({
         <SeriesHorizontal
           {...commonProps}
           renderNodes={renderNodes}
-          onOffsetUpdate={(offset) => onOffsetUpdate(offset)}
+          onOffsetUpdate={(offset) => onOffsetUpdate && onOffsetUpdate(offset)}
         />
       ) : (
         <SeriesVertical
           {...commonProps}
           renderNodes={renderNodes}
-          onOffsetUpdate={(offset) => onOffsetUpdate(offset)}
+          onOffsetUpdate={(offset) => onOffsetUpdate && onOffsetUpdate(offset)}
         />
       )}
     </>

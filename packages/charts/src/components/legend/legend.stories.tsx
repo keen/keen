@@ -37,12 +37,13 @@ export const List = () => (
       layout="horizontal"
       colorPalette={chartColors}
       dataSeries={labels}
+      disabledKeys={[]}
     />
   </div>
 );
 
 export const ListSlider = () => (
-  <div style={{ width: '270px' }}>
+  <div style={{ width: '350px' }}>
     <SeriesLegend
       position="top"
       card={cardKnobs('Card')}
@@ -51,6 +52,7 @@ export const ListSlider = () => (
       layout="horizontal"
       colorPalette={chartColors}
       dataSeries={labels}
+      disabledKeys={[]}
     />
   </div>
 );
@@ -73,6 +75,7 @@ export const Column = () => (
       layout="vertical"
       colorPalette={chartColors}
       dataSeries={labels}
+      disabledKeys={[]}
     />
   </div>
 );
@@ -96,6 +99,7 @@ export const ColumnSlider = () => (
       layout="vertical"
       colorPalette={chartColors}
       dataSeries={labels}
+      disabledKeys={[]}
     />
   </div>
 );
