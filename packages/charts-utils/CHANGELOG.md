@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.11.0...@keen.io/charts-utils@1.11.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 Table formatting fixes ([89c14ee](https://github.com/keen/keen/commit/89c14ee78b53c10f58cec5552c81c0f71d4625f3))
+
+
+
+
+
 # [1.11.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.10.0...@keen.io/charts-utils@1.11.0) (2021-09-03)
 
 
