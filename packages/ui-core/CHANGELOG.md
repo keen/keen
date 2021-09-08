@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.0...@keen.io/ui-core@2.40.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 apply formatters to slider ([eb8bf91](https://github.com/keen/keen/commit/eb8bf912a90df59b1fcee357d6829f6e8596d34e))
+
+
+
+
+
 # [2.40.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.5...@keen.io/ui-core@2.40.0) (2021-09-03)
 
 
