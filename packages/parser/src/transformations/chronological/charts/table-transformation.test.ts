@@ -28,12 +28,12 @@ test('transforms chronological results for table', () => {
     Object {
       "data": Array [
         Object {
-          "Interval": "2019-01-01T00:00:00.000Z",
           "count.page_views": 100,
+          "interval": "2019-01-01T00:00:00.000Z",
         },
         Object {
-          "Interval": "2020-01-01T00:00:00.000Z",
           "count.page_views": 300,
+          "interval": "2020-01-01T00:00:00.000Z",
         },
       ],
       "keys": Array [

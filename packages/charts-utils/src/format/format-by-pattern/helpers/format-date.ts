@@ -16,10 +16,10 @@ export const formatDate = (
       datetime = dayjs.utc(+value * 1000); // unix timestamp
     }
     let pattern = '';
-    if (dateFormatter !== 'hidden') {
+    if (dateFormatter && dateFormatter.trim() !== 'hidden') {
       pattern += dateFormatter;
     }
-    if (timeFormatter !== 'hidden') {
+    if (timeFormatter && timeFormatter.trim() !== 'hidden') {
       pattern += timeFormatter;
     }
     return datetime.format(pattern);
