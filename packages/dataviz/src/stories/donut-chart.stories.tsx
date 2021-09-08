@@ -243,7 +243,7 @@ export const SliderLegendVertical = () => {
     }).render();
   }, []);
 
-  return <div style={{ width: '600px', height: '300px' }} ref={container} />;
+  return <div style={{ width: '600px', height: '250px' }} ref={container} />;
 };
 
 SliderLegendVertical.story = {

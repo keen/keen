@@ -80,6 +80,7 @@ const DonutSlice: FC<Props> = ({
   onMouseMove,
   dataSeriesOffset,
 }) => {
+  const [initialDrawFinished, setInitialDraw] = useState(false);
   const [arcProperties, setArcProperties] = useState<ArcProperties>({
     startAngle,
     endAngle,
@@ -96,28 +97,34 @@ const DonutSlice: FC<Props> = ({
   const [labelX, labelY] = labelPosition;
 
   useEffect(() => {
-    const motion = createArcTween(
-      arcProperties,
-      { startAngle, endAngle },
-      draw
-    );
+    if (initialDrawFinished) {
+      const motion = createArcTween(
+        arcProperties,
+        { startAngle, endAngle },
+        draw
+      );
 
-    requestAnimationFrame(() => {
-      animateArcPath(element, motion, () => {
-        setArcProperties({
-          startAngle,
-          endAngle,
+      requestAnimationFrame(() => {
+        animateArcPath(element, motion, () => {
+          setArcProperties({
+            startAngle,
+            endAngle,
+          });
         });
       });
-    });
-    setDelay(true);
+      setDelay(true);
+    }
   }, [startAngle, endAngle]);
 
   useEffect(() => {
     if (activeKey) {
-      activeControls.start(
-        activeKey === id ? activeVariants.active : activeVariants.inactive
-      );
+      activeControls
+        .start(
+          activeKey === id ? activeVariants.active : activeVariants.inactive
+        )
+        .then(() => {
+          setInitialDraw(true);
+        });
     } else {
       activeControls
         .start(activeVariants.default, { delay: isDelayed ? 0.5 : 0 })

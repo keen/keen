@@ -7,7 +7,7 @@ import {
   SeriesLegend,
   theme as defaultTheme,
 } from '@keen.io/charts';
-import { useLegend } from '@keen.io/react-hooks';
+import { useLegend, useDataSeriesOffset } from '@keen.io/react-hooks';
 import {
   sortKeysByValuesSum,
   getOffsetRangeColor,
@@ -33,10 +33,10 @@ export const AreaChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
   const [activeKey, setActiveKey] = useState(null);
-  const [dataSeriesOffset, setDataSeriesOffset] = useState<[number, number]>([
-    0,
+  const { setDataSeriesOffset, dataSeriesOffset } = useDataSeriesOffset(
     theme.colors.length,
-  ]);
+    legend.enabled
+  );
 
   const sortedKeys = sortKeysByValuesSum(props.data, props.keys);
 

@@ -139,11 +139,21 @@ const Lines = ({
       .then(() => {
         setInitialDraw(true);
       });
-    areaControls.start(AnimationVariants.Visible, {
-      delay: 0.5,
-      duration: 0.8,
-    });
-  }, [curve, groupMode, stackMode, stepMode, lines.length, colorPalette]);
+    if (areaMode) {
+      areaControls.start(AnimationVariants.Visible, {
+        delay: 0.5,
+        duration: 0.8,
+      });
+    }
+  }, [
+    curve,
+    groupMode,
+    stackMode,
+    stepMode,
+    lines.length,
+    colorPalette,
+    areaMode,
+  ]);
 
   useEffect(() => {
     if (activeKey) {
@@ -161,9 +171,11 @@ const Lines = ({
   useEffect(() => {
     if (initialDrawFinished) {
       lineControls.start(AnimationVariants.OffsetChange);
-      areaControls.start(AnimationVariants.OffsetChange);
+      if (areaMode) {
+        areaControls.start(AnimationVariants.OffsetChange);
+      }
     }
-  }, [dataSeriesOffset]);
+  }, [dataSeriesOffset, areaMode]);
 
   const groupedMarks = useMemo(() => groupMarksByPosition(marks), [marks]);
   const allMarks = showAllMarks(stepMode, marks, lines);
