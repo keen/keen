@@ -72,6 +72,10 @@ const disabledVariants = {
         boxShadow: 'none',
       },
     },
+    success: {
+      opacity: 0.5,
+      pointerEvents: 'none',
+    },
   },
 };
 
