@@ -69,3 +69,10 @@ test('should format time in linux timestamp', () => {
   const result = formatByPattern(pattern, value);
   expect(result).toEqual('2021-09-01 09:05');
 });
+
+test('Should hide time when hidden option is specified', () => {
+  const pattern = '${datetime;YYYY-MM-DD; hidden}';
+  const value = '2021-07-17T00:00:00.000Z';
+  const result = formatByPattern(pattern, value);
+  expect(result).toEqual('2021-07-17');
+});
