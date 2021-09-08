@@ -85,6 +85,7 @@ export const ChoroplethChartWidget: FC<Props> = ({
                   fontWeight: 'normal',
                   fontColor: colors.black['500'],
                 },
+                formatValue: props?.tooltipSettings?.formatValue,
               }}
               layout={legend.layout}
               colors={theme.colors}

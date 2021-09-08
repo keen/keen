@@ -18,8 +18,8 @@ import { margins as defaultMargins, theme as defaultTheme } from '../../theme';
 
 import { THREE_DIMENSION_PROJECTIONS } from './constants';
 
-import { Projection, ProjectionState } from './types';
-import { CommonChartSettings, TooltipSettings } from '../../types';
+import { Projection, ProjectionState, TooltipSettings } from './types';
+import { CommonChartSettings } from '../../types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },
