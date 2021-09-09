@@ -46,7 +46,11 @@ import {
   PatternFormatterDataType,
 } from './types';
 
-import { getPaletteColor, generateContinuousColorScale } from './color';
+import {
+  getPaletteColor,
+  generateContinuousColorScale,
+  getOffsetRangeColor,
+} from './color';
 
 export {
   PatternFormatterDataType,
@@ -87,5 +91,6 @@ export {
   INTERVAL_TO_PRECISION,
   getPaletteColor,
   generateContinuousColorScale,
+  getOffsetRangeColor,
   extractFormatterType,
 };

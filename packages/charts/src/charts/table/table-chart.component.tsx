@@ -206,7 +206,7 @@ export const TableChart = ({
           </AnimatePresence>
           <Table ref={tableRef}>
             <colgroup>
-              {formattedData.map((_: any, idx: number) => (
+              {Object.keys(formattedData[0]).map((_: any, idx: number) => (
                 <StyledCol
                   key={`col-${idx}`}
                   isHovered={hoveredColumn === idx}

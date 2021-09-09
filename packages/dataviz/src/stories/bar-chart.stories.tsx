@@ -461,31 +461,31 @@ ColorsOutOfRange.story = {
   },
 };
 
+const data = [
+  {
+    name: 'Books',
+    'Da Vinci Code,The': 3,
+    'Harry Potter and the Deathly Hallows	': 52,
+    'Fifty Shades of Grey': 12,
+    'Angels and Demons': 24,
+    'Harry Potter and the Half-blood Prince:Childrens Edition': 33,
+    Twilight: 12,
+    'Girl with the Dragon Tattoo,The:Millennium Trilogy': 43,
+    'Lost Symbol,The': 32,
+    'New Moon': 24,
+    'Deception Point': 4,
+    Eclipse: 1,
+    'Lovely Bones,The': 31,
+    'Curious Incident of the Dog in the Night-time,The': 12,
+    'Digital Fortress': 56,
+    'Very Hungry Caterpillar,The:The Very Hungry Caterpillar': 1,
+    'Gruffalo,The': 32,
+    'One Day': 5,
+  },
+];
+
 export const SliderLegendHorizontal = () => {
   const container = React.useRef(null);
-
-  const data = [
-    {
-      name: 'Books',
-      'Da Vinci Code,The': 3,
-      'Harry Potter and the Deathly Hallows	': 52,
-      'Fifty Shades of Grey': 12,
-      'Angels and Demons': 24,
-      'Harry Potter and the Half-blood Prince:Childrens Edition': 33,
-      Twilight: 12,
-      'Girl with the Dragon Tattoo,The:Millennium Trilogy': 43,
-      'Lost Symbol,The': 32,
-      'New Moon': 24,
-      'Deception Point': 4,
-      Eclipse: 1,
-      'Lovely Bones,The': 31,
-      'Curious Incident of the Dog in the Night-time,The': 12,
-      'Digital Fortress': 56,
-      'Very Hungry Caterpillar,The:The Very Hungry Caterpillar': 1,
-      'Gruffalo,The': 32,
-      'One Day': 5,
-    },
-  ];
 
   React.useEffect(() => {
     new KeenDataViz({
@@ -531,29 +531,6 @@ SliderLegendHorizontal.story = {
 
 export const SliderLegendVertical = () => {
   const container = React.useRef(null);
-
-  const data = [
-    {
-      name: 'Books',
-      'Da Vinci Code,The': 3,
-      'Harry Potter and the Deathly Hallows	': 52,
-      'Fifty Shades of Grey': 12,
-      'Angels and Demons': 24,
-      'Harry Potter and the Half-blood Prince:Childrens Edition': 33,
-      Twilight: 12,
-      'Girl with the Dragon Tattoo,The:Millennium Trilogy': 43,
-      'Lost Symbol,The': 32,
-      'New Moon': 24,
-      'Deception Point': 4,
-      Eclipse: 1,
-      'Lovely Bones,The': 31,
-      'Curious Incident of the Dog in the Night-time,The': 12,
-      'Digital Fortress': 56,
-      'Very Hungry Caterpillar,The:The Very Hungry Caterpillar': 1,
-      'Gruffalo,The': 32,
-      'One Day': 5,
-    },
-  ];
 
   React.useEffect(() => {
     new KeenDataViz({

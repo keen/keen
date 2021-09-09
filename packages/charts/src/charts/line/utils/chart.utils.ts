@@ -1,5 +1,6 @@
 import { scaleLinear, scaleUtc } from 'd3-scale';
 import { v4 as uuid } from 'uuid';
+import { transparentize } from 'polished';
 import {
   calculateRange,
   calculateScaleDomain,
@@ -7,8 +8,9 @@ import {
   transformToPercent,
   normalizeDate,
   sortKeysByValuesSum,
-  getPaletteColor,
+  getOffsetRangeColor,
 } from '@keen.io/charts-utils';
+import { colors as colorPalette } from '@keen.io/colors';
 import calculateLineStackedRange from './calculate-line-stacked-range';
 
 import {
@@ -76,6 +78,7 @@ export const generateGroupedLines = ({
   xScaleSettings,
   activeKey,
   sortedKeys,
+  dataSeriesOffset = [0, colors.length],
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -94,6 +97,11 @@ export const generateGroupedLines = ({
   const areas: AreaType[] = [];
   const lines: Line[] = [];
   const gradientBlocks: GradientBlockType[] = [];
+
+  const offsetMarks: Mark[] = [];
+  const offsetAreas: AreaType[] = [];
+  const offsetLines: Line[] = [];
+  const offsetGradientBlocks: GradientBlockType[] = [];
 
   const { precision } = xScaleSettings;
   const dateNormalizer = (date: string) => normalizeDate(date, precision);
@@ -127,6 +135,8 @@ export const generateGroupedLines = ({
 
   keys.forEach((keyName: string) => {
     const idx: number = sortedKeys.indexOf(keyName);
+    const inOffsetRange =
+      idx >= dataSeriesOffset[0] && idx < dataSeriesOffset[1];
     const generateLine: (data: Record<string, any>[]) => string = calculatePath(
       curve,
       xScale,
@@ -137,7 +147,12 @@ export const generateGroupedLines = ({
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
       const isKeyActive = activeKey && keyName !== activeKey;
-      const color = getPaletteColor(idx, colors);
+      const color = getOffsetRangeColor(
+        idx,
+        colors,
+        dataSeriesOffset,
+        transparentize(0.3, colorPalette.gray[300])
+      );
 
       if (idx === 0)
         steps.push(
@@ -149,24 +164,45 @@ export const generateGroupedLines = ({
             keys[0]
           )
         );
-      marks.push(
-        ...generateLineMarks(
-          localizedData,
-          xScale,
-          yScale,
-          labelSelector,
+      if (inOffsetRange) {
+        offsetMarks.push(
+          ...generateLineMarks(
+            localizedData,
+            xScale,
+            yScale,
+            labelSelector,
+            color,
+            keyName,
+            markRadius
+          )
+        );
+        offsetLines.push({
+          key: keyName,
+          selector: [idx, keyName],
+          d: generateLine(localizedData),
           color,
-          keyName,
-          markRadius
-        )
-      );
-      lines.push({
-        key: keyName,
-        selector: [idx, keyName],
-        d: generateLine(localizedData),
-        color,
-        strokeWidth,
-      });
+          strokeWidth,
+        });
+      } else {
+        marks.push(
+          ...generateLineMarks(
+            localizedData,
+            xScale,
+            yScale,
+            labelSelector,
+            color,
+            keyName,
+            markRadius
+          )
+        );
+        lines.push({
+          key: keyName,
+          selector: [idx, keyName],
+          d: generateLine(localizedData),
+          color,
+          strokeWidth,
+        });
+      }
 
       if (areaMode) {
         const {
@@ -189,34 +225,75 @@ export const generateGroupedLines = ({
           isNegativeSeries
         );
 
-        gradientBlocks.push({
-          x: margins.left,
-          width: dimension.width - margins.right - margins.left,
-          ...generateSeriesBlockHeight(
-            minimum,
-            maximum,
-            yScale,
-            minKeyNameValue,
-            maxKeyNameValue,
-            isNegativeSeries
-          ),
-        });
+        if (inOffsetRange) {
+          offsetGradientBlocks.push({
+            x: margins.left,
+            width: dimension.width - margins.right - margins.left,
+            ...generateSeriesBlockHeight(
+              minimum,
+              maximum,
+              yScale,
+              minKeyNameValue,
+              maxKeyNameValue,
+              isNegativeSeries
+            ),
+          });
 
-        areas.push({
-          id: uuid(),
-          d: generateArea(localizedData),
-          ...generateAreaGradient(
-            minKeyNameValue,
-            maxKeyNameValue,
-            getPaletteColor(idx, colors),
-            isKeyActive
-              ? GROUPED_GRADIENT.disabled.min
-              : GROUPED_GRADIENT.default.min,
-            isKeyActive
-              ? GROUPED_GRADIENT.disabled.max
-              : GROUPED_GRADIENT.default.max
-          ),
-        });
+          offsetAreas.push({
+            id: uuid(),
+            d: generateArea(localizedData),
+            ...generateAreaGradient(
+              minKeyNameValue,
+              maxKeyNameValue,
+              getOffsetRangeColor(
+                idx,
+                colors,
+                dataSeriesOffset,
+                transparentize(0.5, colorPalette.gray[100])
+              ),
+              isKeyActive
+                ? GROUPED_GRADIENT.disabled.min
+                : GROUPED_GRADIENT.default.min,
+              isKeyActive
+                ? GROUPED_GRADIENT.disabled.max
+                : GROUPED_GRADIENT.default.max
+            ),
+          });
+        } else {
+          gradientBlocks.push({
+            x: margins.left,
+            width: dimension.width - margins.right - margins.left,
+            ...generateSeriesBlockHeight(
+              minimum,
+              maximum,
+              yScale,
+              minKeyNameValue,
+              maxKeyNameValue,
+              isNegativeSeries
+            ),
+          });
+
+          areas.push({
+            id: uuid(),
+            d: generateArea(localizedData),
+            ...generateAreaGradient(
+              minKeyNameValue,
+              maxKeyNameValue,
+              getOffsetRangeColor(
+                idx,
+                colors,
+                dataSeriesOffset,
+                transparentize(0.5, colorPalette.gray[100])
+              ),
+              isKeyActive
+                ? GROUPED_GRADIENT.disabled.min
+                : GROUPED_GRADIENT.default.min,
+              isKeyActive
+                ? GROUPED_GRADIENT.disabled.max
+                : GROUPED_GRADIENT.default.max
+            ),
+          });
+        }
       }
     }
   });
@@ -224,13 +301,13 @@ export const generateGroupedLines = ({
   return {
     stepMode,
     steps,
-    marks,
-    lines,
+    marks: [...marks, ...offsetMarks],
+    lines: [...lines, ...offsetLines],
     xScale,
     yScale,
-    areas,
+    areas: [...areas, ...offsetAreas],
     localizedData,
-    gradientBlocks,
+    gradientBlocks: [...gradientBlocks, ...offsetGradientBlocks],
   };
 };
 
@@ -276,6 +353,7 @@ export const generateStackLines = ({
   groupMode,
   xScaleSettings,
   activeKey,
+  dataSeriesOffset,
 }: Options) => {
   const stepMode = curve === 'step';
   const filteredKeys = disabledKeys
@@ -356,7 +434,12 @@ export const generateStackLines = ({
 
     if (disabledKeys && !disabledKeys.includes(keyName)) {
       const isKeyActive = activeKey && keyName !== activeKey;
-      const color = getPaletteColor(idx, colors);
+      const color = getOffsetRangeColor(
+        idx,
+        colors,
+        dataSeriesOffset,
+        transparentize(0.5, colorPalette.gray[300])
+      );
       if (idx === 0)
         steps.push(
           ...generateSteps(newData, xScale, yScale, labelSelector, keys[0])
@@ -407,7 +490,12 @@ export const generateStackLines = ({
           ...generateAreaGradient(
             minKeyNameValue,
             maxKeyNameValue,
-            getPaletteColor(idx, colors),
+            getOffsetRangeColor(
+              idx,
+              colors,
+              dataSeriesOffset,
+              transparentize(0.5, colorPalette.gray[100])
+            ),
             isKeyActive
               ? STACKED_GRADIENT.disabled.min
               : STACKED_GRADIENT.default.min,

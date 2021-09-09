@@ -51,6 +51,8 @@ export type Props = {
   tooltipSettings?: TooltipSettings;
   /** Active key */
   activeKey?: string;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const AreaChart = (props: Props) => {

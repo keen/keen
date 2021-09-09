@@ -5,11 +5,13 @@ export const Container = styled.div<{ calculationReady?: boolean }>`
   overflow: hidden;
   outline: none;
   display: flex;
+  visibility: hidden;
 
   ${(props) =>
     props.calculationReady &&
     css`
       overflow: visible;
+      visibility: visible;
     `};
 `;
 
