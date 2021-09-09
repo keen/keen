@@ -11,6 +11,7 @@ import { VARIABLE_REGEX } from './constants';
  *
  */
 const formatByPattern = (pattern: string, value: string | number | Date) => {
+  if (value === null) return null;
   const variable = pattern.match(VARIABLE_REGEX);
   if (variable) {
     const [variableType, ...additionalParameters] = variable[1].split(';');
