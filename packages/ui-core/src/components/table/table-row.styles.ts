@@ -4,7 +4,6 @@ import { rgba } from 'polished';
 
 export const Container = styled(motion.tr)<{
   mainColor: string;
-  isColumnDragged: boolean;
   disableHover: boolean;
 }>`
   position: relative;
@@ -14,7 +13,6 @@ export const Container = styled(motion.tr)<{
   }
 
   ${(props) =>
-    !props.isColumnDragged &&
     !props.disableHover &&
     css`
       &:hover {

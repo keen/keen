@@ -14,8 +14,6 @@ type Props = {
   backgroundColor: string;
   /** Row typography properties */
   typography: Typography;
-  /** Table layout during resize */
-  isColumnDragged: boolean;
   /** Active column index */
   activeColumn?: number;
   /** Edit mode indicator */
@@ -42,7 +40,6 @@ type Props = {
 const TableRow: FC<Props> = ({
   data,
   typography,
-  isColumnDragged,
   backgroundColor,
   activeColumn,
   enableEditMode,
@@ -57,10 +54,9 @@ const TableRow: FC<Props> = ({
   return (
     <Container
       mainColor={backgroundColor}
-      isColumnDragged={isColumnDragged}
       disableHover={enableEditMode}
       whileHover={
-        enableEditMode || isColumnDragged
+        enableEditMode
           ? {}
           : {
               backgroundColor: rgbaBackground,

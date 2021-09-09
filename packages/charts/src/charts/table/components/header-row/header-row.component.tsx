@@ -23,8 +23,6 @@ type Props = {
   typography: Typography;
   /** Sort settings */
   sortOptions?: SortByType;
-  /** Column drag indicator */
-  isColumnDragged: boolean;
   /** Active columns array */
   activeColumns?: number[];
   /** Renaming columns settings */
@@ -54,7 +52,6 @@ export const HeaderRow = ({
   color,
   sortOptions,
   columnsNamesMapping,
-  isColumnDragged,
   typography,
   activeColumns = [],
   onEditModeClick,
@@ -88,7 +85,6 @@ export const HeaderRow = ({
                 propertyName={key}
                 backgroundColor={color}
                 sortOptions={sortOptions}
-                isColumnDragged={isColumnDragged}
                 textAlignment={align}
                 onSort={onSort}
               >

@@ -6,7 +6,6 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
-import ColumnResizer from 'column-resizer';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   TableRow,
@@ -44,7 +43,7 @@ import {
 
 import text from './text.json';
 import { theme as defaultTheme } from '../../theme';
-import { DRAG_CLASS, TOOLTIP_HIDE } from './constants';
+import { TOOLTIP_HIDE } from './constants';
 
 import { ValueFormatter, TableEvents } from './types';
 import { TooltipState, CommonChartSettings } from '../../types';
@@ -62,8 +61,6 @@ export type Props = {
   formatValue?: ValueFormatter;
   /** Renaming columns settings */
   columnsNamesMapping?: Record<string, string>;
-  /** Resize table layout event handler */
-  onResize?: () => void;
   /** Chart events communication bus */
   chartEvents?: ChartEvents<TableEvents>;
 } & CommonChartSettings;
@@ -72,7 +69,6 @@ export const TableChart = ({
   data: tableData,
   columnsOrder,
   formatValue,
-  onResize,
   chartEvents,
   columnsNamesMapping = {},
   theme = defaultTheme,
@@ -85,7 +81,6 @@ export const TableChart = ({
     overflowRight: false,
   });
 
-  const [isColumnDragged, setColumnDragged] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
     visible: false,
@@ -169,24 +164,6 @@ export const TableChart = ({
   } = theme;
 
   useEffect(() => {
-    !enableEditMode &&
-      new ColumnResizer(tableRef.current, {
-        liveDrag: true,
-        flush: true,
-        resizeMode: 'overflow',
-        draggingClass: DRAG_CLASS,
-        onResize: () => {
-          calculateMaxScroll();
-          setColumnDragged(false);
-          onResize && onResize();
-        },
-        onDrag: () => {
-          if (!isColumnDragged) setColumnDragged(true);
-        },
-      });
-  }, [onResize, calculateMaxScroll, enableEditMode]);
-
-  useEffect(() => {
     const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
     if (hasOverflow) {
       setOverflow((state) => ({
@@ -240,7 +217,6 @@ export const TableChart = ({
             <HeaderRow
               data={generateHeader(data[0])}
               columnsNamesMapping={columnsNamesMapping}
-              isColumnDragged={isColumnDragged}
               color={mainColor}
               onSort={({
                 propertyName,
@@ -315,7 +291,6 @@ export const TableChart = ({
                   }}
                   activeColumn={hoveredColumn}
                   enableEditMode={enableEditMode}
-                  isColumnDragged={isColumnDragged}
                   typography={body.typography}
                   {...(enableEditMode && {
                     onCellMouseEnter: (_e, cellIdx) =>

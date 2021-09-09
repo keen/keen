@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-import { DRAG_CLASS } from './constants';
-
 export const Container = styled.div`
   height: 100%;
   width: 100%;
@@ -15,28 +13,6 @@ export const TableContainer = styled.div`
   height: 100%;
   width: 100%;
   overflow: scroll;
-
-  .${DRAG_CLASS} {
-    background: ${colors.gray[300]};
-    width: 2px;
-    opacity: 0.7;
-  }
-
-  .grip-lastgrip {
-    display: none;
-  }
-
-  .grip-handle {
-    margin-left: -1px;
-    opacity: 0;
-    transition: opacity 0.2s linear;
-    background: ${colors.gray[300]};
-    width: 2px;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 `;
 
 export const Table = styled.table`
