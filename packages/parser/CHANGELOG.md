@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.87](https://github.com/keen/keen/compare/@keen.io/parser@2.8.86...@keen.io/parser@2.8.87) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 Table formatting fixes ([89c14ee](https://github.com/keen/keen/commit/89c14ee78b53c10f58cec5552c81c0f71d4625f3))
+* 🐛 test snapshots updated ([1826ba2](https://github.com/keen/keen/commit/1826ba2fb6c623171ce930fa29bc240884bc5fbe))
+
+
+
+
+
+## [2.8.86](https://github.com/keen/keen/compare/@keen.io/parser@2.8.85...@keen.io/parser@2.8.86) (2021-09-08)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.85](https://github.com/keen/keen/compare/@keen.io/parser@2.8.84...@keen.io/parser@2.8.85) (2021-09-03)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.84](https://github.com/keen/keen/compare/@keen.io/parser@2.8.83...@keen.io/parser@2.8.84) (2021-09-03)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
 ## [2.8.83](https://github.com/keen/keen/compare/@keen.io/parser@2.8.82...@keen.io/parser@2.8.83) (2021-08-31)
 
 **Note:** Version bump only for package @keen.io/parser

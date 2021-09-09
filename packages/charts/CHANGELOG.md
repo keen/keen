@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.2](https://github.com/keen/keen/compare/@keen.io/charts@2.31.1...@keen.io/charts@2.31.2) (2021-09-08)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.31.1](https://github.com/keen/keen/compare/@keen.io/charts@2.31.0...@keen.io/charts@2.31.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 apply formatters to slider ([eb8bf91](https://github.com/keen/keen/commit/eb8bf912a90df59b1fcee357d6829f6e8596d34e))
+
+
+
+
+
+# [2.31.0](https://github.com/keen/keen/compare/@keen.io/charts@2.30.0...@keen.io/charts@2.31.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 rename table columns ([cadc9e2](https://github.com/keen/keen/commit/cadc9e2d43c2e53e469a2a97eb4b5c1b501f6637))
+
+
+
+
+
+# [2.30.0](https://github.com/keen/keen/compare/@keen.io/charts@2.29.5...@keen.io/charts@2.30.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 enhance table formatters ([710e99f](https://github.com/keen/keen/commit/710e99f3246935c7b87cac950c4f0ca4dd229bed))
+* 🎸 enhance table with columns selection ([d311197](https://github.com/keen/keen/commit/d311197dcc1698fb91e89d0e3eb127183b4ce39a))
+* 🎸 table events ([86038ac](https://github.com/keen/keen/commit/86038ac8c0e330a10933702cd5a649cadddbdbaf))
+
+
+
+
+
 ## [2.29.5](https://github.com/keen/keen/compare/@keen.io/charts@2.29.4...@keen.io/charts@2.29.5) (2021-08-31)
 
 **Note:** Version bump only for package @keen.io/charts

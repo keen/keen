@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/keen/keen/compare/@keen.io/widgets@2.15.2...@keen.io/widgets@2.15.3) (2021-09-08)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.15.2](https://github.com/keen/keen/compare/@keen.io/widgets@2.15.1...@keen.io/widgets@2.15.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 apply formatters to slider ([eb8bf91](https://github.com/keen/keen/commit/eb8bf912a90df59b1fcee357d6829f6e8596d34e))
+
+
+
+
+
+## [2.15.1](https://github.com/keen/keen/compare/@keen.io/widgets@2.15.0...@keen.io/widgets@2.15.1) (2021-09-03)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+# [2.15.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.6...@keen.io/widgets@2.15.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 table events ([86038ac](https://github.com/keen/keen/commit/86038ac8c0e330a10933702cd5a649cadddbdbaf))
+
+
+
+
+
 ## [2.14.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.14.5...@keen.io/widgets@2.14.6) (2021-08-31)
 
 **Note:** Version bump only for package @keen.io/widgets
