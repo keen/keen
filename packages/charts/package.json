@@ -33,7 +33,7 @@
     "@keen.io/colors": "^1.1.0",
     "@keen.io/pubsub": "^1.2.0",
     "@keen.io/react-hooks": "^1.2.0",
-    "@keen.io/ui-core": "^2.39.5",
+    "@keen.io/ui-core": "^2.40.2",
     "d3-array": "^2.4.0",
     "d3-axis": "^1.0.12",
     "d3-drag": "^1.2.5",
