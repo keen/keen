@@ -15,8 +15,6 @@ type Props = {
   propertyName: string;
   /** Column header title */
   children: React.ReactNode;
-  /** Table layout during resize */
-  isColumnDragged: boolean;
   /** Sort settings */
   sortOptions?: SortByType;
   /** Text alignment */
@@ -30,7 +28,6 @@ const TableHeader: FC<Props> = ({
   backgroundColor,
   propertyName,
   onSort,
-  isColumnDragged,
   sortOptions,
   textAlignment,
 }) => {
@@ -49,8 +46,7 @@ const TableHeader: FC<Props> = ({
   }, [propertyName, sortMode, onSort]);
 
   const sortApplied = sortOptions && sortOptions.property === propertyName;
-  const showColumnActions =
-    sortApplied || (!isColumnDragged && isHovered && onSort);
+  const showColumnActions = sortApplied || (isHovered && onSort);
 
   return (
     <>
@@ -59,7 +55,7 @@ const TableHeader: FC<Props> = ({
         textAlignment={textAlignment}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        onClick={() => onSort && !isColumnDragged && sortHandler()}
+        onClick={() => onSort && sortHandler()}
       >
         <Content textAlignment={textAlignment}>
           {children}

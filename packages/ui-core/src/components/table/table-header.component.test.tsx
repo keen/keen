@@ -62,19 +62,6 @@ test('allows user to change sort direction properties', () => {
   expect(mockFn).toHaveBeenCalledWith({ propertyName, sortMode: 'descending' });
 });
 
-test('do not allows to sort data during column resizing', () => {
-  const mockFn = jest.fn();
-  const {
-    wrapper: { getByText },
-    props: { children },
-  } = render({ onSort: mockFn, isColumnDragged: true });
-
-  const element = getByText(children);
-  fireEvent.click(element);
-
-  expect(mockFn).not.toHaveBeenCalled();
-});
-
 test('shows column sort indicators', () => {
   const mockFn = jest.fn();
   const sortOptions = {
