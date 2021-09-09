@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.11.1...@keen.io/charts-utils@1.12.0) (2021-09-09)
+
+
+### Features
+
+* 🎸 Changes and tests ([dca5045](https://github.com/keen/keen/commit/dca5045efbe4c1b638f0033752317eb90738956a))
+* 🎸 Chart series colors connected with legend ([f766e04](https://github.com/keen/keen/commit/f766e04712c69c231d08f7fae6b7065231fb4ad1))
+
+
+
+
+
 ## [1.11.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.11.0...@keen.io/charts-utils@1.11.1) (2021-09-08)
 
 

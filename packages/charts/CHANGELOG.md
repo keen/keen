@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.32.0](https://github.com/keen/keen/compare/@keen.io/charts@2.31.3...@keen.io/charts@2.32.0) (2021-09-09)
+
+
+### Bug Fixes
+
+* 🐛 render correct number of StyledCols for table ([9584e09](https://github.com/keen/keen/commit/9584e09d0d5006b322b4ffdefa96872f86746e55))
+
+
+### Features
+
+* 🎸 Changes ([261e6d8](https://github.com/keen/keen/commit/261e6d8f1538b79a9a2ffce2497dd42304908182))
+* 🎸 Changes and tests ([dca5045](https://github.com/keen/keen/commit/dca5045efbe4c1b638f0033752317eb90738956a))
+* 🎸 Chart series colors connected with legend ([f766e04](https://github.com/keen/keen/commit/f766e04712c69c231d08f7fae6b7065231fb4ad1))
+* 🎸 Legend story changes ([99d750e](https://github.com/keen/keen/commit/99d750e448a2897062cdc911ed23ac81cbfab8b2))
+* 🎸 Refactor and tests ([bf922bb](https://github.com/keen/keen/commit/bf922bb883b155afeb58fde3c0e05443a5f7a2c5))
+
+
+
+
+
 ## [2.31.3](https://github.com/keen/keen/compare/@keen.io/charts@2.31.2...@keen.io/charts@2.31.3) (2021-09-09)
 
 **Note:** Version bump only for package @keen.io/charts

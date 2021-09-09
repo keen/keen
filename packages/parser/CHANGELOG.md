@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.89](https://github.com/keen/keen/compare/@keen.io/parser@2.8.88...@keen.io/parser@2.8.89) (2021-09-09)
+
+
+### Bug Fixes
+
+* 🐛 Table transformation - column names to lowecase ([f4d7b8e](https://github.com/keen/keen/commit/f4d7b8e3e989863b1e71cd1a715de682140910d4))
+
+
+
+
+
 ## [2.8.88](https://github.com/keen/keen/compare/@keen.io/parser@2.8.87...@keen.io/parser@2.8.88) (2021-09-09)
 
 **Note:** Version bump only for package @keen.io/parser
