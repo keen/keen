@@ -22,6 +22,7 @@ export type Options = {
   areaMode?: boolean;
   activeKey?: string;
   sortedKeys?: string[];
+  dataSeriesOffset?: [number, number];
 };
 
 export type Line = {

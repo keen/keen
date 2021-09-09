@@ -1,7 +1,7 @@
 import { transparentize } from 'polished';
 import { ScaleBand, ScaleLinear, ScaleTime } from 'd3-scale';
 import { Layout, SortMode } from '@keen.io/ui-core';
-import { getPaletteColor } from '@keen.io/charts-utils';
+import { getOffsetRangeColor } from '@keen.io/charts-utils';
 
 import { GroupMode, StackMode, DataSelector } from '../../../types';
 import { Bar } from '../types';
@@ -98,7 +98,8 @@ export const calculateGroupedBars = (
   yScale: ScaleBand<string | number> | ScaleLinear<number, number>,
   layout: Layout,
   colors: string[],
-  barsOrder?: SortMode
+  barsOrder?: SortMode,
+  dataSeriesOffset?: [number, number]
 ) => {
   const barSize = groupScale.bandwidth();
   const keysOrder: Record<number, any> = {};
@@ -136,8 +137,8 @@ export const calculateGroupedBars = (
     }).length;
 
     const newOrder = (keysLength - barsToRenderInGroup) / 2;
-
-    keys.forEach((keyName: string, idx: number) => {
+    let idx = 0;
+    keys.forEach((keyName: string) => {
       const isDisabled =
         keyName === labelSelector || disabledKeys.includes(keyName);
 
@@ -165,13 +166,17 @@ export const calculateGroupedBars = (
         bars.push({
           key: `${index}.${keyName}`,
           selector: [index, keyName],
-          color: getPaletteColor(idx, colors),
+          color: getOffsetRangeColor(idx, colors, dataSeriesOffset),
           value,
-          colorOutOfRange: !colors[idx],
+          colorOutOfRange: dataSeriesOffset
+            ? idx < dataSeriesOffset[0] || idx >= dataSeriesOffset[1]
+            : !colors[idx],
           ...bar,
         });
       }
+
       if (!barsOrder && !disabledKeys.includes(keyName) && value) counter++;
+      idx++;
     });
   });
 

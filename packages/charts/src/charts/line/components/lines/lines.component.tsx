@@ -34,11 +34,13 @@ const createLineMotion = (color: string, isActive: boolean) => ({
     pathLength: 0,
     stroke: 'rgba(0, 0, 0, 0)',
     opacity: 1,
+    transition: { duration: 0, delay: 0 },
   },
   [AnimationVariants.Visible]: {
     pathLength: 1,
     stroke: color,
     opacity: 1,
+    transition: { duration: 0.3, delay: 0.2 },
   },
   [AnimationVariants.Active]: {
     pathLength: 1,
@@ -46,20 +48,28 @@ const createLineMotion = (color: string, isActive: boolean) => ({
     opacity: isActive ? 1 : 0.2,
     transition: isActive ? { delay: 0.2, duration: 0.3 } : { duration: 0.3 },
   },
+  [AnimationVariants.OffsetChange]: {
+    pathLength: 1,
+    stroke: color,
+    opacity: 1,
+    transition: { delay: 0, duration: 0.5 },
+  },
 });
 
-const areaMotion = {
-  hidden: {
+const createAreaMotion = {
+  [AnimationVariants.Hidden]: {
     opacity: 0,
+    transition: { duration: 0, delay: 0 },
   },
-  visible: {
+  [AnimationVariants.Visible]: {
     opacity: 1,
+    transition: { delay: 0.7, duration: 0.8 },
+  },
+  [AnimationVariants.OffsetChange]: {
+    opacity: 1,
+    transition: { delay: 0, duration: 0.5 },
   },
 };
-
-const lineTransition = { duration: 0.3, delay: 0.2 };
-
-const areaTransition = { delay: 0.7, duration: 0.8 };
 
 type Props = {
   lines: Line[];
@@ -80,6 +90,7 @@ type Props = {
     selectors: { selector: DataSelector; color: string }[]
   ) => void;
   onMarkMouseLeave: (e: React.MouseEvent) => void;
+  dataSeriesOffset?: [number, number];
 };
 
 const Lines = ({
@@ -98,9 +109,11 @@ const Lines = ({
   gradientBlocks,
   onMarkMouseEnter,
   onMarkMouseLeave,
+  dataSeriesOffset,
 }: Props) => {
   const [initialDrawFinished, setInitialDraw] = useState(false);
   const lineControls = useAnimation();
+  const areaControls = useAnimation();
 
   const hideHoverBar = useRef(null);
   const [hoverBarState, setHoverBar] = useState<{
@@ -126,7 +139,21 @@ const Lines = ({
       .then(() => {
         setInitialDraw(true);
       });
-  }, [curve, groupMode, stackMode, stepMode, lines.length, colorPalette]);
+    if (areaMode) {
+      areaControls.start(AnimationVariants.Visible, {
+        delay: 0.5,
+        duration: 0.8,
+      });
+    }
+  }, [
+    curve,
+    groupMode,
+    stackMode,
+    stepMode,
+    lines.length,
+    colorPalette,
+    areaMode,
+  ]);
 
   useEffect(() => {
     if (activeKey) {
@@ -141,6 +168,15 @@ const Lines = ({
     }
   }, [activeKey]);
 
+  useEffect(() => {
+    if (initialDrawFinished) {
+      lineControls.start(AnimationVariants.OffsetChange);
+      if (areaMode) {
+        areaControls.start(AnimationVariants.OffsetChange);
+      }
+    }
+  }, [dataSeriesOffset, areaMode]);
+
   const groupedMarks = useMemo(() => groupMarksByPosition(marks), [marks]);
   const allMarks = showAllMarks(stepMode, marks, lines);
 
@@ -151,13 +187,12 @@ const Lines = ({
           <motion.path
             key={`${key}-${curve}-${stackMode}-${groupMode}-${
               areaMode ? 'area' : 'line'
-            }-${color}`}
+            }`}
             d={d}
             variants={createLineMotion(color, key === activeKey)}
             animate={lineControls}
             stroke={color}
             strokeWidth={strokeWidth}
-            transition={lineTransition}
             initial={AnimationVariants.Hidden}
             fill="transparent"
           />
@@ -180,11 +215,10 @@ const Lines = ({
                 height={gradientBlocks[idx].height}
                 fill={gradient ? `url(#gradient-${areas[idx].id})` : color}
                 clipPath={`url(#clip-${areas[idx].id})`}
-                key={`${key}-${curve}-${stackMode}-${groupMode}-area-gradient`}
-                variants={areaMotion}
-                transition={areaTransition}
-                initial="hidden"
-                animate="visible"
+                key={`${key}-${curve}-${stackMode}-${groupMode}-${color}-area-gradient`}
+                variants={createAreaMotion}
+                initial={AnimationVariants.Hidden}
+                animate={areaControls}
               />
             </>
           )}

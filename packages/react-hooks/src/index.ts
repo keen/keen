@@ -6,6 +6,7 @@ import {
   useOnClickOutside,
   useDynamicContentPosition,
   useOnParentScroll,
+  useDataSeriesOffset,
 } from './hooks';
 
 export {
@@ -16,4 +17,5 @@ export {
   useOnClickOutside,
   useDynamicContentPosition,
   useOnParentScroll,
+  useDataSeriesOffset,
 };

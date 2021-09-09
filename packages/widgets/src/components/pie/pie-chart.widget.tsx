@@ -5,9 +5,8 @@ import {
   ResponsiveWrapper,
   SeriesLegend,
   theme as defaultTheme,
-  OTHERS_DATA_KEY,
 } from '@keen.io/charts';
-import { useLegend } from '@keen.io/react-hooks';
+import { useLegend, useDataSeriesOffset } from '@keen.io/react-hooks';
 
 import WidgetHeading from '../widget-heading.component';
 import ChartWidget from '../chart-widget';
@@ -32,8 +31,12 @@ export const PieChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
 
-  const [stackedElem, setStackedElem] = useState([]);
+  const [sortedDataSeries, setSortedDataSeries] = useState([]);
   const [activeKey, setActiveKey] = useState(null);
+  const { setDataSeriesOffset, dataSeriesOffset } = useDataSeriesOffset(
+    theme.colors.length,
+    legend.enabled
+  );
 
   return (
     <ChartWidget
@@ -47,27 +50,23 @@ export const PieChartWidget: FC<Props> = ({
         <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
       )}
       legend={() =>
-        legend.enabled && (
+        legend.enabled &&
+        !!sortedDataSeries.length && (
           <SeriesLegend
             {...legend}
             disabledKeys={disabledKeys}
-            stackedElem={stackedElem}
             onClick={(key, disabled) => {
-              if (key === OTHERS_DATA_KEY) {
-                stackedElem.forEach((el) => updateKeys(el, disabled));
-              } else {
-                updateKeys(key, disabled);
-              }
+              updateKeys(key, disabled);
             }}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
             colorPalette={theme.colors}
             dataSeries={createLegendLabels(
-              props.data,
+              sortedDataSeries,
               theme.colors,
-              props.labelSelector,
-              stackedElem
+              dataSeriesOffset
             )}
+            onOffsetUpdate={(offset) => setDataSeriesOffset(offset)}
           />
         )
       }
@@ -76,11 +75,12 @@ export const PieChartWidget: FC<Props> = ({
           {(width: number, height: number) => (
             <PieChart
               {...props}
-              onDataStack={(res) => setStackedElem(res)}
+              onFinalDataStack={(res) => setSortedDataSeries(res)}
               disabledLabels={disabledKeys}
               svgDimensions={{ width, height }}
               activeKey={activeKey}
               theme={theme}
+              dataSeriesOffset={dataSeriesOffset}
             />
           )}
         </ResponsiveWrapper>

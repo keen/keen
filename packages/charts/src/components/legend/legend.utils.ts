@@ -68,12 +68,14 @@ export const createSliderTransition = (
   variant: Variant,
   index: number,
   itemSize: number,
-  itemGap: number
+  itemGap: number,
+  sliderSize: number
 ) => {
   const itemPosition =
     index * (itemSize + itemGap) + (BUTTON_DIMENSION + BUTTON_SHADOW_SIZE);
-  const itemPositionPrevious = itemPosition - itemSize - itemGap;
-  const itemPositionNext = itemPosition + itemSize + itemGap;
+  const itemPositionPrevious = itemPosition - sliderSize - itemSize - itemGap;
+  const itemPositionNext = itemPosition + sliderSize + itemSize + itemGap;
+
   if (variant === 'horizontal')
     return {
       initial: (direction: number) => ({

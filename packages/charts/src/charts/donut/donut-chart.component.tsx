@@ -59,9 +59,11 @@ export type Props = {
   /** Active key */
   activeKey?: string;
   /** Return dataKeys after stacking */
-  onDataStack?: (keys: string[]) => void;
+  onFinalDataStack?: (keys: string[]) => void;
   /** Value mode */
   valueMode?: CircularChartValueMode;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const DonutChart: FC<Props> = ({
@@ -80,10 +82,11 @@ export const DonutChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
-  onDataStack,
+  onFinalDataStack,
   tooltipSettings = {},
   activeKey,
   valueMode = 'percentage',
+  dataSeriesOffset,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -95,7 +98,7 @@ export const DonutChart: FC<Props> = ({
     total: totalValue,
     arcs,
     drawArc,
-    stackedElem,
+    sortedDataSeries,
   } = generateCircularChart({
     data,
     margins,
@@ -113,10 +116,11 @@ export const DonutChart: FC<Props> = ({
     type: 'donut',
     treshold,
     formatValue: tooltipSettings.formatValue,
+    dataSeriesOffset,
   });
 
   useEffect(() => {
-    onDataStack && onDataStack(stackedElem);
+    onFinalDataStack && onFinalDataStack(sortedDataSeries);
   }, []);
 
   const svgElement = useRef<SVGSVGElement>(null);
@@ -227,6 +231,7 @@ export const DonutChart: FC<Props> = ({
                       }
                     }}
                     onMouseLeave={() => hideTooltip()}
+                    dataSeriesOffset={dataSeriesOffset}
                   />
                 )
               )}
