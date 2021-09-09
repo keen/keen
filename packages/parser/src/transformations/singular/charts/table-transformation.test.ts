@@ -13,12 +13,12 @@ test('transform singular result for table', () => {
     Object {
       "data": Array [
         Object {
-          "Analysis": "count.page_views",
-          "Value": 120,
+          "analysis": "count.page_views",
+          "value": 120,
         },
       ],
       "keys": Array [
-        "Value",
+        "value",
       ],
     }
   `);
