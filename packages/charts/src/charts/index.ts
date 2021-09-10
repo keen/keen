@@ -13,6 +13,7 @@ import {
   TableChartSettings,
   ColumnSelection,
   TableEvents,
+  ValueFormatter,
 } from './table';
 import {
   ChoroplethChart,
@@ -38,6 +39,7 @@ export type {
   ColumnSelection,
   CurveType,
   MetricType,
+  ValueFormatter,
 };
 
 export {

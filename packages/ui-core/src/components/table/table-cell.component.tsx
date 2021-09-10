@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react';
+import { PatternFormatterDataType } from '@keen.io/charts-utils';
 
 import { Container, StyledCell } from './table-cell.styles';
 
@@ -18,6 +19,8 @@ type Props = {
   index: number;
   /** Disable border indicator */
   disableBorder: boolean;
+  /** Formatter type */
+  formatterType?: PatternFormatterDataType;
   /** Click event handler */
   onClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
@@ -41,6 +44,7 @@ const TableCell: FC<Props> = ({
   value,
   index,
   disableBorder,
+  formatterType,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -60,7 +64,8 @@ const TableCell: FC<Props> = ({
 
     return {
       cellValue,
-      textAlignment: valueType === 'number' ? 'right' : 'left',
+      textAlignment:
+        formatterType === 'number' || valueType === 'number' ? 'right' : 'left',
     };
   }, [value]);
 

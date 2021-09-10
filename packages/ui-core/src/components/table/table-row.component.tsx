@@ -1,5 +1,7 @@
 import React, { FC, useMemo } from 'react';
 import { rgba } from 'polished';
+import { ValueFormatter } from '@keen.io/charts';
+import { extractFormatterType } from '@keen.io/charts-utils';
 
 import { Container } from './table-row.styles';
 import TableCell from './table-cell.component';
@@ -18,6 +20,8 @@ type Props = {
   activeColumn?: number;
   /** Edit mode indicator */
   enableEditMode?: boolean;
+  /** Object of formatter functions to format values separately */
+  formatValue?: ValueFormatter;
   /** Cell element click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
@@ -43,6 +47,7 @@ const TableRow: FC<Props> = ({
   backgroundColor,
   activeColumn,
   enableEditMode,
+  formatValue = {},
   onCellClick,
   onCellMouseEnter,
   onCellMouseLeave,
@@ -73,6 +78,11 @@ const TableRow: FC<Props> = ({
           disableBorder={activeColumn !== undefined}
           typography={typography}
           value={data[key]}
+          formatterType={
+            typeof formatValue[key] === 'string'
+              ? extractFormatterType(formatValue[key] as string)
+              : undefined
+          }
         />
       ))}
     </Container>

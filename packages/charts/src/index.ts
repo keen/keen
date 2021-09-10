@@ -29,6 +29,7 @@ import {
   CurveType,
   GeoAreaMatchStatus,
   fetchMapTopology,
+  ValueFormatter,
 } from './charts';
 
 import {
@@ -69,6 +70,7 @@ export type {
   CurveType,
   Tooltip,
   Grid,
+  ValueFormatter,
 };
 
 export {

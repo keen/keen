@@ -10,7 +10,9 @@
     { "path": "../colors" },
     { "path": "../icons" },
     { "path": "../query" },
-    { "path": "../typography" }
+    { "path": "../typography" },
+    { "path": "../charts" },
+    { "path": "../charts-utils" }
   ],
   "include": ["./src/**/*"]
 }

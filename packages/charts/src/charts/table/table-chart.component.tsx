@@ -250,6 +250,7 @@ export const TableChart = ({
                 <TableRow
                   key={`${idx}-${el[0]}`}
                   data={el}
+                  formatValue={formatValue}
                   backgroundColor={mainColor}
                   onCellClick={(e, columnName, value, cellIdx) => {
                     if (enableEditMode) {
