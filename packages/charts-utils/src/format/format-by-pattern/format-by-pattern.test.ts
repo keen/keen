@@ -76,3 +76,10 @@ test('Should hide time when hidden option is specified', () => {
   const result = formatByPattern(pattern, value);
   expect(result).toEqual('2021-07-17');
 });
+
+test('Should keep datetime unchanged when neither date nor time format provided', () => {
+  const pattern = '${datetime}';
+  const value = '2020-12-02T04:02:34-06:00';
+  const result = formatByPattern(pattern, value);
+  expect(result).toEqual('2020-12-02T04:02:34-06:00');
+});
