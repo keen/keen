@@ -36,7 +36,9 @@ const formatByPattern = (pattern: string, value: string | number | Date) => {
     }
     if (variableType === 'datetime') {
       const [dateFormatter, timeFormatter] = additionalParameters;
-      parsedValue = formatDate(value, dateFormatter, timeFormatter);
+      if (dateFormatter || timeFormatter) {
+        parsedValue = formatDate(value, dateFormatter, timeFormatter);
+      }
     }
     return pattern.replace(variable[0], parsedValue.toString());
   }
