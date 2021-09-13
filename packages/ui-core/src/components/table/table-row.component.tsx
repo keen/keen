@@ -4,12 +4,12 @@ import { rgba } from 'polished';
 import { Container } from './table-row.styles';
 import TableCell from './table-cell.component';
 
-import { CellValue } from './types';
+import { CellValue, TableRowData } from './types';
 import { Typography } from '../../types';
 
 type Props = {
   /** Row data */
-  data?: Record<string, any>;
+  data?: Record<string, TableRowData>;
   /** Background color */
   backgroundColor: string;
   /** Row typography properties */
@@ -72,7 +72,8 @@ const TableRow: FC<Props> = ({
           onMouseLeave={onCellMouseLeave}
           disableBorder={activeColumn !== undefined}
           typography={typography}
-          value={data[key]}
+          value={data[key].value}
+          textAlignment={data[key].alignment}
         />
       ))}
     </Container>

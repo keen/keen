@@ -1,5 +1,5 @@
 import { CellTextAlignment } from '@keen.io/ui-core';
-import { Formatter } from '@keen.io/charts-utils';
+import { Formatter, PatternFormatterDataType } from '@keen.io/charts-utils';
 
 export type HeaderCell = {
   key: string;
@@ -24,3 +24,8 @@ export type ColumnsSelectionEvent = {
 export type TableEvents =
   | ColumnsSelectionEvent
   | { eventName: '@table/deselect-columns' };
+
+export type FormattedValue = {
+  value: string | number | boolean | Date;
+  formatterType?: PatternFormatterDataType;
+};

@@ -16,6 +16,8 @@ type Props = {
   value: CellValue;
   /** Cell index */
   index: number;
+  /** Cell text alignment */
+  textAlignment?: CellTextAlignment;
   /** Disable border indicator */
   disableBorder: boolean;
   /** Click event handler */
@@ -39,17 +41,16 @@ type Props = {
 const TableCell: FC<Props> = ({
   typography,
   value,
+  textAlignment = 'left',
   index,
   disableBorder,
   onClick,
   onMouseEnter,
   onMouseLeave,
 }) => {
-  const { textAlignment, cellValue } = useMemo<{
-    textAlignment: CellTextAlignment;
+  const { cellValue } = useMemo<{
     cellValue: string | number | boolean | Date;
   }>(() => {
-    const valueType = typeof value;
     let cellValue;
 
     if (Array.isArray(value)) {
@@ -60,7 +61,6 @@ const TableCell: FC<Props> = ({
 
     return {
       cellValue,
-      textAlignment: valueType === 'number' ? 'right' : 'left',
     };
   }, [value]);
 

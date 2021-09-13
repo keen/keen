@@ -27,6 +27,7 @@ import {
   generateHeader,
   generateTable,
   setColumnsOrder,
+  generateTableRowData,
 } from './utils/chart.utils';
 import { sortData } from './utils/data.utils';
 
@@ -249,7 +250,7 @@ export const TableChart = ({
               {formattedData.map((el: any, idx: number) => (
                 <TableRow
                   key={`${idx}-${el[0]}`}
-                  data={el}
+                  data={generateTableRowData(el)}
                   backgroundColor={mainColor}
                   onCellClick={(e, columnName, value, cellIdx) => {
                     if (enableEditMode) {

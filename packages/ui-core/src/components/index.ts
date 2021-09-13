@@ -52,6 +52,7 @@ import {
   TableHeader,
   CellValue,
   CellTextAlignment,
+  TableRowData,
 } from './table';
 
 import { Brand } from './brand';
@@ -115,6 +116,7 @@ export {
   ContentSeparator,
   CellValue,
   CellTextAlignment,
+  TableRowData,
   Dropdown,
   DropdownMenu,
   DropdownList,
