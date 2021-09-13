@@ -31,8 +31,10 @@ export const useTableEvents = ({ chartEvents, onDeselectColumns }: Options) => {
       });
     }
 
-    return () => unsubscribe && unsubscribe();
-  }, [chartEvents, onDeselectColumns]);
+    return () => {
+      unsubscribe && unsubscribe();
+    };
+  }, [chartEvents]);
 
   const publishColumnSelection = useCallback(
     (
