@@ -43,6 +43,8 @@ export const TableChartWidget: FC<Props> = ({
       setChartEvents(
         new ChartEvents<TableEvents>({ pubsub: eventBus })
       );
+    } else {
+      setChartEvents(null);
     }
   }, [inEditMode]);
 
