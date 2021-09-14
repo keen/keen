@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.6...@keen.io/ui-core@2.40.7) (2021-09-14)
+
+
+### Bug Fixes
+
+* 🐛 keep alignment for formatted numbers ([89e85c3](https://github.com/keen/keen/commit/89e85c3f06838412b12a8ab2ccad35962400f4e9))
+
+
+
+
+
 ## [2.40.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.5...@keen.io/ui-core@2.40.6) (2021-09-10)
 
 **Note:** Version bump only for package @keen.io/ui-core

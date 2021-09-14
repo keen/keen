@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.32.3](https://github.com/keen/keen/compare/@keen.io/charts@2.32.2...@keen.io/charts@2.32.3) (2021-09-14)
+
+
+### Bug Fixes
+
+* 🐛 keep alignment for formatted numbers ([89e85c3](https://github.com/keen/keen/commit/89e85c3f06838412b12a8ab2ccad35962400f4e9))
+* 🐛 prevent table events subscription ([af468db](https://github.com/keen/keen/commit/af468dbe1c7ecf4488ec80789f76e824fc165ab8))
+
+
+
+
+
 ## [2.32.2](https://github.com/keen/keen/compare/@keen.io/charts@2.32.1...@keen.io/charts@2.32.2) (2021-09-10)
 
 **Note:** Version bump only for package @keen.io/charts
