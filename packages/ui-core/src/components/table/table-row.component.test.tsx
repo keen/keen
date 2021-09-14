@@ -18,8 +18,14 @@ const render = (overProps: any = {}) => {
       lineHeight: '17px',
     } as any,
     data: {
-      price: 'Price',
-      name: 'Name',
+      price: {
+        value: 'Price',
+        alignment: 'left',
+      },
+      name: {
+        value: 'Name',
+        alignment: 'left',
+      },
     },
   };
 
