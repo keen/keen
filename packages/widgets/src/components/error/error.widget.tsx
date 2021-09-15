@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import { Card } from '@keen.io/ui-core';
+import { BodyText } from '@keen.io/typography';
+import { colors } from '@keen.io/colors';
 
-import { Container, Details, Header } from './error.widget.styles';
+import { Container, Header } from './error.widget.styles';
 import text from './text.json';
 
 import WidgetHeading from '../widget-heading.component';
@@ -9,6 +11,7 @@ import WidgetHeading from '../widget-heading.component';
 import { WidgetSettings } from '../../types';
 
 type Props = {
+  /** Error header */
   header?: string;
   /** Error message */
   message: string;
@@ -25,7 +28,9 @@ const ErrorWidget: FC<Props> = ({
     <WidgetHeading title={title} subtitle={subtitle} />
     <Container>
       <Header>{header}</Header>
-      <Details>{message}</Details>
+      <BodyText variant="body1" color={colors.red[500]}>
+        {message}
+      </BodyText>
     </Container>
   </Card>
 );
