@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.15](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.14...@keen.io/storybook-utils@2.2.15) (2021-09-16)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
 ## [2.2.14](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.13...@keen.io/storybook-utils@2.2.14) (2021-09-14)
 
 **Note:** Version bump only for package @keen.io/storybook-utils
