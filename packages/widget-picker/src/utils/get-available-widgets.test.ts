@@ -34,6 +34,21 @@ test('returns widgets for funnel', () => {
   `);
 });
 
+test('returns widgets for multi analysis', () => {
+  const query: Record<string, any> = {
+    analysis_type: 'multi_analysis',
+    event_collection: 'Clicks',
+    timeframe: 'this_14_days',
+  };
+
+  const result = getAvailableWidgets(query);
+  expect(result).toMatchInlineSnapshot(`
+    Array [
+      "json",
+    ]
+  `);
+});
+
 test('returns widgets for interval', () => {
   const query: Record<string, any> = {
     analysis_type: 'count',
