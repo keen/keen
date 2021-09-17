@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.3.16...@keen.io/widget-picker@1.4.0) (2021-09-17)
+
+
+### Features
+
+* 🎸 add support for multi-analysis ([2249ccf](https://github.com/keen/keen/commit/2249ccf7a28d9102741847d9f6f7aa671c26cbe7))
+
+
+
+
+
 ## [1.3.16](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.3.15...@keen.io/widget-picker@1.3.16) (2021-09-16)
 
 **Note:** Version bump only for package @keen.io/widget-picker
