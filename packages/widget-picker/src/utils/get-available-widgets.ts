@@ -15,6 +15,10 @@ export const getAvailableWidgets = (
     return ['funnel', 'table', 'json', 'bar'];
   }
 
+  if (query.analysis_type === 'multi_analysis') {
+    return ['json'];
+  }
+
   if (query.group_by && !query.interval) {
     return ['bar', 'table', 'json', 'pie', 'donut', 'heatmap', 'choropleth'];
   }
