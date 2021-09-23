@@ -19,7 +19,7 @@ export const Container = styled.div<{
     props.isCSSTruncated &&
     css`
       width: inherit;
-    `}
+    `};
 
   ${(props) =>
     props.pointer &&
@@ -54,7 +54,7 @@ export const TextWrapper = styled.span<TextWrapperProps>`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    `}
+    `};
 
   ${(props) => variant(createVariants(props.isActive))};
 `;
