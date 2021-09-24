@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { select, boolean, action } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { colors } from '@keen.io/colors';
 
 import { Badge } from './badge.component';
@@ -52,7 +53,7 @@ variants.story = {
   },
 };
 
-export const truncated = () => (
+export const truncatedProgrammatical = () => (
   <Container>
     <Wrapper>
       <Badge
@@ -74,7 +75,43 @@ export const truncated = () => (
   </Container>
 );
 
-truncated.story = {
+truncatedProgrammatical.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Badge with label truncation',
+    },
+  },
+};
+
+const CSSWrapper = styled.div`
+  padding: 6px;
+  width: 120px;
+`;
+
+export const truncatedCSS = () => (
+  <Container>
+    <CSSWrapper>
+      <Badge
+        removable
+        truncate={boolean('Truncate', true, 'Badge')}
+        truncateMethod="css"
+        variant={
+          select(
+            'Color Variants',
+            Object.keys(colors),
+            'purple',
+            'Badge'
+          ) as Variant
+        }
+        onClick={action('Click')}
+      >
+        This is a very very long text
+      </Badge>
+    </CSSWrapper>
+  </Container>
+);
+
+truncatedCSS.story = {
   parameters: {
     docs: {
       storyDescription: 'Badge with label truncation',
