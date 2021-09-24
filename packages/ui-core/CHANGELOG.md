@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.41.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.8...@keen.io/ui-core@2.41.0) (2021-09-24)
+
+
+### Features
+
+* 🎸 Bagde changes for DC tags components ([f935ef6](https://github.com/keen/keen/commit/f935ef6fa321b9104db4f2c428c2120f3c7f6405))
+
+
+
+
+
 ## [2.40.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.7...@keen.io/ui-core@2.40.8) (2021-09-16)
 
 **Note:** Version bump only for package @keen.io/ui-core
