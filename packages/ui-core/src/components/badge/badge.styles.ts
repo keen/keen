@@ -18,7 +18,7 @@ export const Container = styled.div<{
   ${(props) =>
     props.isCSSTruncated &&
     css`
-      width: inherit;
+      max-width: inherit;
     `};
 
   ${(props) =>
