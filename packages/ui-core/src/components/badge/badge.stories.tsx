@@ -85,7 +85,7 @@ truncatedProgrammatical.story = {
 
 const CSSWrapper = styled.div`
   padding: 6px;
-  width: 120px;
+  max-width: 120px;
 `;
 
 export const truncatedCSS = () => (
