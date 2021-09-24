@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.41.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.0...@keen.io/ui-core@2.41.1) (2021-09-24)
+
+
+### Bug Fixes
+
+* 🐛 Changes ([f90cf76](https://github.com/keen/keen/commit/f90cf760334741932aa9e0c1a41566e1496a0d17))
+
+
+
+
+
 # [2.41.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.8...@keen.io/ui-core@2.41.0) (2021-09-24)
 
 
