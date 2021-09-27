@@ -42,7 +42,7 @@ export const Badge: FC<Props> = ({
 
   const isCSSTruncated = truncateMethod === 'css';
   let isTruncated = truncate;
-  let truncatedLabel = isCSSTruncated ? children : '';
+  let truncatedLabel = children;
 
   if (
     truncate &&

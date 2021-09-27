@@ -118,3 +118,33 @@ truncatedCSS.story = {
     },
   },
 };
+
+export const differentContent = () => (
+  <Container>
+    <CSSWrapper>
+      <Badge
+        removable
+        truncate={boolean('Truncate', true, 'Badge')}
+        variant={
+          select(
+            'Color Variants',
+            Object.keys(colors),
+            'purple',
+            'Badge'
+          ) as Variant
+        }
+        onClick={action('Click')}
+      >
+        <span>Bagde nr</span> 345
+      </Badge>
+    </CSSWrapper>
+  </Container>
+);
+
+differentContent.story = {
+  parameters: {
+    docs: {
+      storyDescription: 'Badge with label truncation',
+    },
+  },
+};
