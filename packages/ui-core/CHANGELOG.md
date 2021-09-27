@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.41.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.1...@keen.io/ui-core@2.41.2) (2021-09-27)
+
+
+### Bug Fixes
+
+* 🐛 Fix for non string children for bagde and truncate true ([2e4b9a0](https://github.com/keen/keen/commit/2e4b9a0232b3b2b4d8802c59093a933222a72338))
+
+
+
+
+
 ## [2.41.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.0...@keen.io/ui-core@2.41.1) (2021-09-24)
 
 
