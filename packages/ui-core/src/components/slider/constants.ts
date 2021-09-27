@@ -5,3 +5,5 @@ export const SET_DRAG_STATE = 'SET_DRAG_STATE';
 export const SET_DRAG_MOVING = 'SET_DRAG_MOVING';
 
 export const DRAG_CONTROL_ID = '@keen-drag-control';
+
+export const TOOLTIP_CONTENT_MAX_WIDTH = 200;
