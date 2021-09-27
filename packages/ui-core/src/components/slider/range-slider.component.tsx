@@ -11,27 +11,28 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   Formatter,
   formatValue as valueFormatter,
+  generateContinuousColorScale,
 } from '@keen.io/charts-utils';
 
 import Rail from './rail';
 import Mark from './mark';
 import OffRange from './off-range';
 import Control from './control';
+import TooltipContent from './tooltip-content';
+
+import Tooltip from '../tooltip';
+import { Text } from '../../typography';
+import TooltipPosition, { tooltipMotion } from './tooltip-position.component';
 
 import { sliderActions } from './slider.actions';
 import { sliderReducer, initialState } from './slider.reducer';
 
 import { sliderControlSettings, tooltipTypography } from './slider.settings';
 
-import TooltipPosition, { tooltipMotion } from './tooltip-position.component';
 import { arrowReverse } from './utils';
-
-import Tooltip from '../tooltip';
-import { Text } from '../../typography';
 
 import { ControlSettings, TooltipSettings, RailSettings } from './types';
 import { Layout } from '../../types';
-import { generateContinuousColorScale } from '@keen.io/charts-utils';
 
 const initialDragControlsState = {
   minimum: {
@@ -289,18 +290,20 @@ export const RangeSlider: FC<Props> = ({
                           )}
                           mode={tooltipSettings.theme}
                         >
-                          <Text
-                            {...(tooltipSettings.typography
-                              ? tooltipSettings.typography
-                              : tooltipTypography)}
-                          >
-                            {tooltipSettings.formatValue
-                              ? valueFormatter(
-                                  currentMinimum,
-                                  tooltipSettings.formatValue
-                                )
-                              : currentMinimum}
-                          </Text>
+                          <TooltipContent>
+                            <Text
+                              {...(tooltipSettings.typography
+                                ? tooltipSettings.typography
+                                : tooltipTypography)}
+                            >
+                              {tooltipSettings.formatValue
+                                ? valueFormatter(
+                                    currentMinimum,
+                                    tooltipSettings.formatValue
+                                  )
+                                : currentMinimum}
+                            </Text>
+                          </TooltipContent>
                         </Tooltip>
                       </motion.div>
                     )}
@@ -388,18 +391,20 @@ export const RangeSlider: FC<Props> = ({
                           )}
                           mode={tooltipSettings.theme}
                         >
-                          <Text
-                            {...(tooltipSettings.typography
-                              ? tooltipSettings.typography
-                              : tooltipTypography)}
-                          >
-                            {tooltipSettings.formatValue
-                              ? valueFormatter(
-                                  currentMaximum,
-                                  tooltipSettings.formatValue
-                                )
-                              : currentMaximum}
-                          </Text>
+                          <TooltipContent>
+                            <Text
+                              {...(tooltipSettings.typography
+                                ? tooltipSettings.typography
+                                : tooltipTypography)}
+                            >
+                              {tooltipSettings.formatValue
+                                ? valueFormatter(
+                                    currentMaximum,
+                                    tooltipSettings.formatValue
+                                  )
+                                : currentMaximum}
+                            </Text>
+                          </TooltipContent>
                         </Tooltip>
                       </motion.div>
                     )}
