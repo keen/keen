@@ -1,5 +1,6 @@
 import {
   calculateRange,
+  calculateTotalValue,
   calculateStackedRange,
   getValues,
   getFromPath,
@@ -63,6 +64,7 @@ export {
 export {
   createDateFormatter,
   createTimeIntervals,
+  calculateTotalValue,
   calculateRotation,
   calculateHypotenuse,
   calculateHypotenuseHeight,

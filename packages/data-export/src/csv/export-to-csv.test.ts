@@ -22,6 +22,27 @@ test('creates CSV structure from collection of simple objects', () => {
   `);
 });
 
+test('creates CSV structure with respected rows limit', () => {
+  const data = [
+    {
+      Australia: 0,
+      Japan: 14,
+      'keen.key': '2020-12-07T00:00:00.000Z',
+    },
+    {
+      Australia: 29,
+      Japan: 0,
+      'keen.key': '2020-12-08T00:00:00.000Z',
+    },
+  ];
+
+  expect(exportToCSV({ data, rowsLimit: 1 })).toMatchInlineSnapshot(`
+    "Australia,Japan,keen.key
+    0,14,2020-12-07T00:00:00.000Z
+    "
+  `);
+});
+
 // @TODO : Fix this transform with ,
 test('creates CSV structure from "object" with nested collections', () => {
   const data = [
