@@ -6,6 +6,8 @@ import { KEEN_TABLE_INTERVAL, KEEN_KEY } from '@keen.io/parser';
 
 import { VALUE } from '../../constants';
 
+// TODO: Stacked percentage
+
 /**
  * Categorical transformation for line chart
  *
