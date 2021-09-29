@@ -33,5 +33,5 @@ export const categoricalTransformation = (
     );
   });
 
-  return [columns, rows];
+  return [columns, ...rows];
 };

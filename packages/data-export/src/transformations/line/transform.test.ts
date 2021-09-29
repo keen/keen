@@ -131,36 +131,34 @@ test('transforms categorical data structure', () => {
         "value",
       ],
       Array [
-        Array [
-          "2020-01-01T00:00:00.000Z",
-          "Edwidge Danticat | Love, Anger, Madness",
-          95,
-        ],
-        Array [
-          "2020-01-01T00:00:00.000Z",
-          "George R. R. Martin | Game of Thrones",
-          719,
-        ],
-        Array [
-          "2020-01-01T00:00:00.000Z",
-          "J.K. Rowling | Harry Potter",
-          undefined,
-        ],
-        Array [
-          "2020-02-01T00:00:00.000Z",
-          "Edwidge Danticat | Love, Anger, Madness",
-          2,
-        ],
-        Array [
-          "2020-02-01T00:00:00.000Z",
-          "George R. R. Martin | Game of Thrones",
-          11,
-        ],
-        Array [
-          "2020-02-01T00:00:00.000Z",
-          "J.K. Rowling | Harry Potter",
-          1,
-        ],
+        "2020-01-01T00:00:00.000Z",
+        "Edwidge Danticat | Love, Anger, Madness",
+        95,
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "George R. R. Martin | Game of Thrones",
+        719,
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "J.K. Rowling | Harry Potter",
+        undefined,
+      ],
+      Array [
+        "2020-02-01T00:00:00.000Z",
+        "Edwidge Danticat | Love, Anger, Madness",
+        2,
+      ],
+      Array [
+        "2020-02-01T00:00:00.000Z",
+        "George R. R. Martin | Game of Thrones",
+        11,
+      ],
+      Array [
+        "2020-02-01T00:00:00.000Z",
+        "J.K. Rowling | Harry Potter",
+        1,
       ],
     ]
   `);
@@ -207,21 +205,19 @@ test('transforms categorical data structure with value formatter', () => {
         "value",
       ],
       Array [
-        Array [
-          "2020-01-01T00:00:00.000Z",
-          "Edwidge Danticat | Love, Anger, Madness",
-          "95 books",
-        ],
-        Array [
-          "2020-01-01T00:00:00.000Z",
-          "George R. R. Martin | Game of Thrones",
-          "719 books",
-        ],
-        Array [
-          "2020-01-01T00:00:00.000Z",
-          "J.K. Rowling | Harry Potter",
-          "0 books",
-        ],
+        "2020-01-01T00:00:00.000Z",
+        "Edwidge Danticat | Love, Anger, Madness",
+        "95 books",
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "George R. R. Martin | Game of Thrones",
+        "719 books",
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "J.K. Rowling | Harry Potter",
+        "0 books",
       ],
     ]
   `);
