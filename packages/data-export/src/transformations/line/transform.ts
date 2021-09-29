@@ -12,7 +12,7 @@ export const transform = ({
   query,
   chartSettings,
 }: TransformationInput<LineChartSettings>) => {
-  const { data, keys, yScaleSettings } = chartSettings;
+  const { data, keys, yScaleSettings, stackMode } = chartSettings;
   const valueFormatter = yScaleSettings?.formatLabel;
 
   const { group_by: groupBy } = query;
@@ -25,7 +25,8 @@ export const transform = ({
       data,
       keys,
       valueFormatter,
-      groupColumnName
+      groupColumnName,
+      stackMode === 'percent'
     );
   } else {
     return defaultTransformation(data, keys, valueFormatter);

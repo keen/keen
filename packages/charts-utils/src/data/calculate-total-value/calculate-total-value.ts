@@ -17,7 +17,8 @@ export const calculateTotalValue = (
   data.map((item) => {
     const label = item[labelSelector];
     const result = keys.reduce((acc, currentKey) => {
-      if (currentKey !== label) return acc + item[currentKey];
+      if (currentKey !== label && item[currentKey])
+        return acc + item[currentKey];
       return acc;
     }, 0) as number;
     total += result;

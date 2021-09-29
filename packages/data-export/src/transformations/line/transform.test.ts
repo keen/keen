@@ -134,31 +134,37 @@ test('transforms categorical data structure', () => {
         "2020-01-01T00:00:00.000Z",
         "Edwidge Danticat | Love, Anger, Madness",
         95,
+        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "George R. R. Martin | Game of Thrones",
         719,
+        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "J.K. Rowling | Harry Potter",
-        undefined,
+        0,
+        "0%",
       ],
       Array [
         "2020-02-01T00:00:00.000Z",
         "Edwidge Danticat | Love, Anger, Madness",
         2,
+        "0%",
       ],
       Array [
         "2020-02-01T00:00:00.000Z",
         "George R. R. Martin | Game of Thrones",
         11,
+        "0%",
       ],
       Array [
         "2020-02-01T00:00:00.000Z",
         "J.K. Rowling | Harry Potter",
         1,
+        "0%",
       ],
     ]
   `);
@@ -208,16 +214,82 @@ test('transforms categorical data structure with value formatter', () => {
         "2020-01-01T00:00:00.000Z",
         "Edwidge Danticat | Love, Anger, Madness",
         "95 books",
+        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "George R. R. Martin | Game of Thrones",
         "719 books",
+        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "J.K. Rowling | Harry Potter",
-        "0 books",
+        0,
+        "0%",
+      ],
+    ]
+  `);
+});
+
+test('includes column with percentage value in data stack', () => {
+  const query: Query = {
+    analysis_type: 'count',
+    event_collection: 'purchases',
+    timeframe: 'last_14_days',
+    interval: 'daily',
+    group_by: ['author', 'book'],
+  };
+
+  const data = [
+    {
+      'Edwidge Danticat | Love, Anger, Madness': 150,
+      'George R. R. Martin | Game of Thrones': 50,
+      'keen.key': '2020-01-01T00:00:00.000Z',
+    },
+  ];
+
+  const keys = [
+    'Edwidge Danticat | Love, Anger, Madness',
+    'George R. R. Martin | Game of Thrones',
+    'J.K. Rowling | Harry Potter',
+  ];
+
+  expect(
+    transform({
+      query,
+      chartSettings: {
+        keys,
+        data,
+        labelSelector: KEEN_KEY,
+        stackMode: 'percent',
+      },
+    })
+  ).toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "interval",
+        "author_book",
+        "value",
+        "percentage value",
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "Edwidge Danticat | Love, Anger, Madness",
+        150,
+        "75%",
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "George R. R. Martin | Game of Thrones",
+        50,
+        "25%",
+      ],
+      Array [
+        "2020-01-01T00:00:00.000Z",
+        "J.K. Rowling | Harry Potter",
+        0,
+        "0%",
       ],
     ]
   `);

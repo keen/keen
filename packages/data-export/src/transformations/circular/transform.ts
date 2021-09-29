@@ -6,6 +6,7 @@ import { PieChartSettings, DonutChartSettings } from '@keen.io/charts';
 import { extractGroupBySettings } from '@keen.io/query';
 import { KEEN_KEY } from '@keen.io/parser';
 
+import { calculatePercent } from '../../utils';
 import { COLUMN_JOIN, VALUE, PERCENTAGE_VALUE } from '../../constants';
 
 import { TransformationInput } from '../../types';
@@ -29,7 +30,7 @@ export const transform = ({
     ...data.map((item) => [
       item[KEEN_KEY],
       valueFormatter(item[valueSelector], formatValue),
-      `${(Math.round(item[valueSelector] * 100) / total).toFixed(1)}%`,
+      `${calculatePercent(item[valueSelector], total)}%`,
     ]),
   ];
 };
