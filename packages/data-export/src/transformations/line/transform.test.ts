@@ -4,7 +4,7 @@ import { KEEN_KEY } from '@keen.io/parser';
 
 import { transform } from './transform';
 
-test('transforms chronological data structure', () => {
+test('transforms "chronological" data structure', () => {
   const query: Query = {
     analysis_type: 'count',
     event_collection: 'purchases',
@@ -44,7 +44,7 @@ test('transforms chronological data structure', () => {
   `);
 });
 
-test('transforms chronological data structure with value formatter', () => {
+test('transforms "chronological" data structure with value formatter', () => {
   const query: Query = {
     analysis_type: 'count',
     event_collection: 'purchases',
@@ -92,7 +92,7 @@ test('transforms chronological data structure with value formatter', () => {
   `);
 });
 
-test('transforms categorical data structure', () => {
+test('transforms "categorical" data structure', () => {
   const query: Query = {
     analysis_type: 'count',
     event_collection: 'purchases',
@@ -170,7 +170,7 @@ test('transforms categorical data structure', () => {
   `);
 });
 
-test('transforms categorical data structure with value formatter', () => {
+test('transforms "categorical" data structure with value formatter', () => {
   const query: Query = {
     analysis_type: 'count',
     event_collection: 'purchases',

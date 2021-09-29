@@ -34,3 +34,10 @@ export type VisualizationExport = {
   chartSettings: ChartSettings;
   widgetType: Widgets;
 };
+
+export type RawExport = {
+  data: Record<string, any>;
+  keys: string[];
+};
+
+export type ExportOutput = Array<string | number>[];
