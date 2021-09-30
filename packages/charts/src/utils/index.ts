@@ -6,7 +6,6 @@ import { extendTheme } from './extend-theme';
 import {
   generateCircularChart,
   LabelsPosition,
-  calculateTotalValue,
   Options as CircularChart,
   OTHERS_DATA_KEY,
 } from './circular-chart.utils';
@@ -17,7 +16,6 @@ export {
   createArcTween,
   animateArcPath,
   generateCircularChart,
-  calculateTotalValue,
   OTHERS_DATA_KEY,
   bubbleColorScale,
   calculateColorScale,

@@ -5,9 +5,11 @@ import getFromPath from './get-from-path';
 import getKeysDifference from './get-keys-difference';
 import transformToPercent from './transform-to-percent';
 import sortKeysByValuesSum from './sort-keys-by-values-sum';
+import calculateTotalValue from './calculate-total-value';
 
 export {
   calculateRange,
+  calculateTotalValue,
   calculateStackedRange,
   getFromPath,
   getKeysDifference,

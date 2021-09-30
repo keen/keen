@@ -134,23 +134,6 @@ export const calculateTresholdPercent = (
   return (treshold * 100) / total;
 };
 
-export const calculateTotalValue = (
-  data: Record<string, any>[],
-  labelSelector: string,
-  keys: string[]
-): number => {
-  let total = 0;
-  data.map((item) => {
-    const label = item[labelSelector];
-    const result = keys.reduce((acc, currentKey) => {
-      if (currentKey !== label) return acc + item[currentKey];
-      return acc;
-    }, 0) as number;
-    total += result;
-  });
-  return total;
-};
-
 export const generateCircularChart = ({
   data,
   colors,

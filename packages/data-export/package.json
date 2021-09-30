@@ -22,6 +22,15 @@
     "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "build": "tsc"
   },
+  "dependencies": {
+    "@keen.io/parser": "^2.8.87",
+    "@keen.io/query": "^1.2.0",
+    "@keen.io/charts-utils": "^1.11.1"
+  },
+  "devDependencies": {
+    "@keen.io/widgets": "^2.15.3",
+    "@keen.io/charts": "^2.32.7"
+  },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
