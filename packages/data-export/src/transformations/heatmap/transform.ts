@@ -1,4 +1,4 @@
-import { HeatmapChartSettings } from '@keen.io/charts';
+import { HeatmapChartSettings, BarChartSettings } from '@keen.io/charts';
 import { extractGroupBySettings } from '@keen.io/query';
 
 import { chronologicalTransformation } from './chronological-transformation';
@@ -10,7 +10,7 @@ import { TransformationInput } from '../../types';
 export const transform = ({
   query,
   chartSettings,
-}: TransformationInput<HeatmapChartSettings>) => {
+}: TransformationInput<HeatmapChartSettings | BarChartSettings>) => {
   const { keys, data, tooltipSettings } = chartSettings;
   const { interval, group_by: groupBy } = query;
 
