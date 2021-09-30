@@ -2,6 +2,33 @@ import { Query } from '@keen.io/query';
 
 import DataExport from './data-export';
 
+test('creates CSV file strucutre', () => {
+  const data = [
+    ['keen.key', 'Japan', 'Australia'],
+    ['2020-12-07T00:00:00.000Z', 14, 0],
+  ];
+
+  expect(DataExport.exportToCSV({ data })).toMatchInlineSnapshot(`
+    "keen.key,Japan,Australia
+    2020-12-07T00:00:00.000Z,14,0
+    "
+  `);
+});
+
+test('creates CSV file strucutre with defined column delimeter', () => {
+  const data = [
+    ['keen.key', 'Japan', 'Australia'],
+    ['2020-12-07T00:00:00.000Z', 14, 0],
+  ];
+
+  expect(DataExport.exportToCSV({ data, columnDelimiter: '|' }))
+    .toMatchInlineSnapshot(`
+    "keen.key|Japan|Australia
+    2020-12-07T00:00:00.000Z|14|0
+    "
+  `);
+});
+
 test('creates raw data structure from collection of simple objects', () => {
   const keys = ['Japan', 'Australia'];
   const data = [

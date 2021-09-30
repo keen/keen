@@ -2,7 +2,7 @@ import { LineChartSettings } from '@keen.io/charts';
 import { extractGroupBySettings } from '@keen.io/query';
 
 import { defaultTransformation } from './default-transformation';
-import { categoricalTransformation } from './Categorical-transformation';
+import { categoricalTransformation } from './categorical-transformation';
 
 import { COLUMN_JOIN } from '../../constants';
 

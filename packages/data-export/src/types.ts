@@ -41,3 +41,9 @@ export type RawExport = {
 };
 
 export type ExportOutput = Array<string | number>[];
+
+export type CSVExport = {
+  data: ExportOutput;
+  columnDelimiter?: string;
+  lineDelimiter?: string;
+};
