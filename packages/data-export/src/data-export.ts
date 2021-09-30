@@ -1,6 +1,6 @@
-/* eslint-disable  @typescript-eslint/no-empty-function */
 import { KEEN_KEY } from '@keen.io/parser';
 
+import { transformData } from './transformations';
 import { VisualizationExport, RawExport, ExportOutput } from './types';
 
 class DataExport {
@@ -12,8 +12,9 @@ class DataExport {
 
     return [
       columns,
-      data.map((item: Record<string, any>) => [
-        ...keys.map((keyName) => [item[KEEN_KEY], item[keyName]]),
+      ...data.map((item: Record<string, any>) => [
+        item[KEEN_KEY],
+        ...keys.map((keyName) => item[keyName]),
       ]),
     ];
   }
@@ -21,8 +22,10 @@ class DataExport {
   /**
    * Creates CSV file structure with visualization context
    */
-  public static exportVisualizationData({}: VisualizationExport): ExportOutput {
-    return [];
+  public static exportVisualizationData(
+    payload: VisualizationExport
+  ): ExportOutput {
+    return transformData(payload);
   }
 }
 
