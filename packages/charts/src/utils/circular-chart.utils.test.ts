@@ -2,7 +2,6 @@ import {
   generateCircularChart,
   createStackedSlice,
   calculateTresholdPercent,
-  calculateTotalValue,
   getSlicesToStack,
 } from './circular-chart.utils';
 
@@ -120,18 +119,6 @@ describe('@keen/charts - circular chart utils', () => {
       });
 
       expect(arcs).toMatchSnapshot();
-    });
-  });
-
-  describe('calculateTotalValue()', () => {
-    it('should return 166', () => {
-      const result = calculateTotalValue(
-        pieChart.data,
-        pieChart.labelSelector,
-        pieChart.keys
-      );
-
-      expect(result).toEqual(166);
     });
   });
 });
