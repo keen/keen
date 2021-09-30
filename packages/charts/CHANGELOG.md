@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/keen/keen/compare/@keen.io/charts@2.32.7...@keen.io/charts@2.33.0) (2021-09-30)
+
+
+### Features
+
+* 🎸 csv export parsers ([60a1f62](https://github.com/keen/keen/commit/60a1f621a2d6f749aa6a584e56f1a8188c9af6af))
+
+
+
+
+
 ## [2.32.7](https://github.com/keen/keen/compare/@keen.io/charts@2.32.6...@keen.io/charts@2.32.7) (2021-09-27)
 
 **Note:** Version bump only for package @keen.io/charts

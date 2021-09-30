@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.12.2...@keen.io/charts-utils@1.13.0) (2021-09-30)
+
+
+### Features
+
+* 🎸 csv export parsers ([60a1f62](https://github.com/keen/keen/commit/60a1f621a2d6f749aa6a584e56f1a8188c9af6af))
+* 🎸 funnel chart export ([8ea490b](https://github.com/keen/keen/commit/8ea490b0c50aa93dd374a0c077575c145dd2dfca))
+
+
+
+
+
 ## [1.12.2](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.12.1...@keen.io/charts-utils@1.12.2) (2021-09-10)
 
 
