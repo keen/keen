@@ -2,8 +2,6 @@ import styled, { createGlobalStyle, css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-// import { inputMixin } from '../Input';
-
 export const inputMixin = () => css`
   padding: 10px 14px;
   height: 37px;
@@ -181,6 +179,10 @@ body {
 
     .rc-time-picker-panel-select li {
       outline: none;
+    }
+
+    .rc-time-picker-panel-select li:focus-visible {
+      outline: 1px solid ${colors.lightBlue[500]};
     }
 
     .rc-time-picker-panel-select li:hover,

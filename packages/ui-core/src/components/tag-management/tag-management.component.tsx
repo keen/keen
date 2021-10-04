@@ -9,7 +9,7 @@ import {
   Tag,
 } from './tag-management.styles';
 
-import { KEYBOARD_KEYS } from './constants';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Collection of tags */

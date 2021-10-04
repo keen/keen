@@ -7,6 +7,10 @@ exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] =
   line-height: 1;
 }
 
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
+}
+
 .c2 {
   position: relative;
   display: inline-block;
@@ -36,9 +40,16 @@ exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] =
   id="id"
   onChange={[MockFunction]}
 >
-  <styled.div>
+  <styled.div
+    onKeyPress={[Function]}
+    role="checkbox"
+    tabIndex={0}
+  >
     <div
       className="c0"
+      onKeyPress={[Function]}
+      role="checkbox"
+      tabIndex={0}
     >
       <styled.input
         checked={false}
@@ -79,6 +90,10 @@ exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`]
   line-height: 1;
 }
 
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
+}
+
 .c2 {
   position: relative;
   display: inline-block;
@@ -110,9 +125,16 @@ exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`]
   onChange={[MockFunction]}
   type="secondary"
 >
-  <styled.div>
+  <styled.div
+    onKeyPress={[Function]}
+    role="checkbox"
+    tabIndex={0}
+  >
     <div
       className="c0"
+      onKeyPress={[Function]}
+      role="checkbox"
+      tabIndex={0}
     >
       <styled.input
         checked={false}

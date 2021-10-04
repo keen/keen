@@ -7,6 +7,7 @@ import {
   useDynamicContentPosition,
   useOnParentScroll,
   useDataSeriesOffset,
+  useKeypress,
 } from './hooks';
 
 export {
@@ -18,4 +19,5 @@ export {
   useDynamicContentPosition,
   useOnParentScroll,
   useDataSeriesOffset,
+  useKeypress,
 };
