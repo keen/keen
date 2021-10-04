@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/keen/keen/compare/@keen.io/data-export@1.1.1...@keen.io/data-export@1.1.2) (2021-10-04)
+
+
+### Bug Fixes
+
+* 🐛 columns order table csv export ([cb6939a](https://github.com/keen/keen/commit/cb6939a82b00bb8bb8d1fb5755480022676a2342))
+
+
+
+
+
 ## [1.1.1](https://github.com/keen/keen/compare/@keen.io/data-export@1.1.0...@keen.io/data-export@1.1.1) (2021-10-04)
 
 **Note:** Version bump only for package @keen.io/data-export
