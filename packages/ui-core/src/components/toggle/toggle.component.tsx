@@ -10,6 +10,7 @@ import {
   LabelMotion,
   SwitcherMotion,
 } from './toggle.component.styles';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   isOn?: boolean;
@@ -65,7 +66,15 @@ const Toggle: FC<Props> = ({
     <ToggleWrapper
       isDisabled={isDisabled}
       onClick={() => onChange(!isOn)}
+      onKeyDown={(e) => {
+        if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+          onChange(!isOn);
+        }
+      }}
       data-testid="toggle"
+      role="switch"
+      aria-checked={isOn}
+      tabIndex={0}
     >
       <Track variant={variant}>
         <TrackMotion
