@@ -16,6 +16,7 @@ import { transform as transformCircularChart } from './circular';
 import { transform as transformHeatmapChart } from './heatmap';
 import { transform as transformFunnelChart } from './funnel';
 import { transform as transformMetricChart } from './metric';
+import { transform as transformChoroplethChart } from './choropleth';
 
 export const transformData = ({
   widgetType,
@@ -24,7 +25,7 @@ export const transformData = ({
 }: VisualizationExport) => {
   switch (widgetType) {
     case 'choropleth':
-      return transformMetricChart({
+      return transformChoroplethChart({
         chartSettings,
         query,
       } as TransformationInput<ChoroplethChartSettings>);
