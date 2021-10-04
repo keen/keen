@@ -13,7 +13,7 @@ import { VisualizationExport, TransformationInput } from '../types';
 import { transform as transformLineChart } from './line';
 import { transform as transformTableChart } from './table';
 import { transform as transformCircularChart } from './circular';
-import { transform as transformHeatmapChart } from './heatmap';
+import { transform as multiDimensionalTransformation } from './multi-dimensional';
 import { transform as transformFunnelChart } from './funnel';
 import { transform as transformMetricChart } from './metric';
 import { transform as transformChoroplethChart } from './choropleth';
@@ -41,7 +41,7 @@ export const transformData = ({
       } as TransformationInput<FunnelChartSettings>);
     case 'heatmap':
     case 'bar':
-      return transformHeatmapChart({
+      return multiDimensionalTransformation({
         chartSettings,
         query,
       } as TransformationInput<HeatmapChartSettings>);

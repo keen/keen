@@ -12,7 +12,7 @@ export const transform = ({
   const { data } = chartSettings;
   const { property_names: propertyNames, group_by: groupBy, interval } = query;
 
-  let columnsOrder: string[] = null;
+  let columnsOrder: string[] = [];
   const columnsRename = chartSettings.columnsNamesMapping
     ? chartSettings.columnsNamesMapping
     : null;

@@ -24,11 +24,12 @@ export const categoricalTransformation = (
   const columns = [...dataSeriesGroups, VALUE];
   const rows: any[] = [];
 
+  const isMultiGroup = dataSeriesGroups.length > 1;
+
   data.forEach((item: Record<string, any>) => {
     rows.push(
       ...keys.map((keyName) => [
-        item[KEEN_KEY],
-        keyName,
+        ...(isMultiGroup ? [item[KEEN_KEY], keyName] : [keyName]),
         valueFormatter(item[keyName], formatValue),
       ])
     );

@@ -3,6 +3,34 @@ import { KEEN_KEY } from '@keen.io/parser';
 
 import { transform } from './transform';
 
+test('transforms data to CSV export structure without query context', () => {
+  const keys = ['keen.value'];
+  const data = [
+    { 'keen.key': 'logins', 'keen.value': 1082 },
+    { 'keen.key': 'mrr', 'keen.value': 400 },
+  ];
+
+  expect(
+    transform({
+      query: undefined,
+      chartSettings: { data, keys, labelSelector: KEEN_KEY },
+    })
+  ).toMatchInlineSnapshot(`
+    Array [
+      Array [
+        Array [
+          "logins",
+          1082,
+        ],
+        Array [
+          "mrr",
+          400,
+        ],
+      ],
+    ]
+  `);
+});
+
 test('transforms "categorical" data to CSV export structure', () => {
   const query: Query = {
     analysis_type: 'count',
@@ -65,6 +93,37 @@ test('transforms "categorical" data to CSV export structure', () => {
         "Desktop",
         "other",
         300,
+      ],
+    ]
+  `);
+});
+
+test('transforms "categorical" data with single group by to CSV export structure', () => {
+  const query: Query = {
+    analysis_type: 'count',
+    event_collection: 'purchases',
+    timeframe: 'last_14_days',
+    group_by: ['platform'],
+  };
+
+  const keys = ['Mobile', 'Web'];
+  const data = [{ Mobile: 4602, Web: 995, 'keen.key': 'platform' }];
+
+  expect(
+    transform({ query, chartSettings: { data, keys, labelSelector: KEEN_KEY } })
+  ).toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "platform",
+        "value",
+      ],
+      Array [
+        "Mobile",
+        4602,
+      ],
+      Array [
+        "Web",
+        995,
       ],
     ]
   `);
