@@ -30,6 +30,7 @@
     "react": ">=16"
   },
   "dependencies": {
+    "@keen.io/charts-utils": "^1.11.1",
     "d3-array": "^2.7.1",
     "fuse.js": "^6.4.1"
   },
@@ -39,5 +40,6 @@
   "devDependencies": {
     "@testing-library/react-hooks": "^3.4.1",
     "@types/d3-array": "^2.0.0"
-  }
+  },
+  "sideEffects": false
 }

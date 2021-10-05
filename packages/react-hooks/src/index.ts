@@ -7,6 +7,7 @@ import {
   useDynamicContentPosition,
   useOnParentScroll,
   useDataSeriesOffset,
+  useScrollOverflowHandler,
 } from './hooks';
 
 export {
@@ -18,4 +19,5 @@ export {
   useDynamicContentPosition,
   useOnParentScroll,
   useDataSeriesOffset,
+  useScrollOverflowHandler,
 };

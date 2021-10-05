@@ -1,4 +1,4 @@
-import { HeatmapChartSettings, BarChartSettings } from '@keen.io/charts';
+import { BarChartSettings } from '@keen.io/charts';
 import { extractGroupBySettings } from '@keen.io/query';
 import { KEEN_KEY } from '@keen.io/parser';
 
@@ -11,15 +11,15 @@ import { TransformationInput } from '../../types';
 export const transform = ({
   query,
   chartSettings,
-}: TransformationInput<HeatmapChartSettings | BarChartSettings>) => {
-  const { keys, data, tooltipSettings } = chartSettings;
+}: TransformationInput<BarChartSettings>) => {
+  const { keys, data, tooltipSettings, stackMode } = chartSettings;
   const valueFormatter = tooltipSettings?.formatValue;
   const isFunnel = !query;
 
   if (isFunnel) {
     const [valueSelector] = keys;
 
-    return [data.map((item) => [item[KEEN_KEY], item[valueSelector]])];
+    return data.map((item) => [item[KEEN_KEY], item[valueSelector]]);
   } else {
     const { interval, group_by: groupBy } = query;
 
@@ -32,14 +32,16 @@ export const transform = ({
         data,
         keys,
         valueFormatter,
-        extractGroupBySettings(groupBy)
+        extractGroupBySettings(groupBy),
+        stackMode === 'percent'
       );
     } else if (isCategoricalAnalysis) {
       return categoricalTransformation(
         data,
         keys,
         valueFormatter,
-        extractGroupBySettings(groupBy)
+        extractGroupBySettings(groupBy),
+        stackMode === 'percent'
       );
     } else {
       return chronologicalTransformation(data, keys, valueFormatter);
