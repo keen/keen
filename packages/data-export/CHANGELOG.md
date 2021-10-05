@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/data-export@1.1.2...@keen.io/data-export@1.2.0) (2021-10-05)
+
+
+### Features
+
+* 🎸 percentage stacks ([537709b](https://github.com/keen/keen/commit/537709b4fc7d8fbbc753844ca9e93ff7be5f6e4e))
+
+
+
+
+
 ## [1.1.2](https://github.com/keen/keen/compare/@keen.io/data-export@1.1.1...@keen.io/data-export@1.1.2) (2021-10-04)
 
 
