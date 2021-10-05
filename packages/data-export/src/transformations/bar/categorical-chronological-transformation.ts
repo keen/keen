@@ -1,32 +1,33 @@
 import {
-  calculateTotalValue,
   formatValue as valueFormatter,
+  calculateTotalValue,
   Formatter,
 } from '@keen.io/charts-utils';
-import { KEEN_TABLE_INTERVAL, KEEN_KEY } from '@keen.io/parser';
+import { KEEN_KEY, KEEN_TABLE_INTERVAL } from '@keen.io/parser';
 
 import { calculatePercent } from '../../utils';
-import { VALUE, PERCENTAGE_VALUE } from '../../constants';
+import { COLUMN_JOIN, VALUE, PERCENTAGE_VALUE } from '../../constants';
 
 /**
- * Categorical transformation for line chart
+ * Chronological transformation with categories for heatmap chart
  *
  * @param data - data series
  * @param keys - keys selectors
  * @param formatValue - value formatter
+ * @param dataSeriesGroups - groups with categories
+ * @param includePercentageStack - calculate percent value for data series
  * @return transformed structure
- *
  */
-export const categoricalTransformation = (
+export const categoricalChronologicalTransformation = (
   data: Record<string, any>,
   keys: string[],
   formatValue: Formatter,
-  columnName: string,
+  dataSeriesGroups: string[],
   includePercentageStack: boolean
 ) => {
   const columns = [
     KEEN_TABLE_INTERVAL,
-    columnName,
+    dataSeriesGroups.join(COLUMN_JOIN),
     VALUE,
     ...(includePercentageStack ? [PERCENTAGE_VALUE] : []),
   ];
@@ -39,8 +40,8 @@ export const categoricalTransformation = (
       ...keys.map((keyName) => [
         item[KEEN_KEY],
         keyName,
-        item[keyName] ? valueFormatter(item[keyName], formatValue) : 0,
-        ...(includePercentageStack
+        valueFormatter(item[keyName], formatValue),
+        ...(includePercentageStack && item[keyName]
           ? [`${calculatePercent(item[keyName], dataSeriesTotal)}%`]
           : []),
       ])

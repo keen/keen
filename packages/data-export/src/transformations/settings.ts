@@ -6,6 +6,7 @@ import {
   HeatmapChartSettings,
   ChoroplethChartSettings,
   MetricChartSettings,
+  BarChartSettings,
 } from '@keen.io/charts';
 
 import { VisualizationExport, TransformationInput } from '../types';
@@ -13,7 +14,8 @@ import { VisualizationExport, TransformationInput } from '../types';
 import { transform as transformLineChart } from './line';
 import { transform as transformTableChart } from './table';
 import { transform as transformCircularChart } from './circular';
-import { transform as multiDimensionalTransformation } from './multi-dimensional';
+import { transform as transformHeatmapChart } from './heatmap';
+import { transform as transformBarChart } from './bar';
 import { transform as transformFunnelChart } from './funnel';
 import { transform as transformMetricChart } from './metric';
 import { transform as transformChoroplethChart } from './choropleth';
@@ -39,9 +41,13 @@ export const transformData = ({
         chartSettings,
         query,
       } as TransformationInput<FunnelChartSettings>);
-    case 'heatmap':
     case 'bar':
-      return multiDimensionalTransformation({
+      return transformBarChart({
+        chartSettings,
+        query,
+      } as TransformationInput<BarChartSettings>);
+    case 'heatmap':
+      return transformHeatmapChart({
         chartSettings,
         query,
       } as TransformationInput<HeatmapChartSettings>);

@@ -134,37 +134,31 @@ test('transforms "categorical" data structure', () => {
         "2020-01-01T00:00:00.000Z",
         "Edwidge Danticat | Love, Anger, Madness",
         95,
-        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "George R. R. Martin | Game of Thrones",
         719,
-        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "J.K. Rowling | Harry Potter",
         0,
-        "0%",
       ],
       Array [
         "2020-02-01T00:00:00.000Z",
         "Edwidge Danticat | Love, Anger, Madness",
         2,
-        "0%",
       ],
       Array [
         "2020-02-01T00:00:00.000Z",
         "George R. R. Martin | Game of Thrones",
         11,
-        "0%",
       ],
       Array [
         "2020-02-01T00:00:00.000Z",
         "J.K. Rowling | Harry Potter",
         1,
-        "0%",
       ],
     ]
   `);
@@ -214,19 +208,16 @@ test('transforms "categorical" data structure with value formatter', () => {
         "2020-01-01T00:00:00.000Z",
         "Edwidge Danticat | Love, Anger, Madness",
         "95 books",
-        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "George R. R. Martin | Game of Thrones",
         "719 books",
-        "0%",
       ],
       Array [
         "2020-01-01T00:00:00.000Z",
         "J.K. Rowling | Harry Potter",
         0,
-        "0%",
       ],
     ]
   `);

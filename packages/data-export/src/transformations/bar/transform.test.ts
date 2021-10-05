@@ -18,14 +18,12 @@ test('transforms data to CSV export structure without query context', () => {
   ).toMatchInlineSnapshot(`
     Array [
       Array [
-        Array [
-          "logins",
-          1082,
-        ],
-        Array [
-          "mrr",
-          400,
-        ],
+        "logins",
+        1082,
+      ],
+      Array [
+        "mrr",
+        400,
       ],
     ]
   `);
@@ -93,6 +91,64 @@ test('transforms "categorical" data to CSV export structure', () => {
         "Desktop",
         "other",
         300,
+      ],
+    ]
+  `);
+});
+
+test('transforms "categorical" data with percentage stack to CSV export structure', () => {
+  const query: Query = {
+    analysis_type: 'count',
+    event_collection: 'purchases',
+    timeframe: 'last_14_days',
+    group_by: ['platform', 'user.gender'],
+  };
+
+  const keys = ['female', 'male', 'other'];
+  const data = [
+    {
+      female: 1646,
+      'keen.key': 'Mobile',
+      male: 2332,
+      other: 624,
+    },
+  ];
+
+  expect(
+    transform({
+      query,
+      chartSettings: {
+        data,
+        keys,
+        labelSelector: KEEN_KEY,
+        stackMode: 'percent',
+      },
+    })
+  ).toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "platform",
+        "user.gender",
+        "value",
+        "percentage value",
+      ],
+      Array [
+        "Mobile",
+        "female",
+        1646,
+        "35.8%",
+      ],
+      Array [
+        "Mobile",
+        "male",
+        2332,
+        "50.7%",
+      ],
+      Array [
+        "Mobile",
+        "other",
+        624,
+        "13.6%",
       ],
     ]
   `);
@@ -221,43 +277,58 @@ test('transforms "chronological" data with categories to CSV export structure', 
   ];
 
   expect(
-    transform({ query, chartSettings: { data, keys, labelSelector: KEEN_KEY } })
+    transform({
+      query,
+      chartSettings: {
+        data,
+        keys,
+        labelSelector: KEEN_KEY,
+        stackMode: 'percent',
+      },
+    })
   ).toMatchInlineSnapshot(`
     Array [
       Array [
         "interval",
         "platform_user.gender",
         "value",
+        "percentage value",
       ],
       Array [
         "2019-01-01T00:00:00.000Z",
         "Mobile | female",
         1646,
+        "29.4%",
       ],
       Array [
         "2019-01-01T00:00:00.000Z",
         "Mobile | male",
         2332,
+        "41.7%",
       ],
       Array [
         "2019-01-01T00:00:00.000Z",
         "Mobile | other",
         624,
+        "11.1%",
       ],
       Array [
         "2019-01-01T00:00:00.000Z",
         "Web | female",
         363,
+        "6.5%",
       ],
       Array [
         "2019-01-01T00:00:00.000Z",
         "Web | male",
         529,
+        "9.5%",
       ],
       Array [
         "2019-01-01T00:00:00.000Z",
         "Web | other",
         103,
+        "1.8%",
       ],
     ]
   `);
