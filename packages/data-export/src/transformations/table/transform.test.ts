@@ -2,6 +2,38 @@ import { Query } from '@keen.io/query';
 
 import { transform } from './transform';
 
+test('transforms data structure with respection to columns order', () => {
+  const query: Query = {
+    analysis_type: 'extraction',
+    event_collection: 'purchases',
+    timeframe: 'this_14_days',
+    property_names: ['keen.id', 'geo_information.city', 'user.age'],
+  };
+
+  const data = [
+    {
+      'keen.id': '5de63660015e540001f3a904',
+      'user.age': 32,
+      'geo_information.city': 'Singapore',
+    },
+  ];
+
+  expect(transform({ query, chartSettings: { data } })).toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "keen.id",
+        "geo_information.city",
+        "user.age",
+      ],
+      Array [
+        "5de63660015e540001f3a904",
+        "Singapore",
+        32,
+      ],
+    ]
+  `);
+});
+
 test('transforms data structure for simple analysis with group by', () => {
   const data = [
     { country: 'Poland', city: 'Cracow', result: 20 },
@@ -69,16 +101,16 @@ test('transforms data structure with columns rename and analysis with interval',
     .toMatchInlineSnapshot(`
     Array [
       Array [
-        "time",
         "count.page_views",
+        "time",
       ],
       Array [
-        "2019-01-01T00:00:00.000Z",
         100,
+        "2019-01-01T00:00:00.000Z",
       ],
       Array [
-        "2020-01-01T00:00:00.000Z",
         300,
+        "2020-01-01T00:00:00.000Z",
       ],
     ]
   `);
@@ -119,16 +151,16 @@ test('transforms data structure with columns formatters and analysis with interv
   ).toMatchInlineSnapshot(`
     Array [
       Array [
-        "interval",
         "pageviews",
+        "interval",
       ],
       Array [
-        "2019-01-01T00:00:00.000Z",
         "100$",
+        "2019-01-01T00:00:00.000Z",
       ],
       Array [
-        "2020-01-01T00:00:00.000Z",
         "300$",
+        "2020-01-01T00:00:00.000Z",
       ],
     ]
   `);
