@@ -30,13 +30,8 @@ export const transform = ({
 
   const [firstRecord] = data;
   const columns = Object.keys(firstRecord).sort((a, b) => {
-    if (columnsOrder.includes(a)) {
-      return -1;
-    }
-    if (columnsOrder.includes(b)) {
-      return 1;
-    }
-    return 0;
+    if (!columnsOrder.includes(a)) return 0;
+    return columnsOrder.indexOf(a) - columnsOrder.indexOf(b);
   });
 
   const renamedColumns = columnsRename
