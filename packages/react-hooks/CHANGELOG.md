@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.1...@keen.io/react-hooks@1.3.2) (2021-10-05)
+
+
+### Bug Fixes
+
+* 🐛 useScrollOverflowHandler dependency fix ([b751d26](https://github.com/keen/keen/commit/b751d26f74c6714a024449320a16e744659310d0))
+
+
+
+
+
 ## [1.3.1](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.0...@keen.io/react-hooks@1.3.1) (2021-10-05)
 
 
