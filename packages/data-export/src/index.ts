@@ -1,3 +1,3 @@
-import exportToCSV from './csv';
+import DataExport from './data-export';
 
-export { exportToCSV };
+export { DataExport };

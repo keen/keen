@@ -7,6 +7,7 @@ import useDynamicContentPosition from './use-dynamic-content-position';
 import useOnParentScroll from './use-on-parent-scroll';
 import useDataSeriesOffset from './use-data-series-offset';
 import useKeypress from './use-keypress';
+import useScrollOverflowHandler from './use-scroll-overflow-handler';
 
 export {
   useTooltip,
@@ -18,4 +19,5 @@ export {
   useDynamicContentPosition,
   useDataSeriesOffset,
   useKeypress,
+  useScrollOverflowHandler,
 };

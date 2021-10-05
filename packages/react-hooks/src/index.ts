@@ -8,6 +8,7 @@ import {
   useOnParentScroll,
   useDataSeriesOffset,
   useKeypress,
+  useScrollOverflowHandler,
 } from './hooks';
 
 export {
@@ -20,4 +21,5 @@ export {
   useOnParentScroll,
   useDataSeriesOffset,
   useKeypress,
+  useScrollOverflowHandler,
 };

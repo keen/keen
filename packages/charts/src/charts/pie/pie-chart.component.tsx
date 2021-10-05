@@ -2,12 +2,9 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
+import { calculateTotalValue } from '@keen.io/charts-utils';
 
-import {
-  generateCircularChart,
-  LabelsPosition,
-  calculateTotalValue,
-} from '../../utils';
+import { generateCircularChart, LabelsPosition } from '../../utils';
 import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
 
 import PieSlice from './pie-slice.component';

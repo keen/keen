@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.97](https://github.com/keen/keen/compare/@keen.io/parser@2.8.96...@keen.io/parser@2.8.97) (2021-09-30)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.96](https://github.com/keen/keen/compare/@keen.io/parser@2.8.95...@keen.io/parser@2.8.96) (2021-09-27)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.95](https://github.com/keen/keen/compare/@keen.io/parser@2.8.94...@keen.io/parser@2.8.95) (2021-09-24)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.94](https://github.com/keen/keen/compare/@keen.io/parser@2.8.93...@keen.io/parser@2.8.94) (2021-09-24)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.93](https://github.com/keen/keen/compare/@keen.io/parser@2.8.92...@keen.io/parser@2.8.93) (2021-09-16)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.92](https://github.com/keen/keen/compare/@keen.io/parser@2.8.91...@keen.io/parser@2.8.92) (2021-09-14)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.91](https://github.com/keen/keen/compare/@keen.io/parser@2.8.90...@keen.io/parser@2.8.91) (2021-09-10)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.90](https://github.com/keen/keen/compare/@keen.io/parser@2.8.89...@keen.io/parser@2.8.90) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.89](https://github.com/keen/keen/compare/@keen.io/parser@2.8.88...@keen.io/parser@2.8.89) (2021-09-09)
+
+
+### Bug Fixes
+
+* 🐛 Table transformation - column names to lowecase ([f4d7b8e](https://github.com/keen/keen/commit/f4d7b8e3e989863b1e71cd1a715de682140910d4))
+
+
+
+
+
+## [2.8.88](https://github.com/keen/keen/compare/@keen.io/parser@2.8.87...@keen.io/parser@2.8.88) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
 ## [2.8.87](https://github.com/keen/keen/compare/@keen.io/parser@2.8.86...@keen.io/parser@2.8.87) (2021-09-08)
 
 

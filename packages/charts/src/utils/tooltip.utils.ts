@@ -2,10 +2,10 @@ import { colors } from '@keen.io/colors';
 import {
   getFromPath,
   Formatter,
+  calculateTotalValue,
   formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
 import { Point } from '@keen.io/ui-core';
-import { calculateTotalValue } from './circular-chart.utils';
 
 import { OTHERS_DATA_KEY } from './circular-chart.utils';
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/keen/keen/compare/@keen.io/icons@1.5.0...@keen.io/icons@1.5.1) (2021-09-16)
+
+**Note:** Version bump only for package @keen.io/icons
+
+
+
+
+
 # [1.5.0](https://github.com/keen/keen/compare/@keen.io/icons@1.4.1...@keen.io/icons@1.5.0) (2021-05-04)
 
 
