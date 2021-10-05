@@ -23,7 +23,7 @@ export const useScrollOverflowHandler = (
       'horizontal'
     );
     setMaxScroll(offsetScroll - offset);
-  }, [containerRef]);
+  }, [containerRef.current]);
 
   const scrollHandler = useCallback(
     (e: React.UIEvent<HTMLDivElement>) => {
@@ -52,7 +52,7 @@ export const useScrollOverflowHandler = (
       }));
     }
     calculateMaxScroll();
-  }, []);
+  }, [containerRef.current]);
 
   return {
     overflowRight,
