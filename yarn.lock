@@ -3208,6 +3208,88 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@keen.io/charts-utils@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@keen.io/charts-utils/-/charts-utils-1.13.0.tgz#6b2359b225b290400c398e9e808d1d2215f67fbc"
+  integrity sha512-Fw2qXl4GjjBLzY7apjfHg61aQV7AV3BiuydQ/PtkhOQZC1+E9vwLA62FYcD20XC6pa6CnTKbSEeuStzI3+5yzg==
+  dependencies:
+    "@keen.io/query" "^1.2.0"
+    d3-array "^2.4.0"
+    d3-format "^1.4.3"
+    d3-scale "^3.2.1"
+    d3-time "^2.0.0"
+    d3-time-format "^2.2.3"
+
+"@keen.io/charts@^2.32.7":
+  version "2.33.0"
+  resolved "https://registry.yarnpkg.com/@keen.io/charts/-/charts-2.33.0.tgz#dc8a20a6b85ea5664c0196e274fe2b3b7c2fa216"
+  integrity sha512-YS9MioR8T1jXolmqEzD+g0nzFN6vZnFEiZz14lAnCkMzwGtpZDHkpZlYNvuWv8HhcELWdq+O22uLzw1NKMddFA==
+  dependencies:
+    "@keen.io/charts-utils" "^1.13.0"
+    "@keen.io/colors" "^1.1.0"
+    "@keen.io/pubsub" "^1.2.0"
+    "@keen.io/react-hooks" "^1.3.0"
+    "@keen.io/ui-core" "^2.41.3"
+    d3-array "^2.4.0"
+    d3-axis "^1.0.12"
+    d3-drag "^1.2.5"
+    d3-fetch "^1.1.2"
+    d3-geo "^1.11.9"
+    d3-interpolate "^1.4.0"
+    d3-polygon "^1.0.6"
+    d3-scale "^3.2.1"
+    d3-selection "^1.4.1"
+    d3-shape "^1.3.7"
+    d3-time-format "^2.2.3"
+    d3-transition "^1.3.2"
+    d3-zoom "^1.8.3"
+    framer-motion "^1.11.1"
+    numeral "^2.0.6"
+    polished "^3.4.4"
+    react-measure "^2.3.0"
+    use-debounce "^3.3.0"
+    uuid "^8.3.2"
+
+"@keen.io/icons@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@keen.io/icons/-/icons-1.5.1.tgz#9e07f52d846e3adade3e70b7223afe541dd51372"
+  integrity sha512-rsPIEpczFo7dizFYtskiPIb38KYCSIE/a82PA7Y/wkSZpn+pBWZ1GiE6Zk7SX4GsmgMBD099KxiuTHGFlxfkCA==
+  dependencies:
+    "@keen.io/colors" "^1.1.0"
+
+"@keen.io/react-hooks@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@keen.io/react-hooks/-/react-hooks-1.3.0.tgz#285d8632d88730e667a86993dfb2c553618b7382"
+  integrity sha512-SVkt3kDn6jx5Z44rKG0CXazV5NUq44K0NRXMwDsZZYlkBRuN4i9pFYaL6WWDHLdk8wB6rdEi/VsL/vaAljcl/Q==
+  dependencies:
+    d3-array "^2.7.1"
+    fuse.js "^6.4.1"
+
+"@keen.io/ui-core@^2.41.3":
+  version "2.41.3"
+  resolved "https://registry.yarnpkg.com/@keen.io/ui-core/-/ui-core-2.41.3.tgz#a67ea18bb2f6a5f7669cdd1f01e182aa0d09ea71"
+  integrity sha512-Dc62CGxiHQNn47+Nnh0tC7dc/KTMUl5V1RyMFqzSiOgEuP2aWGvcvUQA6N28zqp+9loIHS5wKdxv+NdxA6mUeA==
+  dependencies:
+    "@keen.io/charts-utils" "^1.13.0"
+    "@keen.io/colors" "^1.1.0"
+    "@keen.io/icons" "^1.5.1"
+    "@keen.io/query" "^1.2.0"
+    "@keen.io/typography" "^1.3.0"
+    color "^3.1.2"
+    framer-motion "^1.11.1"
+    fuse.js "^6.4.1"
+    polished "^3.4.4"
+    rc-time-picker "^3.7.3"
+    react-color "^2.18.1"
+    react-column-resizer "^1.1.9"
+    react-dates "^21.8.0"
+    react-select "^3.1.0"
+    react-vtree "2.0.4"
+    react-window "^1.8.6"
+    sortablejs "^1.13.0"
+    styled-system "^5.1.5"
+    webfontloader "^1.6.28"
+
 "@lerna/add@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-4.0.0.tgz#c36f57d132502a57b9e7058d1548b7a565ef183f"

@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@keen.io/charts-utils": "^1.11.1",
+    "@keen.io/react-hooks": "^1.3.0",
     "@keen.io/colors": "^1.1.0",
     "@keen.io/icons": "^1.5.0",
     "@keen.io/query": "^1.2.0",

@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
-} from 'react';
+import React, { useState, useRef, useCallback, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   TableRow,
@@ -14,11 +8,8 @@ import {
   SortMode,
   SortByType,
 } from '@keen.io/ui-core';
-import {
-  getElementOffset,
-  hasContentOverflow,
-  copyToClipboard,
-} from '@keen.io/charts-utils';
+import { copyToClipboard } from '@keen.io/charts-utils';
+import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 
 import { HeaderRow } from './components';
 import { ChartEvents } from '../../events';
@@ -76,11 +67,6 @@ export const TableChart = ({
   enableEditMode = false,
 }: Props) => {
   const [sort, setSort] = useState<SortByType>(null);
-  const [maxScroll, setMaxScroll] = useState(0);
-  const [{ overflowLeft, overflowRight }, setOverflow] = useState({
-    overflowLeft: false,
-    overflowRight: false,
-  });
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -104,34 +90,6 @@ export const TableChart = ({
   const tableRef = useRef(null);
   const containerRef = useRef(null);
   const tooltipHide = useRef(null);
-
-  const calculateMaxScroll = useCallback(() => {
-    const { offset, scroll: offsetScroll } = getElementOffset(
-      containerRef.current,
-      'horizontal'
-    );
-
-    setMaxScroll(offsetScroll - offset);
-  }, [containerRef]);
-
-  const scrollHandler = useCallback(
-    (e: React.UIEvent<HTMLDivElement>) => {
-      const offset = e.currentTarget.scrollLeft;
-      const hasOverflowLeft = offset > 0;
-      const hasOverflowRight = offset < maxScroll;
-
-      if (
-        hasOverflowLeft !== overflowLeft ||
-        hasOverflowRight !== overflowRight
-      ) {
-        setOverflow({
-          overflowLeft: hasOverflowLeft,
-          overflowRight: hasOverflowRight,
-        });
-      }
-    },
-    [maxScroll, overflowLeft, overflowRight]
-  );
 
   const reduceColumnsSelection = useCallback(
     (columnName: string, columnIndex: number) => {
@@ -164,17 +122,11 @@ export const TableChart = ({
     tooltip: tooltipSettings,
   } = theme;
 
-  useEffect(() => {
-    const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
-    if (hasOverflow) {
-      setOverflow((state) => ({
-        ...state,
-        overflowRight: true,
-      }));
-    }
-    calculateMaxScroll();
-  }, []);
-
+  const {
+    overflowLeft,
+    overflowRight,
+    scrollHandler,
+  } = useScrollOverflowHandler(containerRef);
   const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
   const activeColumns = new Set([...indexesOfSelectedColumns, hoveredColumn]);
 
