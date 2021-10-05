@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/keen/keen/compare/@keen.io/charts@2.32.7...@keen.io/charts@2.33.0) (2021-09-30)
+
+
+### Features
+
+* 🎸 csv export parsers ([60a1f62](https://github.com/keen/keen/commit/60a1f621a2d6f749aa6a584e56f1a8188c9af6af))
+
+
+
+
+
+## [2.32.7](https://github.com/keen/keen/compare/@keen.io/charts@2.32.6...@keen.io/charts@2.32.7) (2021-09-27)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.32.6](https://github.com/keen/keen/compare/@keen.io/charts@2.32.5...@keen.io/charts@2.32.6) (2021-09-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.32.5](https://github.com/keen/keen/compare/@keen.io/charts@2.32.4...@keen.io/charts@2.32.5) (2021-09-24)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.32.4](https://github.com/keen/keen/compare/@keen.io/charts@2.32.3...@keen.io/charts@2.32.4) (2021-09-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.32.3](https://github.com/keen/keen/compare/@keen.io/charts@2.32.2...@keen.io/charts@2.32.3) (2021-09-14)
+
+
+### Bug Fixes
+
+* 🐛 keep alignment for formatted numbers ([89e85c3](https://github.com/keen/keen/commit/89e85c3f06838412b12a8ab2ccad35962400f4e9))
+* 🐛 prevent table events subscription ([af468db](https://github.com/keen/keen/commit/af468dbe1c7ecf4488ec80789f76e824fc165ab8))
+
+
+
+
+
+## [2.32.2](https://github.com/keen/keen/compare/@keen.io/charts@2.32.1...@keen.io/charts@2.32.2) (2021-09-10)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.32.1](https://github.com/keen/keen/compare/@keen.io/charts@2.32.0...@keen.io/charts@2.32.1) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+# [2.32.0](https://github.com/keen/keen/compare/@keen.io/charts@2.31.3...@keen.io/charts@2.32.0) (2021-09-09)
+
+
+### Bug Fixes
+
+* 🐛 render correct number of StyledCols for table ([9584e09](https://github.com/keen/keen/commit/9584e09d0d5006b322b4ffdefa96872f86746e55))
+
+
+### Features
+
+* 🎸 Changes ([261e6d8](https://github.com/keen/keen/commit/261e6d8f1538b79a9a2ffce2497dd42304908182))
+* 🎸 Changes and tests ([dca5045](https://github.com/keen/keen/commit/dca5045efbe4c1b638f0033752317eb90738956a))
+* 🎸 Chart series colors connected with legend ([f766e04](https://github.com/keen/keen/commit/f766e04712c69c231d08f7fae6b7065231fb4ad1))
+* 🎸 Legend story changes ([99d750e](https://github.com/keen/keen/commit/99d750e448a2897062cdc911ed23ac81cbfab8b2))
+* 🎸 Refactor and tests ([bf922bb](https://github.com/keen/keen/commit/bf922bb883b155afeb58fde3c0e05443a5f7a2c5))
+
+
+
+
+
+## [2.31.3](https://github.com/keen/keen/compare/@keen.io/charts@2.31.2...@keen.io/charts@2.31.3) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [2.31.2](https://github.com/keen/keen/compare/@keen.io/charts@2.31.1...@keen.io/charts@2.31.2) (2021-09-08)
 
 **Note:** Version bump only for package @keen.io/charts
