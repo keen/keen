@@ -4,8 +4,8 @@ import { getElementOffset, hasContentOverflow } from '@keen.io/charts-utils';
 /**
  * Hook that allows to detect how referenced element overflows parent
  * @param containerRef: ref of element
- * @returns overflowRight: determines is elements overflows parent from right side
- * @returns overflowLeft: determines is elements overflows parent from left side
+ * @returns overflowRight: determines if element overflows parent from right side
+ * @returns overflowLeft: determines if element overflows parent from left side
  * @returns scrollHandler: function which allows to calculate scroll position
  */
 export const useScrollOverflowHandler = (
