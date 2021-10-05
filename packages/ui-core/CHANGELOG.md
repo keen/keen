@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.41.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.2...@keen.io/ui-core@2.41.3) (2021-09-30)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.41.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.1...@keen.io/ui-core@2.41.2) (2021-09-27)
+
+
+### Bug Fixes
+
+* 🐛 Fix for non string children for bagde and truncate true ([2e4b9a0](https://github.com/keen/keen/commit/2e4b9a0232b3b2b4d8802c59093a933222a72338))
+
+
+
+
+
+## [2.41.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.0...@keen.io/ui-core@2.41.1) (2021-09-24)
+
+
+### Bug Fixes
+
+* 🐛 Changes ([f90cf76](https://github.com/keen/keen/commit/f90cf760334741932aa9e0c1a41566e1496a0d17))
+
+
+
+
+
+# [2.41.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.8...@keen.io/ui-core@2.41.0) (2021-09-24)
+
+
+### Features
+
+* 🎸 Bagde changes for DC tags components ([f935ef6](https://github.com/keen/keen/commit/f935ef6fa321b9104db4f2c428c2120f3c7f6405))
+
+
+
+
+
+## [2.40.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.7...@keen.io/ui-core@2.40.8) (2021-09-16)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.6...@keen.io/ui-core@2.40.7) (2021-09-14)
+
+
+### Bug Fixes
+
+* 🐛 keep alignment for formatted numbers ([89e85c3](https://github.com/keen/keen/commit/89e85c3f06838412b12a8ab2ccad35962400f4e9))
+
+
+
+
+
+## [2.40.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.5...@keen.io/ui-core@2.40.6) (2021-09-10)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.4...@keen.io/ui-core@2.40.5) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.3...@keen.io/ui-core@2.40.4) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.2...@keen.io/ui-core@2.40.3) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
 ## [2.40.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.1...@keen.io/ui-core@2.40.2) (2021-09-08)
 
 **Note:** Version bump only for package @keen.io/ui-core

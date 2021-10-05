@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.2.0...@keen.io/react-hooks@1.3.0) (2021-09-09)
+
+
+### Features
+
+* 🎸 Changes and tests ([dca5045](https://github.com/keen/keen/commit/dca5045efbe4c1b638f0033752317eb90738956a))
+
+
+
+
+
 # [1.2.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.1.0...@keen.io/react-hooks@1.2.0) (2021-07-02)
 
 
