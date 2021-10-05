@@ -8,6 +8,10 @@ exports[`<Toggle /> should render Toggle component 1`] = `
   cursor: pointer;
 }
 
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
+}
+
 .c1 {
   position: absolute;
   top: 0;
@@ -67,14 +71,22 @@ exports[`<Toggle /> should render Toggle component 1`] = `
 
 <Toggle>
   <styled.div
+    aria-checked={false}
     data-testid="toggle"
     isDisabled={false}
     onClick={[Function]}
+    onKeyDown={[Function]}
+    role="switch"
+    tabIndex={0}
   >
     <div
+      aria-checked={false}
       className="c0"
       data-testid="toggle"
       onClick={[Function]}
+      onKeyDown={[Function]}
+      role="switch"
+      tabIndex={0}
     >
       <styled.div
         variant="primary"
