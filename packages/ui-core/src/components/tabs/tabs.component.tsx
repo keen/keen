@@ -17,11 +17,10 @@ type Props = {
 };
 
 const Tabs: FC<Props> = ({ tabs, activeTab, type = 'default', onClick }) => (
-  <TabsContainer data-testid="tabs" role="tablist">
+  <TabsContainer role="tablist">
     {tabs.map(({ label, id }) => (
       <Tab
         role="tab"
-        data-testid="tab"
         type={type}
         key={id}
         onClick={() => onClick(id)}

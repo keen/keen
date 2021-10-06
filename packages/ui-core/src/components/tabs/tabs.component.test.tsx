@@ -2,6 +2,7 @@ import React from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import Tabs from './tabs.component';
+import { KEYBOARD_KEYS } from '../../constants';
 
 const elements = [
   {
@@ -35,18 +36,18 @@ const render = (overProps: any = {}) => {
 
 test('should be render tabs', () => {
   const {
-    wrapper: { getByTestId },
+    wrapper: { getByRole },
   } = render();
-  const tabs = getByTestId('tabs');
+  const tabs = getByRole('tablist');
 
   expect(tabs).toBeInTheDocument();
 });
 
 test('should render provided number of tabs', () => {
   const {
-    wrapper: { getAllByTestId },
+    wrapper: { getAllByRole },
   } = render();
-  const tabs = getAllByTestId('tab');
+  const tabs = getAllByRole('tab');
 
   expect(tabs.length).toEqual(elements.length);
 });
@@ -56,8 +57,20 @@ test('should call onClick event handler', () => {
     wrapper: { getByText },
     props,
   } = render();
-  const tab = getByText('Tab 1');
+  const tab = getByText(elements[0].label);
   fireEvent.click(tab);
 
-  expect(props.onClick).toHaveBeenCalledWith('tab-1');
+  expect(props.onClick).toHaveBeenCalledWith(elements[0].id);
+});
+
+test('should call onClick event handler on Enter press', () => {
+  const {
+    wrapper: { getByText },
+    props,
+  } = render();
+
+  const tab = getByText(elements[1].label);
+  fireEvent.keyDown(tab, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
+
+  expect(props.onClick).toHaveBeenCalledWith(elements[1].id);
 });

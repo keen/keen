@@ -2,6 +2,7 @@ import React from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import RelativeTime from './relative-time.component';
+import { KEYBOARD_KEYS } from '../../constants';
 
 const render = (overProps: any = {}) => {
   const props = {
@@ -44,6 +45,18 @@ test('allows user to exclude the current day from timeframe', () => {
 
   const checkbox = getByText(props.relativityTitleForTodayLabel);
   fireEvent.click(checkbox);
+
+  expect(props.onChange).toHaveBeenCalledWith('previous_14_days');
+});
+
+test('allows user to exclude the current day from timeframe using keyboard', () => {
+  const {
+    props,
+    wrapper: { getByText },
+  } = render();
+
+  const checkbox = getByText(props.relativityTitleForTodayLabel);
+  fireEvent.keyDown(checkbox, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
 
   expect(props.onChange).toHaveBeenCalledWith('previous_14_days');
 });

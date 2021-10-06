@@ -104,31 +104,35 @@ const MousePositionedTooltip = ({
   return (
     <div
       ref={tooltipContainerRef}
-      onMouseEnter={(e) => {
-        e.persist();
-        setTooltipVisible(true);
-        setTooltipPosition(calculateTooltipPosition(e));
-      }}
-      onMouseMove={(e) => {
-        e.persist();
-        if (requestFrameRef.current)
-          cancelAnimationFrame(requestFrameRef.current);
-        requestFrameRef.current = requestAnimationFrame(() => {
-          setTooltipPosition(calculateTooltipPosition(e));
-        });
-      }}
-      onMouseLeave={() => {
-        setTooltipVisible(false);
-      }}
-      onKeyDown={(e) => {
-        if (e.keyCode === KEYBOARD_KEYS.ENTER) {
-          const { x, y, width } = e.currentTarget.getBoundingClientRect();
-          setTooltipPosition({ x: x + width, y });
-          setTooltipVisible(true);
-        }
-        if (e.keyCode === KEYBOARD_KEYS.ESCAPE) setTooltipVisible(false);
-      }}
-      onBlur={() => setTooltipVisible(false)}
+      {...(isActive
+        ? {
+            onMouseEnter: (e) => {
+              e.persist();
+              setTooltipVisible(true);
+              setTooltipPosition(calculateTooltipPosition(e));
+            },
+            onMouseMove: (e) => {
+              e.persist();
+              if (requestFrameRef.current)
+                cancelAnimationFrame(requestFrameRef.current);
+              requestFrameRef.current = requestAnimationFrame(() => {
+                setTooltipPosition(calculateTooltipPosition(e));
+              });
+            },
+            onMouseLeave: () => {
+              setTooltipVisible(false);
+            },
+            onKeyDown: (e) => {
+              if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+                const { x, y, width } = e.currentTarget.getBoundingClientRect();
+                setTooltipPosition({ x: x + width, y });
+                setTooltipVisible(true);
+              }
+              if (e.keyCode === KEYBOARD_KEYS.ESCAPE) setTooltipVisible(false);
+            },
+            onBlur: () => setTooltipVisible(false),
+          }
+        : {})}
     >
       {children}
       {isActive && (

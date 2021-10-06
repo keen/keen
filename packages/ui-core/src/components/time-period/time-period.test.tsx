@@ -2,6 +2,7 @@ import React from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TimePeriod from './time-period.component';
+import { KEYBOARD_KEYS } from '../../constants';
 
 const render = (overProps: any = {}) => {
   const props = {
@@ -45,4 +46,26 @@ test('allows user to select timeframe unit', () => {
   fireEvent.click(element);
 
   expect(props.onChange).toHaveBeenCalledWith('this_14_weeks');
+});
+
+test('allows user to select timeframe unit using keyboard', () => {
+  const {
+    props,
+    wrapper: { getByTestId, container },
+  } = render();
+
+  const field = getByTestId('dropable-container');
+  fireEvent.keyDown(field, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
+
+  fireEvent.keyDown(container, {
+    key: 'ArrowDown',
+    keyCode: KEYBOARD_KEYS.DOWN,
+  });
+  fireEvent.keyDown(container, {
+    key: 'ArrowDown',
+    keyCode: KEYBOARD_KEYS.DOWN,
+  });
+  fireEvent.keyDown(container, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
+
+  expect(props.onChange).toHaveBeenCalledWith('this_14_months');
 });
