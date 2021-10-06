@@ -16,7 +16,11 @@ export const exportToCSV = (
 ) => {
   let result = '';
   data.forEach((row: Array<string | number>) => {
-    result += row.join(columnDelimiter) + lineDelimiter;
+    const transformedRow = row.map((item) => {
+      if (item === null) return 'null';
+      return item;
+    });
+    result += transformedRow.join(columnDelimiter) + lineDelimiter;
   });
 
   return result;
