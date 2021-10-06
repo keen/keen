@@ -15,6 +15,19 @@ test('creates CSV file strucutre', () => {
   `);
 });
 
+test('creates CSV file strucutre with "null" values', () => {
+  const data = [
+    ['keen.key', 'Japan', 'Australia'],
+    ['2020-12-07T00:00:00.000Z', 14, null],
+  ];
+
+  expect(DataExport.exportToCSV({ data })).toMatchInlineSnapshot(`
+    "keen.key,Japan,Australia
+    2020-12-07T00:00:00.000Z,14,null
+    "
+  `);
+});
+
 test('creates CSV file strucutre with defined column delimeter', () => {
   const data = [
     ['keen.key', 'Japan', 'Australia'],
