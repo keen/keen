@@ -22,13 +22,18 @@ class DataExport {
   /**
    * Creates data export structure with raw data
    */
-  public static exportRawData({ keys, data }: RawExport): ExportOutput {
-    const columns: string[] = [KEEN_KEY, ...keys];
+  public static exportRawData({ query, keys, data }: RawExport): ExportOutput {
+    const { analysis_type: analysisType } = query;
+    const isDataSelection = ['extraction', 'select_unique'].includes(
+      analysisType
+    );
+
+    const columns: string[] = [...(isDataSelection ? [] : [KEEN_KEY]), ...keys];
 
     return [
       columns,
       ...data.map((item: Record<string, any>) => [
-        item[KEEN_KEY],
+        ...(isDataSelection ? [] : [item[KEEN_KEY]]),
         ...keys.map((keyName) => item[keyName]),
       ]),
     ];
