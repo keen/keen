@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.2...@keen.io/react-hooks@1.4.0) (2021-10-07)
+
+
+### Features
+
+* 🎸 add keyboard navigation ([b25c991](https://github.com/keen/keen/commit/b25c991c5f11d2ee0b9219623a4e8ada78d402bc))
+
+
+
+
+
 ## [1.3.2](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.1...@keen.io/react-hooks@1.3.2) (2021-10-05)
 
 
