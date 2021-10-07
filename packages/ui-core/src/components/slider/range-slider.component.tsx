@@ -33,6 +33,7 @@ import { arrowReverse } from './utils';
 
 import { ControlSettings, TooltipSettings, RailSettings } from './types';
 import { Layout } from '../../types';
+import Ruler from '../ruler';
 
 const initialDragControlsState = {
   minimum: {
@@ -159,6 +160,17 @@ export const RangeSlider: FC<Props> = ({
   const absoluteMinimum = Math.abs(minimum);
   const zeroPoint: number =
     (absoluteMinimum * 100) / (absoluteMinimum + maximum);
+
+  const domain = [...colorScale.domain(), maximum];
+
+  const countPercentage = (value: number) => {
+    return ((value - minimum) / (maximum - minimum)) * 100;
+  };
+
+  const rulerTicks = domain.map((value) => ({
+    position: countPercentage(value) + '%',
+    label: value,
+  }));
 
   return (
     <div ref={slider} style={{ position: 'relative', ...layoutStyle }}>
@@ -415,6 +427,7 @@ export const RangeSlider: FC<Props> = ({
           </Control>
         </>
       )}
+      <Ruler layout="vertical" ticks={rulerTicks} />
     </div>
   );
 };
