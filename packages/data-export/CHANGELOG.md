@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.3...@keen.io/data-export@1.2.4) (2021-10-07)
+
+
+### Bug Fixes
+
+* 🐛 table raw csv extraction ([2be4773](https://github.com/keen/keen/commit/2be477306e498a56b90ec28d159f20b637df7cb8))
+
+
+
+
+
 ## [1.2.3](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.2...@keen.io/data-export@1.2.3) (2021-10-07)
 
 
