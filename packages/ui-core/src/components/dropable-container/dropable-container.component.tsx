@@ -12,6 +12,7 @@ import {
   Input,
 } from './dropable-container.styles';
 import { DropableContainerVariant } from './types';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Active indicator */
@@ -19,7 +20,9 @@ type Props = {
   /** React children nodes */
   children?: React.ReactNode;
   /** Click event handler */
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (
+    e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<Element>
+  ) => void;
   /** Container defocus event handler */
   onDefocus?: (e: MouseEvent) => void;
   /** Component variant */
@@ -83,14 +86,23 @@ const DropableContainer: FC<Props> = ({
     return <Placeholder>{placeholder}</Placeholder>;
   };
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+      onClick(e);
+    }
+  };
+
   return (
     <Container
+      role="button"
       data-testid="dropable-container"
       isActive={isActive}
       variant={variant}
       hasError={hasError}
       onClick={onClick}
+      onKeyDown={onKeyDown}
       ref={containerRef}
+      tabIndex={0}
       borderRadius={borderRadius}
     >
       {searchable && isActive ? (

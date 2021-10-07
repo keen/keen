@@ -6,6 +6,7 @@ import useOnClickOutside from './use-on-click-outside';
 import useDynamicContentPosition from './use-dynamic-content-position';
 import useOnParentScroll from './use-on-parent-scroll';
 import useDataSeriesOffset from './use-data-series-offset';
+import useKeypress from './use-keypress';
 import useScrollOverflowHandler from './use-scroll-overflow-handler';
 
 export {
@@ -17,5 +18,6 @@ export {
   useOnParentScroll,
   useDynamicContentPosition,
   useDataSeriesOffset,
+  useKeypress,
   useScrollOverflowHandler,
 };

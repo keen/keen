@@ -9,6 +9,7 @@ import { RelativityContainer, CheckboxLabel } from './relative-time.styles';
 import { getInterval } from './utils';
 
 import { THIS_RELATIVITY, PREVIOUS_RELATIVITY } from './constants';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Time relativity */
@@ -43,6 +44,11 @@ const RelativeTime: FC<Props> = ({
   onChange,
 }) => {
   const interval = getInterval(units);
+  const updateRelativity = () => {
+    const updatedRelativity =
+      relativity === THIS_RELATIVITY ? PREVIOUS_RELATIVITY : THIS_RELATIVITY;
+    onChange(`${updatedRelativity}_${value}_${units}`);
+  };
   return (
     <div data-testid="relative-time">
       <TimePeriod
@@ -55,12 +61,11 @@ const RelativeTime: FC<Props> = ({
         onChange={onChange}
       />
       <RelativityContainer
-        onClick={() => {
-          const updatedRelativity =
-            relativity === THIS_RELATIVITY
-              ? PREVIOUS_RELATIVITY
-              : THIS_RELATIVITY;
-          onChange(`${updatedRelativity}_${value}_${units}`);
+        onClick={() => updateRelativity()}
+        onKeyDown={(e) => {
+          if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+            updateRelativity();
+          }
         }}
       >
         <Checkbox id="relativity" checked={relativity === THIS_RELATIVITY} />

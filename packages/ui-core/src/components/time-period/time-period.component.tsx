@@ -1,4 +1,5 @@
-import React, { FC, useState, useCallback, useMemo } from 'react';
+import React, { FC, useState, useCallback, useMemo, useEffect } from 'react';
+import { useKeypress } from '@keen.io/react-hooks';
 
 import Dropdown from '../dropdown';
 import Input from '../input';
@@ -13,7 +14,7 @@ import {
   UnitsContainer,
 } from './time-period.styles';
 
-import { TIME_UNITS } from '../../constants';
+import { TIME_UNITS, KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Time relativity */
@@ -64,6 +65,58 @@ const TimePeriod: FC<Props> = ({
     []
   );
 
+  const [selectionIndex, setIndex] = useState<number>(null);
+
+  useEffect(() => {
+    if (isUnitsOpen) {
+      const index = unitsOptions.findIndex((u) => units === u.value);
+      setIndex(index);
+    }
+    return () => {
+      setIndex(null);
+    };
+  }, [isUnitsOpen]);
+
+  const keyboardHandler = useCallback(
+    (_e: KeyboardEvent, keyCode: number) => {
+      switch (keyCode) {
+        case KEYBOARD_KEYS.ENTER:
+          const { value: updatedUnits } = unitsOptions[selectionIndex];
+          onChange(`${relativity}_${value}_${updatedUnits}`);
+          setUnitsOpen(false);
+          break;
+        case KEYBOARD_KEYS.UP:
+          if (selectionIndex > 0) {
+            setIndex(selectionIndex - 1);
+          }
+          break;
+        case KEYBOARD_KEYS.DOWN:
+          if (selectionIndex === null) {
+            setIndex(0);
+          } else if (selectionIndex < unitsOptions.length - 1) {
+            setIndex(selectionIndex + 1);
+          }
+          break;
+        case KEYBOARD_KEYS.ESCAPE:
+          setUnitsOpen(false);
+          break;
+      }
+    },
+    [selectionIndex, unitsOptions]
+  );
+
+  useKeypress({
+    keyboardAction: keyboardHandler,
+    handledKeys: [
+      KEYBOARD_KEYS.ENTER,
+      KEYBOARD_KEYS.ESCAPE,
+      KEYBOARD_KEYS.UP,
+      KEYBOARD_KEYS.DOWN,
+    ],
+    addEventListenerCondition: isUnitsOpen,
+    eventListenerDependencies: [selectionIndex, unitsOptions, isUnitsOpen],
+  });
+
   return (
     <Container>
       <TimeLabel>{label}</TimeLabel>
@@ -99,7 +152,10 @@ const TimePeriod: FC<Props> = ({
               <DropdownList
                 ref={activeItemRef}
                 items={unitsOptions}
-                setActiveItem={({ value }) => units === value}
+                setActiveItem={({ value }) =>
+                  typeof selectionIndex === 'number' &&
+                  unitsOptions[selectionIndex].value === value
+                }
                 onClick={(_e, { value: updatedUnits }) => {
                   onChange(`${relativity}_${value}_${updatedUnits}`);
                 }}

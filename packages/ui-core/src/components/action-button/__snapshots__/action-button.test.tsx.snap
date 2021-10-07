@@ -49,6 +49,10 @@ exports[`@keen.io/ui-core - <ActionButton /> should render custom border radius 
   background-color: rgba(119,163,187,0.25);
 }
 
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
+}
+
 .c1 {
   font-family: 'Lato Regular',sans-serif;
   font-size: 25px;

@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { TabsContainer, Tab } from './tabs.styles';
 
 import { TabTypes } from './types';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Tabs configuration */
@@ -16,14 +17,20 @@ type Props = {
 };
 
 const Tabs: FC<Props> = ({ tabs, activeTab, type = 'default', onClick }) => (
-  <TabsContainer data-testid="tabs">
+  <TabsContainer role="tablist">
     {tabs.map(({ label, id }) => (
       <Tab
-        data-testid="tab"
+        role="tab"
         type={type}
         key={id}
         onClick={() => onClick(id)}
+        onKeyDown={(e) => {
+          if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+            onClick(id);
+          }
+        }}
         isActive={id === activeTab}
+        tabIndex={0}
       >
         {label}
       </Tab>

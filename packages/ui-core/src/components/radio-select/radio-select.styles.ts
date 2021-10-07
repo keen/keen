@@ -38,6 +38,10 @@ export const Item = styled.div<{
     border-radius: 0 4px 4px 0;
   }
 
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
+
   ${(props) =>
     props.isActive &&
     css`

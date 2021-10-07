@@ -44,6 +44,10 @@ export const StyledButton = styled.button<ButtonProps>`
         ? props.backgroundHover
         : transparentize(0.75, colors.blue['100'])};
   }
+
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
 `;
 
 type IconProps = {
