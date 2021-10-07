@@ -111,7 +111,7 @@ import {
 } from './components/relative-time/utils';
 import { createTree } from './components/properties-tree/utils';
 
-import { UI_LAYERS, TIME_UNITS } from './constants';
+import { UI_LAYERS, TIME_UNITS, KEYBOARD_KEYS } from './constants';
 
 export type {
   Alignment,
@@ -136,7 +136,7 @@ export type {
   FontSettings,
 };
 
-export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS };
+export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS, KEYBOARD_KEYS };
 
 export { isElementInViewport, exportToHtml, mutateArray } from './utils';
 

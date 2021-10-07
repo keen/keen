@@ -22,7 +22,9 @@ const checkMotion = {
 type Props = {
   id: string;
   type?: Variant;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement> | React.KeyboardEvent<HTMLDivElement>
+  ) => void;
   checked?: boolean;
   disabled?: boolean;
 };
@@ -35,7 +37,11 @@ export const Checkbox: FC<Props> = ({
   disabled = false,
 }) => {
   return (
-    <Container>
+    <Container
+      role="checkbox"
+      tabIndex={0}
+      onKeyPress={(e) => onChange && onChange(e)}
+    >
       <HiddenInput
         id={id}
         checked={checked}

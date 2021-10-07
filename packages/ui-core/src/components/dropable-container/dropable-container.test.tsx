@@ -2,6 +2,7 @@ import React from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import DropableContainer from './dropable-container.component';
+import { KEYBOARD_KEYS } from '../../constants';
 
 const render = (overProps: any = {}) => {
   const props = {
@@ -31,6 +32,18 @@ test('calls "onClick" event handler', () => {
 
   const container = getByTestId('dropable-container');
   fireEvent.click(container);
+
+  expect(props.onClick).toHaveBeenCalled();
+});
+
+test('calls "onClick" event handler invoked by keyboard', () => {
+  const {
+    wrapper: { getByTestId },
+    props,
+  } = render();
+
+  const container = getByTestId('dropable-container');
+  fireEvent.keyDown(container, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
 
   expect(props.onClick).toHaveBeenCalled();
 });

@@ -2,6 +2,12 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
+export const Container = styled.div`
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
+`;
+
 export const ListItem = styled.div<{
   isActive?: boolean;
 }>`

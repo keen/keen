@@ -21,6 +21,10 @@ export const MenuItem = styled.li<{ isActive?: boolean }>`
     margin-bottom: 0;
   }
 
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
+
   ${(props) =>
     props.isActive &&
     css`

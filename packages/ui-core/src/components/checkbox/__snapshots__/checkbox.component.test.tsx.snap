@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] = `
+exports[`should set primary checkbox style 1`] = `
 .c0 {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+}
+
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
 }
 
 .c2 {
@@ -32,51 +36,34 @@ exports[`@keen.io/ui-core - <Checkbox /> should set primary checkbox style 1`] =
   width: 1px;
 }
 
-<Component
-  id="id"
-  onChange={[MockFunction]}
->
-  <styled.div>
+<div>
+  <div
+    class="c0"
+    role="checkbox"
+    tabindex="0"
+  >
+    <input
+      class="c1"
+      id="@checkbox-1"
+      type="checkbox"
+    />
     <div
-      className="c0"
-    >
-      <styled.input
-        checked={false}
-        disabled={false}
-        id="id"
-        onChange={[Function]}
-      >
-        <input
-          checked={false}
-          className="c1"
-          disabled={false}
-          id="id"
-          onChange={[Function]}
-          type="checkbox"
-        />
-      </styled.input>
-      <styled.div
-        checked={false}
-        type="primary"
-      >
-        <div
-          checked={false}
-          className="c2"
-          type="primary"
-        >
-          <AnimatePresence />
-        </div>
-      </styled.div>
-    </div>
-  </styled.div>
-</Component>
+      class="c2"
+      type="primary"
+    />
+  </div>
+</div>
 `;
 
-exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`] = `
+exports[`should set secondary checkbox style 1`] = `
 .c0 {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+}
+
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
 }
 
 .c2 {
@@ -105,43 +92,21 @@ exports[`@keen.io/ui-core - <Checkbox /> should set secondary checkbox style 1`]
   width: 1px;
 }
 
-<Component
-  id="id"
-  onChange={[MockFunction]}
-  type="secondary"
->
-  <styled.div>
+<div>
+  <div
+    class="c0"
+    role="checkbox"
+    tabindex="0"
+  >
+    <input
+      class="c1"
+      id="@checkbox-1"
+      type="checkbox"
+    />
     <div
-      className="c0"
-    >
-      <styled.input
-        checked={false}
-        disabled={false}
-        id="id"
-        onChange={[Function]}
-      >
-        <input
-          checked={false}
-          className="c1"
-          disabled={false}
-          id="id"
-          onChange={[Function]}
-          type="checkbox"
-        />
-      </styled.input>
-      <styled.div
-        checked={false}
-        type="secondary"
-      >
-        <div
-          checked={false}
-          className="c2"
-          type="secondary"
-        >
-          <AnimatePresence />
-        </div>
-      </styled.div>
-    </div>
-  </styled.div>
-</Component>
+      class="c2"
+      type="secondary"
+    />
+  </div>
+</div>
 `;

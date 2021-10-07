@@ -6,6 +6,7 @@ import { colors } from '@keen.io/colors';
 import { Header, MotionIcon } from './tree-node.styles';
 
 import { PADDING } from './constants';
+import { KEYBOARD_KEYS } from '../../../../constants';
 
 type Props = {
   /** Node name */
@@ -22,6 +23,10 @@ const TreeNode: FC<Props> = ({ name, deepnessLevel, isOpen, onClick }) => (
   <Header
     style={{ paddingLeft: PADDING + deepnessLevel * PADDING }}
     onClick={onClick}
+    onKeyDown={(e) => {
+      if (e.keyCode === KEYBOARD_KEYS.ENTER) onClick();
+    }}
+    tabIndex={0}
   >
     <BodyText
       variant="body2"

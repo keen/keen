@@ -11,6 +11,10 @@ export const ToggleWrapper = styled.div<{ isDisabled: boolean }>`
   position: relative;
   cursor: pointer;
 
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
+
   ${(props) =>
     props.isDisabled &&
     css`

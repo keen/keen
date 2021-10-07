@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import SideMenuComponent from './side-menu.component';
+import { KEYBOARD_KEYS } from '../../constants';
 
 const menuItems = [
   {
@@ -38,4 +39,16 @@ test('allows user to select item', () => {
   fireEvent.click(element);
 
   expect(mockFn).toHaveBeenCalledWith(menuItems[1].id);
+});
+
+test('allows user to select item by enter press', () => {
+  const mockFn = jest.fn();
+  const { getByText } = render(
+    <SideMenuComponent menuItems={menuItems} onChange={mockFn} />
+  );
+
+  const element = getByText(menuItems[2].label);
+  fireEvent.keyDown(element, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
+
+  expect(mockFn).toHaveBeenCalledWith(menuItems[2].id);
 });

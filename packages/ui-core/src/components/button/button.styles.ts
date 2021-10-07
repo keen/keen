@@ -99,6 +99,10 @@ const buttonMixin = () => css`
   &:hover {
     text-decoration: none;
   }
+
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
 `;
 
 type Props = {

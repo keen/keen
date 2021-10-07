@@ -1,77 +1,104 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Checkbox from './checkbox.component';
+import { KEYBOARD_KEYS } from '../../constants';
 
-describe('@keen.io/ui-core - <Checkbox />', () => {
-  it('should call "onChange" handler', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Checkbox id="id" checked={true} onChange={mockFn} />
-    );
+const render = (overProps: any = {}) => {
+  const props = {
+    id: '@checkbox-1',
+    ...overProps,
+  };
 
-    wrapper
-      .find('input[type="checkbox"]')
-      .first()
-      .simulate('change', {
-        target: { checked: true },
-      });
+  const wrapper = rtlRender(<Checkbox {...props} />);
 
-    expect(mockFn).toHaveBeenCalled();
-  });
+  return {
+    wrapper,
+    props,
+  };
+};
 
-  it('should set checkbox element "checked" to truthy value', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Checkbox id="id" checked={true} onChange={mockFn} />
-    );
+test('should call "onChange" handler', () => {
+  const mockFn = jest.fn();
+  const {
+    wrapper: { container },
+    props,
+  } = render({ onChange: mockFn });
 
-    expect(wrapper.find('input[type="checkbox"]').props().checked).toBeTruthy();
-  });
+  const element = container.querySelector('input[type="checkbox"]');
+  fireEvent.click(element);
 
-  it('should set checkbox element "checked" to false value', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Checkbox id="id" checked={false} onChange={mockFn} />
-    );
+  expect(props.onChange).toHaveBeenCalled();
+});
 
-    expect(wrapper.find('input[type="checkbox"]').props().checked).toBeFalsy();
-  });
+test('should call "onChange" handler on Enter press', () => {
+  const mockFn = jest.fn();
+  const {
+    wrapper: { container },
+    props,
+  } = render({ onChange: mockFn });
 
-  it('should set checkbox element "disabled" to truthy value', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Checkbox id="id" disabled={true} onChange={mockFn} />
-    );
+  const element = container.querySelector('input[type="checkbox"]');
+  fireEvent.keyPress(element, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
 
-    expect(
-      wrapper.find('input[type="checkbox"]').props().disabled
-    ).toBeTruthy();
-  });
+  expect(props.onChange).toHaveBeenCalled();
+});
 
-  it('should set checkbox element "disabled" to false value', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Checkbox id="id" disabled={false} onChange={mockFn} />
-    );
+test('should set checkbox element "checked" to truthy value', () => {
+  const {
+    wrapper: { container },
+  } = render({ checked: true });
+  const element = container.querySelector(
+    'input[type="checkbox"]'
+  ) as HTMLInputElement;
 
-    expect(wrapper.find('input[type="checkbox"]').props().disabled).toBeFalsy();
-  });
+  expect(element.checked).toBe(true);
+});
 
-  it('should set primary checkbox style', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(<Checkbox id="id" onChange={mockFn} />);
+test('should set checkbox element "checked" to false value', () => {
+  const {
+    wrapper: { container },
+  } = render({ checked: false });
+  const element = container.querySelector(
+    'input[type="checkbox"]'
+  ) as HTMLInputElement;
 
-    expect(wrapper).toMatchSnapshot();
-  });
+  expect(element.checked).toBe(false);
+});
 
-  it('should set secondary checkbox style', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(
-      <Checkbox id="id" type="secondary" onChange={mockFn} />
-    );
+test('should set checkbox element "disabled" to truthy value', () => {
+  const {
+    wrapper: { container },
+  } = render({ disabled: true });
+  const element = container.querySelector(
+    'input[type="checkbox"]'
+  ) as HTMLInputElement;
 
-    expect(wrapper).toMatchSnapshot();
-  });
+  expect(element.disabled).toBe(true);
+});
+
+test('should set checkbox element "disabled" to false value', () => {
+  const {
+    wrapper: { container },
+  } = render({ disabled: false });
+  const element = container.querySelector(
+    'input[type="checkbox"]'
+  ) as HTMLInputElement;
+
+  expect(element.disabled).toBe(false);
+});
+
+test('should set primary checkbox style', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  expect(container).toMatchSnapshot();
+});
+
+test('should set secondary checkbox style', () => {
+  const {
+    wrapper: { container },
+  } = render({ type: 'secondary' });
+  expect(container).toMatchSnapshot();
 });

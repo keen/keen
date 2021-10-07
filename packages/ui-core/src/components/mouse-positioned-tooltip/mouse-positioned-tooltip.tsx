@@ -1,10 +1,9 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Portal from '../portal';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipMode } from '../tooltip';
 import DynamicPortal from '../dynamic-portal';
-import { TooltipMode } from '../tooltip';
-import { UI_LAYERS } from '../../constants';
+import { UI_LAYERS, KEYBOARD_KEYS } from '../../constants';
 import { TooltipWrapper } from './mouse-positioned-tooltip.styles';
 import { TooltipPinPlacements } from './types';
 import { getTooltipTranslation } from './utils/getTooltipTranslation';
@@ -105,22 +104,35 @@ const MousePositionedTooltip = ({
   return (
     <div
       ref={tooltipContainerRef}
-      onMouseEnter={(e) => {
-        e.persist();
-        setTooltipVisible(true);
-        setTooltipPosition(calculateTooltipPosition(e));
-      }}
-      onMouseMove={(e) => {
-        e.persist();
-        if (requestFrameRef.current)
-          cancelAnimationFrame(requestFrameRef.current);
-        requestFrameRef.current = requestAnimationFrame(() => {
-          setTooltipPosition(calculateTooltipPosition(e));
-        });
-      }}
-      onMouseLeave={() => {
-        setTooltipVisible(false);
-      }}
+      {...(isActive
+        ? {
+            onMouseEnter: (e) => {
+              e.persist();
+              setTooltipVisible(true);
+              setTooltipPosition(calculateTooltipPosition(e));
+            },
+            onMouseMove: (e) => {
+              e.persist();
+              if (requestFrameRef.current)
+                cancelAnimationFrame(requestFrameRef.current);
+              requestFrameRef.current = requestAnimationFrame(() => {
+                setTooltipPosition(calculateTooltipPosition(e));
+              });
+            },
+            onMouseLeave: () => {
+              setTooltipVisible(false);
+            },
+            onKeyDown: (e) => {
+              if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+                const { x, y, width } = e.currentTarget.getBoundingClientRect();
+                setTooltipPosition({ x: x + width, y });
+                setTooltipVisible(true);
+              }
+              if (e.keyCode === KEYBOARD_KEYS.ESCAPE) setTooltipVisible(false);
+            },
+            onBlur: () => setTooltipVisible(false),
+          }
+        : {})}
     >
       {children}
       {isActive && (

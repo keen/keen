@@ -49,6 +49,11 @@ export const Container = styled.div<{
   font-family: 'Lato Regular', sans-serif;
   position: relative;
 
+  &:focus-visible {
+    box-shadow: 0 0 3px 1px rgba(29, 39, 41, 0.15);
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
+
   ${(props) =>
     props.isActive &&
     css`

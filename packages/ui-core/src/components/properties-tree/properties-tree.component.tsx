@@ -17,7 +17,10 @@ type Props = {
   /** Properties tree */
   properties: Record<string, string[] | Record<string, any>>;
   /** Click event handler */
-  onClick: (e: React.MouseEvent<HTMLDivElement>, propertyPath: string) => void;
+  onClick: (
+    e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<Element>,
+    propertyPath: string
+  ) => void;
   /** The curent active property */
   activeProperty?: string;
   /** Expand all tree levels */
