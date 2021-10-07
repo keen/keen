@@ -42,7 +42,47 @@ test('creates CSV file strucutre with defined column delimeter', () => {
   `);
 });
 
+test('creates raw data structure for extraction analysis', () => {
+  const query: Query = {
+    analysis_type: 'extraction',
+    event_collection: 'purchases',
+    timeframe: 'last_14_days',
+    property_names: ['ip_address', 'platform'],
+  };
+
+  const keys = ['ip_address', 'platform'];
+  const data = [
+    { ip_address: '54.254.222.167', platform: 'Mobile' },
+    { ip_address: '54.254.140.167', platform: 'Desktop' },
+  ];
+
+  expect(DataExport.exportRawData({ keys, data, query }))
+    .toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "ip_address",
+        "platform",
+      ],
+      Array [
+        "54.254.222.167",
+        "Mobile",
+      ],
+      Array [
+        "54.254.140.167",
+        "Desktop",
+      ],
+    ]
+  `);
+});
+
 test('creates raw data structure from collection of simple objects', () => {
+  const query: Query = {
+    analysis_type: 'count',
+    event_collection: 'purchases',
+    timeframe: 'last_14_days',
+    group_by: ['city', 'country'],
+  };
+
   const keys = ['Japan', 'Australia'];
   const data = [
     {
@@ -57,7 +97,8 @@ test('creates raw data structure from collection of simple objects', () => {
     },
   ];
 
-  expect(DataExport.exportRawData({ keys, data })).toMatchInlineSnapshot(`
+  expect(DataExport.exportRawData({ keys, data, query }))
+    .toMatchInlineSnapshot(`
     Array [
       Array [
         "keen.key",

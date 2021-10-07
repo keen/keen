@@ -36,6 +36,7 @@ export type VisualizationExport = {
 };
 
 export type RawExport = {
+  query: Query;
   data: Record<string, any>;
   keys: string[];
 };
