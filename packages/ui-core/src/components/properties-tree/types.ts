@@ -13,8 +13,5 @@ export type StackElement = Readonly<{
 
 export type TreeData = FixedSizeNodeData &
   Readonly<{
-    isLeaf: boolean;
-    name: string;
-    deepnessLevel: number;
-    schemaMeta: any;
+    style: any;
   }>;
