@@ -84,7 +84,7 @@ test('Should keep datetime unchanged when neither date nor time format provided'
   expect(result).toEqual('2020-12-02T04:02:34-06:00');
 });
 
-test('should apply mathematical operation if available operation is provided and operation value is a number with decimal value', () => {
+test('should apply mathematical operation if available operation is provided and operation value is floating point number', () => {
   const pattern = '${number; 0.00; add; 20.12}';
   const value = '20.23';
   const result = formatByPattern(pattern, value);
