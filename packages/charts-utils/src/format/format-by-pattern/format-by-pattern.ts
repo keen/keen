@@ -26,12 +26,12 @@ const formatByPattern = (pattern: string, value: string | number | Date) => {
         operationType &&
         (operationType.trim().toLocaleLowerCase() as MathOperations);
       const numberToFormat =
-        typeof value === 'string' ? parseInt(value, 10) : value;
+        typeof value === 'string' ? parseFloat(value) : value;
       parsedValue = formatNumber(
         numberToFormat,
         formatString,
         parsedOperationType,
-        parseInt(operationValue, 10)
+        parseFloat(operationValue)
       );
     }
     if (variableType === 'datetime') {
