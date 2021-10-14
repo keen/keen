@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
-
-import { DRAG_CLASS } from './constants';
 
 export const Container = styled.div`
   height: 100%;
@@ -14,32 +13,11 @@ export const TableContainer = styled.div`
   height: 100%;
   width: 100%;
   overflow: scroll;
-
-  .${DRAG_CLASS} {
-    background: ${colors.gray[300]};
-    width: 2px;
-    opacity: 0.7;
-  }
-
-  .grip-lastgrip {
-    display: none;
-  }
-
-  .grip-handle {
-    margin-left: -1px;
-    opacity: 0;
-    transition: opacity 0.2s linear;
-    background: ${colors.gray[300]};
-    width: 2px;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 `;
 
 export const Table = styled.table`
   border-collapse: collapse;
+  border: 1px solid transparent;
   cursor: pointer;
   width: 100%;
   margin: 0;
@@ -63,4 +41,22 @@ export const RightOverflow = styled.div`
   top: 0;
   right: -10px;
   box-shadow: 0 -4px 8px ${colors.gray['500']};
+`;
+
+export const StyledCol = styled.col<{
+  isHovered: boolean;
+  isSelected: boolean;
+}>`
+  ${({ isHovered }) =>
+    isHovered &&
+    css`
+      background-color: ${transparentize(0.85, colors.green[300])};
+    `};
+
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background-color: ${transparentize(0.85, colors.green[300])};
+      border: 1px solid ${colors.green[500]};
+    `};
 `;

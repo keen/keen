@@ -3,7 +3,7 @@ version: 2.1
 executors:
   nodejs:
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:12.16
 
 jobs:
   publish:
@@ -34,11 +34,11 @@ jobs:
           command: npx lerna version --conventional-commits --no-push --yes
       - run:
           name: Publish
-          command: npx lerna publish from-git --yes
+          command: npx lerna publish from-git --yes --no-verify-access
       - run:
           name: Push changes
           command: git push --follow-tags --no-verify origin master
-  build:
+  test:
     executor: nodejs
     working_directory: ~/tmp
     steps:
@@ -61,6 +61,20 @@ jobs:
       - run:
           name: Upload code coverage
           command: npx codecov --token=$CODECOV_TOKEN
+  build:
+    executor: nodejs
+    working_directory: ~/tmp
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-deps-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - save_cache:
+          key: npm-deps-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
       - run:
           name: Build
           command: npx lerna run build --concurrency 2
@@ -77,6 +91,13 @@ workflows:
               ignore: /.*/
   ci:
     jobs:
+      - test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+            tags:
+              ignore: /.*/
       - build:
           filters:
             branches:

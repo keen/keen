@@ -10,6 +10,9 @@ export const Container = styled.div`
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
 `;
 
 const iconSocketVariants = {

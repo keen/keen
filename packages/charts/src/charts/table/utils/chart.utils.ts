@@ -1,4 +1,15 @@
-import { FormatFunction, ValueFormatter, HeaderCell } from '../types';
+import {
+  Formatter,
+  formatValue,
+  extractFormatterType,
+} from '@keen.io/charts-utils';
+import { CellTextAlignment, TableRowData } from '@keen.io/ui-core';
+import {
+  FormatFunction,
+  ValueFormatter,
+  HeaderCell,
+  FormattedValue,
+} from '../types';
 
 /**
  * Generates table header
@@ -8,20 +19,11 @@ import { FormatFunction, ValueFormatter, HeaderCell } from '../types';
  * @return data collection used to render table header
  *
  */
-export const generateHeader = (
-  data: Record<string, any>,
-  format: Record<string, FormatFunction>
-) => {
+export const generateHeader = (data: Record<string, any>) => {
   const header: HeaderCell[] = [];
   Object.keys(data).map((key: string) => {
-    const formatFunc =
-      format !== null && typeof format === 'object' && format[key]
-        ? format[key]
-        : null;
-
     header.push({
       key: key,
-      value: formatFunc ? formatFunc(key) : key,
       align: typeof data[key] === 'number' ? 'right' : 'left',
     });
   });
@@ -45,10 +47,18 @@ export const generateTable = (
     Object.keys(el).map((key: string) => {
       if (format !== null && typeof format === 'object') {
         const formatObj = format && (format as Record<string, FormatFunction>);
-        const formatFunc = formatObj[key] && formatObj[key];
+        const formatter = formatObj[key] && (formatObj[key] as Formatter);
         return (table = {
           ...table,
-          [key]: formatFunc ? formatFunc(el[key]) : el[key],
+          [key]: formatter
+            ? ({
+                value: formatValue(el[key], formatter),
+                formatterType:
+                  typeof formatter === 'string'
+                    ? extractFormatterType(formatter)
+                    : undefined,
+              } as FormattedValue)
+            : el[key],
         });
       }
       return (table = {
@@ -78,4 +88,43 @@ export const setColumnsOrder = (
   return data.map((item) =>
     columnsOrder.reduce((acc, key) => ({ ...acc, [key]: item[key] }), {})
   );
+};
+
+const isFormattedValue = (el: any): el is FormattedValue =>
+  typeof el === 'object' && el !== null && 'value' in el;
+
+/**
+ * Generates table data with value and cell alignment
+ *
+ * @param el - data serie
+ * @return transformed data
+ *
+ */
+export const generateTableRowData = (
+  el: Record<string, any>
+): Record<string, TableRowData> => {
+  let tableRowData = {} as Record<string, any>;
+
+  Object.keys(el).map((key) => {
+    let alignment: CellTextAlignment = 'left';
+    let val = el[key];
+
+    if (isFormattedValue(el[key])) {
+      const { value, formatterType } = el[key];
+      alignment = formatterType === 'number' ? 'right' : 'left';
+      val = value;
+    }
+    if (typeof el[key] === 'number') {
+      alignment = 'right';
+    }
+
+    return (tableRowData = {
+      ...tableRowData,
+      [key]: {
+        value: val,
+        alignment,
+      },
+    });
+  });
+  return tableRowData;
 };

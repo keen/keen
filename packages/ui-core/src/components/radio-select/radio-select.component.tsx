@@ -5,6 +5,7 @@ import { colors } from '@keen.io/colors';
 import { Container, Item, Divider } from './radio-select.styles';
 
 import { RadioItem } from '../../types';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Collection of items */
@@ -16,10 +17,20 @@ type Props = {
 };
 
 const RadioGroup: FC<Props> = ({ items, activeItem, onClick }) => (
-  <Container>
+  <Container role="tablist">
     {items.map((item, idx, arr) => (
       <React.Fragment key={item.id}>
-        <Item isActive={item.id === activeItem} onClick={() => onClick(item)}>
+        <Item
+          isActive={item.id === activeItem}
+          onClick={() => onClick(item)}
+          role="tab"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+              onClick(item);
+            }
+          }}
+        >
           <BodyText variant="body2" color={colors.blue[500]}>
             {item.label}
           </BodyText>

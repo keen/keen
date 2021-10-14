@@ -60,7 +60,7 @@ export const Tooltip: FC<Props> = ({
         </Value>
       </TotalContainer>
       {partialElements && (
-        <PartialsContainer>
+        <PartialsContainer mode={mode}>
           {partialElements.map(({ label, value, percentValue }) => (
             <PartialItem key={`${label}-${value}`}>
               <Text {...theme.labels.typography}>

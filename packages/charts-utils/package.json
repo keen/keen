@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/charts-utils",
-  "version": "1.8.3",
+  "version": "1.13.0",
   "description": "Keen utilities",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -26,8 +26,13 @@
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
+  "peerDependencies": {
+    "dayjs": "^1.10.4",
+    "moment-timezone": "^0.5.33",
+    "numeral": "^2.0.6"
+  },
   "dependencies": {
-    "@keen.io/query": "^1.1.2",
+    "@keen.io/query": "^1.2.0",
     "d3-array": "^2.4.0",
     "d3-format": "^1.4.3",
     "d3-scale": "^3.2.1",

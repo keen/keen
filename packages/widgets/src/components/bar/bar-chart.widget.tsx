@@ -6,7 +6,9 @@ import {
   SeriesLegend,
   theme as defaultTheme,
 } from '@keen.io/charts';
-import { useLegend } from '@keen.io/react-hooks';
+import { useLegend, useDataSeriesOffset } from '@keen.io/react-hooks';
+
+import { getOffsetRangeColor } from '@keen.io/charts-utils';
 
 import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
@@ -28,6 +30,10 @@ export const BarChartWidget: FC<Props> = ({
 }) => {
   const { disabledKeys, updateKeys } = useLegend();
   const [activeKey, setActiveKey] = useState<string>(null);
+  const { setDataSeriesOffset, dataSeriesOffset } = useDataSeriesOffset(
+    theme.colors.length,
+    legend.enabled
+  );
 
   return (
     <ChartWidget
@@ -44,14 +50,16 @@ export const BarChartWidget: FC<Props> = ({
         legend.enabled && (
           <SeriesLegend
             {...legend}
+            disabledKeys={disabledKeys}
             onClick={updateKeys}
             onActivate={(label: string) => setActiveKey(label)}
             onDeactivate={() => setActiveKey(null)}
             colorPalette={theme.colors}
             dataSeries={props.keys.map((key, idx) => ({
               name: key,
-              color: theme.colors[idx],
+              color: getOffsetRangeColor(idx, theme.colors, dataSeriesOffset),
             }))}
+            onOffsetUpdate={(offset) => setDataSeriesOffset(offset)}
           />
         )
       }
@@ -63,6 +71,7 @@ export const BarChartWidget: FC<Props> = ({
               disabledKeys={disabledKeys}
               activeKey={activeKey}
               svgDimensions={{ width, height }}
+              dataSeriesOffset={dataSeriesOffset}
               {...props}
             />
           )}

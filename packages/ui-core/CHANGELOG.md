@@ -3,6 +3,736 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.41.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.2...@keen.io/ui-core@2.41.3) (2021-09-30)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.41.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.1...@keen.io/ui-core@2.41.2) (2021-09-27)
+
+
+### Bug Fixes
+
+* 🐛 Fix for non string children for bagde and truncate true ([2e4b9a0](https://github.com/keen/keen/commit/2e4b9a0232b3b2b4d8802c59093a933222a72338))
+
+
+
+
+
+## [2.41.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.41.0...@keen.io/ui-core@2.41.1) (2021-09-24)
+
+
+### Bug Fixes
+
+* 🐛 Changes ([f90cf76](https://github.com/keen/keen/commit/f90cf760334741932aa9e0c1a41566e1496a0d17))
+
+
+
+
+
+# [2.41.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.8...@keen.io/ui-core@2.41.0) (2021-09-24)
+
+
+### Features
+
+* 🎸 Bagde changes for DC tags components ([f935ef6](https://github.com/keen/keen/commit/f935ef6fa321b9104db4f2c428c2120f3c7f6405))
+
+
+
+
+
+## [2.40.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.7...@keen.io/ui-core@2.40.8) (2021-09-16)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.6...@keen.io/ui-core@2.40.7) (2021-09-14)
+
+
+### Bug Fixes
+
+* 🐛 keep alignment for formatted numbers ([89e85c3](https://github.com/keen/keen/commit/89e85c3f06838412b12a8ab2ccad35962400f4e9))
+
+
+
+
+
+## [2.40.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.5...@keen.io/ui-core@2.40.6) (2021-09-10)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.4...@keen.io/ui-core@2.40.5) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.3...@keen.io/ui-core@2.40.4) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.2...@keen.io/ui-core@2.40.3) (2021-09-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.1...@keen.io/ui-core@2.40.2) (2021-09-08)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.40.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.40.0...@keen.io/ui-core@2.40.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 apply formatters to slider ([eb8bf91](https://github.com/keen/keen/commit/eb8bf912a90df59b1fcee357d6829f6e8596d34e))
+
+
+
+
+
+# [2.40.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.5...@keen.io/ui-core@2.40.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 enhance table with columns selection ([d311197](https://github.com/keen/keen/commit/d311197dcc1698fb91e89d0e3eb127183b4ce39a))
+
+
+
+
+
+## [2.39.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.4...@keen.io/ui-core@2.39.5) (2021-08-31)
+
+
+### Bug Fixes
+
+* 🐛 Color copy/paste enabled ([118b64c](https://github.com/keen/keen/commit/118b64ca36e91e9eb86b1a100ed8a658f353f096))
+
+
+
+
+
+## [2.39.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.3...@keen.io/ui-core@2.39.4) (2021-08-25)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.39.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.2...@keen.io/ui-core@2.39.3) (2021-08-12)
+
+
+### Bug Fixes
+
+* 🐛 animation glitch for accordion ([cc88c9e](https://github.com/keen/keen/commit/cc88c9e2556946bd4ce35fccae1348756e40ae1f))
+
+
+
+
+
+## [2.39.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.1...@keen.io/ui-core@2.39.2) (2021-07-30)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.39.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.39.0...@keen.io/ui-core@2.39.1) (2021-07-16)
+
+
+### Bug Fixes
+
+* 🐛 Disable chart card - implementation change ([089be26](https://github.com/keen/keen/commit/089be2624e8352835acf410f0131b0a87ecb226e))
+
+
+
+
+
+# [2.39.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.38.0...@keen.io/ui-core@2.39.0) (2021-07-15)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([1c79afe](https://github.com/keen/keen/commit/1c79afe4aa10a3b3d446e263ec1cdb89c429a650))
+* 🐛 Prop type fix ([107055d](https://github.com/keen/keen/commit/107055d3f5b46896dfaf45860b48664469e8262e))
+* 🐛 set scroll position once the modal is open ([1e9d114](https://github.com/keen/keen/commit/1e9d114c4a1a9fb12799d941ecc5c0cab9fe1afa))
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
+# [2.38.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.37.1...@keen.io/ui-core@2.38.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Disable card interface ([aea5813](https://github.com/keen/keen/commit/aea581340b7c0ec4f0e48c00b3505cbc04e08382))
+
+
+
+
+
+## [2.37.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.37.0...@keen.io/ui-core@2.37.1) (2021-07-15)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.37.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.3...@keen.io/ui-core@2.37.0) (2021-07-13)
+
+
+### Features
+
+* 🎸 Side menu component added ([de5dd0e](https://github.com/keen/keen/commit/de5dd0e5ccd245f1b1d147a9af6ae1a2d82d96d5))
+
+
+
+
+
+## [2.36.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.2...@keen.io/ui-core@2.36.3) (2021-07-05)
+
+
+### Bug Fixes
+
+* 🐛 Typography settings background fix ([0e7af43](https://github.com/keen/keen/commit/0e7af43a59c6293179ac795b51ed43e86b31f75f))
+
+
+
+
+
+## [2.36.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.1...@keen.io/ui-core@2.36.2) (2021-07-05)
+
+
+### Bug Fixes
+
+* 🐛 Chart theminng fixes ([1524344](https://github.com/keen/keen/commit/1524344d4a280b093b67825893e73f03a618fd92))
+* 🐛 font weight removed from font type ([1c9d9a0](https://github.com/keen/keen/commit/1c9d9a097bb23f848a66c9db36a60ae1d5be76b3))
+
+
+
+
+
+## [2.36.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.36.0...@keen.io/ui-core@2.36.1) (2021-07-02)
+
+
+### Bug Fixes
+
+* 🐛 Test fixes ([afe519c](https://github.com/keen/keen/commit/afe519c0b552add14c49f2cbf58d8c9b75ee01bd))
+
+
+
+
+
+# [2.36.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.35.1...@keen.io/ui-core@2.36.0) (2021-07-02)
+
+
+### Features
+
+* 🎸 Position of typographt dropdowns changed ([5b98383](https://github.com/keen/keen/commit/5b98383b24574b0301c777f29e7d1cec03e57024))
+* 🎸 RadioSelect component ([d4bba57](https://github.com/keen/keen/commit/d4bba577a6827404f4c22053cfde71fbe4638be3))
+* 🎸 Typography position changes ([84c0241](https://github.com/keen/keen/commit/84c024121c87044d982244ee0b9593352376cf0e))
+
+
+
+
+
+## [2.35.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.35.0...@keen.io/ui-core@2.35.1) (2021-07-01)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.35.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.34.0...@keen.io/ui-core@2.35.0) (2021-07-01)
+
+
+### Bug Fixes
+
+* 🐛 Removed bodyText component from attribute-dropdown ([7d6cc01](https://github.com/keen/keen/commit/7d6cc01e1c30dff41a8cd41554734f5a289304a9))
+
+
+### Features
+
+* 🎸 typography settings options ([1df4f61](https://github.com/keen/keen/commit/1df4f618726ca122a4415572f785395aaae23f7f))
+
+
+
+
+
+# [2.34.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.33.1...@keen.io/ui-core@2.34.0) (2021-07-01)
+
+
+### Bug Fixes
+
+* 🐛 Missing imports added ([6b7f075](https://github.com/keen/keen/commit/6b7f0750601c4a7b19c217a6c37b8b53df569e06))
+* 🐛 Typography fixes ([01a01ca](https://github.com/keen/keen/commit/01a01ca0f51b9c633c80369cf3529bc9b78334d9))
+
+
+### Features
+
+* 🎸 Added functionality to disable settings ([120fea0](https://github.com/keen/keen/commit/120fea01b8db13c778df251005de7686ad8167d4))
+* 🎸 Typography component ([1370c99](https://github.com/keen/keen/commit/1370c99d7abc7ba49a26714d30281ad49c5caa6d))
+* 🎸 TypographySettings component ([225f244](https://github.com/keen/keen/commit/225f244b63b7b25e96c82df68c42e7646176c036))
+
+
+
+
+
+## [2.33.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.33.0...@keen.io/ui-core@2.33.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* 🐛 Color picker components - tests console errors fixed ([1839f9f](https://github.com/keen/keen/commit/1839f9fb99fe55fbbdf504b8d89ce220a1101208))
+
+
+
+
+
+# [2.33.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.32.0...@keen.io/ui-core@2.33.0) (2021-06-22)
+
+
+### Features
+
+* 🎸 Light mode applied to chart tooltips ([fb62e62](https://github.com/keen/keen/commit/fb62e623d1bed0e6509e82bdea3df69da4ad68c5))
+* 🎸 TooltipMode as theme type added to TooltipSettings ([f982111](https://github.com/keen/keen/commit/f982111254f3041d807ad1df35e4e00204063eb3))
+
+
+
+
+
+# [2.32.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.31.1...@keen.io/ui-core@2.32.0) (2021-06-11)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([f3abbfb](https://github.com/keen/keen/commit/f3abbfbb3be8387c143c20a16865287eea242a87))
+
+
+### Features
+
+* 🎸 Widget tags added ([4c0580e](https://github.com/keen/keen/commit/4c0580e93bfed0bb952f68f0037a641491045f3d))
+
+
+
+
+
+## [2.31.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.31.0...@keen.io/ui-core@2.31.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* 🐛 FadeMask background animation ([6bbfa67](https://github.com/keen/keen/commit/6bbfa67ea392903a43b4a38844cd7d3c341f037a))
+
+
+
+
+
+# [2.31.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.30.0...@keen.io/ui-core@2.31.0) (2021-06-01)
+
+
+### Bug Fixes
+
+* 🐛 ColorPaletteActions renamed ([d1461b7](https://github.com/keen/keen/commit/d1461b7419a7019af885578e5d65e4d90827389e))
+* 🐛 Unused variable removed ([1db7862](https://github.com/keen/keen/commit/1db786285d15c65453c7a0fc1ebc899ed4b8bb2f))
+
+
+### Features
+
+* 🎸 Hiding color picker on scroll ([05e69c3](https://github.com/keen/keen/commit/05e69c3637d12bbb0e7168713a5cea3dfc627bd0))
+
+
+
+
+
+# [2.30.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.29.0...@keen.io/ui-core@2.30.0) (2021-05-31)
+
+
+### Bug Fixes
+
+* 🐛 color palette spacing ([93c5611](https://github.com/keen/keen/commit/93c5611b86478e7a630e2746100f00bc7b2d2835))
+* 🐛 Palette drag exculde fix, default theme colors changed ([fb284a0](https://github.com/keen/keen/commit/fb284a0e40a48cc2223730f6c951785e1313ae05))
+* 🐛 update handleClick dependencies for IntervalSlider ([6cd16d7](https://github.com/keen/keen/commit/6cd16d7b228849eb4fb1e7bba3bbab8af0533701))
+
+
+### Features
+
+* 🎸 Transparent mask in modal, picker - max number of color ([8ee7122](https://github.com/keen/keen/commit/8ee7122e722a4a2afcc932bb20d1cba0978fad43))
+
+
+
+
+
+# [2.29.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.28.1...@keen.io/ui-core@2.29.0) (2021-05-28)
+
+
+### Bug Fixes
+
+* 🐛 Preventing direct modification of colors array from prop ([b1a6b41](https://github.com/keen/keen/commit/b1a6b41d5543fa5fff1e6b124fca3ceb1c297f38))
+
+
+### Features
+
+* 🎸 font loader ([da13944](https://github.com/keen/keen/commit/da139446a2bd622410198af174277e3692d65468))
+* 🎸 slider for theming ([d2afba0](https://github.com/keen/keen/commit/d2afba05ee86b6e50749b21b036462788e3ebaec))
+
+
+
+
+
+## [2.28.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.28.0...@keen.io/ui-core@2.28.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* 🐛 Color palette - detect color palette change ([5f65d64](https://github.com/keen/keen/commit/5f65d6488bc18f1f4d8ce16b13e54e12736ea02e))
+
+
+
+
+
+# [2.28.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.27.1...@keen.io/ui-core@2.28.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* 🐛 CR fixes ([d27a2c0](https://github.com/keen/keen/commit/d27a2c0616f53c95352faae211324279cb3d4271))
+* 🐛 Drag and drop fixed, tests fixed ([1c5990d](https://github.com/keen/keen/commit/1c5990d1a4166b2e578537d3b860f1bf21be2f3d))
+
+
+### Features
+
+* 🎸 Added new props to Card component ([e8ca454](https://github.com/keen/keen/commit/e8ca454df358a4c680f4cf7472b66592234e7aa7))
+* 🎸 Color palette, color picker components ([0526b3d](https://github.com/keen/keen/commit/0526b3d89fcdaf1d1f025cc3b3ef5b87a0d70f51))
+
+
+
+
+
+## [2.27.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.27.0...@keen.io/ui-core@2.27.1) (2021-05-24)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.27.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.26.0...@keen.io/ui-core@2.27.0) (2021-05-24)
+
+
+### Features
+
+* 🎸 Accordion component ([e28f7b2](https://github.com/keen/keen/commit/e28f7b2260ce9851e9f687405d14edafa2bd1915))
+* 🎸 modal fade mask close + heatpam respect theme colors ([f972d30](https://github.com/keen/keen/commit/f972d30f3820ca77bdfe0f2fd4e5970ea56a112c))
+
+
+
+
+
+# [2.26.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.2...@keen.io/ui-core@2.26.0) (2021-05-13)
+
+
+### Features
+
+* 🎸 add enhancements to table ([e8c1e9b](https://github.com/keen/keen/commit/e8c1e9b510d125e1303819c9cc0c5fd36ce17d67))
+
+
+
+
+
+## [2.25.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.1...@keen.io/ui-core@2.25.2) (2021-05-10)
+
+
+### Bug Fixes
+
+* 🐛 MousePositionedTooltip - scroll position added ([5d96b96](https://github.com/keen/keen/commit/5d96b9646480f96c030b6d9efd9ef3ae9fb1932d))
+
+
+
+
+
+## [2.25.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.25.0...@keen.io/ui-core@2.25.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* 🐛 Default pin position added, 'bottom-right' type option, tooltip translation tests added ([1ebbb55](https://github.com/keen/keen/commit/1ebbb55a832d12890bd6dacd19898fb852fa54bb))
+* 🐛 Tooltip pin to cursor position ([c07f98a](https://github.com/keen/keen/commit/c07f98a6a6069a86f1940caf0b354dcea35c6d2c))
+
+
+
+
+
+# [2.25.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.2...@keen.io/ui-core@2.25.0) (2021-05-04)
+
+
+### Features
+
+* 🎸 Choropleth interaction legend added ([a42fcc6](https://github.com/keen/keen/commit/a42fcc6647b9d7c098f107fb5f9471e1fa9b8479))
+
+
+
+
+
+## [2.24.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.1...@keen.io/ui-core@2.24.2) (2021-04-27)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.24.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.24.0...@keen.io/ui-core@2.24.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* 🐛 Missing position in dynamic portal added ([1c49e7f](https://github.com/keen/keen/commit/1c49e7f903ca3ccc1f7ef5c1e9d36dba69e33989))
+* 🐛 Removed id from element ([724018c](https://github.com/keen/keen/commit/724018c4c1d445464498596ee0e76ae2b5051e4f))
+
+
+
+
+
+# [2.24.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.5...@keen.io/ui-core@2.24.0) (2021-04-26)
+
+
+### Features
+
+* 🎸 Dynamic portal component ([b6a2a22](https://github.com/keen/keen/commit/b6a2a22084b7908c2d4b87f213ed7e5fb92a06d7))
+
+
+
+
+
+## [2.23.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.4...@keen.io/ui-core@2.23.5) (2021-04-23)
+
+
+### Bug Fixes
+
+* 🐛 Checkbox alignment ([d671ed0](https://github.com/keen/keen/commit/d671ed08eaf5f9c8ff142922a8e44deb7b2eec07))
+* 🐛 PropertiesTree line height ([54d6c34](https://github.com/keen/keen/commit/54d6c34870c8fc69b08ff3a77a37fa3cbabd0b57))
+
+
+
+
+
+## [2.23.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.3...@keen.io/ui-core@2.23.4) (2021-04-22)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.23.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.2...@keen.io/ui-core@2.23.3) (2021-04-20)
+
+
+### Bug Fixes
+
+* 🐛 align icons in CircleButton ([6ef943e](https://github.com/keen/keen/commit/6ef943edbbcc4b524f7eb77330e09f0688e10003))
+* 🐛 Broken tests fixed ([812f516](https://github.com/keen/keen/commit/812f516ba0afd67584ab9aaaba4087da99f52b7f))
+* 🐛 initial line height fix ([bdd64c7](https://github.com/keen/keen/commit/bdd64c7440ef555ddfed95ad55ed79bae5d33e7d))
+* 🐛 remove <Dropdown> shake while animating ([2091e25](https://github.com/keen/keen/commit/2091e25f49b8316f5d6b3213a40e76f7229119de))
+
+
+
+
+
+## [2.23.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.1...@keen.io/ui-core@2.23.2) (2021-04-19)
+
+
+### Bug Fixes
+
+* 🐛 Line height in tooltip set to initial value ([d6b97e0](https://github.com/keen/keen/commit/d6b97e05037792592d9b2c819827595b003dac76))
+
+
+
+
+
+## [2.23.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.23.0...@keen.io/ui-core@2.23.1) (2021-04-14)
+
+
+### Bug Fixes
+
+* 🐛 Disabled button highlight turned off ([8272a63](https://github.com/keen/keen/commit/8272a63811bf83f5b0fd56832f750cd42cc84dff))
+
+
+
+
+
+# [2.23.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.22.0...@keen.io/ui-core@2.23.0) (2021-04-12)
+
+
+### Features
+
+* 🎸 extend components with custom border radius ([3f74293](https://github.com/keen/keen/commit/3f742936cb6cd01a6330e4554fae2b0f5f2b7c77))
+
+
+
+
+
+# [2.22.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.21.0...@keen.io/ui-core@2.22.0) (2021-04-12)
+
+
+### Features
+
+* 🎸 Disabled button styles added ([ccb0ebb](https://github.com/keen/keen/commit/ccb0ebb648be87c5fb16827a857a3b32c92e0194))
+
+
+
+
+
+# [2.21.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.4...@keen.io/ui-core@2.21.0) (2021-04-08)
+
+
+### Features
+
+* 🎸 Added transparent variant to dropable container ([e3d5da6](https://github.com/keen/keen/commit/e3d5da629a6b558da9c8efbbf638e55d7767331a))
+
+
+
+
+
+## [2.20.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.3...@keen.io/ui-core@2.20.4) (2021-04-07)
+
+
+### Bug Fixes
+
+* 🐛 Swapped z-index values of dropdown and tooltip ([132f8cb](https://github.com/keen/keen/commit/132f8cbe9b443752cb59007f09edf10fda3cf9eb))
+
+
+
+
+
+## [2.20.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.2...@keen.io/ui-core@2.20.3) (2021-04-07)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.20.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.1...@keen.io/ui-core@2.20.2) (2021-04-06)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.20.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.20.0...@keen.io/ui-core@2.20.1) (2021-04-02)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.20.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.19.1...@keen.io/ui-core@2.20.0) (2021-04-02)
+
+
+### Features
+
+* 🎸 timezone error component ([8b74594](https://github.com/keen/keen/commit/8b74594a131219fc2ddf38412fdbb3d7dd9e9a96))
+
+
+
+
+
+## [2.19.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.19.0...@keen.io/ui-core@2.19.1) (2021-04-01)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.19.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.18.1...@keen.io/ui-core@2.19.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* 🐛 Import paths fixed ([5f16045](https://github.com/keen/keen/commit/5f16045694543edb99e62291c6579313c5d3cdb7))
+
+
+### Features
+
+* 🎸 Mouse positioned tooltip added ([0f3cf80](https://github.com/keen/keen/commit/0f3cf80baef77ce3c2e8d87f262f4a33b63aff07))
+
+
+
+
+
+## [2.18.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.18.0...@keen.io/ui-core@2.18.1) (2021-04-01)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.18.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.17.0...@keen.io/ui-core@2.18.0) (2021-03-31)
+
+
+### Bug Fixes
+
+* 🐛 display custom timezone ([5674d0c](https://github.com/keen/keen/commit/5674d0c84eee6b4b099f7f4a6d77b9e0e5fbabaf))
+
+
+### Features
+
+* 🎸 add timezone specific types ([e4bcd65](https://github.com/keen/keen/commit/e4bcd658c62ba47d5aa2e2427e94579b47c58da6))
+
+
+
+
+
+# [2.17.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.16.0...@keen.io/ui-core@2.17.0) (2021-03-31)
+
+
+### Features
+
+* 🎸 enhance <Timezone> with virtual list ([1b7fc3b](https://github.com/keen/keen/commit/1b7fc3bcfcc7fb1f28f25158190473275766c03e))
+
+
+
+
+
 # [2.16.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.15.8...@keen.io/ui-core@2.16.0) (2021-03-25)
 
 

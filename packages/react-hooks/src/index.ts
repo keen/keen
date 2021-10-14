@@ -6,6 +6,9 @@ import {
   useOnClickOutside,
   useDynamicContentPosition,
   useOnParentScroll,
+  useDataSeriesOffset,
+  useKeypress,
+  useScrollOverflowHandler,
 } from './hooks';
 
 export {
@@ -16,4 +19,7 @@ export {
   useOnClickOutside,
   useDynamicContentPosition,
   useOnParentScroll,
+  useDataSeriesOffset,
+  useKeypress,
+  useScrollOverflowHandler,
 };

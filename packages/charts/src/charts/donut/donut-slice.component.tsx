@@ -25,8 +25,12 @@ const sliceVariants = {
 };
 
 const activeVariants = {
-  initial: {
+  default: {
     opacity: 1,
+    scale: 1,
+  },
+  initial: {
+    opacity: 0,
     scale: 1,
   },
   inactive: {
@@ -37,6 +41,13 @@ const activeVariants = {
     opacity: 1,
     scale: 1.05,
   },
+  offsetChange: {
+    opacity: 1,
+    transition: {
+      delay: 0,
+      duration: 0.5,
+    },
+  },
 };
 
 type Props = {
@@ -46,12 +57,13 @@ type Props = {
   autocolor: boolean;
   labelPosition: [number, number];
   activePosition: [number, number];
-  label: string;
+  label: string | number | Date | boolean;
   background: string;
   id: string;
   activeKey?: string;
   onMouseMove: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
   onMouseLeave: (e: React.MouseEvent<SVGGElement, MouseEvent>) => void;
+  dataSeriesOffset?: [number, number];
 };
 
 const DonutSlice: FC<Props> = ({
@@ -66,7 +78,9 @@ const DonutSlice: FC<Props> = ({
   activeKey,
   onMouseLeave,
   onMouseMove,
+  dataSeriesOffset,
 }) => {
+  const [initialDrawFinished, setInitialDraw] = useState(false);
   const [arcProperties, setArcProperties] = useState<ArcProperties>({
     startAngle,
     endAngle,
@@ -83,31 +97,37 @@ const DonutSlice: FC<Props> = ({
   const [labelX, labelY] = labelPosition;
 
   useEffect(() => {
-    const motion = createArcTween(
-      arcProperties,
-      { startAngle, endAngle },
-      draw
-    );
+    if (initialDrawFinished) {
+      const motion = createArcTween(
+        arcProperties,
+        { startAngle, endAngle },
+        draw
+      );
 
-    requestAnimationFrame(() => {
-      animateArcPath(element, motion, () => {
-        setArcProperties({
-          startAngle,
-          endAngle,
+      requestAnimationFrame(() => {
+        animateArcPath(element, motion, () => {
+          setArcProperties({
+            startAngle,
+            endAngle,
+          });
         });
       });
-    });
-    setDelay(true);
+      setDelay(true);
+    }
   }, [startAngle, endAngle]);
 
   useEffect(() => {
     if (activeKey) {
-      activeControls.start(
-        activeKey === id ? activeVariants.active : activeVariants.inactive
-      );
+      activeControls
+        .start(
+          activeKey === id ? activeVariants.active : activeVariants.inactive
+        )
+        .then(() => {
+          setInitialDraw(true);
+        });
     } else {
       activeControls
-        .start(activeVariants.initial, { delay: isDelayed ? 0.5 : 0 })
+        .start(activeVariants.default, { delay: isDelayed ? 0.5 : 0 })
         .then(() => {
           if (isDelayed) {
             setDelay(false);
@@ -115,6 +135,10 @@ const DonutSlice: FC<Props> = ({
         });
     }
   }, [activeKey]);
+
+  useEffect(() => {
+    activeControls.start(activeVariants.offsetChange);
+  }, [dataSeriesOffset]);
 
   return (
     <motion.g
@@ -125,6 +149,7 @@ const DonutSlice: FC<Props> = ({
       data-testid={id}
     >
       <motion.g
+        key={`slice-${background}`}
         onMouseMove={onMouseMove}
         onMouseEnter={() => setActive(true)}
         onMouseLeave={(e) => {
@@ -148,6 +173,7 @@ const DonutSlice: FC<Props> = ({
         />
         {labels.enabled && (
           <motion.g
+            initial={false}
             animate={{ x: labelX, y: labelY }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >

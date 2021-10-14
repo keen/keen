@@ -42,6 +42,10 @@ export const Tab = styled.div<{
     background-color: ${transparentize(0.9, colors.green[100])};
   }
 
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
+  }
+
   ${(props) =>
     props.isActive &&
     css`

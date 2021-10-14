@@ -18,6 +18,7 @@ const render = (overProps: any = {}) => {
     card: {},
     dataSeries,
     colorPalette,
+    disabledKeys: [],
     typography: {
       fontSize: 12,
       fontColor: 'black',
@@ -27,6 +28,7 @@ const render = (overProps: any = {}) => {
     onClick: jest.fn(),
     onActivate: jest.fn(),
     onDeactivate: jest.fn(),
+    onOffsetUpdate: jest.fn(),
     ...overProps,
   };
 

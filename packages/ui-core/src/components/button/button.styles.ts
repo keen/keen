@@ -72,6 +72,10 @@ const disabledVariants = {
         boxShadow: 'none',
       },
     },
+    success: {
+      opacity: 0.5,
+      pointerEvents: 'none',
+    },
   },
 };
 
@@ -94,6 +98,10 @@ const buttonMixin = () => css`
 
   &:hover {
     text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid ${colors.lightBlue[500]};
   }
 `;
 

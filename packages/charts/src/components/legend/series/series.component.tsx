@@ -30,6 +30,10 @@ type Props = {
   onDeactivate?: () => void;
   /** Color palette */
   colorPalette?: string[];
+  /** Disabled keys */
+  disabledKeys?: string[];
+  /** Update visibile data series offset */
+  onOffsetUpdate?: (offset: [number, number]) => void;
 };
 
 export const SeriesLegend: FC<Props> = ({
@@ -43,6 +47,8 @@ export const SeriesLegend: FC<Props> = ({
   onActivate,
   onDeactivate,
   colorPalette,
+  disabledKeys,
+  onOffsetUpdate,
 }) => {
   const commonProps = {
     typography,
@@ -76,6 +82,7 @@ export const SeriesLegend: FC<Props> = ({
           onMouseLeave={() => {
             onDeactivate && onDeactivate();
           }}
+          isDisabled={disabledKeys.includes(name)}
         />
       </div>
     ));
@@ -83,9 +90,17 @@ export const SeriesLegend: FC<Props> = ({
   return (
     <>
       {layout === 'horizontal' ? (
-        <SeriesHorizontal {...commonProps} renderNodes={renderNodes} />
+        <SeriesHorizontal
+          {...commonProps}
+          renderNodes={renderNodes}
+          onOffsetUpdate={(offset) => onOffsetUpdate && onOffsetUpdate(offset)}
+        />
       ) : (
-        <SeriesVertical {...commonProps} renderNodes={renderNodes} />
+        <SeriesVertical
+          {...commonProps}
+          renderNodes={renderNodes}
+          onOffsetUpdate={(offset) => onOffsetUpdate && onOffsetUpdate(offset)}
+        />
       )}
     </>
   );

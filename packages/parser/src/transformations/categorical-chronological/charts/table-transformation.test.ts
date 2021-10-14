@@ -47,33 +47,33 @@ test('transform categorical results in chronological order for table', () => {
     Object {
       "data": Array [
         Object {
-          "Interval": "2020-01-01T00:00:00.000Z",
           "author": "Edwidge Danticat",
           "count.page_views": 95,
+          "interval": "2020-01-01T00:00:00.000Z",
           "name": "Love, Anger, Madness",
         },
         Object {
-          "Interval": "2020-01-01T00:00:00.000Z",
           "author": "George R. R. Martin",
           "count.page_views": 719,
+          "interval": "2020-01-01T00:00:00.000Z",
           "name": "Game of Thrones",
         },
         Object {
-          "Interval": "2020-02-01T00:00:00.000Z",
           "author": "Edwidge Danticat",
           "count.page_views": 2,
+          "interval": "2020-02-01T00:00:00.000Z",
           "name": "Love, Anger, Madness",
         },
         Object {
-          "Interval": "2020-02-01T00:00:00.000Z",
           "author": "George R. R. Martin",
           "count.page_views": 11,
+          "interval": "2020-02-01T00:00:00.000Z",
           "name": "Game of Thrones",
         },
         Object {
-          "Interval": "2020-02-01T00:00:00.000Z",
           "author": "J.K. Rowling",
           "count.page_views": 1,
+          "interval": "2020-02-01T00:00:00.000Z",
           "name": "Harry Potter",
         },
       ],

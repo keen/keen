@@ -1,5 +1,6 @@
 import {
   calculateRange,
+  calculateTotalValue,
   calculateStackedRange,
   getValues,
   getFromPath,
@@ -10,7 +11,7 @@ import {
 
 import { getElementOffset, hasContentOverflow } from './elements';
 
-import { formatByPattern, formatValue } from './format';
+import { formatByPattern, formatValue, extractFormatterType } from './format';
 import { copyToClipboard } from './text';
 import {
   normalizeDate,
@@ -43,15 +44,27 @@ import {
   ScaleSettings,
   Formatter,
   FormatFunction,
+  PatternFormatterDataType,
 } from './types';
 
-import { getPaletteColor, generateContinuousColorScale } from './color';
+import {
+  getPaletteColor,
+  generateContinuousColorScale,
+  getOffsetRangeColor,
+} from './color';
 
-export { TimePrecision, ScaleSettings, Formatter, FormatFunction };
+export {
+  PatternFormatterDataType,
+  TimePrecision,
+  ScaleSettings,
+  Formatter,
+  FormatFunction,
+};
 
 export {
   createDateFormatter,
   createTimeIntervals,
+  calculateTotalValue,
   calculateRotation,
   calculateHypotenuse,
   calculateHypotenuseHeight,
@@ -80,4 +93,6 @@ export {
   INTERVAL_TO_PRECISION,
   getPaletteColor,
   generateContinuousColorScale,
+  getOffsetRangeColor,
+  extractFormatterType,
 };

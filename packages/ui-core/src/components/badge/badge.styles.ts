@@ -8,11 +8,19 @@ import { UI_LAYERS } from '../../constants';
 
 export const Container = styled.div<{
   pointer: boolean;
+  isCSSTruncated: boolean;
 }>`
   display: inline-flex;
   align-items: stretch;
   justify-content: center;
   position: relative;
+
+  ${(props) =>
+    props.isCSSTruncated &&
+    css`
+      max-width: inherit;
+    `};
+
   ${(props) =>
     props.pointer &&
     css`
@@ -24,6 +32,7 @@ type TextWrapperProps = {
   removable?: boolean;
   variant: Variant;
   isActive: boolean;
+  isTruncated: boolean;
 };
 
 export const TextWrapper = styled.span<TextWrapperProps>`
@@ -38,6 +47,14 @@ export const TextWrapper = styled.span<TextWrapperProps>`
   border-radius: ${(props) => (props.removable ? '2px 0 0 2px' : '2px')};
 
   transition: background-color 0.3s ease-in-out;
+
+  ${(props) =>
+    props.isTruncated &&
+    css`
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    `};
 
   ${(props) => variant(createVariants(props.isActive))};
 `;

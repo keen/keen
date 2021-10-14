@@ -9,7 +9,7 @@ import {
   TooltipMotion,
 } from './badge.styles';
 
-import { Variant } from './types';
+import { Variant, TruncateMethod } from './types';
 import { truncate as truncateString } from '../../utils/string.utils';
 import Tooltip from '../tooltip';
 
@@ -20,6 +20,7 @@ type Props = {
   onClick?: () => void;
   onRemove?: () => void;
   truncate?: boolean;
+  truncateMethod?: TruncateMethod;
 };
 
 export const Badge: FC<Props> = ({
@@ -29,6 +30,7 @@ export const Badge: FC<Props> = ({
   onClick,
   onRemove,
   truncate,
+  truncateMethod = 'programmatical',
 }) => {
   const [isActive, setActive] = useState(false);
 
@@ -38,10 +40,15 @@ export const Badge: FC<Props> = ({
     exit: { opacity: 0 },
   };
 
-  let isTruncated = false;
-  let truncatedLabel = '';
+  const isCSSTruncated = truncateMethod === 'css';
+  let isTruncated = truncate;
+  let truncatedLabel = children;
 
-  if (truncate && typeof children === 'string') {
+  if (
+    truncate &&
+    typeof children === 'string' &&
+    truncateMethod === 'programmatical'
+  ) {
     const truncateResult = truncateString(children);
     isTruncated = truncateResult.isTruncated;
     truncatedLabel = truncateResult.value;
@@ -52,12 +59,14 @@ export const Badge: FC<Props> = ({
       onMouseEnter={() => onClick && setActive(true)}
       onMouseLeave={() => onClick && setActive(false)}
       pointer={!!onClick}
+      isCSSTruncated={isCSSTruncated}
     >
       <TextWrapper
         variant={variant}
         isActive={isActive}
         removable={removable}
         onClick={onClick}
+        isTruncated={isCSSTruncated}
       >
         {isTruncated ? truncatedLabel : children}
       </TextWrapper>

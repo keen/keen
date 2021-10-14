@@ -18,7 +18,8 @@ import { generateBlocks } from './utils/heatmap-chart.utils';
 import { theme as defaultTheme } from '../../theme';
 import { DEFAULT_MARGINS } from './constants';
 
-import { CommonChartSettings, TooltipSettings } from '../../types';
+import { CommonChartSettings } from '../../types';
+import { TooltipSettings } from './types';
 
 const tooltipMotion = {
   transition: { duration: 0.3 },

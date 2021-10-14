@@ -2,6 +2,7 @@ import { Meta, Props, IconGallery, IconItem } from "@storybook/addon-docs/blocks
 import { colors } from '@keen.io/colors';
 
 import { Icon } from './icon.component';
+import { Icons } from "../constants";
 
 <Meta title="Components /Icons" component={Icon} />
 
@@ -10,78 +11,7 @@ Reusable icon component that renders a `svg` object.
 
 <br />
 <IconGallery>
-  {[
-    'arrow-down',
-    'arrow-up',
-    'button-arrow',
-    'button-arrow-left',
-    'caret-down',
-    'caret-up',
-    'caret-left',
-    'caret-right',
-    'check',
-    'close',
-    'date-picker',
-    'line',
-    'brand',
-    'info',
-    'image',
-    'question-mark',
-    'eye-solid',
-    'eye-slash-solid',
-    'eye-outline',
-    'cursor-solid',
-    'cursor-outline',
-    'click-solid',
-    'click-outline',
-    'user-solid',
-    'user-outline',
-    'users-solid',
-    'users-outline',
-    'churn-money-outline',
-    'churn-money-solid',
-    'churn-outline',
-    'churn-solid',
-    'money-outline',
-    'money-solid',
-    'lock-open',
-    'lock-closed',
-    'temperature',
-    'search',
-    'text',
-    'actions',
-    'settings',
-    'plus',
-    'funnel-widget-vertical',
-    'funnel-widget-horizontal',
-    'bar-widget-horizontal',
-    'bar-widget-vertical',
-    'line-widget',
-    'json',
-    'table-widget',
-    'area-widget',
-    'metric-widget',
-    'gauge-widget',
-    'heatmap-widget',
-    'pie-widget',
-    'donut-widget',
-    'corner-tick',
-    'choropleth-widget',
-    'delete',
-    'clone',
-    'resize',
-    'share',
-    'drag',
-    'bold-text',
-    'italic-text',
-    'underline-text',
-    'align-left',
-    'align-center',
-    'align-right',
-    'warning',
-    'move',
-    'zoom'
-  ].map((name, idx) => (
+  {Icons.map((name, idx) => (
     <IconItem
       key={idx}
       name={name}>

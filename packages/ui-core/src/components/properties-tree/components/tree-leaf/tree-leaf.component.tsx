@@ -9,6 +9,7 @@ import Portal from '../../../portal';
 import { Container, Type } from './tree-leaf.styles';
 
 import { SEPARATOR, PADDING } from './constants';
+import { KEYBOARD_KEYS } from '../../../../constants';
 
 type Props = {
   /** Property name */
@@ -18,7 +19,10 @@ type Props = {
   /** Property type */
   propertyType: string;
   /** Click event handler */
-  onClick: (e: React.MouseEvent<HTMLDivElement>, propertyPath: string) => void;
+  onClick: (
+    e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<Element>,
+    propertyPath: string
+  ) => void;
   /** Active indicator */
   isActive?: boolean;
   /** Deepness level */
@@ -69,6 +73,12 @@ const TreeLeaf: FC<Props> = ({
         if (isEllipsisActive) setTooltip({ x: 0, y: 0, visible: false });
       }}
       onClick={(e) => onClick(e, propertyPath)}
+      onKeyDown={(e) => {
+        if (e.keyCode === KEYBOARD_KEYS.ENTER) {
+          onClick(e, propertyPath);
+        }
+      }}
+      tabIndex={0}
     >
       <BodyText
         ref={nameRef}

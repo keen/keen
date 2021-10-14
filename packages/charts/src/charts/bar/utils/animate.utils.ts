@@ -42,6 +42,10 @@ export const createBarMotion = ({
   const motion = {
     exit: {
       opacity: 0,
+      transition: {
+        duration: 0,
+        delay: 0,
+      },
     },
     animate: {
       x,
@@ -60,6 +64,14 @@ export const createBarMotion = ({
     },
     inactive: {
       opacity: 0.2,
+    },
+    offsetChange: {
+      opacity: 1,
+      fill: color,
+      transition: {
+        duration: 0.1,
+        delay: 0,
+      },
     },
   };
 

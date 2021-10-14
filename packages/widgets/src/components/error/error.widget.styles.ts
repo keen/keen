@@ -14,14 +14,8 @@ export const Container = styled.div`
 export const Header = styled.div`
   font-size: 20px;
   line-height: 24px;
-  font-family: 'Lato Regular', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   color: ${colors.gray[500]};
-`;
-
-export const Details = styled.div`
-  font-size: 16px;
-  line-height: 19px;
-  font-family: 'Lato Regular', sans-serif;
-  color: ${colors.black[100]};
-  margin-top: 10px;
+  margin-bottom: 10px;
 `;

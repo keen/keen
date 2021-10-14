@@ -67,6 +67,8 @@ export type Props = {
   tooltipSettings?: TooltipSettings;
   /** Active key */
   activeKey?: string;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const LineChart: FC<Props> = ({
@@ -91,6 +93,7 @@ export const LineChart: FC<Props> = ({
   yAxisTitle,
   tooltipSettings = {},
   activeKey,
+  dataSeriesOffset,
 }) => {
   const {
     layoutMargins,
@@ -131,6 +134,7 @@ export const LineChart: FC<Props> = ({
     groupMode,
     areaMode,
     activeKey,
+    dataSeriesOffset,
   });
   const svgElement = useRef<SVGSVGElement>(null);
   const computeTooltipRelative = !showAllMarks(stepMode, marks, lines);
@@ -184,6 +188,7 @@ export const LineChart: FC<Props> = ({
             activeKey={activeKey}
             colorPalette={theme.colors}
             gradientBlocks={gradientBlocks}
+            dataSeriesOffset={dataSeriesOffset}
             onMarkMouseEnter={(e, selectors) => {
               if (themeTooltipSettings.enabled) {
                 updateTooltipPosition(e, selectors);

@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/data-export",
-  "version": "1.0.1",
+  "version": "1.1.2",
   "description": "Keen data export utilities",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -21,6 +21,15 @@
   "scripts": {
     "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "build": "tsc"
+  },
+  "dependencies": {
+    "@keen.io/charts-utils": "^1.13.0",
+    "@keen.io/parser": "^2.8.97",
+    "@keen.io/query": "^1.2.0"
+  },
+  "devDependencies": {
+    "@keen.io/charts": "^2.33.0",
+    "@keen.io/widgets": "^2.16.8"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"

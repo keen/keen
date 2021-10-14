@@ -2,7 +2,6 @@ import {
   generateCircularChart,
   createStackedSlice,
   calculateTresholdPercent,
-  calculateTotalValue,
   getSlicesToStack,
 } from './circular-chart.utils';
 
@@ -16,6 +15,8 @@ describe('@keen/charts - circular chart utils', () => {
     { color: 'violet', value: 3, selector: [3] },
     { color: 'green', value: 2, selector: [4] },
   ];
+
+  const colors = ['red', 'blue', 'yellow', 'violet', 'green'];
 
   describe('getSlicesToStack()', () => {
     it('should get all slices with values that fit threshold percent value', () => {
@@ -57,6 +58,7 @@ describe('@keen/charts - circular chart utils', () => {
         treshold: 5,
         total: 210,
         slicesToStack,
+        colors,
       });
       expect(result).toMatchSnapshot();
     });
@@ -72,6 +74,7 @@ describe('@keen/charts - circular chart utils', () => {
         treshold: 1,
         total: 210,
         slicesToStack,
+        colors,
       });
       expect(result).toMatchSnapshot();
     });
@@ -116,18 +119,6 @@ describe('@keen/charts - circular chart utils', () => {
       });
 
       expect(arcs).toMatchSnapshot();
-    });
-  });
-
-  describe('calculateTotalValue()', () => {
-    it('should return 166', () => {
-      const result = calculateTotalValue(
-        pieChart.data,
-        pieChart.labelSelector,
-        pieChart.keys
-      );
-
-      expect(result).toEqual(166);
     });
   });
 });

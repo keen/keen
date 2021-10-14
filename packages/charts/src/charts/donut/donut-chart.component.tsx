@@ -2,13 +2,9 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
-import { formatValue } from '@keen.io/charts-utils';
+import { formatValue, calculateTotalValue } from '@keen.io/charts-utils';
 
-import {
-  generateCircularChart,
-  LabelsPosition,
-  calculateTotalValue,
-} from '../../utils';
+import { generateCircularChart, LabelsPosition } from '../../utils';
 import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
 
 import DonutSlice from './donut-slice.component';
@@ -20,7 +16,12 @@ import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ItemData, TooltipSettings } from '../../types';
+import {
+  CommonChartSettings,
+  ItemData,
+  TooltipSettings,
+  CircularChartValueMode,
+} from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -54,7 +55,11 @@ export type Props = {
   /** Active key */
   activeKey?: string;
   /** Return dataKeys after stacking */
-  onDataStack?: (keys: string[]) => void;
+  onFinalDataStack?: (keys: string[]) => void;
+  /** Value mode */
+  valueMode?: CircularChartValueMode;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const DonutChart: FC<Props> = ({
@@ -73,9 +78,11 @@ export const DonutChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
-  onDataStack,
+  onFinalDataStack,
   tooltipSettings = {},
   activeKey,
+  valueMode = 'percentage',
+  dataSeriesOffset,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -87,7 +94,7 @@ export const DonutChart: FC<Props> = ({
     total: totalValue,
     arcs,
     drawArc,
-    stackedElem,
+    sortedDataSeries,
   } = generateCircularChart({
     data,
     margins,
@@ -104,10 +111,12 @@ export const DonutChart: FC<Props> = ({
     colors: theme.colors,
     type: 'donut',
     treshold,
+    formatValue: tooltipSettings.formatValue,
+    dataSeriesOffset,
   });
 
   useEffect(() => {
-    onDataStack && onDataStack(stackedElem);
+    onFinalDataStack && onFinalDataStack(sortedDataSeries);
   }, []);
 
   const svgElement = useRef<SVGSVGElement>(null);
@@ -154,6 +163,7 @@ export const DonutChart: FC<Props> = ({
                     selectors: tooltipSelectors,
                     disabledLabels,
                     formatValue: tooltipSettings.formatValue,
+                    valueMode,
                   })}
                   renderItem={(_idx, item) => (
                     <TooltipItem data={item.data as ItemData} theme={theme} />
@@ -183,7 +193,8 @@ export const DonutChart: FC<Props> = ({
               {arcs.map(
                 ({
                   dataKey,
-                  label,
+                  labelNumeric,
+                  labelPercentage,
                   labelPosition,
                   activePosition,
                   startAngle,
@@ -200,7 +211,11 @@ export const DonutChart: FC<Props> = ({
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}
-                    label={label}
+                    label={
+                      valueMode === 'percentage'
+                        ? labelPercentage
+                        : labelNumeric
+                    }
                     autocolor={labelsAutocolor}
                     activePosition={activePosition}
                     labelPosition={labelPosition}
@@ -212,6 +227,7 @@ export const DonutChart: FC<Props> = ({
                       }
                     }}
                     onMouseLeave={() => hideTooltip()}
+                    dataSeriesOffset={dataSeriesOffset}
                   />
                 )
               )}

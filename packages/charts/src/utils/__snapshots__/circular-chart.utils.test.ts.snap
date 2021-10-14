@@ -98,56 +98,15 @@ exports[`@keen/charts - circular chart utils generateCircularChart() should calc
 Array [
   Object {
     "activePosition": Array [
-      -14.795169021596411,
-      -13.457450487458384,
-    ],
-    "color": "#85B4C3",
-    "dataKey": "Books",
-    "endAngle": 5.866829654294192,
-    "index": "4",
-    "label": "13.3%",
-    "labelPosition": Array [
-      -51.78309157558744,
-      -47.101076706104344,
-    ],
-    "selector": Array [
-      0,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 5.034118348523403,
-  },
-  Object {
-    "activePosition": Array [
-      -6.682083429947796,
-      18.85072309051345,
-    ],
-    "color": "#487650",
-    "dataKey": "Apps",
-    "endAngle": 4.087855501056598,
-    "index": "2",
-    "label": "19.3%",
-    "labelPosition": Array [
-      -23.387292004817287,
-      65.97753081679708,
-    ],
-    "selector": Array [
-      1,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 2.876639056299088,
-  },
-  Object {
-    "activePosition": Array [
       13.457450487458381,
       -14.795169021596415,
     ],
-    "color": "#D95B24",
+    "color": "#85B4C3",
     "dataKey": "Games",
     "endAngle": 1.4761700420482162,
     "index": "0",
-    "label": "23.5%",
+    "labelNumeric": 39,
+    "labelPercentage": "23.5%",
     "labelPosition": Array [
       47.10107670610433,
       -51.78309157558745,
@@ -161,35 +120,15 @@ Array [
   },
   Object {
     "activePosition": Array [
-      -19.771211711837772,
-      3.0164859432274804,
-    ],
-    "color": "#27566D",
-    "dataKey": "Sounds",
-    "endAngle": 5.034118348523403,
-    "index": "3",
-    "label": "15.1%",
-    "labelPosition": Array [
-      -69.19924099143219,
-      10.557700801296182,
-    ],
-    "selector": Array [
-      3,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 4.087855501056598,
-  },
-  Object {
-    "activePosition": Array [
       16.4431202338962,
       11.385244704161323,
     ],
-    "color": "#E29B1E",
+    "color": "#487650",
     "dataKey": "Cars",
     "endAngle": 2.876639056299088,
     "index": "1",
-    "label": "22.3%",
+    "labelNumeric": 37,
+    "labelPercentage": "22.3%",
     "labelPosition": Array [
       57.55092081863669,
       39.84835646456463,
@@ -203,6 +142,72 @@ Array [
   },
   Object {
     "activePosition": Array [
+      -6.682083429947796,
+      18.85072309051345,
+    ],
+    "color": "#D95B24",
+    "dataKey": "Apps",
+    "endAngle": 4.087855501056598,
+    "index": "2",
+    "labelNumeric": 32,
+    "labelPercentage": "19.3%",
+    "labelPosition": Array [
+      -23.387292004817287,
+      65.97753081679708,
+    ],
+    "selector": Array [
+      1,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 2.876639056299088,
+  },
+  Object {
+    "activePosition": Array [
+      -19.771211711837772,
+      3.0164859432274804,
+    ],
+    "color": "#27566D",
+    "dataKey": "Sounds",
+    "endAngle": 5.034118348523403,
+    "index": "3",
+    "labelNumeric": 25,
+    "labelPercentage": "15.1%",
+    "labelPosition": Array [
+      -69.19924099143219,
+      10.557700801296182,
+    ],
+    "selector": Array [
+      3,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 4.087855501056598,
+  },
+  Object {
+    "activePosition": Array [
+      -14.795169021596411,
+      -13.457450487458384,
+    ],
+    "color": "#E29B1E",
+    "dataKey": "Books",
+    "endAngle": 5.866829654294192,
+    "index": "4",
+    "labelNumeric": 22,
+    "labelPercentage": "13.3%",
+    "labelPosition": Array [
+      -51.78309157558744,
+      -47.101076706104344,
+    ],
+    "selector": Array [
+      0,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 5.034118348523403,
+  },
+  Object {
+    "activePosition": Array [
       -5.963958220933314,
       -19.0900812554311,
     ],
@@ -210,7 +215,8 @@ Array [
     "dataKey": "Bikes",
     "endAngle": 6.093932737686226,
     "index": "5",
-    "label": "3.6%",
+    "labelNumeric": 6,
+    "labelPercentage": "3.6%",
     "labelPosition": Array [
       -20.873853773266603,
       -66.81528439400886,
@@ -231,7 +237,8 @@ Array [
     "dataKey": "Movies",
     "endAngle": 6.283185307179586,
     "index": "6",
-    "label": "3.0%",
+    "labelNumeric": 5,
+    "labelPercentage": "3.0%",
     "labelPosition": Array [
       -6.613959232162188,
       -69.68683909659912,
@@ -250,56 +257,15 @@ exports[`@keen/charts - circular chart utils generateCircularChart() should calc
 Array [
   Object {
     "activePosition": Array [
-      -14.795169021596411,
-      -13.457450487458384,
-    ],
-    "color": "#85B4C3",
-    "dataKey": "Books",
-    "endAngle": 5.866829654294192,
-    "index": "4",
-    "label": "13.3%",
-    "labelPosition": Array [
-      -40.68671480939013,
-      -37.007988840510556,
-    ],
-    "selector": Array [
-      0,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 5.034118348523403,
-  },
-  Object {
-    "activePosition": Array [
-      -6.682083429947796,
-      18.85072309051345,
-    ],
-    "color": "#487650",
-    "dataKey": "Apps",
-    "endAngle": 4.087855501056598,
-    "index": "2",
-    "label": "19.3%",
-    "labelPosition": Array [
-      -18.37572943235644,
-      51.839488498912,
-    ],
-    "selector": Array [
-      1,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 2.876639056299088,
-  },
-  Object {
-    "activePosition": Array [
       13.457450487458381,
       -14.795169021596415,
     ],
-    "color": "#D95B24",
+    "color": "#85B4C3",
     "dataKey": "Games",
     "endAngle": 1.4761700420482162,
     "index": "0",
-    "label": "23.5%",
+    "labelNumeric": 39,
+    "labelPercentage": "23.5%",
     "labelPosition": Array [
       37.00798884051054,
       -40.68671480939014,
@@ -313,35 +279,15 @@ Array [
   },
   Object {
     "activePosition": Array [
-      -19.771211711837772,
-      3.0164859432274804,
-    ],
-    "color": "#27566D",
-    "dataKey": "Sounds",
-    "endAngle": 5.034118348523403,
-    "index": "3",
-    "label": "15.1%",
-    "labelPosition": Array [
-      -54.37083220755387,
-      8.29533634387557,
-    ],
-    "selector": Array [
-      3,
-    ],
-    "stack": undefined,
-    "stacked": undefined,
-    "startAngle": 4.087855501056598,
-  },
-  Object {
-    "activePosition": Array [
       16.4431202338962,
       11.385244704161323,
     ],
-    "color": "#E29B1E",
+    "color": "#487650",
     "dataKey": "Cars",
     "endAngle": 2.876639056299088,
     "index": "1",
-    "label": "22.3%",
+    "labelNumeric": 37,
+    "labelPercentage": "22.3%",
     "labelPosition": Array [
       45.218580643214544,
       31.30942293644364,
@@ -355,6 +301,72 @@ Array [
   },
   Object {
     "activePosition": Array [
+      -6.682083429947796,
+      18.85072309051345,
+    ],
+    "color": "#D95B24",
+    "dataKey": "Apps",
+    "endAngle": 4.087855501056598,
+    "index": "2",
+    "labelNumeric": 32,
+    "labelPercentage": "19.3%",
+    "labelPosition": Array [
+      -18.37572943235644,
+      51.839488498912,
+    ],
+    "selector": Array [
+      1,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 2.876639056299088,
+  },
+  Object {
+    "activePosition": Array [
+      -19.771211711837772,
+      3.0164859432274804,
+    ],
+    "color": "#27566D",
+    "dataKey": "Sounds",
+    "endAngle": 5.034118348523403,
+    "index": "3",
+    "labelNumeric": 25,
+    "labelPercentage": "15.1%",
+    "labelPosition": Array [
+      -54.37083220755387,
+      8.29533634387557,
+    ],
+    "selector": Array [
+      3,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 4.087855501056598,
+  },
+  Object {
+    "activePosition": Array [
+      -14.795169021596411,
+      -13.457450487458384,
+    ],
+    "color": "#E29B1E",
+    "dataKey": "Books",
+    "endAngle": 5.866829654294192,
+    "index": "4",
+    "labelNumeric": 22,
+    "labelPercentage": "13.3%",
+    "labelPosition": Array [
+      -40.68671480939013,
+      -37.007988840510556,
+    ],
+    "selector": Array [
+      0,
+    ],
+    "stack": undefined,
+    "stacked": undefined,
+    "startAngle": 5.034118348523403,
+  },
+  Object {
+    "activePosition": Array [
       -5.963958220933314,
       -19.0900812554311,
     ],
@@ -362,7 +374,8 @@ Array [
     "dataKey": "Bikes",
     "endAngle": 6.093932737686226,
     "index": "5",
-    "label": "3.6%",
+    "labelNumeric": 6,
+    "labelPercentage": "3.6%",
     "labelPosition": Array [
       -16.400885107566616,
       -52.49772345243553,
@@ -383,7 +396,8 @@ Array [
     "dataKey": "Movies",
     "endAngle": 6.283185307179586,
     "index": "6",
-    "label": "3.0%",
+    "labelNumeric": 5,
+    "labelPercentage": "3.0%",
     "labelPosition": Array [
       -5.196682253841719,
       -54.753945004470744,

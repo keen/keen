@@ -10,7 +10,7 @@ import {
   transformToPercent,
   normalizeDate,
   ScaleSettings,
-  getPaletteColor,
+  getOffsetRangeColor,
 } from '@keen.io/charts-utils';
 
 import { calculateGroupedBars } from './bar.utils';
@@ -37,6 +37,7 @@ type Options = {
   xAxisTitle?: string;
   yAxisTitle?: string;
   barsOrder?: SortMode;
+  dataSeriesOffset?: [number, number];
 };
 
 /**
@@ -73,6 +74,7 @@ export const generateHorizontalGroupedBars = ({
   colors,
   xScaleSettings,
   layout,
+  dataSeriesOffset,
 }: Options) => {
   const filteredKeys = getKeysDifference(keys, disabledKeys);
   const { precision } = xScaleSettings;
@@ -123,7 +125,8 @@ export const generateHorizontalGroupedBars = ({
     yScale,
     layout,
     colors,
-    barsOrder
+    barsOrder,
+    dataSeriesOffset
   );
 
   return {
@@ -168,6 +171,7 @@ export const generateVerticalGroupedBars = ({
   labelSelector,
   xScaleSettings,
   layout,
+  dataSeriesOffset,
 }: Options) => {
   const filteredKeys = getKeysDifference(keys, disabledKeys);
   const { precision } = xScaleSettings;
@@ -218,7 +222,8 @@ export const generateVerticalGroupedBars = ({
     yScale,
     layout,
     colors,
-    barsOrder
+    barsOrder,
+    dataSeriesOffset
   );
 
   return {
@@ -261,6 +266,7 @@ export const generateHorizontalStackedBars = ({
   stackMode,
   labelSelector,
   xScaleSettings,
+  dataSeriesOffset,
 }: Options) => {
   const bars = [] as Bar[];
   const filteredKeys = getKeysDifference(keys, disabledKeys);
@@ -327,8 +333,14 @@ export const generateHorizontalStackedBars = ({
         y: yScale(normalizedData[index][labelSelector]),
         width,
         height: barHeight,
-        color: getPaletteColor(keys.indexOf(keyName), colors),
-        colorOutOfRange: !colors[index],
+        color: getOffsetRangeColor(
+          keys.indexOf(keyName),
+          colors,
+          dataSeriesOffset
+        ),
+        colorOutOfRange: dataSeriesOffset
+          ? index < dataSeriesOffset[0] || index >= dataSeriesOffset[1]
+          : !colors[index],
         value: data[index][keyName],
       };
 
@@ -376,6 +388,7 @@ export const generateVerticalStackedBars = ({
   stackMode,
   labelSelector,
   xScaleSettings,
+  dataSeriesOffset,
 }: Options) => {
   const bars = [] as Bar[];
   const filteredKeys = getKeysDifference(keys, disabledKeys);
@@ -442,8 +455,14 @@ export const generateVerticalStackedBars = ({
         y: yScale(rangeMax),
         width: barWidth,
         height,
-        color: getPaletteColor(keys.indexOf(keyName), colors),
-        colorOutOfRange: !colors[index],
+        color: getOffsetRangeColor(
+          keys.indexOf(keyName),
+          colors,
+          dataSeriesOffset
+        ),
+        colorOutOfRange: dataSeriesOffset
+          ? index < dataSeriesOffset[0] || index >= dataSeriesOffset[1]
+          : !colors[index],
         value: data[index][keyName],
       };
 

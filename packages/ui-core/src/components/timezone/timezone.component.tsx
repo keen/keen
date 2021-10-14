@@ -5,9 +5,11 @@ import React, {
   useEffect,
   useMemo,
   useLayoutEffect,
+  useCallback,
 } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { BodyText } from '@keen.io/typography';
+import { useKeypress } from '@keen.io/react-hooks';
 import { colors } from '@keen.io/colors';
 
 import Title from '../title';
@@ -25,6 +27,7 @@ import {
 
 import { Options, DropdownPosition } from './types';
 import { dropdownMotion } from './motion';
+import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
   /** Timezones collection */
@@ -128,7 +131,20 @@ const Timezone: FC<Props> = ({
       utcOffset,
     },
     onChange,
+    onCancel: () => setOpen(false),
   };
+
+  const keyboardHandler = useCallback((_e: KeyboardEvent, keyCode: number) => {
+    if (keyCode === KEYBOARD_KEYS.ESCAPE) {
+      setOpen(false);
+    }
+  }, []);
+  useKeypress({
+    keyboardAction: keyboardHandler,
+    handledKeys: [KEYBOARD_KEYS.ESCAPE],
+    addEventListenerCondition: isOpen,
+    eventListenerDependencies: [isOpen],
+  });
 
   return (
     <Container isDisabled={disableSelection} data-testid="timezone">

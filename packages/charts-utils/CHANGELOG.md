@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.12.2...@keen.io/charts-utils@1.13.0) (2021-09-30)
+
+
+### Features
+
+* 🎸 csv export parsers ([60a1f62](https://github.com/keen/keen/commit/60a1f621a2d6f749aa6a584e56f1a8188c9af6af))
+* 🎸 funnel chart export ([8ea490b](https://github.com/keen/keen/commit/8ea490b0c50aa93dd374a0c077575c145dd2dfca))
+
+
+
+
+
+## [1.12.2](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.12.1...@keen.io/charts-utils@1.12.2) (2021-09-10)
+
+
+### Bug Fixes
+
+* 🐛 Dateformatter fix ([c710451](https://github.com/keen/keen/commit/c7104517745918ac9364190c5113e9ee53c077bb))
+
+
+
+
+
+## [1.12.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.12.0...@keen.io/charts-utils@1.12.1) (2021-09-09)
+
+
+### Bug Fixes
+
+* 🐛 CR fix ([c36a4d6](https://github.com/keen/keen/commit/c36a4d61b05ea50ab671616ca541fd674f2ecd3f))
+* 🐛 Not applying formatters to null value ([9471ed5](https://github.com/keen/keen/commit/9471ed57f11dda800a9b11778c9b903f784739ec))
+
+
+
+
+
+# [1.12.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.11.1...@keen.io/charts-utils@1.12.0) (2021-09-09)
+
+
+### Features
+
+* 🎸 Changes and tests ([dca5045](https://github.com/keen/keen/commit/dca5045efbe4c1b638f0033752317eb90738956a))
+* 🎸 Chart series colors connected with legend ([f766e04](https://github.com/keen/keen/commit/f766e04712c69c231d08f7fae6b7065231fb4ad1))
+
+
+
+
+
+## [1.11.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.11.0...@keen.io/charts-utils@1.11.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* 🐛 Table formatting fixes ([89c14ee](https://github.com/keen/keen/commit/89c14ee78b53c10f58cec5552c81c0f71d4625f3))
+
+
+
+
+
+# [1.11.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.10.0...@keen.io/charts-utils@1.11.0) (2021-09-03)
+
+
+### Features
+
+* 🎸 Datetime formatter added ([51a75da](https://github.com/keen/keen/commit/51a75dac230c73e1c8dcb7b8de5ba2ead0c5661d))
+
+
+
+
+
+# [1.10.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.9.1...@keen.io/charts-utils@1.10.0) (2021-07-15)
+
+
+### Features
+
+* 🎸 Heatmap negative values ([2f2859e](https://github.com/keen/keen/commit/2f2859ea95d4865b17ab8c00c85f564433f95477))
+
+
+
+
+
+## [1.9.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.9.0...@keen.io/charts-utils@1.9.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* 🐛 Axis labels fix for weeks ([f31793e](https://github.com/keen/keen/commit/f31793e346b879af424e93a025ede4d984d08a9c))
+
+
+
+
+
+# [1.9.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.4...@keen.io/charts-utils@1.9.0) (2021-04-30)
+
+
+### Bug Fixes
+
+* 🐛 Fix for incorrect axis labels based on timeframe ([e4f5dea](https://github.com/keen/keen/commit/e4f5dea05667eea76a22296b57334731e4e641a9))
+
+
+### Features
+
+* 🎸 Support colors out of defined theme ([15af794](https://github.com/keen/keen/commit/15af794a1e9ea63c7518b6204626182089fcf989))
+
+
+
+
+
+## [1.8.4](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.3...@keen.io/charts-utils@1.8.4) (2021-03-31)
+
+**Note:** Version bump only for package @keen.io/charts-utils
+
+
+
+
+
 ## [1.8.3](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.8.2...@keen.io/charts-utils@1.8.3) (2021-03-24)
 
 **Note:** Version bump only for package @keen.io/charts-utils

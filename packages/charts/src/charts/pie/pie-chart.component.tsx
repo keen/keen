@@ -2,12 +2,9 @@ import React, { FC, useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
+import { calculateTotalValue } from '@keen.io/charts-utils';
 
-import {
-  generateCircularChart,
-  LabelsPosition,
-  calculateTotalValue,
-} from '../../utils';
+import { generateCircularChart, LabelsPosition } from '../../utils';
 import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
 
 import PieSlice from './pie-slice.component';
@@ -18,7 +15,12 @@ import { ChartBase, Delayed } from '../../components';
 
 import { theme as defaultTheme } from '../../theme';
 
-import { CommonChartSettings, ItemData, TooltipSettings } from '../../types';
+import {
+  CommonChartSettings,
+  ItemData,
+  TooltipSettings,
+  CircularChartValueMode,
+} from '../../types';
 
 import { TOOLTIP_MOTION } from '../../constants';
 
@@ -52,7 +54,11 @@ export type Props = {
   /** Active key */
   activeKey?: string;
   /** Return dataKeys after stacking */
-  onDataStack?: (keys: string[]) => void;
+  onFinalDataStack?: (keys: string[]) => void;
+  /** Value mode */
+  valueMode?: CircularChartValueMode;
+  /** Visibile data series offset */
+  dataSeriesOffset?: [number, number];
 } & CommonChartSettings;
 
 export const PieChart: FC<Props> = ({
@@ -71,9 +77,11 @@ export const PieChart: FC<Props> = ({
   labelsPosition = 'inside',
   labelsAutocolor = true,
   stackTreshold = 4,
-  onDataStack,
+  onFinalDataStack,
   tooltipSettings = {},
   activeKey,
+  valueMode = 'percentage',
+  dataSeriesOffset,
 }) => {
   const [treshold] = useState(() => {
     if (!stackTreshold) return 0;
@@ -81,7 +89,7 @@ export const PieChart: FC<Props> = ({
     return total * (stackTreshold / 100);
   });
 
-  const { arcs, drawArc, stackedElem } = generateCircularChart({
+  const { arcs, drawArc, sortedDataSeries } = generateCircularChart({
     data,
     margins,
     padAngle,
@@ -96,10 +104,12 @@ export const PieChart: FC<Props> = ({
     dimension: svgDimensions,
     colors: theme.colors,
     treshold,
+    formatValue: tooltipSettings.formatValue,
+    dataSeriesOffset,
   });
 
   useEffect(() => {
-    onDataStack && onDataStack(stackedElem);
+    onFinalDataStack && onFinalDataStack(sortedDataSeries);
   }, []);
 
   const svgElement = useRef<SVGSVGElement>(null);
@@ -141,6 +151,7 @@ export const PieChart: FC<Props> = ({
                     selectors: tooltipSelectors,
                     disabledLabels,
                     formatValue: tooltipSettings.formatValue,
+                    valueMode,
                   })}
                   renderItem={(_idx, item) => (
                     <TooltipItem data={item.data as ItemData} theme={theme} />
@@ -169,7 +180,8 @@ export const PieChart: FC<Props> = ({
             <AnimatePresence>
               {arcs.map(
                 ({
-                  label,
+                  labelNumeric,
+                  labelPercentage,
                   labelPosition,
                   activePosition,
                   dataKey,
@@ -187,7 +199,11 @@ export const PieChart: FC<Props> = ({
                     draw={drawArc}
                     startAngle={startAngle}
                     endAngle={endAngle}
-                    label={label}
+                    label={
+                      valueMode === 'percentage'
+                        ? labelPercentage
+                        : labelNumeric
+                    }
                     autocolor={labelsAutocolor}
                     activePosition={activePosition}
                     labelPosition={labelPosition}
@@ -199,6 +215,7 @@ export const PieChart: FC<Props> = ({
                       }
                     }}
                     onMouseLeave={() => hideTooltip()}
+                    dataSeriesOffset={dataSeriesOffset}
                   />
                 )
               )}
