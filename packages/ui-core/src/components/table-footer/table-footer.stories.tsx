@@ -13,7 +13,13 @@ export default {
 export const Basic = () => {
   return (
     <div style={{ width: '400px', height: '300px' }}>
-      <TableFooter rows={100} />
+      <TableFooter
+        rows={100}
+        onItemsPerPageChange={(option) => console.log(option)}
+        onPageChange={(page) => console.log(page)}
+        totalPages={8}
+        page={4}
+      />
     </div>
   );
 };

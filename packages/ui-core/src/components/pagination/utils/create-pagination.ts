@@ -3,6 +3,8 @@ type PaginationSettings = {
   totalPages: number;
 };
 
+const OVERFLOW_PATTERN = '...';
+
 /**
  * Creates collection of pages based on provided pagination settings
  *
@@ -28,7 +30,7 @@ export const createPagination = (
   if (isWithinEndRange) {
     return [
       1,
-      '...',
+      OVERFLOW_PATTERN,
       ...new Array(visiblePages - 2)
         .fill(totalPages)
         .map((page, idx) => page - idx)
@@ -39,7 +41,7 @@ export const createPagination = (
   if (isWithinStartRange) {
     return [
       ...new Array(visiblePages - 2).fill(true).map((_, idx) => idx + 1),
-      '...',
+      OVERFLOW_PATTERN,
       totalPages,
     ];
   }
@@ -49,5 +51,11 @@ export const createPagination = (
     return currentPage - middlePage + idx + 1;
   });
 
-  return [1, '...', ...values.slice(2, values.length - 2), '...', totalPages];
+  return [
+    1,
+    OVERFLOW_PATTERN,
+    ...values.slice(2, values.length - 2),
+    OVERFLOW_PATTERN,
+    totalPages,
+  ];
 };

@@ -14,15 +14,15 @@ import {
   ListItem,
   IconContainer,
 } from './items-per-page.styles';
-import { OptionsType } from './types';
-import { Options } from './constants';
+import { PerPageType } from '../../types';
+import { PER_PAGE_OPTIONS as Options } from '../../constants';
 import { KEYBOARD_KEYS } from '../../../../constants';
 
 type Props = {
   /** Default option */
-  selectedOption?: OptionsType;
+  value?: PerPageType;
   /** Change event handler */
-  onChange: (option: OptionsType) => void;
+  onChange: (option: PerPageType) => void;
 };
 
 const listMotion: MotionProps = {
@@ -31,7 +31,7 @@ const listMotion: MotionProps = {
   exit: { opacity: 0, y: 30 },
 };
 
-const ItemsPerPage: FC<Props> = ({ selectedOption = Options[0], onChange }) => {
+const ItemsPerPage: FC<Props> = ({ value = Options[0], onChange }) => {
   const containerRef = useRef(null);
   const [isOpen, setOpen] = useState(false);
   const [selectionIndex, setIndex] = useState<number>(null);
@@ -40,13 +40,13 @@ const ItemsPerPage: FC<Props> = ({ selectedOption = Options[0], onChange }) => {
 
   useEffect(() => {
     if (isOpen) {
-      const index = Options.findIndex((option) => selectedOption === option);
+      const index = Options.findIndex((option) => value === option);
       setIndex(index);
     }
     return () => {
       setIndex(null);
     };
-  }, [isOpen]);
+  }, [isOpen, value]);
 
   const keyboardHandler = useCallback(
     (_e: KeyboardEvent, keyCode: number) => {
@@ -73,7 +73,7 @@ const ItemsPerPage: FC<Props> = ({ selectedOption = Options[0], onChange }) => {
           break;
       }
     },
-    [selectionIndex]
+    [selectionIndex, onChange]
   );
 
   useKeypress({
@@ -101,7 +101,7 @@ const ItemsPerPage: FC<Props> = ({ selectedOption = Options[0], onChange }) => {
     >
       <Label onClick={() => setOpen(!isOpen)} isOpen={isOpen}>
         <BodyText variant="body2" color={colors.blue[500]}>
-          {selectedOption} per page
+          {value} per page
         </BodyText>
         <IconContainer animate={{ rotate: isOpen ? 180 : 0 }}>
           <Icon

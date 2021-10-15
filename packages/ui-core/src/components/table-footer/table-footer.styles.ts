@@ -5,7 +5,12 @@ import { colors } from '@keen.io/colors';
 export const Container = styled.div`
   padding: 15px;
   background-color: ${colors.white[500]};
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   border-top: 1px solid ${transparentize(0.5, colors.gray[400])};
+  display: flex;
+  align-items: center;
+  gap: 15px 10px;
+`;
+
+export const PaginationContainer = styled.div`
+  margin: auto;
 `;
