@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '@keen.io/colors';
-
-import { CellTextAlignment } from '../../../table'; //todo
+import { CellTextAlignment } from '../../types';
 
 export const StyledCell = styled.td`
   padding: 0;

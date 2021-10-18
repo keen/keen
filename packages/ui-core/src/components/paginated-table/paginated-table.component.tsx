@@ -1,46 +1,76 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import {
-  useTable,
-  usePagination,
   useBlockLayout,
+  usePagination,
   useSortBy,
+  useTable,
 } from 'react-table';
+
+import { useScrollOverflowHandler } from '@keen.io/react-hooks';
+import { copyToClipboard } from '@keen.io/charts-utils';
+
 import {
-  TableContainer,
-  TableScrollWrapper,
   LeftOverflow,
   RightOverflow,
+  TableContainer,
+  TableScrollWrapper,
 } from './paginated-table.styles';
 import { Body, Header, Pagination } from './components';
-import { getElementOffset, hasContentOverflow } from '@keen.io/charts-utils';
+import { CopyCellTooltip } from './components';
+import { CellValue, TooltipState, ValueFormatter } from './types';
+import { generateHeader, generateTable, setColumnsOrder } from './utils';
 
 type Props = {
   data: Record<string, any>[];
-  theme: any; // todo add type
+  /** Columns order */
+  columnsOrder?: string[];
+  /** Object of formatter functions to format values separately */
+  formatValue?: ValueFormatter;
+  theme: any;
+};
+export const TOOLTIP_MOTION = {
+  transition: { duration: 0.3 },
+  exit: { opacity: 0 },
 };
 
-const PaginatedTable = ({ data, theme }: Props) => {
+const PaginatedTable = ({
+  data: tableData,
+  theme,
+  columnsOrder,
+  formatValue,
+}: Props) => {
   const tableRef = useRef(null);
   const containerRef = useRef(null);
 
+  const [tooltip, setTooltip] = useState<TooltipState>({
+    selectors: null,
+    visible: false,
+    x: 0,
+    y: 0,
+  });
+
   const {
     table: { header, body, mainColor },
-    // tooltip: tooltipSettings,
+    tooltip: tooltipSettings,
   } = theme;
 
-  const columnNames = Object.keys(data[0]);
+  const data = useMemo(() => {
+    const sortColumns = tableData.length && columnsOrder?.length;
+    return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
+  }, [columnsOrder, tableData]);
 
-  const columns = React.useMemo(
-    () =>
-      columnNames.map((column) => ({
-        Header: column,
-        accessor: column,
-      })),
-    []
+  const formattedData = React.useMemo(
+    () => (formatValue ? generateTable(data, formatValue) : data),
+    [data, formatValue]
   );
+
+  const columns = React.useMemo(() => generateHeader(formattedData[0]), [
+    columnsOrder,
+    tableData,
+  ]);
 
   const {
     getTableProps,
@@ -58,60 +88,62 @@ const PaginatedTable = ({ data, theme }: Props) => {
     setPageSize,
     state: { pageIndex, pageSize },
   } = useTable(
-    { columns, data, initialState: { pageIndex: 0 } },
+    {
+      columns,
+      data: tableData,
+      initialState: { pageIndex: 0 },
+      sortDescFirst: true,
+    },
     useBlockLayout,
     useSortBy,
     usePagination
   );
 
-  const [maxScroll, setMaxScroll] = useState(0);
+  const {
+    overflowRight,
+    overflowLeft,
+    scrollHandler,
+  } = useScrollOverflowHandler(containerRef);
+  const tooltipHide = useRef(null);
+  const onCellClick = (
+    e: React.MouseEvent<HTMLTableCellElement>,
+    columnName: string,
+    value: CellValue
+  ) => {
+    if (tooltipHide.current) clearTimeout(tooltipHide.current);
+    copyToClipboard(value);
 
-  const [{ overflowLeft, overflowRight }, setOverflow] = useState({
-    overflowLeft: false,
-    overflowRight: false,
-  });
+    const {
+      top,
+      left,
+    }: ClientRect = containerRef.current.getBoundingClientRect();
+    const tooltipX = e.pageX - left - window.scrollX;
+    const tooltipY = e.pageY - top - window.scrollY;
 
-  const calculateMaxScroll = useCallback(() => {
-    const { offset, scroll: offsetScroll } = getElementOffset(
-      containerRef.current,
-      'horizontal'
-    );
-    setMaxScroll(offsetScroll - offset);
-  }, [containerRef]);
+    setTooltip((state) => ({
+      ...state,
+      visible: true,
+      x: tooltipX,
+      y: tooltipY,
+    }));
 
-  useEffect(() => {
-    const hasOverflow = hasContentOverflow('horizontal', containerRef.current);
-    if (hasOverflow) {
-      setOverflow((state) => ({
+    tooltipHide.current = setTimeout(() => {
+      setTooltip((state) => ({
         ...state,
-        overflowRight: true,
+        visible: false,
+        x: 0,
+        y: 0,
       }));
-    }
-    calculateMaxScroll();
-  }, []);
-
-  const scrollHandler = useCallback(
-    (e: React.UIEvent<HTMLDivElement>) => {
-      const offset = e.currentTarget.scrollLeft;
-      const hasOverflowLeft = offset > 0;
-      const hasOverflowRight = offset < maxScroll;
-
-      if (
-        hasOverflowLeft !== overflowLeft ||
-        hasOverflowRight !== overflowRight
-      ) {
-        setOverflow({
-          overflowLeft: hasOverflowLeft,
-          overflowRight: hasOverflowRight,
-        });
-      }
-    },
-    [maxScroll, overflowLeft, overflowRight]
-  );
+    }, 1500);
+  };
 
   return (
     <TableScrollWrapper>
       <TableContainer ref={containerRef} onScroll={scrollHandler}>
+        <CopyCellTooltip
+          tooltipState={tooltip}
+          tooltipSettings={tooltipSettings}
+        />
         <table {...getTableProps()} ref={tableRef}>
           <Header
             headerGroups={headerGroups}
@@ -121,6 +153,9 @@ const PaginatedTable = ({ data, theme }: Props) => {
           <Body
             page={page}
             getTableBodyProps={getTableBodyProps}
+            onCellClick={(e, columnName, columnValue) =>
+              onCellClick(e, columnName, columnValue)
+            }
             prepareRow={prepareRow}
             backgroundColor={mainColor}
             typography={body.typography}

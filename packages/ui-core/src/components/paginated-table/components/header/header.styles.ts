@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Typography } from '../../../../types';
 
 export const Head = styled.thead<{
-  typography?: any;
+  typography?: Typography;
   backgroundColor: string;
 }>`
   ${(props) => props.typography};
@@ -13,12 +14,4 @@ export const Head = styled.thead<{
   box-sizing: border-box;
   min-height: 20px;
   padding: 20px;
-`;
-
-export const HeadContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  box-sizing: border-box;
-  flex-direction: row;
 `;
