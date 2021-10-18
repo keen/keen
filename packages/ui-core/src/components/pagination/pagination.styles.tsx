@@ -13,14 +13,16 @@ export const PageNumber = styled(motion.div)<{ isActive: boolean }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 3px;
-  border-radius: 4px;
+  padding: 5px;
+  border-radius: 1rem;
   color: ${colors.blue[500]};
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   line-height: 1;
-  min-width: 15px;
+  min-width: 27px;
+  height: 27px;
   cursor: pointer;
+  box-sizing: border-box;
 
   &:focus-visible {
     outline: 1px solid ${colors.lightBlue[500]};
