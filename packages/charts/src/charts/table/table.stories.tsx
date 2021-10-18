@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 import TableChart from './table-chart.component';
 
 import { theme } from '../../theme';
-// import { PaginatedTable } from '@keen.io/ui-core';
+import { PaginatedTable } from '@keen.io/ui-core';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
@@ -46,27 +46,27 @@ export const Plot = () => {
     </Container>
   );
 };
-//
-// export const Paginated = () => {
-//   return (
-//     <Container>
-//       <PaginatedTable
-//         data={data}
-//         theme={{
-//           ...theme,
-//           table: {
-//             ...theme.table,
-//             mainColor: color('Main color', '#27566d', 'Chart'),
-//           },
-//         }}
-//         formatValue={{
-//           price: text(
-//             'Format price values',
-//             '${number; 0.00; add; 100}$',
-//             'Chart'
-//           ),
-//         }}
-//       />
-//     </Container>
-//   );
-// };
+
+export const Paginated = () => {
+  return (
+    <Container>
+      <PaginatedTable
+        data={data}
+        theme={{
+          ...theme,
+          table: {
+            ...theme.table,
+            mainColor: color('Main color', '#27566d', 'Chart'),
+          },
+        }}
+        formatValue={{
+          price: text(
+            'Format price values',
+            '${number; 0.00; add; 100}$',
+            'Chart'
+          ),
+        }}
+      />
+    </Container>
+  );
+};

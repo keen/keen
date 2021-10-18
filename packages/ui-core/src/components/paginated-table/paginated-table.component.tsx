@@ -67,7 +67,7 @@ const PaginatedTable = ({
     [data, formatValue]
   );
 
-  const columns = React.useMemo(() => generateHeader(formattedData[0]), [
+  const columns = React.useMemo(() => generateHeader(data[0]), [
     columnsOrder,
     tableData,
   ]);
@@ -90,9 +90,8 @@ const PaginatedTable = ({
   } = useTable(
     {
       columns,
-      data: tableData,
+      data: formattedData,
       initialState: { pageIndex: 0 },
-      sortDescFirst: true,
     },
     useBlockLayout,
     useSortBy,

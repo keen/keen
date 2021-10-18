@@ -6,6 +6,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'three',
   },
   {
     platform: 'Mobile',
@@ -14,6 +15,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 15,
   },
   {
     platform: 'Web',
@@ -22,6 +24,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'one',
   },
   {
     platform: 'Web',
@@ -30,6 +33,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'two',
   },
   {
     platform: 'Web',
@@ -38,6 +42,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 1,
   },
   {
     platform: 'Mobile',
@@ -46,6 +51,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'Three',
   },
   {
     platform: 'Web',
@@ -54,6 +60,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 'Four',
   },
   {
     platform: 'Mobile',
@@ -62,6 +69,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 5,
   },
   {
     platform: 'Web',
@@ -70,6 +78,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: '1two',
   },
   {
     platform: 'Mobile',
@@ -78,6 +87,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 15,
   },
   {
     platform: 'Web',
@@ -86,6 +96,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'one',
   },
   {
     platform: 'Web',
@@ -94,6 +105,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: '1two',
   },
   {
     platform: 'Web',
@@ -102,6 +114,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: '1two',
   },
   {
     platform: 'Mobile',
@@ -110,6 +123,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: '1two',
   },
   {
     platform: 'Web',
@@ -118,6 +132,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 'three',
   },
   {
     platform: 'Mobile',
@@ -126,5 +141,6 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 1,
   },
 ];

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 
 import Tooltip from '../../tooltip';
-import Text from '../../typography-settings';
+import { Text } from '../../../typography';
 
 import { TOOLTIP_MOTION } from '../paginated-table.component';
 
