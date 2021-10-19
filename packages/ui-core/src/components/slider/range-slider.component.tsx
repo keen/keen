@@ -81,12 +81,14 @@ export const RangeSlider: FC<Props> = ({
     theme: 'dark',
   },
   railSettings = { size: 4, borderRadius: 3 },
-  minimum,
-  maximum,
+  minimum: minValue,
+  maximum: maxValue,
 }) => {
   const slider = useRef(null);
   const isHorizontal = layout === 'horizontal';
   const dragDirection = isHorizontal ? 'x' : 'y';
+  const minimum = isHorizontal ? minValue : maxValue;
+  const maximum = isHorizontal ? maxValue : minValue;
 
   const [tooltip, setTooltip] = useState<{
     visible: 'minimum' | 'maximum' | null;
@@ -152,13 +154,18 @@ export const RangeSlider: FC<Props> = ({
 
   const [currentMinimum, currentMaximum] = value as number[];
   const colorScale = useMemo(
-    () => generateContinuousColorScale(minimum, maximum, colorSteps, colors),
-    [minimum, maximum, colorSteps, colors]
+    () => generateContinuousColorScale(minValue, maxValue, colorSteps, colors),
+    [minValue, maxValue, colorSteps, colors]
   );
-  const colorScaleRange = colorScale.range();
-  const absoluteMinimum = Math.abs(minimum);
-  const zeroPoint: number =
-    (absoluteMinimum * 100) / (absoluteMinimum + maximum);
+  const colorScaleRange = isHorizontal
+    ? colorScale.range()
+    : colorScale.range().reverse();
+  const absoluteMinimum = Math.abs(minValue);
+  const zeroPointPercentage =
+    (absoluteMinimum * 100) / (absoluteMinimum + maxValue);
+  const zeroPoint: number = isHorizontal
+    ? zeroPointPercentage
+    : 100 - zeroPointPercentage;
 
   return (
     <div ref={slider} style={{ position: 'relative', ...layoutStyle }}>
@@ -236,7 +243,10 @@ export const RangeSlider: FC<Props> = ({
               dispatch(sliderActions.setValue([minimumValue, maximumValue]));
               dispatch(sliderActions.setControlPosition('minimum', position));
 
-              onChange && onChange(minimumValue, maximumValue);
+              const minimum = isHorizontal ? minimumValue : maximumValue;
+              const maximum = isHorizontal ? maximumValue : minimumValue;
+
+              onChange && onChange(minimum, maximum);
               if (tooltipSettings.enabled) {
                 setTooltip((state) =>
                   isHorizontal ? { ...state, y: 0, x } : { ...state, x: 0, y }
@@ -327,13 +337,15 @@ export const RangeSlider: FC<Props> = ({
               } = dragInfo;
               const position = isHorizontal ? x : y;
               const maximumValue = calculateControlValue(position);
-
               const [minimumValue] = value as number[];
 
               dispatch(sliderActions.setValue([minimumValue, maximumValue]));
               dispatch(sliderActions.setControlPosition('maximum', position));
 
-              onChange && onChange(minimumValue, maximumValue);
+              const minimum = isHorizontal ? minimumValue : maximumValue;
+              const maximum = isHorizontal ? maximumValue : minimumValue;
+
+              onChange && onChange(minimum, maximum);
               if (tooltipSettings.enabled) {
                 setTooltip((state) =>
                   isHorizontal ? { ...state, y: 0, x } : { ...state, x: 0, y }
