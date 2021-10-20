@@ -17,7 +17,6 @@ import {
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
-import { ChartEvents } from '@keen.io/charts';
 
 import { SortByType } from '../../types';
 import {
@@ -37,6 +36,7 @@ import {
   sortData,
 } from './utils';
 import { useTableEvents } from './hooks';
+import { ChartEvents } from './events';
 
 type Props = {
   data: Record<string, any>[];

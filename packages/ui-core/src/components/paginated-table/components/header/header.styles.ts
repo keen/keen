@@ -12,7 +12,7 @@ export const Head = styled.thead<{
   background: ${(props) => props.backgroundColor};
 `;
 
-export const StyledTH = styled.th<{ isActive?: boolean }>`
+export const TableHeader = styled.th<{ isActive?: boolean }>`
   position: relative;
 
   ${({ isActive }) =>

@@ -1,8 +1,8 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { PubSub } from '@keen.io/pubsub';
-import { ChartEvents } from '@keen.io/charts';
 
 import { useTableEvents } from './use-table-events';
+import { ChartEvents } from '../events';
 
 import { TableEvents } from '../types';
 

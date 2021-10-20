@@ -1,7 +1,6 @@
 import { useEffect, useCallback } from 'react';
-import { ChartEvents } from '@keen.io/charts';
 
-import { createColumnSelectionEvent } from '../events';
+import { createColumnSelectionEvent, ChartEvents } from '../events';
 
 import { TableEvents, ValueFormatter } from '../types';
 

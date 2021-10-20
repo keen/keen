@@ -3,7 +3,7 @@ import { HeaderGroup } from 'react-table';
 
 import { Typography } from '../../../../types';
 import { HeaderCell } from '../header-cell';
-import { Head, StyledTH } from './header.styles';
+import { Head, TableHeader } from './header.styles';
 
 type Props = {
   headerGroups: HeaderGroup[];
@@ -47,7 +47,7 @@ export const Header = ({
               column.getSortByToggleProps()
             );
             return (
-              <StyledTH
+              <TableHeader
                 key={key}
                 title={title}
                 isActive={activeColumns.includes(idx)}
@@ -62,7 +62,7 @@ export const Header = ({
                 }
               >
                 <HeaderCell column={column} />
-              </StyledTH>
+              </TableHeader>
             );
           })}
         </tr>
