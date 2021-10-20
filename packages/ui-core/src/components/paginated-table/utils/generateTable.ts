@@ -21,15 +21,13 @@ export const generateTable = (data: Record<string, any>[], format: any) => {
         const formatter = formatObj[key] && (formatObj[key] as Formatter);
         return (table = {
           ...table,
-          [key]: formatter
-            ? ({
-                value: formatValue(el[key], formatter),
-                formatterType:
-                  typeof formatter === 'string'
-                    ? extractFormatterType(formatter)
-                    : undefined,
-              } as any)
-            : el[key],
+          [key]: {
+            value: formatter ? formatValue(el[key], formatter) : el[key],
+            formatterType:
+              typeof formatter === 'string'
+                ? extractFormatterType(formatter)
+                : undefined,
+          } as any,
         });
       }
       return (table = {

@@ -6,7 +6,7 @@ export const Container = styled.div<{
   textAlignment: CellTextAlignment;
   isActive: boolean;
 }>`
-  padding: 15px;
+  padding: 10px 15px;
   text-align: ${(props) => props.textAlignment};
   box-shadow: inset -1px 0px 0px 0px ${colors.gray[200]};
 

@@ -5,9 +5,10 @@ import Tooltip from '../../tooltip';
 import { Text } from '../../../typography';
 
 import { TOOLTIP_MOTION } from '../paginated-table.component';
+import { TooltipState } from '../types';
 
 type Props = {
-  tooltipState: any;
+  tooltipState: TooltipState;
   tooltipSettings: any;
 };
 export const CopyCellTooltip = ({ tooltipState, tooltipSettings }: Props) => {
