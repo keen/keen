@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderGroup } from 'react-table';
+import { Typography } from '@keen.io/ui-core';
 
-import { Typography } from '../../../../types';
 import { HeaderCell } from '../header-cell';
 import { Head, TableHeader } from './header.styles';
 

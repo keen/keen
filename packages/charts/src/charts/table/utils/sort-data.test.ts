@@ -1,4 +1,4 @@
-import { sortData } from './sortData';
+import { sortData } from './sort-data';
 
 describe('sortData()', () => {
   const data = [

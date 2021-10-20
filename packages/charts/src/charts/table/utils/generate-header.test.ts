@@ -1,4 +1,4 @@
-import { generateHeader } from './generateHeader';
+import { generateHeader } from './generate-header';
 
 describe('generateHeader()', () => {
   const data = { name: 'John', age: 31, city: 'San Antonio' };

@@ -1,21 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color, text, boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
-import { PaginatedTable } from '@keen.io/ui-core';
 import { PubSub } from '@keen.io/pubsub';
-
-import { data } from './table.fixtures';
-
-import TableChart from './table-chart.component';
 
 import { theme } from '../../theme';
 import { ChartEvents } from '../../events';
+import { data } from './table.fixtures';
+import Table from './table.component';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
   parameters: {
-    component: TableChart,
+    component: Table,
   },
 };
 
@@ -24,31 +20,6 @@ const Container = styled.div`
   height: 500px;
 `;
 
-export const Plot = () => {
-  return (
-    <Container>
-      <TableChart
-        data={data}
-        theme={{
-          ...theme,
-          table: {
-            ...theme.table,
-            mainColor: color('Main color', '#27566d', 'Chart'),
-          },
-        }}
-        onResize={action('onResize')}
-        formatValue={{
-          platform: (val) => (Array.isArray(val) ? 'Multi-platform' : val),
-          price: text(
-            'Format price values',
-            '${number; 0.00; add; 100}$',
-            'Chart'
-          ),
-        }}
-      />
-    </Container>
-  );
-};
 const pubsub = new PubSub();
 const chartEvents = new ChartEvents({ pubsub });
 
@@ -64,7 +35,7 @@ export const Paginated = () => {
       >
         Clear selection
       </button>
-      <PaginatedTable
+      <Table
         data={data}
         theme={{
           ...theme,

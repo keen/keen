@@ -1,20 +1,12 @@
+import { CellTextAlignment } from '@keen.io/ui-core';
 import { Formatter, PatternFormatterDataType } from '@keen.io/charts-utils';
 
-export type CellValue = string | number | boolean | Date | string[] | number[];
-export type DataSelector = (number | string)[];
-export type CellTextAlignment = 'left' | 'right';
-
-export type TooltipState = {
-  visible: boolean;
-  selectors: { selector: DataSelector; color: string }[];
-  x: number;
-  y: number;
+export type HeaderCell = {
+  key: string;
+  align: CellTextAlignment;
 };
 
-export type FormattedValue = {
-  value: string | number | boolean | Date;
-  formatterType?: PatternFormatterDataType;
-};
+export type FormatFunction = (value: string | number) => React.ReactNode;
 
 export type ValueFormatter = Record<string, Formatter>;
 
@@ -32,3 +24,8 @@ export type ColumnsSelectionEvent = {
 export type TableEvents =
   | ColumnsSelectionEvent
   | { eventName: '@table/deselect-columns' };
+
+export type FormattedValue = {
+  value: string | number | boolean | Date;
+  formatterType?: PatternFormatterDataType;
+};

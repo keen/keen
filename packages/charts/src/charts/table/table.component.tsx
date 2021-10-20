@@ -26,7 +26,7 @@ import {
   TableScrollWrapper,
   StyledCol,
   StyledTable,
-} from './paginated-table.styles';
+} from './table.styles';
 import { Body, Header, Pagination, CopyCellTooltip } from './components';
 import { CellValue, TooltipState, ValueFormatter, TableEvents } from './types';
 import {
@@ -55,7 +55,7 @@ export const TOOLTIP_MOTION = {
   exit: { opacity: 0 },
 };
 
-const PaginatedTable = ({
+const Table = ({
   data: tableData,
   theme,
   columnsOrder,
@@ -287,4 +287,4 @@ const PaginatedTable = ({
   );
 };
 
-export default PaginatedTable;
+export default Table;

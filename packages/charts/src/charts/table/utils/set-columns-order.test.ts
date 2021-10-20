@@ -1,4 +1,4 @@
-import { setColumnsOrder } from './setColumnsOrder';
+import { setColumnsOrder } from './set-columns-order';
 
 describe('setColumnsOrder()', () => {
   const data = [

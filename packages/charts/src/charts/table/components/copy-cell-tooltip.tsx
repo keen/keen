@@ -1,11 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
+import { Tooltip, Text } from '@keen.io/ui-core';
 
-import Tooltip from '../../tooltip';
-import { Text } from '../../../typography';
-
-import { TOOLTIP_MOTION } from '../paginated-table.component';
-import { TooltipState } from '../types';
+import { TooltipState } from '../../../types';
+import { TOOLTIP_MOTION } from '../../../constants';
 
 type Props = {
   tooltipState: TooltipState;

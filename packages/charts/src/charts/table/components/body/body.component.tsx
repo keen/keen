@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { rgba } from 'polished';
 import { Row, TableBodyProps, Cell as CellType } from 'react-table';
+import { Typography } from '@keen.io/ui-core';
 
-import { Typography } from '../../../../types';
 import { CellValue } from '../../types';
 import { BodyCell } from '../body-cell';
 import { RowContainer } from './body.styles';

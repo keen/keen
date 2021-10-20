@@ -13,7 +13,7 @@ import {
   TableChartSettings,
   ColumnSelection,
   TableEvents,
-} from './table';
+} from './table-old';
 import {
   ChoroplethChart,
   ChoroplethChartSettings,

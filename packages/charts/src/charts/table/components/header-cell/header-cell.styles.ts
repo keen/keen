@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CellTextAlignment } from '../../../table';
+import { CellTextAlignment } from '../../types';
 
 export const CellWrapper = styled.div<{
   textAlignment: CellTextAlignment;

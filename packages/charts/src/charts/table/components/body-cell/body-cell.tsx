@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import { Cell as CellType } from 'react-table';
+import { Typography, Text } from '@keen.io/ui-core';
 
-import { Text } from '../../../../typography';
-import { Typography } from '../../../../types';
 import { CellValue } from '../../types';
 import { StyledCell, Container } from './body-cell.styles';
 

@@ -41,7 +41,6 @@ import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
 import TagManagement from './tag-management';
 import Error from './error';
-import PaginatedTable from './paginated-table/paginated-table.component'; // todo
 
 import TypographySettings, {
   FontSettings,
@@ -183,5 +182,4 @@ export {
   Color,
   TypographySettings,
   SideMenu,
-  PaginatedTable,
 };

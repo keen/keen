@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
-import { Typography } from '../../../../types';
+import { Typography } from '@keen.io/ui-core';
 
 export const Head = styled.thead<{
   typography?: Typography;

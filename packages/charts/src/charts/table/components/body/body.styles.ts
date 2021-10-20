@@ -6,7 +6,6 @@ export const RowContainer = styled(motion.tr)<{
   mainColor: string;
 }>`
   position: relative;
-  //padding-right: 40px;
 
   &:nth-child(odd) {
     background: ${(props) => rgba(props.mainColor, 0.05)};

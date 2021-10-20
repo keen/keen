@@ -1,4 +1,4 @@
-import { generateTable } from './generateTable';
+import { generateTable } from './generate-table';
 
 describe('generateTable()', () => {
   const data = [
