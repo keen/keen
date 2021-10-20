@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, text } from '@storybook/addon-knobs';
-import { data } from './table.fixtures';
+import { color, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { PaginatedTable } from '@keen.io/ui-core';
+import { PubSub } from '@keen.io/pubsub';
+
+import { data } from './table.fixtures';
 
 import TableChart from './table-chart.component';
 
 import { theme } from '../../theme';
-import { PaginatedTable } from '@keen.io/ui-core';
+import { ChartEvents } from '../../events';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
@@ -46,10 +49,21 @@ export const Plot = () => {
     </Container>
   );
 };
+const pubsub = new PubSub();
+const chartEvents = new ChartEvents({ pubsub });
+
+chartEvents.subscribe(({ eventName, meta }) => console.log(eventName, meta));
 
 export const Paginated = () => {
   return (
     <Container>
+      <button
+        onClick={() =>
+          chartEvents.publish({ eventName: '@table/deselect-columns' })
+        }
+      >
+        Clear selection
+      </button>
       <PaginatedTable
         data={data}
         theme={{
@@ -66,6 +80,8 @@ export const Paginated = () => {
             'Chart'
           ),
         }}
+        enableEditMode={boolean('Edit mode', false, 'Chart')}
+        chartEvents={chartEvents}
       />
     </Container>
   );
