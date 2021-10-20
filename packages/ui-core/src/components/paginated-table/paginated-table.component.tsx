@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState, useCallback } from 'react';
 import {
   useBlockLayout,
   usePagination,
@@ -11,17 +11,20 @@ import {
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
+import { ChartEvents } from '@keen.io/charts';
 
 import {
   LeftOverflow,
   RightOverflow,
   TableContainer,
   TableScrollWrapper,
+  StyledCol,
+  StyledTable,
 } from './paginated-table.styles';
-import { Body, Header, Pagination } from './components';
-import { CopyCellTooltip } from './components';
-import { CellValue, TooltipState, ValueFormatter } from './types';
+import { Body, Header, Pagination, CopyCellTooltip } from './components';
+import { CellValue, TooltipState, ValueFormatter, TableEvents } from './types';
 import { generateHeader, generateTable, setColumnsOrder } from './utils';
+import { useTableEvents } from './hooks';
 
 type Props = {
   data: Record<string, any>[];
@@ -29,6 +32,10 @@ type Props = {
   columnsOrder?: string[];
   /** Object of formatter functions to format values separately */
   formatValue?: ValueFormatter;
+  /** Table edit mode identicator */
+  enableEditMode?: boolean;
+  /** Chart events communication bus */
+  chartEvents?: ChartEvents<TableEvents>;
   theme: any;
 };
 export const TOOLTIP_MOTION = {
@@ -41,6 +48,8 @@ const PaginatedTable = ({
   theme,
   columnsOrder,
   formatValue,
+  enableEditMode = false,
+  chartEvents,
 }: Props) => {
   const tableRef = useRef(null);
   const containerRef = useRef(null);
@@ -51,6 +60,34 @@ const PaginatedTable = ({
     x: 0,
     y: 0,
   });
+  const [hoveredColumn, setHoveredColumn] = useState<number>();
+  const [selectedColumns, setSelectedColumns] = useState<
+    {
+      columnName: string;
+      index: number;
+    }[]
+  >([]);
+
+  const { publishColumnSelection } = useTableEvents({
+    chartEvents,
+    onDeselectColumns: () => setSelectedColumns([]),
+  });
+
+  const reduceColumnsSelection = useCallback(
+    (columnName: string, columnIndex: number) => {
+      const index = selectedColumns.findIndex(
+        ({ index }) => columnIndex === index
+      );
+      const arr = [...selectedColumns];
+      if (index > -1) {
+        arr.splice(index, 1);
+      } else {
+        arr.push({ columnName, index: columnIndex });
+      }
+      return arr;
+    },
+    [selectedColumns]
+  );
 
   const {
     table: { header, body, mainColor },
@@ -71,6 +108,10 @@ const PaginatedTable = ({
     columnsOrder,
     tableData,
   ]);
+  const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
+  const activeColumns = new Set(
+    [...indexesOfSelectedColumns, hoveredColumn].filter(Boolean)
+  );
 
   const {
     getTableProps,
@@ -107,33 +148,41 @@ const PaginatedTable = ({
   const onCellClick = (
     e: React.MouseEvent<HTMLTableCellElement>,
     columnName: string,
-    value: CellValue
+    value: CellValue,
+    cellIdx: number
   ) => {
-    if (tooltipHide.current) clearTimeout(tooltipHide.current);
-    copyToClipboard(value);
+    if (enableEditMode) {
+      const columns = reduceColumnsSelection(columnName, cellIdx);
 
-    const {
-      top,
-      left,
-    }: ClientRect = containerRef.current.getBoundingClientRect();
-    const tooltipX = e.pageX - left - window.scrollX;
-    const tooltipY = e.pageY - top - window.scrollY;
+      publishColumnSelection(data, formatValue, columns);
+      setSelectedColumns(columns);
+    } else {
+      if (tooltipHide.current) clearTimeout(tooltipHide.current);
+      copyToClipboard(value);
 
-    setTooltip((state) => ({
-      ...state,
-      visible: true,
-      x: tooltipX,
-      y: tooltipY,
-    }));
+      const {
+        top,
+        left,
+      }: ClientRect = containerRef.current.getBoundingClientRect();
+      const tooltipX = e.pageX - left - window.scrollX;
+      const tooltipY = e.pageY - top - window.scrollY;
 
-    tooltipHide.current = setTimeout(() => {
       setTooltip((state) => ({
         ...state,
-        visible: false,
-        x: 0,
-        y: 0,
+        visible: true,
+        x: tooltipX,
+        y: tooltipY,
       }));
-    }, 1500);
+
+      tooltipHide.current = setTimeout(() => {
+        setTooltip((state) => ({
+          ...state,
+          visible: false,
+          x: 0,
+          y: 0,
+        }));
+      }, 1500);
+    }
   };
 
   return (
@@ -143,23 +192,52 @@ const PaginatedTable = ({
           tooltipState={tooltip}
           tooltipSettings={tooltipSettings}
         />
-        <table {...getTableProps()} ref={tableRef}>
+        <StyledTable {...getTableProps()} ref={tableRef}>
+          <colgroup>
+            {headerGroups[0].headers.map((item, idx: number) => (
+              <StyledCol
+                key={`col-${item.Header}-${idx}`}
+                isHovered={hoveredColumn === idx}
+                isSelected={indexesOfSelectedColumns.includes(idx)}
+              />
+            ))}
+          </colgroup>
           <Header
             headerGroups={headerGroups}
             typography={header.typography}
             color={mainColor}
+            activeColumns={[...activeColumns]}
+            {...(enableEditMode &&
+              publishColumnSelection && {
+                onEditModeClick: (_e, columnName, cellIdx) => {
+                  const selectedColumns = reduceColumnsSelection(
+                    columnName,
+                    cellIdx
+                  );
+                  publishColumnSelection(data, formatValue, selectedColumns);
+
+                  setSelectedColumns(selectedColumns);
+                },
+                onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
+                onCellMouseLeave: () => setHoveredColumn(null),
+              })}
           />
           <Body
             page={page}
             getTableBodyProps={getTableBodyProps}
-            onCellClick={(e, columnName, columnValue) =>
-              onCellClick(e, columnName, columnValue)
+            onCellClick={(e, columnName, columnValue, cellIdx) =>
+              onCellClick(e, columnName, columnValue, cellIdx)
             }
             prepareRow={prepareRow}
             backgroundColor={mainColor}
             typography={body.typography}
+            activeColumns={[...activeColumns]}
+            {...(enableEditMode && {
+              onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
+              onCellMouseLeave: () => setHoveredColumn(null),
+            })}
           />
-        </table>
+        </StyledTable>
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
       </TableContainer>

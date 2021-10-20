@@ -13,11 +13,23 @@ type Props = {
   prepareRow: (row: Row) => void;
   backgroundColor: string;
   typography: Typography;
+  /** Active columns array */
+  activeColumns?: number[];
   /** Cell element click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
     columnName: string,
     value: CellValue,
+    idx: number
+  ) => void;
+  /** Cell element mouse enter event hander */
+  onCellMouseEnter?: (
+    e: React.MouseEvent<HTMLTableCellElement>,
+    idx: number
+  ) => void;
+  /** Cell element mouse leave event hander */
+  onCellMouseLeave?: (
+    e: React.MouseEvent<HTMLTableCellElement>,
     idx: number
   ) => void;
 };
@@ -28,22 +40,24 @@ export const Body = ({
   prepareRow,
   backgroundColor,
   typography,
+  activeColumns = [],
   onCellClick,
+  onCellMouseEnter,
+  onCellMouseLeave,
 }: Props) => {
   const rgbaBackground = useMemo(() => rgba(backgroundColor, 0.3), [
     backgroundColor,
   ]);
   return (
     <tbody {...getTableBodyProps()}>
-      {page.map((row: Row, i) => {
+      {page.map((row: Row) => {
         prepareRow(row);
 
         return (
           <RowContainer
-            {...row.getRowProps()}
+            key={row.getRowProps().key}
             mainColor={backgroundColor}
             whileHover={{ backgroundColor: rgbaBackground }}
-            key={i}
           >
             {row.cells.map((cell: CellType, i) => {
               return (
@@ -52,9 +66,12 @@ export const Body = ({
                   key={i}
                   idx={i}
                   typography={typography}
+                  isActive={activeColumns.includes(i)}
                   onCellClick={(e, columnName, value, idx) =>
                     onCellClick(e, columnName, value, idx)
                   }
+                  onCellMouseEnter={onCellMouseEnter}
+                  onCellMouseLeave={onCellMouseLeave}
                 />
               );
             })}

@@ -17,3 +17,18 @@ export type FormattedValue = {
 };
 
 export type ValueFormatter = Record<string, Formatter>;
+
+export type ColumnSelection = {
+  name: string;
+  formatter: string | null;
+  dataType: 'string' | 'number' | 'datetime' | 'boolean';
+};
+
+export type ColumnsSelectionEvent = {
+  eventName: '@table/columns-selected';
+  meta: { selection: ColumnSelection[] };
+};
+
+export type TableEvents =
+  | ColumnsSelectionEvent
+  | { eventName: '@table/deselect-columns' };
