@@ -145,14 +145,14 @@ const PaginatedTable = ({
     previousPage,
     setPageSize,
     state: { pageIndex, pageSize, sortBy },
-  } = useTable(
+  }: any = useTable(
     {
       columns,
       data: formattedData,
       initialState: { pageIndex: 0 },
       manualSortBy: true,
       disableMultiSort: true,
-    },
+    } as any,
     useBlockLayout,
     useSortBy,
     usePagination
