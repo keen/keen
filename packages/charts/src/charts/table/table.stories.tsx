@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { color, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { PaginatedTable } from '@keen.io/ui-core';
-import { ChartEvents } from '@keen.io/charts';
 import { PubSub } from '@keen.io/pubsub';
 
 import { data } from './table.fixtures';
@@ -11,6 +10,7 @@ import { data } from './table.fixtures';
 import TableChart from './table-chart.component';
 
 import { theme } from '../../theme';
+import { ChartEvents } from '../../events';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
