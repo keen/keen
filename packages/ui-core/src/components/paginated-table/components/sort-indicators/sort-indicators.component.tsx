@@ -15,7 +15,7 @@ export const SortIndicators = ({ sortMode = 'ascending' }: Props) => (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
-        opacity: sortMode === 'descending' ? 1 : 0.3,
+        opacity: sortMode === 'ascending' ? 1 : 0.3,
       }}
     >
       <Icon type="arrow-up" fill={colors.white[500]} width={10} />
@@ -23,7 +23,7 @@ export const SortIndicators = ({ sortMode = 'ascending' }: Props) => (
     <DownArrow
       initial={{ opacity: 0 }}
       animate={{
-        opacity: sortMode === 'ascending' ? 1 : 0.3,
+        opacity: sortMode === 'descending' ? 1 : 0.3,
       }}
     >
       <Icon type="arrow-down" fill={colors.white[500]} width={10} />

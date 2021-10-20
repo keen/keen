@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   useBlockLayout,
   usePagination,
@@ -12,6 +12,7 @@ import {
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
 
+import { SortByType } from '../../../typings';
 import {
   LeftOverflow,
   RightOverflow,
@@ -21,7 +22,12 @@ import {
 import { Body, Header, Pagination } from './components';
 import { CopyCellTooltip } from './components';
 import { CellValue, TooltipState, ValueFormatter } from './types';
-import { generateHeader, generateTable, setColumnsOrder } from './utils';
+import {
+  generateHeader,
+  generateTable,
+  setColumnsOrder,
+  sortData,
+} from './utils';
 
 type Props = {
   data: Record<string, any>[];
@@ -44,6 +50,7 @@ const PaginatedTable = ({
 }: Props) => {
   const tableRef = useRef(null);
   const containerRef = useRef(null);
+  const [sort, setSort] = useState<SortByType>(null);
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -62,12 +69,14 @@ const PaginatedTable = ({
     return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
   }, [columnsOrder, tableData]);
 
+  const sortedData = sort ? sortData(data, sort, formatValue) : data;
+
   const formattedData = React.useMemo(
-    () => (formatValue ? generateTable(data, formatValue) : data),
-    [data, formatValue]
+    () => (formatValue ? generateTable(sortedData, formatValue) : sortedData),
+    [sort, formatValue]
   );
 
-  const columns = React.useMemo(() => generateHeader(data[0]), [
+  const columns = React.useMemo(() => generateHeader(sortedData[0]), [
     columnsOrder,
     tableData,
   ]);
@@ -86,17 +95,30 @@ const PaginatedTable = ({
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
+    state: { pageIndex, pageSize, sortBy },
   } = useTable(
     {
       columns,
       data: formattedData,
       initialState: { pageIndex: 0 },
+      manualSortBy: true,
+      disableMultiSort: true,
     },
     useBlockLayout,
     useSortBy,
     usePagination
   );
+
+  useEffect(() => {
+    if (sortBy && sortBy.length > 0) {
+      setSort({
+        property: sortBy[0].id,
+        sort: sortBy[0].desc ? 'descending' : 'ascending',
+      });
+    } else {
+      setSort(null);
+    }
+  }, [sortBy]);
 
   const {
     overflowRight,

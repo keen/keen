@@ -15,6 +15,6 @@ export const StyledCell = styled.td`
 export const Container = styled.div<{
   textAlignment: CellTextAlignment;
 }>`
-  padding: 15px;
+  padding: 10px 15px;
   text-align: ${(props) => props.textAlignment};
 `;
