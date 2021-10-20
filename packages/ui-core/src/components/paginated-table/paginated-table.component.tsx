@@ -110,7 +110,9 @@ const PaginatedTable = ({
   ]);
   const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
   const activeColumns = new Set(
-    [...indexesOfSelectedColumns, hoveredColumn].filter(Boolean)
+    [...indexesOfSelectedColumns, hoveredColumn].filter(
+      (i) => typeof i === 'number'
+    )
   );
 
   const {
