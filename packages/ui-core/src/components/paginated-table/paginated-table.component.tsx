@@ -75,7 +75,7 @@ const PaginatedTable = ({
     [sort, formatValue]
   );
 
-  const columns = React.useMemo(() => generateHeader(sortedData[0]), [
+  const columns = React.useMemo(() => generateHeader(formattedData[0]), [
     columnsOrder,
     tableData,
   ]);
@@ -183,19 +183,19 @@ const PaginatedTable = ({
         </table>
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
+        <Pagination
+          gotoPage={gotoPage}
+          canPreviousPage={canPreviousPage}
+          canNextPage={canNextPage}
+          previousPage={previousPage}
+          nextPage={nextPage}
+          pageCount={pageCount}
+          pageIndex={pageIndex}
+          pageSize={pageSize}
+          pageOptions={pageOptions}
+          setPageSize={setPageSize}
+        />
       </TableContainer>
-      <Pagination
-        gotoPage={gotoPage}
-        canPreviousPage={canPreviousPage}
-        canNextPage={canNextPage}
-        previousPage={previousPage}
-        nextPage={nextPage}
-        pageCount={pageCount}
-        pageIndex={pageIndex}
-        pageSize={pageSize}
-        pageOptions={pageOptions}
-        setPageSize={setPageSize}
-      />
     </TableScrollWrapper>
   );
 };

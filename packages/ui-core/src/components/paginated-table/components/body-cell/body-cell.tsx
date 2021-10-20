@@ -22,9 +22,10 @@ export const BodyCell = ({ cell, typography, onCellClick, idx }: Props) => {
   const { value, formatterType } = cell.value;
 
   const textAlignment = useMemo(() => {
-    return formatterType === 'number' || typeof value === 'number'
-      ? 'right'
-      : 'left';
+    const isNumeric =
+      formatterType === 'number' ||
+      (typeof value === 'number' && formatterType !== 'string');
+    return isNumeric ? 'right' : 'left';
   }, [value, formatterType]);
 
   return (

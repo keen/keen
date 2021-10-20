@@ -8,4 +8,7 @@ export const Head = styled.thead<{
   ${(props) => props.typography};
   color: ${(props) => props.typography.fontColor};
   background: ${(props) => props.backgroundColor};
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;

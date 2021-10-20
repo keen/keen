@@ -26,6 +26,7 @@ export const CopyCellTooltip = ({ tooltipState, tooltipSettings }: Props) => {
           style={{
             position: 'absolute',
             pointerEvents: 'none',
+            zIndex: 1,
           }}
         >
           <Tooltip mode={tooltipSettings.mode} hasArrow={false}>

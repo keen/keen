@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledPagination } from './pagination.styles';
 
 type Props = {
   gotoPage: (pageNumber: number) => void;
@@ -26,7 +27,7 @@ export const Pagination = ({
   setPageSize,
 }: Props) => {
   return (
-    <div className="pagination">
+    <StyledPagination>
       <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
         {'<<'}
       </button>{' '}
@@ -69,6 +70,6 @@ export const Pagination = ({
           </option>
         ))}
       </select>
-    </div>
+    </StyledPagination>
   );
 };
