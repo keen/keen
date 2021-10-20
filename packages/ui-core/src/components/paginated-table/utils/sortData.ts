@@ -1,6 +1,6 @@
 import { extractFormatterType } from '@keen.io/charts-utils';
 
-import { SortByType } from '../../../../typings';
+import { SortByType } from '../../../types';
 import { ValueFormatter } from '../types';
 
 export const sortData = (

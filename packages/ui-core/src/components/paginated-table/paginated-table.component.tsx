@@ -12,15 +12,14 @@ import {
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
 
-import { SortByType } from '../../../typings';
+import { SortByType } from '../../types';
 import {
   LeftOverflow,
   RightOverflow,
   TableContainer,
   TableScrollWrapper,
 } from './paginated-table.styles';
-import { Body, Header, Pagination } from './components';
-import { CopyCellTooltip } from './components';
+import { Body, Header, Pagination, CopyCellTooltip } from './components';
 import { CellValue, TooltipState, ValueFormatter } from './types';
 import {
   generateHeader,
