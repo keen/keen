@@ -5,8 +5,13 @@ import { AnimatePresence, MotionProps } from 'framer-motion';
 import { BodyText } from '@keen.io/typography';
 import { colors } from '@keen.io/colors';
 import { Icon } from '@keen.io/icons';
-import { useOnClickOutside, useKeypress } from '@keen.io/react-hooks';
+import {
+  useOnClickOutside,
+  useKeypress,
+  useDynamicContentPosition,
+} from '@keen.io/react-hooks';
 
+import DynamicPortal from '../../../dynamic-portal';
 import {
   Container,
   Label,
@@ -37,6 +42,11 @@ const ItemsPerPage: FC<Props> = ({ value = Options[0], onChange }) => {
   const [selectionIndex, setIndex] = useState<number>(null);
 
   useOnClickOutside(containerRef, () => setOpen(false));
+  const { setPosition, contentPosition } = useDynamicContentPosition(
+    containerRef
+  );
+
+  const { x, y, width } = contentPosition;
 
   useEffect(() => {
     if (isOpen) {
@@ -93,6 +103,9 @@ const ItemsPerPage: FC<Props> = ({ value = Options[0], onChange }) => {
       ref={containerRef}
       role="button"
       tabIndex={0}
+      onMouseEnter={() => {
+        setPosition();
+      }}
       onKeyDown={(e) => {
         if (e.keyCode === KEYBOARD_KEYS.ENTER) {
           setOpen(!isOpen);
@@ -112,29 +125,31 @@ const ItemsPerPage: FC<Props> = ({ value = Options[0], onChange }) => {
           />
         </IconContainer>
       </Label>
-      <AnimatePresence>
-        {isOpen && (
-          <List {...listMotion}>
-            {Options.map((option) => (
-              <ListItem
-                key={`${option}-per-page`}
-                isActive={option === Options[selectionIndex]}
-                whileHover={{
-                  backgroundColor: transparentize(0.85, colors.blue[100]),
-                }}
-                onClick={() => {
-                  setOpen(false);
-                  onChange(option);
-                }}
-              >
-                <BodyText variant="body2" color={colors.blue[500]}>
-                  {option} per page
-                </BodyText>
-              </ListItem>
-            ))}
-          </List>
-        )}
-      </AnimatePresence>
+      <DynamicPortal>
+        <AnimatePresence>
+          {isOpen && (
+            <List {...listMotion} x={x} y={y} width={width}>
+              {Options.map((option) => (
+                <ListItem
+                  key={`${option}-per-page`}
+                  isActive={option === Options[selectionIndex]}
+                  whileHover={{
+                    backgroundColor: transparentize(0.85, colors.blue[100]),
+                  }}
+                  onClick={() => {
+                    setOpen(false);
+                    onChange(option);
+                  }}
+                >
+                  <BodyText variant="body2" color={colors.blue[500]}>
+                    {option} per page
+                  </BodyText>
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </AnimatePresence>
+      </DynamicPortal>
     </Container>
   );
 };

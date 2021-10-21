@@ -11,7 +11,7 @@ export const Head = styled.thead<{
   color: ${(props) => props.typography.fontColor};
   background: ${(props) => props.backgroundColor};
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 1;
 `;
 

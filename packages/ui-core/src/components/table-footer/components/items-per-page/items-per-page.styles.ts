@@ -32,11 +32,12 @@ export const Container = styled.div`
   }
 `;
 
-export const List = styled(motion.ul)`
+export const List = styled(motion.ul)<{ x: number; y: number; width: number }>`
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+  width: ${({ width }) => width}px;
+  min-width: min-content;
+  top: ${({ y }) => y}px;
+  left: ${({ x }) => x}px;
   margin: 0;
   padding: 0;
   list-style: none;
