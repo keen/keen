@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 import React, {
   useMemo,
   useRef,
@@ -9,6 +6,7 @@ import React, {
   useEffect,
 } from 'react';
 import {
+  HeaderGroup,
   useBlockLayout,
   usePagination,
   useSortBy,
@@ -18,9 +16,11 @@ import Measure from 'react-measure';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
-import { TableFooter, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
+import { TableFooter, SortByType, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
 
-import { SortByType } from '../../types';
+import { Theme, TooltipState } from '../../types';
+import { theme as defaultTheme } from '../../theme';
+
 import {
   LeftOverflow,
   RightOverflow,
@@ -31,7 +31,7 @@ import {
   TableFooterContainer,
 } from './table.styles';
 import { Body, Header, CopyCellTooltip } from './components';
-import { CellValue, TooltipState, ValueFormatter, TableEvents } from './types';
+import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
   generateHeader,
   generateTable,
@@ -51,7 +51,7 @@ type Props = {
   enableEditMode?: boolean;
   /** Chart events communication bus */
   chartEvents?: ChartEvents<TableEvents>;
-  theme: any;
+  theme: Theme;
 };
 export const TOOLTIP_MOTION = {
   transition: { duration: 0.3 },
@@ -60,7 +60,7 @@ export const TOOLTIP_MOTION = {
 
 const Table = ({
   data: tableData,
-  theme,
+  theme = defaultTheme,
   columnsOrder,
   formatValue,
   enableEditMode = false,
@@ -88,7 +88,7 @@ const Table = ({
   const { publishColumnSelection } = useTableEvents({
     chartEvents,
     onDeselectColumns: () => setSelectedColumns([]),
-  });
+  } as any);
 
   const reduceColumnsSelection = useCallback(
     (columnName: string, columnIndex: number) => {
@@ -227,7 +227,7 @@ const Table = ({
         />
         <StyledTable {...getTableProps()} ref={tableRef}>
           <colgroup>
-            {headerGroups[0].headers.map((item, idx: number) => (
+            {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
               <StyledCol
                 key={`col-${item.Header}-${idx}`}
                 isHovered={hoveredColumn === idx}

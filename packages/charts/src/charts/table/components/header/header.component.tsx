@@ -40,7 +40,7 @@ export const Header = ({
 }: Props) => {
   return (
     <Head typography={typography} backgroundColor={color}>
-      {headerGroups.map((headerGroup: any) => (
+      {headerGroups.map((headerGroup: HeaderGroup) => (
         <tr key={headerGroup.getHeaderGroupProps().key}>
           {headerGroup.headers.map((column: any, idx: number) => {
             const { title, key, onClick } = column.getHeaderProps(

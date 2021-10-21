@@ -3,6 +3,7 @@ import {
   Formatter,
   formatValue,
 } from '@keen.io/charts-utils';
+import { ValueFormatter } from '../types';
 
 /**
  * Generates table content
@@ -12,7 +13,10 @@ import {
  * @return data collection used to render table body
  *
  */
-export const generateTable = (data: Record<string, any>[], format: any) => {
+export const generateTable = (
+  data: Record<string, any>[],
+  format: ValueFormatter
+) => {
   return data.map((el: Record<string, any>) => {
     let table = {} as Record<string, any>;
     Object.keys(el).map((key: string) => {
