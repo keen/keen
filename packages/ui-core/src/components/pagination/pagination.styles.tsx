@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
+import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
 export const Container = styled.div`
@@ -23,6 +24,11 @@ export const PageNumber = styled(motion.div)<{ isActive: boolean }>`
   height: 27px;
   cursor: pointer;
   box-sizing: border-box;
+  transition: background-color 150ms ease-in-out;
+
+  &:hover {
+    background-color: ${transparentize(0.9, colors.blue[500])};
+  }
 
   &:focus-visible {
     outline: 1px solid ${colors.lightBlue[500]};
@@ -33,6 +39,10 @@ export const PageNumber = styled(motion.div)<{ isActive: boolean }>`
     css`
       background-color: ${colors.blue[500]};
       color: ${colors.white[500]};
+
+      &:hover {
+        background-color: ${colors.blue[500]};
+      }
     `};
 `;
 

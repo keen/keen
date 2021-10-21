@@ -8,6 +8,7 @@ export const Container = styled.div<{ isMobileView: boolean }>`
   border-top: 1px solid ${transparentize(0.5, colors.gray[400])};
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px 10px;
 
   ${({ isMobileView }) =>

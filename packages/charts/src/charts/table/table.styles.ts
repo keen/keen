@@ -58,3 +58,9 @@ export const StyledTable = styled.table`
   border-collapse: collapse;
   border: 1px solid transparent;
 `;
+
+export const TableFooterContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+`;

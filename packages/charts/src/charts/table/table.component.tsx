@@ -17,6 +17,7 @@ import {
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
+import { TableFooter, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
 
 import { SortByType } from '../../types';
 import {
@@ -26,8 +27,9 @@ import {
   TableScrollWrapper,
   StyledCol,
   StyledTable,
+  TableFooterContainer,
 } from './table.styles';
-import { Body, Header, Pagination, CopyCellTooltip } from './components';
+import { Body, Header, CopyCellTooltip } from './components';
 import { CellValue, TooltipState, ValueFormatter, TableEvents } from './types';
 import {
   generateHeader,
@@ -136,20 +138,15 @@ const Table = ({
     headerGroups,
     prepareRow,
     page,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
     pageCount,
     gotoPage,
-    nextPage,
-    previousPage,
     setPageSize,
     state: { pageIndex, pageSize, sortBy },
   }: any = useTable(
     {
       columns,
       data: formattedData,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0, pageSize: PER_PAGE_OPTIONS[0] },
       manualSortBy: true,
       disableMultiSort: true,
     } as any,
@@ -261,6 +258,7 @@ const Table = ({
             prepareRow={prepareRow}
             backgroundColor={mainColor}
             typography={body.typography}
+            isEditMode={enableEditMode}
             activeColumns={[...activeColumns]}
             {...(enableEditMode && {
               onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
@@ -270,19 +268,17 @@ const Table = ({
         </StyledTable>
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
-        <Pagination
-          gotoPage={gotoPage}
-          canPreviousPage={canPreviousPage}
-          canNextPage={canNextPage}
-          previousPage={previousPage}
-          nextPage={nextPage}
-          pageCount={pageCount}
-          pageIndex={pageIndex}
-          pageSize={pageSize}
-          pageOptions={pageOptions}
-          setPageSize={setPageSize}
-        />
       </TableContainer>
+      <TableFooterContainer>
+        <TableFooter
+          rows={data.length}
+          page={pageIndex + 1}
+          totalPages={pageCount}
+          itemsPerPage={pageSize}
+          onPageChange={(page) => gotoPage(page - 1)}
+          onItemsPerPageChange={setPageSize}
+        />
+      </TableFooterContainer>
     </TableScrollWrapper>
   );
 };
