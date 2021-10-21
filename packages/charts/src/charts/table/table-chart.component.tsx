@@ -12,10 +12,11 @@ import {
   useSortBy,
   useTable,
 } from 'react-table';
+import Measure from 'react-measure';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
-import { SortByType } from '@keen.io/ui-core';
+import { TableFooter, SortByType, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
 
 import { Theme, TooltipState } from '../../types';
 import { theme as defaultTheme } from '../../theme';
@@ -27,8 +28,9 @@ import {
   TableScrollWrapper,
   StyledCol,
   StyledTable,
+  TableFooterContainer,
 } from './table-chart.styles';
-import { Body, Header, Pagination, CopyCellTooltip } from './components';
+import { Body, Header, CopyCellTooltip } from './components';
 import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
   generateHeader,
@@ -83,11 +85,12 @@ export const TableChart = ({
       index: number;
     }[]
   >([]);
+  const [footerHeight, setFooterHeight] = useState(0);
 
   const { publishColumnSelection } = useTableEvents({
     chartEvents,
     onDeselectColumns: () => setSelectedColumns([]),
-  });
+  } as any);
 
   const reduceColumnsSelection = useCallback(
     (columnName: string, columnIndex: number) => {
@@ -139,20 +142,15 @@ export const TableChart = ({
     headerGroups,
     prepareRow,
     page,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
     pageCount,
     gotoPage,
-    nextPage,
-    previousPage,
     setPageSize,
     state: { pageIndex, pageSize, sortBy },
   }: any = useTable(
     {
       columns,
       data: formattedData,
-      initialState: { pageIndex: 0 },
+      initialState: { pageIndex: 0, pageSize: PER_PAGE_OPTIONS[0] },
       manualSortBy: true,
       disableMultiSort: true,
     } as any,
@@ -223,6 +221,7 @@ export const TableChart = ({
       <TableContainer
         ref={containerRef}
         onScroll={scrollHandler}
+        footerHeight={footerHeight}
         data-testid="table-chart-plot"
       >
         <CopyCellTooltip
@@ -268,6 +267,7 @@ export const TableChart = ({
             prepareRow={prepareRow}
             backgroundColor={mainColor}
             typography={body.typography}
+            isEditMode={enableEditMode}
             activeColumns={[...activeColumns]}
             {...(enableEditMode && {
               onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
@@ -277,19 +277,26 @@ export const TableChart = ({
         </StyledTable>
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
-        <Pagination
-          gotoPage={gotoPage}
-          canPreviousPage={canPreviousPage}
-          canNextPage={canNextPage}
-          previousPage={previousPage}
-          nextPage={nextPage}
-          pageCount={pageCount}
-          pageIndex={pageIndex}
-          pageSize={pageSize}
-          pageOptions={pageOptions}
-          setPageSize={setPageSize}
-        />
       </TableContainer>
+      <Measure
+        bounds
+        onResize={({ bounds: { height } }) => {
+          setFooterHeight(height);
+        }}
+      >
+        {({ measureRef }) => (
+          <TableFooterContainer ref={measureRef}>
+            <TableFooter
+              rows={data.length}
+              page={pageIndex + 1}
+              totalPages={pageCount}
+              itemsPerPage={pageSize}
+              onPageChange={(page) => gotoPage(page - 1)}
+              onItemsPerPageChange={setPageSize}
+            />
+          </TableFooterContainer>
+        )}
+      </Measure>
     </TableScrollWrapper>
   );
 };

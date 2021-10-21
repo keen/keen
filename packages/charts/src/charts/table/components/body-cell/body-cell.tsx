@@ -39,6 +39,10 @@ export const BodyCell = ({
   onCellMouseLeave,
 }: Props) => {
   const { value, formatterType } = cell.value;
+  const {
+    key,
+    style: { width },
+  } = cell.getCellProps();
 
   const textAlignment = useMemo(() => {
     const isNumeric =
@@ -49,7 +53,8 @@ export const BodyCell = ({
 
   return (
     <StyledCell
-      {...cell.getCellProps().key}
+      key={key}
+      isActive={isActive}
       onClick={(e) => onCellClick(e, cell.column.Header as string, value, idx)}
       onMouseEnter={
         onCellMouseEnter
@@ -68,7 +73,7 @@ export const BodyCell = ({
           : null
       }
     >
-      <Container textAlignment={textAlignment} isActive={isActive}>
+      <Container textAlignment={textAlignment} width={width}>
         <Text {...typography}>{`${value}`}</Text>
       </Container>
     </StyledCell>

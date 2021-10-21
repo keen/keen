@@ -16,7 +16,7 @@ export const CellContent = styled.div<{ textAlignment: CellTextAlignment }>`
   align-items: center;
   gap: 5px;
   box-sizing: border-box;
-  padding: 10px 15px;
+  padding: 15px 20px;
   flex-direction: ${({ textAlignment }) =>
     textAlignment === 'left' ? 'row' : 'row-reverse'};
 `;
