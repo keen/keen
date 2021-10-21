@@ -10,17 +10,17 @@ describe('generateHeader()', () => {
       Array [
         Object {
           "Header": "name",
-          "accessor": "name",
+          "accessor": [Function],
           "align": "left",
         },
         Object {
           "Header": "age",
-          "accessor": "age",
-          "align": "right",
+          "accessor": [Function],
+          "align": "left",
         },
         Object {
           "Header": "city",
-          "accessor": "city",
+          "accessor": [Function],
           "align": "left",
         },
       ]

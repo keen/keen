@@ -27,7 +27,7 @@ import {
   TableScrollWrapper,
   StyledCol,
   StyledTable,
-} from './table.styles';
+} from './table-chart.styles';
 import { Body, Header, Pagination, CopyCellTooltip } from './components';
 import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
@@ -37,9 +37,9 @@ import {
   sortData,
 } from './utils';
 import { useTableEvents } from './hooks';
-import { ChartEvents } from './events';
+import { ChartEvents } from '../../events';
 
-type Props = {
+export type Props = {
   data: Record<string, any>[];
   /** Columns order */
   columnsOrder?: string[];
@@ -49,6 +49,8 @@ type Props = {
   enableEditMode?: boolean;
   /** Chart events communication bus */
   chartEvents?: ChartEvents<TableEvents>;
+  /** Renaming columns settings */
+  columnsNamesMapping?: Record<string, string>;
   theme: Theme;
 };
 export const TOOLTIP_MOTION = {
@@ -56,7 +58,7 @@ export const TOOLTIP_MOTION = {
   exit: { opacity: 0 },
 };
 
-const Table = ({
+export const TableChart = ({
   data: tableData,
   theme = defaultTheme,
   columnsOrder,
@@ -116,7 +118,7 @@ const Table = ({
   const sortedData = sort ? sortData(data, sort, formatValue) : data;
 
   const formattedData = React.useMemo(
-    () => (formatValue ? generateTable(sortedData, formatValue) : sortedData),
+    () => generateTable(sortedData, formatValue),
     [sort, formatValue]
   );
 
@@ -218,7 +220,11 @@ const Table = ({
 
   return (
     <TableScrollWrapper>
-      <TableContainer ref={containerRef} onScroll={scrollHandler}>
+      <TableContainer
+        ref={containerRef}
+        onScroll={scrollHandler}
+        data-testid="table-chart-plot"
+      >
         <CopyCellTooltip
           tooltipState={tooltip}
           tooltipSettings={tooltipSettings}
@@ -288,4 +294,4 @@ const Table = ({
   );
 };
 
-export default Table;
+export default TableChart;

@@ -5,13 +5,13 @@ import { PubSub } from '@keen.io/pubsub';
 
 import { theme } from '../../theme';
 import { ChartEvents } from '../../events';
-import { data } from './table.fixtures';
-import Table from './table.component';
+import { data } from './table-chart.fixtures';
+import TableChart from './table-chart.component';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
   parameters: {
-    component: Table,
+    component: TableChart,
   },
 };
 
@@ -25,7 +25,7 @@ const chartEvents = new ChartEvents({ pubsub });
 
 chartEvents.subscribe(({ eventName, meta }) => console.log(eventName, meta));
 
-export const Paginated = () => {
+export const Plot = () => {
   return (
     <Container>
       <button
@@ -35,7 +35,7 @@ export const Paginated = () => {
       >
         Clear selection
       </button>
-      <Table
+      <TableChart
         data={data}
         theme={{
           ...theme,

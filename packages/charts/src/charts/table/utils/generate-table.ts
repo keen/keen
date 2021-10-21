@@ -23,7 +23,7 @@ export const generateTable = (
       if (format !== null && typeof format === 'object') {
         const formatObj = format && (format as Record<string, any>);
         const formatter = formatObj[key] && (formatObj[key] as Formatter);
-        return (table = {
+        table = {
           ...table,
           [key]: {
             value: formatter ? formatValue(el[key], formatter) : el[key],
@@ -32,12 +32,16 @@ export const generateTable = (
                 ? extractFormatterType(formatter)
                 : undefined,
           } as any,
-        });
+        };
+        return;
       }
-      return (table = {
+      table = {
         ...table,
-        [key]: format instanceof Function && format(el[key]),
-      });
+        [key]: {
+          value: format instanceof Function ? format(el[key]) : el[key],
+        },
+      };
+      return;
     });
     return table;
   });

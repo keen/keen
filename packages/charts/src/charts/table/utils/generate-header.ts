@@ -11,10 +11,10 @@ export const generateHeader = (data: Record<string, any>) => {
     const formatterType = data[key].formatterType;
     const isNumeric =
       formatterType === 'number' ||
-      (typeof data[key] === 'number' && formatterType !== 'string');
+      (typeof data[key].value === 'number' && formatterType !== 'string');
     header.push({
       Header: key,
-      accessor: key,
+      accessor: (d: Record<string, any>) => d[key],
       align: isNumeric ? 'right' : 'left',
     });
   });

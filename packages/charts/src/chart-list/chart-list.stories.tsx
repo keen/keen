@@ -13,7 +13,7 @@ import Heatmap from '../charts/heatmap/heatmap-chart.component';
 import { LineChart } from '../charts/line/line-chart.component';
 import { MetricChart } from '../charts/metric/metric-chart.component';
 import { PieChart } from '../charts/pie/pie-chart.component';
-import TableChart from '../charts/table-old/table-chart.component';
+import { TableChart } from '../charts/table/table-chart.component';
 
 import { chartData as choroplethChartData } from '../charts/choropleth/choropleth-chart.fixtures';
 import { chartData as gaugeChartData } from '../charts/gauge/gauge-chart.fixtures';

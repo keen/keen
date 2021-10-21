@@ -10,11 +10,15 @@ export const sortData = (
 ) => {
   const { sort, property } = sortBy;
   const formatPattern = formatValue && formatValue[property];
-  if (
+  const formatterType =
     formatPattern &&
     typeof formatPattern === 'string' &&
-    extractFormatterType(formatPattern) === 'number'
-  ) {
+    extractFormatterType(formatPattern);
+  const isNumeric =
+    formatterType === 'number' ||
+    (!isNaN(data[0][property]) && formatterType !== 'string');
+
+  if (isNumeric) {
     return data.sort((a: any, b: any) => {
       if (sort === 'ascending') {
         return a[property] - b[property];
