@@ -14,6 +14,7 @@ import {
   useSortBy,
   useTable,
 } from 'react-table';
+import Measure from 'react-measure';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
@@ -82,6 +83,7 @@ const Table = ({
       index: number;
     }[]
   >([]);
+  const [footerHeight, setFooterHeight] = useState(0);
 
   const { publishColumnSelection } = useTableEvents({
     chartEvents,
@@ -214,7 +216,11 @@ const Table = ({
 
   return (
     <TableScrollWrapper>
-      <TableContainer ref={containerRef} onScroll={scrollHandler}>
+      <TableContainer
+        ref={containerRef}
+        onScroll={scrollHandler}
+        footerHeight={footerHeight}
+      >
         <CopyCellTooltip
           tooltipState={tooltip}
           tooltipSettings={tooltipSettings}
@@ -269,16 +275,25 @@ const Table = ({
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
       </TableContainer>
-      <TableFooterContainer>
-        <TableFooter
-          rows={data.length}
-          page={pageIndex + 1}
-          totalPages={pageCount}
-          itemsPerPage={pageSize}
-          onPageChange={(page) => gotoPage(page - 1)}
-          onItemsPerPageChange={setPageSize}
-        />
-      </TableFooterContainer>
+      <Measure
+        bounds
+        onResize={({ bounds: { height } }) => {
+          setFooterHeight(height);
+        }}
+      >
+        {({ measureRef }) => (
+          <TableFooterContainer ref={measureRef}>
+            <TableFooter
+              rows={data.length}
+              page={pageIndex + 1}
+              totalPages={pageCount}
+              itemsPerPage={pageSize}
+              onPageChange={(page) => gotoPage(page - 1)}
+              onItemsPerPageChange={setPageSize}
+            />
+          </TableFooterContainer>
+        )}
+      </Measure>
     </TableScrollWrapper>
   );
 };

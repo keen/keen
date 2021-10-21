@@ -6,8 +6,9 @@ export const Container = styled.div<{
   textAlignment: CellTextAlignment;
   width?: string | number;
 }>`
-  padding: 10px 15px;
+  padding: 10px 20px;
   text-align: ${(props) => props.textAlignment};
+  box-sizing: border-box;
 
   ${({ width }) =>
     width &&
