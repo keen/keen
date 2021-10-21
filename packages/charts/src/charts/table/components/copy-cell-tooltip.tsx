@@ -1,13 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
-import { Tooltip, Text } from '@keen.io/ui-core';
+import { Text, Tooltip } from '@keen.io/ui-core';
 
-import { TooltipState } from '../../../types';
+import { Tooltip as TooltipSettings, TooltipState } from '../../../types';
 import { TOOLTIP_MOTION } from '../../../constants';
 
 type Props = {
   tooltipState: TooltipState;
-  tooltipSettings: any;
+  tooltipSettings: TooltipSettings;
 };
 export const CopyCellTooltip = ({ tooltipState, tooltipSettings }: Props) => {
   return (

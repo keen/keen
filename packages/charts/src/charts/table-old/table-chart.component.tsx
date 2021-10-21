@@ -11,9 +11,12 @@ import {
 import { copyToClipboard } from '@keen.io/charts-utils';
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 
-import { HeaderRow } from './components';
 import { ChartEvents } from '../../events';
+import { TooltipState, CommonChartSettings } from '../../types';
+import { theme as defaultTheme } from '../../theme';
+import { TOOLTIP_MOTION } from '../../constants';
 
+import { HeaderRow } from './components';
 import {
   generateHeader,
   generateTable,
@@ -21,9 +24,7 @@ import {
   generateTableRowData,
 } from './utils/chart.utils';
 import { sortData } from './utils/data.utils';
-
 import { useTableEvents } from './hooks';
-
 import {
   Container,
   TableContainer,
@@ -32,15 +33,9 @@ import {
   RightOverflow,
   StyledCol,
 } from './table-chart.styles';
-
 import text from './text.json';
-import { theme as defaultTheme } from '../../theme';
 import { TOOLTIP_HIDE } from './constants';
-
 import { ValueFormatter, TableEvents } from './types';
-import { TooltipState, CommonChartSettings } from '../../types';
-
-import { TOOLTIP_MOTION } from '../../constants';
 
 export type Props = {
   /** Chart data */
