@@ -3,8 +3,11 @@ import { transparentize } from 'polished';
 
 import { colors } from '@keen.io/colors';
 
-export const TableContainer = styled.div`
-  height: 100%;
+export const TableContainer = styled.div<{ footerHeight: number }>`
+  ${({ footerHeight }) =>
+    css`
+      height: calc(100% - ${footerHeight}px);
+    `};
   width: 100%;
   overflow: scroll;
 `;
@@ -57,4 +60,10 @@ export const StyledCol = styled.col<{
 export const StyledTable = styled.table`
   border-collapse: collapse;
   border: 1px solid transparent;
+`;
+
+export const TableFooterContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
 `;

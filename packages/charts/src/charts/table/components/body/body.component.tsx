@@ -13,6 +13,8 @@ type Props = {
   prepareRow: (row: Row) => void;
   backgroundColor: string;
   typography: Typography;
+  /** Edit mode indicator */
+  isEditMode?: boolean;
   /** Active columns array */
   activeColumns?: number[];
   /** Cell element click event handler */
@@ -41,6 +43,7 @@ export const Body = ({
   backgroundColor,
   typography,
   activeColumns = [],
+  isEditMode = false,
   onCellClick,
   onCellMouseEnter,
   onCellMouseLeave,
@@ -52,12 +55,14 @@ export const Body = ({
     <tbody {...getTableBodyProps()}>
       {page.map((row: Row) => {
         prepareRow(row);
-
         return (
           <RowContainer
             key={row.getRowProps().key}
             mainColor={backgroundColor}
-            whileHover={{ backgroundColor: rgbaBackground }}
+            enableHover={!isEditMode}
+            {...(!isEditMode && {
+              whileHover: { backgroundColor: rgbaBackground },
+            })}
           >
             {row.cells.map((cell: CellType, i) => {
               return (

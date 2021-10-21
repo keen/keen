@@ -1,5 +1,4 @@
 import React, { FC, useMemo } from 'react';
-import { transparentize } from 'polished';
 
 import { BodyText } from '@keen.io/typography';
 import { colors } from '@keen.io/colors';
@@ -55,12 +54,6 @@ const Pagination: FC<Props> = ({ page = 1, totalPages, onChange }) => {
               onKeyDown={(e) => {
                 if (item !== page && e.keyCode === KEYBOARD_KEYS.ENTER)
                   onChange(item);
-              }}
-              whileHover={{
-                backgroundColor:
-                  item === page
-                    ? colors.blue[500]
-                    : transparentize(0.9, colors.blue[500]),
               }}
               role="button"
               tabIndex={0}

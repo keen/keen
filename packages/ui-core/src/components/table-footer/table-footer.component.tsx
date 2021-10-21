@@ -65,13 +65,15 @@ const TableFooter: FC<Props> = ({
           >
             {rows} rows
           </BodyText>
-          <PaginationContainer isMobileView={isMobileView}>
-            <Pagination
-              page={page}
-              totalPages={totalPages}
-              onChange={onPageChange}
-            />
-          </PaginationContainer>
+          {totalPages > 1 && (
+            <PaginationContainer isMobileView={isMobileView}>
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                onChange={onPageChange}
+              />
+            </PaginationContainer>
+          )}
           <ItemsPerPage
             value={itemsPerPage}
             onChange={(option) => onItemsPerPageChange(option)}

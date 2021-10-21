@@ -102,6 +102,8 @@ import {
   TextAlignment,
   FontSettings,
   SideMenu,
+  TableFooter,
+  PER_PAGE_OPTIONS,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -136,7 +138,14 @@ export type {
   FontSettings,
 };
 
-export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, TIME_PICKER_CLASS, KEYBOARD_KEYS };
+export {
+  ARROW_SIZE,
+  UI_LAYERS,
+  TIME_UNITS,
+  TIME_PICKER_CLASS,
+  KEYBOARD_KEYS,
+  PER_PAGE_OPTIONS,
+};
 
 export { isElementInViewport, exportToHtml, mutateArray } from './utils';
 
@@ -224,4 +233,5 @@ export {
   Color,
   TypographySettings,
   SideMenu,
+  TableFooter,
 };
