@@ -13,12 +13,14 @@ export const useDynamicContentPosition = (
   });
 
   const setPosition = () => {
-    const parentRect = parentRef.current.getBoundingClientRect();
-    setContentPosition({
-      x: parentRect.x,
-      y: parentRect.y + window.scrollY + parentRect.height,
-      width: parentRect.width,
-    });
+    if (parentRef.current) {
+      const parentRect = parentRef.current.getBoundingClientRect();
+      setContentPosition({
+        x: parentRect.x,
+        y: parentRect.y + window.scrollY + parentRect.height,
+        width: parentRect.width,
+      });
+    }
   };
 
   return {
