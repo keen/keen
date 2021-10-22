@@ -36,6 +36,7 @@ const Pagination: FC<Props> = ({ page = 1, totalPages, onChange }) => {
         role="button"
         tabIndex={0}
         data-testid="prev-btn"
+        isDisabled={page === 1}
       >
         <Icon
           width={11}
@@ -77,6 +78,7 @@ const Pagination: FC<Props> = ({ page = 1, totalPages, onChange }) => {
         role="button"
         tabIndex={0}
         data-testid="next-btn"
+        isDisabled={page === totalPages}
       >
         <Icon
           width={11}
