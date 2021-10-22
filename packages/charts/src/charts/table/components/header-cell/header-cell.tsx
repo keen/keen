@@ -5,30 +5,37 @@ import { SortIndicators } from '../sort-indicators';
 import { CellContent, CellWrapper } from './header-cell.styles';
 
 type Props = {
-  column: any;
+  isSorted: boolean;
+  isSortedDescending: boolean;
+  textAlignment: 'left' | 'right';
+  columnName: string;
 };
 
-export const HeaderCell = ({ column }: Props) => {
+export const HeaderCell = ({
+  isSorted,
+  isSortedDescending,
+  textAlignment,
+  columnName,
+}: Props) => {
   const [isHovered, setHover] = useState(false);
   const [sortMode, setSortMode] = useState(null);
-  const showColumnActions = column.isSorted || isHovered;
-
+  const showColumnActions = isSorted || isHovered;
   useEffect(() => {
-    if (column.isSorted) {
-      setSortMode(column.isSortedDesc ? 'descending' : 'ascending');
+    if (isSorted) {
+      setSortMode(isSortedDescending ? 'descending' : 'ascending');
     } else {
       setSortMode(null);
     }
-  }, [column.isSortedDesc]);
+  }, [isSortedDescending]);
 
   return (
     <CellWrapper
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      textAlignment={column.align}
+      textAlignment={textAlignment}
     >
-      <CellContent textAlignment={column.align}>
-        {column.render('Header')}
+      <CellContent textAlignment={textAlignment}>
+        {columnName}
         <motion.div
           animate={showColumnActions ? { opacity: 1 } : { opacity: 0 }}
           style={
