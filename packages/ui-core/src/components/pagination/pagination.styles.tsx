@@ -46,9 +46,9 @@ export const PageNumber = styled(motion.div)<{ isActive: boolean }>`
     `};
 `;
 
-export const IconContainer = styled.div`
+export const IconContainer = styled.div<{ isDisabled: boolean }>`
   display: flex;
-  cursor: pointer;
+  cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
 
   &:focus-visible {
     outline: 1px solid ${colors.lightBlue[500]};
