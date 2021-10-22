@@ -41,4 +41,6 @@ export const StyledCell = styled.td<{
     css`
       background: none;
     `};
+
+  overflow-wrap: break-word;
 `;
