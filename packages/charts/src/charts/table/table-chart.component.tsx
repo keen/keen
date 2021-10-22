@@ -67,6 +67,7 @@ export const TableChart = ({
   formatValue,
   enableEditMode = false,
   chartEvents,
+  columnsNamesMapping = {},
 }: Props) => {
   const tableRef = useRef(null);
   const containerRef = useRef(null);
@@ -240,6 +241,7 @@ export const TableChart = ({
           </colgroup>
           <Header
             headerGroups={headerGroups}
+            columnsNamesMapping={columnsNamesMapping}
             typography={header.typography}
             color={mainColor}
             activeColumns={[...activeColumns]}

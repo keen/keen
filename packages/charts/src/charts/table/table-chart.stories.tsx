@@ -51,6 +51,9 @@ export const Plot = () => {
             'Chart'
           ),
         }}
+        columnsNamesMapping={{
+          platform: 'Platform renamed',
+        }}
         enableEditMode={boolean('Edit mode', false, 'Chart')}
         chartEvents={chartEvents}
       />

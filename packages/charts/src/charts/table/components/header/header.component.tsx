@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { HeaderGroup } from 'react-table';
 import { Typography } from '@keen.io/ui-core';
 
@@ -27,6 +27,7 @@ type Props = {
     columnName: string,
     idx: number
   ) => void;
+  columnsNamesMapping?: Record<string, string>;
 };
 
 export const Header = ({
@@ -37,7 +38,17 @@ export const Header = ({
   onCellMouseEnter,
   onCellMouseLeave,
   onEditModeClick,
+  columnsNamesMapping,
 }: Props) => {
+  const getColumnName = useCallback(
+    (columnName: string) => {
+      if (columnsNamesMapping?.[columnName])
+        return columnsNamesMapping?.[columnName];
+      return columnName;
+    },
+    [columnsNamesMapping]
+  );
+
   return (
     <Head typography={typography} backgroundColor={color}>
       {headerGroups.map((headerGroup: HeaderGroup) => (
@@ -46,13 +57,17 @@ export const Header = ({
             const { title, key, onClick } = column.getHeaderProps(
               column.getSortByToggleProps()
             );
+            const { align, isSorted, isSortedDesc, id: columnId } = column;
+
             return (
               <TableHeader
                 key={key}
                 title={title}
                 isActive={activeColumns.includes(idx)}
                 onClick={(e) =>
-                  onEditModeClick ? onEditModeClick(e, key, idx) : onClick(e)
+                  onEditModeClick
+                    ? onEditModeClick(e, columnId, idx)
+                    : onClick(e)
                 }
                 onMouseEnter={(e) =>
                   onCellMouseEnter && onCellMouseEnter(e, idx)
@@ -61,7 +76,12 @@ export const Header = ({
                   onCellMouseLeave && onCellMouseLeave(e, idx)
                 }
               >
-                <HeaderCell column={column} />
+                <HeaderCell
+                  textAlignment={align}
+                  isSorted={isSorted}
+                  isSortedDescending={isSortedDesc}
+                  columnName={getColumnName(columnId)}
+                />
               </TableHeader>
             );
           })}
