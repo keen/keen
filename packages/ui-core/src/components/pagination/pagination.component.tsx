@@ -6,7 +6,12 @@ import { Icon } from '@keen.io/icons';
 
 import { createPagination } from './utils';
 
-import { Container, PageNumber, IconContainer } from './pagination.styles';
+import {
+  Container,
+  PageNumber,
+  IconContainer,
+  PaginationText,
+} from './pagination.styles';
 import { KEYBOARD_KEYS } from '../../constants';
 
 type Props = {
@@ -62,9 +67,11 @@ const Pagination: FC<Props> = ({ page = 1, totalPages, onChange }) => {
               {item}
             </PageNumber>
           ) : (
-            <BodyText variant="body2" color={colors.blue[500]}>
-              {item}
-            </BodyText>
+            <PaginationText>
+              <BodyText variant="body2" color={colors.blue[500]}>
+                {item}
+              </BodyText>
+            </PaginationText>
           )}
         </React.Fragment>
       ))}
