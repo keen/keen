@@ -293,8 +293,14 @@ export const TableChart = ({
               page={pageIndex + 1}
               totalPages={pageCount}
               itemsPerPage={pageSize}
-              onPageChange={(page) => gotoPage(page - 1)}
-              onItemsPerPageChange={setPageSize}
+              onPageChange={(page) => {
+                containerRef.current.scrollTop = 0;
+                gotoPage(page - 1);
+              }}
+              onItemsPerPageChange={(pageSize) => {
+                containerRef.current.scrollTop = 0;
+                setPageSize(pageSize);
+              }}
             />
           </TableFooterContainer>
         )}
