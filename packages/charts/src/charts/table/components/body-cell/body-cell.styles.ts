@@ -7,8 +7,13 @@ export const Container = styled.div<{
   width?: string | number;
 }>`
   padding: 10px 20px;
-  text-align: ${(props) => props.textAlignment};
   box-sizing: border-box;
+  text-align: ${({ textAlignment }) => textAlignment};
+  ${({ textAlignment }) =>
+    textAlignment === 'right' &&
+    css`
+      margin-left: auto;
+    `};
 
   ${({ width }) =>
     width &&
@@ -25,7 +30,7 @@ export const StyledCell = styled.td<{
   position: relative;
   cursor: pointer;
   background: linear-gradient(
-    90deg,
+    270deg,
     transparent 0%,
     ${colors.gray[200]} 1px,
     transparent 1px,
