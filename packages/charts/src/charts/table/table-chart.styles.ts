@@ -3,13 +3,23 @@ import { transparentize } from 'polished';
 
 import { colors } from '@keen.io/colors';
 
-export const TableContainer = styled.div<{ footerHeight: number }>`
+export const TableContainer = styled.div<{
+  footerHeight: number;
+  isOverflow: boolean;
+}>`
+  width: 100%;
+  overflow: scroll;
+
   ${({ footerHeight }) =>
     css`
       height: calc(100% - ${footerHeight}px);
     `};
-  width: 100%;
-  overflow: scroll;
+
+  ${({ isOverflow }) =>
+    isOverflow &&
+    css`
+      box-shadow: inset 0 -4px 8px -4px ${colors.gray['500']};
+    `};
 `;
 
 export const TableScrollWrapper = styled.div`
