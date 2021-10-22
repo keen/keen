@@ -54,3 +54,8 @@ export const IconContainer = styled.div<{ isDisabled: boolean }>`
     outline: 1px solid ${colors.lightBlue[500]};
   }
 `;
+
+export const PaginationText = styled.div`
+  min-width: 27px;
+  text-align: center;
+`;
