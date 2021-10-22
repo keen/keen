@@ -60,6 +60,8 @@ export const StyledCol = styled.col<{
 export const StyledTable = styled.table`
   border-collapse: collapse;
   border: 1px solid transparent;
+  width: 100%;
+  margin: 0;
 `;
 
 export const TableFooterContainer = styled.div`
