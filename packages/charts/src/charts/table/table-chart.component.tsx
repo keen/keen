@@ -300,6 +300,7 @@ export const TableChart = ({
               onItemsPerPageChange={(pageSize) => {
                 containerRef.current.scrollTop = 0;
                 setPageSize(pageSize);
+                gotoPage(0);
               }}
             />
           </TableFooterContainer>
