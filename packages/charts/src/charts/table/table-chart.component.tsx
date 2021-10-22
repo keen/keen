@@ -118,7 +118,7 @@ export const TableChart = ({
     return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
   }, [columnsOrder, tableData]);
 
-  const sortedData = sort ? sortData(data, sort, formatValue) : data;
+  const sortedData = sort ? sortData([...data], sort, formatValue) : data;
 
   const formattedData = React.useMemo(
     () => generateTable(sortedData, formatValue),

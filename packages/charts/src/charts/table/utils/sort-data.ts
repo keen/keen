@@ -16,7 +16,9 @@ export const sortData = (
     extractFormatterType(formatPattern);
   const isNumeric =
     formatterType === 'number' ||
-    (!isNaN(data[0][property]) && formatterType !== 'string');
+    (data[0][property] !== null &&
+      !isNaN(data[0][property]) &&
+      formatterType !== 'string');
 
   if (isNumeric) {
     return data.sort((a: any, b: any) => {
@@ -28,8 +30,8 @@ export const sortData = (
     });
   }
   return data.sort((a: any, b: any) => {
-    const aString = a[property].toString();
-    const bString = b[property].toString();
+    const aString = a[property] ? a[property].toString() : '';
+    const bString = b[property] ? b[property].toString() : '';
     if (sort === 'ascending') {
       return aString.localeCompare(bString, undefined, { caseFirst: 'lower' });
     } else {

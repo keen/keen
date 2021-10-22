@@ -14,7 +14,7 @@ export const data = [
     price: 0.5,
     province: 'West Virginia',
     city: 'Parsons',
-    country: 'United States',
+    country: null,
     number: '15',
   },
   {
@@ -32,7 +32,7 @@ export const data = [
     price: 0.5,
     province: 'liaoning',
     city: 'Shenyang',
-    country: 'china',
+    country: null,
     number: 'two',
   },
   {
