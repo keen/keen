@@ -3,7 +3,7 @@ import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
 export const Container = styled.div<{ isMobileView: boolean }>`
-  padding: 15px;
+  padding: 10px 20px;
   background-color: ${colors.white[500]};
   border-top: 1px solid ${transparentize(0.5, colors.gray[400])};
   display: flex;
