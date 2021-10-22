@@ -17,6 +17,7 @@ export const Head = styled.thead<{
 
 export const TableHeader = styled.th<{ isActive?: boolean }>`
   position: relative;
+  cursor: pointer;
 
   ${({ isActive }) =>
     isActive &&

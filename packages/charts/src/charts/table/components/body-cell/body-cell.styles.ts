@@ -23,6 +23,7 @@ export const StyledCell = styled.td<{
 }>`
   padding: 0;
   position: relative;
+  cursor: pointer;
   background: linear-gradient(
     90deg,
     transparent 0%,
