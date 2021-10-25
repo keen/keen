@@ -4,14 +4,16 @@ import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
 import { formatValue, calculateTotalValue } from '@keen.io/charts-utils';
 
-import { generateCircularChart, LabelsPosition } from '../../utils';
-import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
-
 import DonutSlice from './donut-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
 
 import { ChartBase, Delayed } from '../../components';
-import { TooltipItem } from '../circular-chart';
+import {
+  LabelsPosition,
+  TooltipItem,
+  generateCircularChart,
+  getCircularChartTooltipContent,
+} from '../circular-chart';
 import DonutTotal from './donut-total.component';
 
 import { theme as defaultTheme } from '../../theme';

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@keen/charts - circular chart utils createStackedSlice() should create "stack" from 3 slices 1`] = `
+exports[`@keen/charts - generateCircularChart createStackedSlice() should create "stack" from 3 slices 1`] = `
 Array [
   Object {
     "color": "red",
@@ -46,7 +46,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts - circular chart utils createStackedSlice() should not create "stack" and return original slices 1`] = `
+exports[`@keen/charts - generateCircularChart createStackedSlice() should not create "stack" and return original slices 1`] = `
 Array [
   Object {
     "color": "red",
@@ -94,7 +94,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts - circular chart utils generateCircularChart() should calculate position for labels placed "outer" of slice 1`] = `
+exports[`@keen/charts - generateCircularChart generateCircularChart() should calculate position for labels placed "outer" of slice 1`] = `
 Array [
   Object {
     "activePosition": Array [
@@ -253,7 +253,7 @@ Array [
 ]
 `;
 
-exports[`@keen/charts - circular chart utils generateCircularChart() should calculate properties for each arc 1`] = `
+exports[`@keen/charts - generateCircularChart generateCircularChart() should calculate properties for each arc 1`] = `
 Array [
   Object {
     "activePosition": Array [

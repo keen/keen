@@ -3,11 +3,11 @@ import {
   createStackedSlice,
   calculateTresholdPercent,
   getSlicesToStack,
-} from './circular-chart.utils';
+} from './chart.utils';
 
-import { pieChart } from '../charts/pie/pie-chart.fixtures';
+import { pieChart } from '../../pie/pie-chart.fixtures';
 
-describe('@keen/charts - circular chart utils', () => {
+describe('@keen/charts - generateCircularChart', () => {
   const slices = [
     { color: 'red', value: 100, selector: [0] },
     { color: 'blue', value: 100, selector: [1] },

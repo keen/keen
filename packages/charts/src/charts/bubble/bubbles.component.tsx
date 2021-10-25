@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { randomizeVector } from './utils/animation.utils';
+import { randomizeVector } from './utils';
 
 import { Bubble } from './types';
 import { DataSelector } from '../../types';

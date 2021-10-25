@@ -6,8 +6,11 @@ import { Arc, DefaultArcObject } from 'd3-shape';
 import { PieLabel } from '../../components';
 import { StyledPath } from './donut-slice.styles';
 
-import { createArcTween, animateArcPath, ArcProperties } from '../../utils/';
-
+import {
+  createArcTween,
+  animateArcPath,
+  ArcProperties,
+} from '../circular-chart';
 import { ChartContext, ChartContextType } from '../../contexts';
 
 const sliceTransition = { duration: 0.2, ease: 'easeInOut' };

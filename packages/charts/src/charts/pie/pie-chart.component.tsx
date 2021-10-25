@@ -4,12 +4,14 @@ import { Tooltip, BulletList } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
 import { calculateTotalValue } from '@keen.io/charts-utils';
 
-import { generateCircularChart, LabelsPosition } from '../../utils';
-import { getCircularChartTooltipContent } from '../../utils/tooltip.utils';
-
 import PieSlice from './pie-slice.component';
 import ShadowFilter from '../../components/shadow-filter.component';
-import { TooltipItem } from '../circular-chart';
+import {
+  TooltipItem,
+  LabelsPosition,
+  generateCircularChart,
+  getCircularChartTooltipContent,
+} from '../circular-chart';
 
 import { ChartBase, Delayed } from '../../components';
 

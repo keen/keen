@@ -1,4 +1,4 @@
-import { scaleLinear } from 'd3-scale';
+import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import {
   calculateRange,
   calculateScaleDomain,
@@ -97,3 +97,5 @@ export const generateBubbles = ({
     middlePoint: [xScalePoint, yScalePoint] as [number, number],
   };
 };
+
+export const bubbleColorScale = (colors: string[]) => scaleOrdinal(colors);
