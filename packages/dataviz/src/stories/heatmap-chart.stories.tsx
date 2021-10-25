@@ -111,6 +111,10 @@ export const DoubleGroupBy = () => {
         subtitle: {
           content: 'Multiple results',
         },
+        legend: {
+          position: 'left',
+          layout: 'vertical',
+        },
       },
     });
 
@@ -278,6 +282,12 @@ export const OneCustomThemeColor = () => {
         labelSelector: 'name',
         theme: {
           colors: ['#ed404f'],
+        },
+      },
+      widget: {
+        legend: {
+          position: 'left',
+          layout: 'vertical',
         },
       },
     }).render();
