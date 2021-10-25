@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: baseline;
-  gap: 5px;
+  gap: 10px;
 `;
 
 export const PageNumber = styled(motion.div)<{ isActive: boolean }>`
