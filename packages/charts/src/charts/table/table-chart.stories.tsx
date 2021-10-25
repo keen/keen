@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, text } from '@storybook/addon-knobs';
-import { data } from './table.fixtures';
-import { action } from '@storybook/addon-actions';
-
-import TableChart from './table-chart.component';
+import { color, text, boolean } from '@storybook/addon-knobs';
+import { PubSub } from '@keen.io/pubsub';
 
 import { theme } from '../../theme';
+import { ChartEvents } from '../../events';
+import { data } from './table-chart.fixtures';
+import TableChart from './table-chart.component';
 
 export default {
   title: 'Visualizations /Table Chart / Plot',
@@ -20,9 +20,21 @@ const Container = styled.div`
   height: 500px;
 `;
 
+const pubsub = new PubSub();
+const chartEvents = new ChartEvents({ pubsub });
+
+chartEvents.subscribe(({ eventName, meta }) => console.log(eventName, meta));
+
 export const Plot = () => {
   return (
     <Container>
+      <button
+        onClick={() =>
+          chartEvents.publish({ eventName: '@table/deselect-columns' })
+        }
+      >
+        Clear selection
+      </button>
       <TableChart
         data={data}
         theme={{
@@ -32,15 +44,18 @@ export const Plot = () => {
             mainColor: color('Main color', '#27566d', 'Chart'),
           },
         }}
-        onResize={action('onResize')}
         formatValue={{
-          platform: (val) => (Array.isArray(val) ? 'Multi-platform' : val),
           price: text(
             'Format price values',
             '${number; 0.00; add; 100}$',
             'Chart'
           ),
         }}
+        columnsNamesMapping={{
+          platform: 'Platform renamed',
+        }}
+        enableEditMode={boolean('Edit mode', false, 'Chart')}
+        chartEvents={chartEvents}
       />
     </Container>
   );

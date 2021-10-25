@@ -6,6 +6,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'three',
   },
   {
     platform: 'Mobile',
@@ -13,7 +14,8 @@ export const data = [
     price: 0.5,
     province: 'West Virginia',
     city: 'Parsons',
-    country: 'United States',
+    country: null,
+    number: '15',
   },
   {
     platform: 'Web',
@@ -22,14 +24,25 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'one',
   },
   {
     platform: 'Web',
     referrer: 'facebook/cpc',
     price: 0.5,
-    province: 'Liaoning',
+    province: 'liaoning',
     city: 'Shenyang',
-    country: 'China',
+    country: null,
+    number: 'two',
+  },
+  {
+    platform: 'Web',
+    referrer: 'facebook/cpc',
+    price: 0.5,
+    province: 'liaoning',
+    city: 'Shenyang',
+    country: 'china',
+    number: '1asd',
   },
   {
     platform: 'Web',
@@ -38,6 +51,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: '1',
   },
   {
     platform: 'Mobile',
@@ -46,6 +60,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'Three',
   },
   {
     platform: 'Web',
@@ -54,6 +69,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 'Four',
   },
   {
     platform: 'Mobile',
@@ -62,6 +78,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: '5',
   },
   {
     platform: 'Web',
@@ -70,6 +87,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: '1two',
   },
   {
     platform: 'Mobile',
@@ -78,6 +96,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: '15',
   },
   {
     platform: 'Web',
@@ -86,6 +105,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: 'one',
   },
   {
     platform: 'Web',
@@ -94,6 +114,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: '1two',
   },
   {
     platform: 'Web',
@@ -102,6 +123,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: '1two',
   },
   {
     platform: 'Mobile',
@@ -110,6 +132,7 @@ export const data = [
     province: 'Liaoning',
     city: 'Shenyang',
     country: 'China',
+    number: '1two',
   },
   {
     platform: 'Web',
@@ -118,6 +141,7 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: 'three',
   },
   {
     platform: 'Mobile',
@@ -126,5 +150,6 @@ export const data = [
     province: 'West Virginia',
     city: 'Parsons',
     country: 'United States',
+    number: '1',
   },
 ];

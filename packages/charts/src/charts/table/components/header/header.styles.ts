@@ -1,25 +1,23 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
-import { Typography } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
+import { Typography } from '@keen.io/ui-core';
 
-export const Container = styled.tr<{
-  typography: Typography;
+export const Head = styled.thead<{
+  typography?: Typography;
+  backgroundColor: string;
 }>`
   ${(props) => props.typography};
   color: ${(props) => props.typography.fontColor};
+  background: ${(props) => props.backgroundColor};
+  position: sticky;
+  top: -1px;
+  z-index: 1;
 `;
 
-export const StickyCell = styled.td<{
-  backgroundColor: string;
-  isActive?: boolean;
-}>`
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background: ${(props) => props.backgroundColor};
+export const TableHeader = styled.th<{ isActive?: boolean }>`
   position: relative;
+  cursor: pointer;
 
   ${({ isActive }) =>
     isActive &&
@@ -35,13 +33,5 @@ export const StickyCell = styled.td<{
         width: 100%;
         background-color: ${transparentize(0.85, colors.green[300])};
       }
-    `};
-`;
-
-export const DisableInteractions = styled.div<{ disableInteraction: boolean }>`
-  ${({ disableInteraction }) =>
-    disableInteraction &&
-    css`
-      pointer-events: none;
     `};
 `;

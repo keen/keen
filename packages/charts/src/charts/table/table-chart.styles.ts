@@ -1,26 +1,32 @@
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
+
 import { colors } from '@keen.io/colors';
 
-export const Container = styled.div`
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-`;
-
-export const TableContainer = styled.div`
-  height: 100%;
+export const TableContainer = styled.div<{
+  footerHeight: number;
+  isOverflow: boolean;
+}>`
   width: 100%;
   overflow: scroll;
+
+  ${({ footerHeight }) =>
+    css`
+      height: calc(100% - ${footerHeight}px);
+    `};
+
+  ${({ isOverflow }) =>
+    isOverflow &&
+    css`
+      box-shadow: inset 0 -4px 8px -4px ${colors.gray['500']};
+    `};
 `;
 
-export const Table = styled.table`
-  border-collapse: collapse;
-  border: 1px solid transparent;
-  cursor: pointer;
+export const TableScrollWrapper = styled.div`
   width: 100%;
-  margin: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 `;
 
 export const LeftOverflow = styled.div`
@@ -59,4 +65,17 @@ export const StyledCol = styled.col<{
       background-color: ${transparentize(0.85, colors.green[300])};
       border: 1px solid ${colors.green[500]};
     `};
+`;
+
+export const StyledTable = styled.table`
+  border-collapse: collapse;
+  border: 1px solid transparent;
+  width: 100%;
+  margin: 0;
+`;
+
+export const TableFooterContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
 `;
