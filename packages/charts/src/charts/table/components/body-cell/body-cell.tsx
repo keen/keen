@@ -8,6 +8,7 @@ import { StyledCell, Container } from './body-cell.styles';
 type Props = {
   cell: CellType;
   typography: Typography;
+  width?: number;
   idx: number;
   /** Active cell indicator */
   isActive: boolean;
@@ -33,16 +34,14 @@ export const BodyCell = ({
   cell,
   typography,
   idx,
+  width,
   isActive,
   onCellClick,
   onCellMouseEnter,
   onCellMouseLeave,
 }: Props) => {
   const { value, formatterType } = cell.value;
-  const {
-    key,
-    style: { width },
-  } = cell.getCellProps();
+  const { key } = cell.getCellProps();
 
   const textAlignment = useMemo(() => {
     const isNumeric =

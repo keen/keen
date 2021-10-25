@@ -2,6 +2,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  useLayoutEffect,
   useCallback,
   useEffect,
 } from 'react';
@@ -70,9 +71,10 @@ export const TableChart = ({
   chartEvents,
   columnsNamesMapping = {},
 }: Props) => {
-  const tableRef = useRef(null);
+  const tableRef = useRef<HTMLTableElement>(null);
   const containerRef = useRef(null);
   const [sort, setSort] = useState<SortByType>(null);
+  const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -219,6 +221,18 @@ export const TableChart = ({
     }
   };
 
+  useLayoutEffect(() => {
+    if (containerRef.current) {
+      const headersWidth = Array.from(
+        containerRef.current.querySelectorAll('th')
+      ).map((header: HTMLTableHeaderCellElement) => {
+        return header.offsetWidth;
+      });
+
+      setColumnsWidth(headersWidth);
+    }
+  }, []);
+
   return (
     <TableScrollWrapper>
       <TableContainer
@@ -273,6 +287,7 @@ export const TableChart = ({
             backgroundColor={mainColor}
             typography={body.typography}
             isEditMode={enableEditMode}
+            columnsWidth={columnsWidth}
             activeColumns={[...activeColumns]}
             {...(enableEditMode && {
               onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
