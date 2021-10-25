@@ -13,6 +13,7 @@ type Props = {
   prepareRow: (row: Row) => void;
   backgroundColor: string;
   typography: Typography;
+  columnsWidth: number[];
   /** Edit mode indicator */
   isEditMode?: boolean;
   /** Active columns array */
@@ -38,6 +39,7 @@ type Props = {
 
 export const Body = ({
   page,
+  columnsWidth,
   getTableBodyProps,
   prepareRow,
   backgroundColor,
@@ -70,6 +72,7 @@ export const Body = ({
                   cell={cell}
                   key={i}
                   idx={i}
+                  width={columnsWidth[i] ? columnsWidth[i] : null}
                   typography={typography}
                   isActive={activeColumns.includes(i)}
                   onCellClick={(e, columnName, value, idx) =>
