@@ -57,6 +57,7 @@ export const vertical = () => (
       tooltipSettings={{
         enabled: true,
         position: 'right',
+        theme: 'dark',
       }}
       colors={Object.values(colors.green)}
       minimum={50}
@@ -72,6 +73,7 @@ export const verticalWithRuler = () => (
       tooltipSettings={{
         enabled: true,
         position: 'right',
+        theme: 'dark',
       }}
       colorSteps={4}
       colors={Object.values(colors.orange)}

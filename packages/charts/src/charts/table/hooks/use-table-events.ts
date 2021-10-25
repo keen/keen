@@ -1,8 +1,8 @@
 import { useEffect, useCallback } from 'react';
 
-import { createColumnSelectionEvent } from '../events';
 import { ChartEvents } from '../../../events';
 
+import { createColumnSelectionEvent } from '../events';
 import { TableEvents, ValueFormatter } from '../types';
 
 type Options = {

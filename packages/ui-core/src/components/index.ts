@@ -41,6 +41,7 @@ import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
 import TagManagement from './tag-management';
 import Error from './error';
+
 import TypographySettings, {
   FontSettings,
   TextAlignment,
@@ -54,6 +55,7 @@ import {
   CellTextAlignment,
   TableRowData,
 } from './table';
+import TableFooter, { PER_PAGE_OPTIONS } from './table-footer';
 
 import { Brand } from './brand';
 
@@ -90,7 +92,7 @@ import DynamicPortal from './dynamic-portal';
 import Color from './color';
 import SideMenu from './side-menu';
 
-export { ARROW_SIZE, TIME_PICKER_CLASS };
+export { ARROW_SIZE, TIME_PICKER_CLASS, PER_PAGE_OPTIONS };
 
 export type {
   CardSettings,
@@ -181,4 +183,5 @@ export {
   Color,
   TypographySettings,
   SideMenu,
+  TableFooter,
 };

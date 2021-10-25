@@ -1,3 +1,8 @@
-import HeaderRow from './header-row';
+import { Body } from './body';
+import { BodyCell } from './body-cell';
+import { Header } from './header';
+import { HeaderCell } from './header-cell';
+import { SortIndicators } from './sort-indicators';
+import { CopyCellTooltip } from './copy-cell-tooltip';
 
-export { HeaderRow };
+export { Body, BodyCell, Header, HeaderCell, SortIndicators, CopyCellTooltip };

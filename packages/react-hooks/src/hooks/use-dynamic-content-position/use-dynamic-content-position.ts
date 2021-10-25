@@ -9,14 +9,18 @@ export const useDynamicContentPosition = (
   const [contentPosition, setContentPosition] = useState({
     x: 0,
     y: 0,
+    width: 0,
   });
 
   const setPosition = () => {
-    const parentRect = parentRef.current.getBoundingClientRect();
-    setContentPosition({
-      x: parentRect.x,
-      y: parentRect.y + window.scrollY + parentRect.height,
-    });
+    if (parentRef.current) {
+      const parentRect = parentRef.current.getBoundingClientRect();
+      setContentPosition({
+        x: parentRect.x,
+        y: parentRect.y + window.scrollY + parentRect.height,
+        width: parentRect.width,
+      });
+    }
   };
 
   return {

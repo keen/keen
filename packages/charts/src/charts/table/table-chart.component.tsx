@@ -1,72 +1,80 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useState, useRef, useCallback, useMemo } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, {
+  useMemo,
+  useRef,
+  useState,
+  useLayoutEffect,
+  useCallback,
+  useEffect,
+} from 'react';
 import {
-  TableRow,
-  Tooltip,
-  Text,
-  SortMode,
-  SortByType,
-} from '@keen.io/ui-core';
-import { copyToClipboard } from '@keen.io/charts-utils';
+  HeaderGroup,
+  useBlockLayout,
+  usePagination,
+  useSortBy,
+  useTable,
+} from 'react-table';
+import Measure from 'react-measure';
+import { useInView } from 'react-intersection-observer';
+
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
+import { copyToClipboard } from '@keen.io/charts-utils';
+import { TableFooter, SortByType, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
 
-import { HeaderRow } from './components';
-import { ChartEvents } from '../../events';
+import { Theme, TooltipState } from '../../types';
+import { theme as defaultTheme } from '../../theme';
 
+import {
+  LeftOverflow,
+  RightOverflow,
+  TableContainer,
+  TableScrollWrapper,
+  StyledCol,
+  StyledTable,
+  TableFooterContainer,
+} from './table-chart.styles';
+import { Body, Header, CopyCellTooltip } from './components';
+import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
   generateHeader,
   generateTable,
   setColumnsOrder,
-  generateTableRowData,
-} from './utils/chart.utils';
-import { sortData } from './utils/data.utils';
-
+  sortData,
+} from './utils';
 import { useTableEvents } from './hooks';
-
-import {
-  Container,
-  TableContainer,
-  Table,
-  LeftOverflow,
-  RightOverflow,
-  StyledCol,
-} from './table-chart.styles';
-
-import text from './text.json';
-import { theme as defaultTheme } from '../../theme';
-import { TOOLTIP_HIDE } from './constants';
-
-import { ValueFormatter, TableEvents } from './types';
-import { TooltipState, CommonChartSettings } from '../../types';
-
-import { TOOLTIP_MOTION } from '../../constants';
+import { ChartEvents } from '../../events';
 
 export type Props = {
-  /** Chart data */
   data: Record<string, any>[];
   /** Columns order */
   columnsOrder?: string[];
-  /** Table edit mode identicator */
-  enableEditMode?: boolean;
   /** Object of formatter functions to format values separately */
   formatValue?: ValueFormatter;
-  /** Renaming columns settings */
-  columnsNamesMapping?: Record<string, string>;
+  /** Table edit mode identicator */
+  enableEditMode?: boolean;
   /** Chart events communication bus */
   chartEvents?: ChartEvents<TableEvents>;
-} & CommonChartSettings;
+  /** Renaming columns settings */
+  columnsNamesMapping?: Record<string, string>;
+  theme: Theme;
+};
+export const TOOLTIP_MOTION = {
+  transition: { duration: 0.3 },
+  exit: { opacity: 0 },
+};
 
 export const TableChart = ({
   data: tableData,
+  theme = defaultTheme,
   columnsOrder,
   formatValue,
+  enableEditMode = false,
   chartEvents,
   columnsNamesMapping = {},
-  theme = defaultTheme,
-  enableEditMode = false,
 }: Props) => {
+  const tableRef = useRef<HTMLTableElement>(null);
+  const containerRef = useRef(null);
   const [sort, setSort] = useState<SortByType>(null);
+  const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -81,15 +89,13 @@ export const TableChart = ({
       index: number;
     }[]
   >([]);
+  const [footerHeight, setFooterHeight] = useState(0);
 
   const { publishColumnSelection } = useTableEvents({
     chartEvents,
     onDeselectColumns: () => setSelectedColumns([]),
-  });
-
-  const tableRef = useRef(null);
-  const containerRef = useRef(null);
-  const tooltipHide = useRef(null);
+  } as any);
+  const [inViewRef, inView] = useInView();
 
   const reduceColumnsSelection = useCallback(
     (columnName: string, columnIndex: number) => {
@@ -107,84 +113,157 @@ export const TableChart = ({
     [selectedColumns]
   );
 
-  const data = useMemo(() => {
-    const sortColumns = tableData.length && columnsOrder?.length;
-    return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
-  }, [columnsOrder, tableData]);
-
-  const sortedData = sort ? sortData(data, sort) : data;
-  const formattedData = formatValue
-    ? generateTable(sortedData, formatValue)
-    : sortedData;
-
   const {
     table: { header, body, mainColor },
     tooltip: tooltipSettings,
   } = theme;
 
+  const data = useMemo(() => {
+    const sortColumns = tableData.length && columnsOrder?.length;
+    return sortColumns ? setColumnsOrder(columnsOrder, tableData) : tableData;
+  }, [columnsOrder, tableData]);
+
+  const sortedData = sort ? sortData([...data], sort, formatValue) : data;
+
+  const formattedData = React.useMemo(
+    () => generateTable(sortedData, formatValue),
+    [sort, formatValue]
+  );
+
+  const columns = React.useMemo(() => generateHeader(formattedData[0]), [
+    columnsOrder,
+    tableData,
+  ]);
+  const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
+  const activeColumns = new Set(
+    [...indexesOfSelectedColumns, hoveredColumn].filter(
+      (i) => typeof i === 'number'
+    )
+  );
+
   const {
-    overflowLeft,
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    prepareRow,
+    page,
+    pageCount,
+    gotoPage,
+    setPageSize,
+    state: { pageIndex, pageSize, sortBy },
+  }: any = useTable(
+    {
+      columns,
+      data: formattedData,
+      initialState: { pageIndex: 0, pageSize: PER_PAGE_OPTIONS[0] },
+      manualSortBy: true,
+      disableMultiSort: true,
+    } as any,
+    useBlockLayout,
+    useSortBy,
+    usePagination
+  );
+
+  useEffect(() => {
+    if (sortBy && sortBy.length > 0) {
+      setSort({
+        property: sortBy[0].id,
+        sort: sortBy[0].desc ? 'descending' : 'ascending',
+      });
+    } else {
+      setSort(null);
+    }
+  }, [sortBy]);
+
+  const {
     overflowRight,
+    overflowLeft,
     scrollHandler,
   } = useScrollOverflowHandler(containerRef);
-  const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
-  const activeColumns = new Set([...indexesOfSelectedColumns, hoveredColumn]);
+  const tooltipHide = useRef(null);
+  const onCellClick = (
+    e: React.MouseEvent<HTMLTableCellElement>,
+    columnName: string,
+    value: CellValue,
+    cellIdx: number
+  ) => {
+    if (enableEditMode) {
+      const columns = reduceColumnsSelection(columnName, cellIdx);
+
+      publishColumnSelection(data, formatValue, columns);
+      setSelectedColumns(columns);
+    } else {
+      if (tooltipHide.current) clearTimeout(tooltipHide.current);
+      copyToClipboard(value);
+
+      const {
+        top,
+        left,
+      }: ClientRect = containerRef.current.getBoundingClientRect();
+      const tooltipX = e.pageX - left - window.scrollX;
+      const tooltipY = e.pageY - top - window.scrollY;
+
+      setTooltip((state) => ({
+        ...state,
+        visible: true,
+        x: tooltipX,
+        y: tooltipY,
+      }));
+
+      tooltipHide.current = setTimeout(() => {
+        setTooltip((state) => ({
+          ...state,
+          visible: false,
+          x: 0,
+          y: 0,
+        }));
+      }, 1500);
+    }
+  };
+
+  useLayoutEffect(() => {
+    if (containerRef.current) {
+      const headersWidth = Array.from(
+        containerRef.current.querySelectorAll('th')
+      ).map((header: HTMLTableHeaderCellElement) => {
+        return header.offsetWidth;
+      });
+
+      setColumnsWidth(headersWidth);
+    }
+  }, []);
 
   return (
-    <>
-      <Container data-testid="table-chart-plot">
-        <TableContainer ref={containerRef} onScroll={scrollHandler}>
-          <AnimatePresence>
-            {tooltip.visible && (
-              <motion.div
-                {...TOOLTIP_MOTION}
-                initial={{ opacity: 0, x: tooltip.x, y: tooltip.y }}
-                animate={{
-                  x: tooltip.x,
-                  y: tooltip.y,
-                  opacity: 1,
-                }}
-                style={{
-                  position: 'absolute',
-                  pointerEvents: 'none',
-                }}
-              >
-                <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
-                  <Text {...tooltipSettings.labels.typography}>
-                    {text.cellCopied}
-                  </Text>
-                </Tooltip>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <Table ref={tableRef}>
-            <colgroup>
-              {Object.keys(formattedData[0]).map((_: any, idx: number) => (
-                <StyledCol
-                  key={`col-${idx}`}
-                  isHovered={hoveredColumn === idx}
-                  isSelected={indexesOfSelectedColumns.includes(idx)}
-                />
-              ))}
-            </colgroup>
-            <HeaderRow
-              data={generateHeader(data[0])}
-              columnsNamesMapping={columnsNamesMapping}
-              color={mainColor}
-              onSort={({
-                propertyName,
-                sortMode,
-              }: {
-                propertyName: string;
-                sortMode: SortMode;
-              }) =>
-                !enableEditMode &&
-                setSort({ property: propertyName, sort: sortMode })
-              }
-              sortOptions={sort && sort}
-              typography={header.typography}
-              activeColumns={[...activeColumns]}
-              {...(enableEditMode && {
+    <TableScrollWrapper>
+      <TableContainer
+        ref={containerRef}
+        onScroll={scrollHandler}
+        footerHeight={footerHeight}
+        isOverflow={!inView}
+        data-testid="table-chart-plot"
+      >
+        <CopyCellTooltip
+          tooltipState={tooltip}
+          tooltipSettings={tooltipSettings}
+        />
+        <StyledTable {...getTableProps()} ref={tableRef}>
+          <colgroup>
+            {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
+              <StyledCol
+                key={`col-${item.Header}-${idx}`}
+                isHovered={hoveredColumn === idx}
+                isSelected={indexesOfSelectedColumns.includes(idx)}
+              />
+            ))}
+          </colgroup>
+          <Header
+            headerGroups={headerGroups}
+            columnsNamesMapping={columnsNamesMapping}
+            typography={header.typography}
+            color={mainColor}
+            activeColumns={[...activeColumns]}
+            {...(enableEditMode &&
+              publishColumnSelection && {
                 onEditModeClick: (_e, columnName, cellIdx) => {
                   const selectedColumns = reduceColumnsSelection(
                     columnName,
@@ -197,68 +276,56 @@ export const TableChart = ({
                 onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
                 onCellMouseLeave: () => setHoveredColumn(null),
               })}
-            />
-            <tbody>
-              {formattedData.map((el: any, idx: number) => (
-                <TableRow
-                  key={`${idx}-${el[0]}`}
-                  data={generateTableRowData(el)}
-                  backgroundColor={mainColor}
-                  onCellClick={(e, columnName, value, cellIdx) => {
-                    if (enableEditMode) {
-                      const columns = reduceColumnsSelection(
-                        columnName,
-                        cellIdx
-                      );
-
-                      publishColumnSelection(data, formatValue, columns);
-                      setSelectedColumns(columns);
-                    } else {
-                      if (tooltipHide.current)
-                        clearTimeout(tooltipHide.current);
-                      copyToClipboard(value);
-
-                      const {
-                        top,
-                        left,
-                      }: ClientRect = containerRef.current.getBoundingClientRect();
-                      const tooltipX = e.pageX - left - window.scrollX;
-                      const tooltipY = e.pageY - top - window.scrollY;
-
-                      setTooltip((state) => ({
-                        ...state,
-                        visible: true,
-                        x: tooltipX,
-                        y: tooltipY,
-                      }));
-
-                      tooltipHide.current = setTimeout(() => {
-                        setTooltip((state) => ({
-                          ...state,
-                          visible: false,
-                          x: 0,
-                          y: 0,
-                        }));
-                      }, TOOLTIP_HIDE);
-                    }
-                  }}
-                  activeColumn={hoveredColumn}
-                  enableEditMode={enableEditMode}
-                  typography={body.typography}
-                  {...(enableEditMode && {
-                    onCellMouseEnter: (_e, cellIdx) =>
-                      setHoveredColumn(cellIdx),
-                    onCellMouseLeave: () => setHoveredColumn(null),
-                  })}
-                />
-              ))}
-            </tbody>
-          </Table>
-        </TableContainer>
+          />
+          <Body
+            page={page}
+            getTableBodyProps={getTableBodyProps}
+            onCellClick={(e, columnName, columnValue, cellIdx) =>
+              onCellClick(e, columnName, columnValue, cellIdx)
+            }
+            prepareRow={prepareRow}
+            backgroundColor={mainColor}
+            typography={body.typography}
+            isEditMode={enableEditMode}
+            columnsWidth={columnsWidth}
+            activeColumns={[...activeColumns]}
+            {...(enableEditMode && {
+              onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),
+              onCellMouseLeave: () => setHoveredColumn(null),
+            })}
+          />
+        </StyledTable>
+        <div ref={inViewRef} />
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
-      </Container>
-    </>
+      </TableContainer>
+      <Measure
+        bounds
+        onResize={({ bounds: { height } }) => {
+          setFooterHeight(height);
+        }}
+      >
+        {({ measureRef }) => (
+          <TableFooterContainer ref={measureRef}>
+            <TableFooter
+              rows={data.length}
+              page={pageIndex + 1}
+              totalPages={pageCount}
+              itemsPerPage={pageSize}
+              onPageChange={(page) => {
+                containerRef.current.scrollTop = 0;
+                gotoPage(page - 1);
+              }}
+              onItemsPerPageChange={(pageSize) => {
+                containerRef.current.scrollTop = 0;
+                setPageSize(pageSize);
+                gotoPage(0);
+              }}
+            />
+          </TableFooterContainer>
+        )}
+      </Measure>
+    </TableScrollWrapper>
   );
 };
 
