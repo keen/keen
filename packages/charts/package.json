@@ -50,6 +50,7 @@
     "framer-motion": "^1.11.1",
     "numeral": "^2.0.6",
     "polished": "^3.4.4",
+    "react-intersection-observer": "^8.32.1",
     "react-measure": "^2.3.0",
     "react-table": "^7.7.0",
     "use-debounce": "^3.3.0",

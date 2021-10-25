@@ -13,6 +13,7 @@ import {
   useTable,
 } from 'react-table';
 import Measure from 'react-measure';
+import { useInView } from 'react-intersection-observer';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
@@ -92,6 +93,7 @@ export const TableChart = ({
     chartEvents,
     onDeselectColumns: () => setSelectedColumns([]),
   } as any);
+  const [inViewRef, inView] = useInView();
 
   const reduceColumnsSelection = useCallback(
     (columnName: string, columnIndex: number) => {
@@ -223,6 +225,7 @@ export const TableChart = ({
         ref={containerRef}
         onScroll={scrollHandler}
         footerHeight={footerHeight}
+        isOverflow={!inView}
         data-testid="table-chart-plot"
       >
         <CopyCellTooltip
@@ -277,6 +280,7 @@ export const TableChart = ({
             })}
           />
         </StyledTable>
+        <div ref={inViewRef} />
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
       </TableContainer>
