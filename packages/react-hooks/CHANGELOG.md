@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.4.0...@keen.io/react-hooks@1.4.1) (2021-10-13)
+
+**Note:** Version bump only for package @keen.io/react-hooks
+
+
+
+
+
+# [1.4.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.2...@keen.io/react-hooks@1.4.0) (2021-10-07)
+
+
+### Features
+
+* 🎸 add keyboard navigation ([b25c991](https://github.com/keen/keen/commit/b25c991c5f11d2ee0b9219623a4e8ada78d402bc))
+
+
+
+
+
+## [1.3.2](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.1...@keen.io/react-hooks@1.3.2) (2021-10-05)
+
+
+### Bug Fixes
+
+* 🐛 useScrollOverflowHandler dependency fix ([b751d26](https://github.com/keen/keen/commit/b751d26f74c6714a024449320a16e744659310d0))
+
+
+
+
+
+## [1.3.1](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.3.0...@keen.io/react-hooks@1.3.1) (2021-10-05)
+
+
+### Bug Fixes
+
+* 🐛 Build fix ([a9f848c](https://github.com/keen/keen/commit/a9f848ccf058e8bc4bdbe48d61e47f429076e036))
+
+
+
+
+
 # [1.3.0](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.2.0...@keen.io/react-hooks@1.3.0) (2021-09-09)
 
 

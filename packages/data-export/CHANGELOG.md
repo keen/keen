@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.4...@keen.io/data-export@1.2.5) (2021-10-13)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.4](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.3...@keen.io/data-export@1.2.4) (2021-10-07)
+
+
+### Bug Fixes
+
+* 🐛 table raw csv extraction ([2be4773](https://github.com/keen/keen/commit/2be477306e498a56b90ec28d159f20b637df7cb8))
+
+
+
+
+
+## [1.2.3](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.2...@keen.io/data-export@1.2.3) (2021-10-07)
+
+
+### Bug Fixes
+
+* 🐛 support null values in csv export ([b494890](https://github.com/keen/keen/commit/b494890768b8c3d0c43cc34e3a9a6503f178d81e))
+
+
+
+
+
+## [1.2.2](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.1...@keen.io/data-export@1.2.2) (2021-10-05)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.1](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.0...@keen.io/data-export@1.2.1) (2021-10-05)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/data-export@1.1.2...@keen.io/data-export@1.2.0) (2021-10-05)
+
+
+### Features
+
+* 🎸 percentage stacks ([537709b](https://github.com/keen/keen/commit/537709b4fc7d8fbbc753844ca9e93ff7be5f6e4e))
+
+
+
+
+
 ## [1.1.2](https://github.com/keen/keen/compare/@keen.io/data-export@1.1.1...@keen.io/data-export@1.1.2) (2021-10-04)
 
 
