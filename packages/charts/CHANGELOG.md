@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.34.0](https://github.com/keen/keen/compare/@keen.io/charts@2.33.4...@keen.io/charts@2.34.0) (2021-10-25)
+
+
+### Bug Fixes
+
+* 🐛 Column rename ([46d3450](https://github.com/keen/keen/commit/46d34501665860c400aba2a96c8edbb2308d0b37))
+* 🐛 dynamic portal for itemsPerPage dropdown ([a754209](https://github.com/keen/keen/commit/a75420978d8c8474ea452f8765e938f7a671dd92))
+* 🐛 Go to first page on items per page change ([d2328da](https://github.com/keen/keen/commit/d2328dad85105d880c25e2859fdd4724151d61a8))
+* 🐛 Table sort fixes - handling null values ([64bfbe9](https://github.com/keen/keen/commit/64bfbe9e49369617fc262f76e26f2f38bf506011))
+
+
+### Features
+
+* 🎸 add edit mode to paginated table ([bcfb5aa](https://github.com/keen/keen/commit/bcfb5aa3c77b5be114697a3b61e2d2e42c9bd6f3))
+* 🎸 Scroll on pagination or items per page change ([f98e37f](https://github.com/keen/keen/commit/f98e37fd6e27568a446befd359169afc68bcd3e6))
+* 🎸 Table sorting added ([2db37f6](https://github.com/keen/keen/commit/2db37f62b648d198128d076fe9a4a72e45ad44e9))
+
+
+
+
+
 ## [2.33.4](https://github.com/keen/keen/compare/@keen.io/charts@2.33.3...@keen.io/charts@2.33.4) (2021-10-13)
 
 **Note:** Version bump only for package @keen.io/charts

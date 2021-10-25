@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.13](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.12...@keen.io/widgets@2.16.13) (2021-10-25)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.16.12](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.11...@keen.io/widgets@2.16.12) (2021-10-13)
 
 **Note:** Version bump only for package @keen.io/widgets

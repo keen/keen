@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.13](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.12...@keen.io/dataviz@2.16.13) (2021-10-25)
+
+
+### Bug Fixes
+
+* 🐛 Heatmap slider - wrong values order ([0035131](https://github.com/keen/keen/commit/0035131fb471bebba874d1f8d2cbfe8d2d562292))
+
+
+
+
+
 ## [2.16.12](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.11...@keen.io/dataviz@2.16.12) (2021-10-13)
 
 **Note:** Version bump only for package @keen.io/dataviz
