@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.13.0...@keen.io/charts-utils@1.14.0) (2021-10-13)
+
+
+### Features
+
+* 🎸 Formatter - decimal calculation for numeric values ([9b62fd5](https://github.com/keen/keen/commit/9b62fd5f575a21ff5a94c1b01c35d0e701328872))
+
+
+
+
+
 # [1.13.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.12.2...@keen.io/charts-utils@1.13.0) (2021-09-30)
 
 

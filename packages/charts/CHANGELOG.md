@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.33.4](https://github.com/keen/keen/compare/@keen.io/charts@2.33.3...@keen.io/charts@2.33.4) (2021-10-13)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.33.3](https://github.com/keen/keen/compare/@keen.io/charts@2.33.2...@keen.io/charts@2.33.3) (2021-10-07)
+
+
+### Bug Fixes
+
+* 🐛 support light mode for choropleth tooltip ([9b145ac](https://github.com/keen/keen/commit/9b145ac186f99b4631497fe5dbca4a344d795769))
+
+
+
+
+
+## [2.33.2](https://github.com/keen/keen/compare/@keen.io/charts@2.33.1...@keen.io/charts@2.33.2) (2021-10-05)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.33.1](https://github.com/keen/keen/compare/@keen.io/charts@2.33.0...@keen.io/charts@2.33.1) (2021-10-05)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 # [2.33.0](https://github.com/keen/keen/compare/@keen.io/charts@2.32.7...@keen.io/charts@2.33.0) (2021-09-30)
 
 
