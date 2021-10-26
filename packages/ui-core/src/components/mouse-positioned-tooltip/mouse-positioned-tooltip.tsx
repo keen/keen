@@ -79,6 +79,7 @@ type Props = {
   tooltipTheme?: TooltipMode;
   renderContent: () => React.ReactNode;
   tooltipPinPlacement?: TooltipPinPlacements;
+  onHideTooltip?: () => void;
   maxContentWidth?: number;
 };
 
@@ -89,6 +90,7 @@ const MousePositionedTooltip = ({
   tooltipTheme = 'light',
   tooltipPinPlacement = 'bottom-right',
   renderContent,
+  onHideTooltip,
   maxContentWidth = 255,
 }: Props) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -104,6 +106,11 @@ const MousePositionedTooltip = ({
     }),
     [tooltipPortal]
   );
+
+  const hideTooltip = useCallback(() => {
+    setTooltipVisible(false);
+    if (onHideTooltip) onHideTooltip();
+  }, [onHideTooltip]);
 
   return (
     <div
@@ -124,7 +131,7 @@ const MousePositionedTooltip = ({
               });
             },
             onMouseLeave: () => {
-              setTooltipVisible(false);
+              hideTooltip();
             },
             onKeyDown: (e) => {
               if (e.keyCode === KEYBOARD_KEYS.ENTER) {
@@ -132,9 +139,9 @@ const MousePositionedTooltip = ({
                 setTooltipPosition({ x: x + width, y });
                 setTooltipVisible(true);
               }
-              if (e.keyCode === KEYBOARD_KEYS.ESCAPE) setTooltipVisible(false);
+              if (e.keyCode === KEYBOARD_KEYS.ESCAPE) hideTooltip();
             },
-            onBlur: () => setTooltipVisible(false),
+            onBlur: () => hideTooltip(),
           }
         : {})}
     >

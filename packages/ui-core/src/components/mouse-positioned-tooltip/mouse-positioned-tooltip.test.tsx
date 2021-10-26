@@ -123,3 +123,26 @@ test('hides tooltip on ESC key press when tooltip is active', async () => {
 
   expect(tooltip).not.toBeInTheDocument();
 });
+
+test('calls "onHideTooltip" handler when tooltip visibility change', async () => {
+  const children = 'text';
+  const {
+    props,
+    wrapper: { getByText },
+  } = render({
+    children,
+    renderContent: () => 'Tooltip content',
+    onHideTooltip: jest.fn(),
+    isActive: true,
+  });
+
+  const renderedChildren = getByText(children);
+  fireEvent.mouseOver(renderedChildren);
+
+  fireEvent.keyDown(renderedChildren, {
+    key: 'Escape',
+    keyCode: KEYBOARD_KEYS.ESCAPE,
+  });
+
+  expect(props.onHideTooltip).toHaveBeenCalled();
+});
