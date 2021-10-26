@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-export const Container = styled.div<{ isMobileView: boolean }>`
+const SUB_CONTAINER_WIDTH = 120;
+
+export const Container = styled.div<{ isCompactView: boolean }>`
   padding: 10px 20px;
   background-color: ${colors.white[500]};
   border-top: 1px solid ${transparentize(0.5, colors.gray[400])};
@@ -11,23 +13,36 @@ export const Container = styled.div<{ isMobileView: boolean }>`
   justify-content: space-between;
   gap: 15px 10px;
 
-  ${({ isMobileView }) =>
-    isMobileView &&
+  ${({ isCompactView }) =>
+    isCompactView &&
     css`
       flex-wrap: wrap;
       justify-content: center;
     `};
 `;
 
-export const PaginationContainer = styled.div<{ isMobileView: boolean }>`
+export const PaginationContainer = styled.div<{ isCompactView: boolean }>`
   margin: auto;
 
-  ${({ isMobileView }) =>
-    isMobileView &&
+  ${({ isCompactView }) =>
+    isCompactView &&
     css`
       display: flex;
       width: 100%;
       justify-content: center;
       order: -1;
     `};
+`;
+
+export const RowsContainer = styled.div<{ isCompactView: boolean }>`
+  width: ${({ isCompactView }) =>
+    isCompactView ? 'auto' : `${SUB_CONTAINER_WIDTH}px`};
+  flex-shrink: 0;
+`;
+
+export const PerPageContainer = styled.div<{ isCompactView: boolean }>`
+  width: ${({ isCompactView }) =>
+    isCompactView ? 'auto' : `${SUB_CONTAINER_WIDTH}px`};
+  display: flex;
+  justify-content: flex-end;
 `;
