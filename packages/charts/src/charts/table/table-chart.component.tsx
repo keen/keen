@@ -196,18 +196,13 @@ export const TableChart = ({
       if (tooltipHide.current) clearTimeout(tooltipHide.current);
       copyToClipboard(value);
 
-      const {
-        top,
-        left,
-      }: ClientRect = containerRef.current.getBoundingClientRect();
-      const tooltipX = e.pageX - left - window.scrollX;
-      const tooltipY = e.pageY - top - window.scrollY;
+      const { pageX, pageY } = e;
 
       setTooltip((state) => ({
         ...state,
         visible: true,
-        x: tooltipX,
-        y: tooltipY,
+        x: pageX,
+        y: pageY,
       }));
 
       tooltipHide.current = setTimeout(() => {
