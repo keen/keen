@@ -10,8 +10,6 @@ import {
 } from './toast.styles';
 import text from './text.json';
 
-import DismissTimer from '../dismiss-timer';
-
 type Props = {
   /** Children nodes */
   children: React.ReactNode;
@@ -26,6 +24,13 @@ const toastMotion: Record<TransitionState, TargetAndTransition> = {
   exited: {},
 };
 
+const toastDuration: Record<TransitionState, number> = {
+  entering: 800,
+  entered: 0,
+  exiting: 1200,
+  exited: 0,
+};
+
 const Toast: FC<Props> = ({
   children,
   appearance,
@@ -33,13 +38,13 @@ const Toast: FC<Props> = ({
   showDismissButton,
   transitionDuration,
   transitionState,
-  autoDismissTimeout,
-  autoDismiss,
 }) => (
   <motion.div
     initial={{ scale: 0, opacity: 0 }}
     animate={toastMotion[transitionState]}
-    transition={{ duration: transitionDuration / 1000 }}
+    transition={{
+      duration: transitionDuration / toastDuration[transitionState],
+    }}
   >
     <Container appearance={appearance} onClick={() => onDismiss()}>
       <ContentContainer>
@@ -54,12 +59,6 @@ const Toast: FC<Props> = ({
           </DismissButton>
         )}
       </ContentContainer>
-      {autoDismiss && (
-        <DismissTimer
-          appearance={appearance}
-          dismissTime={autoDismissTimeout / 1000}
-        />
-      )}
     </Container>
   </motion.div>
 );
