@@ -21,6 +21,7 @@ type TooltipContentProps = {
   tooltipVisible: boolean;
   tooltipTheme: TooltipMode;
   tooltipPinPlacement?: TooltipPinPlacements;
+  maxContentWidth: number;
 };
 
 const TooltipContent = ({
@@ -29,6 +30,7 @@ const TooltipContent = ({
   tooltipVisible,
   tooltipTheme,
   tooltipPinPlacement,
+  maxContentWidth,
 }: TooltipContentProps) => {
   const tooltipTranslation = getTooltipTranslation(tooltipPinPlacement);
 
@@ -53,7 +55,7 @@ const TooltipContent = ({
             position: 'absolute',
             pointerEvents: 'none',
             zIndex: UI_LAYERS.tooltip,
-            maxWidth: 225,
+            maxWidth: maxContentWidth,
           }}
         >
           <TooltipWrapper
@@ -77,6 +79,7 @@ type Props = {
   tooltipTheme?: TooltipMode;
   renderContent: () => React.ReactNode;
   tooltipPinPlacement?: TooltipPinPlacements;
+  maxContentWidth?: number;
 };
 
 const MousePositionedTooltip = ({
@@ -86,6 +89,7 @@ const MousePositionedTooltip = ({
   tooltipTheme = 'light',
   tooltipPinPlacement = 'bottom-right',
   renderContent,
+  maxContentWidth = 255,
 }: Props) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
@@ -140,6 +144,7 @@ const MousePositionedTooltip = ({
           {tooltipPortal ? (
             <Portal modalContainer={tooltipPortal}>
               <TooltipContent
+                maxContentWidth={maxContentWidth}
                 tooltipPosition={tooltipPosition}
                 tooltipVisible={tooltipVisible}
                 tooltipTheme={tooltipTheme}
@@ -152,6 +157,7 @@ const MousePositionedTooltip = ({
             tooltipVisible && (
               <DynamicPortal>
                 <TooltipContent
+                  maxContentWidth={maxContentWidth}
                   tooltipPosition={tooltipPosition}
                   tooltipVisible
                   tooltipTheme={tooltipTheme}
