@@ -17,8 +17,7 @@ import {
   Layout,
 } from './metric-chart.styles';
 
-import { generateMetric } from './utils';
-import { createMargins } from '../../utils/element.utils';
+import { generateMetric, createMargins } from './utils';
 
 import { theme as defaultTheme } from '../../theme';
 

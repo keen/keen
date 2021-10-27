@@ -1,4 +1,4 @@
-import { CircularChart } from '../../utils/';
+import { CircularChart } from '../circular-chart';
 import { chartColors } from '../../theme';
 
 export const chartData = [

@@ -7,9 +7,9 @@ import {
 } from '@keen.io/charts-utils';
 import { Point } from '@keen.io/ui-core';
 
-import { OTHERS_DATA_KEY } from './circular-chart.utils';
+import { OTHERS_DATA_KEY } from '../constants';
 
-import { DataSelector, CircularChartValueMode } from '../types';
+import { DataSelector, CircularChartValueMode } from '../../../types';
 
 type Options = {
   data: Record<string, any>[];

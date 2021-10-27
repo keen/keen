@@ -9,7 +9,7 @@ import { ChartBase, Grid, Axes } from '../../components';
 import Bubbles from './bubbles.component';
 import TooltipContent from './tooltip-content.component';
 
-import { generateBubbles } from './utils/chart.utils';
+import { generateBubbles } from './utils';
 import { useDynamicChartLayout } from '../../hooks';
 
 import { theme as defaultTheme } from '../../theme';

@@ -29,6 +29,8 @@ import {
   CurveType,
   GeoAreaMatchStatus,
   fetchMapTopology,
+  bubbleColorScale,
+  OTHERS_DATA_KEY,
 } from './charts';
 
 import {
@@ -44,7 +46,7 @@ import { theme, margins } from './theme';
 
 import { Theme, Axis, StackMode, GroupMode, Tooltip, Grid } from './types';
 
-import { OTHERS_DATA_KEY, bubbleColorScale, extendTheme } from './utils';
+import { extendTheme } from './utils';
 
 export type {
   Theme,

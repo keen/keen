@@ -7,7 +7,11 @@ import { PieLabel } from '../../components';
 import { StyledPath } from './pie-slice.styles';
 
 import { getActiveKeyVariants } from './utils';
-import { createArcTween, animateArcPath, ArcProperties } from '../../utils';
+import {
+  createArcTween,
+  animateArcPath,
+  ArcProperties,
+} from '../circular-chart';
 
 import { ChartContext, ChartContextType } from '../../contexts';
 
