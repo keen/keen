@@ -15,7 +15,7 @@ export const Basic = () => {
   return (
     <div style={object('Container size', { width: '600px', height: '300px' })}>
       <TableFooter
-        rows={100}
+        rows={1000}
         onItemsPerPageChange={(option) => console.log(option)}
         onPageChange={(page) => console.log(page)}
         totalPages={number('Total pages', 10)}

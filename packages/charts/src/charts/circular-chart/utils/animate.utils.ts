@@ -5,10 +5,7 @@ import 'd3-transition';
 import { interpolate } from 'd3-interpolate';
 import { select, ValueFn } from 'd3-selection';
 
-export type ArcProperties = {
-  startAngle: number;
-  endAngle: number;
-};
+import { ArcProperties } from '../types';
 
 export const createArcTween = (
   currentArc: ArcProperties,

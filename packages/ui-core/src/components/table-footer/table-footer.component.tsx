@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useState } from 'react';
 import Measure from 'react-measure';
 import { transparentize } from 'polished';
 import { BodyText } from '@keen.io/typography';
@@ -6,9 +6,15 @@ import { colors } from '@keen.io/colors';
 
 import { ItemsPerPage } from './components';
 import Pagination from '../pagination';
-import { Container, PaginationContainer } from './table-footer.styles';
+import {
+  Container,
+  PaginationContainer,
+  RowsContainer,
+  PerPageContainer,
+} from './table-footer.styles';
 
 import { PerPageType } from './types';
+import { COMPACT_VIEW } from './constants';
 
 type Props = {
   /** Number of rows */
@@ -33,40 +39,32 @@ const TableFooter: FC<Props> = ({
   onPageChange,
   onItemsPerPageChange,
 }) => {
-  const [containerWidth, setContainerWidth] = useState<number>();
-  const [isMobileView, setMobileView] = useState(false);
-
-  const textEllipsisRef = useCallback(
-    (node) => {
-      if (node !== null) {
-        const width = node.offsetWidth;
-        const scrollWidth = node.scrollWidth;
-
-        setMobileView(scrollWidth > width);
-      }
-    },
-    [containerWidth]
-  );
+  const [isCompactView, setCompactView] = useState(false);
 
   return (
     <Measure
       bounds
       onResize={({ bounds: { width } }) => {
-        setContainerWidth(width);
+        setCompactView(width <= COMPACT_VIEW);
       }}
     >
       {({ measureRef }) => (
-        <Container role="rowgroup" isMobileView={isMobileView} ref={measureRef}>
-          <BodyText
-            variant="body2"
-            color={transparentize(0.5, colors.black[500])}
-            enableTextEllipsis
-            ref={textEllipsisRef}
-          >
-            {rows} rows
-          </BodyText>
+        <Container
+          isCompactView={isCompactView}
+          role="rowgroup"
+          ref={measureRef}
+        >
+          <RowsContainer isCompactView={isCompactView}>
+            <BodyText
+              variant="body2"
+              color={transparentize(0.5, colors.black[500])}
+              enableTextEllipsis
+            >
+              {rows.toLocaleString('en-US')} rows
+            </BodyText>
+          </RowsContainer>
           {totalPages > 1 && (
-            <PaginationContainer isMobileView={isMobileView}>
+            <PaginationContainer isCompactView={isCompactView}>
               <Pagination
                 page={page}
                 totalPages={totalPages}
@@ -74,10 +72,12 @@ const TableFooter: FC<Props> = ({
               />
             </PaginationContainer>
           )}
-          <ItemsPerPage
-            value={itemsPerPage}
-            onChange={(option) => onItemsPerPageChange(option)}
-          />
+          <PerPageContainer isCompactView={isCompactView}>
+            <ItemsPerPage
+              value={itemsPerPage}
+              onChange={(option) => onItemsPerPageChange(option)}
+            />
+          </PerPageContainer>
         </Container>
       )}
     </Measure>

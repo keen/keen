@@ -24,14 +24,6 @@ const render = (overProps: any = {}) => {
   };
 };
 
-test('renders auto-dismiss progress bar', () => {
-  const {
-    wrapper: { getByTestId },
-  } = render();
-
-  expect(getByTestId('dismiss-timer')).toBeInTheDocument();
-});
-
 test('calls "onDismiss" handler', () => {
   const {
     wrapper: { getByTestId },

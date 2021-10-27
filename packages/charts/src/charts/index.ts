@@ -6,8 +6,9 @@ import { DonutChart, DonutChartSettings } from './donut';
 import { MetricChart, MetricChartSettings, MetricType } from './metric';
 import { FunnelChart, FunnelChartSettings } from './funnel';
 import { HeatmapChart, HeatmapChartSettings } from './heatmap';
-import { BubbleChart, BubbleChartSettings } from './bubble';
+import { BubbleChart, BubbleChartSettings, bubbleColorScale } from './bubble';
 import { GaugeChart, GaugeChartSettings } from './gauge';
+import { OTHERS_DATA_KEY } from './circular-chart';
 
 import {
   TableChart,
@@ -57,4 +58,6 @@ export {
   HeatmapChart,
   TableChart,
   fetchMapTopology,
+  bubbleColorScale,
+  OTHERS_DATA_KEY,
 };
