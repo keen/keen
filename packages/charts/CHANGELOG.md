@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.34.3](https://github.com/keen/keen/compare/@keen.io/charts@2.34.2...@keen.io/charts@2.34.3) (2021-10-27)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [2.34.2](https://github.com/keen/keen/compare/@keen.io/charts@2.34.1...@keen.io/charts@2.34.2) (2021-10-26)
 
 **Note:** Version bump only for package @keen.io/charts

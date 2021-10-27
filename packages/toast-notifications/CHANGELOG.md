@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.120...@keen.io/toast-notifications@1.2.0) (2021-10-27)
+
+
+### Features
+
+* 🎸 remove progress bar ([b91f8e9](https://github.com/keen/keen/commit/b91f8e92fb7c895a787a56ac1bacf6fe44adcda1))
+
+
+
+
+
 ## [1.1.120](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.1.119...@keen.io/toast-notifications@1.1.120) (2021-10-26)
 
 **Note:** Version bump only for package @keen.io/toast-notifications
