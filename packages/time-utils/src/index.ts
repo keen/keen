@@ -3,6 +3,8 @@ import setTimezoneOffset from './set-timezone-offset';
 import convertDate from './convert-date';
 import formatDate from './format-date';
 import getDefaultAbsoluteTime from './get-default-absolute-time';
+import convertSecondsToHours from './convert-seconds-to-hours';
+
 import { Timezone } from './types';
 
 export {
@@ -11,5 +13,6 @@ export {
   convertDate,
   formatDate,
   getDefaultAbsoluteTime,
+  convertSecondsToHours,
   Timezone,
 };
