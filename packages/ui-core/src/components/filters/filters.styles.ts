@@ -12,7 +12,7 @@ export const DropdownContent = styled.div`
 `;
 
 export const FiltersContainer = styled.div`
-  max-height: 280px;
+  max-height: 200px;
   overflow-y: auto;
 `;
 

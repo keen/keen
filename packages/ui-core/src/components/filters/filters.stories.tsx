@@ -15,25 +15,28 @@ export const Basic: React.FC = () => {
   const [filtersOpen, setFilterOpen] = React.useState(false);
 
   return (
-    <Filters
-      activeFilters={activeFilters}
-      onUpdateFilters={(tags) => setActiveTags(tags)}
-      onClearFilters={() => setActiveTags([])}
-      filters={['tag1', 'tag2', 'tag3']}
-      specialFilters={['Show only cached queries']}
-      isOpen={filtersOpen}
-      setOpen={(open) => setFilterOpen(open)}
-    >
-      <Button
-        variant="blank"
-        isActive={filtersOpen}
-        onClick={() => setFilterOpen(!filtersOpen)}
+    <>
+      <Filters
+        activeFilters={activeFilters}
+        onUpdateFilters={(tags) => setActiveTags(tags)}
+        onClearFilters={() => setActiveTags([])}
+        filters={['tag1', 'tag2', 'tag3 with very very long text']}
+        specialFilters={['Only cached queries']}
+        isOpen={filtersOpen}
+        setOpen={(open) => setFilterOpen(open)}
+        dropdownContainer="root"
       >
-        Filters{' '}
-        {activeFilters && activeFilters.length
-          ? ` (${activeFilters.length})`
-          : null}
-      </Button>
-    </Filters>
+        <Button
+          variant="blank"
+          isActive={filtersOpen}
+          onClick={() => setFilterOpen(!filtersOpen)}
+        >
+          Filters{' '}
+          {activeFilters && activeFilters.length
+            ? ` (${activeFilters.length})`
+            : null}
+        </Button>
+      </Filters>
+    </>
   );
 };

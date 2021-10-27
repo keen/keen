@@ -148,7 +148,12 @@ export {
   PER_PAGE_OPTIONS,
 };
 
-export { isElementInViewport, exportToHtml, mutateArray } from './utils';
+export {
+  isElementInViewport,
+  exportToHtml,
+  mutateArray,
+  getRelativeBoundingRect,
+} from './utils';
 
 export {
   Anchor,
