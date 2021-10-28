@@ -24,7 +24,6 @@ export const Basic: React.FC = () => {
         specialFilters={['Only cached queries']}
         isOpen={filtersOpen}
         setOpen={(open) => setFilterOpen(open)}
-        dropdownContainer="root"
       >
         <Button
           variant="blank"

@@ -3,7 +3,6 @@ import {
   render as rtlRender,
   fireEvent,
   waitFor,
-  cleanup,
 } from '@testing-library/react';
 
 import Filters from './filters';
@@ -15,7 +14,6 @@ const render = (overProps: any = {}) => {
     specialFilters: ['special_filter_1'],
     onUpdateFilters: jest.fn(),
     onClearFilters: jest.fn(),
-    dropdownContainer: 'dropdown-container',
     ...overProps,
   };
 
@@ -26,19 +24,6 @@ const render = (overProps: any = {}) => {
     wrapper,
   };
 };
-
-afterEach(() => {
-  cleanup();
-});
-
-beforeEach(() => {
-  let modalRoot = document.getElementById('dropdown-container');
-  if (!modalRoot) {
-    modalRoot = document.createElement('div');
-    modalRoot.setAttribute('id', 'dropdown-container');
-    document.body.appendChild(modalRoot);
-  }
-});
 
 test('allows user to filter queries based on cache criteria', async () => {
   const {

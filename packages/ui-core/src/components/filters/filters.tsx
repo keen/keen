@@ -1,19 +1,9 @@
-import React, {
-  FC,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, useCallback, useMemo, useRef, useState } from 'react';
 import { transparentize } from 'polished';
 import { BodyText } from '@keen.io/typography';
 import { colors } from '@keen.io/colors';
 import { useOnClickOutside } from '@keen.io/react-hooks';
-
-import { getRelativeBoundingRect } from '../../utils';
 import { Dropdown } from '../index';
-import Portal from '../portal';
 
 import { FilterItem, SearchFilters } from './components';
 import {
@@ -48,8 +38,6 @@ type Props = {
   setOpen: (isOpen: boolean) => void;
   /** Text labels used inside component */
   labels?: typeof DefaultLabels;
-  /** Container in which dropdown should be rendered - can be useful when solving z-index issues */
-  dropdownContainer: string;
 };
 
 const Filters: FC<Props> = ({
@@ -62,13 +50,10 @@ const Filters: FC<Props> = ({
   setOpen,
   children,
   labels = DefaultLabels,
-  dropdownContainer,
 }) => {
   const containerRef = useRef(null);
-  const dropdownContainerRef = useRef(null);
   const [searchMode, setSearchMode] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState('');
-  const [dropdown, setDropdown] = useState({ x: 0, y: 0 });
 
   const filteredItems = useMemo(() => {
     if (searchPhrase) {
@@ -79,19 +64,6 @@ const Filters: FC<Props> = ({
     }
     return filters;
   }, [searchPhrase, filters]);
-
-  useEffect(() => {
-    const { left, bottom } = getRelativeBoundingRect(
-      dropdownContainer,
-      containerRef.current
-    );
-
-    setDropdown((state) => ({
-      ...state,
-      x: left,
-      y: bottom,
-    }));
-  }, [isOpen]);
 
   const updateFilters = useCallback(
     (isActive: boolean, filter: string) => {
@@ -105,7 +77,7 @@ const Filters: FC<Props> = ({
 
   const isEmptySearch = searchPhrase && !filteredItems.length;
 
-  useOnClickOutside(dropdownContainerRef, () => {
+  useOnClickOutside(containerRef, () => {
     if (isOpen) {
       setOpen(false);
       setSearchPhrase('');
@@ -116,75 +88,59 @@ const Filters: FC<Props> = ({
   return (
     <Container data-testid="filter-queries" ref={containerRef}>
       {children}
-      <Portal modalContainer={'#' + dropdownContainer}>
-        <div ref={dropdownContainerRef}>
-          <Dropdown
-            isOpen={isOpen}
-            fullWidth={false}
-            motion={{
-              initial: { opacity: 0, top: dropdown.y, left: dropdown.x, y: 20 },
-              animate: { opacity: 1, y: 2 },
-              exit: { opacity: 0, y: 30 },
-            }}
-          >
-            <DropdownContent>
-              {specialFilters &&
-                specialFilters.map((filter) => (
-                  <FilterItem
-                    id={filter}
-                    key={filter}
-                    label={filter}
-                    isActive={activeFilters.includes(filter)}
-                    onChange={(isActive) => updateFilters(isActive, filter)}
-                  />
-                ))}
-              <SearchFilters
-                isActive={searchMode}
-                searchPhrase={searchPhrase}
-                inputPlaceholder={labels.search_input_placeholder}
-                searchLabel={labels.search_label}
-                onChangePhrase={(phrase) => setSearchPhrase(phrase)}
-                onClearPhrase={() => {
-                  setSearchPhrase('');
-                  setSearchMode(false);
-                }}
-                onActiveSearch={() => setSearchMode(true)}
+      <Dropdown isOpen={isOpen} fullWidth={false}>
+        <DropdownContent>
+          {specialFilters &&
+            specialFilters.map((filter) => (
+              <FilterItem
+                id={filter}
+                key={filter}
+                label={filter}
+                isActive={activeFilters.includes(filter)}
+                onChange={(isActive) => updateFilters(isActive, filter)}
               />
-              <FiltersContainer>
-                {filteredItems.map((filter) => (
-                  <FilterItem
-                    key={filter}
-                    id={filter}
-                    isActive={activeFilters.includes(filter)}
-                    label={filter}
-                    onChange={(isActive) => updateFilters(isActive, filter)}
-                  />
-                ))}
-              </FiltersContainer>
-              {isEmptySearch && (
-                <EmptySearch>
-                  <BodyText
-                    variant="body3"
-                    color={transparentize(0.2, colors.black[100])}
-                    fontWeight={400}
-                  >
-                    {labels.no_filters_found}
-                  </BodyText>
-                </EmptySearch>
-              )}
-            </DropdownContent>
-            <ClearFilters onClick={onClearFilters}>
+            ))}
+          <SearchFilters
+            isActive={searchMode}
+            searchPhrase={searchPhrase}
+            inputPlaceholder={labels.search_input_placeholder}
+            searchLabel={labels.search_label}
+            onChangePhrase={(phrase) => setSearchPhrase(phrase)}
+            onClearPhrase={() => {
+              setSearchPhrase('');
+              setSearchMode(false);
+            }}
+            onActiveSearch={() => setSearchMode(true)}
+          />
+          <FiltersContainer>
+            {filteredItems.map((filter) => (
+              <FilterItem
+                key={filter}
+                id={filter}
+                isActive={activeFilters.includes(filter)}
+                label={filter}
+                onChange={(isActive) => updateFilters(isActive, filter)}
+              />
+            ))}
+          </FiltersContainer>
+          {isEmptySearch && (
+            <EmptySearch>
               <BodyText
-                variant="body2"
-                color={colors.blue[200]}
-                fontWeight="bold"
+                variant="body3"
+                color={transparentize(0.2, colors.black[100])}
+                fontWeight={400}
               >
-                {labels.clear_filters}
+                {labels.no_filters_found}
               </BodyText>
-            </ClearFilters>
-          </Dropdown>
-        </div>
-      </Portal>
+            </EmptySearch>
+          )}
+        </DropdownContent>
+        <ClearFilters onClick={onClearFilters}>
+          <BodyText variant="body2" color={colors.blue[200]} fontWeight="bold">
+            {labels.clear_filters}
+          </BodyText>
+        </ClearFilters>
+      </Dropdown>
     </Container>
   );
 };

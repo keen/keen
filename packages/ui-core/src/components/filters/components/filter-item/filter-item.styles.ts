@@ -9,6 +9,4 @@ export const Container = styled.label`
 export const Label = styled.span`
   margin-left: 4px;
   width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 `;
