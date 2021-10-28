@@ -12,12 +12,19 @@ type Props = {
   children: React.ReactNode;
   /** Toast placements */
   placement?: Placement;
+  /** Toast auto dismiss timeout in [ms] */
+  autoDismissTimeout?: number;
 };
 
-const ToastProvider: FC<Props> = ({ children, placement = 'top-center' }) => (
+const ToastProvider: FC<Props> = ({
+  children,
+  placement = 'top-center',
+  autoDismissTimeout = 3000,
+}) => (
   <ReactNotificationsToastProvider
     components={{ Toast: Toast, ToastContainer: ToastContainer }}
     placement={placement}
+    autoDismissTimeout={autoDismissTimeout}
   >
     {children}
   </ReactNotificationsToastProvider>
