@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, {
   useMemo,
   useRef,
@@ -8,6 +9,7 @@ import React, {
 } from 'react';
 import {
   HeaderGroup,
+  useRowSelect,
   useBlockLayout,
   usePagination,
   useSortBy,
@@ -32,7 +34,14 @@ import {
   StyledTable,
   TableFooterContainer,
 } from './table-chart.styles';
-import { Body, Header, CopyCellTooltip } from './components';
+import {
+  Body,
+  Header,
+  HeaderCellContent,
+  SelectRow,
+  SelectRowCell,
+  CopyCellTooltip,
+} from './components';
 import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
   generateHeader,
@@ -134,6 +143,7 @@ export const TableChart = ({
     columnsOrder,
     tableData,
   ]);
+
   const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
   const activeColumns = new Set(
     [...indexesOfSelectedColumns, hoveredColumn].filter(
@@ -161,7 +171,25 @@ export const TableChart = ({
     } as any,
     useBlockLayout,
     useSortBy,
-    usePagination
+    usePagination,
+    useRowSelect,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => [
+        {
+          id: 'selection',
+          type: 'row-selection',
+          Header: ({ getToggleAllRowsSelectedProps }: any) => {
+            return (
+              <HeaderCellContent>
+                <SelectRow {...getToggleAllRowsSelectedProps()} />
+              </HeaderCellContent>
+            );
+          },
+          Cell: SelectRowCell,
+        },
+        ...columns,
+      ]);
+    }
   );
 
   useEffect(() => {

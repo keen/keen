@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { CellTextAlignment } from '../../types';
 
-export const CellWrapper = styled.div<{
+export const Container = styled.div<{
   textAlignment: CellTextAlignment;
 }>`
   display: flex;

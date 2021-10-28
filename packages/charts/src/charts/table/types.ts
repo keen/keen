@@ -11,6 +11,8 @@ export type FormattedValue = {
 
 export type ValueFormatter = Record<string, Formatter>;
 
+export type ColumnType = 'row-selection' | 'value';
+
 export type ColumnSelection = {
   name: string;
   formatter: string | null;
