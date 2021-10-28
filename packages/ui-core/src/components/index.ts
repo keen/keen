@@ -41,6 +41,7 @@ import PasswordValidator from './password-validator';
 import TagManager from './tag-manager';
 import TagManagement from './tag-management';
 import Error from './error';
+import Filters from './filters';
 
 import TypographySettings, {
   FontSettings,
@@ -184,4 +185,5 @@ export {
   TypographySettings,
   SideMenu,
   TableFooter,
+  Filters,
 };
