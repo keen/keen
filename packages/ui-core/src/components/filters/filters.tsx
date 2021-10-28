@@ -1,5 +1,7 @@
 import React, { FC, useCallback, useMemo, useRef, useState } from 'react';
 import { transparentize } from 'polished';
+import { useInView } from 'react-intersection-observer';
+
 import { BodyText } from '@keen.io/typography';
 import { colors } from '@keen.io/colors';
 import { useOnClickOutside } from '@keen.io/react-hooks';
@@ -54,6 +56,9 @@ const Filters: FC<Props> = ({
   const containerRef = useRef(null);
   const [searchMode, setSearchMode] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState('');
+
+  const [inViewRefTop, inViewTop] = useInView();
+  const [inViewRefBottom, inViewBottom] = useInView();
 
   const filteredItems = useMemo(() => {
     if (searchPhrase) {
@@ -112,7 +117,11 @@ const Filters: FC<Props> = ({
             }}
             onActiveSearch={() => setSearchMode(true)}
           />
-          <FiltersContainer>
+          <FiltersContainer
+            overflowTop={!inViewTop}
+            overflowBottom={!inViewBottom}
+          >
+            <div ref={inViewRefTop}></div>
             {filteredItems.map((filter) => (
               <FilterItem
                 key={filter}
@@ -122,6 +131,7 @@ const Filters: FC<Props> = ({
                 onChange={(isActive) => updateFilters(isActive, filter)}
               />
             ))}
+            <div ref={inViewRefBottom}></div>
           </FiltersContainer>
           {isEmptySearch && (
             <EmptySearch>
@@ -135,7 +145,7 @@ const Filters: FC<Props> = ({
             </EmptySearch>
           )}
         </DropdownContent>
-        <ClearFilters onClick={onClearFilters}>
+        <ClearFilters onClick={onClearFilters} enableBorder={inViewBottom}>
           <BodyText variant="body2" color={colors.blue[200]} fontWeight="bold">
             {labels.clearFilters}
           </BodyText>
