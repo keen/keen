@@ -104,6 +104,7 @@ import {
   SideMenu,
   TableFooter,
   PER_PAGE_OPTIONS,
+  Filters,
 } from './components';
 
 import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
@@ -234,4 +235,5 @@ export {
   TypographySettings,
   SideMenu,
   TableFooter,
+  Filters,
 };
