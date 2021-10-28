@@ -15,10 +15,10 @@ import {
 } from './filters.styles';
 
 const DefaultLabels = {
-  search_label: 'Search filters',
-  search_input_placeholder: 'Search filters',
-  clear_filters: 'Clear filters',
-  no_filters_found: 'No filters',
+  searchLabel: 'Search filters',
+  searchInputPlaceholder: 'Search filters',
+  clearFilters: 'Clear filters',
+  noFiltersFound: 'No filters',
 };
 
 type Props = {
@@ -103,8 +103,8 @@ const Filters: FC<Props> = ({
           <SearchFilters
             isActive={searchMode}
             searchPhrase={searchPhrase}
-            inputPlaceholder={labels.search_input_placeholder}
-            searchLabel={labels.search_label}
+            inputPlaceholder={labels.searchInputPlaceholder}
+            searchLabel={labels.searchLabel}
             onChangePhrase={(phrase) => setSearchPhrase(phrase)}
             onClearPhrase={() => {
               setSearchPhrase('');
@@ -130,14 +130,14 @@ const Filters: FC<Props> = ({
                 color={transparentize(0.2, colors.black[100])}
                 fontWeight={400}
               >
-                {labels.no_filters_found}
+                {labels.noFiltersFound}
               </BodyText>
             </EmptySearch>
           )}
         </DropdownContent>
         <ClearFilters onClick={onClearFilters}>
           <BodyText variant="body2" color={colors.blue[200]} fontWeight="bold">
-            {labels.clear_filters}
+            {labels.clearFilters}
           </BodyText>
         </ClearFilters>
       </Dropdown>
