@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.43.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.3...@keen.io/ui-core@2.43.4) (2021-10-28)
+
+
+### Bug Fixes
+
+* 🐛 Obsolete overflow removed ([61936ff](https://github.com/keen/keen/commit/61936ff277933d21d4a7b400005e34939879f8b1))
+
+
+
+
+
 ## [2.43.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.2...@keen.io/ui-core@2.43.3) (2021-10-27)
 
 

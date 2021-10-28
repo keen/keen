@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/parser",
-  "version": "2.8.105",
+  "version": "2.8.106",
   "description": "Keen parser",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -29,15 +29,15 @@
     "access": "public"
   },
   "dependencies": {
-    "@keen.io/time-utils": "^1.2.3",
+    "@keen.io/time-utils": "^1.2.4",
     "d3-time-format": "^2.2.3"
   },
   "devDependencies": {
-    "@keen.io/charts": "^2.34.3",
+    "@keen.io/charts": "^2.34.4",
     "@keen.io/charts-utils": "^1.14.1",
     "@keen.io/query": "^1.2.0",
-    "@keen.io/ui-core": "^2.43.3",
-    "@keen.io/widgets": "^2.16.16",
+    "@keen.io/ui-core": "^2.43.4",
+    "@keen.io/widgets": "^2.16.17",
     "@types/d3-time-format": "^2.1.1"
   }
 }
