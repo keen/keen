@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.2.2...@keen.io/toast-notifications@1.2.3) (2021-10-28)
+
+
+### Bug Fixes
+
+* 🐛 add auto dismiss timeout ([bf2d7b7](https://github.com/keen/keen/commit/bf2d7b78dc2a1e9945a9a0588f7689e90b42f66f))
+
+
+
+
+
 ## [1.2.2](https://github.com/keen/keen/compare/@keen.io/toast-notifications@1.2.1...@keen.io/toast-notifications@1.2.2) (2021-10-28)
 
 **Note:** Version bump only for package @keen.io/toast-notifications
