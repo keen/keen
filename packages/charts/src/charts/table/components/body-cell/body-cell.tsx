@@ -1,80 +1,52 @@
-import React, { useMemo } from 'react';
-import { Cell as CellType } from 'react-table';
-import { Typography, Text } from '@keen.io/ui-core';
+import styled, { css } from 'styled-components';
+import { colors } from '@keen.io/colors';
 
-import { CellValue } from '../../types';
-import { StyledCell, Container } from './body-cell.styles';
+import { CellTextAlignment } from '../../types';
 
-type Props = {
-  cell: CellType;
-  typography: Typography;
-  width?: number;
-  idx: number;
-  /** Active cell indicator */
+export const CellContent = styled.div<{
+  textAlignment: CellTextAlignment;
+  width?: string | number;
+}>`
+  padding: 10px 20px;
+  box-sizing: border-box;
+  text-align: ${({ textAlignment }) => textAlignment};
+  ${({ textAlignment }) =>
+    textAlignment === 'right' &&
+    css`
+      margin-left: auto;
+    `};
+
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width}${typeof width === 'number' && 'px'};
+    `};
+`;
+
+export const CellContainer = styled.td<{
   isActive: boolean;
-  onCellClick: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    idx: number
-  ) => void;
-  /** Cell element mouse enter event hander */
-  onCellMouseEnter?: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    idx: number
-  ) => void;
-  /** Cell element mouse leave event hander */
-  onCellMouseLeave?: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    idx: number
-  ) => void;
-};
-
-export const BodyCell = ({
-  cell,
-  typography,
-  idx,
-  width,
-  isActive,
-  onCellClick,
-  onCellMouseEnter,
-  onCellMouseLeave,
-}: Props) => {
-  const { value, formatterType } = cell.value;
-  const { key } = cell.getCellProps();
-
-  const textAlignment = useMemo(() => {
-    const isNumeric =
-      formatterType === 'number' ||
-      (typeof value === 'number' && formatterType !== 'string');
-    return isNumeric ? 'right' : 'left';
-  }, [value, formatterType]);
-
-  return (
-    <StyledCell
-      key={key}
-      isActive={isActive}
-      onClick={(e) => onCellClick(e, cell.column.Header as string, value, idx)}
-      onMouseEnter={
-        onCellMouseEnter
-          ? (e) => {
-              e.persist();
-              onCellMouseEnter(e, idx);
-            }
-          : null
-      }
-      onMouseLeave={
-        onCellMouseLeave
-          ? (e) => {
-              e.persist();
-              onCellMouseLeave(e, idx);
-            }
-          : null
-      }
-    >
-      <Container textAlignment={textAlignment} width={width}>
-        <Text {...typography}>{`${value}`}</Text>
-      </Container>
-    </StyledCell>
+  width?: string | number;
+}>`
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+  background: linear-gradient(
+    270deg,
+    transparent 0%,
+    ${colors.gray[200]} 1px,
+    transparent 1px,
+    transparent 100%
   );
-};
+
+  &:last-of-type {
+    background: none;
+  }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background: none;
+    `};
+
+  overflow-wrap: break-word;
+`;

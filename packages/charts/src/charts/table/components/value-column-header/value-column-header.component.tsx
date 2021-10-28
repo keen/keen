@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+import { HeaderCellContent } from '../header-cell-content';
 import { SortIndicators } from '../sort-indicators';
-import { CellContent, CellWrapper } from './header-cell.styles';
+
+import { Container } from './value-column-header.styles';
 
 type Props = {
+  /** Sort active indicator */
   isSorted: boolean;
+  /* Descending sort indicator */
   isSortedDescending: boolean;
+  /* Text alignment */
   textAlignment: 'left' | 'right';
+  /* Column name after transformation */
   columnName: string;
 };
 
-export const HeaderCell = ({
+const ValueColumnHeader: FC<Props> = ({
   isSorted,
   isSortedDescending,
   textAlignment,
   columnName,
-}: Props) => {
+}) => {
   const [isHovered, setHover] = useState(false);
   const [sortMode, setSortMode] = useState(null);
   const showColumnActions = isSorted || isHovered;
@@ -28,13 +34,15 @@ export const HeaderCell = ({
     }
   }, [isSortedDescending]);
 
+  console.log(textAlignment, 'sa');
+
   return (
-    <CellWrapper
+    <Container
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       textAlignment={textAlignment}
     >
-      <CellContent textAlignment={textAlignment}>
+      <HeaderCellContent textAlignment={textAlignment}>
         {columnName}
         <motion.div
           animate={showColumnActions ? { opacity: 1 } : { opacity: 0 }}
@@ -47,7 +55,9 @@ export const HeaderCell = ({
         >
           <SortIndicators sortMode={sortMode} />
         </motion.div>
-      </CellContent>
-    </CellWrapper>
+      </HeaderCellContent>
+    </Container>
   );
 };
+
+export default ValueColumnHeader;
