@@ -20,7 +20,15 @@ export const Basic: React.FC = () => {
         activeFilters={activeFilters}
         onUpdateFilters={(tags) => setActiveTags(tags)}
         onClearFilters={() => setActiveTags([])}
-        filters={['tag1', 'tag2', 'tag3 with very very long text']}
+        filters={[
+          'tag1',
+          'tag2',
+          'tag3 with very very long text',
+          'tag4',
+          'tag5',
+          'tag6',
+          'tag7',
+        ]}
         specialFilters={['Only cached queries']}
         isOpen={filtersOpen}
         setOpen={(open) => setFilterOpen(open)}
