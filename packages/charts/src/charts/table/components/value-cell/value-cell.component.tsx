@@ -7,9 +7,13 @@ import { CellContainer, CellContent } from '../body-cell';
 import { CellValue } from '../../types';
 
 type Props = {
+  /* Cell instance */
   cell: Cell;
+  /* Typography settings */
   typography: Typography;
+  /* Cell width */
   width?: number;
+  /* Cell index */
   idx: number;
   /** Active cell indicator */
   isActive: boolean;

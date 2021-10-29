@@ -34,8 +34,6 @@ const ValueColumnHeader: FC<Props> = ({
     }
   }, [isSortedDescending]);
 
-  console.log(textAlignment, 'sa');
-
   return (
     <Container
       onMouseEnter={() => setHover(true)}

@@ -24,7 +24,7 @@ export const CellContent = styled.div<{
 `;
 
 export const CellContainer = styled.td<{
-  isActive: boolean;
+  isActive?: boolean;
   width?: string | number;
 }>`
   padding: 0;

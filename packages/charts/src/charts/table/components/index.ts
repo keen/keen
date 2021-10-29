@@ -7,6 +7,7 @@ import { CopyCellTooltip } from './copy-cell-tooltip';
 import { SelectRow } from './select-row';
 import { ValueColumnHeader } from './value-column-header';
 import { SelectRowCell } from './select-row-cell';
+import { SelectColumnHeader } from './select-column-header';
 
 export {
   Body,
@@ -15,6 +16,7 @@ export {
   SelectRow,
   HeaderCellContent,
   SortIndicators,
+  SelectColumnHeader,
   ValueColumnHeader,
   CopyCellTooltip,
   SelectRowCell,
