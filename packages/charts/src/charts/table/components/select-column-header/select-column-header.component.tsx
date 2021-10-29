@@ -8,12 +8,15 @@ type Props = UseRowSelectInstanceProps<Record<string, any>>;
 
 export const SelectColumnHeader = ({
   getToggleAllRowsSelectedProps,
-}: Props) => (
-  <HeaderCellContent>
-    <SelectRow
-      id="select-all-rows"
-      checkboxVariant="highlight"
-      {...getToggleAllRowsSelectedProps()}
-    />
-  </HeaderCellContent>
-);
+  toggleAllRowsSelected,
+}: Props) => {
+  return (
+    <HeaderCellContent onClick={() => toggleAllRowsSelected()}>
+      <SelectRow
+        id="select-all-rows"
+        checkboxVariant="highlight"
+        {...getToggleAllRowsSelectedProps()}
+      />
+    </HeaderCellContent>
+  );
+};

@@ -16,6 +16,8 @@ export const useRowsGroupSelection = ({ enabled }: Options) => {
     const endOffset =
       parsedSelectionOffset > parsedRowId ? parsedSelectionOffset : parsedRowId;
 
+    console.log(startOffset, endOffset);
+
     if (startOffset === endOffset) return null;
     return new Array(endOffset - startOffset + 1)
       .fill(startOffset)

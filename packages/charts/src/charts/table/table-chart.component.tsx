@@ -23,6 +23,7 @@ import { copyToClipboard } from '@keen.io/charts-utils';
 import { TableFooter, SortByType, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
 
 import { Theme, TooltipState } from '../../types';
+
 import { theme as defaultTheme } from '../../theme';
 
 import {
@@ -43,6 +44,8 @@ import {
   sortData,
 } from './utils';
 import { useTableEvents, useRowsGroupSelection } from './hooks';
+
+import { SELECT_COLUMN_ID } from './constants';
 import { ChartEvents } from '../../events';
 
 export type Props = {
@@ -172,7 +175,7 @@ export const TableChart = ({
       initialState: {
         pageIndex: 0,
         pageSize: PER_PAGE_OPTIONS[0],
-        hiddenColumns: rowsSelection ? [] : ['selection'],
+        hiddenColumns: rowsSelection ? [] : [SELECT_COLUMN_ID],
       },
       manualSortBy: true,
       disableMultiSort: true,
@@ -185,7 +188,7 @@ export const TableChart = ({
 
   useEffect(() => {
     setColumnsWidth([]);
-    toggleHideColumn('selection', !rowsSelection);
+    toggleHideColumn(SELECT_COLUMN_ID, !rowsSelection);
   }, [rowsSelection]);
 
   useEffect(() => {
@@ -206,15 +209,22 @@ export const TableChart = ({
   } = useScrollOverflowHandler(containerRef);
   const tooltipHide = useRef(null);
 
-  const onRowSelect = (rowId: string) => {
-    if (selectionOffset) {
-      const selectionRange = getSelectionOffsetRange(rowId);
-      if (selectionRange)
-        selectionRange.forEach((rowId: string) =>
-          toggleRowSelected(rowId, true)
-        );
+  const onRowSelect = (
+    e: React.MouseEvent<HTMLTableCellElement>,
+    rowId: string
+  ) => {
+    if (e.shiftKey) {
+      if (selectionOffset) {
+        const selectionRange = getSelectionOffsetRange(rowId);
+        if (selectionRange)
+          selectionRange.forEach((rowId: string) =>
+            toggleRowSelected(rowId, true)
+          );
+      } else {
+        setSelectionOffset(rowId);
+      }
     } else {
-      setSelectionOffset(rowId);
+      toggleRowSelected(rowId);
     }
   };
 
@@ -223,7 +233,7 @@ export const TableChart = ({
     { columnName, columnType, rowId, value, idx }: CellClickMetadata
   ) => {
     if (columnType === 'row-selection') {
-      onRowSelect(rowId);
+      onRowSelect(e, rowId);
     } else if (enableEditMode) {
       const columns = reduceColumnsSelection(columnName, idx);
 
@@ -318,6 +328,7 @@ export const TableChart = ({
             typography={body.typography}
             isEditMode={enableEditMode}
             columnsWidth={columnsWidth}
+            disableValuesSelection={!!selectionOffset}
             activeColumns={[...activeColumns]}
             {...(enableEditMode && {
               onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),

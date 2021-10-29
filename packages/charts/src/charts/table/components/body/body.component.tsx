@@ -14,6 +14,7 @@ type Props = {
   backgroundColor: string;
   typography: Typography;
   columnsWidth: number[];
+  disableValuesSelection?: boolean;
   /** Edit mode indicator */
   isEditMode?: boolean;
   /** Active columns array */
@@ -43,6 +44,7 @@ export const Body = ({
   backgroundColor,
   typography,
   activeColumns = [],
+  disableValuesSelection,
   isEditMode = false,
   onCellClick,
   onCellMouseEnter,
@@ -59,6 +61,7 @@ export const Body = ({
         return (
           <RowContainer
             key={row.getRowProps().key}
+            disableValuesSelection={disableValuesSelection}
             mainColor={backgroundColor}
             enableHover={!isEditMode}
             {...(!isEditMode && {
