@@ -5,6 +5,7 @@ import { rgba } from 'polished';
 export const RowContainer = styled(motion.tr)<{
   mainColor: string;
   enableHover?: boolean;
+  disableValuesSelection?: boolean;
   width?: string | number;
 }>`
   position: relative;
@@ -18,6 +19,12 @@ export const RowContainer = styled(motion.tr)<{
   &:nth-child(odd) {
     background: ${(props) => rgba(props.mainColor, 0.05)};
   }
+
+  ${({ disableValuesSelection }) =>
+    disableValuesSelection &&
+    css`
+      user-select: none;
+    `};
 
   ${({ enableHover, mainColor }) =>
     enableHover &&
