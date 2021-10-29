@@ -49,5 +49,5 @@ test('calls "onCopySelectedRows" handler', () => {
   const button = getByTestId('copy-selection-btn');
   fireEvent.click(button);
 
-  expect(props.onClearRowsSelection).toHaveBeenCalled();
+  expect(props.onCopySelectedRows).toHaveBeenCalled();
 });
