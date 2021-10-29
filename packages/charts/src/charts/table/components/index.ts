@@ -8,6 +8,7 @@ import { SelectRow } from './select-row';
 import { ValueColumnHeader } from './value-column-header';
 import { SelectRowCell } from './select-row-cell';
 import { SelectColumnHeader } from './select-column-header';
+import { SelectedRowsInfo } from './selected-rows-info';
 
 export {
   Body,
@@ -20,4 +21,5 @@ export {
   ValueColumnHeader,
   CopyCellTooltip,
   SelectRowCell,
+  SelectedRowsInfo,
 };
