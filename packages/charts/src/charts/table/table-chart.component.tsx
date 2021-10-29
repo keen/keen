@@ -35,7 +35,7 @@ import {
   StyledTable,
   TableFooterContainer,
 } from './table-chart.styles';
-import { Body, Header, CopyCellTooltip } from './components';
+import { Body, Header, CopyCellTooltip, SelectedRowsInfo } from './components';
 import { ValueFormatter, CellClickMetadata, TableEvents } from './types';
 import {
   generateHeader,
@@ -167,7 +167,8 @@ export const TableChart = ({
     setPageSize,
     toggleRowSelected,
     toggleHideColumn,
-    state: { pageIndex, pageSize, sortBy },
+    toggleAllRowsSelected,
+    state: { pageIndex, pageSize, sortBy, selectedRowIds },
   }: any = useTable(
     {
       columns,
@@ -275,6 +276,8 @@ export const TableChart = ({
     }
   }, [rowsSelection]);
 
+  const selectedRowsNumber = Object.keys(selectedRowIds).length;
+
   return (
     <TableScrollWrapper>
       <TableContainer
@@ -289,6 +292,13 @@ export const TableChart = ({
           tooltipSettings={tooltipSettings}
         />
         <StyledTable {...getTableProps()} ref={tableRef}>
+          {selectedRowsNumber > 0 && (
+            <SelectedRowsInfo
+              selectedRowsNumber={selectedRowsNumber}
+              onClearRowsSelection={() => toggleAllRowsSelected(false)}
+              onCopySelectedRows={() => console.log('Copy data')}
+            />
+          )}
           <colgroup>
             {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
               <StyledCol
