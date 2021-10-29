@@ -25,6 +25,10 @@ const iconSocketVariants = {
       left: '1px',
       bottom: '0',
     },
+    highlight: {
+      left: '1px',
+      bottom: '0',
+    },
   },
 };
 
@@ -51,6 +55,13 @@ const checkboxVariants = {
     secondary: {
       border: `solid 1px ${transparentize(0.8, colors.blue['500'])}`,
       background: transparentize(0.95, colors.blue['100']),
+      borderRadius: '4px',
+      width: '15px',
+      height: '15px',
+    },
+    highlight: {
+      border: `solid 1px ${transparentize(0.8, colors.gray['100'])}`,
+      background: transparentize(0.8, colors.white['400']),
       borderRadius: '4px',
       width: '15px',
       height: '15px',

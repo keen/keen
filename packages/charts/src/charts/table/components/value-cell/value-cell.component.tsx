@@ -13,32 +13,21 @@ type Props = {
   typography: Typography;
   /* Cell width */
   width?: number;
-  /* Cell index */
-  idx: number;
   /** Active cell indicator */
   isActive: boolean;
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    idx: number
+    value?: CellValue
   ) => void;
   /** Cell element mouse enter event hander */
-  onCellMouseEnter?: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    idx: number
-  ) => void;
+  onCellMouseEnter?: (e: React.MouseEvent<HTMLTableCellElement>) => void;
   /** Cell element mouse leave event hander */
-  onCellMouseLeave?: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    idx: number
-  ) => void;
+  onCellMouseLeave?: (e: React.MouseEvent<HTMLTableCellElement>) => void;
 };
 
 export const ValueCell = ({
   cell,
   typography,
-  idx,
   width,
   isActive,
   onCellClick,
@@ -58,12 +47,12 @@ export const ValueCell = ({
     <CellContainer
       key={key}
       isActive={isActive}
-      onClick={(e) => onCellClick(e, cell.column.id, value, idx)}
+      onClick={(e) => onCellClick(e, value)}
       onMouseEnter={
         onCellMouseEnter
           ? (e) => {
               e.persist();
-              onCellMouseEnter(e, idx);
+              onCellMouseEnter(e);
             }
           : null
       }
@@ -71,7 +60,7 @@ export const ValueCell = ({
         onCellMouseLeave
           ? (e) => {
               e.persist();
-              onCellMouseLeave(e, idx);
+              onCellMouseLeave(e);
             }
           : null
       }

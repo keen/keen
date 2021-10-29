@@ -13,6 +13,14 @@ export type ValueFormatter = Record<string, Formatter>;
 
 export type ColumnType = 'row-selection' | 'value';
 
+export type CellClickMetadata = {
+  columnName: string;
+  columnType: ColumnType;
+  rowId: string;
+  value: CellValue;
+  idx: number;
+};
+
 export type ColumnSelection = {
   name: string;
   formatter: string | null;

@@ -1,1 +1,1 @@
-export type Variant = 'primary' | 'secondary';
+export type Variant = 'primary' | 'secondary' | 'highlight';

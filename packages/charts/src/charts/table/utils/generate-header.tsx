@@ -5,8 +5,10 @@ import {
   SelectColumnHeader,
 } from '../components';
 
+import { SELECT_COLUMN_ID } from '../constants';
+
 const selectionColumn = {
-  id: 'selection',
+  id: SELECT_COLUMN_ID,
   type: 'row-selection',
   Header: SelectColumnHeader,
   Cell: SelectRowCell,
