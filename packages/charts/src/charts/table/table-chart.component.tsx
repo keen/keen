@@ -34,14 +34,7 @@ import {
   StyledTable,
   TableFooterContainer,
 } from './table-chart.styles';
-import {
-  Body,
-  Header,
-  HeaderCellContent,
-  SelectRow,
-  SelectRowCell,
-  CopyCellTooltip,
-} from './components';
+import { Body, Header, CopyCellTooltip } from './components';
 import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
   generateHeader,
@@ -64,6 +57,8 @@ export type Props = {
   chartEvents?: ChartEvents<TableEvents>;
   /** Renaming columns settings */
   columnsNamesMapping?: Record<string, string>;
+  /* Rows selection enabled */
+  rowsSelection?: boolean;
   theme: Theme;
 };
 export const TOOLTIP_MOTION = {
@@ -77,6 +72,7 @@ export const TableChart = ({
   columnsOrder,
   formatValue,
   enableEditMode = false,
+  rowsSelection = false,
   chartEvents,
   columnsNamesMapping = {},
 }: Props) => {
@@ -160,37 +156,30 @@ export const TableChart = ({
     pageCount,
     gotoPage,
     setPageSize,
+    toggleHideColumn,
     state: { pageIndex, pageSize, sortBy },
   }: any = useTable(
     {
       columns,
       data: formattedData,
-      initialState: { pageIndex: 0, pageSize: PER_PAGE_OPTIONS[0] },
+      initialState: {
+        pageIndex: 0,
+        pageSize: PER_PAGE_OPTIONS[0],
+        hiddenColumns: rowsSelection ? [] : ['selection'],
+      },
       manualSortBy: true,
       disableMultiSort: true,
     } as any,
     useBlockLayout,
     useSortBy,
     usePagination,
-    useRowSelect,
-    (hooks) => {
-      hooks.visibleColumns.push((columns) => [
-        {
-          id: 'selection',
-          type: 'row-selection',
-          Header: ({ getToggleAllRowsSelectedProps }: any) => {
-            return (
-              <HeaderCellContent>
-                <SelectRow {...getToggleAllRowsSelectedProps()} />
-              </HeaderCellContent>
-            );
-          },
-          Cell: SelectRowCell,
-        },
-        ...columns,
-      ]);
-    }
+    useRowSelect
   );
+
+  useEffect(() => {
+    setColumnsWidth([]);
+    toggleHideColumn('selection', !rowsSelection);
+  }, [rowsSelection]);
 
   useEffect(() => {
     if (sortBy && sortBy.length > 0) {
@@ -254,7 +243,7 @@ export const TableChart = ({
 
       setColumnsWidth(headersWidth);
     }
-  }, []);
+  }, [rowsSelection]);
 
   return (
     <TableScrollWrapper>

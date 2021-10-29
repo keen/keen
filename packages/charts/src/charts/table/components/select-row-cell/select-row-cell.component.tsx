@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cell, Row, UseRowSelectHooks } from 'react-table';
+import { Cell, Row, UseRowSelectRowProps } from 'react-table';
 import { Typography } from '@keen.io/ui-core';
 
 import { SelectRow } from '../select-row';
@@ -7,11 +7,18 @@ import { CellContainer, CellContent } from '../body-cell';
 
 import { CellValue } from '../../types';
 
+interface EnhancedRow extends Row, UseRowSelectRowProps<Record<string, any>> {}
+
 type Props = {
-  row: UseRowSelectHooks<Row<any>>;
+  /* Row instance enhanced with selection properties */
+  row: EnhancedRow;
+  /* Cell instance */
   cell: Cell;
+  /* Typography settings */
   typography: Typography;
+  /* Cell width */
   width?: number;
+  /* Cell index */
   idx: number;
   /** Active cell indicator */
   isActive: boolean;
@@ -21,50 +28,13 @@ type Props = {
     value: CellValue,
     idx: number
   ) => void;
-  /** Cell element mouse enter event hander */
-  onCellMouseEnter?: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    idx: number
-  ) => void;
-  /** Cell element mouse leave event hander */
-  onCellMouseLeave?: (
-    e: React.MouseEvent<HTMLTableCellElement>,
-    idx: number
-  ) => void;
 };
 
-export const SelectRowCell = ({
-  idx,
-  width,
-  cell,
-  row,
-  isActive,
-  onCellMouseEnter,
-  onCellMouseLeave,
-}: Props) => {
+export const SelectRowCell = ({ width, cell, row }: Props) => {
   const { key } = cell.getCellProps();
 
   return (
-    <CellContainer
-      key={key}
-      isActive={isActive}
-      onMouseEnter={
-        onCellMouseEnter
-          ? (e) => {
-              e.persist();
-              onCellMouseEnter(e, idx);
-            }
-          : null
-      }
-      onMouseLeave={
-        onCellMouseLeave
-          ? (e) => {
-              e.persist();
-              onCellMouseLeave(e, idx);
-            }
-          : null
-      }
-    >
+    <CellContainer key={key}>
       <CellContent textAlignment="left" width={width}>
         <SelectRow {...row.getToggleRowSelectedProps()} />
       </CellContent>

@@ -1,4 +1,16 @@
-import { ValueColumnHeader, ValueCell } from '../components';
+import {
+  ValueColumnHeader,
+  ValueCell,
+  SelectRowCell,
+  SelectColumnHeader,
+} from '../components';
+
+const selectionColumn = {
+  id: 'selection',
+  type: 'row-selection',
+  Header: SelectColumnHeader,
+  Cell: SelectRowCell,
+};
 
 /**
  * Generates table header
@@ -8,7 +20,7 @@ import { ValueColumnHeader, ValueCell } from '../components';
  *
  */
 export const generateHeader = (data: Record<string, any>) => {
-  const header: any[] = [];
+  const header: any[] = [selectionColumn];
 
   Object.keys(data).map((key: string) => {
     const formatterType = data[key].formatterType;

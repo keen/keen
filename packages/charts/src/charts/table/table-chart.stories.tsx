@@ -55,6 +55,7 @@ export const Plot = () => {
           platform: 'Platform renamed',
         }}
         enableEditMode={boolean('Edit mode', false, 'Chart')}
+        rowsSelection={boolean('Rows selection', false, 'Chart')}
         chartEvents={chartEvents}
       />
     </Container>
