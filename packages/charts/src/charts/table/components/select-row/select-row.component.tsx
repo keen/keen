@@ -1,9 +1,23 @@
 import React from 'react';
 import { TableToggleAllRowsSelectedProps } from 'react-table';
+import { Checkbox } from '@keen.io/ui-core';
+
+interface SelectRowProps extends TableToggleAllRowsSelectedProps {
+  /* Checkbox identifer */
+  id: string;
+  /* Checkbox component variant */
+  checkboxVariant?: 'primary' | 'secondary' | 'highlight';
+}
 
 const SelectRow = React.forwardRef(
   (
-    { indeterminate, ...rest }: TableToggleAllRowsSelectedProps,
+    {
+      checked,
+      onChange,
+      indeterminate,
+      id,
+      checkboxVariant = 'secondary',
+    }: SelectRowProps,
     ref: React.MutableRefObject<HTMLInputElement>
   ) => {
     const defaultRef = React.useRef<HTMLInputElement>(null);
@@ -14,9 +28,17 @@ const SelectRow = React.forwardRef(
     }, [resolvedRef, indeterminate]);
 
     return (
-      <>
-        <input type="checkbox" ref={resolvedRef} {...rest} />
-      </>
+      <label htmlFor={id} onClick={(e) => e.stopPropagation()}>
+        <Checkbox
+          id={id}
+          ref={resolvedRef}
+          type={checkboxVariant}
+          onChange={(e) => {
+            onChange(e as React.ChangeEvent<Element>);
+          }}
+          checked={checked}
+        />
+      </label>
     );
   }
 );

@@ -35,14 +35,14 @@ import {
   TableFooterContainer,
 } from './table-chart.styles';
 import { Body, Header, CopyCellTooltip } from './components';
-import { CellValue, ValueFormatter, TableEvents } from './types';
+import { ValueFormatter, CellClickMetadata, TableEvents } from './types';
 import {
   generateHeader,
   generateTable,
   setColumnsOrder,
   sortData,
 } from './utils';
-import { useTableEvents } from './hooks';
+import { useTableEvents, useRowsGroupSelection } from './hooks';
 import { ChartEvents } from '../../events';
 
 export type Props = {
@@ -80,6 +80,12 @@ export const TableChart = ({
   const containerRef = useRef(null);
   const [sort, setSort] = useState<SortByType>(null);
   const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
+
+  const {
+    setSelectionOffset,
+    selectionOffset,
+    getSelectionOffsetRange,
+  } = useRowsGroupSelection({ enabled: rowsSelection });
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -156,6 +162,7 @@ export const TableChart = ({
     pageCount,
     gotoPage,
     setPageSize,
+    toggleRowSelected,
     toggleHideColumn,
     state: { pageIndex, pageSize, sortBy },
   }: any = useTable(
@@ -198,14 +205,27 @@ export const TableChart = ({
     scrollHandler,
   } = useScrollOverflowHandler(containerRef);
   const tooltipHide = useRef(null);
+
+  const onRowSelect = (rowId: string) => {
+    if (selectionOffset) {
+      const selectionRange = getSelectionOffsetRange(rowId);
+      if (selectionRange)
+        selectionRange.forEach((rowId: string) =>
+          toggleRowSelected(rowId, true)
+        );
+    } else {
+      setSelectionOffset(rowId);
+    }
+  };
+
   const onCellClick = (
     e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    cellIdx: number
+    { columnName, columnType, rowId, value, idx }: CellClickMetadata
   ) => {
-    if (enableEditMode) {
-      const columns = reduceColumnsSelection(columnName, cellIdx);
+    if (columnType === 'row-selection') {
+      onRowSelect(rowId);
+    } else if (enableEditMode) {
+      const columns = reduceColumnsSelection(columnName, idx);
 
       publishColumnSelection(data, formatValue, columns);
       setSelectedColumns(columns);
@@ -292,9 +312,7 @@ export const TableChart = ({
           <Body
             page={page}
             getTableBodyProps={getTableBodyProps}
-            onCellClick={(e, columnName, columnValue, cellIdx) =>
-              onCellClick(e, columnName, columnValue, cellIdx)
-            }
+            onCellClick={(e, meta) => onCellClick(e, meta)}
             prepareRow={prepareRow}
             backgroundColor={mainColor}
             typography={body.typography}

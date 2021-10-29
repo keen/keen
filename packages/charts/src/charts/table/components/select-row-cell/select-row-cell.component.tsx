@@ -24,19 +24,17 @@ type Props = {
   isActive: boolean;
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    idx: number
+    value?: CellValue
   ) => void;
 };
 
-export const SelectRowCell = ({ width, cell, row }: Props) => {
+export const SelectRowCell = ({ width, cell, row, onCellClick }: Props) => {
   const { key } = cell.getCellProps();
 
   return (
-    <CellContainer key={key}>
+    <CellContainer key={key} onClick={(e) => onCellClick(e)}>
       <CellContent textAlignment="left" width={width}>
-        <SelectRow {...row.getToggleRowSelectedProps()} />
+        <SelectRow id={key.toString()} {...row.getToggleRowSelectedProps()} />
       </CellContent>
     </CellContainer>
   );

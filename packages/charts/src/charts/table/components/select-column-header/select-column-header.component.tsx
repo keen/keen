@@ -10,6 +10,10 @@ export const SelectColumnHeader = ({
   getToggleAllRowsSelectedProps,
 }: Props) => (
   <HeaderCellContent>
-    <SelectRow {...getToggleAllRowsSelectedProps()} />
+    <SelectRow
+      id="select-all-rows"
+      checkboxVariant="highlight"
+      {...getToggleAllRowsSelectedProps()}
+    />
   </HeaderCellContent>
 );

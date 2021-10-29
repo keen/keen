@@ -3,7 +3,8 @@ import { rgba } from 'polished';
 import { Row, TableBodyProps } from 'react-table';
 import { Typography } from '@keen.io/ui-core';
 
-import { CellValue } from '../../types';
+import { CellValue, CellClickMetadata } from '../../types';
+
 import { RowContainer } from './body.styles';
 
 type Props = {
@@ -20,9 +21,7 @@ type Props = {
   /** Cell element click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    idx: number
+    meta: CellClickMetadata
   ) => void;
   /** Cell element mouse enter event hander */
   onCellMouseEnter?: (
@@ -66,18 +65,33 @@ export const Body = ({
               whileHover: { backgroundColor: rgbaBackground },
             })}
           >
-            {row.cells.map((cell: any, i) =>
-              cell.render('Cell', {
+            {row.cells.map((cell: any, i) => {
+              const {
+                column: { id: columnId, type: columnType },
+                row: { id: rowId },
+              } = cell;
+
+              return cell.render('Cell', {
                 width: columnsWidth[i] ? columnsWidth[i] : null,
                 typography,
                 isActive: activeColumns.includes(i),
-                onCellClick: (e, columnName, value, idx) =>
-                  onCellClick(e, columnName, value, idx),
-                onCellMouseEnter,
-                onCellMouseLeave,
-                idx: i,
-              })
-            )}
+                onCellClick: (
+                  e: React.MouseEvent<HTMLTableCellElement>,
+                  value: CellValue
+                ) =>
+                  onCellClick(e, {
+                    columnName: columnId,
+                    columnType,
+                    rowId,
+                    value,
+                    idx: i,
+                  }),
+                onCellMouseEnter: (e: React.MouseEvent<HTMLTableCellElement>) =>
+                  onCellMouseEnter && onCellMouseEnter(e, i),
+                onCellMouseLeave: (e: React.MouseEvent<HTMLTableCellElement>) =>
+                  onCellMouseLeave && onCellMouseLeave(e, i),
+              });
+            })}
           </RowContainer>
         );
       })}
