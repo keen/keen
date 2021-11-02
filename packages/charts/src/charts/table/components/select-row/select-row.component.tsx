@@ -13,6 +13,13 @@ const SelectRow: FC<SelectRowProps> = ({
   checked,
   id,
   checkboxVariant = 'secondary',
-}) => <Checkbox id={id} type={checkboxVariant} checked={checked} />;
+}) => (
+  <Checkbox
+    id={id}
+    type={checkboxVariant}
+    display="inline-flex"
+    checked={checked}
+  />
+);
 
 export default SelectRow;
