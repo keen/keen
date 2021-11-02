@@ -5,7 +5,8 @@ const utcPlugin = jest.requireActual('dayjs/plugin/utc');
 
 /**
  * This is naive implementation of dayjs.utcOffset method.
- * It was created to make test deterministic and timezone DST values do not affect results.
+ * It was created to make test deterministic and
+ * prevent timezone DST values from affecting test results.
  */
 jest.mock(
   'dayjs/plugin/utc',
