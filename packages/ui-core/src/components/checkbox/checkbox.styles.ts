@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { variant } from 'styled-system';
+import { variant, layout, LayoutProps } from 'styled-system';
 import { transparentize } from 'polished';
 import { motion } from 'framer-motion';
 import { colors } from '@keen.io/colors';
 
 import { Variant } from './types';
 
-export const Container = styled.div`
-  display: inline-block;
+export const Container = styled.div<LayoutProps>`
+  ${layout};
   vertical-align: middle;
   line-height: 1;
   &:focus-visible {
