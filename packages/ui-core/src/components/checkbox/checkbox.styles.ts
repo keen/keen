@@ -69,6 +69,18 @@ const checkboxVariants = {
   },
 };
 
+const activeCheckboxVariants = {
+  prop: 'type',
+  variants: {
+    primary: {},
+    secondary: {},
+    highlight: {
+      border: `solid 1px ${transparentize(0.7, colors.gray['100'])}`,
+      background: transparentize(0.25, colors.white['400']),
+    },
+  },
+};
+
 export const StyledCheckbox = styled.div<{
   checked: boolean;
   type: Variant;
@@ -78,6 +90,7 @@ export const StyledCheckbox = styled.div<{
   box-sizing: content-box;
 
   ${variant(checkboxVariants)};
+  ${(props) => props.checked && variant(activeCheckboxVariants)}
 `;
 
 export const HiddenInput = styled.input.attrs({ type: 'checkbox' })`

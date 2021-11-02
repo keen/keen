@@ -233,34 +233,35 @@ export const TableChart = ({
     e: React.MouseEvent<HTMLTableCellElement>,
     { columnName, columnType, rowId, value, idx }: CellClickMetadata
   ) => {
-    if (columnType === 'row-selection') {
+    if (columnType === 'row-selection' && !enableEditMode) {
       onRowSelect(e, rowId);
-    } else if (enableEditMode) {
-      const columns = reduceColumnsSelection(columnName, idx);
+    } else if (columnType === 'value') {
+      if (enableEditMode) {
+        const columns = reduceColumnsSelection(columnName, idx);
 
-      publishColumnSelection(data, formatValue, columns);
-      setSelectedColumns(columns);
-    } else {
-      if (tooltipHide.current) clearTimeout(tooltipHide.current);
-      copyToClipboard(value);
+        publishColumnSelection(data, formatValue, columns);
+        setSelectedColumns(columns);
+      } else {
+        if (tooltipHide.current) clearTimeout(tooltipHide.current);
+        copyToClipboard(value);
 
-      const { pageX, pageY } = e;
-
-      setTooltip((state) => ({
-        ...state,
-        visible: true,
-        x: pageX,
-        y: pageY,
-      }));
-
-      tooltipHide.current = setTimeout(() => {
+        const { pageX, pageY } = e;
         setTooltip((state) => ({
           ...state,
-          visible: false,
-          x: 0,
-          y: 0,
+          visible: true,
+          x: pageX,
+          y: pageY,
         }));
-      }, 1500);
+
+        tooltipHide.current = setTimeout(() => {
+          setTooltip((state) => ({
+            ...state,
+            visible: false,
+            x: 0,
+            y: 0,
+          }));
+        }, 1500);
+      }
     }
   };
 
@@ -314,6 +315,7 @@ export const TableChart = ({
             typography={header.typography}
             color={mainColor}
             activeColumns={[...activeColumns]}
+            editMode={enableEditMode}
             {...(enableEditMode &&
               publishColumnSelection && {
                 onEditModeClick: (_e, columnName, cellIdx) => {

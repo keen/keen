@@ -27,12 +27,14 @@ type Props = {
     idx: number
   ) => void;
   columnsNamesMapping?: Record<string, string>;
+  editMode?: boolean;
 };
 
 export const Header = ({
   headerGroups,
   typography,
   color,
+  editMode,
   activeColumns = [],
   onCellMouseEnter,
   onCellMouseLeave,
@@ -80,6 +82,7 @@ export const Header = ({
                   textAlignment: align,
                   isSorted: isSorted,
                   isSortedDescending: isSortedDesc,
+                  editMode: editMode,
                   columnName: getColumnName(columnId),
                 })}
               </TableHeader>
