@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.43.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.6...@keen.io/ui-core@2.43.7) (2021-11-02)
+
+
+### Bug Fixes
+
+* 🐛 table footer compact mode ([a50ffba](https://github.com/keen/keen/commit/a50ffba5d33e9e00b680e87d1915b4a4bbb62beb))
+
+
+
+
+
 ## [2.43.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.5...@keen.io/ui-core@2.43.6) (2021-10-28)
 
 **Note:** Version bump only for package @keen.io/ui-core
