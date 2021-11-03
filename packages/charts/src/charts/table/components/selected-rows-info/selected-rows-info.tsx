@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { colors } from '@keen.io/colors';
 import { BodyText } from '@keen.io/typography';
 
@@ -22,7 +23,12 @@ export const SelectedRowsInfo = ({
 }: Props) => {
   return (
     <SelectedRowsWrapper>
-      <SelectedRowsBox>
+      <SelectedRowsBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
         <SelectedRowsCount>
           <BodyText variant="body2">
             {selectedRowsNumber} {selectedRowsNumber > 1 ? 'rows' : 'row'}{' '}

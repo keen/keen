@@ -35,9 +35,16 @@ import {
   StyledTable,
   TableFooterContainer,
 } from './table-chart.styles';
-import { Body, Header, CopyCellTooltip, SelectedRowsInfo } from './components';
+import {
+  Body,
+  Header,
+  CopyCellTooltip,
+  SelectedRowsInfo,
+  SelectedRowsCopiedInfo,
+} from './components';
 import { ValueFormatter, CellClickMetadata, TableEvents } from './types';
 import {
+  generateSelectedRowsCSVData,
   generateHeader,
   generateTable,
   setColumnsOrder,
@@ -47,6 +54,7 @@ import { useTableEvents, useRowsGroupSelection } from './hooks';
 
 import { SELECT_COLUMN_ID } from './constants';
 import { ChartEvents } from '../../events';
+import { AnimatePresence } from 'framer-motion';
 
 export type Props = {
   data: Record<string, any>[];
@@ -85,6 +93,7 @@ export const TableChart = ({
 
   const [sort, setSort] = useState<SortByType>(null);
   const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
+  const [selectedRowsCopied, setSelectedRowsCopied] = useState(false);
 
   const {
     setSelectionOffset,
@@ -283,7 +292,28 @@ export const TableChart = ({
     }
   }, [rowsSelection, columnsWidth]);
 
-  const selectedRowsNumber = Object.keys(selectedRowIds).length;
+  const selectedRowsIds = (Object.keys(selectedRowIds) as unknown) as number[];
+
+  const copySelectedRows = () => {
+    const selectedRows = selectedRowsIds.map(
+      (selectedRowId) => formattedData[selectedRowId]
+    );
+    const columnsKeys = Object.keys(formattedData[0]);
+    const csvData = generateSelectedRowsCSVData({
+      selectedRows,
+      columnsKeys,
+      columnsNamesMapping,
+      addColumnNames: selectedRowsIds.length === formattedData.length,
+    });
+    copyToClipboard(csvData);
+    toggleAllRowsSelected(false);
+    setSelectedRowsCopied(true);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setSelectedRowsCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [selectedRowsCopied]);
 
   return (
     <TableScrollWrapper>
@@ -299,13 +329,18 @@ export const TableChart = ({
           tooltipSettings={tooltipSettings}
         />
         <StyledTable {...getTableProps()} ref={tableRef}>
-          {selectedRowsNumber > 0 && (
-            <SelectedRowsInfo
-              selectedRowsNumber={selectedRowsNumber}
-              onClearRowsSelection={() => toggleAllRowsSelected(false)}
-              onCopySelectedRows={() => console.log('Copy data')}
-            />
-          )}
+          <AnimatePresence>
+            {selectedRowsIds.length > 0 && (
+              <SelectedRowsInfo
+                selectedRowsNumber={selectedRowsIds.length}
+                onClearRowsSelection={() => toggleAllRowsSelected(false)}
+                onCopySelectedRows={() => copySelectedRows()}
+              />
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {selectedRowsCopied && <SelectedRowsCopiedInfo />}
+          </AnimatePresence>
           <colgroup>
             {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
               <StyledCol
