@@ -1,4 +1,4 @@
-import { DataExport } from '@keen.io/data-export';
+import { parseToCSV } from './parse-to-csv';
 
 type Props = {
   selectedRows: Record<string, any>[];
@@ -35,5 +35,5 @@ export const generateSelectedRowsCSVData = ({
     });
     parsedElements.push(parsedRow);
   });
-  return DataExport.exportToCSV({ data: parsedElements });
+  return parseToCSV(parsedElements);
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { colors } from '@keen.io/colors';
 import { transparentize } from 'polished';
+import { colors } from '@keen.io/colors';
 
 export const SelectedRowsCopiedWrapper = styled.div`
   position: absolute;

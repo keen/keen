@@ -17,6 +17,7 @@ import {
 } from 'react-table';
 import Measure from 'react-measure';
 import { useInView } from 'react-intersection-observer';
+import { AnimatePresence } from 'framer-motion';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
@@ -54,7 +55,6 @@ import { useTableEvents, useRowsGroupSelection } from './hooks';
 
 import { SELECT_COLUMN_ID } from './constants';
 import { ChartEvents } from '../../events';
-import { AnimatePresence } from 'framer-motion';
 
 export type Props = {
   data: Record<string, any>[];

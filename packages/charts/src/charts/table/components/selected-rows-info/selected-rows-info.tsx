@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { colors } from '@keen.io/colors';
 import { BodyText } from '@keen.io/typography';
 
