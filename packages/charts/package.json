@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/charts",
-  "version": "2.34.7",
+  "version": "2.34.8",
   "description": "Keen charts",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -33,7 +33,7 @@
     "@keen.io/colors": "^1.1.0",
     "@keen.io/pubsub": "^1.2.0",
     "@keen.io/react-hooks": "^1.4.2",
-    "@keen.io/ui-core": "^2.43.7",
+    "@keen.io/ui-core": "^2.43.8",
     "d3-array": "^2.4.0",
     "d3-axis": "^1.0.12",
     "d3-drag": "^1.2.5",
@@ -57,7 +57,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@keen.io/storybook-utils": "^2.2.31",
+    "@keen.io/storybook-utils": "^2.2.32",
     "@types/d3-array": "^2.0.0",
     "@types/d3-axis": "^1.0.12",
     "@types/d3-drag": "^1.2.3",
