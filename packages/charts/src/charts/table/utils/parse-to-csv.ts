@@ -1,5 +1,5 @@
 export const parseToCSV = (
-  data: any = [],
+  data: Record<string, any> = [],
   columnDelimiter = ',',
   lineDelimiter = '\n'
 ) => {
