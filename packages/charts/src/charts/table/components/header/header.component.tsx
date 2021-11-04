@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { HeaderGroup } from 'react-table';
 import { Typography } from '@keen.io/ui-core';
 
-import { HeaderCell } from '../header-cell';
 import { Head, TableHeader } from './header.styles';
 
 type Props = {
@@ -28,12 +27,14 @@ type Props = {
     idx: number
   ) => void;
   columnsNamesMapping?: Record<string, string>;
+  editMode?: boolean;
 };
 
 export const Header = ({
   headerGroups,
   typography,
   color,
+  editMode,
   activeColumns = [],
   onCellMouseEnter,
   onCellMouseLeave,
@@ -54,34 +55,36 @@ export const Header = ({
       {headerGroups.map((headerGroup: HeaderGroup) => (
         <tr key={headerGroup.getHeaderGroupProps().key}>
           {headerGroup.headers.map((column: any, idx: number) => {
-            const { title, key, onClick } = column.getHeaderProps(
+            const { align, isSorted, isSortedDesc, id: columnId } = column;
+            const { key, title, onClick } = column.getHeaderProps(
               column.getSortByToggleProps()
             );
-            const { align, isSorted, isSortedDesc, id: columnId } = column;
 
             return (
               <TableHeader
                 key={key}
-                title={title}
-                isActive={activeColumns.includes(idx)}
-                onClick={(e) =>
-                  onEditModeClick
-                    ? onEditModeClick(e, columnId, idx)
-                    : onClick(e)
-                }
-                onMouseEnter={(e) =>
-                  onCellMouseEnter && onCellMouseEnter(e, idx)
-                }
-                onMouseLeave={(e) =>
-                  onCellMouseLeave && onCellMouseLeave(e, idx)
-                }
+                {...(column.type === 'value'
+                  ? {
+                      title,
+                      isActive: activeColumns.includes(idx),
+                      onClick: (e) =>
+                        onEditModeClick
+                          ? onEditModeClick(e, columnId, idx)
+                          : onClick(e),
+                      onMouseEnter: (e) =>
+                        onCellMouseEnter && onCellMouseEnter(e, idx),
+                      onMouseLeave: (e) =>
+                        onCellMouseLeave && onCellMouseLeave(e, idx),
+                    }
+                  : {})}
               >
-                <HeaderCell
-                  textAlignment={align}
-                  isSorted={isSorted}
-                  isSortedDescending={isSortedDesc}
-                  columnName={getColumnName(columnId)}
-                />
+                {column.render('Header', {
+                  textAlignment: align,
+                  isSorted: isSorted,
+                  isSortedDescending: isSortedDesc,
+                  editMode: editMode,
+                  columnName: getColumnName(columnId),
+                })}
               </TableHeader>
             );
           })}

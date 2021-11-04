@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, {
   useMemo,
   useRef,
@@ -8,6 +9,7 @@ import React, {
 } from 'react';
 import {
   HeaderGroup,
+  useRowSelect,
   useBlockLayout,
   usePagination,
   useSortBy,
@@ -15,12 +17,14 @@ import {
 } from 'react-table';
 import Measure from 'react-measure';
 import { useInView } from 'react-intersection-observer';
+import { AnimatePresence } from 'framer-motion';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
 import { TableFooter, SortByType, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
 
 import { Theme, TooltipState } from '../../types';
+
 import { theme as defaultTheme } from '../../theme';
 
 import {
@@ -32,15 +36,24 @@ import {
   StyledTable,
   TableFooterContainer,
 } from './table-chart.styles';
-import { Body, Header, CopyCellTooltip } from './components';
-import { CellValue, ValueFormatter, TableEvents } from './types';
 import {
+  Body,
+  Header,
+  CopyCellTooltip,
+  SelectedRowsInfo,
+  SelectedRowsCopiedInfo,
+} from './components';
+import { ValueFormatter, CellClickMetadata, TableEvents } from './types';
+import {
+  generateSelectedRowsCSVData,
   generateHeader,
   generateTable,
   setColumnsOrder,
   sortData,
 } from './utils';
-import { useTableEvents } from './hooks';
+import { useTableEvents, useRowsGroupSelection } from './hooks';
+
+import { SELECT_COLUMN_ID } from './constants';
 import { ChartEvents } from '../../events';
 
 export type Props = {
@@ -55,6 +68,8 @@ export type Props = {
   chartEvents?: ChartEvents<TableEvents>;
   /** Renaming columns settings */
   columnsNamesMapping?: Record<string, string>;
+  /* Rows selection enabled */
+  rowsSelection?: boolean;
   theme: Theme;
 };
 export const TOOLTIP_MOTION = {
@@ -68,13 +83,23 @@ export const TableChart = ({
   columnsOrder,
   formatValue,
   enableEditMode = false,
+  rowsSelection = false,
   chartEvents,
   columnsNamesMapping = {},
 }: Props) => {
   const tableRef = useRef<HTMLTableElement>(null);
   const containerRef = useRef(null);
+  const componentMounted = useRef(false);
+
   const [sort, setSort] = useState<SortByType>(null);
   const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
+  const [selectedRowsCopied, setSelectedRowsCopied] = useState(false);
+
+  const {
+    setSelectionOffset,
+    selectionOffset,
+    getSelectionOffsetRange,
+  } = useRowsGroupSelection({ enabled: rowsSelection });
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -134,6 +159,7 @@ export const TableChart = ({
     columnsOrder,
     tableData,
   ]);
+
   const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
   const activeColumns = new Set(
     [...indexesOfSelectedColumns, hoveredColumn].filter(
@@ -150,18 +176,26 @@ export const TableChart = ({
     pageCount,
     gotoPage,
     setPageSize,
-    state: { pageIndex, pageSize, sortBy },
+    toggleRowSelected,
+    toggleHideColumn,
+    toggleAllRowsSelected,
+    state: { pageIndex, pageSize, sortBy, selectedRowIds },
   }: any = useTable(
     {
       columns,
       data: formattedData,
-      initialState: { pageIndex: 0, pageSize: PER_PAGE_OPTIONS[0] },
+      initialState: {
+        pageIndex: 0,
+        pageSize: PER_PAGE_OPTIONS[0],
+        hiddenColumns: rowsSelection ? [] : [SELECT_COLUMN_ID],
+      },
       manualSortBy: true,
       disableMultiSort: true,
     } as any,
     useBlockLayout,
     useSortBy,
-    usePagination
+    usePagination,
+    useRowSelect
   );
 
   useEffect(() => {
@@ -181,43 +215,73 @@ export const TableChart = ({
     scrollHandler,
   } = useScrollOverflowHandler(containerRef);
   const tooltipHide = useRef(null);
-  const onCellClick = (
+
+  const onRowSelect = (
     e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    cellIdx: number
+    rowId: string
   ) => {
-    if (enableEditMode) {
-      const columns = reduceColumnsSelection(columnName, cellIdx);
-
-      publishColumnSelection(data, formatValue, columns);
-      setSelectedColumns(columns);
+    if (e.shiftKey) {
+      if (selectionOffset) {
+        const selectionRange = getSelectionOffsetRange(rowId);
+        if (selectionRange)
+          selectionRange.forEach((rowId: string) =>
+            toggleRowSelected(rowId, true)
+          );
+      } else {
+        setSelectionOffset(rowId);
+      }
     } else {
-      if (tooltipHide.current) clearTimeout(tooltipHide.current);
-      copyToClipboard(value);
-
-      const { pageX, pageY } = e;
-
-      setTooltip((state) => ({
-        ...state,
-        visible: true,
-        x: pageX,
-        y: pageY,
-      }));
-
-      tooltipHide.current = setTimeout(() => {
-        setTooltip((state) => ({
-          ...state,
-          visible: false,
-          x: 0,
-          y: 0,
-        }));
-      }, 1500);
+      toggleRowSelected(rowId);
     }
   };
 
+  const onCellClick = (
+    e: React.MouseEvent<HTMLTableCellElement>,
+    { columnName, columnType, rowId, value, idx }: CellClickMetadata
+  ) => {
+    if (columnType === 'row-selection' && !enableEditMode) {
+      onRowSelect(e, rowId);
+    } else if (columnType === 'value') {
+      if (enableEditMode) {
+        const columns = reduceColumnsSelection(columnName, idx);
+
+        publishColumnSelection(data, formatValue, columns);
+        setSelectedColumns(columns);
+      } else {
+        if (tooltipHide.current) clearTimeout(tooltipHide.current);
+        copyToClipboard(value);
+
+        const { pageX, pageY } = e;
+        setTooltip((state) => ({
+          ...state,
+          visible: true,
+          x: pageX,
+          y: pageY,
+        }));
+
+        tooltipHide.current = setTimeout(() => {
+          setTooltip((state) => ({
+            ...state,
+            visible: false,
+            x: 0,
+            y: 0,
+          }));
+        }, 1500);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (componentMounted.current) {
+      setColumnsWidth([]);
+      toggleHideColumn(SELECT_COLUMN_ID, !rowsSelection);
+    } else {
+      componentMounted.current = true;
+    }
+  }, [rowsSelection]);
+
   useLayoutEffect(() => {
-    if (containerRef.current) {
+    if (containerRef.current && columnsWidth.length === 0) {
       const headersWidth = Array.from(
         containerRef.current.querySelectorAll('th')
       ).map((header: HTMLTableHeaderCellElement) => {
@@ -226,7 +290,30 @@ export const TableChart = ({
 
       setColumnsWidth(headersWidth);
     }
-  }, []);
+  }, [rowsSelection, columnsWidth]);
+
+  const selectedRowsIds = (Object.keys(selectedRowIds) as unknown) as number[];
+
+  const copySelectedRows = () => {
+    const selectedRows = selectedRowsIds.map(
+      (selectedRowId) => formattedData[selectedRowId]
+    );
+    const columnsKeys = Object.keys(formattedData[0]);
+    const csvData = generateSelectedRowsCSVData({
+      selectedRows,
+      columnsKeys,
+      columnsNamesMapping,
+      addColumnNames: selectedRowsIds.length === formattedData.length,
+    });
+    copyToClipboard(csvData);
+    toggleAllRowsSelected(false);
+    setSelectedRowsCopied(true);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setSelectedRowsCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [selectedRowsCopied]);
 
   return (
     <TableScrollWrapper>
@@ -241,6 +328,18 @@ export const TableChart = ({
           tooltipState={tooltip}
           tooltipSettings={tooltipSettings}
         />
+        <AnimatePresence>
+          {selectedRowsIds.length > 0 && (
+            <SelectedRowsInfo
+              selectedRowsNumber={selectedRowsIds.length}
+              onClearRowsSelection={() => toggleAllRowsSelected(false)}
+              onCopySelectedRows={() => copySelectedRows()}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {selectedRowsCopied && <SelectedRowsCopiedInfo />}
+        </AnimatePresence>
         <StyledTable {...getTableProps()} ref={tableRef}>
           <colgroup>
             {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
@@ -257,6 +356,7 @@ export const TableChart = ({
             typography={header.typography}
             color={mainColor}
             activeColumns={[...activeColumns]}
+            editMode={enableEditMode}
             {...(enableEditMode &&
               publishColumnSelection && {
                 onEditModeClick: (_e, columnName, cellIdx) => {
@@ -275,14 +375,13 @@ export const TableChart = ({
           <Body
             page={page}
             getTableBodyProps={getTableBodyProps}
-            onCellClick={(e, columnName, columnValue, cellIdx) =>
-              onCellClick(e, columnName, columnValue, cellIdx)
-            }
+            onCellClick={(e, meta) => onCellClick(e, meta)}
             prepareRow={prepareRow}
             backgroundColor={mainColor}
             typography={body.typography}
             isEditMode={enableEditMode}
             columnsWidth={columnsWidth}
+            disableValuesSelection={!!selectionOffset}
             activeColumns={[...activeColumns]}
             {...(enableEditMode && {
               onCellMouseEnter: (_e, cellIdx) => setHoveredColumn(cellIdx),

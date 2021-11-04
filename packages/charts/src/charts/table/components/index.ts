@@ -1,8 +1,25 @@
 import { Body } from './body';
-import { BodyCell } from './body-cell';
 import { Header } from './header';
-import { HeaderCell } from './header-cell';
-import { SortIndicators } from './sort-indicators';
+import { HeaderCellContent } from './header-cell-content';
 import { CopyCellTooltip } from './copy-cell-tooltip';
+import { SelectedRowsInfo } from './selected-rows-info';
+import { SelectedRowsCopiedInfo } from './selected-rows-copied-info';
 
-export { Body, BodyCell, Header, HeaderCell, SortIndicators, CopyCellTooltip };
+import {
+  Header as SelectColumnHeader,
+  Cell as SelectRowCell,
+} from './selection-column';
+import { Header as ValueColumnHeader, Cell as ValueCell } from './value-column';
+
+export {
+  Body,
+  ValueCell,
+  Header,
+  HeaderCellContent,
+  SelectColumnHeader,
+  ValueColumnHeader,
+  CopyCellTooltip,
+  SelectRowCell,
+  SelectedRowsInfo,
+  SelectedRowsCopiedInfo,
+};

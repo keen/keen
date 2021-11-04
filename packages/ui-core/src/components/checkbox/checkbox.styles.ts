@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { variant } from 'styled-system';
+import { variant, layout, LayoutProps } from 'styled-system';
 import { transparentize } from 'polished';
 import { motion } from 'framer-motion';
 import { colors } from '@keen.io/colors';
 
 import { Variant } from './types';
 
-export const Container = styled.div`
-  display: inline-block;
+export const Container = styled.div<LayoutProps>`
+  ${layout};
   vertical-align: middle;
   line-height: 1;
   &:focus-visible {
@@ -22,6 +22,10 @@ const iconSocketVariants = {
       bottom: '0',
     },
     secondary: {
+      left: '1px',
+      bottom: '0',
+    },
+    highlight: {
       left: '1px',
       bottom: '0',
     },
@@ -55,6 +59,25 @@ const checkboxVariants = {
       width: '15px',
       height: '15px',
     },
+    highlight: {
+      border: `solid 1px ${transparentize(0.8, colors.gray['100'])}`,
+      background: transparentize(0.8, colors.white['400']),
+      borderRadius: '4px',
+      width: '15px',
+      height: '15px',
+    },
+  },
+};
+
+const activeCheckboxVariants = {
+  prop: 'type',
+  variants: {
+    primary: {},
+    secondary: {},
+    highlight: {
+      border: `solid 1px ${transparentize(0.7, colors.gray['100'])}`,
+      background: transparentize(0.25, colors.white['400']),
+    },
   },
 };
 
@@ -67,6 +90,7 @@ export const StyledCheckbox = styled.div<{
   box-sizing: content-box;
 
   ${variant(checkboxVariants)};
+  ${(props) => props.checked && variant(activeCheckboxVariants)};
 `;
 
 export const HiddenInput = styled.input.attrs({ type: 'checkbox' })`
