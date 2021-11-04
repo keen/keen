@@ -33,7 +33,7 @@ describe('generateSelectedRowsCSVData()', () => {
   test('Generates selected rows CSV data', () => {
     const csvData = generateSelectedRowsCSVData({ selectedRows, columnsKeys });
     expect(csvData).toEqual(
-      `110.50$,Mobile,facebook/cpc\n100.50$,Mobile,google/ads\n`
+      `110.50$;Mobile;facebook/cpc\n100.50$;Mobile;google/ads\n`
     );
   });
 
@@ -44,7 +44,7 @@ describe('generateSelectedRowsCSVData()', () => {
       addColumnNames: true,
     });
     expect(csvData).toEqual(
-      `price,platform,referrer\n110.50$,Mobile,facebook/cpc\n100.50$,Mobile,google/ads\n`
+      `price;platform;referrer\n110.50$;Mobile;facebook/cpc\n100.50$;Mobile;google/ads\n`
     );
   });
 
@@ -56,7 +56,7 @@ describe('generateSelectedRowsCSVData()', () => {
       columnsNamesMapping,
     });
     expect(csvData).toEqual(
-      `price,Platform renamed,referrer\n110.50$,Mobile,facebook/cpc\n100.50$,Mobile,google/ads\n`
+      `price;Platform renamed;referrer\n110.50$;Mobile;facebook/cpc\n100.50$;Mobile;google/ads\n`
     );
   });
 });

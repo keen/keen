@@ -35,5 +35,5 @@ export const generateSelectedRowsCSVData = ({
     });
     parsedElements.push(parsedRow);
   });
-  return parseToCSV(parsedElements);
+  return parseToCSV(parsedElements, ';');
 };
