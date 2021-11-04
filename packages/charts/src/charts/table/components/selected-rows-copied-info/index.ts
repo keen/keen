@@ -1,3 +1,3 @@
-import { SelectedRowsCopiedInfo } from './selected-rows-copied-info';
+import { SelectedRowsCopiedInfo } from './selected-rows-copied-info.component';
 
 export { SelectedRowsCopiedInfo };
