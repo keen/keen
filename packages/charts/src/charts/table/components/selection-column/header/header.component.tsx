@@ -1,6 +1,6 @@
 import React from 'react';
 import { UseRowSelectInstanceProps } from 'react-table';
-import { Checkbox } from '@keen.io/ui-core';
+import { Checkbox, MousePositionedTooltip } from '@keen.io/ui-core';
 
 import { HeaderCellContent } from '../../header-cell-content';
 
@@ -18,12 +18,20 @@ export const Header = ({
 
   return (
     <HeaderCellContent onClick={() => !editMode && toggleAllRowsSelected()}>
-      <Checkbox
-        id="select-all-rows"
-        type="highlight"
-        display="inline-flex"
-        checked={checked}
-      />
+      <MousePositionedTooltip
+        isActive
+        tooltipPinPlacement="bottom-right"
+        renderContent={() =>
+          checked ? 'Unselect all rows' : 'Select all rows'
+        }
+      >
+        <Checkbox
+          id="select-all-rows"
+          type="highlight"
+          display="inline-flex"
+          checked={checked}
+        />
+      </MousePositionedTooltip>
     </HeaderCellContent>
   );
 };
