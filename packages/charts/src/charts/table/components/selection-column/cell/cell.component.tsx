@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cell as CellType, Row, UseRowSelectRowProps } from 'react-table';
-import { Typography, Checkbox } from '@keen.io/ui-core';
+import { Checkbox } from '@keen.io/ui-core';
 
 import { CellContainer, CellContent } from '../../body-cell';
 
@@ -13,14 +13,9 @@ type Props = {
   row: EnhancedRow;
   /* Cell instance */
   cell: CellType;
-  /* Typography settings */
-  typography: Typography;
   /* Cell width */
   width?: number;
-  /* Cell index */
-  idx: number;
-  /** Active cell indicator */
-  isActive: boolean;
+  /** Click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
     value?: CellValue
@@ -32,7 +27,11 @@ export const Cell = ({ width, cell, row, onCellClick }: Props) => {
   const { checked } = row.getToggleRowSelectedProps();
 
   return (
-    <CellContainer key={key} onClick={(e) => onCellClick(e)}>
+    <CellContainer
+      data-testid="table-selection-column-cell"
+      key={key}
+      onClick={(e) => onCellClick(e)}
+    >
       <CellContent textAlignment="left" width={width}>
         <Checkbox
           id={key.toString()}
