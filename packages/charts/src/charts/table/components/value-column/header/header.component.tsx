@@ -1,10 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import { HeaderCellContent } from '../header-cell-content';
+import { HeaderCellContent } from '../../header-cell-content';
 import { SortIndicators } from '../sort-indicators';
 
-import { Container } from './value-column-header.styles';
+import { Container } from './header.styles';
 
 type Props = {
   /** Sort active indicator */
