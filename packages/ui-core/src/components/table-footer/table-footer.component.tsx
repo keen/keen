@@ -50,7 +50,7 @@ const TableFooter: FC<Props> = ({
     >
       {({ measureRef }) => (
         <Container
-          isCompactView={isCompactView}
+          isCompactView={isCompactView && totalPages > 1}
           role="rowgroup"
           ref={measureRef}
         >

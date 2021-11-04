@@ -9,19 +9,34 @@ describe('generateHeader()', () => {
     expect(header).toMatchInlineSnapshot(`
       Array [
         Object {
-          "Header": "name",
-          "accessor": [Function],
-          "align": "left",
+          "Cell": [Function],
+          "Header": [Function],
+          "id": "selection",
+          "type": "row-selection",
         },
         Object {
-          "Header": "age",
+          "Cell": [Function],
+          "Header": [Function],
           "accessor": [Function],
           "align": "left",
+          "id": "name",
+          "type": "value",
         },
         Object {
-          "Header": "city",
+          "Cell": [Function],
+          "Header": [Function],
           "accessor": [Function],
           "align": "left",
+          "id": "age",
+          "type": "value",
+        },
+        Object {
+          "Cell": [Function],
+          "Header": [Function],
+          "accessor": [Function],
+          "align": "left",
+          "id": "city",
+          "type": "value",
         },
       ]
     `);
