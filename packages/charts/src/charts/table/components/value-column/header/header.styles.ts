@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CellTextAlignment } from '../../types';
+import { CellTextAlignment } from '../../../types';
 
 export const Container = styled.div<{
   textAlignment: CellTextAlignment;
