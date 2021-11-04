@@ -328,19 +328,19 @@ export const TableChart = ({
           tooltipState={tooltip}
           tooltipSettings={tooltipSettings}
         />
+        <AnimatePresence>
+          {selectedRowsIds.length > 0 && (
+            <SelectedRowsInfo
+              selectedRowsNumber={selectedRowsIds.length}
+              onClearRowsSelection={() => toggleAllRowsSelected(false)}
+              onCopySelectedRows={() => copySelectedRows()}
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {selectedRowsCopied && <SelectedRowsCopiedInfo />}
+        </AnimatePresence>
         <StyledTable {...getTableProps()} ref={tableRef}>
-          <AnimatePresence>
-            {selectedRowsIds.length > 0 && (
-              <SelectedRowsInfo
-                selectedRowsNumber={selectedRowsIds.length}
-                onClearRowsSelection={() => toggleAllRowsSelected(false)}
-                onCopySelectedRows={() => copySelectedRows()}
-              />
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {selectedRowsCopied && <SelectedRowsCopiedInfo />}
-          </AnimatePresence>
           <colgroup>
             {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
               <StyledCol
