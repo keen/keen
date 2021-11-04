@@ -90,7 +90,7 @@ export const StyledCheckbox = styled.div<{
   box-sizing: content-box;
 
   ${variant(checkboxVariants)};
-  ${(props) => props.checked && variant(activeCheckboxVariants)}
+  ${(props) => props.checked && variant(activeCheckboxVariants)};
 `;
 
 export const HiddenInput = styled.input.attrs({ type: 'checkbox' })`

@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
-import { Cell } from 'react-table';
+import { Cell as CellType } from 'react-table';
 import { Typography, Text } from '@keen.io/ui-core';
 
-import { CellContainer, CellContent } from '../body-cell';
+import { CellContainer, CellContent } from '../../body-cell';
 
-import { CellValue } from '../../types';
+import { CellValue } from '../../../types';
 
 type Props = {
   /* Cell instance */
-  cell: Cell;
+  cell: CellType;
   /* Typography settings */
   typography: Typography;
   /* Cell width */
@@ -25,7 +25,7 @@ type Props = {
   onCellMouseLeave?: (e: React.MouseEvent<HTMLTableCellElement>) => void;
 };
 
-export const ValueCell = ({
+export const Cell = ({
   cell,
   typography,
   width,

@@ -81,6 +81,8 @@ export const TableChart = ({
 }: Props) => {
   const tableRef = useRef<HTMLTableElement>(null);
   const containerRef = useRef(null);
+  const componentMounted = useRef(false);
+
   const [sort, setSort] = useState<SortByType>(null);
   const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
 
@@ -188,11 +190,6 @@ export const TableChart = ({
   );
 
   useEffect(() => {
-    setColumnsWidth([]);
-    toggleHideColumn(SELECT_COLUMN_ID, !rowsSelection);
-  }, [rowsSelection]);
-
-  useEffect(() => {
     if (sortBy && sortBy.length > 0) {
       setSort({
         property: sortBy[0].id,
@@ -265,8 +262,17 @@ export const TableChart = ({
     }
   };
 
+  useEffect(() => {
+    if (componentMounted.current) {
+      setColumnsWidth([]);
+      toggleHideColumn(SELECT_COLUMN_ID, !rowsSelection);
+    } else {
+      componentMounted.current = true;
+    }
+  }, [rowsSelection]);
+
   useLayoutEffect(() => {
-    if (containerRef.current) {
+    if (containerRef.current && columnsWidth.length === 0) {
       const headersWidth = Array.from(
         containerRef.current.querySelectorAll('th')
       ).map((header: HTMLTableHeaderCellElement) => {
@@ -275,7 +281,7 @@ export const TableChart = ({
 
       setColumnsWidth(headersWidth);
     }
-  }, [rowsSelection]);
+  }, [rowsSelection, columnsWidth]);
 
   const selectedRowsNumber = Object.keys(selectedRowIds).length;
 

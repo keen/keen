@@ -1,11 +1,10 @@
 import React from 'react';
-import { Cell, Row, UseRowSelectRowProps } from 'react-table';
-import { Typography } from '@keen.io/ui-core';
+import { Cell as CellType, Row, UseRowSelectRowProps } from 'react-table';
+import { Typography, Checkbox } from '@keen.io/ui-core';
 
-import { SelectRow } from '../select-row';
-import { CellContainer, CellContent } from '../body-cell';
+import { CellContainer, CellContent } from '../../body-cell';
 
-import { CellValue } from '../../types';
+import { CellValue } from '../../../types';
 
 interface EnhancedRow extends Row, UseRowSelectRowProps<Record<string, any>> {}
 
@@ -13,7 +12,7 @@ type Props = {
   /* Row instance enhanced with selection properties */
   row: EnhancedRow;
   /* Cell instance */
-  cell: Cell;
+  cell: CellType;
   /* Typography settings */
   typography: Typography;
   /* Cell width */
@@ -28,13 +27,19 @@ type Props = {
   ) => void;
 };
 
-export const SelectRowCell = ({ width, cell, row, onCellClick }: Props) => {
+export const Cell = ({ width, cell, row, onCellClick }: Props) => {
   const { key } = cell.getCellProps();
+  const { checked } = row.getToggleRowSelectedProps();
 
   return (
     <CellContainer key={key} onClick={(e) => onCellClick(e)}>
       <CellContent textAlignment="left" width={width}>
-        <SelectRow id={key.toString()} {...row.getToggleRowSelectedProps()} />
+        <Checkbox
+          id={key.toString()}
+          display="inline-flex"
+          type="secondary"
+          checked={checked}
+        />
       </CellContent>
     </CellContainer>
   );
