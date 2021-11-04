@@ -3,6 +3,7 @@ import { Header } from './header';
 import { HeaderCellContent } from './header-cell-content';
 import { CopyCellTooltip } from './copy-cell-tooltip';
 import { SelectedRowsInfo } from './selected-rows-info';
+import { SelectedRowsCopiedInfo } from './selected-rows-copied-info';
 
 import {
   Header as SelectColumnHeader,
@@ -20,4 +21,5 @@ export {
   CopyCellTooltip,
   SelectRowCell,
   SelectedRowsInfo,
+  SelectedRowsCopiedInfo,
 };
