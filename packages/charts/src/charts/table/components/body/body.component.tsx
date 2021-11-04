@@ -75,6 +75,7 @@ export const Body = ({
               } = cell;
 
               return cell.render('Cell', {
+                key: `${rowId}_${columnId}`,
                 width: columnsWidth[i] ? columnsWidth[i] : null,
                 typography,
                 isActive: activeColumns.includes(i),
