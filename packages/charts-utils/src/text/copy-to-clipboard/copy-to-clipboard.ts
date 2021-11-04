@@ -6,7 +6,7 @@
  *
  */
 const copyToClipboard = (value: any) => {
-  const placeholder = document.createElement('input');
+  const placeholder = document.createElement('textarea');
   placeholder.value = value;
   document.body.appendChild(placeholder);
   placeholder.select();

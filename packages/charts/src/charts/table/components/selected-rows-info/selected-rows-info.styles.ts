@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
+import { motion } from 'framer-motion';
+
 import { colors } from '@keen.io/colors';
 
 export const SelectedRowsWrapper = styled.div`
@@ -11,7 +13,7 @@ export const SelectedRowsWrapper = styled.div`
   top: 120px;
 `;
 
-export const SelectedRowsBox = styled.div`
+export const SelectedRowsBox = styled(motion.div)`
   background: ${colors.white[500]};
   height: 47px;
   min-width: 316px;

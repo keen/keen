@@ -17,6 +17,7 @@ import {
 } from 'react-table';
 import Measure from 'react-measure';
 import { useInView } from 'react-intersection-observer';
+import { AnimatePresence } from 'framer-motion';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
@@ -35,9 +36,16 @@ import {
   StyledTable,
   TableFooterContainer,
 } from './table-chart.styles';
-import { Body, Header, CopyCellTooltip, SelectedRowsInfo } from './components';
+import {
+  Body,
+  Header,
+  CopyCellTooltip,
+  SelectedRowsInfo,
+  SelectedRowsCopiedInfo,
+} from './components';
 import { ValueFormatter, CellClickMetadata, TableEvents } from './types';
 import {
+  generateSelectedRowsCSVData,
   generateHeader,
   generateTable,
   setColumnsOrder,
@@ -85,6 +93,7 @@ export const TableChart = ({
 
   const [sort, setSort] = useState<SortByType>(null);
   const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
+  const [selectedRowsCopied, setSelectedRowsCopied] = useState(false);
 
   const {
     setSelectionOffset,
@@ -283,7 +292,28 @@ export const TableChart = ({
     }
   }, [rowsSelection, columnsWidth]);
 
-  const selectedRowsNumber = Object.keys(selectedRowIds).length;
+  const selectedRowsIds = (Object.keys(selectedRowIds) as unknown) as number[];
+
+  const copySelectedRows = () => {
+    const selectedRows = selectedRowsIds.map(
+      (selectedRowId) => formattedData[selectedRowId]
+    );
+    const columnsKeys = Object.keys(formattedData[0]);
+    const csvData = generateSelectedRowsCSVData({
+      selectedRows,
+      columnsKeys,
+      columnsNamesMapping,
+      addColumnNames: selectedRowsIds.length === formattedData.length,
+    });
+    copyToClipboard(csvData);
+    toggleAllRowsSelected(false);
+    setSelectedRowsCopied(true);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setSelectedRowsCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [selectedRowsCopied]);
 
   return (
     <TableScrollWrapper>
@@ -298,14 +328,19 @@ export const TableChart = ({
           tooltipState={tooltip}
           tooltipSettings={tooltipSettings}
         />
-        <StyledTable {...getTableProps()} ref={tableRef}>
-          {selectedRowsNumber > 0 && (
+        <AnimatePresence>
+          {selectedRowsIds.length > 0 && (
             <SelectedRowsInfo
-              selectedRowsNumber={selectedRowsNumber}
+              selectedRowsNumber={selectedRowsIds.length}
               onClearRowsSelection={() => toggleAllRowsSelected(false)}
-              onCopySelectedRows={() => console.log('Copy data')}
+              onCopySelectedRows={() => copySelectedRows()}
             />
           )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {selectedRowsCopied && <SelectedRowsCopiedInfo />}
+        </AnimatePresence>
+        <StyledTable {...getTableProps()} ref={tableRef}>
           <colgroup>
             {headerGroups[0].headers.map((item: HeaderGroup, idx: number) => (
               <StyledCol
