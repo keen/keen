@@ -17,7 +17,7 @@ type Props = {
   columnName: string;
 };
 
-const ValueColumnHeader: FC<Props> = ({
+export const Header: FC<Props> = ({
   isSorted,
   isSortedDescending,
   textAlignment,
@@ -36,6 +36,7 @@ const ValueColumnHeader: FC<Props> = ({
 
   return (
     <Container
+      data-testid="table-value-header"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       textAlignment={textAlignment}
@@ -57,5 +58,3 @@ const ValueColumnHeader: FC<Props> = ({
     </Container>
   );
 };
-
-export default ValueColumnHeader;
