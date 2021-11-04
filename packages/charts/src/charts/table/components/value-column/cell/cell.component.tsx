@@ -46,6 +46,7 @@ export const Cell = ({
   return (
     <CellContainer
       key={key}
+      data-testid="table-value-cell"
       isActive={isActive}
       onClick={(e) => onCellClick(e, value)}
       onMouseEnter={
@@ -65,7 +66,11 @@ export const Cell = ({
           : null
       }
     >
-      <CellContent textAlignment={textAlignment} width={width}>
+      <CellContent
+        data-testid="table-cell-content"
+        textAlignment={textAlignment}
+        width={width}
+      >
         <Text {...typography}>{`${value}`}</Text>
       </CellContent>
     </CellContainer>
