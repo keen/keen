@@ -3,6 +3,7 @@ import moment from 'moment-timezone';
 import { action } from '@storybook/addon-actions';
 
 import DatePicker from './date-picker.component';
+import ReactCalendar from './datePicker.component';
 
 export default {
   title: 'Components / DatePicker',
@@ -12,12 +13,23 @@ export default {
   },
 };
 
-export const basic = () => {
+export const Basic = () => {
+  const [date, setDate] = React.useState(new Date());
+
   return (
-    <DatePicker
-      date={moment.utc()}
-      id="datepicker"
-      onChange={action('change')}
-    />
+    <>
+      <DatePicker
+        date={moment.utc()}
+        id="datepicker"
+        onChange={action('change')}
+      />
+      <div style={{ marginTop: 20 }}>
+        <ReactCalendar
+          id="reactCalendar"
+          onChange={(date) => setDate(date)}
+          value={date}
+        />
+      </div>
+    </>
   );
 };
