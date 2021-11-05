@@ -39,7 +39,7 @@ const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
         onDefocus={(event: any) => {
           const path = getEventPath(event);
           if (!path?.includes(calendarRef.current)) {
-            // setOpen(false);
+            setOpen(false);
           }
         }}
       >
