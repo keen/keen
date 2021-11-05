@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/react-hooks",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Keen custom hooks for React",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -30,7 +30,7 @@
     "react": ">=16"
   },
   "dependencies": {
-    "@keen.io/charts-utils": "^1.14.1",
+    "@keen.io/charts-utils": "^1.15.0",
     "d3-array": "^2.7.1",
     "fuse.js": "^6.4.1"
   },

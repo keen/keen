@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.44.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.8...@keen.io/ui-core@2.44.0) (2021-11-05)
+
+
+### Features
+
+* 🎸 column click logic ([f775cfd](https://github.com/keen/keen/commit/f775cfd3cbc33dcff0bbc81d83bd43f016446f83))
+* 🎸 selection column for table ([ebffc75](https://github.com/keen/keen/commit/ebffc75f854e3f80c60d9f3522d27e97574ab8b0))
+
+
+
+
+
 ## [2.43.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.7...@keen.io/ui-core@2.43.8) (2021-11-03)
 
 **Note:** Version bump only for package @keen.io/ui-core

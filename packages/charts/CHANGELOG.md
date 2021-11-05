@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.35.0](https://github.com/keen/keen/compare/@keen.io/charts@2.34.8...@keen.io/charts@2.35.0) (2021-11-05)
+
+
+### Features
+
+* 🎸 Circular dependency fix ([1b1e679](https://github.com/keen/keen/commit/1b1e6790c6e9a07c4df8d30e293c4408afeb7aa6))
+* 🎸 column click logic ([f775cfd](https://github.com/keen/keen/commit/f775cfd3cbc33dcff0bbc81d83bd43f016446f83))
+* 🎸 Copy selected columns ([99e8be2](https://github.com/keen/keen/commit/99e8be27c72852883686f4ef159f1b7662c3ab86))
+* 🎸 Select/Unselect all rows tooltip ([f9d8636](https://github.com/keen/keen/commit/f9d86360b27471f56d199e25ac8db9c8b4b9a07a))
+* 🎸 Selected rows info bar ([a23b4a8](https://github.com/keen/keen/commit/a23b4a8f34f3580db58e831759f9fd2a5b42b86b))
+* 🎸 selection column for table ([ebffc75](https://github.com/keen/keen/commit/ebffc75f854e3f80c60d9f3522d27e97574ab8b0))
+* 🎸 table rows selection ([e58d28a](https://github.com/keen/keen/commit/e58d28a0a34de899a7e48ed98c152480b677d80a))
+
+
+
+
+
 ## [2.34.8](https://github.com/keen/keen/compare/@keen.io/charts@2.34.7...@keen.io/charts@2.34.8) (2021-11-03)
 
 **Note:** Version bump only for package @keen.io/charts
