@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { rgba } from 'polished';
-import { Row, TableBodyProps, Cell as CellType } from 'react-table';
+import { Row, TableBodyProps } from 'react-table';
 import { Typography } from '@keen.io/ui-core';
 
-import { CellValue } from '../../types';
-import { BodyCell } from '../body-cell';
+import { CellValue, CellClickMetadata } from '../../types';
+
 import { RowContainer } from './body.styles';
 
 type Props = {
@@ -14,6 +14,7 @@ type Props = {
   backgroundColor: string;
   typography: Typography;
   columnsWidth: number[];
+  disableValuesSelection?: boolean;
   /** Edit mode indicator */
   isEditMode?: boolean;
   /** Active columns array */
@@ -21,9 +22,7 @@ type Props = {
   /** Cell element click event handler */
   onCellClick: (
     e: React.MouseEvent<HTMLTableCellElement>,
-    columnName: string,
-    value: CellValue,
-    idx: number
+    meta: CellClickMetadata
   ) => void;
   /** Cell element mouse enter event hander */
   onCellMouseEnter?: (
@@ -45,6 +44,7 @@ export const Body = ({
   backgroundColor,
   typography,
   activeColumns = [],
+  disableValuesSelection,
   isEditMode = false,
   onCellClick,
   onCellMouseEnter,
@@ -53,6 +53,7 @@ export const Body = ({
   const rgbaBackground = useMemo(() => rgba(backgroundColor, 0.3), [
     backgroundColor,
   ]);
+
   return (
     <tbody {...getTableBodyProps()}>
       {page.map((row: Row) => {
@@ -60,28 +61,40 @@ export const Body = ({
         return (
           <RowContainer
             key={row.getRowProps().key}
+            disableValuesSelection={disableValuesSelection}
             mainColor={backgroundColor}
             enableHover={!isEditMode}
             {...(!isEditMode && {
               whileHover: { backgroundColor: rgbaBackground },
             })}
           >
-            {row.cells.map((cell: CellType, i) => {
-              return (
-                <BodyCell
-                  cell={cell}
-                  key={i}
-                  idx={i}
-                  width={columnsWidth[i] ? columnsWidth[i] : null}
-                  typography={typography}
-                  isActive={activeColumns.includes(i)}
-                  onCellClick={(e, columnName, value, idx) =>
-                    onCellClick(e, columnName, value, idx)
-                  }
-                  onCellMouseEnter={onCellMouseEnter}
-                  onCellMouseLeave={onCellMouseLeave}
-                />
-              );
+            {row.cells.map((cell: any, i) => {
+              const {
+                column: { id: columnId, type: columnType },
+                row: { id: rowId },
+              } = cell;
+
+              return cell.render('Cell', {
+                key: `${rowId}_${columnId}`,
+                width: columnsWidth[i] ? columnsWidth[i] : null,
+                typography,
+                isActive: activeColumns.includes(i),
+                onCellClick: (
+                  e: React.MouseEvent<HTMLTableCellElement>,
+                  value: CellValue
+                ) =>
+                  onCellClick(e, {
+                    columnName: columnId,
+                    columnType,
+                    rowId,
+                    value,
+                    idx: i,
+                  }),
+                onCellMouseEnter: (e: React.MouseEvent<HTMLTableCellElement>) =>
+                  onCellMouseEnter && onCellMouseEnter(e, i),
+                onCellMouseLeave: (e: React.MouseEvent<HTMLTableCellElement>) =>
+                  onCellMouseLeave && onCellMouseLeave(e, i),
+              });
             })}
           </RowContainer>
         );

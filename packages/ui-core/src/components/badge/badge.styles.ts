@@ -14,6 +14,7 @@ export const Container = styled.div<{
   align-items: stretch;
   justify-content: center;
   position: relative;
+  min-width: 0;
 
   ${(props) =>
     props.isCSSTruncated &&
