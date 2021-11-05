@@ -5,9 +5,10 @@
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
   "license": "MIT",
+  "sideEffects": false,
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "typings/index.d.ts",
-  "module": "src/index.ts",
   "directories": {
     "lib": "dist"
   },
@@ -21,9 +22,8 @@
   },
   "scripts": {
     "test": "jest",
-    "prebuild": "rimraf dist lib tsconfig.tsbuildinfo",
-    "build": "tsc",
-    "postbuild": "babel lib --out-dir dist"
+    "prebuild": "rimraf dist tsconfig.tsbuildinfo",
+    "build": "npx rollup -c"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
@@ -61,6 +61,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.13.8",
     "@babel/preset-typescript": "^7.13.0",
+    "@keen.io/dev-tools": "^0.0.1",
     "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "11.2.2",
@@ -74,7 +75,7 @@
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/webfontloader": "^1.6.29",
-    "babel-plugin-styled-components": "^1.12.0"
+    "babel-plugin-styled-components": "^1.13.3"
   },
   "publishConfig": {
     "access": "public"

@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "./typings",
+    "target": "es2019",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "typeRoots": ["./types"]
+  },
+  "include": ["./src/**/*"]
+}
