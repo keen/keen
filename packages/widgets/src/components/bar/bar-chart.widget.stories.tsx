@@ -7,6 +7,7 @@ import {
   gridKnobs,
   layoutKnobs,
   typographyKnobs,
+  themeColorsKnobs,
   legendKnobs,
 } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
@@ -31,7 +32,7 @@ const createThemeKnobs = () => ({
   axisY: axisYKnobs('Axis Y'),
   gridX: gridKnobs('Grid X'),
   gridY: gridKnobs('Grid Y'),
-  colors: ['red', 'blue'],
+  colors: themeColorsKnobs('Theme Colors', ['red', 'blue']),
 });
 
 export const widget = () => (
