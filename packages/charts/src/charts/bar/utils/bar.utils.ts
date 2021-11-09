@@ -23,7 +23,6 @@ export const getBarColor = ({
   activeBar,
   barKey,
   barSelector,
-  stackMode,
   groupMode,
   color,
 }: {
@@ -37,7 +36,7 @@ export const getBarColor = ({
     key: string;
   };
 }) => {
-  if (groupMode === 'stacked' && stackMode === 'normal') {
+  if (groupMode === 'stacked') {
     const [, activeProperty] = activeBar.selector;
     const [, barProperty] = barSelector;
 
@@ -47,17 +46,6 @@ export const getBarColor = ({
 
     if (activeProperty) {
       return transparentize(0.4, color);
-    }
-
-    return color;
-  }
-
-  if (groupMode === 'stacked' && stackMode === 'percent') {
-    const [activeIndex] = activeBar.selector;
-    const [barIndex] = barSelector;
-
-    if (activeIndex === barIndex) {
-      return transparentize(0.05, color);
     }
 
     return color;
