@@ -2,11 +2,14 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./lib",
+    "outDir": "./dist",
     "declarationDir": "./typings",
     "target": "es2019"
   },
   "references": [
+    { "path": "../dev-tools" },
+    { "path": "../charts-utils" },
+    { "path": "../react-hooks" },
     { "path": "../colors" },
     { "path": "../icons" },
     { "path": "../query" },

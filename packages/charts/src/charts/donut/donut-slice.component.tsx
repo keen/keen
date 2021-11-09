@@ -137,7 +137,7 @@ const DonutSlice: FC<Props> = ({
           }
         });
     }
-  }, [activeKey]);
+  }, [activeKey, background]);
 
   useEffect(() => {
     activeControls.start(activeVariants.offsetChange);

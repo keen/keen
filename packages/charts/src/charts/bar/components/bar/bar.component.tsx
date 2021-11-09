@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Layout } from '@keen.io/ui-core';
 import { colors } from '@keen.io/colors';
@@ -36,6 +36,7 @@ export const Bar: FC<Props> = ({
   isActive,
   dataSeriesOffset,
 }) => {
+  const [initialDrawFinished, setInitialDraw] = useState(false);
   const barControls = useAnimation();
   const barVariants = {
     ...createBarMotion({
@@ -51,11 +52,15 @@ export const Bar: FC<Props> = ({
   };
 
   useEffect(() => {
-    barControls.start(barVariants.animate);
+    if (initialDrawFinished) barControls.start(barVariants.animate);
   }, [x, y, width, height]);
 
   useEffect(() => {
-    if (colorOutOfRange) barControls.start(barVariants.defaultColor);
+    if (initialDrawFinished) barControls.start(barVariants.defaultColor);
+    setInitialDraw(true);
+  }, [color]);
+
+  useEffect(() => {
     barControls.start(barVariants.animate);
 
     if (isActive === null) {
@@ -75,12 +80,15 @@ export const Bar: FC<Props> = ({
   const commonProps = {
     height,
     width,
-    fill: color,
-    style: transitionStyle,
+    style: {
+      ...transitionStyle,
+      fill: color,
+    },
   };
 
   return animate ? (
     <motion.rect
+      data-testid="bar"
       {...commonProps}
       {...barVariants}
       animate={barControls}
