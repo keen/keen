@@ -36,6 +36,7 @@ const createRollupConfig = (
   plugins: [
     peerDepsExternal(),
     resolve({
+      /* Do not include nodejs built-in modules */
       preferBuiltins: false,
       mainFields: ['browser'],
     }),
