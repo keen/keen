@@ -1,9 +1,9 @@
 import React, { FC, useRef, useState } from 'react';
 import Calendar, { OnChangeDateCallback } from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import { transparentize } from 'polished';
 import { Icon } from '@keen.io/icons';
+import { colors } from '@keen.io/colors';
 
-// import Input from '../input';
 import DropableContainer from '../dropable-container';
 import Dropdown from '../dropdown';
 import {
@@ -63,7 +63,7 @@ const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
                   width={19}
                   height={19}
                   type="button-arrow"
-                  fill="#82888a"
+                  fill={transparentize(0.3, colors.blue[500])}
                 />
               </IconContainer>
             }
@@ -74,7 +74,7 @@ const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
                   width={19}
                   height={19}
                   type="button-arrow-left"
-                  fill="#82888a"
+                  fill={transparentize(0.3, colors.blue[500])}
                 />
               </IconContainer>
             }

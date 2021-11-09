@@ -75,7 +75,7 @@ import ScrollWrapper from './scroll-wrapper';
 import Tabs from './tabs';
 
 import AbsoluteTime, { TIME_PICKER_CLASS } from './absolute-time';
-import DatePicker from './date-picker';
+import DatePicker, { ReactCalendar } from './date-picker';
 import DropableContainer, {
   DropableContainerVariant,
 } from './dropable-container';
@@ -167,6 +167,7 @@ export {
   Tabs,
   AbsoluteTime,
   DatePicker,
+  ReactCalendar,
   DropableContainer,
   DropdownListContainer,
   RelativeTime,
