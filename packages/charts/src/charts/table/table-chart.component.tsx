@@ -92,7 +92,7 @@ export const TableChart = ({
   const componentMounted = useRef(false);
 
   const [sort, setSort] = useState<SortByType>(null);
-  const [columnsWidth, setColumnsWidth] = useState<number[]>([]);
+  const [columnsWidth, setColumnsWidth] = useState<(number | 'auto')[]>([]);
   const [selectedRowsCopied, setSelectedRowsCopied] = useState(false);
 
   const {
@@ -284,7 +284,8 @@ export const TableChart = ({
     if (containerRef.current && columnsWidth.length === 0) {
       const headersWidth = Array.from(
         containerRef.current.querySelectorAll('th')
-      ).map((header: HTMLTableHeaderCellElement) => {
+      ).map((header: HTMLTableHeaderCellElement, index) => {
+        if (index === 0 && rowsSelection) return 'auto';
         return header.offsetWidth;
       });
 

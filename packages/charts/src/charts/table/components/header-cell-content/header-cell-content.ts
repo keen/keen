@@ -13,12 +13,18 @@ export const HeaderCellContent = styled.div<{
   ${(props) =>
     props.textAlignment == 'left' &&
     css`
-      flex-direction: 'row';
+      flex-direction: row;
+    `};
+
+  ${(props) =>
+    props.textAlignment == 'center' &&
+    css`
+      justify-content: center;
     `};
 
   ${(props) =>
     props.textAlignment == 'right' &&
     css`
-      flex-direction: 'row-reverse';
+      flex-direction: row-reverse;
     `};
 `;
