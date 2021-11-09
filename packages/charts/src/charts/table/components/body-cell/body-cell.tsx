@@ -25,6 +25,7 @@ export const CellContent = styled.div<{
 
 export const CellContainer = styled.td<{
   isActive?: boolean;
+  isDisabled?: boolean;
   width?: string | number;
 }>`
   padding: 0;
@@ -41,6 +42,14 @@ export const CellContainer = styled.td<{
   &:last-of-type {
     background: none;
   }
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      background: ${colors.gray[500]};
+      opacity: 0.4;
+      cursor: not-allowed;
+    `};
 
   ${({ isActive }) =>
     isActive &&

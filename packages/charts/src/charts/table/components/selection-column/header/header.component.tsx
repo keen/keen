@@ -17,9 +17,12 @@ export const Header = ({
   const { checked } = getToggleAllRowsSelectedProps();
 
   return (
-    <HeaderCellContent onClick={() => !editMode && toggleAllRowsSelected()}>
+    <HeaderCellContent
+      onClick={() => !editMode && toggleAllRowsSelected()}
+      textAlignment="center"
+    >
       <MousePositionedTooltip
-        isActive
+        isActive={!editMode}
         tooltipPinPlacement="bottom-right"
         renderContent={() =>
           checked ? 'Unselect all rows' : 'Select all rows'

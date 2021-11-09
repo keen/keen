@@ -62,6 +62,7 @@ export const Header = ({
 
             return (
               <TableHeader
+                isDisabled={column.type === 'row-selection' && editMode}
                 key={key}
                 {...(column.type === 'value'
                   ? {

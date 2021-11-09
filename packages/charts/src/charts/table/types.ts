@@ -2,7 +2,7 @@ import { Formatter, PatternFormatterDataType } from '@keen.io/charts-utils';
 
 export type CellValue = string | number | boolean | Date | string[] | number[];
 export type DataSelector = (number | string)[];
-export type CellTextAlignment = 'left' | 'right';
+export type CellTextAlignment = 'left' | 'right' | 'center';
 
 export type FormattedValue = {
   value: string | number | boolean | Date;
