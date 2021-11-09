@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.1](https://github.com/keen/keen/compare/@keen.io/charts@2.35.0...@keen.io/charts@2.35.1) (2021-11-09)
+
+
+### Bug Fixes
+
+* 🐛 theme color pallette change ([4a32ca7](https://github.com/keen/keen/commit/4a32ca7e062a7a92e02817777bb46c15b2a824b2))
+
+
+
+
+
 # [2.35.0](https://github.com/keen/keen/compare/@keen.io/charts@2.34.8...@keen.io/charts@2.35.0) (2021-11-05)
 
 
