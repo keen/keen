@@ -119,7 +119,7 @@ const PieSlice: FC<Props> = ({
           }
         });
     }
-  }, [activeKey]);
+  }, [activeKey, background]);
 
   useEffect(() => {
     activeControls.start(activeVariants.offsetChange);

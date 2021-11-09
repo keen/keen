@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.4.2...@keen.io/react-hooks@1.4.3) (2021-11-05)
+
+**Note:** Version bump only for package @keen.io/react-hooks
+
+
+
+
+
+## [1.4.2](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.4.1...@keen.io/react-hooks@1.4.2) (2021-10-25)
+
+
+### Bug Fixes
+
+* 🐛 dynamic portal for itemsPerPage dropdown ([a754209](https://github.com/keen/keen/commit/a75420978d8c8474ea452f8765e938f7a671dd92))
+* 🐛 prevent bouding rect calculation ([48bffc9](https://github.com/keen/keen/commit/48bffc92a43bed63d2bf8a1eedda73a2a984cac5))
+
+
+
+
+
 ## [1.4.1](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.4.0...@keen.io/react-hooks@1.4.1) (2021-10-13)
 
 **Note:** Version bump only for package @keen.io/react-hooks

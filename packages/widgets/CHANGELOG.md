@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.23](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.22...@keen.io/widgets@2.16.23) (2021-11-09)
+
+
+### Bug Fixes
+
+* 🐛 theme color pallette change ([4a32ca7](https://github.com/keen/keen/commit/4a32ca7e062a7a92e02817777bb46c15b2a824b2))
+
+
+
+
+
+## [2.16.22](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.21...@keen.io/widgets@2.16.22) (2021-11-05)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.21](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.20...@keen.io/widgets@2.16.21) (2021-11-03)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.20](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.19...@keen.io/widgets@2.16.20) (2021-11-02)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.19](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.18...@keen.io/widgets@2.16.19) (2021-10-28)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.18](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.17...@keen.io/widgets@2.16.18) (2021-10-28)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.17](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.16...@keen.io/widgets@2.16.17) (2021-10-28)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.16](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.15...@keen.io/widgets@2.16.16) (2021-10-27)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.15](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.14...@keen.io/widgets@2.16.15) (2021-10-26)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.14](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.13...@keen.io/widgets@2.16.14) (2021-10-26)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.16.13](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.12...@keen.io/widgets@2.16.13) (2021-10-25)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
 ## [2.16.12](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.11...@keen.io/widgets@2.16.12) (2021-10-13)
 
 **Note:** Version bump only for package @keen.io/widgets

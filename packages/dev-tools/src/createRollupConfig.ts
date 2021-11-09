@@ -35,7 +35,11 @@ const createRollupConfig = (
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      /* Do not include nodejs built-in modules */
+      preferBuiltins: false,
+      mainFields: ['browser'],
+    }),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     babel({

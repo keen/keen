@@ -57,7 +57,7 @@ export const createBarMotion = ({
         duration: 0.4,
       },
     },
-    ...(colorOutOfRange && { defaultColor: { fill: color } }),
+    defaultColor: { fill: color },
     active: {
       opacity: 1,
       ...(colorOutOfRange && { fill: colors.gray[500] }),
@@ -79,6 +79,7 @@ export const createBarMotion = ({
     return {
       ...motion,
       initial: {
+        fill: color,
         opacity: 0,
         ...(layout === 'vertical'
           ? {
@@ -97,6 +98,7 @@ export const createBarMotion = ({
     return {
       ...motion,
       initial: {
+        fill: color,
         opacity: 0,
         x,
         y,

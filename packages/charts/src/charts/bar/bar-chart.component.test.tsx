@@ -351,7 +351,7 @@ test('should set <Bar> background on hover', async () => {
   fireEvent.mouseEnter(rects[0]);
 
   await waitFor(() => {
-    expect(rects[0].getAttribute('fill')).toEqual('rgba(133, 180, 195, 1)');
+    expect(rects[0].getAttribute('fill')).toEqual('rgba(133, 180, 195, 0.95)');
     expect(rects[1].getAttribute('fill')).toEqual('rgba(72, 118, 80, 1)');
     expect(rects[4].getAttribute('fill')).toEqual('rgba(72, 118, 80, 1)');
     expect(rects[5].getAttribute('fill')).toEqual('rgba(217, 91, 36, 1)');
@@ -369,8 +369,8 @@ test('should set <Bar> background on hover for stacked normal', async () => {
   await waitFor(() => {
     expect(rects[0].getAttribute('fill')).toEqual('rgba(133, 180, 195, 1)');
     expect(rects[1].getAttribute('fill')).toEqual('rgba(133, 180, 195, 1)');
-    expect(rects[4].getAttribute('fill')).toEqual('rgba(72, 118, 80, 1)');
-    expect(rects[5].getAttribute('fill')).toEqual('rgba(72, 118, 80, 1)');
+    expect(rects[4].getAttribute('fill')).toEqual('rgba(72, 118, 80, 0.6)');
+    expect(rects[5].getAttribute('fill')).toEqual('rgba(72, 118, 80, 0.6)');
   });
 });
 
@@ -385,8 +385,8 @@ test('should set <Bar> background on hover for stacked percent', async () => {
   await waitFor(() => {
     expect(rects[0].getAttribute('fill')).toEqual('rgba(133, 180, 195, 1)');
     expect(rects[1].getAttribute('fill')).toEqual('rgba(133, 180, 195, 1)');
-    expect(rects[4].getAttribute('fill')).toEqual('rgba(72, 118, 80, 1)');
-    expect(rects[5].getAttribute('fill')).toEqual('rgba(72, 118, 80, 1)');
+    expect(rects[4].getAttribute('fill')).toEqual('rgba(72, 118, 80, 0.6)');
+    expect(rects[5].getAttribute('fill')).toEqual('rgba(72, 118, 80, 0.6)');
   });
 });
 

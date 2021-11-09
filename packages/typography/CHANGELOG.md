@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/keen/keen/compare/@keen.io/typography@1.3.1...@keen.io/typography@1.3.2) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/typography
+
+
+
+
+
+## [1.3.1](https://github.com/keen/keen/compare/@keen.io/typography@1.3.0...@keen.io/typography@1.3.1) (2021-11-03)
+
+**Note:** Version bump only for package @keen.io/typography
+
+
+
+
+
 # [1.3.0](https://github.com/keen/keen/compare/@keen.io/typography@1.2.1...@keen.io/typography@1.3.0) (2021-04-07)
 
 
