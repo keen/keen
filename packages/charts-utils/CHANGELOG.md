@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.14.1...@keen.io/charts-utils@1.15.0) (2021-11-05)
+
+
+### Features
+
+* 🎸 Copy selected columns ([99e8be2](https://github.com/keen/keen/commit/99e8be27c72852883686f4ef159f1b7662c3ab86))
+
+
+
+
+
+## [1.14.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.14.0...@keen.io/charts-utils@1.14.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* 🐛 Missing peer dependencies ([af36d04](https://github.com/keen/keen/commit/af36d043a32c3de033372092a5e171e7aaefb918))
+
+
+
+
+
 # [1.14.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.13.0...@keen.io/charts-utils@1.14.0) (2021-10-13)
 
 

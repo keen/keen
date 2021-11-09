@@ -3,6 +3,122 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.44.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.0...@keen.io/ui-core@2.44.1) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.44.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.8...@keen.io/ui-core@2.44.0) (2021-11-05)
+
+
+### Features
+
+* 🎸 column click logic ([f775cfd](https://github.com/keen/keen/commit/f775cfd3cbc33dcff0bbc81d83bd43f016446f83))
+* 🎸 selection column for table ([ebffc75](https://github.com/keen/keen/commit/ebffc75f854e3f80c60d9f3522d27e97574ab8b0))
+
+
+
+
+
+## [2.43.8](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.7...@keen.io/ui-core@2.43.8) (2021-11-03)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.43.7](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.6...@keen.io/ui-core@2.43.7) (2021-11-02)
+
+
+### Bug Fixes
+
+* 🐛 table footer compact mode ([a50ffba](https://github.com/keen/keen/commit/a50ffba5d33e9e00b680e87d1915b4a4bbb62beb))
+
+
+
+
+
+## [2.43.6](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.5...@keen.io/ui-core@2.43.6) (2021-10-28)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.43.5](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.4...@keen.io/ui-core@2.43.5) (2021-10-28)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.43.4](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.3...@keen.io/ui-core@2.43.4) (2021-10-28)
+
+
+### Bug Fixes
+
+* 🐛 Obsolete overflow removed ([61936ff](https://github.com/keen/keen/commit/61936ff277933d21d4a7b400005e34939879f8b1))
+
+
+
+
+
+## [2.43.3](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.2...@keen.io/ui-core@2.43.3) (2021-10-27)
+
+
+### Bug Fixes
+
+* 🐛 table footer compact view ([404675c](https://github.com/keen/keen/commit/404675c190db2b856751fc74b8a4a25d8280f8ce))
+
+
+
+
+
+## [2.43.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.1...@keen.io/ui-core@2.43.2) (2021-10-26)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.43.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.43.0...@keen.io/ui-core@2.43.1) (2021-10-26)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.43.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.42.1...@keen.io/ui-core@2.43.0) (2021-10-25)
+
+
+### Bug Fixes
+
+* 🐛 build fix - import path ([a4ca781](https://github.com/keen/keen/commit/a4ca7818215ffc536211fb397241e65daba76f64))
+* 🐛 CR fixes ([8a73849](https://github.com/keen/keen/commit/8a7384970cb676c63a222cb81cdf2cc4df2fbe60))
+* 🐛 dynamic portal for itemsPerPage dropdown ([a754209](https://github.com/keen/keen/commit/a75420978d8c8474ea452f8765e938f7a671dd92))
+* 🐛 Heatmap slider - wrong values order ([0035131](https://github.com/keen/keen/commit/0035131fb471bebba874d1f8d2cbfe8d2d562292))
+
+
+### Features
+
+* 🎸 add edit mode to paginated table ([bcfb5aa](https://github.com/keen/keen/commit/bcfb5aa3c77b5be114697a3b61e2d2e42c9bd6f3))
+* 🎸 add Pagination component ([c8811ff](https://github.com/keen/keen/commit/c8811ffb3950f4ad106f9364af9a85e029fbe477))
+* 🎸 column aligment respecting formaters, styles ([2c4fb29](https://github.com/keen/keen/commit/2c4fb2952993a194bebfa753ec4146b1a1eeec80))
+* 🎸 table footer ([4de9932](https://github.com/keen/keen/commit/4de9932ef449e60030482ccdff2924da406446e2))
+* 🎸 Table sorting added ([2db37f6](https://github.com/keen/keen/commit/2db37f62b648d198128d076fe9a4a72e45ad44e9))
+
+
+
+
+
 ## [2.42.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.42.0...@keen.io/ui-core@2.42.1) (2021-10-13)
 
 **Note:** Version bump only for package @keen.io/ui-core
