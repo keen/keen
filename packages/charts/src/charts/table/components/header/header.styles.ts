@@ -15,9 +15,19 @@ export const Head = styled.thead<{
   z-index: 1;
 `;
 
-export const TableHeader = styled.th<{ isActive?: boolean }>`
+export const TableHeader = styled.th<{
+  isActive?: boolean;
+  isDisabled?: boolean;
+}>`
   position: relative;
   cursor: pointer;
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      background: ${colors.gray[500]};
+      opacity: 0.4;
+      cursor: not-allowed;
+    `};
 
   ${({ isActive }) =>
     isActive &&

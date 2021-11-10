@@ -20,19 +20,22 @@ type Props = {
     e: React.MouseEvent<HTMLTableCellElement>,
     value?: CellValue
   ) => void;
+  /** Table edit mode indicator */
+  editMode: boolean;
 };
 
-export const Cell = ({ width, cell, row, onCellClick }: Props) => {
+export const Cell = ({ width, cell, row, onCellClick, editMode }: Props) => {
   const { key } = cell.getCellProps();
   const { checked } = row.getToggleRowSelectedProps();
 
   return (
     <CellContainer
+      isDisabled={editMode}
       data-testid="table-selection-column-cell"
       key={key}
       onClick={(e) => onCellClick(e)}
     >
-      <CellContent textAlignment="left" width={width}>
+      <CellContent textAlignment="center" width={width}>
         <Checkbox
           id={key.toString()}
           display="inline-flex"

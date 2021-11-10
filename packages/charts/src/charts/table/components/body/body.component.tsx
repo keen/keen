@@ -13,7 +13,7 @@ type Props = {
   prepareRow: (row: Row) => void;
   backgroundColor: string;
   typography: Typography;
-  columnsWidth: number[];
+  columnsWidth: (number | 'auto')[];
   disableValuesSelection?: boolean;
   /** Edit mode indicator */
   isEditMode?: boolean;
@@ -79,6 +79,7 @@ export const Body = ({
                 width: columnsWidth[i] ? columnsWidth[i] : null,
                 typography,
                 isActive: activeColumns.includes(i),
+                editMode: isEditMode,
                 onCellClick: (
                   e: React.MouseEvent<HTMLTableCellElement>,
                   value: CellValue
