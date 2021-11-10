@@ -1,18 +1,18 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import Calendar, { OnChangeDateCallback } from 'react-calendar';
 import { transparentize } from 'polished';
 import { Icon } from '@keen.io/icons';
 import { colors } from '@keen.io/colors';
 
-import DropableContainer from '../dropable-container';
 import Dropdown from '../dropdown';
+import Input from '../input';
+import { getEventPath } from './utils';
 import {
   GlobalStyle,
   IconContainer,
   CalendarContainer,
+  Container,
 } from './datePicker.styles';
-
-import { getEventPath } from './utils';
 
 type Props = {
   /** Change event handler */
@@ -27,24 +27,31 @@ const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
   const [isOpen, setOpen] = useState(false);
   const calendarRef = useRef(null);
 
+  const outsideClick = useCallback(
+    (event) => {
+      const path = getEventPath(event);
+      if (isOpen && !path?.includes(calendarRef.current)) {
+        setOpen(false);
+      }
+    },
+    [isOpen, calendarRef]
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', outsideClick);
+    return () => document.removeEventListener('click', outsideClick);
+  }, [isOpen, calendarRef]);
+
   return (
-    <>
+    <Container>
       <GlobalStyle />
-      <DropableContainer
-        variant="primary"
-        placeholder="dd/mm/YYYY"
-        onClick={() => !isOpen && setOpen(true)}
-        isActive={isOpen}
+      <Input
+        type="text"
+        variant="solid"
         value={value.toLocaleDateString('en-GB')}
-        onDefocus={(event: any) => {
-          const path = getEventPath(event);
-          if (!path?.includes(calendarRef.current)) {
-            setOpen(false);
-          }
-        }}
-      >
-        {value.toLocaleDateString('en-GB')}
-      </DropableContainer>
+        onClick={() => !isOpen && setOpen(true)}
+        onBlur={(e) => console.log(e)}
+      />
       <Dropdown isOpen={isOpen} fullWidth={false}>
         <CalendarContainer ref={calendarRef}>
           <Calendar
@@ -82,7 +89,7 @@ const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
           />
         </CalendarContainer>
       </Dropdown>
-    </>
+    </Container>
   );
 };
 

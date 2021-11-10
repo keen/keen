@@ -195,3 +195,7 @@ export const IconContainer = styled(motion.div)`
 export const CalendarContainer = styled.div`
   background: ${colors.white[500]};
 `;
+
+export const Container = styled.div`
+  width: 180px;
+`;
