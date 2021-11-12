@@ -45,7 +45,7 @@ export const generateVerticalBlocks = ({
   const color = calculateColorScale(minimum, maximum, colorMode, steps, colors);
 
   const blocks: BlockType[] = [];
-  keys.forEach((keyName: string) => {
+  keys.forEach((keyName: string, idx: number) => {
     localizedData.forEach((_d: any, index: number) => {
       const value = localizedData[index]?.[keyName];
       const inRange = range ? value >= range.min && value <= range.max : true;
@@ -57,6 +57,7 @@ export const generateVerticalBlocks = ({
           y: yScale(_d[labelSelector]),
           height: yScale.bandwidth(),
           width: xScale.bandwidth(),
+          coordinates: [idx, index],
           color: color(value),
           value,
         };
@@ -113,7 +114,7 @@ export const generateHorizontalBlocks = ({
   const color = calculateColorScale(minimum, maximum, colorMode, steps, colors);
 
   const blocks: BlockType[] = [];
-  keys.forEach((keyName: string) => {
+  keys.forEach((keyName: string, idx: number) => {
     localizedData.forEach((_d: any, index: number) => {
       const value = data[index]?.[keyName];
       const inRange = range ? value >= range.min && value <= range.max : true;
@@ -126,6 +127,7 @@ export const generateHorizontalBlocks = ({
           height: yScale.bandwidth(),
           width: xScale.bandwidth(),
           color: color(value),
+          coordinates: [index, idx],
           value,
         };
 

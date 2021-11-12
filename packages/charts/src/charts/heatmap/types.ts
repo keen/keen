@@ -1,7 +1,7 @@
 import { Layout, ColorMode, RangeType } from '@keen.io/ui-core';
 import { Formatter, ScaleSettings } from '@keen.io/charts-utils';
 
-import { Dimension, Margins } from '../../types';
+import { Dimension, Margins, DataSelector } from '../../types';
 
 export type Options = {
   data: any[];
@@ -29,7 +29,8 @@ export type BlockType = {
   y: number;
   width: number;
   height: number;
-  selector: (string | number)[];
+  selector: DataSelector;
+  coordinates: number[];
   color: string;
   value: number;
 };

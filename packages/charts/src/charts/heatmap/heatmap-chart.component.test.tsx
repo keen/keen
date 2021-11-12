@@ -105,3 +105,21 @@ test('formats tooltip value by string formatter', async () => {
     expect(getByText('-3.00$')).toBeInTheDocument();
   });
 });
+
+test('renders categories correlation in tooltip', async () => {
+  window.requestAnimationFrame = (callback) => {
+    callback(null);
+    return null;
+  };
+
+  const {
+    wrapper: { getByText, container },
+  } = render();
+
+  const chart = container.querySelector('svg');
+  fireEvent.mouseOver(chart.querySelector('rect'));
+
+  await waitFor(() => {
+    expect(getByText('users | Windows XP 2013')).toBeInTheDocument();
+  });
+});
