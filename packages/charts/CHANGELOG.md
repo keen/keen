@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.36.0](https://github.com/keen/keen/compare/@keen.io/charts@2.35.3...@keen.io/charts@2.36.0) (2021-11-15)
+
+
+### Features
+
+* 🎸 heatmap categories correlation ([d61e188](https://github.com/keen/keen/commit/d61e188cc9c96d231fc35a8dca53e1fcf143ef83))
+
+
+
+
+
 ## [2.35.3](https://github.com/keen/keen/compare/@keen.io/charts@2.35.2...@keen.io/charts@2.35.3) (2021-11-10)
 
 **Note:** Version bump only for package @keen.io/charts
