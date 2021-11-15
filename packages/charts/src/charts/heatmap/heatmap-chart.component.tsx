@@ -8,15 +8,16 @@ import {
   ScaleSettings,
 } from '@keen.io/charts-utils';
 
+import { TooltipCategories } from './heatmap-chart.styles';
 import { Heatmap, ShadowFilter } from './components';
 
 import { ChartBase, Axes } from '../../components';
 import { useDynamicChartLayout } from '../../hooks';
 
-import { generateBlocks } from './utils/heatmap-chart.utils';
+import { generateBlocks, getTooltipLabel } from './utils';
 
 import { theme as defaultTheme } from '../../theme';
-import { DEFAULT_MARGINS } from './constants';
+import { DEFAULT_MARGINS, SEPARATOR } from './constants';
 
 import { CommonChartSettings } from '../../types';
 import { TooltipSettings } from './types';
@@ -119,6 +120,7 @@ export const HeatmapChart: FC<Props> = ({
     tooltipVisible,
     tooltipPosition,
     tooltipSelectors,
+    tooltipMeta,
     updateTooltipPosition,
     hideTooltip,
   } = useTooltip(svgElement);
@@ -143,8 +145,15 @@ export const HeatmapChart: FC<Props> = ({
             }}
           >
             <Tooltip mode={themeTooltipSettings.mode} hasArrow={false}>
+              {tooltipMeta && (
+                <TooltipCategories>
+                  <Text {...themeTooltipSettings.labels.typography} truncate>
+                    {`${tooltipMeta.xCategoryLabel} ${SEPARATOR} ${tooltipMeta.yCategoryLabel}`}
+                  </Text>
+                </TooltipCategories>
+              )}
               {tooltipSelectors && (
-                <Text {...themeTooltipSettings.labels.typography}>
+                <Text {...themeTooltipSettings.values.typography}>
                   {valueFormatter(
                     getFromPath(data, tooltipSelectors[0].selector),
                     tooltipSettings.formatValue
@@ -184,9 +193,30 @@ export const HeatmapChart: FC<Props> = ({
               blocks={blocks}
               padding={padding}
               layout={layout}
-              onMouseEnter={(e, selectors) => {
+              onMouseEnter={(e, block) => {
                 if (themeTooltipSettings.enabled) {
-                  updateTooltipPosition(e, [selectors]);
+                  const {
+                    coordinates: [x, y],
+                  } = block;
+
+                  const metadata = {
+                    xCategoryLabel: getTooltipLabel({
+                      scale: xScale,
+                      settings: settings.xScaleSettings,
+                      index: x,
+                    }),
+                    yCategoryLabel: getTooltipLabel({
+                      scale: yScale,
+                      settings: settings.yScaleSettings,
+                      index: y,
+                    }),
+                  };
+
+                  updateTooltipPosition(
+                    e,
+                    [{ selector: block.selector, color: block.color }],
+                    metadata
+                  );
                 }
               }}
               onMouseLeave={() => {

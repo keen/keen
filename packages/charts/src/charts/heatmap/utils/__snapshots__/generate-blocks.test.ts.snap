@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Heatmap /> - utils generateHorizontalBlocks() should calculate blocks and apply colors 1`] = `
+exports[`generateHorizontalBlocks() calculates blocks and apply colors 1`] = `
 Array [
   Object {
     "color": "rgb(255, 0, 0)",
+    "coordinates": Array [
+      0,
+      0,
+    ],
     "height": 123.33333333333333,
     "key": "0.sale.block",
     "selector": Array [
@@ -17,6 +21,10 @@ Array [
   },
   Object {
     "color": "rgb(153, 153, 255)",
+    "coordinates": Array [
+      1,
+      0,
+    ],
     "height": 123.33333333333333,
     "key": "1.sale.block",
     "selector": Array [
@@ -30,6 +38,10 @@ Array [
   },
   Object {
     "color": "rgb(255, 0, 0)",
+    "coordinates": Array [
+      2,
+      0,
+    ],
     "height": 123.33333333333333,
     "key": "2.sale.block",
     "selector": Array [
@@ -43,6 +55,10 @@ Array [
   },
   Object {
     "color": "rgb(162, 162, 255)",
+    "coordinates": Array [
+      0,
+      1,
+    ],
     "height": 123.33333333333333,
     "key": "0.buy.block",
     "selector": Array [
@@ -56,6 +72,10 @@ Array [
   },
   Object {
     "color": "rgb(230, 230, 255)",
+    "coordinates": Array [
+      1,
+      1,
+    ],
     "height": 123.33333333333333,
     "key": "1.buy.block",
     "selector": Array [
@@ -69,6 +89,10 @@ Array [
   },
   Object {
     "color": "rgb(162, 162, 255)",
+    "coordinates": Array [
+      2,
+      1,
+    ],
     "height": 123.33333333333333,
     "key": "2.buy.block",
     "selector": Array [
@@ -82,6 +106,10 @@ Array [
   },
   Object {
     "color": "rgb(0, 0, 255)",
+    "coordinates": Array [
+      0,
+      2,
+    ],
     "height": 123.33333333333333,
     "key": "0.revenue.block",
     "selector": Array [
@@ -95,6 +123,10 @@ Array [
   },
   Object {
     "color": "rgb(77, 77, 255)",
+    "coordinates": Array [
+      1,
+      2,
+    ],
     "height": 123.33333333333333,
     "key": "1.revenue.block",
     "selector": Array [
@@ -108,6 +140,10 @@ Array [
   },
   Object {
     "color": "rgb(0, 0, 255)",
+    "coordinates": Array [
+      2,
+      2,
+    ],
     "height": 123.33333333333333,
     "key": "2.revenue.block",
     "selector": Array [
@@ -122,10 +158,14 @@ Array [
 ]
 `;
 
-exports[`<Heatmap /> - utils generateVerticalBlocks() should calculate blocks and apply colors 1`] = `
+exports[`generateVerticalBlocks() calculates blocks and apply colors 1`] = `
 Array [
   Object {
     "color": "rgb(255, 0, 0)",
+    "coordinates": Array [
+      0,
+      0,
+    ],
     "height": 123.33333333333333,
     "key": "0.sale.block",
     "selector": Array [
@@ -139,6 +179,10 @@ Array [
   },
   Object {
     "color": "rgb(153, 153, 255)",
+    "coordinates": Array [
+      0,
+      1,
+    ],
     "height": 123.33333333333333,
     "key": "1.sale.block",
     "selector": Array [
@@ -152,6 +196,10 @@ Array [
   },
   Object {
     "color": "rgb(255, 0, 0)",
+    "coordinates": Array [
+      0,
+      2,
+    ],
     "height": 123.33333333333333,
     "key": "2.sale.block",
     "selector": Array [
@@ -165,6 +213,10 @@ Array [
   },
   Object {
     "color": "rgb(162, 162, 255)",
+    "coordinates": Array [
+      1,
+      0,
+    ],
     "height": 123.33333333333333,
     "key": "0.buy.block",
     "selector": Array [
@@ -178,6 +230,10 @@ Array [
   },
   Object {
     "color": "rgb(230, 230, 255)",
+    "coordinates": Array [
+      1,
+      1,
+    ],
     "height": 123.33333333333333,
     "key": "1.buy.block",
     "selector": Array [
@@ -191,6 +247,10 @@ Array [
   },
   Object {
     "color": "rgb(162, 162, 255)",
+    "coordinates": Array [
+      1,
+      2,
+    ],
     "height": 123.33333333333333,
     "key": "2.buy.block",
     "selector": Array [
@@ -204,6 +264,10 @@ Array [
   },
   Object {
     "color": "rgb(0, 0, 255)",
+    "coordinates": Array [
+      2,
+      0,
+    ],
     "height": 123.33333333333333,
     "key": "0.revenue.block",
     "selector": Array [
@@ -217,6 +281,10 @@ Array [
   },
   Object {
     "color": "rgb(77, 77, 255)",
+    "coordinates": Array [
+      2,
+      1,
+    ],
     "height": 123.33333333333333,
     "key": "1.revenue.block",
     "selector": Array [
@@ -230,6 +298,10 @@ Array [
   },
   Object {
     "color": "rgb(0, 0, 255)",
+    "coordinates": Array [
+      2,
+      2,
+    ],
     "height": 123.33333333333333,
     "key": "2.revenue.block",
     "selector": Array [
