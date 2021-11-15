@@ -17,24 +17,32 @@ export const Header = ({
   const { checked } = getToggleAllRowsSelectedProps();
 
   return (
-    <HeaderCellContent
-      onClick={() => !editMode && toggleAllRowsSelected()}
-      textAlignment="center"
+    <MousePositionedTooltip
+      isActive={editMode}
+      tooltipPinPlacement="bottom-right"
+      renderContent={() =>
+        'Row selection is not possible during value formatting.'
+      }
     >
-      <MousePositionedTooltip
-        isActive={!editMode}
-        tooltipPinPlacement="bottom-right"
-        renderContent={() =>
-          checked ? 'Unselect all rows' : 'Select all rows'
-        }
+      <HeaderCellContent
+        onClick={() => !editMode && toggleAllRowsSelected()}
+        textAlignment="center"
       >
-        <Checkbox
-          id="select-all-rows"
-          type="highlight"
-          display="inline-flex"
-          checked={checked}
-        />
-      </MousePositionedTooltip>
-    </HeaderCellContent>
+        <MousePositionedTooltip
+          isActive={!editMode}
+          tooltipPinPlacement="bottom-right"
+          renderContent={() =>
+            checked ? 'Unselect all rows' : 'Select all rows'
+          }
+        >
+          <Checkbox
+            id="select-all-rows"
+            type="highlight"
+            display="inline-flex"
+            checked={checked}
+          />
+        </MousePositionedTooltip>
+      </HeaderCellContent>
+    </MousePositionedTooltip>
   );
 };
