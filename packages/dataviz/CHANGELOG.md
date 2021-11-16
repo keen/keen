@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.27...@keen.io/dataviz@2.17.0) (2021-11-16)
+
+
+### Features
+
+* 🎸 update empty results copy ([1eb9044](https://github.com/keen/keen/commit/1eb904437e78a30ace8cfc75e50bfae37269773d))
+
+
+
+
+
 ## [2.16.27](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.26...@keen.io/dataviz@2.16.27) (2021-11-16)
 
 **Note:** Version bump only for package @keen.io/dataviz
