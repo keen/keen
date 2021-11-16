@@ -27,7 +27,7 @@ export const Basic = () => {
         <ReactCalendar
           id="reactCalendar"
           onChange={(date) => setDate(date)}
-          value={date}
+          date={date}
         />
       </div>
     </>

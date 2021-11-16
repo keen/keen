@@ -1,11 +1,14 @@
 import React, { FC, memo } from 'react';
-import moment from 'moment-timezone';
+import dayjs from 'dayjs';
+import timezonePlugin from 'dayjs/plugin/timezone';
 
 import { Timeframe } from '@keen.io/query';
 
 import { Container, TimeLabel, TimeRow } from './absolute-time.styles';
 
-import DatePicker from '../date-picker';
+import { ReactCalendar } from '../date-picker';
+
+dayjs.extend(timezonePlugin);
 
 type Props = {
   /** Unique identifer */
@@ -26,25 +29,25 @@ type Props = {
 
 const AbsoluteTime: FC<Props> = memo(
   ({ id, start, end, timezone, startDateLabel, endDateLabel, onChange }) => {
-    const startDate = moment(start).tz(timezone);
-    const endDate = moment(end).tz(timezone);
+    const startDate = dayjs(start).tz(timezone).toDate();
+    const endDate = dayjs(end).tz(timezone).toDate();
 
     return (
       <Container data-testid="absolute-time">
         <TimeRow>
           <TimeLabel>{startDateLabel}</TimeLabel>
-          <DatePicker
+          <ReactCalendar
             id={`${id}-start`}
             date={startDate}
-            onChange={(date) => onChange({ start: date, end })}
+            onChange={(date) => onChange({ start: date.toISOString(), end })}
           />
         </TimeRow>
         <TimeRow>
           <TimeLabel>{endDateLabel}</TimeLabel>
-          <DatePicker
+          <ReactCalendar
             id={`${id}-end`}
             date={endDate}
-            onChange={(date) => onChange({ start, end: date })}
+            onChange={(date) => onChange({ start, end: date.toISOString() })}
           />
         </TimeRow>
       </Container>

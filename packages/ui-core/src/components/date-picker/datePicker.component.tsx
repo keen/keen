@@ -18,12 +18,12 @@ type Props = {
   /** Change event handler */
   onChange: OnChangeDateCallback;
   /** Date */
-  value: Date;
+  date: Date;
   /** Unique identifer */
   id: string;
 };
 
-const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
+const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
   const [isOpen, setOpen] = useState(false);
   const calendarRef = useRef(null);
 
@@ -48,22 +48,21 @@ const ReactCalendar: FC<Props> = ({ value, id, onChange }) => {
       <Input
         type="text"
         variant="solid"
-        value={value.toLocaleDateString('en-GB')}
+        value={date.toLocaleDateString('en-GB')}
         onClick={() => !isOpen && setOpen(true)}
         onBlur={(e) => console.log(e)}
       />
       <Dropdown isOpen={isOpen} fullWidth={false}>
-        <CalendarContainer ref={calendarRef}>
+        <CalendarContainer ref={calendarRef} data-testid={id}>
           <Calendar
             onChange={(
-              value: Date,
+              date: Date,
               event: React.ChangeEvent<HTMLInputElement>
             ) => {
               setOpen(false);
-              onChange(value, event);
+              onChange(date, event);
             }}
-            value={value}
-            data-testid={id}
+            value={date}
             nextLabel={
               <IconContainer whileHover={{ x: 5 }}>
                 <Icon
