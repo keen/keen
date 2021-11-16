@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cell as CellType, Row, UseRowSelectRowProps } from 'react-table';
-import { Checkbox } from '@keen.io/ui-core';
+import { Checkbox, MousePositionedTooltip } from '@keen.io/ui-core';
 
 import { CellContainer, CellContent } from '../../body-cell';
 
@@ -35,14 +35,22 @@ export const Cell = ({ width, cell, row, onCellClick, editMode }: Props) => {
       key={key}
       onClick={(e) => onCellClick(e)}
     >
-      <CellContent textAlignment="center" width={width}>
-        <Checkbox
-          id={key.toString()}
-          display="inline-flex"
-          type="secondary"
-          checked={checked}
-        />
-      </CellContent>
+      <MousePositionedTooltip
+        isActive={editMode}
+        tooltipPinPlacement="bottom-right"
+        renderContent={() =>
+          'Row selection is not possible during value formatting.'
+        }
+      >
+        <CellContent textAlignment="center" width={width}>
+          <Checkbox
+            id={key.toString()}
+            display="inline-flex"
+            type="secondary"
+            checked={checked}
+          />
+        </CellContent>
+      </MousePositionedTooltip>
     </CellContainer>
   );
 };
