@@ -79,7 +79,7 @@ export const generateGauge = ({
   const innerArcs: InnerArc[] = [];
   const maximumValue = maximum - minimum;
 
-  const currentPercent = (progressValue / maximumValue) * 100;
+  const currentPercent = ((progressValue - minimum) / maximumValue) * 100;
   const arcRange = Math.abs(startAngle) + endAngle;
 
   const progressMaxAngle =
@@ -98,6 +98,7 @@ export const generateGauge = ({
       path,
       color: getColor(colorMode === 'discrete' ? progressValue : i),
       value:
+        minimum +
         (Math.round(((i + endAngle) / arcRange) * 100) * maximumValue) / 100,
     });
   }

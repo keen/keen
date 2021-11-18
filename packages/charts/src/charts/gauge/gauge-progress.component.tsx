@@ -44,7 +44,9 @@ const GaugeProgress: FC<Props> = ({
     <text fill={fontColor} textAnchor="middle" style={valueStyles}>
       {progressType === 'percent' ? (
         <>
-          {formatNumber((progressValue / maximum - minimum) * 100)}
+          {formatNumber(
+            ((progressValue - minimum) / (maximum - minimum)) * 100
+          )}
           <tspan
             style={{
               fontSize: valueStyles.fontSize / 2,
