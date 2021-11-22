@@ -1,11 +1,16 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
 import { Typography } from '@keen.io/ui-core';
+import {
+  Formatter,
+  formatValue as valueFormatter,
+} from '@keen.io/charts-utils';
 
 type Props = {
   arcPath: string;
   minValue: number;
   maxValue: number;
   typography: Typography;
+  formatValue?: Formatter;
 };
 
 const GaugeLabels: FC<Props> = ({
@@ -13,6 +18,7 @@ const GaugeLabels: FC<Props> = ({
   minValue,
   maxValue,
   typography,
+  formatValue,
 }) => {
   const [rect, setRect] = useState<SVGRect>(null);
   const element = useRef(null);
@@ -29,13 +35,20 @@ const GaugeLabels: FC<Props> = ({
     ...textProps,
   };
 
+  const minLabel = formatValue
+    ? valueFormatter(minValue, formatValue)
+    : minValue;
+  const maxLabel = formatValue
+    ? valueFormatter(maxValue, formatValue)
+    : maxValue;
+
   return (
     <g>
       <path ref={element} fill="transparent" d={arcPath} />
       {rect && (
         <>
           <text textAnchor="middle" style={textStyle} x={rect.x} y={rect.y}>
-            {minValue}
+            {minLabel}
           </text>
           <text
             textAnchor="middle"
@@ -43,7 +56,7 @@ const GaugeLabels: FC<Props> = ({
             x={rect.x + rect.width}
             y={rect.y}
           >
-            {maxValue}
+            {maxLabel}
           </text>
         </>
       )}
