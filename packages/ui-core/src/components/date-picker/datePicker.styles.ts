@@ -269,5 +269,19 @@ export const CalendarContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 180px;
+  display: flex;
+  column-gap: 5px;
+`;
+
+export const TimePickerContainer = styled.div`
+  background: ${colors.white[500]};
+  display: flex;
+`;
+
+export const TimePickerList = styled.div`
+  flex: 1;
+`;
+
+export const PickerInput = styled.div`
+  max-width: 180px;
 `;
