@@ -1,66 +1,167 @@
-import React, { FC, useState, useMemo } from 'react';
-import { Moment } from 'moment-timezone';
-import 'react-dates/initialize';
-import TimePicker from 'rc-time-picker';
-import { SingleDatePicker } from 'react-dates';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import Calendar, { OnChangeDateCallback } from 'react-calendar';
+import dayjs from 'dayjs';
+import { transparentize } from 'polished';
+import { Icon } from '@keen.io/icons';
+import { colors } from '@keen.io/colors';
 
+import Dropdown from '../dropdown';
+import Input from '../input';
+import DropdownListContainer from '../dropdown-list-container';
+import DropdownList from '../dropdown-list';
+import { getEventPath, getTimeOptions } from './utils';
 import {
-  Container,
-  DateContainer,
-  TimeContainer,
   GlobalStyle,
+  IconContainer,
+  CalendarContainer,
+  Container,
+  TimePickerContainer,
+  TimePickerList,
+  PickerInput,
 } from './date-picker.styles';
-
-import { isUsing12HoursDateFormat } from './utils';
-import { DATE_FORMAT, TIME_PICKER_CLASS } from './constants';
 
 type Props = {
   /** Change event handler */
-  onChange: (date: string) => void;
-  /** Date as moment.js instance */
-  date: Moment;
+  onChange: OnChangeDateCallback;
+  /** Date */
+  date: Date;
   /** Unique identifer */
   id: string;
 };
 
-const DatePicker: FC<Props> = ({ date, id, onChange }) => {
-  const [focused, setFocus] = useState<boolean>(false);
-  const use12Hours = useMemo(() => isUsing12HoursDateFormat(), []);
+const hoursOptions = getTimeOptions(24);
+const minutesOptions = getTimeOptions(60);
+
+const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
+  const [isDatePickerOpen, setDatePickerOpen] = useState(false);
+  const [isTimePickerOpen, setTimePickerOpen] = useState(false);
+  const datePickerRef = useRef(null);
+  const timePickerRef = useRef(null);
+
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+
+  const outsideClick = useCallback(
+    (event) => {
+      const path = getEventPath(event);
+      if (isDatePickerOpen && !path?.includes(datePickerRef.current)) {
+        setDatePickerOpen(false);
+      }
+      if (isTimePickerOpen && !path?.includes(timePickerRef.current)) {
+        setTimePickerOpen(false);
+      }
+    },
+    [isDatePickerOpen, isTimePickerOpen, datePickerRef, timePickerRef]
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', outsideClick);
+    return () => document.removeEventListener('click', outsideClick);
+  }, [isDatePickerOpen, isTimePickerOpen, datePickerRef, timePickerRef]);
 
   return (
     <Container>
       <GlobalStyle />
-      <DateContainer data-testid={id}>
-        <SingleDatePicker
-          date={date}
-          onDateChange={(valueSelected: Moment) => {
-            if (valueSelected) {
-              onChange(valueSelected.format());
-            }
-          }}
-          focused={focused}
-          onFocusChange={({ focused }) => setFocus(focused)}
-          id={id}
-          isOutsideRange={() => false}
-          numberOfMonths={1}
-          displayFormat={DATE_FORMAT}
-          hideKeyboardShortcutsPanel
+      <PickerInput>
+        <Input
+          type="text"
+          readOnly
+          variant="solid"
+          value={date.toLocaleDateString('en-GB')}
+          onClick={() => !isDatePickerOpen && setDatePickerOpen(true)}
+          onBlur={(e) => console.log(e)}
         />
-      </DateContainer>
-      <TimeContainer>
-        <TimePicker
-          popupClassName={TIME_PICKER_CLASS}
-          use12Hours={use12Hours}
-          showSecond={false}
-          value={date}
-          placement="bottomLeft"
-          onChange={(valueSelected) => {
-            onChange(valueSelected.format());
-          }}
+        <Dropdown isOpen={isDatePickerOpen} fullWidth={false}>
+          <CalendarContainer ref={datePickerRef} data-testid={id}>
+            <Calendar
+              onChange={(
+                date: Date,
+                event: React.ChangeEvent<HTMLInputElement>
+              ) => {
+                setDatePickerOpen(false);
+                onChange(date, event);
+              }}
+              value={date}
+              nextLabel={
+                <IconContainer whileHover={{ x: 5 }}>
+                  <Icon
+                    width={19}
+                    height={19}
+                    type="button-arrow"
+                    fill={transparentize(0.3, colors.blue[500])}
+                  />
+                </IconContainer>
+              }
+              next2Label={null}
+              prevLabel={
+                <IconContainer whileHover={{ x: -5 }}>
+                  <Icon
+                    width={19}
+                    height={19}
+                    type="button-arrow-left"
+                    fill={transparentize(0.3, colors.blue[500])}
+                  />
+                </IconContainer>
+              }
+              prev2Label={null}
+            />
+          </CalendarContainer>
+        </Dropdown>
+      </PickerInput>
+      <PickerInput>
+        <Input
+          type="text"
+          readOnly
+          variant="solid"
+          onClick={() => !isTimePickerOpen && setTimePickerOpen(true)}
+          value={date.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+          })}
         />
-      </TimeContainer>
+        <Dropdown isOpen={isTimePickerOpen}>
+          <TimePickerContainer ref={timePickerRef}>
+            <TimePickerList>
+              <DropdownListContainer scrollToActive>
+                {(activeItemRef) => (
+                  <DropdownList
+                    ref={activeItemRef}
+                    items={hoursOptions}
+                    setActiveItem={({ value }) => hour === Number(value)}
+                    onClick={(_e, { value: hour }) => {
+                      const updatedDate = dayjs(date).hour(hour).toDate();
+                      onChange(
+                        updatedDate,
+                        {} as React.ChangeEvent<HTMLInputElement>
+                      );
+                    }}
+                  />
+                )}
+              </DropdownListContainer>
+            </TimePickerList>
+            <TimePickerList>
+              <DropdownListContainer scrollToActive>
+                {(activeItemRef) => (
+                  <DropdownList
+                    ref={activeItemRef}
+                    items={minutesOptions}
+                    setActiveItem={({ value }) => minute === Number(value)}
+                    onClick={(_e, { value: minute }) => {
+                      const updatedDate = dayjs(date).minute(minute).toDate();
+                      onChange(
+                        updatedDate,
+                        {} as React.ChangeEvent<HTMLInputElement>
+                      );
+                    }}
+                  />
+                )}
+              </DropdownListContainer>
+            </TimePickerList>
+          </TimePickerContainer>
+        </Dropdown>
+      </PickerInput>
     </Container>
   );
 };
 
-export default DatePicker;
+export default ReactCalendar;

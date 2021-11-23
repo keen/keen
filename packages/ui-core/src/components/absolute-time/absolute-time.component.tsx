@@ -4,11 +4,10 @@ import utcPlugin from 'dayjs/plugin/utc';
 import timezonePlugin from 'dayjs/plugin/timezone';
 
 import { Timeframe } from '@keen.io/query';
-import { setTimezoneOffset } from '@keen.io/time-utils';
 
 import { Container, TimeLabel, TimeRow } from './absolute-time.styles';
 
-import { ReactCalendar } from '../date-picker';
+import DatePicker from '../date-picker';
 
 dayjs.extend(utcPlugin);
 dayjs.extend(timezonePlugin);
@@ -31,7 +30,7 @@ type Props = {
 };
 
 const AbsoluteTime: FC<Props> = memo(
-  ({ id, start, end, timezone, startDateLabel, endDateLabel, onChange }) => {
+  ({ id, start, end, startDateLabel, endDateLabel, onChange }) => {
     const startDate = new Date(start.substring(0, 19));
     const endDate = new Date(end.substring(0, 19));
 
@@ -39,15 +38,12 @@ const AbsoluteTime: FC<Props> = memo(
       <Container data-testid="absolute-time">
         <TimeRow>
           <TimeLabel>{startDateLabel}</TimeLabel>
-          <ReactCalendar
+          <DatePicker
             id={`${id}-start`}
             date={startDate}
             onChange={(date) =>
               onChange({
-                start: dayjs(setTimezoneOffset(date.toString(), timezone))
-                  .utc()
-                  .tz(timezone)
-                  .format(),
+                start: dayjs(date.toString()).format('YYYY-MM-DDTHH:mm:ss'),
                 end,
               })
             }
@@ -55,16 +51,13 @@ const AbsoluteTime: FC<Props> = memo(
         </TimeRow>
         <TimeRow>
           <TimeLabel>{endDateLabel}</TimeLabel>
-          <ReactCalendar
+          <DatePicker
             id={`${id}-end`}
             date={endDate}
             onChange={(date) =>
               onChange({
                 start,
-                end: dayjs(setTimezoneOffset(date.toString(), timezone))
-                  .utc()
-                  .tz(timezone)
-                  .format(),
+                end: dayjs(date.toString()).format('YYYY-MM-DDTHH:mm:ss'),
               })
             }
           />

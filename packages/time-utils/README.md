@@ -47,9 +47,9 @@ Creates default date range aligned with Keen API absolute `Timeframe` interface.
 ```typescript
 // new Date() => 2021-03-31T00:00:00
 
-getDefaultAbsoluteTime('Europe/Warsaw');  
+getDefaultAbsoluteTime();  
 /* Object {
-  "start": "2021-03-30T00:00:00+02:00",
-  "end": "2021-03-31T00:00:00+02:00",
+  "start": "2021-03-30T00:00:00",
+  "end": "2021-03-31T00:00:00",
 } */
 ```
