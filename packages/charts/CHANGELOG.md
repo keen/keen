@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/keen/keen/compare/@keen.io/charts@2.36.2...@keen.io/charts@2.37.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 Gauge chart - handling string formatters added ([209fcfd](https://github.com/keen/keen/commit/209fcfd6a44d99c32f4d82e0c936d913c1146f83))
+
+
+
+
+
 ## [2.36.2](https://github.com/keen/keen/compare/@keen.io/charts@2.36.1...@keen.io/charts@2.36.2) (2021-11-23)
 
 **Note:** Version bump only for package @keen.io/charts

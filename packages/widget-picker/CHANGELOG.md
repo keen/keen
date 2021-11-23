@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.24...@keen.io/widget-picker@1.5.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 Gauge chart added to widget-picker ([2aefa44](https://github.com/keen/keen/commit/2aefa44670d7570553b61c12f6c223c97a9a5a3e))
+
+
+
+
+
 ## [1.4.24](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.23...@keen.io/widget-picker@1.4.24) (2021-11-23)
 
 **Note:** Version bump only for package @keen.io/widget-picker

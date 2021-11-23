@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.46.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.45.0...@keen.io/ui-core@2.46.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 enhance Alert with content width ([55d7747](https://github.com/keen/keen/commit/55d7747949a6e1fc26621a75f3e6224370607ce5))
+
+
+
+
+
 # [2.45.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.2...@keen.io/ui-core@2.45.0) (2021-11-23)
 
 
