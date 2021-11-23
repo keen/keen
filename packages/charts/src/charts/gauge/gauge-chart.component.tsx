@@ -2,6 +2,7 @@ import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip, Text, ColorMode } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
+import { FormatFunction, Formatter } from '@keen.io/charts-utils';
 
 import GaugeProgress from './gauge-progress.component';
 import GaugeLabels from './gauge-labels.component';
@@ -15,7 +16,6 @@ import { theme as defaultTheme } from '../../theme';
 import { CommonChartSettings } from '../../types';
 
 import { TOOLTIP_MOTION, TOOLTIP_TIMEOUT } from '../../constants';
-import { FormatFunction } from '@keen.io/charts-utils';
 
 export type Props = {
   /** Chart data */
@@ -35,7 +35,7 @@ export type Props = {
   /** Maximum progress value */
   maxValue?: number | 'auto';
   /** Value format function */
-  formatValue?: (value: string | number) => React.ReactNode;
+  formatValue?: Formatter;
   /** Progress type */
   progressType?: 'normal' | 'percent';
   /** Tooltip formatter */
@@ -198,6 +198,7 @@ export const GaugeChart: FC<Props> = ({
             <GaugeLabels
               minValue={minimum}
               maxValue={maximum}
+              formatValue={formatValue}
               typography={gaugeSettings.labels.typography}
               arcPath={emptySpaceArcPath}
             />
