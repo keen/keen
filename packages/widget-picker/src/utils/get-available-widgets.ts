@@ -31,5 +31,5 @@ export const getAvailableWidgets = (
     return ['line', 'table', 'json', 'bar', 'area', 'heatmap'];
   }
 
-  return ['metric', 'table', 'json'];
+  return ['metric', 'table', 'json', 'gauge'];
 };

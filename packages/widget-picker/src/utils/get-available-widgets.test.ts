@@ -128,6 +128,7 @@ test('fallbacks to default widgets', () => {
       "metric",
       "table",
       "json",
+      "gauge",
     ]
   `);
 });

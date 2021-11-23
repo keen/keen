@@ -124,6 +124,27 @@ export const GEOGRAPHIC_AREA_OPTIONS: OptionsGroup = {
   ],
 };
 
+export const GAUGE_CHART_OPTIONS: OptionsGroup = {
+  label: 'Type',
+  id: 'gauge-type',
+  settings: [
+    {
+      label: 'Normal',
+      isActive: ({ progressType }: ChartSettings) => progressType === 'normal',
+      defaultValue: {
+        progressType: 'normal',
+      },
+    },
+    {
+      label: 'Percent',
+      isActive: ({ progressType }: ChartSettings) => progressType === 'percent',
+      defaultValue: {
+        progressType: 'percent',
+      },
+    },
+  ],
+};
+
 export const WIDGETS: Widget[] = [
   {
     id: 'table',
@@ -261,5 +282,16 @@ export const WIDGETS: Widget[] = [
     defaultWidgetSettings: {
       geographicArea: 'world',
     },
+  },
+  {
+    id: 'gauge',
+    icon: 'gauge-widget',
+    widget: 'gauge',
+    chartOptions: [GAUGE_CHART_OPTIONS],
+    isActive: (widget) => widget === 'gauge',
+    defaultChartSettings: {
+      progressType: 'normal',
+    },
+    defaultWidgetSettings: {},
   },
 ];
