@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/keen/keen/compare/@keen.io/time-utils@1.2.5...@keen.io/time-utils@1.3.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 date picker ([f594a0a](https://github.com/keen/keen/commit/f594a0aa1e572efe7283d4a47b09a5d6695597ed))
+
+
+
+
+
 ## [1.2.5](https://github.com/keen/keen/compare/@keen.io/time-utils@1.2.4...@keen.io/time-utils@1.2.5) (2021-11-03)
 
 **Note:** Version bump only for package @keen.io/time-utils

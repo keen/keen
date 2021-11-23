@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.45.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.2...@keen.io/ui-core@2.45.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 date picker ([f594a0a](https://github.com/keen/keen/commit/f594a0aa1e572efe7283d4a47b09a5d6695597ed))
+
+
+
+
+
 ## [2.44.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.1...@keen.io/ui-core@2.44.2) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/ui-core
