@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { variant } from 'styled-system';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
@@ -28,6 +28,7 @@ const alertVariants = {
 
 export const StyledAlert = styled.div<{
   type: Variant;
+  contentWidth: boolean;
 }>`
   padding: 10px 20px;
   border-left: solid;
@@ -36,6 +37,12 @@ export const StyledAlert = styled.div<{
   font-size: 14px;
   line-height: 16px;
   font-weight: 400;
+
+  ${({ contentWidth }) =>
+    contentWidth &&
+    css`
+      display: inline-block;
+    `};
 
   ${variant(alertVariants)};
 `;
