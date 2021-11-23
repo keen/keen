@@ -27,6 +27,7 @@ export const plot = () => {
         minValue={number('Minimum value', 0, {}, 'Chart')}
         maxValue={number('Maximum value', 200, {}, 'Chart')}
         theme={theme}
+        formatValue={'${} $'}
         svgDimensions={object(
           'svg',
           {
