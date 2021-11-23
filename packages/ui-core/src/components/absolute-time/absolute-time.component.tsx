@@ -1,11 +1,16 @@
 import React, { FC, memo } from 'react';
-import moment from 'moment-timezone';
+import dayjs from 'dayjs';
+import utcPlugin from 'dayjs/plugin/utc';
+import timezonePlugin from 'dayjs/plugin/timezone';
 
 import { Timeframe } from '@keen.io/query';
 
 import { Container, TimeLabel, TimeRow } from './absolute-time.styles';
 
 import DatePicker from '../date-picker';
+
+dayjs.extend(utcPlugin);
+dayjs.extend(timezonePlugin);
 
 type Props = {
   /** Unique identifer */
@@ -25,9 +30,9 @@ type Props = {
 };
 
 const AbsoluteTime: FC<Props> = memo(
-  ({ id, start, end, timezone, startDateLabel, endDateLabel, onChange }) => {
-    const startDate = moment(start).tz(timezone);
-    const endDate = moment(end).tz(timezone);
+  ({ id, start, end, startDateLabel, endDateLabel, onChange }) => {
+    const startDate = new Date(start.substring(0, 19));
+    const endDate = new Date(end.substring(0, 19));
 
     return (
       <Container data-testid="absolute-time">
@@ -36,7 +41,12 @@ const AbsoluteTime: FC<Props> = memo(
           <DatePicker
             id={`${id}-start`}
             date={startDate}
-            onChange={(date) => onChange({ start: date, end })}
+            onChange={(date) =>
+              onChange({
+                start: dayjs(date.toString()).format('YYYY-MM-DDTHH:mm:ss'),
+                end,
+              })
+            }
           />
         </TimeRow>
         <TimeRow>
@@ -44,7 +54,12 @@ const AbsoluteTime: FC<Props> = memo(
           <DatePicker
             id={`${id}-end`}
             date={endDate}
-            onChange={(date) => onChange({ start, end: date })}
+            onChange={(date) =>
+              onChange({
+                start,
+                end: dayjs(date.toString()).format('YYYY-MM-DDTHH:mm:ss'),
+              })
+            }
           />
         </TimeRow>
       </Container>

@@ -29,6 +29,7 @@
     "url": "https://github.com/keen/keen/issues"
   },
   "peerDependencies": {
+    "dayjs": "^1.10.7",
     "moment-timezone": ">=0.5.30",
     "react": ">=16",
     "react-dom": ">=16",
@@ -47,6 +48,7 @@
     "fuse.js": "^6.4.1",
     "polished": "^3.4.4",
     "rc-time-picker": "^3.7.3",
+    "react-calendar": "^3.5.0",
     "react-color": "^2.18.1",
     "react-dates": "^21.8.0",
     "react-intersection-observer": "^8.32.2",
@@ -67,6 +69,7 @@
     "@testing-library/react": "11.2.2",
     "@types/color": "^3.0.1",
     "@types/rc-time-picker": "^3.4.1",
+    "@types/react-calendar": "^3.4.3",
     "@types/react-dates": "^21.8.1",
     "@types/react-select": "^3.0.13",
     "@types/react-table": "^7.0.0",
@@ -75,7 +78,8 @@
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/webfontloader": "^1.6.29",
-    "babel-plugin-styled-components": "^1.13.3"
+    "babel-plugin-styled-components": "^1.13.3",
+    "mockdate": "^3.0.5"
   },
   "publishConfig": {
     "access": "public"

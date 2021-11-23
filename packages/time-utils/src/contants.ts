@@ -10,3 +10,4 @@ export const DEPRECATED_TIMEZONES: Record<string, string> = {
 
 export const DEFAULT_TIMEZONES = ['Etc/UTC', 'UTC'];
 export const INVALID_DATE = 'Invalid date';
+export const ABSOLUTE_TIME_FORMAT = 'YYYY-MM-DDTHH:mm:ss';
