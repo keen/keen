@@ -69,7 +69,6 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
           variant="solid"
           value={date.toLocaleDateString('en-GB')}
           onClick={() => !isDatePickerOpen && setDatePickerOpen(true)}
-          onBlur={(e) => console.log(e)}
         />
         <Dropdown isOpen={isDatePickerOpen} fullWidth={false}>
           <CalendarContainer ref={datePickerRef} data-testid={id}>
