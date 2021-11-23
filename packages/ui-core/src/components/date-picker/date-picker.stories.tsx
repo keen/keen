@@ -1,9 +1,6 @@
 import * as React from 'react';
-import moment from 'moment-timezone';
-import { action } from '@storybook/addon-actions';
 
 import DatePicker from './date-picker.component';
-import ReactCalendar from './datePicker.component';
 
 export default {
   title: 'Components / DatePicker',
@@ -19,17 +16,10 @@ export const Basic = () => {
   return (
     <>
       <DatePicker
-        date={moment.utc()}
         id="datepicker"
-        onChange={action('change')}
+        onChange={(date) => setDate(date)}
+        date={date}
       />
-      <div style={{ marginTop: 20 }}>
-        <ReactCalendar
-          id="reactCalendar"
-          onChange={(date) => setDate(date)}
-          date={date}
-        />
-      </div>
     </>
   );
 };
