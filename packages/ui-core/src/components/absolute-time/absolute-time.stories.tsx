@@ -1,5 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import AbsoluteTime from './absolute-time.component';
 
@@ -12,13 +12,18 @@ export default {
 };
 
 export const basic = () => {
+  const [date, setDate] = React.useState({
+    start: '2021-10-01T00:00:00Z',
+    end: '2021-12-01T12:00:00Z',
+  });
+
   return (
     <AbsoluteTime
       id="absolute-time"
       timezone="UTC"
-      onChange={action('change')}
-      start={new Date().toISOString()}
-      end={new Date(Date.now() + 8.64e7).toISOString()}
+      onChange={(dates) => setDate(dates)}
+      start={date.start}
+      end={date.end}
       startDateLabel="From"
       endDateLabel="to"
     />

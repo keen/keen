@@ -1,11 +1,9 @@
 import dayjs from 'dayjs';
 import utcPlugin from 'dayjs/plugin/utc';
-import timezonePlugin from 'dayjs/plugin/timezone';
 
 dayjs.extend(utcPlugin);
-dayjs.extend(timezonePlugin);
 
-import { DEPRECATED_TIMEZONES } from '../contants';
+import { ABSOLUTE_TIME_FORMAT } from '../contants';
 
 /**
  * Get default absolute timeframe for timezone
@@ -15,18 +13,14 @@ import { DEPRECATED_TIMEZONES } from '../contants';
  * @return iso date string converted with timezone offset
  *
  */
-export const getDefaultAbsoluteTime = (timezoneName: string) => {
+export const getDefaultAbsoluteTime = () => {
   try {
-    const timezone = DEPRECATED_TIMEZONES[timezoneName] || timezoneName;
-    const offset = dayjs().utc().tz(timezone).utcOffset();
     const start = dayjs
       .utc()
       .subtract(1, 'day')
       .startOf('day')
-      .utcOffset(offset, true)
-      .format();
-
-    const end = dayjs().startOf('day').utcOffset(offset, true).format();
+      .format(ABSOLUTE_TIME_FORMAT);
+    const end = dayjs().startOf('day').format(ABSOLUTE_TIME_FORMAT);
 
     return {
       start,
