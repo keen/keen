@@ -1,6 +1,4 @@
 import * as React from 'react';
-import moment from 'moment-timezone';
-import { action } from '@storybook/addon-actions';
 
 import DatePicker from './date-picker.component';
 
@@ -12,12 +10,16 @@ export default {
   },
 };
 
-export const basic = () => {
+export const Basic = () => {
+  const [date, setDate] = React.useState(new Date());
+
   return (
-    <DatePicker
-      date={moment.utc()}
-      id="datepicker"
-      onChange={action('change')}
-    />
+    <>
+      <DatePicker
+        id="datepicker"
+        onChange={(date) => setDate(date)}
+        date={date}
+      />
+    </>
   );
 };

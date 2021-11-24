@@ -2,7 +2,11 @@ import React, { FC, useState, useEffect } from 'react';
 import { interpolateNumber } from 'd3-interpolate';
 import { useMotionValue, useSpring } from 'framer-motion';
 import { Typography } from '@keen.io/ui-core';
-import { formatNumber } from '@keen.io/charts-utils';
+import {
+  formatNumber,
+  Formatter,
+  formatValue as valueFormatter,
+} from '@keen.io/charts-utils';
 
 const springMotion = {
   from: 0,
@@ -17,7 +21,7 @@ type Props = {
   maximum: number;
   value: number;
   progressType?: 'normal' | 'percent';
-  formatValue?: (value: string | number) => React.ReactNode;
+  formatValue?: Formatter;
 };
 
 const GaugeProgress: FC<Props> = ({
@@ -56,7 +60,7 @@ const GaugeProgress: FC<Props> = ({
           </tspan>
         </>
       ) : formatValue ? (
-        formatValue(progressValue)
+        valueFormatter(progressValue, formatValue)
       ) : (
         progressValue
       )}

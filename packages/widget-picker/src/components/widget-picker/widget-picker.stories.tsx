@@ -30,6 +30,7 @@ export const basic = () => {
         'metric',
         'choropleth',
         'heatmap',
+        'gauge',
       ]}
       onUpdateSettings={(widget, chartSettings, widgetSettings) => {
         setWidget(widget);

@@ -9,10 +9,12 @@ type Props = {
   children: React.ReactNode;
   /** Type of alert styles */
   type: Variant;
+  /** Enable content width */
+  contentWidth?: boolean;
 };
 
-export const Alert: FC<Props> = ({ type, children }) => (
-  <StyledAlert role="alert" type={type}>
+export const Alert: FC<Props> = ({ type, contentWidth = false, children }) => (
+  <StyledAlert role="alert" type={type} contentWidth={contentWidth}>
     {children}
   </StyledAlert>
 );

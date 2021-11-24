@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { loremIpsum } from 'lorem-ipsum';
+import { boolean } from '@storybook/addon-knobs';
 
 import { Alert } from './alert.component';
 
@@ -12,9 +13,17 @@ export default {
   },
 };
 
-export const success = () => <Alert type="success">{loremIpsum()}</Alert>;
+export const success = () => (
+  <Alert type="success" contentWidth={boolean('Enable content width', false)}>
+    {loremIpsum()}
+  </Alert>
+);
 
-export const error = () => <Alert type="error">{loremIpsum()}</Alert>;
+export const error = () => (
+  <Alert type="error" contentWidth={boolean('Enable content width', false)}>
+    {loremIpsum()}
+  </Alert>
+);
 
 error.story = {
   parameters: {
@@ -24,7 +33,11 @@ error.story = {
   },
 };
 
-export const info = () => <Alert type="info">{loremIpsum()}</Alert>;
+export const info = () => (
+  <Alert type="info" contentWidth={boolean('Enable content width', false)}>
+    {loremIpsum()}
+  </Alert>
+);
 
 info.story = {
   parameters: {

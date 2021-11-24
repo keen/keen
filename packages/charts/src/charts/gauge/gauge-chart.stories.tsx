@@ -33,6 +33,7 @@ export const plot = () => {
           'normal',
           'Chart'
         )}
+        formatValue={'${} $'}
         svgDimensions={object(
           'svg',
           {

@@ -16,6 +16,7 @@ export type ChartSettings = {
   areaMode?: boolean;
   usePercentDifference?: boolean;
   type?: MetricType;
+  progressType?: 'percent' | 'normal';
 };
 
 export type WidgetSettings = Partial<BaseWidgetSettings>;
