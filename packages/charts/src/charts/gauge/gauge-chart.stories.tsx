@@ -34,6 +34,7 @@ export const plot = () => {
           'Chart'
         )}
         formatValue={'${} $'}
+        formatTooltip={'${} $'}
         svgDimensions={object(
           'svg',
           {

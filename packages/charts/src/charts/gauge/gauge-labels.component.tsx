@@ -5,6 +5,8 @@ import {
   formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
 
+import { MAX_VALUE_PLACEHOLDER } from './constants';
+
 type Props = {
   arcPath: string;
   minValue: number;
@@ -38,9 +40,12 @@ const GaugeLabels: FC<Props> = ({
   const minLabel = formatValue
     ? valueFormatter(minValue, formatValue)
     : minValue;
-  const maxLabel = formatValue
-    ? valueFormatter(maxValue, formatValue)
-    : maxValue;
+  const maxLabel =
+    typeof maxValue !== 'number'
+      ? MAX_VALUE_PLACEHOLDER
+      : formatValue
+      ? valueFormatter(maxValue, formatValue)
+      : maxValue;
 
   return (
     <g>

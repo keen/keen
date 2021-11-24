@@ -2,7 +2,10 @@ import React, { FC, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip, Text, ColorMode } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
-import { FormatFunction, Formatter } from '@keen.io/charts-utils';
+import {
+  Formatter,
+  formatValue as valueFormatter,
+} from '@keen.io/charts-utils';
 
 import GaugeProgress from './gauge-progress.component';
 import GaugeLabels from './gauge-labels.component';
@@ -39,7 +42,7 @@ export type Props = {
   /** Progress type */
   progressType?: 'normal' | 'percent';
   /** Tooltip formatter */
-  formatTooltip?: FormatFunction;
+  formatTooltip?: Formatter;
 } & CommonChartSettings;
 
 const createArcMotion = (index: number) => ({
@@ -126,7 +129,7 @@ export const GaugeChart: FC<Props> = ({
             <Tooltip mode={tooltipSettings.mode} hasArrow={false}>
               <Text {...tooltipSettings.labels.typography}>
                 {formatTooltip
-                  ? formatTooltip(tooltipMeta.value)
+                  ? valueFormatter(tooltipMeta.value, formatTooltip)
                   : tooltipMeta.value}
               </Text>
             </Tooltip>
