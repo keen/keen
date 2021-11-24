@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { object, number } from '@storybook/addon-knobs';
+import { object, number, select } from '@storybook/addon-knobs';
 
 import { theme as defaultTheme } from '../../theme';
 import { chartData } from './gauge-chart.fixtures';
@@ -27,7 +27,14 @@ export const plot = () => {
         minValue={number('Minimum value', 0, {}, 'Chart')}
         maxValue={number('Maximum value', 200, {}, 'Chart')}
         theme={theme}
+        progressType={select(
+          'Progress type',
+          ['normal', 'percent'],
+          'normal',
+          'Chart'
+        )}
         formatValue={'${} $'}
+        formatTooltip={'${} $'}
         svgDimensions={object(
           'svg',
           {
