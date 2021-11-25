@@ -3,7 +3,7 @@ import { colors } from '@keen.io/colors';
 
 import { CellTextAlignment } from '../../types';
 
-export const CellContent = styled.pre<{
+export const CellContent = styled.div<{
   textAlignment: CellTextAlignment;
   width?: string | number;
 }>`
@@ -21,6 +21,11 @@ export const CellContent = styled.pre<{
     css`
       width: ${width}${typeof width === 'number' && 'px'};
     `};
+`;
+
+export const TextWrapper = styled.pre`
+  margin: 0;
+  white-space: normal;
 `;
 
 export const CellContainer = styled.td<{

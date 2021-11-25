@@ -1,3 +1,3 @@
-import { CellContent, CellContainer } from './body-cell';
+import { CellContent, CellContainer, TextWrapper } from './body-cell';
 
-export { CellContent, CellContainer };
+export { CellContent, CellContainer, TextWrapper };

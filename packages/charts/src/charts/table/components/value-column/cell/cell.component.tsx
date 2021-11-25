@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Cell as CellType } from 'react-table';
 import { Typography, Text } from '@keen.io/ui-core';
 
-import { CellContainer, CellContent } from '../../body-cell';
+import { CellContainer, CellContent, TextWrapper } from '../../body-cell';
 
 import { CellValue } from '../../../types';
 
@@ -71,7 +71,9 @@ export const Cell = ({
         textAlignment={textAlignment}
         width={width}
       >
-        <Text {...typography}>{`${value}`}</Text>
+        <TextWrapper>
+          <Text {...typography}>{`${value}`}</Text>
+        </TextWrapper>
       </CellContent>
     </CellContainer>
   );
