@@ -40,15 +40,26 @@ const GaugeProgress: FC<Props> = ({
     const interpolator = interpolateNumber(minimum, value);
     spring.onChange((v) => setProgressValue(Math.round(interpolator(v))));
     initialValue.set(value);
+
+    return () => spring.destroy();
   }, []);
 
   const { fontColor, ...valueStyles } = typography;
+
+  const isValidPercentageValue =
+    typeof minimum === 'number' &&
+    typeof maximum === 'number' &&
+    minimum !== maximum;
 
   return (
     <text fill={fontColor} textAnchor="middle" style={valueStyles}>
       {progressType === 'percent' ? (
         <>
-          {formatNumber((progressValue / maximum - minimum) * 100)}
+          {isValidPercentageValue
+            ? formatNumber(
+                ((progressValue - minimum) / (maximum - minimum)) * 100
+              )
+            : 100}
           <tspan
             style={{
               fontSize: valueStyles.fontSize / 2,

@@ -1,4 +1,4 @@
-export const chartData = [{ 'keen.key': 'Result', 'keen.value': 190 }];
+export const chartData = [{ 'keen.key': 'Result', 'keen.value': 100 }];
 
 export const gaugeChart = {
   data: [{ 'keen.key': 'Result', 'keen.value': 90 }],
