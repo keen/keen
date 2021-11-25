@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.1](https://github.com/keen/keen/compare/@keen.io/charts@2.37.0...@keen.io/charts@2.37.1) (2021-11-25)
+
+
+### Bug Fixes
+
+* 🐛 update calculations to support negative values ([d88d746](https://github.com/keen/keen/commit/d88d746fd4d071fee3a13bc1a0e01545197f3ee7))
+
+
+
+
+
 # [2.37.0](https://github.com/keen/keen/compare/@keen.io/charts@2.36.2...@keen.io/charts@2.37.0) (2021-11-23)
 
 
