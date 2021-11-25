@@ -3,7 +3,7 @@ import { colors } from '@keen.io/colors';
 
 import { CellTextAlignment } from '../../types';
 
-export const CellContent = styled.div<{
+export const CellContent = styled.pre<{
   textAlignment: CellTextAlignment;
   width?: string | number;
 }>`
