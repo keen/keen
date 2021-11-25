@@ -69,7 +69,7 @@ export const GaugeChart: FC<Props> = ({
   margins = { top: 10, right: 0, bottom: 10, left: 0 },
   colorMode = 'continuous',
   colorSteps = 2,
-  progressType = 'percent',
+  progressType = 'normal',
   minValue = 'auto',
   maxValue = 'auto',
   formatValue,
