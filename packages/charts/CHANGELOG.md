@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.3](https://github.com/keen/keen/compare/@keen.io/charts@2.37.2...@keen.io/charts@2.37.3) (2021-11-25)
+
+
+### Bug Fixes
+
+* 🐛 Pre margin removed ([f98a8d0](https://github.com/keen/keen/commit/f98a8d016355a5dc53cf53c927a76b7dd0ec83d4))
+* 🐛 set default progressType for gauge ([19a7286](https://github.com/keen/keen/commit/19a728636ff3634e7c6221840d6895269f2bd84d))
+
+
+
+
+
 ## [2.37.2](https://github.com/keen/keen/compare/@keen.io/charts@2.37.1...@keen.io/charts@2.37.2) (2021-11-25)
 
 **Note:** Version bump only for package @keen.io/charts
