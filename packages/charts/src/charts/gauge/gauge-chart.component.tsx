@@ -199,8 +199,8 @@ export const GaugeChart: FC<Props> = ({
           </AnimatePresence>
           {gaugeSettings.labels.enabled && (
             <GaugeLabels
-              minValue={minimum}
-              maxValue={maximum}
+              minValue={minValue}
+              maxValue={maxValue}
               formatValue={formatValue}
               typography={gaugeSettings.labels.typography}
               arcPath={emptySpaceArcPath}
