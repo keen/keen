@@ -57,7 +57,13 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
   useEffect(() => {
     document.addEventListener('click', outsideClick);
     return () => document.removeEventListener('click', outsideClick);
-  }, [isDatePickerOpen, isTimePickerOpen, datePickerRef, timePickerRef]);
+  }, [
+    isDatePickerOpen,
+    isTimePickerOpen,
+    datePickerRef,
+    timePickerRef,
+    outsideClick,
+  ]);
 
   return (
     <Container>
@@ -67,7 +73,7 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
           type="text"
           readOnly
           variant="solid"
-          value={date.toLocaleDateString('en-GB')}
+          value={dayjs(date).format('YYYY-MM-DD')}
           onClick={() => !isDatePickerOpen && setDatePickerOpen(true)}
         />
         <Dropdown isOpen={isDatePickerOpen} fullWidth={false}>
@@ -77,8 +83,12 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
                 date: Date,
                 event: React.ChangeEvent<HTMLInputElement>
               ) => {
+                const updatedDate = dayjs(date)
+                  .hour(hour)
+                  .minute(minute)
+                  .toDate();
                 setDatePickerOpen(false);
-                onChange(date, event);
+                onChange(updatedDate, event);
               }}
               value={date}
               nextLabel={

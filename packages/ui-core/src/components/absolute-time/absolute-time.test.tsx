@@ -40,11 +40,8 @@ const render = (overProps: any = {}) => {
 test('renders date picker for timeframe start', () => {
   const {
     wrapper: { getByTestId, getByDisplayValue },
-    props,
   } = render();
-  const input = getByDisplayValue(
-    new Date(props.start).toLocaleDateString('en-GB')
-  );
+  const input = getByDisplayValue('2020-07-29');
   fireEvent.click(input);
 
   const container = getByTestId('date-start');
@@ -55,12 +52,9 @@ test('renders date picker for timeframe start', () => {
 test('renders date picker for timeframe end', () => {
   const {
     wrapper: { getByTestId, getByDisplayValue },
-    props,
   } = render();
 
-  const input = getByDisplayValue(
-    new Date(props.end).toLocaleDateString('en-GB')
-  );
+  const input = getByDisplayValue('2020-07-30');
   fireEvent.click(input);
 
   const container = getByTestId('date-end');
