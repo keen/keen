@@ -9,8 +9,8 @@ import { MAX_VALUE_PLACEHOLDER } from './constants';
 
 type Props = {
   arcPath: string;
-  minValue: number;
-  maxValue: number;
+  minValue: number | 'auto';
+  maxValue: number | 'auto';
   typography: Typography;
   formatValue?: Formatter;
 };
@@ -37,9 +37,10 @@ const GaugeLabels: FC<Props> = ({
     ...textProps,
   };
 
-  const minLabel = formatValue
-    ? valueFormatter(minValue, formatValue)
-    : minValue;
+  const minimum = minValue === 'auto' ? 0 : minValue;
+
+  const minLabel = formatValue ? valueFormatter(minimum, formatValue) : minimum;
+
   const maxLabel =
     typeof maxValue !== 'number'
       ? MAX_VALUE_PLACEHOLDER
