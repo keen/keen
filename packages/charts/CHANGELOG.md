@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.4](https://github.com/keen/keen/compare/@keen.io/charts@2.37.3...@keen.io/charts@2.37.4) (2021-11-30)
+
+
+### Bug Fixes
+
+* 🐛 Gauge chart - min/max value label fix ([8c0683c](https://github.com/keen/keen/commit/8c0683c508b8f1416b9bcf9db952795cfb7872c4))
+
+
+
+
+
 ## [2.37.3](https://github.com/keen/keen/compare/@keen.io/charts@2.37.2...@keen.io/charts@2.37.3) (2021-11-25)
 
 
