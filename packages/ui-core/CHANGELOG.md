@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.46.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.0...@keen.io/ui-core@2.46.1) (2021-12-01)
+
+
+### Bug Fixes
+
+* 🐛 prevent time reset in DatePicker ([450a552](https://github.com/keen/keen/commit/450a552a14ae440d6621d1e5a11838239b8930aa))
+
+
+
+
+
 # [2.46.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.45.0...@keen.io/ui-core@2.46.0) (2021-11-23)
 
 
