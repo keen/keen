@@ -66,6 +66,8 @@ export const GlobalStyle = createGlobalStyle`
 
   abbr {
     text-decoration: none;
+    border: none;
+    cursor: default;
 
     &[aria-label="Saturday"], &[aria-label="Sunday"] {
       color: ${colors.blue[500]};
