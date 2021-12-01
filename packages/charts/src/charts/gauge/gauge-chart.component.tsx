@@ -165,6 +165,7 @@ export const GaugeChart: FC<Props> = ({
                   <GaugeProgress
                     progressType={progressType}
                     formatValue={formatValue}
+                    isAutoApplied={minValue === 'auto' || maxValue === 'auto'}
                     typography={gaugeSettings.total.typography}
                     minimum={minimum}
                     maximum={maximum}

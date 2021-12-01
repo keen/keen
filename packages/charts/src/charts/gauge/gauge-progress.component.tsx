@@ -22,6 +22,7 @@ type Props = {
   value: number;
   progressType?: 'normal' | 'percent';
   formatValue?: Formatter;
+  isAutoApplied: boolean;
 };
 
 const GaugeProgress: FC<Props> = ({
@@ -31,6 +32,7 @@ const GaugeProgress: FC<Props> = ({
   maximum,
   typography,
   formatValue,
+  isAutoApplied,
 }) => {
   const initialValue = useMotionValue(minimum);
   const [progressValue, setProgressValue] = useState(minimum);
@@ -47,6 +49,7 @@ const GaugeProgress: FC<Props> = ({
   const { fontColor, ...valueStyles } = typography;
 
   const isValidPercentageValue =
+    !isAutoApplied &&
     typeof minimum === 'number' &&
     typeof maximum === 'number' &&
     minimum !== maximum;
