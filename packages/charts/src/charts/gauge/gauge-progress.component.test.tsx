@@ -18,6 +18,7 @@ const render = (overProps: any = {}) => {
     minimum: 0,
     maximum: 200,
     value: 50,
+    isAutoApplied: false,
     typography,
     ...overProps,
   };
@@ -97,6 +98,17 @@ test('should display "100%" as progress value when maximum and minimum are equal
   const {
     wrapper: { container },
   } = render({ maximum: 100, minimum: 100 });
+
+  const textElement = container.getElementsByTagName('text');
+  await waitFor(() => {
+    expect(textElement[0].textContent).toEqual('100%');
+  });
+});
+
+test('should display "100%" as progress value when any of "auto" values have been applied', async () => {
+  const {
+    wrapper: { container },
+  } = render({ maximum: 100, minimum: 10, isAutoApplied: true });
 
   const textElement = container.getElementsByTagName('text');
   await waitFor(() => {
