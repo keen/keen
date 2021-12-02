@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.6](https://github.com/keen/keen/compare/@keen.io/charts@2.37.5...@keen.io/charts@2.37.6) (2021-12-02)
+
+
+### Bug Fixes
+
+* 🐛 prevent percentage calculation for auto value ([b30e969](https://github.com/keen/keen/commit/b30e9697fbb578e091e55890097049fcd4f26e07))
+
+
+
+
+
 ## [2.37.5](https://github.com/keen/keen/compare/@keen.io/charts@2.37.4...@keen.io/charts@2.37.5) (2021-12-01)
 
 **Note:** Version bump only for package @keen.io/charts
