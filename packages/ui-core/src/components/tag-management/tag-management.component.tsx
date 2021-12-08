@@ -1,13 +1,15 @@
 import React, { FC, useState, useRef, useCallback, useEffect } from 'react';
-import { Input, Label, Badge, Dropdown, DropdownList } from '../../components';
+import {
+  Input,
+  Label,
+  Badge,
+  Dropdown,
+  DropdownList,
+  DropdownListContainer,
+} from '../../components';
 import { useSearch } from '@keen.io/react-hooks';
 
-import {
-  DropdownContainer,
-  DropdownListContainer,
-  TagsContainer,
-  Tag,
-} from './tag-management.styles';
+import { DropdownContainer, TagsContainer, Tag } from './tag-management.styles';
 
 import { KEYBOARD_KEYS } from '../../constants';
 
@@ -151,19 +153,22 @@ const TagManagement: FC<Props> = ({
             onChange={searchHandler}
           />
           <Dropdown isOpen={dropdownVisible}>
-            <DropdownListContainer>
-              <DropdownList
-                setActiveItem={(_item, idx) => selectionIndex === idx}
-                items={tagsHints}
-                onClick={(_e, { value }) => {
-                  if (value && !tags.includes(value)) {
-                    onAddTag(value);
-                  }
-                  inputRef.current.value = '';
-                  setDropdownVisibility(false);
-                  setTagsHint(null);
-                }}
-              />
+            <DropdownListContainer scrollToActive maxHeight={120}>
+              {(activeItemRef) => (
+                <DropdownList
+                  ref={activeItemRef}
+                  setActiveItem={(_item, idx) => selectionIndex === idx}
+                  items={tagsHints}
+                  onClick={(_e, { value }) => {
+                    if (value && !tags.includes(value)) {
+                      onAddTag(value);
+                    }
+                    inputRef.current.value = '';
+                    setDropdownVisibility(false);
+                    setTagsHint(null);
+                  }}
+                />
+              )}
             </DropdownListContainer>
           </Dropdown>
         </DropdownContainer>

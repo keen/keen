@@ -12,7 +12,7 @@ export default {
 
 export const Basic = () => {
   const [tags, setTags] = useState([]);
-  const tagsPool = ['tag1', 'tag2'];
+  const tagsPool = ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7'];
   return (
     <TagManagement
       tags={tags}
