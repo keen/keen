@@ -3,6 +3,7 @@ import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TimePeriod from './time-period.component';
 import { KEYBOARD_KEYS } from '../../constants';
+import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 const render = (overProps: any = {}) => {
   const props = {
@@ -20,7 +21,7 @@ const render = (overProps: any = {}) => {
     wrapper,
   };
 };
-
+mockAllIsIntersecting(true);
 beforeEach(() => {
   Element.prototype.scrollIntoView = jest.fn();
 });
