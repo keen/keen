@@ -37,6 +37,13 @@ const DropdownList = forwardRef(
         {items.map((item, idx) => {
           const isActive = setActiveItem(item, idx);
 
+          if (isActive && ref?.current) {
+            ref.current.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+              inline: 'nearest',
+            });
+          }
           return (
             <ListItem
               isActive={isActive}

@@ -21,6 +21,10 @@ const render = (overProps: any = {}) => {
   };
 };
 
+beforeEach(() => {
+  Element.prototype.scrollIntoView = jest.fn();
+});
+
 test('allows user to set timeframe value', () => {
   const {
     props,
