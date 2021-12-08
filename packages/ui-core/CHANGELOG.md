@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.46.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.1...@keen.io/ui-core@2.46.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* 🐛 scroll Dropdown item into view ([1d796d9](https://github.com/keen/keen/commit/1d796d9ecaabb61a4c01bb8ff3cac655073599b2))
+
+
+
+
+
 ## [2.46.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.0...@keen.io/ui-core@2.46.1) (2021-12-01)
 
 

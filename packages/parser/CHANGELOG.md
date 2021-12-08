@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.125](https://github.com/keen/keen/compare/@keen.io/parser@2.8.124...@keen.io/parser@2.8.125) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
 ## [2.8.124](https://github.com/keen/keen/compare/@keen.io/parser@2.8.123...@keen.io/parser@2.8.124) (2021-12-02)
 
 **Note:** Version bump only for package @keen.io/parser
