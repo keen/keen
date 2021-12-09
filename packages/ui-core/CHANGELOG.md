@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.47.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.2...@keen.io/ui-core@2.47.0) (2021-12-09)
+
+
+### Features
+
+* 🎸 Dropdown list shadow, padding from props ([7f8534a](https://github.com/keen/keen/commit/7f8534acd6807ddd4550dbfd945dacaf9ad2476c))
+
+
+
+
+
 ## [2.46.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.1...@keen.io/ui-core@2.46.2) (2021-12-08)
 
 
