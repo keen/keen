@@ -2,10 +2,13 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { colors } from '@keen.io/colors';
 
-export const ListContainer = styled.ul`
+export const ListContainer = styled.ul<{
+  padding: string;
+}>`
   list-style: none;
   margin: 0;
-  padding: 10px 0;
+  padding: ${(props) => props.padding};
+  overflow-y: auto;
 `;
 
 export const ListItem = styled.li<{

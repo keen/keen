@@ -16,6 +16,8 @@ type Props<T> = {
   setActiveItem?: (item: T, idx: number) => boolean;
   /** Item render function */
   renderItem?: (item: T, isActive: boolean) => JSX.Element;
+  /** List padding */
+  padding?: string;
 };
 
 const defaultItemRender = ({ label }: { label: string }) => <>{label}</>;
@@ -29,11 +31,12 @@ const DropdownList = forwardRef(
       onClick,
       renderItem = defaultItemRender,
       setActiveItem = defaultSetActive,
+      padding = '10px 0',
     }: Props<T>,
     ref: React.MutableRefObject<HTMLLIElement>
   ) => {
     return (
-      <ListContainer>
+      <ListContainer padding={padding}>
         {items.map((item, idx) => {
           const isActive = setActiveItem(item, idx);
 

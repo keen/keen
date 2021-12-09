@@ -1,6 +1,7 @@
 import React from 'react';
-import { render as rtlRender, fireEvent, act } from '@testing-library/react';
+import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
+import { render as rtlRender, fireEvent, act } from '@testing-library/react';
 import TagManagement from './tag-management.component';
 
 const render = (overProps: any = {}) => {
@@ -22,6 +23,7 @@ const render = (overProps: any = {}) => {
   };
 };
 
+mockAllIsIntersecting(true);
 jest.useFakeTimers();
 
 test('allows user to add tag', () => {
