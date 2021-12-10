@@ -24,6 +24,10 @@ const render = (overProps: any = {}) => {
 
 jest.useFakeTimers();
 
+beforeEach(() => {
+  Element.prototype.scrollIntoView = jest.fn();
+});
+
 test('allows user to add tag', () => {
   const {
     wrapper: { getByTestId, getByText },
