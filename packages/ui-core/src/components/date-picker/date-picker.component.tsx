@@ -117,14 +117,22 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
           }
           onClick={() => !isDatePickerOpen && setDatePickerOpen(true)}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            e.persist();
             const { value } = e.currentTarget;
-            let formattedValue = value.replace(/\D/g, '');
 
-            const arr = Array.from(formattedValue);
-            if (arr.length > 4) arr.splice(4, 0, '-');
-            if (arr.length > 7) arr.splice(7, 0, '-');
-            formattedValue = arr.toString().replace(/,/g, '');
-            setInputDate(formattedValue);
+            let formattedValue = value;
+            const isDeleting = value.length < inputDate.length;
+            if (!isDeleting && /^\d{4}$/.test(value)) {
+              formattedValue = `${value}-`;
+            }
+            if (!isDeleting && /^\d{4}-\d{2}$/.test(value)) {
+              formattedValue = `${value}-`;
+            }
+
+            const regex = /(^\d{0,4}$)|(^\d{0,4}-$)|(^\d{0,4}-\d{1,2}$)|(^\d{0,4}-\d{1,2}-$)|(^\d{0,4}-\d{1,2}-\d{1,2}$)/g;
+            if (regex.test(formattedValue)) {
+              setInputDate(formattedValue);
+            }
 
             if (validateDate(formattedValue)) {
               const updatedDate = dayjs(formattedValue)
@@ -185,7 +193,12 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
           autoComplete="off"
           value={inputTime}
           onBlur={() =>
-            !validateTime(inputTime) && setInputTime(`${hour}:${minute}`)
+            !validateTime(inputTime) &&
+            setInputTime(
+              `${hour < 10 ? `0${hour}` : hour}:${
+                minute < 10 ? `0${minute}` : minute
+              }`
+            )
           }
           onInput={() => {
             !isTimePickerOpen && setTimePickerOpen(true);
@@ -198,13 +211,19 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
           }
           onClick={() => !isTimePickerOpen && setTimePickerOpen(true)}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            e.persist();
             const { value } = e.currentTarget;
-            let formattedValue = value.replace(/\D/g, '');
 
-            const arr = Array.from(formattedValue);
-            if (arr.length > 2) arr.splice(2, 0, ':');
-            formattedValue = arr.toString().replace(/,/g, '');
-            setInputTime(formattedValue);
+            let formattedValue = value;
+            const isDeleting = value.length < inputTime.length;
+            if (!isDeleting && /^\d{2}$/.test(value)) {
+              formattedValue = `${value}:`;
+            }
+
+            const regex = /(^\d{0,2}$)|(^\d{0,2}:$)|(^\d{0,2}:\d{0,2}$)|(^\d{2}:\d{2}$)/g;
+            if (regex.test(formattedValue)) {
+              setInputTime(formattedValue);
+            }
 
             if (validateTime(formattedValue)) {
               const [hour, minute] = formattedValue.split(':');

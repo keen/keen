@@ -42,15 +42,15 @@ const DropdownList = forwardRef(
 
     const scrollItem = useCallback(() => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
-      if (ref?.current) {
-        debounceRef.current = setTimeout(() => {
+      debounceRef.current = setTimeout(() => {
+        if (ref?.current) {
           ref.current.scrollIntoView({
             behavior: 'smooth',
             block: 'nearest',
             inline: 'nearest',
           });
-        }, debounce);
-      }
+        }
+      }, debounce);
     }, [ref?.current, setActiveItem]);
 
     return (
