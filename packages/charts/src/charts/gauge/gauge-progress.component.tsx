@@ -44,7 +44,7 @@ const GaugeProgress: FC<Props> = ({
     initialValue.set(value);
 
     return () => spring.destroy();
-  }, []);
+  }, [value]);
 
   const { fontColor, ...valueStyles } = typography;
 
