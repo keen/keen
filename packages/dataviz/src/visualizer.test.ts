@@ -79,3 +79,15 @@ test('renders error message for analysis results with empty events', () => {
 
   expect(dataviz.error).toHaveBeenCalled();
 });
+
+test('renders error message for analysis with empty results', () => {
+  const dataviz = new Visualizer({
+    container: '#container',
+    type: 'bar',
+  });
+
+  dataviz.error = jest.fn();
+  dataviz.render({ result: [] });
+
+  expect(dataviz.error).toHaveBeenCalled();
+});

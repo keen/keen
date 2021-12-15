@@ -146,7 +146,10 @@ class Visualizer {
     }
 
     const isEmptyAnalysisResult =
-      this.useKeenAsDataSource && results.length === 0;
+      this.useKeenAsDataSource &&
+      (results.length === 0 ||
+        (Array.isArray(input.result) && input.result.length === 0));
+
     if (isEmptyAnalysisResult) {
       return this.error(text.empty_analysis_result);
     }
