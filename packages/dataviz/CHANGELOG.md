@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.10...@keen.io/dataviz@2.17.11) (2021-12-15)
+
+
+### Bug Fixes
+
+* 🐛 Empty visualization fix ([e7f11a1](https://github.com/keen/keen/commit/e7f11a169c67e47696970759447136907319294c))
+
+
+
+
+
 ## [2.17.10](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.9...@keen.io/dataviz@2.17.10) (2021-12-09)
 
 **Note:** Version bump only for package @keen.io/dataviz
