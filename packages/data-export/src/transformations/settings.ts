@@ -7,6 +7,7 @@ import {
   ChoroplethChartSettings,
   MetricChartSettings,
   BarChartSettings,
+  GaugeChartSettings,
 } from '@keen.io/charts';
 
 import { VisualizationExport, TransformationInput } from '../types';
@@ -19,6 +20,7 @@ import { transform as transformBarChart } from './bar';
 import { transform as transformFunnelChart } from './funnel';
 import { transform as transformMetricChart } from './metric';
 import { transform as transformChoroplethChart } from './choropleth';
+import { transform as transformGaugeChart } from './gauge';
 
 export const transformData = ({
   widgetType,
@@ -68,7 +70,12 @@ export const transformData = ({
         chartSettings,
         query,
       } as TransformationInput<TableChartSettings>);
+    case 'gauge':
+      return transformGaugeChart({
+        chartSettings,
+        query,
+      } as TransformationInput<GaugeChartSettings & { keys: string[] }>);
     default:
-      return [];
+      return [[], []];
   }
 };
