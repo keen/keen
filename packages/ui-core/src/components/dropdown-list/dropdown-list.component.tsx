@@ -43,7 +43,7 @@ const DropdownList = forwardRef(
           if (isActive && ref?.current) {
             ref.current.scrollIntoView({
               behavior: 'smooth',
-              block: 'center',
+              block: 'nearest',
               inline: 'nearest',
             });
           }
