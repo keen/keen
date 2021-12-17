@@ -1,4 +1,11 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FC,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import Calendar, { OnChangeDateCallback } from 'react-calendar';
 import dayjs from 'dayjs';
 import { transparentize } from 'polished';
@@ -9,7 +16,12 @@ import Dropdown from '../dropdown';
 import Input from '../input';
 import DropdownListContainer from '../dropdown-list-container';
 import DropdownList from '../dropdown-list';
-import { getEventPath, getTimeOptions } from './utils';
+import {
+  getEventPath,
+  getTimeOptions,
+  validateDate,
+  validateTime,
+} from './utils';
 import {
   GlobalStyle,
   IconContainer,
@@ -19,6 +31,7 @@ import {
   TimePickerList,
   PickerInput,
 } from './date-picker.styles';
+import { DATE_FORMAT, TIME_FORMAT } from './constants';
 
 type Props = {
   /** Change event handler */
@@ -35,6 +48,9 @@ const minutesOptions = getTimeOptions(60);
 const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
   const [isDatePickerOpen, setDatePickerOpen] = useState(false);
   const [isTimePickerOpen, setTimePickerOpen] = useState(false);
+  const [inputTime, setInputTime] = useState('');
+  const [inputDate, setInputDate] = useState('');
+
   const datePickerRef = useRef(null);
   const timePickerRef = useRef(null);
 
@@ -65,24 +81,73 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
     outsideClick,
   ]);
 
+  useEffect(() => {
+    const inputTime = dayjs(date).format(TIME_FORMAT);
+    const inputDate = dayjs(date).format(DATE_FORMAT);
+
+    setInputTime(inputTime);
+    setInputDate(inputDate);
+  }, [date]);
+
   return (
     <Container>
       <GlobalStyle />
       <PickerInput>
         <Input
           type="text"
-          readOnly
           variant="solid"
-          value={dayjs(date).format('YYYY-MM-DD')}
+          placeholder={DATE_FORMAT}
+          pattern="\d{4}-\d{2}-\d{2}"
+          maxLength={10}
+          autoComplete="off"
+          value={inputDate}
+          hasError={!validateDate(inputDate)}
+          onBlur={() =>
+            !validateDate(inputTime) &&
+            setInputDate(dayjs(date).format(DATE_FORMAT))
+          }
+          onInput={() => {
+            !isDatePickerOpen && setDatePickerOpen(true);
+            isTimePickerOpen && setTimePickerOpen(false);
+          }}
+          onKeyDown={(e) =>
+            isDatePickerOpen &&
+            (e.key === 'Enter' || e.key === 'Escape') &&
+            setDatePickerOpen(false)
+          }
           onClick={() => !isDatePickerOpen && setDatePickerOpen(true)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            e.persist();
+            const { value } = e.currentTarget;
+
+            let formattedValue = value;
+            const isDeleting = value.length < inputDate.length;
+            if (!isDeleting && /^\d{4}$/.test(value)) {
+              formattedValue = `${value}-`;
+            }
+            if (!isDeleting && /^\d{4}-\d{2}$/.test(value)) {
+              formattedValue = `${value}-`;
+            }
+
+            const regex = /(^\d{0,4}$)|(^\d{0,4}-$)|(^\d{0,4}-\d{1,2}$)|(^\d{0,4}-\d{1,2}-$)|(^\d{0,4}-\d{1,2}-\d{1,2}$)/g;
+            if (regex.test(formattedValue)) {
+              setInputDate(formattedValue);
+            }
+
+            if (validateDate(formattedValue)) {
+              const updatedDate = dayjs(formattedValue)
+                .hour(hour)
+                .minute(minute)
+                .toDate();
+              onChange(updatedDate, e);
+            }
+          }}
         />
         <Dropdown isOpen={isDatePickerOpen} fullWidth={false}>
           <CalendarContainer ref={datePickerRef} data-testid={id}>
             <Calendar
-              onChange={(
-                date: Date,
-                event: React.ChangeEvent<HTMLInputElement>
-              ) => {
+              locale="en-EN"
+              onChange={(date: Date, event: ChangeEvent<HTMLInputElement>) => {
                 const updatedDate = dayjs(date)
                   .hour(hour)
                   .minute(minute)
@@ -120,13 +185,55 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
       <PickerInput>
         <Input
           type="text"
-          readOnly
           variant="solid"
+          placeholder={TIME_FORMAT}
+          pattern="\d{2}:\d{2}"
+          maxLength={5}
+          hasError={!validateTime(inputTime)}
+          autoComplete="off"
+          value={inputTime}
+          onBlur={() =>
+            !validateTime(inputTime) &&
+            setInputTime(
+              `${hour < 10 ? `0${hour}` : hour}:${
+                minute < 10 ? `0${minute}` : minute
+              }`
+            )
+          }
+          onInput={() => {
+            !isTimePickerOpen && setTimePickerOpen(true);
+            isDatePickerOpen && setDatePickerOpen(false);
+          }}
+          onKeyDown={(e) =>
+            isTimePickerOpen &&
+            (e.key === 'Enter' || e.key === 'Escape') &&
+            setTimePickerOpen(false)
+          }
           onClick={() => !isTimePickerOpen && setTimePickerOpen(true)}
-          value={date.toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            e.persist();
+            const { value } = e.currentTarget;
+
+            let formattedValue = value;
+            const isDeleting = value.length < inputTime.length;
+            if (!isDeleting && /^\d{2}$/.test(value)) {
+              formattedValue = `${value}:`;
+            }
+
+            const regex = /(^\d{0,2}$)|(^\d{0,2}:$)|(^\d{0,2}:\d{0,2}$)|(^\d{2}:\d{2}$)/g;
+            if (regex.test(formattedValue)) {
+              setInputTime(formattedValue);
+            }
+
+            if (validateTime(formattedValue)) {
+              const [hour, minute] = formattedValue.split(':');
+              const updatedDate = dayjs(date)
+                .hour(+hour)
+                .minute(+minute)
+                .toDate();
+              onChange(updatedDate, e);
+            }
+          }}
         />
         <Dropdown isOpen={isTimePickerOpen}>
           <TimePickerContainer ref={timePickerRef}>
@@ -135,13 +242,16 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
                 {(activeItemRef) => (
                   <DropdownList
                     ref={activeItemRef}
+                    debounce={500}
                     items={hoursOptions}
-                    setActiveItem={({ value }) => hour === Number(value)}
+                    setActiveItem={({ value }) => hour === +value}
                     onClick={(_e, { value: hour }) => {
-                      const updatedDate = dayjs(date).hour(hour).toDate();
+                      const updatedDate = dayjs(date)
+                        .hour(+hour)
+                        .toDate();
                       onChange(
                         updatedDate,
-                        {} as React.ChangeEvent<HTMLInputElement>
+                        {} as ChangeEvent<HTMLInputElement>
                       );
                     }}
                   />
@@ -153,13 +263,16 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
                 {(activeItemRef) => (
                   <DropdownList
                     ref={activeItemRef}
+                    debounce={1000}
                     items={minutesOptions}
-                    setActiveItem={({ value }) => minute === Number(value)}
+                    setActiveItem={({ value }) => minute === +value}
                     onClick={(_e, { value: minute }) => {
-                      const updatedDate = dayjs(date).minute(minute).toDate();
+                      const updatedDate = dayjs(date)
+                        .minute(+minute)
+                        .toDate();
                       onChange(
                         updatedDate,
-                        {} as React.ChangeEvent<HTMLInputElement>
+                        {} as ChangeEvent<HTMLInputElement>
                       );
                     }}
                   />

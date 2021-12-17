@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback, useRef } from 'react';
 
 import { ListContainer, ListItem } from './dropdown-list.styles';
 
@@ -10,6 +10,8 @@ interface ListElement {
 type Props<T> = {
   /** Collection of items */
   items: T[];
+  /** Scroll timeout in [ms]  */
+  debounce?: number;
   /** Click event handler */
   onClick: (e: React.MouseEvent<HTMLLIElement>, item: T) => void;
   /** Active item function */
@@ -31,22 +33,33 @@ const DropdownList = forwardRef(
       onClick,
       renderItem = defaultItemRender,
       setActiveItem = defaultSetActive,
+      debounce = 0,
       padding = '10px 0',
     }: Props<T>,
     ref: React.MutableRefObject<HTMLLIElement>
   ) => {
+    const debounceRef = useRef(null);
+
+    const scrollItem = useCallback(() => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      debounceRef.current = setTimeout(() => {
+        if (ref?.current) {
+          ref.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'nearest',
+          });
+        }
+      }, debounce);
+    }, [ref?.current, setActiveItem]);
+
     return (
       <ListContainer padding={padding}>
         {items.map((item, idx) => {
           const isActive = setActiveItem(item, idx);
 
-          if (isActive && ref?.current) {
-            ref.current.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-              inline: 'nearest',
-            });
-          }
+          if (isActive) scrollItem();
+
           return (
             <ListItem
               isActive={isActive}
