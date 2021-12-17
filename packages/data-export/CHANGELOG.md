@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.32](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.31...@keen.io/data-export@1.2.32) (2021-12-17)
+
+
+### Bug Fixes
+
+* 🐛 data export for Gauge ([6c71b53](https://github.com/keen/keen/commit/6c71b53c83abab9a19913177b9c50f80bf3c94d2))
+
+
+
+
+
 ## [1.2.31](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.30...@keen.io/data-export@1.2.31) (2021-12-15)
 
 **Note:** Version bump only for package @keen.io/data-export
