@@ -74,7 +74,7 @@ import Portal from './portal';
 import ScrollWrapper from './scroll-wrapper';
 import Tabs from './tabs';
 
-import AbsoluteTime, { TIME_PICKER_CLASS } from './absolute-time';
+import AbsoluteTime from './absolute-time';
 import DatePicker from './date-picker';
 import DropableContainer, {
   DropableContainerVariant,
@@ -93,7 +93,7 @@ import DynamicPortal from './dynamic-portal';
 import Color from './color';
 import SideMenu from './side-menu';
 
-export { ARROW_SIZE, TIME_PICKER_CLASS, PER_PAGE_OPTIONS };
+export { ARROW_SIZE, PER_PAGE_OPTIONS };
 
 export type {
   CardSettings,

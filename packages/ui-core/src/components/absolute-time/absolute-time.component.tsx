@@ -8,6 +8,7 @@ import { Timeframe } from '@keen.io/query';
 import { Container, TimeLabel, TimeRow } from './absolute-time.styles';
 
 import DatePicker from '../date-picker';
+import { DATE_FORMAT } from './constants';
 
 dayjs.extend(utcPlugin);
 dayjs.extend(timezonePlugin);
@@ -43,7 +44,7 @@ const AbsoluteTime: FC<Props> = memo(
             date={startDate}
             onChange={(date) =>
               onChange({
-                start: dayjs(date.toString()).format('YYYY-MM-DDTHH:mm:ss'),
+                start: dayjs(date.toString()).format(DATE_FORMAT),
                 end,
               })
             }
@@ -57,7 +58,7 @@ const AbsoluteTime: FC<Props> = memo(
             onChange={(date) =>
               onChange({
                 start,
-                end: dayjs(date.toString()).format('YYYY-MM-DDTHH:mm:ss'),
+                end: dayjs(date.toString()).format(DATE_FORMAT),
               })
             }
           />

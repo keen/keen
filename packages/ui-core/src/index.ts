@@ -82,7 +82,6 @@ import {
   ScrollWrapper,
   Tabs,
   AbsoluteTime,
-  TIME_PICKER_CLASS,
   DatePicker,
   DropableContainer,
   DropableContainerVariant,
@@ -139,14 +138,7 @@ export type {
   FontSettings,
 };
 
-export {
-  ARROW_SIZE,
-  UI_LAYERS,
-  TIME_UNITS,
-  TIME_PICKER_CLASS,
-  KEYBOARD_KEYS,
-  PER_PAGE_OPTIONS,
-};
+export { ARROW_SIZE, UI_LAYERS, TIME_UNITS, KEYBOARD_KEYS, PER_PAGE_OPTIONS };
 
 export { isElementInViewport, exportToHtml, mutateArray } from './utils';
 
