@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.48.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.47.0...@keen.io/ui-core@2.48.0) (2021-12-17)
+
+
+### Features
+
+* 🎸 datepicker improvements ([7e8f6e5](https://github.com/keen/keen/commit/7e8f6e574cd5d7768c3c724ab26e3fb3a2e611c9))
+
+
+
+
+
 # [2.47.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.2...@keen.io/ui-core@2.47.0) (2021-12-09)
 
 
