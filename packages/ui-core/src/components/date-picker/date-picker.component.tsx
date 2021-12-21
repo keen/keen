@@ -122,11 +122,15 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
 
             let formattedValue = value;
             const isDeleting = value.length < inputDate.length;
-            if (!isDeleting && /^\d{4}$/.test(value)) {
-              formattedValue = `${value}-`;
+            if (!isDeleting && /^\d{4,5}$/.test(value)) {
+              const arr = formattedValue.split('');
+              arr.splice(4, 0, '-');
+              formattedValue = arr.join('');
             }
-            if (!isDeleting && /^\d{4}-\d{2}$/.test(value)) {
-              formattedValue = `${value}-`;
+            if (!isDeleting && /^\d{4}-\d{2,3}$/.test(value)) {
+              const arr = formattedValue.split('');
+              arr.splice(7, 0, '-');
+              formattedValue = arr.join('');
             }
 
             const regex = /(^\d{0,4}$)|(^\d{0,4}-$)|(^\d{0,4}-\d{1,2}$)|(^\d{0,4}-\d{1,2}-$)|(^\d{0,4}-\d{1,2}-\d{1,2}$)/g;
@@ -216,8 +220,10 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
 
             let formattedValue = value;
             const isDeleting = value.length < inputTime.length;
-            if (!isDeleting && /^\d{2}$/.test(value)) {
-              formattedValue = `${value}:`;
+            if (!isDeleting && /^\d{2,3}$/.test(value)) {
+              const arr = formattedValue.split('');
+              arr.splice(2, 0, ':');
+              formattedValue = arr.join('');
             }
 
             const regex = /(^\d{0,2}$)|(^\d{0,2}:$)|(^\d{0,2}:\d{0,2}$)|(^\d{2}:\d{2}$)/g;
