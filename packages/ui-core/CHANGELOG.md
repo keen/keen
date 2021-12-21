@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.48.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.48.0...@keen.io/ui-core@2.48.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* 🐛 typing handlers in inputs ([3db4143](https://github.com/keen/keen/commit/3db41439b3db0463c77b853677a16ce632b016c4))
+
+
+
+
+
 # [2.48.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.47.0...@keen.io/ui-core@2.48.0) (2021-12-17)
 
 
