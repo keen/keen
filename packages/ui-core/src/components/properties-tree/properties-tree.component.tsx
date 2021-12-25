@@ -1,17 +1,17 @@
 import React, { FC, useRef, useEffect, useContext } from 'react';
-import {
-  FixedSizeTree as Tree,
-  FixedSizeNodeComponentProps,
-} from 'react-vtree';
+import { FixedSizeTree as Tree } from 'react-vtree';
 
 import { TreeLeaf, TreeNode } from './components';
-import { createTreeWalker, getPropertyPath, getPropertyType } from './utils';
+import {
+  createTreeWalker,
+  getPropertiesToRecompute,
+  getPropertyPath,
+  getPropertyType,
+} from './utils';
 
 import PropertiesTreeContext from './context';
 
 import { LIST_HEIGHT, ELEMENT_HEIGHT } from './constants';
-
-import { TreeData } from './types';
 
 type Props = {
   /** Properties tree */
@@ -29,16 +29,16 @@ type Props = {
   modalContainer: string;
 };
 
-const Node: FC<FixedSizeNodeComponentProps<TreeData>> = ({
-  data: { name, isLeaf, schemaMeta, deepnessLevel },
+// todo - add node prop typings when exported from lib: https://github.com/Lodin/react-vtree/pull/82
+const Node: FC<any> = ({
+  data: { name, isLeaf, schemaMeta, nestingLevel },
   isOpen,
   style,
-  toggle,
+  setOpen,
   treeData,
 }) => {
   const { modalContainer } = useContext(PropertiesTreeContext);
   const { activeProperty, onSelectProperty } = treeData;
-
   return (
     <div style={style}>
       {isLeaf ? (
@@ -46,7 +46,7 @@ const Node: FC<FixedSizeNodeComponentProps<TreeData>> = ({
           isActive={activeProperty === getPropertyPath(schemaMeta)}
           propertyName={name}
           onClick={onSelectProperty}
-          deepnessLevel={deepnessLevel}
+          deepnessLevel={nestingLevel}
           propertyType={getPropertyType(schemaMeta)}
           propertyPath={getPropertyPath(schemaMeta)}
           modalContainer={modalContainer}
@@ -55,8 +55,8 @@ const Node: FC<FixedSizeNodeComponentProps<TreeData>> = ({
         <TreeNode
           name={name}
           isOpen={isOpen}
-          deepnessLevel={deepnessLevel}
-          onClick={toggle}
+          deepnessLevel={nestingLevel}
+          onClick={() => setOpen(!isOpen)}
         />
       )}
     </div>
@@ -72,16 +72,15 @@ const PropertiesTree: FC<Props> = ({
 }) => {
   const treeRef = useRef(null);
   const expandTrigger = useRef(null);
+  const propertiesToRecompute =
+    activeProperty && getPropertiesToRecompute(activeProperty);
 
   useEffect(() => {
     if (expandTrigger.current) clearTimeout(expandTrigger.current);
     if (treeRef.current) {
-      treeRef.current.recomputeTree({
-        refreshNodes: true,
-        useDefaultOpenness: true,
-      });
+      treeRef.current.recomputeTree(propertiesToRecompute);
     }
-  }, [expanded, treeRef]);
+  }, [expanded, treeRef, propertiesToRecompute]);
 
   return (
     <PropertiesTreeContext.Provider value={{ modalContainer }}>

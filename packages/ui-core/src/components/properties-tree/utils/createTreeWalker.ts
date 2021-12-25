@@ -1,57 +1,59 @@
-import { StackElement, TreeData } from '../types';
+import { DataNode } from '../types';
+
+const getNodeData = (
+  { id, children, name }: DataNode,
+  nestingLevel: number,
+  isOpenByDefault: boolean
+) => {
+  return {
+    data: {
+      id,
+      name,
+      isOpenByDefault,
+      nestingLevel,
+      isLeaf: Array.isArray(children),
+      schemaMeta: Array.isArray(children) ? children : null,
+    },
+    children,
+  };
+};
 
 const createTreeWalker = (
   properties: Record<string, string[] | Record<string, any>>,
   isOpenByDefault: boolean
 ) => {
-  return function* treeWalker(
-    refreshTree: boolean
-  ): Generator<TreeData | string | symbol, void, boolean> {
-    const stack: StackElement[] = [];
+  return function* treeWalker() {
+    const parentNodes: any = [];
+    const parent = Object.keys(properties);
 
-    Object.keys(properties).forEach((propertyKey) => {
-      stack.push({
-        deepnessLevel: 0,
-        node: {
-          id: propertyKey,
-          name: propertyKey,
-          children: properties[propertyKey],
-        },
-      });
-    });
+    parent.forEach((key) =>
+      parentNodes.push({
+        name: key,
+        id: key,
+        children: properties[key],
+      })
+    );
 
-    while (stack.length !== 0) {
-      const {
-        node: { children, id, name },
-        deepnessLevel,
-      } = stack.pop();
+    for (let i = parentNodes.length - 1; i >= 0; i--) {
+      yield getNodeData(parentNodes[i], 0, isOpenByDefault);
+    }
 
-      const isOpened = yield refreshTree
-        ? {
-            id,
-            isLeaf: Array.isArray(children),
-            schemaMeta: Array.isArray(children) ? children : null,
-            isOpenByDefault,
-            deepnessLevel,
-            name,
-          }
-        : id;
-
-      if (
-        !Array.isArray(children) &&
-        Object.keys(children).length !== 0 &&
-        isOpened
-      ) {
-        Object.keys(children).forEach((key) => {
-          stack.push({
-            deepnessLevel: deepnessLevel + 1,
-            node: {
-              name: key,
-              id: `${id}.${key}`,
-              children: children[key],
-            },
-          });
-        });
+    while (true) {
+      const parent = yield;
+      if (!parent.data.isLeaf) {
+        const children = Object.keys(parent.children);
+        for (let i = children.length - 1; i >= 0; i--) {
+          const child = {
+            name: children[i],
+            id: parent.data.name + '.' + children[i],
+            children: parent.children[children[i]],
+          };
+          yield getNodeData(
+            child,
+            parent.data.nestingLevel + 1,
+            isOpenByDefault
+          );
+        }
       }
     }
   };
