@@ -29,6 +29,8 @@ type Props = {
   onPageChange: (page: number) => void;
   /** Click event handler */
   onItemsPerPageChange: (option: PerPageType) => void;
+  /** Pagination enabled */
+  pagination: boolean;
 };
 
 const TableFooter: FC<Props> = ({
@@ -38,6 +40,7 @@ const TableFooter: FC<Props> = ({
   itemsPerPage,
   onPageChange,
   onItemsPerPageChange,
+  pagination,
 }) => {
   const [isCompactView, setCompactView] = useState(false);
 
@@ -63,8 +66,11 @@ const TableFooter: FC<Props> = ({
               {rows.toLocaleString('en-US')} rows
             </BodyText>
           </RowsContainer>
-          {totalPages > 1 && (
-            <PaginationContainer isCompactView={isCompactView}>
+          {pagination && totalPages > 1 && (
+            <PaginationContainer
+              isCompactView={isCompactView}
+              data-testid="pagination"
+            >
               <Pagination
                 page={page}
                 totalPages={totalPages}
@@ -72,12 +78,17 @@ const TableFooter: FC<Props> = ({
               />
             </PaginationContainer>
           )}
-          <PerPageContainer isCompactView={isCompactView}>
-            <ItemsPerPage
-              value={itemsPerPage}
-              onChange={(option) => onItemsPerPageChange(option)}
-            />
-          </PerPageContainer>
+          {pagination && (
+            <PerPageContainer
+              isCompactView={isCompactView}
+              data-testid="rows-per-page"
+            >
+              <ItemsPerPage
+                value={itemsPerPage}
+                onChange={(option) => onItemsPerPageChange(option)}
+              />
+            </PerPageContainer>
+          )}
         </Container>
       )}
     </Measure>

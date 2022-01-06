@@ -56,3 +56,17 @@ test('should call onItemsPerPageChange', () => {
 
   expect(onItemsPerPageChange).toHaveBeenCalledWith(50);
 });
+
+test('should not show pagination and rows per page selector when pagination is disabled', () => {
+  const {
+    wrapper: { queryByTestId },
+  } = render({
+    pagination: false,
+  });
+
+  const pagination = queryByTestId('pagination');
+  const rowsPerPageSelector = queryByTestId('rows-per-page');
+
+  expect(pagination).toBeNull();
+  expect(rowsPerPageSelector).toBeNull();
+});
