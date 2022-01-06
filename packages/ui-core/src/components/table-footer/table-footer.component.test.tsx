@@ -9,6 +9,7 @@ const render = (overProps: any = {}) => {
     totalPages: 150,
     onPageChange: jest.fn(),
     onItemsPerPageChange: jest.fn(),
+    pagination: true,
     ...overProps,
   };
 
