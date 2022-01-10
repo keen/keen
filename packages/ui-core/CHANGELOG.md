@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.49.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.48.1...@keen.io/ui-core@2.49.0) (2022-01-10)
+
+
+### Features
+
+* 🎸 Table footer tests fixed ([8b562fb](https://github.com/keen/keen/commit/8b562fb8ef00c132d61e5f5f1008336a46afdfdb))
+* 🎸 Table pagination settings ([9097760](https://github.com/keen/keen/commit/90977605c3c9d7eb3ba3e6ee12531f5842364e9c))
+
+
+
+
+
 ## [2.48.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.48.0...@keen.io/ui-core@2.48.1) (2021-12-21)
 
 

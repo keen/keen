@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.38.0](https://github.com/keen/keen/compare/@keen.io/charts@2.37.11...@keen.io/charts@2.38.0) (2022-01-10)
+
+
+### Features
+
+* 🎸 Table pagination settings ([9097760](https://github.com/keen/keen/commit/90977605c3c9d7eb3ba3e6ee12531f5842364e9c))
+
+
+
+
+
 ## [2.37.11](https://github.com/keen/keen/compare/@keen.io/charts@2.37.10...@keen.io/charts@2.37.11) (2021-12-21)
 
 **Note:** Version bump only for package @keen.io/charts

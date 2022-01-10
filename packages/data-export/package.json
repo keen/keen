@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/data-export",
-  "version": "1.2.34",
+  "version": "1.2.35",
   "description": "Keen data export utilities",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -24,12 +24,12 @@
   },
   "dependencies": {
     "@keen.io/charts-utils": "^1.15.0",
-    "@keen.io/parser": "^2.8.129",
+    "@keen.io/parser": "^2.8.130",
     "@keen.io/query": "^1.2.0"
   },
   "devDependencies": {
-    "@keen.io/charts": "^2.37.11",
-    "@keen.io/widgets": "^2.16.40"
+    "@keen.io/charts": "^2.38.0",
+    "@keen.io/widgets": "^2.16.41"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
