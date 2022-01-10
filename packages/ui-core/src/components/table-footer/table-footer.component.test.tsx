@@ -9,6 +9,7 @@ const render = (overProps: any = {}) => {
     totalPages: 150,
     onPageChange: jest.fn(),
     onItemsPerPageChange: jest.fn(),
+    pagination: true,
     ...overProps,
   };
 
@@ -55,4 +56,18 @@ test('should call onItemsPerPageChange', () => {
   fireEvent.click(chosenElement);
 
   expect(onItemsPerPageChange).toHaveBeenCalledWith(50);
+});
+
+test('should not show pagination and rows per page selector when pagination is disabled', () => {
+  const {
+    wrapper: { queryByTestId },
+  } = render({
+    pagination: false,
+  });
+
+  const pagination = queryByTestId('pagination');
+  const rowsPerPageSelector = queryByTestId('rows-per-page');
+
+  expect(pagination).toBeNull();
+  expect(rowsPerPageSelector).toBeNull();
 });

@@ -68,9 +68,13 @@ export type Props = {
   chartEvents?: ChartEvents<TableEvents>;
   /** Renaming columns settings */
   columnsNamesMapping?: Record<string, string>;
-  /* Rows selection enabled */
+  /** Rows selection enabled */
   rowsSelection?: boolean;
   theme: Theme;
+  /** Pagination enabled */
+  pagination: boolean;
+  /** Rows per page */
+  rowsPerPage: typeof PER_PAGE_OPTIONS[number];
 };
 export const TOOLTIP_MOTION = {
   transition: { duration: 0.3 },
@@ -86,6 +90,8 @@ export const TableChart = ({
   rowsSelection = false,
   chartEvents,
   columnsNamesMapping = {},
+  pagination = true,
+  rowsPerPage = PER_PAGE_OPTIONS[3],
 }: Props) => {
   const tableRef = useRef<HTMLTableElement>(null);
   const containerRef = useRef(null);
@@ -167,6 +173,8 @@ export const TableChart = ({
     )
   );
 
+  const itemsPerPage = pagination ? rowsPerPage : data.length;
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -186,7 +194,7 @@ export const TableChart = ({
       data: formattedData,
       initialState: {
         pageIndex: 0,
-        pageSize: PER_PAGE_OPTIONS[0],
+        pageSize: itemsPerPage,
         hiddenColumns: rowsSelection ? [] : [SELECT_COLUMN_ID],
       },
       manualSortBy: true,
@@ -197,6 +205,10 @@ export const TableChart = ({
     usePagination,
     useRowSelect
   );
+
+  useEffect(() => {
+    setPageSize(itemsPerPage);
+  }, [rowsPerPage, pagination]);
 
   useEffect(() => {
     if (sortBy && sortBy.length > 0) {
@@ -404,6 +416,7 @@ export const TableChart = ({
           <TableFooterContainer ref={measureRef}>
             <TableFooter
               rows={data.length}
+              pagination={pagination}
               page={pageIndex + 1}
               totalPages={pageCount}
               itemsPerPage={pageSize}
