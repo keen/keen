@@ -38,6 +38,9 @@ export const RowsContainer = styled.div<{ isCompactView: boolean }>`
   width: ${({ isCompactView }) =>
     isCompactView ? 'auto' : `${SUB_CONTAINER_WIDTH}px`};
   flex-shrink: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
 `;
 
 export const PerPageContainer = styled.div<{ isCompactView: boolean }>`
