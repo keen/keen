@@ -10,13 +10,14 @@ import {
 
 import { RangeSlider } from '@keen.io/ui-core';
 import { useSlider } from '@keen.io/react-hooks';
+import { colors } from '@keen.io/colors';
 
 import ChartWidget from '../chart-widget';
 import WidgetHeading from '../widget-heading.component';
 
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
-import { colors } from '@keen.io/colors';
+import TooManyGroupsError from './components/too-many-groups-error';
 
 type Props = { legend: LegendSettings } & WidgetSettings & HeatmapChartSettings;
 
@@ -33,6 +34,7 @@ export const HeatmapChartWidget: FC<Props> = ({
 }) => {
   const { min, max } = useSlider(props.data, props.keys);
   const [range, setRange] = useState({ min, max });
+  const [tooManyGroupsError, setToManyGroupsError] = useState(false);
 
   return (
     <ChartWidget
@@ -46,7 +48,8 @@ export const HeatmapChartWidget: FC<Props> = ({
         <WidgetHeading title={title} subtitle={subtitle} tags={tags} />
       )}
       legend={() =>
-        legend.enabled && (
+        legend.enabled &&
+        !tooManyGroupsError && (
           <LegendBase fullDimension spacing="thin" {...legend}>
             <RangeSlider
               key={`range-slider-${legend.position}`}
@@ -76,15 +79,20 @@ export const HeatmapChartWidget: FC<Props> = ({
       }
       content={() => (
         <ResponsiveWrapper>
-          {(width: number, height: number) => (
-            <HeatmapChart
-              {...props}
-              theme={theme}
-              range={range}
-              steps={steps}
-              svgDimensions={{ width, height }}
-            />
-          )}
+          {(width: number, height: number) =>
+            tooManyGroupsError ? (
+              <TooManyGroupsError />
+            ) : (
+              <HeatmapChart
+                {...props}
+                theme={theme}
+                range={range}
+                steps={steps}
+                svgDimensions={{ width, height }}
+                onToManyGroups={() => setToManyGroupsError(true)}
+              />
+            )
+          }
         </ResponsiveWrapper>
       )}
     />

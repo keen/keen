@@ -17,7 +17,11 @@ import { useDynamicChartLayout } from '../../hooks';
 import { generateBlocks, getTooltipLabel } from './utils';
 
 import { theme as defaultTheme } from '../../theme';
-import { DEFAULT_MARGINS, SEPARATOR } from './constants';
+import {
+  DEFAULT_MARGINS,
+  MINIMAL_BLOCK_SIZE_IN_PIXELS,
+  SEPARATOR,
+} from './constants';
 
 import { CommonChartSettings } from '../../types';
 import { TooltipSettings } from './types';
@@ -60,6 +64,8 @@ export type Props = {
   range?: RangeType;
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
+  /** On to many groups to render */
+  onToManyGroups?: () => void;
 } & CommonChartSettings;
 
 export const HeatmapChart: FC<Props> = ({
@@ -82,6 +88,7 @@ export const HeatmapChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
   tooltipSettings = {},
+  onToManyGroups,
 }) => {
   const {
     layoutMargins,
@@ -124,6 +131,15 @@ export const HeatmapChart: FC<Props> = ({
     updateTooltipPosition,
     hideTooltip,
   } = useTooltip(svgElement);
+
+  const tileSizeIsTooSmall = blocks.some(
+    (block: any) =>
+      block.width < MINIMAL_BLOCK_SIZE_IN_PIXELS ||
+      block.height < MINIMAL_BLOCK_SIZE_IN_PIXELS
+  );
+  if (tileSizeIsTooSmall) {
+    onToManyGroups();
+  }
 
   const { tooltip: themeTooltipSettings } = theme;
 
