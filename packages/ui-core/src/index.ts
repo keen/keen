@@ -106,7 +106,6 @@ import {
   Filters,
 } from './components';
 
-import { getDefaultAbsoluteTime } from './components/absolute-time/utils';
 import {
   convertRelativeTime,
   getInterval,
@@ -216,7 +215,6 @@ export {
   EmptySearch,
   Accordion,
   OAuthUserAction,
-  getDefaultAbsoluteTime,
   convertRelativeTime,
   getInterval,
   createTree,
