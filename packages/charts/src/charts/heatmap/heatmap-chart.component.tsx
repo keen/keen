@@ -64,8 +64,8 @@ export type Props = {
   range?: RangeType;
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
-  /** On to many groups to render */
-  onToManyGroups?: () => void;
+  /** On too many groups to render */
+  onTooManyGroups?: () => void;
 } & CommonChartSettings;
 
 export const HeatmapChart: FC<Props> = ({
@@ -88,7 +88,7 @@ export const HeatmapChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
   tooltipSettings = {},
-  onToManyGroups,
+  onTooManyGroups,
 }) => {
   const {
     layoutMargins,
@@ -138,7 +138,7 @@ export const HeatmapChart: FC<Props> = ({
       block.height < MINIMAL_BLOCK_SIZE_IN_PIXELS
   );
   if (tileSizeIsTooSmall) {
-    onToManyGroups();
+    onTooManyGroups();
   }
 
   const { tooltip: themeTooltipSettings } = theme;

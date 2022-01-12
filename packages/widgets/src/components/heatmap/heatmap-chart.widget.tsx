@@ -34,7 +34,7 @@ export const HeatmapChartWidget: FC<Props> = ({
 }) => {
   const { min, max } = useSlider(props.data, props.keys);
   const [range, setRange] = useState({ min, max });
-  const [tooManyGroupsError, setToManyGroupsError] = useState(false);
+  const [tooManyGroupsError, setTooManyGroupsError] = useState(false);
 
   return (
     <ChartWidget
@@ -89,7 +89,7 @@ export const HeatmapChartWidget: FC<Props> = ({
                 range={range}
                 steps={steps}
                 svgDimensions={{ width, height }}
-                onToManyGroups={() => setToManyGroupsError(true)}
+                onTooManyGroups={() => setTooManyGroupsError(true)}
               />
             )
           }
