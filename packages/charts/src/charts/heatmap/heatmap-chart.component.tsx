@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Layout, Tooltip, ColorMode, RangeType, Text } from '@keen.io/ui-core';
 import { useTooltip } from '@keen.io/react-hooks';
@@ -64,8 +64,8 @@ export type Props = {
   range?: RangeType;
   /** Tooltip settings */
   tooltipSettings?: TooltipSettings;
-  /** On too many groups to render */
-  onTooManyGroups?: () => void;
+  /** On group block size change */
+  onBlockSizeChange?: (tileSizeToSmall: boolean) => void;
 } & CommonChartSettings;
 
 export const HeatmapChart: FC<Props> = ({
@@ -88,7 +88,7 @@ export const HeatmapChart: FC<Props> = ({
   xAxisTitle,
   yAxisTitle,
   tooltipSettings = {},
-  onTooManyGroups,
+  onBlockSizeChange,
 }) => {
   const {
     layoutMargins,
@@ -137,9 +137,10 @@ export const HeatmapChart: FC<Props> = ({
       block.width < MINIMAL_BLOCK_SIZE_IN_PIXELS ||
       block.height < MINIMAL_BLOCK_SIZE_IN_PIXELS
   );
-  if (tileSizeIsTooSmall) {
-    onTooManyGroups();
-  }
+
+  useEffect(() => {
+    onBlockSizeChange(tileSizeIsTooSmall);
+  }, [tileSizeIsTooSmall, onBlockSizeChange]);
 
   const { tooltip: themeTooltipSettings } = theme;
 
