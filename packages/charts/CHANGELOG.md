@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.39.0](https://github.com/keen/keen/compare/@keen.io/charts@2.38.0...@keen.io/charts@2.39.0) (2022-01-12)
+
+
+### Features
+
+* 🎸 Heatmap - to many groups error ([ed2f186](https://github.com/keen/keen/commit/ed2f1868998545049ca0bbb1880d7fd1ec52d51c))
+
+
+
+
+
 # [2.38.0](https://github.com/keen/keen/compare/@keen.io/charts@2.37.11...@keen.io/charts@2.38.0) (2022-01-10)
 
 

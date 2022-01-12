@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.41...@keen.io/widgets@2.17.0) (2022-01-12)
+
+
+### Features
+
+* 🎸 Heatmap - to many groups error ([ed2f186](https://github.com/keen/keen/commit/ed2f1868998545049ca0bbb1880d7fd1ec52d51c))
+
+
+
+
+
 ## [2.16.41](https://github.com/keen/keen/compare/@keen.io/widgets@2.16.40...@keen.io/widgets@2.16.41) (2022-01-10)
 
 **Note:** Version bump only for package @keen.io/widgets
