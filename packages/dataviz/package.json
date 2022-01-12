@@ -55,6 +55,7 @@
     "@keen.io/pubsub": "^1.2.0",
     "@keen.io/query": "^1.2.0",
     "@keen.io/widgets": "^2.16.23",
+    "dayjs": "^1.10.7",
     "deepmerge": "4.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
