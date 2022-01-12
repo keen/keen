@@ -18,6 +18,7 @@ import WidgetHeading from '../widget-heading.component';
 import { legendSettings } from '../../widget-settings';
 import { WidgetSettings, LegendSettings } from '../../types';
 import TooManyGroupsError from './components/too-many-groups-error';
+import { HeatmapWrapper } from './heatmap-chart.styles';
 
 type Props = { legend: LegendSettings } & WidgetSettings & HeatmapChartSettings;
 
@@ -79,20 +80,23 @@ export const HeatmapChartWidget: FC<Props> = ({
       }
       content={() => (
         <ResponsiveWrapper>
-          {(width: number, height: number) =>
-            tooManyGroupsError ? (
-              <TooManyGroupsError />
-            ) : (
-              <HeatmapChart
-                {...props}
-                theme={theme}
-                range={range}
-                steps={steps}
-                svgDimensions={{ width, height }}
-                onTooManyGroups={() => setTooManyGroupsError(true)}
-              />
-            )
-          }
+          {(width: number, height: number) => (
+            <>
+              {tooManyGroupsError && <TooManyGroupsError />}
+              <HeatmapWrapper isHidden={tooManyGroupsError}>
+                <HeatmapChart
+                  {...props}
+                  theme={theme}
+                  range={range}
+                  steps={steps}
+                  svgDimensions={{ width, height }}
+                  onBlockSizeChange={(tileSizeTooSmall) =>
+                    setTooManyGroupsError(tileSizeTooSmall)
+                  }
+                />
+              </HeatmapWrapper>
+            </>
+          )}
         </ResponsiveWrapper>
       )}
     />
