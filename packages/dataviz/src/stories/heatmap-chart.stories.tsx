@@ -295,3 +295,45 @@ export const OneCustomThemeColor = () => {
 
   return <div style={{ width: '700px', height: '500px' }} ref={container} />;
 };
+
+export const TooManyGroupsError = () => {
+  const container = React.useRef(null);
+
+  const data = [];
+  for (let i = 0; i < 40; i++) {
+    const row = { name: i };
+    for (let j = 0; j < 40; j++) {
+      row['value_' + j] = j;
+    }
+    data.push(row);
+  }
+
+  const keys = Object.keys(data[0]);
+  keys.shift();
+
+  React.useEffect(() => {
+    new KeenDataViz({
+      type: 'heatmap',
+      container: container.current,
+      settings: {
+        data,
+        keys,
+        labelSelector: 'name',
+      },
+      widget: {
+        title: {
+          content: 'Book purchases',
+        },
+        subtitle: {
+          content: 'Multiple results',
+        },
+        legend: {
+          position: 'left',
+          layout: 'vertical',
+        },
+      },
+    }).render();
+  }, []);
+
+  return <div style={{ width: '700px', height: '500px' }} ref={container} />;
+};
