@@ -26,6 +26,7 @@ const render = (overProps: any = {}) => {
     tooltipSettings: {
       formatValue: formatTooltip,
     },
+    onBlockSizeChange: jest.fn(),
     ...overProps,
   };
 
