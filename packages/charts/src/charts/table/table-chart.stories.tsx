@@ -57,6 +57,7 @@ export const Plot = () => {
         enableEditMode={boolean('Edit mode', false, 'Chart')}
         rowsSelection={boolean('Rows selection', true, 'Chart')}
         chartEvents={chartEvents}
+        pagination={boolean('Pagination', true, 'Chart')}
       />
     </Container>
   );

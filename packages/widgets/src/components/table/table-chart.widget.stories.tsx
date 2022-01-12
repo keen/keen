@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { text, object, color } from '@storybook/addon-knobs';
+import { text, object, color, boolean } from '@storybook/addon-knobs';
 import { cardKnobs, typographyKnobs } from '@keen.io/storybook-utils';
 import { Typography } from '@keen.io/ui-core';
 import { theme as keenTheme } from '@keen.io/charts';
@@ -51,6 +51,7 @@ export const widget = () => (
       theme={createThemeKnobs()}
       data={chartData}
       tags={[{ label: 'Widget tag', variant: 'gray' }]}
+      pagination={boolean('Pagination', true, 'Chart')}
     />
   </div>
 );

@@ -208,7 +208,11 @@ export const TableChart = ({
 
   useEffect(() => {
     setPageSize(itemsPerPage);
-  }, [rowsPerPage, pagination]);
+  }, [rowsPerPage, pagination, itemsPerPage, setPageSize]);
+
+  useEffect(() => {
+    setFooterHeight(pagination ? footerHeight : 0);
+  }, [pagination, footerHeight]);
 
   useEffect(() => {
     if (sortBy && sortBy.length > 0) {
@@ -406,33 +410,34 @@ export const TableChart = ({
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
       </TableContainer>
-      <Measure
-        bounds
-        onResize={({ bounds: { height } }) => {
-          setFooterHeight(height);
-        }}
-      >
-        {({ measureRef }) => (
-          <TableFooterContainer ref={measureRef}>
-            <TableFooter
-              rows={data.length}
-              pagination={pagination}
-              page={pageIndex + 1}
-              totalPages={pageCount}
-              itemsPerPage={pageSize}
-              onPageChange={(page) => {
-                containerRef.current.scrollTop = 0;
-                gotoPage(page - 1);
-              }}
-              onItemsPerPageChange={(pageSize) => {
-                containerRef.current.scrollTop = 0;
-                setPageSize(pageSize);
-                gotoPage(0);
-              }}
-            />
-          </TableFooterContainer>
-        )}
-      </Measure>
+      {pagination && (
+        <Measure
+          bounds
+          onResize={({ bounds: { height } }) => {
+            setFooterHeight(height);
+          }}
+        >
+          {({ measureRef }) => (
+            <TableFooterContainer ref={measureRef}>
+              <TableFooter
+                rows={data.length}
+                page={pageIndex + 1}
+                totalPages={pageCount}
+                itemsPerPage={pageSize}
+                onPageChange={(page) => {
+                  containerRef.current.scrollTop = 0;
+                  gotoPage(page - 1);
+                }}
+                onItemsPerPageChange={(pageSize) => {
+                  containerRef.current.scrollTop = 0;
+                  setPageSize(pageSize);
+                  gotoPage(0);
+                }}
+              />
+            </TableFooterContainer>
+          )}
+        </Measure>
+      )}
     </TableScrollWrapper>
   );
 };
