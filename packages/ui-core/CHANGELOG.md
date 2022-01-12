@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.50.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.49.1...@keen.io/ui-core@2.50.0) (2022-01-12)
+
+
+### Features
+
+* 🎸 Hiding pagination bar completely on disabled pagination ([db7473c](https://github.com/keen/keen/commit/db7473cc06a0d2c2d1bb1d582f98922206704eba))
+
+
+
+
+
 ## [2.49.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.49.0...@keen.io/ui-core@2.49.1) (2022-01-12)
 
 
