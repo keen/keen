@@ -1,5 +1,9 @@
 import { Query, Step } from '@keen.io/query';
 
+export interface IDataParser {
+  parseQueryResults: (input: ParserInput) => ParserOutput;
+}
+
 export type Transformation =
   | 'singular'
   | 'categorical'
@@ -12,7 +16,7 @@ export type Transformation =
   | 'extraction'
   | 'funnel';
 
-export type TransformOutput = {
+export type ParserOutput = {
   data: Record<string, any>[];
   keys: string[];
 };
@@ -21,7 +25,7 @@ export type TransformationFunction = (
   input: ParserInput,
   settings: ParserSettings,
   visualization?: string
-) => TransformOutput;
+) => ParserOutput;
 
 export type GroupByResult = { [key: string]: string | number } & {
   result: number;
@@ -61,7 +65,6 @@ export type ParserInput = {
 };
 
 export type ParserSettings = {
-  transformation: Transformation;
   fillEmptyIntervalsKeys: boolean;
   mergePropertiesOrder: null | string[];
   dateModifier?: DateModifier;

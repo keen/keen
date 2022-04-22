@@ -1,4 +1,4 @@
-import { parseQuery } from './parse-query';
+import DataParser from './DataParser';
 
 import { mapKeys } from './utils';
 
@@ -9,12 +9,13 @@ import {
   KEEN_TABLE_INTERVAL,
 } from './constants';
 
-import { AnalysisResult } from './types';
+import { AnalysisResult, ParserInput } from './types';
 
 export {
-  parseQuery,
+  DataParser,
   mapKeys,
   AnalysisResult,
+  ParserInput,
   KEEN_VALUE,
   KEEN_ELEMENTS,
   KEEN_KEY,

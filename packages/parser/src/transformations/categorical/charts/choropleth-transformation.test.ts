@@ -5,7 +5,6 @@ test('transforms data with multiple group by properties', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: null,
-    transformation: 'categorical',
   };
 
   const groupBySettings = ['user.address.country', 'user.gender'];
@@ -68,7 +67,6 @@ test('transforms data with double group by settings and ignores additional prope
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: null,
-    transformation: 'categorical',
   };
 
   const groupBySettings = [
@@ -108,7 +106,6 @@ test('all keys should be strings', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: null,
-    transformation: 'categorical',
   };
 
   const groupBySettings = [

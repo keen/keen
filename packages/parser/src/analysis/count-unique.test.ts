@@ -1,6 +1,6 @@
 import { Query } from '@keen.io/query';
 
-import { parseQuery } from '../parse-query';
+import DataParser from '../DataParser';
 
 test('create structure for "count_unique" and fills empty intervals', () => {
   const countUnique = {
@@ -48,7 +48,22 @@ test('create structure for "count_unique" and fills empty intervals', () => {
     ],
   };
 
-  expect(parseQuery(countUnique)).toMatchInlineSnapshot(`
+  const { query } = countUnique;
+  const {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    transformation,
+  } = DataParser.createSettingsFromQuery({ query });
+
+  const dataParser = new DataParser(
+    transformation,
+    null,
+    null,
+    fillEmptyIntervalsKeys,
+    mergePropertiesOrder
+  );
+
+  expect(dataParser.parseQueryResults(countUnique)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {

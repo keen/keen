@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ErrorWidget, WidgetSettings, Widgets } from '@keen.io/widgets';
+import { DataParser, ParserInput } from '@keen.io/parser';
 import { getPubSub, PubSub } from '@keen.io/pubsub';
 import { extendTheme } from '@keen.io/charts';
 
@@ -10,7 +12,6 @@ import text from './text.json';
 import {
   extendChartSettings,
   extendWidgetSettings,
-  prepareVisualization,
   createChartSettings,
   validateOptions,
 } from './utils';
@@ -38,9 +39,6 @@ class Visualizer {
   /** Flag responsible for rendering chart in edit mode */
   private inEditMode: boolean;
 
-  /** Declarations for labels and keys mappings */
-  private mappings: Record<string, string>;
-
   /** General widget settings */
   private widgetSettings: Partial<VisualizerWidgetSettings>;
 
@@ -56,14 +54,12 @@ class Visualizer {
       container,
       type,
       presentationTimezone,
-      mappings,
       widget,
       settings,
       eventBus,
       inEditMode,
     } = options;
 
-    this.mappings = mappings || null;
     this.presentationTimezone = presentationTimezone;
 
     this.eventBus = eventBus || getPubSub();
@@ -130,24 +126,33 @@ class Visualizer {
   render(input: VisualizationInput = {}) {
     const container = this.getContainerNode();
     let keys: string[] = [];
-    let results: Record<string, any>[] = [];
+    let data: Record<string, any>[] = [];
 
     const parseQuery = arguments.length && this.useKeenAsDataSource;
     if (parseQuery) {
-      const parser = prepareVisualization(
-        input,
-        this.mappings,
-        this.componentSettings,
+      const { result, ...analysis } = input;
+      const {
+        transformation,
+        mergePropertiesOrder,
+        fillEmptyIntervalsKeys,
+      } = DataParser.createSettingsFromQuery(analysis);
+
+      const dataParser = new DataParser(
+        transformation,
         this.type,
-        this.presentationTimezone
+        this.presentationTimezone,
+        fillEmptyIntervalsKeys,
+        mergePropertiesOrder
       );
-      keys = parser.keys;
-      results = parser.results;
+
+      const parserResult = dataParser.parseQueryResults(input as ParserInput);
+      keys = parserResult.keys;
+      data = parserResult.data;
     }
 
     const isEmptyAnalysisResult =
       this.useKeenAsDataSource &&
-      (results.length === 0 ||
+      (data.length === 0 ||
         (Array.isArray(input.result) && input.result.length === 0));
 
     if (isEmptyAnalysisResult) {
@@ -161,7 +166,7 @@ class Visualizer {
         inEditMode: this.inEditMode,
         widgetSettings: this.setWidgetSettings(),
         componentSettings: this.setComponentSettings(input, this.type, keys),
-        data: results,
+        data,
         keys,
       }),
       container

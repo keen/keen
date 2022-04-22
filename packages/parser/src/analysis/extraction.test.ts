@@ -1,6 +1,24 @@
 import { Query } from '@keen.io/query';
 
-import { parseQuery } from '../parse-query';
+import DataParser from '../DataParser';
+
+const createDataParser = (query: Query) => {
+  const {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    transformation,
+  } = DataParser.createSettingsFromQuery({ query });
+
+  const dataParser = new DataParser(
+    transformation,
+    null,
+    null,
+    fillEmptyIntervalsKeys,
+    mergePropertiesOrder
+  );
+
+  return dataParser;
+};
 
 test('creates structure for "extraction" analysis', () => {
   const extractionAnalysis = {
@@ -15,7 +33,11 @@ test('creates structure for "extraction" analysis', () => {
     ],
   };
 
-  expect(parseQuery(extractionAnalysis)).toMatchInlineSnapshot(`
+  const { query } = extractionAnalysis;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(extractionAnalysis))
+    .toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -48,7 +70,11 @@ test('creates structure for "extraction" analysis with empty events', () => {
     result: [{}, {}],
   };
 
-  expect(parseQuery(extractionAnalysis)).toMatchInlineSnapshot(`
+  const { query } = extractionAnalysis;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(extractionAnalysis))
+    .toMatchInlineSnapshot(`
     Object {
       "data": Array [],
       "keys": Array [],

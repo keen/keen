@@ -1,6 +1,24 @@
 import { Query } from '@keen.io/query';
 
-import { parseQuery } from '../parse-query';
+import DataParser from '../DataParser';
+
+const createDataParser = (query: Query) => {
+  const {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    transformation,
+  } = DataParser.createSettingsFromQuery({ query });
+
+  const dataParser = new DataParser(
+    transformation,
+    null,
+    null,
+    fillEmptyIntervalsKeys,
+    mergePropertiesOrder
+  );
+
+  return dataParser;
+};
 
 test('creates structure for "select_unique" analysis with interval and group settings', () => {
   const selectUnique = {
@@ -39,7 +57,10 @@ test('creates structure for "select_unique" analysis with interval and group set
     ],
   };
 
-  expect(parseQuery(selectUnique)).toMatchInlineSnapshot(`
+  const { query } = selectUnique;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(selectUnique)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -101,7 +122,10 @@ test('creates structure for "select_unique" analysis with group settings', () =>
     ],
   };
 
-  expect(parseQuery(selectUnique)).toMatchInlineSnapshot(`
+  const { query } = selectUnique;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(selectUnique)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -165,7 +189,10 @@ test('creates structure for "select_unique" analysis with interval', () => {
     ],
   };
 
-  expect(parseQuery(selectUnique)).toMatchInlineSnapshot(`
+  const { query } = selectUnique;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(selectUnique)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -199,7 +226,10 @@ test('creates structure for simple "select_unique" analysis', () => {
     result: ['Dr', 'Ms.'],
   };
 
-  expect(parseQuery(selectUnique)).toMatchInlineSnapshot(`
+  const { query } = selectUnique;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(selectUnique)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {

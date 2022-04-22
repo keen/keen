@@ -21,7 +21,6 @@ test('transform categorical results', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['author', 'name'],
-    transformation: 'categorical',
   };
 
   expect(transformCategorical({ query, result }, parserSettings))
@@ -65,7 +64,6 @@ test('all keys should be strings', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['author', 'name'],
-    transformation: 'categorical',
   };
 
   const { data, keys } = transformCategorical(

@@ -1,6 +1,24 @@
 import { Query } from '@keen.io/query';
 
-import { parseQuery } from '../parse-query';
+import DataParser from '../DataParser';
+
+const createDataParser = (query: Query) => {
+  const {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    transformation,
+  } = DataParser.createSettingsFromQuery({ query });
+
+  const dataParser = new DataParser(
+    transformation,
+    null,
+    null,
+    fillEmptyIntervalsKeys,
+    mergePropertiesOrder
+  );
+
+  return dataParser;
+};
 
 test('creates structure for simple "count" analysis', () => {
   const countAnalysis = {
@@ -12,7 +30,10 @@ test('creates structure for simple "count" analysis', () => {
     result: 250,
   };
 
-  expect(parseQuery(countAnalysis)).toMatchInlineSnapshot(`
+  const { query } = countAnalysis;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(countAnalysis)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -54,7 +75,10 @@ test('creates structure for "count" analysis with interval', () => {
     ],
   };
 
-  expect(parseQuery(countAnalysis)).toMatchInlineSnapshot(`
+  const { query } = countAnalysis;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(countAnalysis)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -116,7 +140,10 @@ test('creates structure for "count" analysis with multiple group settings and in
     ],
   };
 
-  expect(parseQuery(countAnalysis)).toMatchInlineSnapshot(`
+  const { query } = countAnalysis;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(countAnalysis)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {
@@ -159,7 +186,10 @@ test('creates structure for "count" analysis with multiple group settings', () =
     ],
   };
 
-  expect(parseQuery(countAnalysis)).toMatchInlineSnapshot(`
+  const { query } = countAnalysis;
+  const dataParser = createDataParser(query);
+
+  expect(dataParser.parseQueryResults(countAnalysis)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {

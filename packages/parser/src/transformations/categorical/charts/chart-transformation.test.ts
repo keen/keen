@@ -5,7 +5,6 @@ test('transforms data with one specified group by property and generates corresp
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country'],
-    transformation: 'categorical',
   };
 
   const input = [
@@ -35,7 +34,6 @@ test('transforms data with two specified group by properties and generates corre
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'food'],
-    transformation: 'categorical',
   };
 
   const input = [
@@ -62,7 +60,6 @@ test('transforms data with more than two specified group by properties and gener
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'food', 'size'],
-    transformation: 'categorical',
   };
 
   const input = [
@@ -142,7 +139,6 @@ test('transforms data with "null" values', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'city'],
-    transformation: 'categorical',
   };
 
   const input = [
@@ -178,7 +174,6 @@ test('all keys should be strings', () => {
   const parserSettings: ParserSettings = {
     fillEmptyIntervalsKeys: false,
     mergePropertiesOrder: ['country', 'city'],
-    transformation: 'categorical',
   };
 
   const input = [

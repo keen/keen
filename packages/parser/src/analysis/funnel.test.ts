@@ -1,6 +1,6 @@
 import { Step } from '@keen.io/query';
 
-import { parseQuery } from '../parse-query';
+import DataParser from '../DataParser';
 
 test('creates structure for "funnel" analysis', () => {
   const funnelAnalysis = {
@@ -19,7 +19,22 @@ test('creates structure for "funnel" analysis', () => {
     result: [1128, 317],
   };
 
-  expect(parseQuery(funnelAnalysis)).toMatchInlineSnapshot(`
+  const { steps } = funnelAnalysis;
+  const {
+    mergePropertiesOrder,
+    fillEmptyIntervalsKeys,
+    transformation,
+  } = DataParser.createSettingsFromQuery({ steps });
+
+  const dataParser = new DataParser(
+    transformation,
+    null,
+    null,
+    fillEmptyIntervalsKeys,
+    mergePropertiesOrder
+  );
+
+  expect(dataParser.parseQueryResults(funnelAnalysis)).toMatchInlineSnapshot(`
     Object {
       "data": Array [
         Object {

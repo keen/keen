@@ -35,7 +35,6 @@ test('transform categorical results in chronological order', () => {
     transformCategoricalChronological(
       { result },
       {
-        transformation: 'categorical-chronological',
         fillEmptyIntervalsKeys: false,
         mergePropertiesOrder: null,
       }
@@ -88,7 +87,6 @@ test('transform categorical results and fill missing interval data series', () =
     transformCategoricalChronological(
       { result },
       {
-        transformation: 'categorical-chronological',
         fillEmptyIntervalsKeys: true,
         mergePropertiesOrder: null,
       }
@@ -137,7 +135,6 @@ test('transform categorical results and merge properties in provided order', () 
     transformCategoricalChronological(
       { result },
       {
-        transformation: 'categorical-chronological',
         fillEmptyIntervalsKeys: false,
         mergePropertiesOrder: ['country', 'city'],
       }
@@ -184,7 +181,6 @@ test('transform categorical results in "Europe/Warsaw (+01:00)" named timezone',
     transformCategoricalChronological(
       { result },
       {
-        transformation: 'categorical-chronological',
         fillEmptyIntervalsKeys: false,
         mergePropertiesOrder: null,
         dateModifier: 'Europe/Warsaw',
@@ -229,7 +225,6 @@ test('transform categorical results by offset in minutes', () => {
     transformCategoricalChronological(
       { result },
       {
-        transformation: 'categorical-chronological',
         fillEmptyIntervalsKeys: false,
         mergePropertiesOrder: null,
         dateModifier: -60,
@@ -272,7 +267,6 @@ test('all keys should be strings', () => {
   const { data, keys } = transformCategoricalChronological(
     { result },
     {
-      transformation: 'categorical-chronological',
       fillEmptyIntervalsKeys: false,
       mergePropertiesOrder: null,
       dateModifier: -60,
@@ -308,7 +302,6 @@ test('transform categorical results with "null" values', () => {
     transformCategoricalChronological(
       { result },
       {
-        transformation: 'categorical-chronological',
         fillEmptyIntervalsKeys: false,
         mergePropertiesOrder: null,
         dateModifier: null,

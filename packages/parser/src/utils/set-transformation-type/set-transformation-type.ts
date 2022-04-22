@@ -13,7 +13,7 @@ import { Transformation } from '../../types';
 export const setTransformationType = (
   query?: Query,
   steps?: Step[]
-): Transformation => {
+): Transformation | null => {
   if (steps) return 'funnel';
   if (query) {
     let transformation: Transformation = 'singular';
