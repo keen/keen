@@ -10,8 +10,9 @@ const babelOptions = {
     [
       '@babel/preset-env',
       {
-        corejs: '3.6.5',
+        corejs: '3.22.2',
         useBuiltIns: 'entry',
+        // modules: false,
       },
     ],
   ],
@@ -29,6 +30,7 @@ export default {
     library: 'KeenDataviz',
     libraryExport: 'KeenDataviz',
     libraryTarget: 'umd',
+    publicPath: 'auto',
   },
   resolve: {
     mainFields: ['module', 'main'],

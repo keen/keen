@@ -38,12 +38,12 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.13.8",
-    "@babel/preset-typescript": "^7.13.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
     "@keen.io/dev-tools": "^0.0.2",
     "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
     "@types/styled-system": "5.1.9",
-    "babel-plugin-styled-components": "^1.13.3"
+    "babel-plugin-styled-components": "^2.0.7"
   },
   "publishConfig": {
     "access": "public"

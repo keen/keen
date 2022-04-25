@@ -61,15 +61,15 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@keen.io/charts-utils": "^1.15.0",
     "@keen.io/ui-core": "^2.44.1",
     "@types/d3-time-format": "^2.1.1",
     "@types/react-dom": "^16.9.5",
-    "babel-loader": "^8.1.0",
-    "core-js": "^3.6.5",
+    "babel-loader": "^8.2.5",
+    "core-js": "^3.22.2",
     "keen-analysis": "3.5.0",
     "regenerator-runtime": "^0.13.5"
   }
