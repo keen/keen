@@ -79,3 +79,9 @@ export const TableFooterContainer = styled.div`
   bottom: 0;
   z-index: 1;
 `;
+
+export const TotalRows = styled.div`
+  padding: 10px 20px;
+  background-color: ${colors.white[500]};
+  border-top: 1px solid ${transparentize(0.5, colors.gray[400])};
+`;
