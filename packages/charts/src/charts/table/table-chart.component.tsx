@@ -18,10 +18,13 @@ import {
 import Measure from 'react-measure';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
+import { transparentize } from 'polished';
 
 import { useScrollOverflowHandler } from '@keen.io/react-hooks';
 import { copyToClipboard } from '@keen.io/charts-utils';
 import { TableFooter, SortByType, PER_PAGE_OPTIONS } from '@keen.io/ui-core';
+import { colors } from '@keen.io/colors';
+import { BodyText } from '@keen.io/typography';
 
 import { Theme, TooltipState } from '../../types';
 
@@ -35,6 +38,7 @@ import {
   StyledCol,
   StyledTable,
   TableFooterContainer,
+  TotalRows,
 } from './table-chart.styles';
 import {
   Body,
@@ -209,10 +213,6 @@ export const TableChart = ({
   useEffect(() => {
     setPageSize(itemsPerPage);
   }, [rowsPerPage, pagination, itemsPerPage, setPageSize]);
-
-  useEffect(() => {
-    setFooterHeight(pagination ? footerHeight : 0);
-  }, [pagination, footerHeight]);
 
   useEffect(() => {
     if (sortBy && sortBy.length > 0) {
@@ -410,15 +410,13 @@ export const TableChart = ({
         {overflowLeft && <LeftOverflow />}
         {overflowRight && <RightOverflow />}
       </TableContainer>
-      {pagination && (
-        <Measure
-          bounds
-          onResize={({ bounds: { height } }) => {
-            setFooterHeight(height);
-          }}
-        >
-          {({ measureRef }) => (
-            <TableFooterContainer ref={measureRef}>
+      <Measure
+        bounds
+        onResize={({ bounds: { height } }) => setFooterHeight(height)}
+      >
+        {({ measureRef }) => (
+          <TableFooterContainer ref={measureRef}>
+            {pagination ? (
               <TableFooter
                 rows={data.length}
                 page={pageIndex + 1}
@@ -434,10 +432,20 @@ export const TableChart = ({
                   gotoPage(0);
                 }}
               />
-            </TableFooterContainer>
-          )}
-        </Measure>
-      )}
+            ) : (
+              <TotalRows>
+                <BodyText
+                  variant="body2"
+                  color={transparentize(0.5, colors.black[500])}
+                  enableTextEllipsis
+                >
+                  {data.length.toLocaleString('en-US')} rows
+                </BodyText>
+              </TotalRows>
+            )}
+          </TableFooterContainer>
+        )}
+      </Measure>
     </TableScrollWrapper>
   );
 };
