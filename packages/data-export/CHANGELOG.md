@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.41](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.40...@keen.io/data-export@1.2.41) (2022-04-28)
+
+
+### Bug Fixes
+
+* 🐛 handle delimeter in csv ([e701be5](https://github.com/keen/keen/commit/e701be509694b5260915e8cba75d3445d248ca0c))
+
+
+
+
+
 ## [1.2.40](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.39...@keen.io/data-export@1.2.40) (2022-01-18)
 
 **Note:** Version bump only for package @keen.io/data-export

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.3](https://github.com/keen/keen/compare/@keen.io/charts@2.40.2...@keen.io/charts@2.40.3) (2022-04-28)
+
+
+### Bug Fixes
+
+* 🐛 lineChart runtime errors fixed ([7c8aa57](https://github.com/keen/keen/commit/7c8aa575bad2d9134f9163191afda90709137942))
+
+
+
+
+
 ## [2.40.2](https://github.com/keen/keen/compare/@keen.io/charts@2.40.1...@keen.io/charts@2.40.2) (2022-01-18)
 
 **Note:** Version bump only for package @keen.io/charts
