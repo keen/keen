@@ -18,6 +18,11 @@ export const exportToCSV = (
   data.forEach((row: Array<string | number>) => {
     const transformedRow = row.map((item) => {
       if (item === null) return 'null';
+
+      const hasDelimeter =
+        typeof item === 'string' && item.includes(columnDelimiter);
+      if (hasDelimeter) return `"${item}"`;
+
       return item;
     });
     result += transformedRow.join(columnDelimiter) + lineDelimiter;
