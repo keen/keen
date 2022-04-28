@@ -44,7 +44,7 @@ const TooltipContent: FC<Props> = ({
       {label && (
         <LabelContainer>
           <Text truncate {...tooltip.labels.typography}>
-            {label}
+            {label.toString()}
           </Text>
         </LabelContainer>
       )}

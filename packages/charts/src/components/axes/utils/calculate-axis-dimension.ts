@@ -77,8 +77,9 @@ const calculateAxisDimension = ({
 
   if (axisTitle) {
     const titleElement = rootContainer.select(titleSelector);
-    const titleBbox = titleElement
-      ? (titleElement.node() as SVGTextElement).getBBox()
+    const titleNode = titleElement && titleElement.node();
+    const titleBbox = titleNode
+      ? (titleNode as SVGTextElement).getBBox()
       : {
           width: 0,
           height: 0,
