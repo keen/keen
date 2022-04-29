@@ -69,7 +69,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.13.8",
     "@babel/preset-typescript": "^7.13.0",
-    "@keen.io/dev-tools": "^0.0.2",
+    "@keen.io/dev-tools": "^0.1.0",
     "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
     "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "11.2.2",
