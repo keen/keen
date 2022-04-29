@@ -56,14 +56,7 @@
     "react-measure": "^2.3.0",
     "react-table": "^7.7.0",
     "use-debounce": "^3.3.0",
-<<<<<<< HEAD
     "uuid": "^8.3.2",
-=======
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "@keen.io/storybook-utils": "^2.2.47",
->>>>>>> origin/master
     "@types/d3-array": "^2.0.0",
     "@types/d3-axis": "^1.0.12",
     "@types/d3-drag": "^1.2.3",
@@ -83,7 +76,7 @@
     "@types/uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@keen.io/storybook-utils": "^2.2.34"
+    "@keen.io/storybook-utils": "^2.2.47"
   },
   "publishConfig": {
     "access": "public"
