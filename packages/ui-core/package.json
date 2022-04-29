@@ -55,15 +55,7 @@
     "react-window": "^1.8.6",
     "sortablejs": "^1.13.0",
     "styled-system": "^5.1.5",
-    "webfontloader": "^1.6.28"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.13.8",
-    "@babel/preset-typescript": "^7.13.0",
-    "@keen.io/dev-tools": "^0.0.2",
-    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
-    "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "11.2.2",
+    "webfontloader": "^1.6.28",
     "@types/color": "^3.0.1",
     "@types/react-calendar": "^3.4.3",
     "@types/react-select": "^3.0.13",
@@ -72,7 +64,15 @@
     "@types/sortablejs": "^1.10.6",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
-    "@types/webfontloader": "^1.6.29",
+    "@types/webfontloader": "^1.6.29"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-typescript": "^7.13.0",
+    "@keen.io/dev-tools": "^0.0.2",
+    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^1.0.1",
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "11.2.2",
     "babel-plugin-styled-components": "^1.13.3",
     "mockdate": "^3.0.5"
   },
