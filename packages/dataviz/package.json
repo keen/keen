@@ -62,7 +62,6 @@
     "@keen.io/ui-core": "^2.50.3",
     "@keen.io/widgets": "^2.18.4",
     "@types/d3-time-format": "^2.1.1",
-    "@types/react-dom": "^16.9.5",
     "dayjs": "^1.10.7",
     "deepmerge": "4.2.2"
   },
