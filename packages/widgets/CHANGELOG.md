@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.4...@keen.io/widgets@2.18.5) (2022-04-29)
+
+
+### Bug Fixes
+
+* 🐛 add missing deps to widgets package ([aca56a9](https://github.com/keen/keen/commit/aca56a9c8eecb490d70ece2a3652333af04f9ac3))
+
+
+
+
+
 ## [2.18.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.3...@keen.io/widgets@2.18.4) (2022-04-29)
 
 
