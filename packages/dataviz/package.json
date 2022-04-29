@@ -63,8 +63,7 @@
     "deepmerge": "4.2.2",
     "@keen.io/charts-utils": "^1.15.0",
     "@keen.io/ui-core": "^2.44.1",
-    "@types/d3-time-format": "^2.1.1",
-    "@types/react-dom": "^16.9.5"
+    "@types/d3-time-format": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
