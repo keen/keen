@@ -25,9 +25,7 @@
   "dependencies": {
     "@keen.io/charts-utils": "^1.15.0",
     "@keen.io/parser": "^2.8.112",
-    "@keen.io/query": "^1.2.0"
-  },
-  "devDependencies": {
+    "@keen.io/query": "^1.2.0",
     "@keen.io/charts": "^2.35.1",
     "@keen.io/widgets": "^2.16.23"
   },

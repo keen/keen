@@ -36,10 +36,10 @@
     "@keen.io/charts-utils": "^1.15.0",
     "@keen.io/colors": "^1.1.0",
     "@keen.io/react-hooks": "^1.4.3",
-    "@keen.io/ui-core": "^2.44.1"
+    "@keen.io/ui-core": "^2.44.1",
+    "@keen.io/pubsub": "^1.2.0"
   },
   "devDependencies": {
-    "@keen.io/pubsub": "^1.2.0",
     "@keen.io/storybook-utils": "^2.2.34"
   },
   "publishConfig": {
