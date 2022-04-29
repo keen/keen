@@ -3,6 +3,198 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.136](https://github.com/keen/keen/compare/@keen.io/parser@2.8.135...@keen.io/parser@2.8.136) (2022-04-28)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.135](https://github.com/keen/keen/compare/@keen.io/parser@2.8.134...@keen.io/parser@2.8.135) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.134](https://github.com/keen/keen/compare/@keen.io/parser@2.8.133...@keen.io/parser@2.8.134) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.133](https://github.com/keen/keen/compare/@keen.io/parser@2.8.132...@keen.io/parser@2.8.133) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.132](https://github.com/keen/keen/compare/@keen.io/parser@2.8.131...@keen.io/parser@2.8.132) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.131](https://github.com/keen/keen/compare/@keen.io/parser@2.8.130...@keen.io/parser@2.8.131) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.130](https://github.com/keen/keen/compare/@keen.io/parser@2.8.129...@keen.io/parser@2.8.130) (2022-01-10)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.129](https://github.com/keen/keen/compare/@keen.io/parser@2.8.128...@keen.io/parser@2.8.129) (2021-12-21)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.128](https://github.com/keen/keen/compare/@keen.io/parser@2.8.127...@keen.io/parser@2.8.128) (2021-12-17)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.127](https://github.com/keen/keen/compare/@keen.io/parser@2.8.126...@keen.io/parser@2.8.127) (2021-12-15)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.126](https://github.com/keen/keen/compare/@keen.io/parser@2.8.125...@keen.io/parser@2.8.126) (2021-12-09)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.125](https://github.com/keen/keen/compare/@keen.io/parser@2.8.124...@keen.io/parser@2.8.125) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.124](https://github.com/keen/keen/compare/@keen.io/parser@2.8.123...@keen.io/parser@2.8.124) (2021-12-02)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.123](https://github.com/keen/keen/compare/@keen.io/parser@2.8.122...@keen.io/parser@2.8.123) (2021-12-01)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.122](https://github.com/keen/keen/compare/@keen.io/parser@2.8.121...@keen.io/parser@2.8.122) (2021-11-30)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.121](https://github.com/keen/keen/compare/@keen.io/parser@2.8.120...@keen.io/parser@2.8.121) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.120](https://github.com/keen/keen/compare/@keen.io/parser@2.8.119...@keen.io/parser@2.8.120) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.119](https://github.com/keen/keen/compare/@keen.io/parser@2.8.118...@keen.io/parser@2.8.119) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.118](https://github.com/keen/keen/compare/@keen.io/parser@2.8.117...@keen.io/parser@2.8.118) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.117](https://github.com/keen/keen/compare/@keen.io/parser@2.8.116...@keen.io/parser@2.8.117) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.116](https://github.com/keen/keen/compare/@keen.io/parser@2.8.115...@keen.io/parser@2.8.116) (2021-11-16)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.115](https://github.com/keen/keen/compare/@keen.io/parser@2.8.114...@keen.io/parser@2.8.115) (2021-11-15)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.114](https://github.com/keen/keen/compare/@keen.io/parser@2.8.113...@keen.io/parser@2.8.114) (2021-11-10)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.113](https://github.com/keen/keen/compare/@keen.io/parser@2.8.112...@keen.io/parser@2.8.113) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
 ## [2.8.112](https://github.com/keen/keen/compare/@keen.io/parser@2.8.111...@keen.io/parser@2.8.112) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/parser

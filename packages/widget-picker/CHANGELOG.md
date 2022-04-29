@@ -3,6 +3,201 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.18](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.17...@keen.io/widget-picker@1.5.18) (2022-04-28)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.17](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.16...@keen.io/widget-picker@1.5.17) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.16](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.15...@keen.io/widget-picker@1.5.16) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.15](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.14...@keen.io/widget-picker@1.5.15) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.14](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.13...@keen.io/widget-picker@1.5.14) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.13](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.12...@keen.io/widget-picker@1.5.13) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.12](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.11...@keen.io/widget-picker@1.5.12) (2022-01-10)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.11](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.10...@keen.io/widget-picker@1.5.11) (2021-12-21)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.10](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.9...@keen.io/widget-picker@1.5.10) (2021-12-17)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.9](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.8...@keen.io/widget-picker@1.5.9) (2021-12-15)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.8](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.7...@keen.io/widget-picker@1.5.8) (2021-12-09)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.7](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.6...@keen.io/widget-picker@1.5.7) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.6](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.5...@keen.io/widget-picker@1.5.6) (2021-12-02)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.5](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.4...@keen.io/widget-picker@1.5.5) (2021-12-01)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.4](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.3...@keen.io/widget-picker@1.5.4) (2021-11-30)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.3](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.2...@keen.io/widget-picker@1.5.3) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.2](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.1...@keen.io/widget-picker@1.5.2) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.5.1](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.5.0...@keen.io/widget-picker@1.5.1) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+# [1.5.0](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.24...@keen.io/widget-picker@1.5.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 Gauge chart added to widget-picker ([2aefa44](https://github.com/keen/keen/commit/2aefa44670d7570553b61c12f6c223c97a9a5a3e))
+
+
+
+
+
+## [1.4.24](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.23...@keen.io/widget-picker@1.4.24) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.4.23](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.22...@keen.io/widget-picker@1.4.23) (2021-11-16)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.4.22](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.21...@keen.io/widget-picker@1.4.22) (2021-11-15)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.4.21](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.20...@keen.io/widget-picker@1.4.21) (2021-11-10)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
+## [1.4.20](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.19...@keen.io/widget-picker@1.4.20) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/widget-picker
+
+
+
+
+
 ## [1.4.19](https://github.com/keen/keen/compare/@keen.io/widget-picker@1.4.18...@keen.io/widget-picker@1.4.19) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/widget-picker

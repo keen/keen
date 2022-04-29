@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.47](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.46...@keen.io/storybook-utils@2.2.47) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.46](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.45...@keen.io/storybook-utils@2.2.46) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.45](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.44...@keen.io/storybook-utils@2.2.45) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.44](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.43...@keen.io/storybook-utils@2.2.44) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.43](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.42...@keen.io/storybook-utils@2.2.43) (2022-01-10)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.42](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.41...@keen.io/storybook-utils@2.2.42) (2021-12-21)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.41](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.40...@keen.io/storybook-utils@2.2.41) (2021-12-17)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.40](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.39...@keen.io/storybook-utils@2.2.40) (2021-12-09)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.39](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.38...@keen.io/storybook-utils@2.2.39) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.38](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.37...@keen.io/storybook-utils@2.2.38) (2021-12-01)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.37](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.36...@keen.io/storybook-utils@2.2.37) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.36](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.35...@keen.io/storybook-utils@2.2.36) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
+## [2.2.35](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.34...@keen.io/storybook-utils@2.2.35) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/storybook-utils
+
+
+
+
+
 ## [2.2.34](https://github.com/keen/keen/compare/@keen.io/storybook-utils@2.2.33...@keen.io/storybook-utils@2.2.34) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/storybook-utils

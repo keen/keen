@@ -3,6 +3,212 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.41](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.40...@keen.io/data-export@1.2.41) (2022-04-28)
+
+
+### Bug Fixes
+
+* 🐛 handle delimeter in csv ([e701be5](https://github.com/keen/keen/commit/e701be509694b5260915e8cba75d3445d248ca0c))
+
+
+
+
+
+## [1.2.40](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.39...@keen.io/data-export@1.2.40) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.39](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.38...@keen.io/data-export@1.2.39) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.38](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.37...@keen.io/data-export@1.2.38) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.37](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.36...@keen.io/data-export@1.2.37) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.36](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.35...@keen.io/data-export@1.2.36) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.35](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.34...@keen.io/data-export@1.2.35) (2022-01-10)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.34](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.33...@keen.io/data-export@1.2.34) (2021-12-21)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.33](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.32...@keen.io/data-export@1.2.33) (2021-12-17)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.32](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.31...@keen.io/data-export@1.2.32) (2021-12-17)
+
+
+### Bug Fixes
+
+* 🐛 data export for Gauge ([6c71b53](https://github.com/keen/keen/commit/6c71b53c83abab9a19913177b9c50f80bf3c94d2))
+
+
+
+
+
+## [1.2.31](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.30...@keen.io/data-export@1.2.31) (2021-12-15)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.30](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.29...@keen.io/data-export@1.2.30) (2021-12-09)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.29](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.28...@keen.io/data-export@1.2.29) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.28](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.27...@keen.io/data-export@1.2.28) (2021-12-02)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.27](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.26...@keen.io/data-export@1.2.27) (2021-12-01)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.26](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.25...@keen.io/data-export@1.2.26) (2021-11-30)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.25](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.24...@keen.io/data-export@1.2.25) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.24](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.23...@keen.io/data-export@1.2.24) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.23](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.22...@keen.io/data-export@1.2.23) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.22](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.21...@keen.io/data-export@1.2.22) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.21](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.20...@keen.io/data-export@1.2.21) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.20](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.19...@keen.io/data-export@1.2.20) (2021-11-16)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.19](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.18...@keen.io/data-export@1.2.19) (2021-11-15)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.18](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.17...@keen.io/data-export@1.2.18) (2021-11-10)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.17](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.16...@keen.io/data-export@1.2.17) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
 ## [1.2.16](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.15...@keen.io/data-export@1.2.16) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/data-export

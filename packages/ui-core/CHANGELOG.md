@@ -3,6 +3,141 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.50.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.50.1...@keen.io/ui-core@2.50.2) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+## [2.50.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.50.0...@keen.io/ui-core@2.50.1) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
+# [2.50.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.49.1...@keen.io/ui-core@2.50.0) (2022-01-12)
+
+
+### Features
+
+* 🎸 Hiding pagination bar completely on disabled pagination ([db7473c](https://github.com/keen/keen/commit/db7473cc06a0d2c2d1bb1d582f98922206704eba))
+
+
+
+
+
+## [2.49.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.49.0...@keen.io/ui-core@2.49.1) (2022-01-12)
+
+
+### Bug Fixes
+
+* 🐛 dependency cleanup ([07374c3](https://github.com/keen/keen/commit/07374c3859fcf4b1f3a39add031e32b0cf6dec56))
+
+
+
+
+
+# [2.49.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.48.1...@keen.io/ui-core@2.49.0) (2022-01-10)
+
+
+### Features
+
+* 🎸 Table footer tests fixed ([8b562fb](https://github.com/keen/keen/commit/8b562fb8ef00c132d61e5f5f1008336a46afdfdb))
+* 🎸 Table pagination settings ([9097760](https://github.com/keen/keen/commit/90977605c3c9d7eb3ba3e6ee12531f5842364e9c))
+
+
+
+
+
+## [2.48.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.48.0...@keen.io/ui-core@2.48.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* 🐛 typing handlers in inputs ([3db4143](https://github.com/keen/keen/commit/3db41439b3db0463c77b853677a16ce632b016c4))
+
+
+
+
+
+# [2.48.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.47.0...@keen.io/ui-core@2.48.0) (2021-12-17)
+
+
+### Features
+
+* 🎸 datepicker improvements ([7e8f6e5](https://github.com/keen/keen/commit/7e8f6e574cd5d7768c3c724ab26e3fb3a2e611c9))
+
+
+
+
+
+# [2.47.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.2...@keen.io/ui-core@2.47.0) (2021-12-09)
+
+
+### Features
+
+* 🎸 Dropdown list shadow, padding from props ([7f8534a](https://github.com/keen/keen/commit/7f8534acd6807ddd4550dbfd945dacaf9ad2476c))
+
+
+
+
+
+## [2.46.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.1...@keen.io/ui-core@2.46.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* 🐛 scroll Dropdown item into view ([1d796d9](https://github.com/keen/keen/commit/1d796d9ecaabb61a4c01bb8ff3cac655073599b2))
+
+
+
+
+
+## [2.46.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.46.0...@keen.io/ui-core@2.46.1) (2021-12-01)
+
+
+### Bug Fixes
+
+* 🐛 prevent time reset in DatePicker ([450a552](https://github.com/keen/keen/commit/450a552a14ae440d6621d1e5a11838239b8930aa))
+
+
+
+
+
+# [2.46.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.45.0...@keen.io/ui-core@2.46.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 enhance Alert with content width ([55d7747](https://github.com/keen/keen/commit/55d7747949a6e1fc26621a75f3e6224370607ce5))
+
+
+
+
+
+# [2.45.0](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.2...@keen.io/ui-core@2.45.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 date picker ([f594a0a](https://github.com/keen/keen/commit/f594a0aa1e572efe7283d4a47b09a5d6695597ed))
+
+
+
+
+
+## [2.44.2](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.1...@keen.io/ui-core@2.44.2) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/ui-core
+
+
+
+
+
 ## [2.44.1](https://github.com/keen/keen/compare/@keen.io/ui-core@2.44.0...@keen.io/ui-core@2.44.1) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/ui-core

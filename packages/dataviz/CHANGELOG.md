@@ -3,6 +3,218 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.5](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.4...@keen.io/dataviz@2.18.5) (2022-04-28)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.4](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.3...@keen.io/dataviz@2.18.4) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.2...@keen.io/dataviz@2.18.3) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.1...@keen.io/dataviz@2.18.2) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.0...@keen.io/dataviz@2.18.1) (2022-01-12)
+
+
+### Bug Fixes
+
+* 🐛 dependency cleanup ([07374c3](https://github.com/keen/keen/commit/07374c3859fcf4b1f3a39add031e32b0cf6dec56))
+
+
+
+
+
+# [2.18.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.14...@keen.io/dataviz@2.18.0) (2022-01-12)
+
+
+### Features
+
+* 🎸 Heatmap - to many groups error ([ed2f186](https://github.com/keen/keen/commit/ed2f1868998545049ca0bbb1880d7fd1ec52d51c))
+
+
+
+
+
+## [2.17.14](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.13...@keen.io/dataviz@2.17.14) (2022-01-10)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.13](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.12...@keen.io/dataviz@2.17.13) (2021-12-21)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.12](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.11...@keen.io/dataviz@2.17.12) (2021-12-17)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.10...@keen.io/dataviz@2.17.11) (2021-12-15)
+
+
+### Bug Fixes
+
+* 🐛 Empty visualization fix ([e7f11a1](https://github.com/keen/keen/commit/e7f11a169c67e47696970759447136907319294c))
+
+
+
+
+
+## [2.17.10](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.9...@keen.io/dataviz@2.17.10) (2021-12-09)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.9](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.8...@keen.io/dataviz@2.17.9) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.7...@keen.io/dataviz@2.17.8) (2021-12-02)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.7](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.6...@keen.io/dataviz@2.17.7) (2021-12-01)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.6](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.5...@keen.io/dataviz@2.17.6) (2021-11-30)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.5](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.4...@keen.io/dataviz@2.17.5) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.4](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.3...@keen.io/dataviz@2.17.4) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.3](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.2...@keen.io/dataviz@2.17.3) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.2](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.1...@keen.io/dataviz@2.17.2) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.17.1](https://github.com/keen/keen/compare/@keen.io/dataviz@2.17.0...@keen.io/dataviz@2.17.1) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+# [2.17.0](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.27...@keen.io/dataviz@2.17.0) (2021-11-16)
+
+
+### Features
+
+* 🎸 update empty results copy ([1eb9044](https://github.com/keen/keen/commit/1eb904437e78a30ace8cfc75e50bfae37269773d))
+
+
+
+
+
+## [2.16.27](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.26...@keen.io/dataviz@2.16.27) (2021-11-16)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.16.26](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.25...@keen.io/dataviz@2.16.26) (2021-11-15)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.16.25](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.24...@keen.io/dataviz@2.16.25) (2021-11-10)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.16.24](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.23...@keen.io/dataviz@2.16.24) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
 ## [2.16.23](https://github.com/keen/keen/compare/@keen.io/dataviz@2.16.22...@keen.io/dataviz@2.16.23) (2021-11-09)
 
 **Note:** Version bump only for package @keen.io/dataviz

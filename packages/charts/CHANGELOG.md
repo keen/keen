@@ -3,6 +3,237 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.3](https://github.com/keen/keen/compare/@keen.io/charts@2.40.2...@keen.io/charts@2.40.3) (2022-04-28)
+
+
+### Bug Fixes
+
+* 🐛 lineChart runtime errors fixed ([7c8aa57](https://github.com/keen/keen/commit/7c8aa575bad2d9134f9163191afda90709137942))
+
+
+
+
+
+## [2.40.2](https://github.com/keen/keen/compare/@keen.io/charts@2.40.1...@keen.io/charts@2.40.2) (2022-01-18)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.40.1](https://github.com/keen/keen/compare/@keen.io/charts@2.40.0...@keen.io/charts@2.40.1) (2022-01-17)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+# [2.40.0](https://github.com/keen/keen/compare/@keen.io/charts@2.39.1...@keen.io/charts@2.40.0) (2022-01-12)
+
+
+### Bug Fixes
+
+* 🐛 Heatmap hidden on error - handling state refresh ([46a6c23](https://github.com/keen/keen/commit/46a6c23fca34f7c2b861705d384ed1b276ba534a))
+
+
+### Features
+
+* 🎸 Hiding pagination bar completely on disabled pagination ([db7473c](https://github.com/keen/keen/commit/db7473cc06a0d2c2d1bb1d582f98922206704eba))
+
+
+
+
+
+## [2.39.1](https://github.com/keen/keen/compare/@keen.io/charts@2.39.0...@keen.io/charts@2.39.1) (2022-01-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+# [2.39.0](https://github.com/keen/keen/compare/@keen.io/charts@2.38.0...@keen.io/charts@2.39.0) (2022-01-12)
+
+
+### Features
+
+* 🎸 Heatmap - to many groups error ([ed2f186](https://github.com/keen/keen/commit/ed2f1868998545049ca0bbb1880d7fd1ec52d51c))
+
+
+
+
+
+# [2.38.0](https://github.com/keen/keen/compare/@keen.io/charts@2.37.11...@keen.io/charts@2.38.0) (2022-01-10)
+
+
+### Features
+
+* 🎸 Table pagination settings ([9097760](https://github.com/keen/keen/commit/90977605c3c9d7eb3ba3e6ee12531f5842364e9c))
+
+
+
+
+
+## [2.37.11](https://github.com/keen/keen/compare/@keen.io/charts@2.37.10...@keen.io/charts@2.37.11) (2021-12-21)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.37.10](https://github.com/keen/keen/compare/@keen.io/charts@2.37.9...@keen.io/charts@2.37.10) (2021-12-17)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.37.9](https://github.com/keen/keen/compare/@keen.io/charts@2.37.8...@keen.io/charts@2.37.9) (2021-12-15)
+
+
+### Bug Fixes
+
+* 🐛 gauge progress update on value change ([fbf2892](https://github.com/keen/keen/commit/fbf28925e78f075036522923d6834180188e1434))
+
+
+
+
+
+## [2.37.8](https://github.com/keen/keen/compare/@keen.io/charts@2.37.7...@keen.io/charts@2.37.8) (2021-12-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.37.7](https://github.com/keen/keen/compare/@keen.io/charts@2.37.6...@keen.io/charts@2.37.7) (2021-12-08)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.37.6](https://github.com/keen/keen/compare/@keen.io/charts@2.37.5...@keen.io/charts@2.37.6) (2021-12-02)
+
+
+### Bug Fixes
+
+* 🐛 prevent percentage calculation for auto value ([b30e969](https://github.com/keen/keen/commit/b30e9697fbb578e091e55890097049fcd4f26e07))
+
+
+
+
+
+## [2.37.5](https://github.com/keen/keen/compare/@keen.io/charts@2.37.4...@keen.io/charts@2.37.5) (2021-12-01)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.37.4](https://github.com/keen/keen/compare/@keen.io/charts@2.37.3...@keen.io/charts@2.37.4) (2021-11-30)
+
+
+### Bug Fixes
+
+* 🐛 Gauge chart - min/max value label fix ([8c0683c](https://github.com/keen/keen/commit/8c0683c508b8f1416b9bcf9db952795cfb7872c4))
+
+
+
+
+
+## [2.37.3](https://github.com/keen/keen/compare/@keen.io/charts@2.37.2...@keen.io/charts@2.37.3) (2021-11-25)
+
+
+### Bug Fixes
+
+* 🐛 Pre margin removed ([f98a8d0](https://github.com/keen/keen/commit/f98a8d016355a5dc53cf53c927a76b7dd0ec83d4))
+* 🐛 set default progressType for gauge ([19a7286](https://github.com/keen/keen/commit/19a728636ff3634e7c6221840d6895269f2bd84d))
+
+
+
+
+
+## [2.37.2](https://github.com/keen/keen/compare/@keen.io/charts@2.37.1...@keen.io/charts@2.37.2) (2021-11-25)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.37.1](https://github.com/keen/keen/compare/@keen.io/charts@2.37.0...@keen.io/charts@2.37.1) (2021-11-25)
+
+
+### Bug Fixes
+
+* 🐛 update calculations to support negative values ([d88d746](https://github.com/keen/keen/commit/d88d746fd4d071fee3a13bc1a0e01545197f3ee7))
+
+
+
+
+
+# [2.37.0](https://github.com/keen/keen/compare/@keen.io/charts@2.36.2...@keen.io/charts@2.37.0) (2021-11-23)
+
+
+### Features
+
+* 🎸 Gauge chart - handling string formatters added ([209fcfd](https://github.com/keen/keen/commit/209fcfd6a44d99c32f4d82e0c936d913c1146f83))
+
+
+
+
+
+## [2.36.2](https://github.com/keen/keen/compare/@keen.io/charts@2.36.1...@keen.io/charts@2.36.2) (2021-11-23)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.36.1](https://github.com/keen/keen/compare/@keen.io/charts@2.36.0...@keen.io/charts@2.36.1) (2021-11-16)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+# [2.36.0](https://github.com/keen/keen/compare/@keen.io/charts@2.35.3...@keen.io/charts@2.36.0) (2021-11-15)
+
+
+### Features
+
+* 🎸 heatmap categories correlation ([d61e188](https://github.com/keen/keen/commit/d61e188cc9c96d231fc35a8dca53e1fcf143ef83))
+
+
+
+
+
+## [2.35.3](https://github.com/keen/keen/compare/@keen.io/charts@2.35.2...@keen.io/charts@2.35.3) (2021-11-10)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.35.2](https://github.com/keen/keen/compare/@keen.io/charts@2.35.1...@keen.io/charts@2.35.2) (2021-11-09)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [2.35.1](https://github.com/keen/keen/compare/@keen.io/charts@2.35.0...@keen.io/charts@2.35.1) (2021-11-09)
 
 
