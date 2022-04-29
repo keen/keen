@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.7](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.6...@keen.io/dataviz@2.18.7) (2022-04-29)
+
+
+### Bug Fixes
+
+* 🐛 remove @types/react-dom ([b4eaf7d](https://github.com/keen/keen/commit/b4eaf7d14f593cba79b8a4a5b2ac7074f4b9d75b))
+
+
+
+
+
 ## [2.18.6](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.5...@keen.io/dataviz@2.18.6) (2022-04-29)
 
 
