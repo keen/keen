@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.4.3...@keen.io/react-hooks@1.4.4) (2022-04-29)
+
+
+### Bug Fixes
+
+* 🐛 fix package dependencies ([19b8496](https://github.com/keen/keen/commit/19b849668f15d1e70272be64461dc1023bed3fa4))
+
+
+
+
+
 ## [1.4.3](https://github.com/keen/keen/compare/@keen.io/react-hooks@1.4.2...@keen.io/react-hooks@1.4.3) (2021-11-05)
 
 **Note:** Version bump only for package @keen.io/react-hooks

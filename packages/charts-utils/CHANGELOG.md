@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.15.0...@keen.io/charts-utils@1.15.1) (2022-04-29)
+
+
+### Bug Fixes
+
+* 🐛 fix package dependencies ([19b8496](https://github.com/keen/keen/commit/19b849668f15d1e70272be64461dc1023bed3fa4))
+
+
+
+
+
 # [1.15.0](https://github.com/keen/keen/compare/@keen.io/charts-utils@1.14.1...@keen.io/charts-utils@1.15.0) (2021-11-05)
 
 
