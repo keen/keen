@@ -1,23 +1,21 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import MetricIcon from './metric-icon.component';
 
-describe('@keen.io/charts - <MetricIcon />', () => {
-  const props: any = {
-    position: 'top',
-    baseColor: 'black',
-    circleStyle: 'solid',
-  };
+const props: any = {
+  position: 'top',
+  baseColor: 'black',
+  circleStyle: 'solid',
+};
 
-  it('should render children', () => {
-    const Component = () => <div />;
-    const wrapper = mount(
-      <MetricIcon {...props}>
-        <Component />
-      </MetricIcon>
-    );
+test('should render children', () => {
+  const Children = () => <span>children</span>;
+  const { getByText } = rtlRender(
+    <MetricIcon {...props}>
+      <Children />
+    </MetricIcon>
+  );
 
-    expect(wrapper.find(Component).length).toBeTruthy();
-  });
+  expect(getByText('children')).toBeInTheDocument();
 });

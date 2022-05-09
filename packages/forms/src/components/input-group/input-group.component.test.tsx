@@ -1,11 +1,11 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 import { Formik } from 'formik';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import InputGroup from './input-group.component';
 
-const setup = (overProps: Record<string, any> = {}) => {
+const render = (overProps: any = {}) => {
   const props = {
     label: 'label',
     ...overProps,
@@ -17,7 +17,7 @@ const setup = (overProps: Record<string, any> = {}) => {
     email: '',
   };
 
-  const wrapper = mount(
+  const wrapper = rtlRender(
     <Formik
       onSubmit={submitMock}
       initialValues={initialValues}
@@ -46,23 +46,27 @@ const setup = (overProps: Record<string, any> = {}) => {
   };
 };
 
-describe('@keen.io/forms - <InputGroup />', () => {
-  it('should render "label" HTML element with provided text', () => {
-    const { wrapper, props } = setup();
+test('should render "label" HTML element with provided text', () => {
+  const {
+    wrapper: { getByLabelText },
+    props: { label },
+  } = render();
+  expect(getByLabelText(label)).toBeInTheDocument();
+});
 
-    expect(wrapper.find('label').text()).toEqual(props.label);
-  });
+test('should pass "type" HTML attribute to input element', () => {
+  const {
+    wrapper: { container },
+  } = render({ type: 'number' });
+  const input = container.querySelector('input');
+  const inputType = input.getAttribute('type');
 
-  it('should pass "type" HTML attribute to input element', () => {
-    const { wrapper } = setup({ type: 'number' });
+  expect(inputType).toEqual('number');
+});
 
-    expect(wrapper.find('input').props().type).toEqual('number');
-  });
+test('should pass "renderIcon" handler to input element', () => {
+  const renderIcon = jest.fn().mockImplementation(() => <div />);
+  render({ renderIcon });
 
-  it('should pass "renderIcon" handler to input element', () => {
-    const renderIcon = jest.fn().mockImplementation(() => <div />);
-    setup({ renderIcon });
-
-    expect(renderIcon).toHaveBeenCalled();
-  });
+  expect(renderIcon).toHaveBeenCalled();
 });

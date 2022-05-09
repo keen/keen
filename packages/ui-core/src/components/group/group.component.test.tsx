@@ -1,50 +1,118 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Group from './group.component';
 
-describe('@keen.io/charts - <Group />', () => {
-  it('should wrap groupped children', () => {
-    const wrapper = render(
-      <Group>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </Group>
-    );
+const render = (overProps: any = {}) => {
+  const props = {
+    ...overProps,
+  } as any;
 
-    expect(wrapper).toMatchSnapshot();
-  });
+  const wrapper = rtlRender(
+    <Group {...props}>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </Group>
+  );
 
-  it('should wrap children with provided node', () => {
-    const CustomNode = ({ children }: { children: React.ReactNode }) => (
-      <span>{children}</span>
-    );
+  return {
+    wrapper,
+    props,
+  };
+};
 
-    const wrapper = render(
-      <Group groupNode={CustomNode} chunks={3}>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </Group>
-    );
+test('should wrap groupped children', () => {
+  const {
+    wrapper: { container },
+  } = render();
 
-    expect(wrapper).toMatchSnapshot();
-  });
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      <div
+        class=""
+      >
+        <div>
+          1
+        </div>
+        <div>
+          2
+        </div>
+      </div>
+      <div
+        class=""
+      >
+        <div>
+          3
+        </div>
+        <div>
+          4
+        </div>
+      </div>
+    </div>
+  `);
+});
 
-  it('should wrap groupped children based on chunks property', () => {
-    const wrapper = render(
-      <Group chunks={3}>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </Group>
-    );
+test('should wrap children with provided node', () => {
+  const CustomNode = ({ children }: { children: React.ReactNode }) => (
+    <span>{children}</span>
+  );
 
-    expect(wrapper).toMatchSnapshot();
-  });
+  const {
+    wrapper: { container },
+  } = render({ groupNode: CustomNode, chunks: 3 });
+
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      <span>
+        <div>
+          1
+        </div>
+        <div>
+          2
+        </div>
+        <div>
+          3
+        </div>
+      </span>
+      <span>
+        <div>
+          4
+        </div>
+      </span>
+    </div>
+  `);
+});
+
+test('should wrap groupped children based on chunks property', () => {
+  const {
+    wrapper: { container },
+  } = render({ chunks: 3 });
+
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      <div
+        class=""
+      >
+        <div>
+          1
+        </div>
+        <div>
+          2
+        </div>
+        <div>
+          3
+        </div>
+      </div>
+      <div
+        class=""
+      >
+        <div>
+          4
+        </div>
+      </div>
+    </div>
+  `);
 });

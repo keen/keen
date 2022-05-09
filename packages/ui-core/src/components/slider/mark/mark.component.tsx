@@ -18,6 +18,7 @@ const Mark: FC<Props> = ({
   onMouseLeave,
 }) => (
   <Circle
+    data-testid="mark-circle"
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
     borderColor={borderColor}

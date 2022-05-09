@@ -1,24 +1,38 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import PciField from './pci-field.component';
 
-describe('@keen.io/forms - <PciField />', () => {
-  const id = 'card-number';
-  it('should render element with "id" attribute', () => {
-    const wrapper = mount(<PciField label="Card number" id={id} />);
+const render = (overProps: any = {}) => {
+  const props = {
+    label: 'Card number',
+    id: 'card-number',
+    ...overProps,
+  };
 
-    expect(wrapper.exists(`#${id}`)).toBeTruthy();
-  });
+  const wrapper = rtlRender(<PciField {...props} />);
 
-  it('should render <Error /> component', () => {
-    const error = 'Invalid card number';
-    const wrapper = mount(
-      <PciField error={error} id={id} label="Card number" />
-    );
+  return {
+    wrapper,
+    props,
+  };
+};
 
-    expect(wrapper.find('[data-error="card-number"]').first().text()).toEqual(
-      error
-    );
-  });
+test('should render element with "id" attribute', () => {
+  const {
+    wrapper: { container },
+    props: { id },
+  } = render();
+  const element = container.querySelector(`#${id}`);
+
+  expect(element).toBeInTheDocument();
+});
+
+test('should render <Error /> component', () => {
+  const error = 'Invalid card number';
+  const {
+    wrapper: { getByText },
+  } = render({ error });
+
+  expect(getByText(error)).toBeInTheDocument();
 });

@@ -1,54 +1,69 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { Tooltip } from '@keen.io/ui-core';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import RangeSlider from './range-slider.component';
 
-import Control from './control';
-import Rail from './rail';
-import Mark from './mark';
-
-describe('@keen.io/ui-core - <RangeSlider />', () => {
+const render = (overProps: any = {}) => {
   const props = {
     minimum: 0,
-    maximum: 0,
+    maximum: 10,
     colors: ['blue', 'red'],
+    ...overProps,
+  } as any;
+
+  const wrapper = rtlRender(<RangeSlider {...props} />);
+
+  return {
+    wrapper,
+    props,
+  };
+};
+
+test('should render two <Control /> components', () => {
+  const {
+    wrapper: { getAllByTestId },
+  } = render();
+  const controls = getAllByTestId('slider-control');
+  expect(controls.length).toEqual(2);
+});
+
+test('should render <Rail /> component', () => {
+  const railSettings = {
+    size: 10,
+    borderRadius: 5,
   };
 
-  it('should render two <Control /> components', () => {
-    const wrapper = mount(<RangeSlider {...props} />);
+  const {
+    wrapper: { getByTestId },
+  } = render({ railSettings });
+  const rail = getByTestId('slider-rail');
 
-    expect(wrapper.find(Control).length).toEqual(2);
+  expect(rail).toHaveStyle({
+    height: `${railSettings.size}px`,
+    borderRadius: `${railSettings.borderRadius}px`,
   });
+});
 
-  it('should render <Rail /> component', () => {
-    const railSettings = {
-      size: 10,
-      borderRadius: 5,
-    };
+test('should show tooltip for "mouseEnter" event on minimum drag control', () => {
+  const {
+    wrapper: { getByText, getAllByTestId },
+    props: { minimum },
+  } = render();
+  const marks = getAllByTestId('mark-circle');
 
-    const wrapper = mount(
-      <RangeSlider {...props} railSettings={railSettings} />
-    );
+  fireEvent.mouseEnter(marks[0]);
 
-    const rail = wrapper.find(Rail).first();
+  expect(getByText(minimum)).toBeInTheDocument();
+});
 
-    expect(rail.props()).toMatchObject(railSettings);
-  });
+test('should show tooltip for "mouseEnter" event on maximum drag control', () => {
+  const {
+    wrapper: { getByText, getAllByTestId },
+    props: { maximum },
+  } = render();
+  const marks = getAllByTestId('mark-circle');
 
-  it('should show tooltip for "mouseEnter" event on minimum drag control', () => {
-    const wrapper = mount(<RangeSlider {...props} />);
+  fireEvent.mouseEnter(marks[1]);
 
-    wrapper.find(Mark).first().simulate('mouseEnter');
-
-    expect(wrapper.find(Tooltip).length).toBeTruthy();
-  });
-
-  it('should show tooltip for "mouseEnter" event on maximum drag control', () => {
-    const wrapper = mount(<RangeSlider {...props} />);
-
-    wrapper.find(Mark).last().simulate('mouseEnter');
-
-    expect(wrapper.find(Tooltip).length).toBeTruthy();
-  });
+  expect(getByText(maximum)).toBeInTheDocument();
 });

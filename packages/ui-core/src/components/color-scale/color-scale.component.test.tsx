@@ -1,18 +1,32 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import ColorScale from './color-scale.component';
 
-describe('<ColorScale />', () => {
-  it('should render ColorScale with gradient', () => {
-    const wrapper = shallow(<ColorScale />);
-    expect(wrapper).toMatchSnapshot();
-  });
-  it('should render ColorScale with discrete mode', () => {
-    const wrapper = shallow(
-      <ColorScale colors={['yellow', 'green', 'red']} mode="discrete" />
-    );
-    expect(wrapper).toMatchSnapshot();
-  });
+const render = (overProps: any = {}) => {
+  const props = {
+    ...overProps,
+  } as any;
+
+  const wrapper = rtlRender(<ColorScale {...props} />);
+
+  return {
+    wrapper,
+    props,
+  };
+};
+
+test('should render ColorScale with gradient', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  expect(container).toMatchSnapshot();
+});
+
+test('should render ColorScale with discrete mode', () => {
+  const {
+    wrapper: { container },
+  } = render({ colors: ['yellow', 'green', 'red'], mode: 'discrete' });
+  expect(container).toMatchSnapshot();
 });

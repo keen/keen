@@ -1,13 +1,14 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 import RefText from './ref-text.component';
 
-const setup = (overProps: any = {}) => {
+const render = (overProps: any = {}) => {
   const props = {
+    children: 'text',
     ...overProps,
-  };
+  } as any;
 
-  const wrapper = mount(<RefText {...props} />);
+  const wrapper = rtlRender(<RefText {...props} />);
 
   return {
     wrapper,
@@ -15,26 +16,20 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('<RefText />', () => {
-  it('should render provided text', () => {
-    const text = 'text';
-    const { wrapper } = setup({
-      children: text,
-    });
+test('should render provided text', () => {
+  const {
+    wrapper: { getByText },
+    props: { children },
+  } = render();
 
-    expect(wrapper.text()).toEqual(text);
-    expect(wrapper.props().children).toEqual(text);
-  });
+  expect(getByText(children)).toBeInTheDocument();
+});
 
-  it('should get ref', () => {
-    const text = 'text';
-    const ref = jest.fn();
-    const { wrapper } = setup({
-      ref,
-      children: text,
-      truncate: true,
-    });
-    expect(wrapper.text()).toEqual(text);
-    expect(ref).toHaveBeenCalled();
+test('should get ref', () => {
+  const ref = jest.fn();
+  render({
+    ref,
+    truncate: true,
   });
+  expect(ref).toHaveBeenCalled();
 });

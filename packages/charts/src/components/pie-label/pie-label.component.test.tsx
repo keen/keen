@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 import { Typography } from '@keen.io/ui-core';
 
 import PieLabel from './pie-label.component';
 
-describe('@keen.io/charts - <PieLabel />', () => {
+const render = (overProps: any = {}) => {
   const typography: Typography = {
     fontSize: 12,
     fontFamily: 'sans-serif',
@@ -14,59 +14,62 @@ describe('@keen.io/charts - <PieLabel />', () => {
     fontWeight: 'normal',
   };
 
-  it('should render "text" element with typography font color', () => {
-    const wrapper = mount(
-      <svg>
-        <PieLabel {...typography} sliceBackground="#fff" autocolor={false}>
-          50%
-        </PieLabel>
-      </svg>
-    );
+  const props = {
+    sliceBackground: '#fff',
+    autocolor: false,
+    ...typography,
+    ...overProps,
+  };
 
-    expect(wrapper.find('text').props().fill).toEqual(typography.fontColor);
-  });
+  const wrapper = rtlRender(
+    <svg>
+      <PieLabel {...props}>50%</PieLabel>
+    </svg>
+  );
 
-  it('should set typography for "text" element', () => {
-    const { fontColor, ...typographySettings } = typography;
-    const wrapper = mount(
-      <svg>
-        <PieLabel {...typography} sliceBackground="#fff" autocolor={false}>
-          50%
-        </PieLabel>
-      </svg>
-    );
+  return {
+    wrapper,
+    props,
+  };
+};
 
-    expect(wrapper.find('text').props().style).toMatchObject(
-      typographySettings
-    );
-  });
+test('should render "text" element with typography font color', () => {
+  const {
+    wrapper: { container },
+    props: { fontColor },
+  } = render();
+  const text = container.querySelector('text');
+  const fill = text.getAttribute('fill');
 
-  it('should render "text" element with adjusted font color', () => {
-    const wrapper = mount(
-      <svg>
-        <PieLabel {...typography} sliceBackground="#fff" autocolor={true}>
-          95%
-        </PieLabel>
-      </svg>
-    );
+  expect(fill).toEqual(fontColor);
+});
 
-    expect(wrapper.find('text').props().fill).toMatchInlineSnapshot(
-      `"hsl(0, 0%, 20%)"`
-    );
-  });
+test('should set typography for "text" element', () => {
+  const {
+    wrapper: { container },
+    props: { fontSize, fontFamily, fontStyle, fontWeight },
+  } = render();
+  const text = container.querySelector('text');
 
-  it('should set typography for autocolor "text" element', () => {
-    const { fontColor, ...typographySettings } = typography;
-    const wrapper = mount(
-      <svg>
-        <PieLabel {...typography} sliceBackground="#fff" autocolor={true}>
-          100%
-        </PieLabel>
-      </svg>
-    );
+  expect(text).toHaveStyle({ fontSize, fontFamily, fontStyle, fontWeight });
+});
 
-    expect(wrapper.find('text').props().style).toMatchObject(
-      typographySettings
-    );
-  });
+it('should render "text" element with adjusted font color', () => {
+  const {
+    wrapper: { container },
+  } = render({ autocolor: true });
+  const text = container.querySelector('text');
+  const fill = text.getAttribute('fill');
+
+  expect(fill).toMatchInlineSnapshot(`"hsl(0, 0%, 20%)"`);
+});
+
+test('should set typography for autocolor "text" element', () => {
+  const {
+    wrapper: { container },
+    props: { fontSize, fontFamily, fontStyle, fontWeight },
+  } = render({ autocolor: true });
+  const text = container.querySelector('text');
+
+  expect(text).toHaveStyle({ fontSize, fontFamily, fontStyle, fontWeight });
 });

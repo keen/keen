@@ -1,18 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
-
-import { Tooltip } from '@keen.io/ui-core';
-
-import Rail from './rail';
-import Mark from './mark';
 
 import IntervalSlider from './interval-slider.component';
 
-describe('@keen.io/ui-core - <RangeSlider />', () => {
+const render = (overProps: any = {}) => {
   const props = {
     minimum: 0,
-    maximum: 0,
+    maximum: 10,
     colors: ['blue', 'red'],
     intervals: [
       {
@@ -21,32 +16,54 @@ describe('@keen.io/ui-core - <RangeSlider />', () => {
         step: 1,
       },
     ],
+    ...overProps,
+  } as any;
+
+  const wrapper = rtlRender(<IntervalSlider {...props} />);
+
+  return {
+    wrapper,
+    props,
+  };
+};
+
+test('should show tooltip for "mouseEnter" event on drag control', () => {
+  const {
+    wrapper: { getByTestId, getByText },
+    props: { minimum },
+  } = render();
+  const mark = getByTestId('mark-circle');
+
+  fireEvent.mouseEnter(mark);
+
+  expect(getByText(minimum)).toBeInTheDocument();
+});
+
+test('should render <Rail /> component', () => {
+  const railSettings = {
+    size: 10,
+    borderRadius: 5,
   };
 
-  it('should show tooltip for "mouseEnter" event on drag control', () => {
-    const wrapper = mount(<IntervalSlider {...props} />);
-    wrapper.find(Mark).first().simulate('mouseEnter');
+  const {
+    wrapper: { getByTestId },
+  } = render({ railSettings });
+  const rail = getByTestId('slider-rail');
 
-    expect(wrapper.find(Tooltip).length).toBeTruthy();
+  expect(rail).toHaveStyle({
+    height: `${railSettings.size}px`,
+    borderRadius: `${railSettings.borderRadius}px`,
   });
+});
 
-  it('should render <Rail /> component', () => {
-    const railSettings = {
-      size: 10,
-      borderRadius: 5,
-    };
+test('should set initial value', () => {
+  const initialValue = 5;
+  const {
+    wrapper: { getByTestId, getByText },
+  } = render({ initialValue });
+  const mark = getByTestId('mark-circle');
 
-    const wrapper = mount(
-      <IntervalSlider {...props} railSettings={railSettings} />
-    );
-    const rail = wrapper.find(Rail).first();
+  fireEvent.mouseEnter(mark);
 
-    expect(rail.props()).toMatchObject(railSettings);
-  });
-
-  it('should set initial value', () => {
-    const wrapper = mount(<IntervalSlider {...props} initialValue={50} />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
+  expect(getByText(initialValue.toString())).toBeInTheDocument();
 });

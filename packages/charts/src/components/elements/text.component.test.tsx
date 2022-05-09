@@ -1,17 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import Text from './text.component';
 
-const setup = (overProps: Record<string, any> = {}) => {
+const render = (overProps: any = {}) => {
   const props = {
-    ...overProps,
     dx: 0,
     dy: 0,
     children: '@keen',
+    ...overProps,
   };
 
-  const wrapper = mount(
+  const wrapper = rtlRender(
     <svg>
       <Text {...props} />
     </svg>
@@ -23,25 +23,29 @@ const setup = (overProps: Record<string, any> = {}) => {
   };
 };
 
-describe('@keen.io/charts - <Text />', () => {
-  it('should render children', () => {
-    const { wrapper, props } = setup();
+test('should render children', () => {
+  const {
+    wrapper: { getByText },
+    props: { children },
+  } = render();
+  expect(getByText(children)).toBeInTheDocument();
+});
 
-    expect(wrapper.text()).toEqual(props.children);
-  });
+test('should set coordinates for <text /> element', () => {
+  const {
+    wrapper: { container },
+  } = render({ dx: 5, dy: 10 });
 
-  it('should set coordinates for <text /> element', () => {
-    const { wrapper } = setup({ dx: 5, dy: 10 });
-
-    expect(wrapper.props()).toMatchInlineSnapshot(`
-      Object {
-        "children": <Text
-          dx={0}
-          dy={0}
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      <svg>
+        <text
+          dx="5"
+          dy="10"
         >
           @keen
-        </Text>,
-      }
-    `);
-  });
+        </text>
+      </svg>
+    </div>
+  `);
 });

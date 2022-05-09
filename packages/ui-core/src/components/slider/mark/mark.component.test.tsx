@@ -1,38 +1,56 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Mark from './mark.component';
-import { Circle } from './mark.styles';
 
-describe('@keen.io/ui-core - <Mark />', () => {
+const render = (overProps: any = {}) => {
   const props = {
     size: 10,
     backgroundColor: 'black',
     borderColor: 'gray',
+    onMouseEnter: jest.fn(),
+    onMouseLeave: jest.fn(),
+    ...overProps,
+  } as any;
+
+  const wrapper = rtlRender(<Mark {...props} />);
+
+  return {
+    wrapper,
+    props,
   };
+};
 
-  it('should call "onMouseEnter" handler', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(<Mark {...props} onMouseEnter={mockFn} />);
+test('should call "onMouseEnter" handler', () => {
+  const {
+    wrapper: { getByTestId },
+    props: { onMouseEnter },
+  } = render();
+  const circle = getByTestId('mark-circle');
+  fireEvent.mouseEnter(circle);
 
-    wrapper.simulate('mouseEnter');
+  expect(onMouseEnter).toHaveBeenCalled();
+});
 
-    expect(mockFn).toHaveBeenCalled();
-  });
+test('should call "onMouseLeave" handler', () => {
+  const {
+    wrapper: { getByTestId },
+    props: { onMouseLeave },
+  } = render();
+  const circle = getByTestId('mark-circle');
+  fireEvent.mouseLeave(circle);
 
-  it('should call "onMouseLeave" handler', () => {
-    const mockFn = jest.fn();
-    const wrapper = mount(<Mark {...props} onMouseLeave={mockFn} />);
+  expect(onMouseLeave).toHaveBeenCalled();
+});
 
-    wrapper.simulate('mouseLeave');
+test('should set element dimension based on "size" property', () => {
+  const {
+    wrapper: { getByTestId },
+    props: { size },
+  } = render();
+  const circle = getByTestId('mark-circle');
+  const circleSize = circle.getAttribute('size');
 
-    expect(mockFn).toHaveBeenCalled();
-  });
-
-  it('should set element dimension based on "size" property', () => {
-    const wrapper = mount(<Mark {...props} />);
-
-    expect(wrapper.find(Circle)).toMatchSnapshot();
-  });
+  expect(circleSize).toEqual(`${size}`);
 });

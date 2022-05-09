@@ -1,62 +1,74 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render as rtlRender } from '@testing-library/react';
 
 import Tick from './tick.component';
 
 import { Orientation } from '../../types';
 
-describe('@keen.io/charts - <Tick />', () => {
-  it('should set svg group coordinates', () => {
-    const wrapper = mount(
-      <svg>
-        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10} />
-      </svg>
-    );
+const render = (overProps: any = {}) => {
+  const props = {
+    orientation: Orientation.HORIZONTAL,
+    x: 10,
+    y: 25,
+    size: 10,
+    ...overProps,
+  };
 
-    expect(wrapper.find('g').props().transform).toMatchInlineSnapshot(
-      `"translate(10, 25)"`
-    );
-  });
+  const wrapper = rtlRender(
+    <svg>
+      <Tick {...props} />
+    </svg>
+  );
 
-  it('should set line position for vertical orientation', () => {
-    const wrapper = mount(
-      <svg>
-        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10} />
-      </svg>
-    );
+  return {
+    wrapper,
+    props,
+  };
+};
 
-    expect(wrapper.find('line').props()).toMatchInlineSnapshot(`
-      Object {
-        "stroke": "currentColor",
-        "y2": 10,
-      }
-    `);
-  });
+test('should set svg group coordinates', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  const g = container.querySelector('g');
+  const transform = g.getAttribute('transform');
 
-  it('should set line position for horizontal orientation', () => {
-    const wrapper = mount(
-      <svg>
-        <Tick orientation={Orientation.VERTICAL} x={10} y={25} size={10} />
-      </svg>
-    );
+  expect(transform).toMatchInlineSnapshot(`"translate(10, 25)"`);
+});
 
-    expect(wrapper.find('line').props()).toMatchInlineSnapshot(`
-      Object {
-        "stroke": "currentColor",
-        "x2": -10,
-      }
-    `);
-  });
+test('should set line position for vertical orientation', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  const line = container.querySelector('line');
 
-  it('should render children', () => {
-    const wrapper = mount(
-      <svg>
-        <Tick orientation={Orientation.HORIZONTAL} x={10} y={25} size={10}>
-          <text />
-        </Tick>
-      </svg>
-    );
+  expect(line).toMatchInlineSnapshot(`
+    <line
+      stroke="currentColor"
+      y2="10"
+    />
+  `);
+});
 
-    expect(wrapper.find('text')).toBeDefined();
-  });
+test('should set line position for horizontal orientation', () => {
+  const {
+    wrapper: { container },
+  } = render({ orientation: Orientation.VERTICAL });
+  const line = container.querySelector('line');
+
+  expect(line).toMatchInlineSnapshot(`
+    <line
+      stroke="currentColor"
+      x2="-10"
+    />
+  `);
+});
+
+test('should render children', () => {
+  const {
+    wrapper: { container },
+  } = render({ children: <text /> });
+  const text = container.querySelector('text');
+
+  expect(text).toBeInTheDocument();
 });
