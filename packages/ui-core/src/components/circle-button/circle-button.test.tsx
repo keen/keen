@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import CircleButton from './circle-button.component';
 
-const render = (props: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof CircleButton>> = {}
+) => {
+  const props = {
+    icon: <i>icon</i>,
+    ...overProps,
+  };
   const wrapper = rtlRender(<CircleButton {...props} />);
 
   return {
@@ -26,9 +32,7 @@ describe('@keen.io/ui-core - <CircleButton />', () => {
   test('should render CircleButton with icon', () => {
     const {
       wrapper: { getByText },
-    } = render({
-      icon: <i>icon</i>,
-    });
+    } = render();
 
     expect(getByText('icon')).toBeInTheDocument();
   });

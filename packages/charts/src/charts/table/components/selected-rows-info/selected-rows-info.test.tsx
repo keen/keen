@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import { SelectedRowsInfo } from './selected-rows-info';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof SelectedRowsInfo>> = {}
+) => {
   const props = {
     selectedRowsNumber: 2,
     onClearRowsSelection: jest.fn(),

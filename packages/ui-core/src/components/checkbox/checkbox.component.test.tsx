@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Checkbox from './checkbox.component';
 import { KEYBOARD_KEYS } from '../../constants';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Checkbox>> = {}) => {
   const props = {
     id: '@checkbox-1',
     ...overProps,

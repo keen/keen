@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Image from './image.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Image>> = {}) => {
   const props = {
     name: 'test',
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<Image {...props} />);
 

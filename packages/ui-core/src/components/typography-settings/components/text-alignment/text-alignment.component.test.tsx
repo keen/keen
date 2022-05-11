@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TextAlignment from './text-alignment.component';
+import { TextAlignment as TextAlignmentType } from './types';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TextAlignment>> = {}
+) => {
   const props = {
-    currentAlignment: 'left',
+    currentAlignment: 'left' as TextAlignmentType,
     onUpdateTextAlignment: jest.fn(),
     ...overProps,
   };

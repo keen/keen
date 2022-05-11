@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
 
 import Form from './form.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Form>> = {}) => {
   const props = {
     isSubmitting: false,
     onSubmit: jest.fn(),

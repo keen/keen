@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import Header from './header.component';
 
 import { theme } from '../../../../theme';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Header>> = {}) => {
   const props = {
     theme,
     percentageValue: 50,

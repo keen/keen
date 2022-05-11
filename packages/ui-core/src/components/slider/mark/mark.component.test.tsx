@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Mark from './mark.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Mark>> = {}) => {
   const props = {
     size: 10,
     backgroundColor: 'black',
@@ -12,7 +12,7 @@ const render = (overProps: any = {}) => {
     onMouseEnter: jest.fn(),
     onMouseLeave: jest.fn(),
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<Mark {...props} />);
 

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
 import Color from './color.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Color>> = {}) => {
   const props = {
     color: 'red',
     colorSuggestions: ['blue'],

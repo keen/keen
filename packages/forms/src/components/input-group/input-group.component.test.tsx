@@ -1,15 +1,15 @@
 /* eslint-disable react/display-name */
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { Formik } from 'formik';
 import { render as rtlRender } from '@testing-library/react';
 
 import InputGroup from './input-group.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof InputGroup>> = {}) => {
   const props = {
     label: 'label',
     ...overProps,
-  } as any;
+  };
 
   const submitMock = jest.fn();
 

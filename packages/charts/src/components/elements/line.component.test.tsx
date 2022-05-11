@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import Line from './line.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Line>> = {}) => {
   const props = {
     x1: 10,
     x2: 15,

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import Tick from './tick.component';
 
 import { Orientation } from '../../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Tick>> = {}) => {
   const props = {
     orientation: Orientation.HORIZONTAL,
     x: 10,

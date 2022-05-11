@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Accordion from './accordion.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Accordion>> = {}) => {
   const props = {
     title: 'Accordion title',
     children: 'Lorem ipsum',

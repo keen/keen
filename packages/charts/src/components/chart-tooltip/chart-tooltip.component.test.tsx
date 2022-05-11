@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import ChartTooltip from './chart-tooltip.component';
 
 import { ChartContext } from '../../contexts';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ChartTooltip>> = {}
+) => {
   const props = {
     x: 0,
     y: 0,
     visible: false,
+    children: 'tooltip',
     ...overProps,
   };
 

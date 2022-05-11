@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import RangeSlider from './range-slider.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof RangeSlider>> = {}
+) => {
   const props = {
     minimum: 0,
     maximum: 10,
     colors: ['blue', 'red'],
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<RangeSlider {...props} />);
 

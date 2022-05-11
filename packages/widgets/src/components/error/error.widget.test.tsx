@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import ErrorWidget from './error.widget';
@@ -6,7 +6,9 @@ import text from './text.json';
 
 import { widgetSettings } from '../../widget-settings';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ErrorWidget>> = {}
+) => {
   const props = {
     ...widgetSettings,
     ...overProps,

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TableCell from './table-cell.component';
+import { Typography } from '../../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof TableCell>> = {}) => {
   const props = {
     onClick: jest.fn(),
     value: 'value',
+    index: 0,
+    disableBorder: false,
     typography: {
       fontStyle: 'normal',
       fontWeight: 'normal',
@@ -14,7 +17,7 @@ const render = (overProps: any = {}) => {
       fontFamily: 'Lato Regular, sans-serif',
       fontColor: 'black',
       lineHeight: '17px',
-    } as any,
+    } as Typography,
     ...overProps,
   };
 

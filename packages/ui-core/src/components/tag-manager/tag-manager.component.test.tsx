@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TagManager from './tag-manager.component';
 import { KeyCodes } from './types';
 
 const tag = 'email@keen.io';
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof TagManager>> = {}) => {
   const props = {
     tags: [],
     onCreate: jest.fn(),
@@ -13,7 +13,7 @@ const render = (overProps: any = {}) => {
     onError: jest.fn(),
     validator: jest.fn().mockImplementation(() => true),
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<TagManager {...props} />);
 

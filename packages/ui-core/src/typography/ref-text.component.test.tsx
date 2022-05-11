@@ -1,12 +1,22 @@
-import React from 'react';
+/* eslint-disable react/display-name */
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import RefText from './ref-text.component';
+import { Typography } from '../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof RefText>> = {}) => {
+  const typography: Typography = {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 12,
+    fontColor: 'black',
+  };
   const props = {
     children: 'text',
+    ref: () => <div />,
+    ...typography,
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<RefText {...props} />);
 

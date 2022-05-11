@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Group from './group.component';
 
-const render = (overProps: any = {}) => {
-  const props = {
-    ...overProps,
-  } as any;
-
+const render = (props: Partial<ComponentProps<typeof Group>> = {}) => {
   const wrapper = rtlRender(
     <Group {...props}>
       <div>1</div>

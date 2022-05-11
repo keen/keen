@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import BarValues from './bar-values.component';
 
 import { theme } from '../../../../theme';
 import { ChartContext } from '../../../../contexts';
+import { Bar } from '../../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof BarValues>> = {}) => {
   const bars = [
     {
       x: 10,
@@ -17,7 +18,7 @@ const render = (overProps: any = {}) => {
       key: 'marketing',
       value: 20,
     },
-  ];
+  ] as Bar[];
 
   const props = {
     autocolor: false,

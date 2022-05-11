@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory, History } from 'history';
 import { render as rtlRender, waitFor } from '@testing-library/react';
@@ -6,7 +6,10 @@ import { render as rtlRender, waitFor } from '@testing-library/react';
 import OAuthComplete from './oauth-complete.component';
 import text from './text.json';
 
-const render = (overProps: any = {}, history: History) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof OAuthComplete>> = {},
+  history: History
+) => {
   const props = {
     onSuccess: jest.fn(),
     onError: jest.fn(),

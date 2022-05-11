@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Toggle from './toggle.component';
 import { KEYBOARD_KEYS } from '../../constants';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Toggle>> = {}) => {
   const props = {
+    onChange: jest.fn(),
     ...overProps,
   };
   const wrapper = rtlRender(<Toggle {...props} />);
@@ -23,13 +24,10 @@ test('should render Toggle component', () => {
 });
 
 test('should call onChange if provided', () => {
-  const onChange = jest.fn();
   const {
     wrapper: { getByRole },
     props,
-  } = render({
-    onChange,
-  });
+  } = render();
   const element = getByRole('switch');
   fireEvent.click(element);
 
@@ -37,13 +35,10 @@ test('should call onChange if provided', () => {
 });
 
 test('should call onChange using keyboard', () => {
-  const onChange = jest.fn();
   const {
     wrapper: { getByRole },
     props,
-  } = render({
-    onChange,
-  });
+  } = render();
   const element = getByRole('switch');
   fireEvent.keyDown(element, { key: 'Enter', keyCode: KEYBOARD_KEYS.ENTER });
 

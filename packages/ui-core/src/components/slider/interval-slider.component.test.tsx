@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import IntervalSlider from './interval-slider.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof IntervalSlider>> = {}
+) => {
   const props = {
     minimum: 0,
     maximum: 10,
@@ -17,7 +19,7 @@ const render = (overProps: any = {}) => {
       },
     ],
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<IntervalSlider {...props} />);
 

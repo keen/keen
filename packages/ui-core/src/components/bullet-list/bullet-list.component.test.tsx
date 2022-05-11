@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import BulletList from './bullet-list.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof BulletList>> = {}) => {
   const items = [
     {
       color: 'red',

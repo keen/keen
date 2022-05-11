@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import AxisTitle from './axis-title.component';
+import { theme } from '../theme';
+import { Orientation } from '../types';
 
 const line = { x1: 0, x2: 100, y1: 100, y2: 0 };
 const groupBox = { x: 10, y: 10, height: 10 };
-const orientation = 'horizontal';
+const orientation = 'horizontal' as Orientation;
 const title = 'Axis Title';
 
-import { theme } from '../theme';
-
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof AxisTitle>> = {}) => {
   const props = {
     line,
     groupBox,

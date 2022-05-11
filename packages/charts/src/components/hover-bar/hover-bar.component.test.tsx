@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import HoverBar from './hover-bar.component';
 
 import { ChartContext } from '../../contexts';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof HoverBar>> = {}) => {
   const props = {
     x: 0,
     onMouseEnter: jest.fn(),

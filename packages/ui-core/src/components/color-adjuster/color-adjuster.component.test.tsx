@@ -1,14 +1,17 @@
-/* eslint-disable react/no-children-prop */
-import React from 'react';
+/* eslint-disable react/no-children-prop, react/display-name */
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import ColorAdjuster from './color-adjuster.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ColorAdjuster>> = {}
+) => {
   const props = {
     baseColor: '#fff',
+    children: (color: string) => <span>{color}</span>,
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<ColorAdjuster {...props} />);
 

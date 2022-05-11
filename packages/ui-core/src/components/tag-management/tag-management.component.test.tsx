@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 import { render as rtlRender, fireEvent, act } from '@testing-library/react';
 import TagManagement from './tag-management.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TagManagement>> = {}
+) => {
   const props = {
     onRemoveTag: jest.fn(),
     onAddTag: jest.fn(),

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import PciField from './pci-field.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof PciField>> = {}) => {
   const props = {
     label: 'Card number',
     id: 'card-number',

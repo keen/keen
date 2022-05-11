@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
+import { Layout } from '@keen.io/ui-core';
 
 import FunnelChart from './funnel-chart.component';
 import { chartData } from './funnel-chart.fixtures';
@@ -11,14 +12,16 @@ jest.mock('../../components/responsive-wrapper.component', () => {
   return Component;
 });
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof FunnelChart>> = {}
+) => {
   const props = {
     theme,
     data: chartData,
     labelSelector: 'name',
     valueKey: 'value',
     stepLabels: ['E-mails'],
-    layout: 'vertical',
+    layout: 'vertical' as Layout,
     margins: { top: 50, right: 20, bottom: 50, left: 40 },
     ...overProps,
   };

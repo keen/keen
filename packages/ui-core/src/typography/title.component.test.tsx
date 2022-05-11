@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Title from './title.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Title>> = {}) => {
   const props = {
     children: 'text',
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<Title {...props} />);
 

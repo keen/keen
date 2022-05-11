@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import Ruler from './ruler.component';
+import { Layout } from '../../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Ruler>> = {}) => {
   const ticks = [
     { label: 0, position: '0%' },
     { label: 50, position: '50%' },
     { label: 100, position: '100%' },
   ];
   const props = {
-    layout: 'vertical',
+    layout: 'vertical' as Layout,
     ticks,
     ...overProps,
-  } as any;
+  };
 
   const wrapper = rtlRender(<Ruler {...props} />);
 

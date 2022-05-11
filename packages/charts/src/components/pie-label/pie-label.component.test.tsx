@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { Typography } from '@keen.io/ui-core';
 
 import PieLabel from './pie-label.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof PieLabel>> = {}) => {
   const typography: Typography = {
     fontSize: 12,
     fontFamily: 'sans-serif',

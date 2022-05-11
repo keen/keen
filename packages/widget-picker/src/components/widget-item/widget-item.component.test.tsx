@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
+import { IconType } from '@keen.io/icons';
 
 import WidgetItem from './widget-item.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof WidgetItem>> = {}) => {
   const props = {
-    icon: 'area-widget',
+    icon: 'area-widget' as IconType,
     onClick: jest.fn(),
     isActive: false,
     hasOptions: false,

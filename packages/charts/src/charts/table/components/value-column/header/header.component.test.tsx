@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import { Header } from './header.component';
+import { TextAlignment } from './types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Header>> = {}) => {
   const props = {
     isSorted: false,
     isSortedDescending: false,
-    textAlignment: 'left',
+    textAlignment: 'left' as TextAlignment,
     columnName: '@column',
     ...overProps,
   };
