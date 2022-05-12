@@ -5,14 +5,16 @@
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
   "license": "MIT",
+  "sideEffects": false,
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "src/index.ts",
+  "module": "dist/index.esm.js",
+  "types": "typings/index.d.ts",
   "directories": {
     "lib": "dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "typings"
   ],
   "repository": {
     "type": "git",
@@ -20,7 +22,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist typings tsconfig.tsbuildinfo",
-    "build": "tsc"
+    "build": "npx rollup --configPlugin @rollup/plugin-typescript --config rollup.config.ts"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
@@ -40,6 +42,11 @@
     "d3-time-format": "^2.2.3",
     "dayjs": "^1.10.4",
     "numeral": "^2.0.6"
+  },
+  "devDependencies": {
+    "@keen.io/dev-tools": "^0.1.0",
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-typescript": "^7.13.0"
   },
   "publishConfig": {
     "access": "public"
