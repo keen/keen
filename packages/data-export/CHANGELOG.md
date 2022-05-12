@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.45](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.44...@keen.io/data-export@1.2.45) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
 ## [1.2.44](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.43...@keen.io/data-export@1.2.44) (2022-05-12)
 
 **Note:** Version bump only for package @keen.io/data-export
