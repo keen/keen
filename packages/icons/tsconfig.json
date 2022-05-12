@@ -2,8 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "declarationDir": "./typings",
+    "resolveJsonModule": true
   },
   "include": ["./src/**/*"],
-  "references": [{ "path": "../colors" }]
+  "references": [{ "path": "../colors" }, { "path": "../dev-tools" }]
 }
