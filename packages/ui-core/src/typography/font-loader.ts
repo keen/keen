@@ -1,10 +1,10 @@
-import WebFont from 'webfontloader';
 import { theme } from '../theme';
 
 const predefinedFonts = [theme.font.GangsterGrotesk, theme.font.Lato];
 class FontLoader {
   private static instance: FontLoader;
   private fonts: string[] = [];
+
   private constructor() {
     if (FontLoader.instance) {
       throw new Error('Error: Use FontLoader.getInstance() instead of new.');
@@ -17,13 +17,15 @@ class FontLoader {
     return FontLoader.instance;
   }
 
-  loadFont(fonts: string[]) {
+  async loadFont(fonts: string[]) {
     const customFamilies = predefinedFonts.filter(
       (font) => !this.fonts.includes(font)
     );
     const googleFamilies = fonts.filter(
       (font) => !this.fonts.includes(font) && !predefinedFonts.includes(font)
     );
+
+    const WebFont = (await import('webfontloader')).default;
 
     if (customFamilies.length || googleFamilies.length) {
       WebFont.load({
