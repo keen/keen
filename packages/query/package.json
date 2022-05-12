@@ -21,9 +21,8 @@
     "url": "git+https://github.com/keen/keen.git"
   },
   "scripts": {
-    "test": "jest",
-    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
-    "build": "tsc"
+    "prebuild": "rimraf dist typings tsconfig.tsbuildinfo",
+    "build": "npx rollup --configPlugin @rollup/plugin-typescript --config rollup.config.ts"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.13.8",
