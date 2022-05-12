@@ -1,4 +1,6 @@
+import { waitFor } from '@testing-library/react';
 import WebFont from 'webfontloader';
+
 import FontLoaderInstance from './font-loader';
 
 jest.mock('webfontloader', () => ({
@@ -8,8 +10,11 @@ jest.mock('webfontloader', () => ({
 describe('FontLoaderInstance', () => {
   const fontFamily = 'Roboto';
 
-  it('should call load function', () => {
+  test('should call load function', async () => {
     FontLoaderInstance.loadFont([fontFamily]);
-    expect(WebFont.load).toHaveBeenCalled();
+
+    await waitFor(() => {
+      expect(WebFont.load).toHaveBeenCalled();
+    });
   });
 });
