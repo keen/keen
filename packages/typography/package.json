@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/typography",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Typography components for Keen",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -34,7 +34,7 @@
     "styled-components": ">=5"
   },
   "dependencies": {
-    "@keen.io/colors": "^1.0.0",
+    "@keen.io/colors": "^1.1.1",
     "@types/styled-system": "5.1.9",
     "styled-system": "^5.1.5"
   },
