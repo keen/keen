@@ -5,6 +5,7 @@ tsconfig.*.tsbuildinfo
 lerna-debug.log
 packages/**/dist
 package-lock.json
+.rollup.cache
 coverage
 .DS_Store
 dist
