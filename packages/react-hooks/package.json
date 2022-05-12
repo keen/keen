@@ -5,23 +5,24 @@
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
   "license": "MIT",
+  "sideEffects": false,
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "src/index.ts",
+  "module": "dist/index.esm.js",
+  "types": "typings/index.d.ts",
   "directories": {
     "lib": "dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "typings"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/keen/keen.git"
   },
   "scripts": {
-    "test": "jest",
-    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
-    "build": "tsc"
+    "prebuild": "rimraf dist typings tsconfig.tsbuildinfo",
+    "build": "npx rollup --configPlugin @rollup/plugin-typescript --config rollup.config.ts"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
@@ -39,6 +40,9 @@
     "access": "public"
   },
   "devDependencies": {
+    "@keen.io/dev-tools": "^0.1.0",
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-typescript": "^7.13.0",
     "@testing-library/react-hooks": "^3.4.1"
   },
   "sideEffects": false

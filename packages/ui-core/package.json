@@ -1,7 +1,7 @@
 {
   "name": "@keen.io/ui-core",
   "version": "2.50.3",
-  "description": "Keen visual components",
+  "description": "Keen visual components library",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
   "license": "MIT",
@@ -22,14 +22,13 @@
   },
   "scripts": {
     "test": "jest",
-    "prebuild": "rimraf dist tsconfig.tsbuildinfo",
-    "build": "npx rollup -c"
+    "prebuild": "rimraf dist typings tsconfig.tsbuildinfo",
+    "build": "npx rollup --configPlugin @rollup/plugin-typescript --config rollup.config.ts"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
   "peerDependencies": {
-    "dayjs": "^1.10.7",
     "react": ">=16",
     "react-dom": ">=16",
     "styled-components": ">=5"
@@ -50,6 +49,7 @@
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
     "@types/webfontloader": "^1.6.29",
+    "dayjs": "^1.10.7",
     "color": "^3.1.2",
     "csstype": "^3.0.9",
     "framer-motion": "^1.11.1",

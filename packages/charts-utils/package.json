@@ -19,25 +19,22 @@
     "url": "git+https://github.com/keen/keen.git"
   },
   "scripts": {
-    "test": "jest",
-    "prebuild": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "prebuild": "rimraf dist typings tsconfig.tsbuildinfo",
     "build": "tsc"
   },
   "bugs": {
     "url": "https://github.com/keen/keen/issues"
   },
-  "peerDependencies": {
-    "dayjs": "^1.10.4",
-    "moment-timezone": "^0.5.33",
-    "numeral": "^2.0.6"
-  },
   "dependencies": {
     "@keen.io/query": "^1.2.0",
     "@types/d3-array": "^2.0.0",
+    "@keen.io/colors": "^1.1.0",
     "@types/d3-format": "^1.3.1",
     "@types/d3-scale": "^2.1.1",
     "@types/d3-time": "^1.0.10",
     "@types/d3-time-format": "^2.1.1",
+    "dayjs": "^1.10.4",
+    "numeral": "^2.0.6",
     "d3-array": "^2.4.0",
     "d3-format": "^1.4.3",
     "d3-scale": "^3.2.1",

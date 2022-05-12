@@ -4,7 +4,8 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "declarationDir": "./typings",
-    "target": "es2019"
+    "target": "es2019",
+    "resolveJsonModule": true
   },
   "references": [
     { "path": "../dev-tools" },
