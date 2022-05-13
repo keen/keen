@@ -62,8 +62,7 @@ const SeriesHorizontal: FC<Props> = ({
 
   const [renderMode, setRenderMode] = useState<RenderMode>('list');
   const [sliderDimension, setSliderDimension] = useState<[number, number]>([
-    0,
-    0,
+    0, 0,
   ]);
   const [direction, setDirection] = useState(0);
 

@@ -134,7 +134,8 @@ const ColorPalette = ({
   }, [colors]);
 
   const setPickerPosition = () => {
-    const addColorButtonRect = addColorButtonRef.current.getBoundingClientRect();
+    const addColorButtonRect =
+      addColorButtonRef.current.getBoundingClientRect();
     dispatch(
       colorPaletteActions.setColorPickerPosition({
         x: addColorButtonRect.x,

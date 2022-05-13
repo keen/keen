@@ -76,12 +76,8 @@ export const BubbleChart: FC<Props> = ({
   yAxisTitle,
   formatTooltip,
 }) => {
-  const {
-    layoutMargins,
-    layoutReady,
-    setLayoutReady,
-    setLayoutMargins,
-  } = useDynamicChartLayout(useDynamicLayout, margins);
+  const { layoutMargins, layoutReady, setLayoutReady, setLayoutMargins } =
+    useDynamicChartLayout(useDynamicLayout, margins);
 
   const { bubbles, xScale, yScale, middlePoint } = generateBubbles({
     data,

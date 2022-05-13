@@ -61,7 +61,8 @@ beforeAll(() => {
 
 afterAll(() => {
   (SVGElement as any).prototype.getBBox = originalGetBBox;
-  (SVGElement as any).prototype.getComputedTextLength = originalGetComputedTextLength;
+  (SVGElement as any).prototype.getComputedTextLength =
+    originalGetComputedTextLength;
   unregisterTimezone();
 });
 

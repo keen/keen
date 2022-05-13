@@ -112,31 +112,26 @@ export const ChoroplethChart: FC<Props> = ({
 
   const { tooltip: themeTooltipSettings } = theme;
 
-  const {
-    drawPath,
-    graticule,
-    geoData,
-    geoProjection,
-    getColor,
-  } = generateChoropleth({
-    topology,
-    projection: {
-      type: projection,
-      rotation: projectionState.rotation,
-      translation: projectionState.translation,
-      scale: projectionState.scale,
-    },
-    margins,
-    geoKey,
-    valueKey,
-    data,
-    dimension: svgDimensions,
-    colorScale: {
-      colors: theme.colors,
-      mode: colorMode,
-      steps: colorSteps,
-    },
-  });
+  const { drawPath, graticule, geoData, geoProjection, getColor } =
+    generateChoropleth({
+      topology,
+      projection: {
+        type: projection,
+        rotation: projectionState.rotation,
+        translation: projectionState.translation,
+        scale: projectionState.scale,
+      },
+      margins,
+      geoKey,
+      valueKey,
+      data,
+      dimension: svgDimensions,
+      colorScale: {
+        colors: theme.colors,
+        mode: colorMode,
+        steps: colorSteps,
+      },
+    });
 
   const { dragged } = useDragHandlers(
     svgElement,

@@ -95,12 +95,8 @@ export const LineChart: FC<Props> = ({
   activeKey,
   dataSeriesOffset,
 }) => {
-  const {
-    layoutMargins,
-    layoutReady,
-    setLayoutReady,
-    setLayoutMargins,
-  } = useDynamicChartLayout(useDynamicLayout, margins);
+  const { layoutMargins, layoutReady, setLayoutReady, setLayoutMargins } =
+    useDynamicChartLayout(useDynamicLayout, margins);
   const {
     line: { markRadius, strokeWidth },
   } = theme;

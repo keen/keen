@@ -49,3 +49,9 @@ export type ButtonVariant =
   | 'blank';
 
 export type RadioItem = { id: string; label: string; value: string | number };
+
+declare global {
+  interface Navigator {
+    msSaveBlob?: (blob: any, defaultName?: string) => boolean;
+  }
+}

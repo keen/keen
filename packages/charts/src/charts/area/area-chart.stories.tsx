@@ -41,10 +41,12 @@ const createThemeKnobs = () => ({
 export const plot = () => {
   const formatKnob = text('Date label format', '%d %b', 'Chart');
 
-  const createLabelFormatter = (dateFormat = '%D %b') => (date) => {
-    const format = timeFormat(dateFormat);
-    return format(date);
-  };
+  const createLabelFormatter =
+    (dateFormat = '%D %b') =>
+    (date) => {
+      const format = timeFormat(dateFormat);
+      return format(date);
+    };
 
   return (
     <div style={{ width: '700px', height: '500px' }}>

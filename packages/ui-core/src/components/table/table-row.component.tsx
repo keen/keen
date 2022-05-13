@@ -47,9 +47,10 @@ const TableRow: FC<Props> = ({
   onCellMouseEnter,
   onCellMouseLeave,
 }) => {
-  const rgbaBackground = useMemo(() => rgba(backgroundColor, 0.3), [
-    backgroundColor,
-  ]);
+  const rgbaBackground = useMemo(
+    () => rgba(backgroundColor, 0.3),
+    [backgroundColor]
+  );
 
   return (
     <Container

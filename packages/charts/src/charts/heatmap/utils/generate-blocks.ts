@@ -149,13 +149,8 @@ const BLOCK_RENDER_MAP: Record<string, any> = {
 };
 
 export const generateBlocks = (options: Options) => {
-  const {
-    layout,
-    xScaleSettings,
-    yScaleSettings,
-    xAxisTitle,
-    yAxisTitle,
-  } = options;
+  const { layout, xScaleSettings, yScaleSettings, xAxisTitle, yAxisTitle } =
+    options;
 
   const settings =
     layout === 'vertical'

@@ -29,9 +29,8 @@ const AttributeDropdown: FC<Props> = ({
 
   useOnClickOutside(containerRef, () => setOpen(false));
   useOnParentScroll(scrollableContainerRef, () => setOpen(false));
-  const { setPosition, contentPosition } = useDynamicContentPosition(
-    containerRef
-  );
+  const { setPosition, contentPosition } =
+    useDynamicContentPosition(containerRef);
 
   return (
     <Container ref={containerRef}>

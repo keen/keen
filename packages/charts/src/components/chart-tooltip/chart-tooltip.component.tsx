@@ -42,19 +42,14 @@ const ChartTooltip: FC<Props> = ({
     }
   }, [visible, x]);
 
-  const {
-    tooltipX,
-    tooltipY,
-    transform,
-    arrowDirection,
-    arrowTop,
-  } = calculateTooltipPosition({
-    svgDimensions,
-    margins,
-    x,
-    y,
-    ...foreignObject,
-  });
+  const { tooltipX, tooltipY, transform, arrowDirection, arrowTop } =
+    calculateTooltipPosition({
+      svgDimensions,
+      margins,
+      x,
+      y,
+      ...foreignObject,
+    });
 
   return (
     <AnimatePresence>

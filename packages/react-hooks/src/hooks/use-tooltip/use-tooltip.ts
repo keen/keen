@@ -30,12 +30,8 @@ export const useTooltip = (
     ) => {
       if (tooltipUpdate.current) cancelAnimationFrame(tooltipUpdate.current);
       e.persist();
-      const {
-        top,
-        left,
-        width,
-        height,
-      }: ClientRect = container.current.getBoundingClientRect();
+      const { top, left, width, height }: ClientRect =
+        container.current.getBoundingClientRect();
 
       let maxOffsetX = width;
       let maxOffsetY = height;
@@ -55,10 +51,8 @@ export const useTooltip = (
       }
 
       if (!allowContainerOverflow && tooltipRef?.current) {
-        const {
-          width: tooltipWidth,
-          height: tooltipHeight,
-        }: ClientRect = tooltipRef.current.getBoundingClientRect();
+        const { width: tooltipWidth, height: tooltipHeight }: ClientRect =
+          tooltipRef.current.getBoundingClientRect();
         maxOffsetX = width - tooltipWidth;
         maxOffsetY = height - tooltipHeight;
       }

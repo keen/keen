@@ -21,11 +21,8 @@ export const defaultTransformation = (
 ) => {
   let data: Record<string, any>[] = [];
   const keys: Set<string> = new Set();
-  const {
-    mergePropertiesOrder,
-    fillEmptyIntervalsKeys,
-    dateModifier,
-  } = parserSettings;
+  const { mergePropertiesOrder, fillEmptyIntervalsKeys, dateModifier } =
+    parserSettings;
 
   result.forEach((interval) => {
     const { timeframe, value } = interval as {

@@ -102,12 +102,8 @@ export const BarChart: FC<Props> = ({
 }) => {
   const svgElement = useRef<SVGSVGElement>(null);
 
-  const {
-    layoutMargins,
-    layoutReady,
-    setLayoutReady,
-    setLayoutMargins,
-  } = useDynamicChartLayout(useDynamicLayout, margins);
+  const { layoutMargins, layoutReady, setLayoutReady, setLayoutMargins } =
+    useDynamicChartLayout(useDynamicLayout, margins);
 
   const {
     bars,
