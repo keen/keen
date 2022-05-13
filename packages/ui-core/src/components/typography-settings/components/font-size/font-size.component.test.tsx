@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import FontSize from './font-size.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof FontSize>> = {}) => {
   const props = {
     currentFontSize: 18,
     fontSizeSuggestions: [14, 15, 18],

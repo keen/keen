@@ -71,8 +71,6 @@ const availableFonts = [...defaultFonts, ...themeFonts];
 export const ThemeableText = () => {
   const headerFont = select('Title', availableFonts, availableFonts[0]);
   const contentFont = select('Content', availableFonts, availableFonts[0]);
-  const activeFonts = useFontLoader([headerFont, contentFont]);
-  console.log(activeFonts);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import { generateGroupedLines, generateStackLines } from './chart.utils';
 import { lineChart } from '../line-chart.fixtures';
+import { Options } from '../types';
 
 const data = [
   { label: '2020-01-01T00:00:00.000Z', sale: -3, buy: 11, revenue: 30 },
@@ -7,7 +8,7 @@ const data = [
   { label: '2020-02-01T00:00:00.000Z', sale: -3, buy: 11, revenue: 30 },
 ];
 
-const lineChartSettings: any = {
+const lineChartSettings: Options = {
   data,
   ...lineChart,
 };

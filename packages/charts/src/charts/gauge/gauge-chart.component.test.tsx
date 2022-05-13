@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -8,7 +8,7 @@ import {
 import { theme } from '../../theme';
 import GaugeChart from './gauge-chart.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof GaugeChart>> = {}) => {
   const data = [{ 'keen.key': 'Result', 'keen.value': 100 }];
   const valueKey = 'keen.value';
   const svgDimensions = { width: 100, height: 100 };

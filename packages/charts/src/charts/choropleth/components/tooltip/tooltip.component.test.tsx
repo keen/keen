@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import Tooltip from './tooltip.component';
 
 import { theme } from '../../../../theme';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Tooltip>> = {}) => {
   const { labels, values } = theme.tooltip;
   const props = {
     geographicalName: 'United States',

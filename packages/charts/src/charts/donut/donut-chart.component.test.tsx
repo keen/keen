@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -10,7 +10,7 @@ import { theme as defaultTheme } from '../../theme';
 
 import DonutChart from './donut-chart.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof DonutChart>> = {}) => {
   const svgDimensions = { width: 700, height: 500 };
   const labelSelector = 'name';
   const keys = ['buy', 'sold'];

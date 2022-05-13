@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { Typography } from '@keen.io/ui-core';
 
 import GaugeLabels from './gauge-labels.component';
 import { MAX_VALUE_PLACEHOLDER } from './constants';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof GaugeLabels>> = {}
+) => {
   const typography: Typography = {
     fontStyle: 'normal',
     fontWeight: 'normal',

@@ -95,7 +95,7 @@ export const IntervalSlider: FC<Props> = ({
 
   useEffect(() => {
     if (
-      dimension &&
+      typeof dimension === 'number' &&
       typeof initialValue === 'number' &&
       initialValue !== value
     ) {

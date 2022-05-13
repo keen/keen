@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
 import { ColorPicker } from '../index';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ColorPicker>> = {}
+) => {
   const props = {
     color: '#EAEAEA',
     onClosePicker: jest.fn(),

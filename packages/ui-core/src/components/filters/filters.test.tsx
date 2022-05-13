@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 import {
@@ -9,13 +9,14 @@ import {
 
 import Filters from './filters';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Filters>> = {}) => {
   const props = {
     activeFilters: [],
     filters: [],
     specialFilters: ['special_filter_1'],
     onUpdateFilters: jest.fn(),
     onClearFilters: jest.fn(),
+    setOpen: jest.fn(),
     ...overProps,
   };
 

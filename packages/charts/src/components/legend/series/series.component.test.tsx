@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
-import { Typography } from '@keen.io/ui-core';
+import { Alignment, Layout, Position, Typography } from '@keen.io/ui-core';
 
 import SeriesLegend from './series.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof SeriesLegend>> = {}
+) => {
   const dataSeries = [
     { name: 'e-mails', color: 'navy' },
     { name: 'calls', color: 'green' },
@@ -13,8 +15,9 @@ const render = (overProps: any = {}) => {
   const colorPalette = ['red, blue', 'green'];
 
   const props = {
-    layout: 'vertical',
-    position: 'top',
+    layout: 'vertical' as Layout,
+    position: 'top' as Position,
+    alignment: 'left' as Alignment,
     card: {},
     dataSeries,
     colorPalette,

@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import OptionsGroup from './options-group.component';
+import { OptionItem, OptionValue } from '../../types';
 
-const options = [
+const options: OptionItem[] = [
   {
     label: 'Option 1',
     isActive: () => false,
     defaultValue: {
       widget: 'choropleth',
-    },
+    } as OptionValue,
   },
   {
     label: 'Option 2',
     isActive: () => false,
     defaultValue: {
       widget: 'metric',
-    },
+    } as OptionValue,
   },
 ];
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof OptionsGroup>> = {}
+) => {
   const props = {
     id: 'id',
     title: 'title',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -9,7 +9,7 @@ import { chartData as data } from './pie-chart.fixtures';
 
 import PieChart from './pie-chart.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof PieChart>> = {}) => {
   const svgDimensions = { width: 700, height: 500 };
   const labelSelector = 'name';
   const keys = ['buy', 'sold'];

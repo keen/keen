@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent, act } from '@testing-library/react';
 
 import PropertiesTree from './properties-tree.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof PropertiesTree>> = {}
+) => {
   const props = {
     onClick: jest.fn(),
     expanded: false,
+    properties: {},
+    modalContainer: '',
     ...overProps,
   };
 

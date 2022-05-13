@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import RulerLabel from './ruler-label.component';
@@ -12,7 +12,7 @@ jest.mock('./utils', () => {
   };
 });
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof RulerLabel>> = {}) => {
   const props = {
     dx: 0,
     dy: 0,

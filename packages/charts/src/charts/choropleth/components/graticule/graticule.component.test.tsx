@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
+import { GeoPath, GeoPermissibleObjects, GeoGraticuleGenerator } from 'd3-geo';
 
 import Graticule from './graticule.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Graticule>> = {}) => {
   const props = {
-    draw: jest.fn().mockImplementation((coordinates) => coordinates),
-    graticule: jest.fn().mockImplementation(() => '@graticule-value'),
+    draw: jest
+      .fn()
+      .mockImplementation((coordinates) => coordinates) as unknown as GeoPath<
+      any,
+      GeoPermissibleObjects
+    >,
+    graticule: jest
+      .fn()
+      .mockImplementation(
+        () => '@graticule-value'
+      ) as unknown as GeoGraticuleGenerator,
     stroke: 'black',
     ...overProps,
   };

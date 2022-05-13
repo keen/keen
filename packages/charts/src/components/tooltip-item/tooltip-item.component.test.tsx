@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import TooltipItem from './tooltip-item.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TooltipItem>> = {}
+) => {
   const props = {
     data: 'value',
     ...overProps,

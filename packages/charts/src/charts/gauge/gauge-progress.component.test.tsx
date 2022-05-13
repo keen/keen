@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, waitFor } from '@testing-library/react';
 import { Typography } from '@keen.io/ui-core';
 
 import GaugeProgress from './gauge-progress.component';
+import { ProgressType } from './types';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof GaugeProgress>> = {}
+) => {
   const typography: Typography = {
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -14,7 +17,7 @@ const render = (overProps: any = {}) => {
   };
 
   const props = {
-    progressType: 'percent',
+    progressType: 'percent' as ProgressType,
     minimum: 0,
     maximum: 200,
     value: 50,

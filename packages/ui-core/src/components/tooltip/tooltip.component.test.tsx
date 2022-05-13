@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Tooltip from './tooltip.component';
 import BulletList from '../bullet-list';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Tooltip>> = {}) => {
   const props = {
+    children: 'tooltip',
     ...overProps,
   };
 
@@ -18,12 +19,11 @@ const render = (overProps: any = {}) => {
 };
 
 test('renders provided text', () => {
-  const children = 'text';
   const {
     wrapper: { getByText },
-  } = render({ children });
+  } = render();
 
-  expect(getByText(children)).toBeInTheDocument();
+  expect(getByText('tooltip')).toBeInTheDocument();
 });
 
 test('renders bullet points', () => {
@@ -50,7 +50,7 @@ test('renders bullet points', () => {
     wrapper: { getAllByRole },
   } = render({
     children: (
-      <BulletList items={bulletList} renderItem={(idx, items) => items.data} />
+      <BulletList items={bulletList} renderItem={(_idx, items) => items.data} />
     ),
   });
 
@@ -113,11 +113,10 @@ test('renders `dark-mode`', () => {
 
 test('not renders box shadow', () => {
   const hasShadow = false;
-  const children = 'tooltip';
 
   const {
     wrapper: { container },
-  } = render({ hasShadow, children });
+  } = render({ hasShadow });
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       padding: 10px 15px;

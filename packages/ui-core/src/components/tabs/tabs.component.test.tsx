@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import Tabs from './tabs.component';
@@ -19,7 +19,7 @@ const elements = [
   },
 ];
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Tabs>> = {}) => {
   const props = {
     onClick: jest.fn(),
     tabs: elements,

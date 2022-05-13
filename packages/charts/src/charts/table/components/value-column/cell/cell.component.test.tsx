@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
+import { Cell as CellType } from 'react-table';
 import 'jest-styled-components';
 
 import { Cell } from './cell.component';
+import { Typography } from '@keen.io/ui-core';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Cell>> = {}) => {
   const props = {
     cell: {
       getCellProps: () => ({
@@ -14,7 +16,7 @@ const render = (overProps: any = {}) => {
         formatterType: null,
         value: '@value',
       },
-    },
+    } as CellType,
     isActive: false,
     onCellClick: jest.fn(),
     onCellMouseEnter: jest.fn(),
@@ -22,7 +24,9 @@ const render = (overProps: any = {}) => {
     typography: {
       fontSize: 12,
       fontStyle: 'normal',
-    },
+      fontWeight: 'normal',
+      fontColor: 'black',
+    } as Typography,
     ...overProps,
   };
 

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import MetricChartWidget from './metric.widget';
 import { chartData } from './metric.widget.fixtures';
+import { widgetSettings } from '../../widget-settings';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof MetricChartWidget>> = {}
+) => {
   const props = {
-    title: '',
-    subtitle: '',
+    title: {
+      content: '',
+      typography: widgetSettings.title.typography,
+    },
+    subtitle: {
+      content: '',
+      typography: widgetSettings.subtitle.typography,
+    },
     tags: [],
     card: {
       enabled: true,

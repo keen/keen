@@ -7,6 +7,7 @@ import {
   Formatter,
   formatValue as valueFormatter,
 } from '@keen.io/charts-utils';
+import { ProgressType } from './types';
 
 const springMotion = {
   from: 0,
@@ -20,7 +21,7 @@ type Props = {
   minimum: number;
   maximum: number;
   value: number;
-  progressType?: 'normal' | 'percent';
+  progressType?: ProgressType;
   formatValue?: Formatter;
   isAutoApplied: boolean;
 };

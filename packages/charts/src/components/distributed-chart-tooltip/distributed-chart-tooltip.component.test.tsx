@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import DistributedChartTooltip from './distributed-chart-tooltip.component';
@@ -6,7 +6,9 @@ import DistributedChartTooltip from './distributed-chart-tooltip.component';
 import { theme } from '../../theme';
 import { ChartContext } from '../../contexts';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof DistributedChartTooltip>> = {}
+) => {
   const keys = ['users', 'licenses'];
   const selectors = [
     {
@@ -31,6 +33,8 @@ const render = (overProps: any = {}) => {
     selectors,
     isPercentage: false,
     isTimePrecise: false,
+    isStacked: false,
+    labelSelector: '',
     tooltipSettings: {
       formatValue,
     },

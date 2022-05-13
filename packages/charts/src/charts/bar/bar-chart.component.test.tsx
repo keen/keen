@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -14,7 +14,7 @@ import BarChart from './bar-chart.component';
 import { theme as defaultTheme } from '../../theme';
 import { chartData as data } from './bar-chart.fixtures';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof BarChart>> = {}) => {
   const labelSelector = 'name';
   const keys = ['users', 'licenses', 'shops'];
   const props = {

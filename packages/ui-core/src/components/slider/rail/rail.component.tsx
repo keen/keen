@@ -39,6 +39,7 @@ const Rail: FC<Props> = ({ type, colors, zeroPoint, borderRadius, size }) => {
 
   return (
     <div
+      data-testid="slider-rail"
       style={{
         position: 'absolute',
         borderRadius,

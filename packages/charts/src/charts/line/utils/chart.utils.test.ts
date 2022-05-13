@@ -6,6 +6,7 @@ import {
 import { generateGroupedLines, generateStackLines } from './chart.utils';
 
 import { lineChart } from '../line-chart.fixtures';
+import { Options } from '../types';
 
 beforeAll(() => {
   registerTimezone('UTC');
@@ -21,7 +22,7 @@ const data = [
   { label: '2020-02-01T00:00:00.000Z', sale: -3, buy: 11, revenue: 30 },
 ];
 
-const lineChartSettings: any = {
+const lineChartSettings: Options = {
   data,
   ...lineChart,
 };
@@ -119,7 +120,7 @@ test('creates yScale domain for grouped line chart negative values only', () => 
     { label: '2020-02-01T00:00:00.000Z', sale: -3, buy: -11, revenue: -30 },
   ];
 
-  const lineChartSettings: any = {
+  const lineChartSettings: Options = {
     data,
     ...lineChart,
   };
@@ -141,7 +142,7 @@ test('creates yScale domain for stacked line chart negative values only', () => 
     { label: '2020-02-01T00:00:00.000Z', sale: -3, buy: -11, revenue: -30 },
   ];
 
-  const lineChartSettings: any = {
+  const lineChartSettings: Options = {
     data,
     ...lineChart,
   };

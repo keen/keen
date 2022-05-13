@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import SearchFilters from './search-filters';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof SearchFilters>> = {}
+) => {
   const props = {
     isActive: false,
     onActiveSearch: jest.fn(),

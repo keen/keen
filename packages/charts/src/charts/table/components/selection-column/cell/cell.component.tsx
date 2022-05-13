@@ -6,7 +6,9 @@ import { CellContainer, CellContent } from '../../body-cell';
 
 import { CellValue } from '../../../types';
 
-interface EnhancedRow extends Row, UseRowSelectRowProps<Record<string, any>> {}
+export interface EnhancedRow
+  extends Row,
+    UseRowSelectRowProps<Record<string, any>> {}
 
 type Props = {
   /* Row instance enhanced with selection properties */

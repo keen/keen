@@ -1,9 +1,11 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { ComponentProps } from 'react';
+import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TagManager from './tag-manager.component';
+import { KeyCodes } from './types';
 
-const setup = (overProps: any = {}) => {
+const tag = 'email@keen.io';
+const render = (overProps: Partial<ComponentProps<typeof TagManager>> = {}) => {
   const props = {
     tags: [],
     onCreate: jest.fn(),
@@ -13,81 +15,89 @@ const setup = (overProps: any = {}) => {
     ...overProps,
   };
 
-  const wrapper = mount(<TagManager {...props} />);
+  const wrapper = rtlRender(<TagManager {...props} />);
 
   return {
     wrapper,
     props,
-    getInput: () => wrapper.find('input'),
   };
 };
 
-describe('@keen.io/ui-core - <TagManager />', () => {
-  const tag = 'email@keen.io';
+test('should call "onCreate" for "enter" key', () => {
+  const {
+    wrapper: { container },
+    props: { onCreate },
+  } = render();
+  const input = container.querySelector('input');
 
-  it('should call "onCreate" for "enter" key', () => {
-    const { props, getInput } = setup();
-    const input = getInput();
+  fireEvent.change(input, { target: { value: tag } });
+  fireEvent.keyPress(input, { key: 'Enter', charCode: KeyCodes.ENTER });
 
-    const instance = input.instance() as React.Element<HTMLInputElement>;
+  expect(onCreate).toHaveBeenCalledWith(tag);
+});
 
-    instance.value = tag;
-    input.simulate('keyPress', { charCode: 13 });
+test('should call "onCreate" for "comma" key', () => {
+  const {
+    wrapper: { container },
+    props: { onCreate },
+  } = render();
+  const input = container.querySelector('input');
 
-    expect(props.onCreate).toHaveBeenCalledWith(tag);
+  fireEvent.change(input, { target: { value: tag } });
+  fireEvent.keyPress(input, { key: ',', charCode: KeyCodes.COMMA });
+
+  expect(onCreate).toHaveBeenCalledWith(tag);
+});
+
+test('should call "onCreate" for "blur" event', () => {
+  const {
+    wrapper: { container },
+    props: { onCreate },
+  } = render();
+  const input = container.querySelector('input');
+
+  fireEvent.change(input, { target: { value: tag } });
+  fireEvent.blur(input);
+
+  expect(onCreate).toHaveBeenCalledWith(tag);
+});
+
+test('should call "onError" handler for not valid tag', () => {
+  const {
+    wrapper: { container },
+    props: { onError },
+  } = render({
+    validator: jest.fn().mockImplementation(() => false),
+  });
+  const input = container.querySelector('input');
+
+  fireEvent.keyPress(input, { key: ',', charCode: KeyCodes.COMMA });
+
+  expect(onError).toHaveBeenCalled();
+});
+
+test('should call "onRemove" handler with tag name and index arguments', () => {
+  const tag = 'keen';
+  const {
+    wrapper: { getByRole },
+    props: { onRemove },
+  } = render({
+    tags: [tag],
   });
 
-  it('should call "onCreate" for "comma" key', () => {
-    const { props, getInput } = setup();
-    const input = getInput();
+  const button = getByRole('button');
+  fireEvent.click(button);
 
-    const instance = input.instance() as React.Element<HTMLInputElement>;
-    instance.value = tag;
+  expect(onRemove).toHaveBeenCalledWith(tag, 0);
+});
 
-    input.simulate('keyPress', { charCode: 44 });
-
-    expect(props.onCreate).toHaveBeenCalledWith(tag);
+test('should set placeholder attribute on input element', () => {
+  const placeholder = 'Create tags';
+  const {
+    wrapper: { getByPlaceholderText },
+  } = render({
+    placeholder,
   });
 
-  it('should call "onCreate" for "blur" event', () => {
-    const { props, getInput } = setup();
-    const input = getInput();
-
-    const instance = input.instance() as React.Element<HTMLInputElement>;
-    instance.value = tag;
-
-    input.simulate('blur');
-
-    expect(props.onCreate).toHaveBeenCalledWith(tag);
-  });
-
-  it('should call "onError" handler for not valid tag', () => {
-    const { getInput, props } = setup({
-      validator: jest.fn().mockImplementation(() => false),
-    });
-    const input = getInput();
-
-    input.simulate('keyPress', { charCode: 44 });
-
-    expect(props.onError).toHaveBeenCalled();
-  });
-
-  it('should call "onRemove" handler with tag name and index arguments', () => {
-    const tag = 'keen';
-    const { props, wrapper } = setup({
-      tags: [tag],
-    });
-
-    wrapper.find('div[role="button"]').simulate('click');
-    expect(props.onRemove).toHaveBeenCalledWith(tag, 0);
-  });
-
-  it('should set placeholder attribute on input element', () => {
-    const placeholder = 'Create tags';
-    const { getInput } = setup({
-      placeholder,
-    });
-
-    expect(getInput().props().placeholder).toEqual(placeholder);
-  });
+  expect(getByPlaceholderText(placeholder)).toBeInTheDocument();
 });

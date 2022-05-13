@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import WidgetPicker from './widget-picker.component';
+import { PickerWidgets } from '../../types';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof WidgetPicker>> = {}
+) => {
   const props = {
-    widgets: ['area', 'table', 'json'],
+    widgets: ['area', 'table', 'json'] as PickerWidgets[],
     currentWidget: null,
     chartSettings: {},
     widgetSettings: {},

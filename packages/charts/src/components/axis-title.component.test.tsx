@@ -1,16 +1,16 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { ComponentProps } from 'react';
+import { render as rtlRender } from '@testing-library/react';
 
 import AxisTitle from './axis-title.component';
+import { theme } from '../theme';
+import { Orientation } from '../types';
 
 const line = { x1: 0, x2: 100, y1: 100, y2: 0 };
 const groupBox = { x: 10, y: 10, height: 10 };
-const orientation = 'horizontal';
+const orientation = 'horizontal' as Orientation;
 const title = 'Axis Title';
 
-import { theme } from '../theme';
-
-const setup = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof AxisTitle>> = {}) => {
   const props = {
     line,
     groupBox,
@@ -19,67 +19,73 @@ const setup = (overProps: any = {}) => {
     ...overProps,
   };
 
-  const wrapper = mount(
+  const wrapper = rtlRender(
     <svg>
       <AxisTitle {...props}>{title}</AxisTitle>
     </svg>
   );
 
-  return { wrapper, props };
+  return {
+    wrapper,
+    props,
+  };
 };
 
-describe('<AxisTitle />', () => {
-  it('should render AxisTitle', () => {
-    const { wrapper } = setup();
-    expect(wrapper).toMatchSnapshot();
-  });
+test('should render AxisTitle', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  expect(container).toMatchSnapshot();
+});
 
-  it('should render AxisTitle text', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('text').text()).toEqual(title);
-  });
+test('should render AxisTitle text', () => {
+  const {
+    wrapper: { getByText },
+  } = render();
+  expect(getByText(title)).toBeInTheDocument();
+});
 
-  it('should render horizontal title with theme props', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('text')).toMatchInlineSnapshot(`
-      <text
-        data-elementid="horizontal-axis-title"
-        fill="#27566D"
-        fontFamily="Lato, sans-serif"
-        fontSize={14}
-        fontStyle="normal"
-        fontWeight="bold"
-        style={Object {}}
-        textAnchor="middle"
-        x={50}
-        y={40}
-      >
-        Axis Title
-      </text>
-    `);
-  });
+test('should render horizontal title with theme props', () => {
+  const {
+    wrapper: { getByText },
+  } = render();
+  const text = getByText(title);
+  expect(text).toMatchInlineSnapshot(`
+    <text
+      data-elementid="horizontal-axis-title"
+      fill="#27566D"
+      font-family="Lato, sans-serif"
+      font-size="14"
+      font-style="normal"
+      font-weight="bold"
+      text-anchor="middle"
+      x="50"
+      y="40"
+    >
+      Axis Title
+    </text>
+  `);
+});
 
-  it('should render vertical title with theme props', () => {
-    const { wrapper } = setup({ orientation: 'vertical' });
-    expect(wrapper.find('text')).toMatchInlineSnapshot(`
-      <text
-        data-elementid="vertical-axis-title"
-        fill="#27566D"
-        fontFamily="Lato, sans-serif"
-        fontSize={14}
-        fontStyle="normal"
-        fontWeight="bold"
-        style={
-          Object {
-            "transform": "rotate(-90deg)",
-          }
-        }
-        textAnchor="middle"
-        x={-50}
-        y={-10}
-      >
-        Axis Title
-      </text>
-    `);
-  });
+test('should render vertical title with theme props', () => {
+  const {
+    wrapper: { getByText },
+  } = render({ orientation: 'vertical' });
+  const text = getByText(title);
+  expect(text).toMatchInlineSnapshot(`
+    <text
+      data-elementid="vertical-axis-title"
+      fill="#27566D"
+      font-family="Lato, sans-serif"
+      font-size="14"
+      font-style="normal"
+      font-weight="bold"
+      style="transform: rotate(-90deg);"
+      text-anchor="middle"
+      x="-50"
+      y="-10"
+    >
+      Axis Title
+    </text>
+  `);
 });
