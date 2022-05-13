@@ -6,6 +6,7 @@ import {
 import {
   generateHorizontalGroupedBars,
   generateVerticalGroupedBars,
+  Options,
 } from './chart.utils';
 
 import { verticalBarChart, horizontalBarChart } from '../bar-chart.fixtures';
@@ -24,7 +25,7 @@ afterAll(() => {
 });
 
 describe('generateHorizontalGroupedBars()', () => {
-  const chart: any = {
+  const chart: Options = {
     data,
     ...horizontalBarChart,
   };
@@ -144,7 +145,7 @@ describe('generateHorizontalGroupedBars()', () => {
 });
 
 describe('generateVerticalGroupedBars()', () => {
-  const chart: any = {
+  const chart: Options = {
     data,
     ...verticalBarChart,
   };

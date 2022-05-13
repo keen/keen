@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TimePeriod from './time-period.component';
 import { KEYBOARD_KEYS } from '../../constants';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof TimePeriod>> = {}) => {
   const props = {
     relativity: 'this',
     value: 14,
     units: 'days',
+    label: '',
+    unitsPlaceholder: '',
     onChange: jest.fn(),
     ...overProps,
   };

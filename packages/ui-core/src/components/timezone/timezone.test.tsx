@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import Timezone from './timezone.component';
 
 import { timezones } from './timezone.fixtures';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Timezone>> = {}) => {
   const props = {
     timezones,
     timezone: timezones[0].name,
     timezoneLabel: 'Timezone',
     timezonePlaceholderLabel: 'Placeholder',
+    emptySearchLabel: 'Nothing found',
     onChange: jest.fn(),
     ...overProps,
   };

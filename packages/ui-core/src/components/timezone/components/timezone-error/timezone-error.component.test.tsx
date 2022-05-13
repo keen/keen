@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TimezoneError from './timezone-error.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TimezoneError>> = {}
+) => {
   const props = {
     label: 'Timezone',
     placeholder: 'Placeholder',

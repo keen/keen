@@ -59,7 +59,11 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton blank va
 >
   <div
     class="c1"
-  />
+  >
+    <i>
+      icon
+    </i>
+  </div>
 </button>
 `;
 
@@ -123,7 +127,11 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton danger v
 >
   <div
     class="c1"
-  />
+  >
+    <i>
+      icon
+    </i>
+  </div>
 </button>
 `;
 
@@ -190,7 +198,11 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton primary 
 >
   <div
     class="c1"
-  />
+  >
+    <i>
+      icon
+    </i>
+  </div>
 </button>
 `;
 
@@ -254,7 +266,11 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton secondar
 >
   <div
     class="c1"
-  />
+  >
+    <i>
+      icon
+    </i>
+  </div>
 </button>
 `;
 
@@ -318,6 +334,10 @@ exports[`@keen.io/ui-core - <CircleButton /> should render CircleButton success 
 >
   <div
     class="c1"
-  />
+  >
+    <i>
+      icon
+    </i>
+  </div>
 </button>
 `;

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
+import { Alignment, Layout, Position } from '@keen.io/ui-core';
 
 import ChartWidget from './chart-widget.component';
 import WidgetHeading from '../widget-heading.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ChartWidget>> = {}
+) => {
   const props = {
     title: () => null,
     legend: () => null,
@@ -12,7 +15,11 @@ const render = (overProps: any = {}) => {
     cardSettings: {
       enabled: true,
     },
-    legendSettings: {},
+    legendSettings: {
+      position: 'top' as Position,
+      layout: 'horizontal' as Layout,
+      alignment: 'center' as Alignment,
+    },
     ...overProps,
   };
 

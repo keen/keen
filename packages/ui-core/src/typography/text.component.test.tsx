@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import Text from './text.component';
+import { Typography } from '../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Text>> = {}) => {
+  const typography: Typography = {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 16,
+    fontColor: 'black',
+  };
   const props = {
-    ...overProps,
     children: '@text',
+    ...typography,
+    ...overProps,
   };
 
   const wrapper = rtlRender(<Text {...props} />);

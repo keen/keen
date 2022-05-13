@@ -1,19 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 
 import PasswordInput from './password-input.component';
 
-describe('@keen.io/ui-core - <PasswordInput />', () => {
-  it('should render "password" input HTML element', () => {
-    const wrapper = mount(<PasswordInput />);
+it('should render "password" input HTML element', () => {
+  const { container } = render(<PasswordInput />);
 
-    expect(wrapper.find('input').props().type).toEqual('password');
-  });
+  expect(container.querySelector('input').type).toEqual('password');
+});
 
-  it('should change input element type to "text"', () => {
-    const wrapper = mount(<PasswordInput />);
-    wrapper.find('svg').simulate('click');
+it('should change input element type to "text"', () => {
+  const { container } = render(<PasswordInput />);
+  const icon = container.querySelector('svg');
+  const input = container.querySelector('input');
 
-    expect(wrapper.find('input').props().type).toEqual('text');
-  });
+  fireEvent.click(icon);
+
+  expect(input.type).toEqual('text');
 });

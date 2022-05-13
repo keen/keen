@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import MapPath from './map-path.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof MapPath>> = {}) => {
   const props = {
     path: 'path',
     fill: 'blue',

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import ItemsPerPage from './items-per-page.component';
 import { PER_PAGE_OPTIONS } from '../../constants';
 import { KEYBOARD_KEYS } from '../../../../constants';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ItemsPerPage>> = {}
+) => {
   const props = {
     onChange: jest.fn(),
     ...overProps,

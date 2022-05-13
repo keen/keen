@@ -1,33 +1,47 @@
-/* eslint-disable react/no-children-prop */
-import React from 'react';
-import { mount } from 'enzyme';
+/* eslint-disable react/no-children-prop, react/display-name */
+import React, { ComponentProps } from 'react';
+import { render as rtlRender } from '@testing-library/react';
 
 import ColorAdjuster from './color-adjuster.component';
 
-describe('@keen.io/ui-core - <ColorAdjuster />', () => {
-  let mockFn: any;
+const render = (
+  overProps: Partial<ComponentProps<typeof ColorAdjuster>> = {}
+) => {
+  const props = {
+    baseColor: '#fff',
+    children: (color: string) => <span>{color}</span>,
+    ...overProps,
+  };
 
-  beforeEach(() => {
-    mockFn = jest.fn().mockImplementation(() => <div />);
-  });
+  const wrapper = rtlRender(<ColorAdjuster {...props} />);
 
-  it('should adjust color for light base', () => {
-    const baseColor = '#fff';
-    mount(<ColorAdjuster baseColor={baseColor} children={mockFn} />);
+  return {
+    wrapper,
+    props,
+  };
+};
 
-    const callArguments = mockFn.mock.calls[0][0];
+let mockFn: any;
 
-    expect(callArguments).toMatchInlineSnapshot(`"hsl(0, 0%, 20%)"`);
-    expect(mockFn).toHaveBeenCalled();
-  });
+beforeEach(() => {
+  mockFn = jest.fn().mockImplementation(() => <div />);
+});
 
-  it('should adjust color for dark base', () => {
-    const baseColor = '#000';
-    mount(<ColorAdjuster baseColor={baseColor} children={mockFn} />);
+test('should adjust color for light base', () => {
+  render({ children: mockFn });
 
-    const callArguments = mockFn.mock.calls[0][0];
+  const callArguments = mockFn.mock.calls[0][0];
 
-    expect(callArguments).toMatchInlineSnapshot(`"hsl(0, 0%, 80%)"`);
-    expect(mockFn).toHaveBeenCalled();
-  });
+  expect(callArguments).toMatchInlineSnapshot(`"hsl(0, 0%, 20%)"`);
+  expect(mockFn).toHaveBeenCalled();
+});
+
+test('should adjust color for dark base', () => {
+  const baseColor = '#000';
+  render({ baseColor, children: mockFn });
+
+  const callArguments = mockFn.mock.calls[0][0];
+
+  expect(callArguments).toMatchInlineSnapshot(`"hsl(0, 0%, 80%)"`);
+  expect(mockFn).toHaveBeenCalled();
 });

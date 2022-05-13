@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import RelativeTime from './relative-time.component';
 import { KEYBOARD_KEYS } from '../../constants';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof RelativeTime>> = {}
+) => {
   const props = {
     relativity: 'this',
     value: 14,

@@ -5,6 +5,7 @@ import { HeaderCellContent } from '../../header-cell-content';
 import { SortIndicators } from '../sort-indicators';
 
 import { Container } from './header.styles';
+import { TextAlignment } from './types';
 
 type Props = {
   /** Sort active indicator */
@@ -12,7 +13,7 @@ type Props = {
   /* Descending sort indicator */
   isSortedDescending: boolean;
   /* Text alignment */
-  textAlignment: 'left' | 'right';
+  textAlignment: TextAlignment;
   /* Column name after transformation */
   columnName: string;
 };

@@ -9,12 +9,13 @@ import { getIconColor } from '../utils';
 
 import SliderButton from '../slider-button';
 import ShiftGroup from '../shift-group';
+import { Mode } from './types';
 
 type Props = {
   /** Children nodes */
   children: React.ReactNode;
   /* Slider mode */
-  mode: 'vertical' | 'horizontal';
+  mode: Mode;
   /** Container width and height */
   dimension: [number, number];
   /** Next slide event handler */

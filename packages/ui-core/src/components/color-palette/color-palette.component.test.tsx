@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
 import { ColorPalette } from '../index';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ColorPalette>> = {}
+) => {
   const props = {
     colors: ['red', 'green', 'blue'],
     onColorsChange: jest.fn(),

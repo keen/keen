@@ -1,55 +1,61 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { ComponentProps } from 'react';
+import { render as rtlRender } from '@testing-library/react';
 
 import Line from './line.component';
 
-describe('@keen.io/charts - <Line />', () => {
+const render = (overProps: Partial<ComponentProps<typeof Line>> = {}) => {
   const props = {
     x1: 10,
     x2: 15,
     y1: 10,
     y2: 30,
     color: 'white',
+    ...overProps,
   };
 
-  it('should render svg <line /> element', () => {
-    const wrapper = mount(
-      <svg>
-        <Line {...props} />
-      </svg>
-    );
+  const wrapper = rtlRender(
+    <svg>
+      <Line {...props} />
+    </svg>
+  );
 
-    expect(wrapper.find('line').length).toEqual(1);
-  });
+  return {
+    wrapper,
+    props,
+  };
+};
 
-  it('should inherit color', () => {
-    const wrapper = mount(
-      <svg>
-        <Line {...props} color={undefined} />
-      </svg>
-    );
+test('should render svg <line /> element', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  const line = container.querySelector('line');
 
-    expect(wrapper.find('line').props().style.stroke).toEqual('currentColor');
-  });
+  expect(line).toBeInTheDocument();
+});
 
-  it('should set proper <line /> element properties', () => {
-    const wrapper = mount(
-      <svg>
-        <Line {...props} />
-      </svg>
-    );
+test('should inherit color', () => {
+  const {
+    wrapper: { container },
+  } = render({ color: undefined });
+  const line = container.querySelector('line');
 
-    expect(wrapper.find('line').props()).toMatchInlineSnapshot(`
-      Object {
-        "style": Object {
-          "stroke": "white",
-          "strokeWidth": 1,
-        },
-        "x1": 10,
-        "x2": 15,
-        "y1": 10,
-        "y2": 30,
-      }
-    `);
-  });
+  expect(line).toHaveStyle({ stroke: 'currentColor', 'stroke-width': 1 });
+});
+
+test('should set proper <line /> element properties', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  const line = container.querySelector('line');
+
+  expect(line).toMatchInlineSnapshot(`
+    <line
+      style="stroke: white; stroke-width: 1;"
+      x1="10"
+      x2="15"
+      y1="10"
+      y2="30"
+    />
+  `);
 });

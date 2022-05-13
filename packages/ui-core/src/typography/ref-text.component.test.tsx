@@ -1,13 +1,24 @@
-import React from 'react';
-import { mount } from 'enzyme';
+/* eslint-disable react/display-name */
+import React, { ComponentProps } from 'react';
+import { render as rtlRender } from '@testing-library/react';
 import RefText from './ref-text.component';
+import { Typography } from '../types';
 
-const setup = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof RefText>> = {}) => {
+  const typography: Typography = {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 12,
+    fontColor: 'black',
+  };
   const props = {
+    children: 'text',
+    ref: () => <div />,
+    ...typography,
     ...overProps,
   };
 
-  const wrapper = mount(<RefText {...props} />);
+  const wrapper = rtlRender(<RefText {...props} />);
 
   return {
     wrapper,
@@ -15,26 +26,20 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('<RefText />', () => {
-  it('should render provided text', () => {
-    const text = 'text';
-    const { wrapper } = setup({
-      children: text,
-    });
+test('should render provided text', () => {
+  const {
+    wrapper: { getByText },
+    props: { children },
+  } = render();
 
-    expect(wrapper.text()).toEqual(text);
-    expect(wrapper.props().children).toEqual(text);
-  });
+  expect(getByText(children)).toBeInTheDocument();
+});
 
-  it('should get ref', () => {
-    const text = 'text';
-    const ref = jest.fn();
-    const { wrapper } = setup({
-      ref,
-      children: text,
-      truncate: true,
-    });
-    expect(wrapper.text()).toEqual(text);
-    expect(ref).toHaveBeenCalled();
+test('should get ref', () => {
+  const ref = jest.fn();
+  render({
+    ref,
+    truncate: true,
   });
+  expect(ref).toHaveBeenCalled();
 });

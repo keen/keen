@@ -1,36 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ColorScale /> should render ColorScale with discrete mode 1`] = `
-<Fragment>
-  <styled.div
-    background="yellow"
-    key="yellow"
+exports[`should render ColorScale with discrete mode 1`] = `
+.c0 {
+  width: 100%;
+  height: 6px;
+  background: yellow;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+.c1 {
+  width: 100%;
+  height: 6px;
+  background: green;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+.c2 {
+  width: 100%;
+  height: 6px;
+  background: red;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+<div>
+  <div
+    class="c0"
   />
-  <styled.div
-    background="green"
-    key="green"
+  <div
+    class="c1"
   />
-  <styled.div
-    background="red"
-    key="red"
+  <div
+    class="c2"
   />
-</Fragment>
+</div>
 `;
 
-exports[`<ColorScale /> should render ColorScale with gradient 1`] = `
-<Fragment>
-  <Component
-    colors={
-      Array [
-        "#85B4C3",
-        "#CB5623",
-        "#E29B1E",
-        "#487650",
-        "#F4A083",
-      ]
-    }
-    maximum={100}
-    minimum={0}
-  />
-</Fragment>
+exports[`should render ColorScale with gradient 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: solid 2px #F0AB30;
+}
+
+.c0 {
+  border-radius: 3px;
+  background: #E1E2E4;
+}
+
+.c1 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  -ms-transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+  transform: translateX(-50%) translateX(7.5px) translateY(-50%) translateY( 23px );
+}
+
+<div>
+  <div
+    style="position: relative; width: 100%; height: 15px;"
+  >
+    <div
+      data-testid="slider-rail"
+      style="position: absolute; border-radius: 3px; width: 100%; height: 4px; top: 50%; transform: translateY(-50%);"
+    />
+    <div
+      class="c0"
+      style="width: 0px; height: 4px; left: 0px; position: absolute; top: 50%; transform: translateY(-50%);"
+    />
+    <div
+      class="c0"
+      style="width: calc(100% - 0px); height: 4px; left: 0px; position: absolute; top: 50%; transform: translateY(-50%);"
+    />
+    <div
+      data-testid="slider-control"
+      draggable="false"
+      style="display: block; position: absolute; z-index: 2; user-select: none; transform: none;"
+    >
+      <div
+        class="c1"
+      >
+        <div
+          class="c2"
+          data-testid="mark-circle"
+          size="15"
+        />
+        <div
+          class="c3"
+          height="0"
+          width="0"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="slider-control"
+      draggable="false"
+      style="display: block; position: absolute; z-index: 3; transform: none; user-select: none;"
+    >
+      <div
+        class="c1"
+      >
+        <div
+          class="c2"
+          data-testid="mark-circle"
+          size="15"
+        />
+        <div
+          class="c3"
+          height="0"
+          width="0"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 `;

@@ -9,10 +9,11 @@ import AttributeDropdown from '../attribute-dropdown';
 import Option from '../option';
 
 import { ICON, OPTIONS } from './constants';
+import { TextAlignment as TextAlignmentType } from './types';
 
 type Props = {
   /** Current font size */
-  currentAlignment: 'left' | 'center' | 'right';
+  currentAlignment: TextAlignmentType;
   /** Update font size event handler */
   onUpdateTextAlignment: (fontSize: string) => void;
   /** Ref to scrollable parent element - it can be used to hide dropdown on scroll event */

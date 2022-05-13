@@ -18,7 +18,7 @@ import { calculateGroupedBars } from './bar.utils';
 import { Bar } from '../types';
 import { Dimension, Margins, GroupMode, StackMode } from '../../../types';
 
-type Options = {
+export type Options = {
   data: Record<string, any>[];
   keys: string[];
   disabledKeys: string[];

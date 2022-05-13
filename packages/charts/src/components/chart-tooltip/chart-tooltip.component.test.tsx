@@ -1,15 +1,18 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { ComponentProps } from 'react';
+import { render as rtlRender } from '@testing-library/react';
 
 import ChartTooltip from './chart-tooltip.component';
 
 import { ChartContext } from '../../contexts';
 
-const setup = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ChartTooltip>> = {}
+) => {
   const props = {
     x: 0,
     y: 0,
     visible: false,
+    children: 'tooltip',
     ...overProps,
   };
 
@@ -21,7 +24,7 @@ const setup = (overProps: any = {}) => {
     },
   };
 
-  const wrapper = mount(
+  const wrapper = rtlRender(
     <svg>
       <ChartContext.Provider value={{ svgDimensions, margins, theme }}>
         <ChartTooltip {...props} />
@@ -29,28 +32,40 @@ const setup = (overProps: any = {}) => {
     </svg>
   );
 
-  return { wrapper, props };
+  return {
+    wrapper,
+    props,
+  };
 };
 
-describe('@keen.io/charts - <ChartTooltip />', () => {
-  it('should not render "foreignObject" node', () => {
-    const { wrapper } = setup();
+test('should not render "foreignObject" node', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  const foreignObject = container.querySelector('foreignObject');
 
-    expect(wrapper.find('foreignObject').length).toBeFalsy();
-  });
+  expect(foreignObject).toBeNull();
+});
 
-  it('should render "foreignObject" node', () => {
-    const { wrapper } = setup({ visible: true });
+test('should render "foreignObject" node', () => {
+  const {
+    wrapper: { container },
+  } = render({ visible: true });
+  const foreignObject = container.querySelector('foreignObject');
 
-    expect(wrapper.find('foreignObject').length).toBeTruthy();
-  });
+  expect(foreignObject).toBeInTheDocument();
+});
 
-  it('should setup "foreignObject" x and y position', () => {
-    const { wrapper, props } = setup({ visible: true, x: 10, y: 20 });
+test('should setup "foreignObject" x and y position', () => {
+  const {
+    wrapper: { container },
+    props,
+  } = render({ visible: true, x: 10, y: 20 });
+  const foreignObject = container.querySelector('foreignObject');
 
-    const { x, y } = wrapper.find('foreignObject').props();
+  const x = parseFloat(foreignObject.getAttribute('x'));
+  const y = parseFloat(foreignObject.getAttribute('y'));
 
-    expect(x).toEqual(props.x);
-    expect(y).toEqual(props.y);
-  });
+  expect(x).toEqual(props.x);
+  expect(y).toEqual(props.y);
 });

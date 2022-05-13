@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import TooltipContent from './tooltip-content.component';
+import { Typography } from '@keen.io/ui-core';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TooltipContent>> = {}
+) => {
   const data = [
     { channel: 'Facebook', cost: 310, conversion: 352, users: 500 },
   ];
@@ -17,6 +20,12 @@ const render = (overProps: any = {}) => {
     yKey: (value) => `${value} Y`,
     valueKey: (value) => `${value} value`,
   };
+  const typography: Typography = {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 12,
+    fontColor: 'black',
+  };
 
   const props = {
     data,
@@ -26,6 +35,7 @@ const render = (overProps: any = {}) => {
     xDomainKey,
     yDomainKey,
     formatValue,
+    typography,
     ...overProps,
   };
 

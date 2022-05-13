@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -9,7 +9,9 @@ import {
 
 import RegistrationForm from './registration-form.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof RegistrationForm>> = {}
+) => {
   const props = {
     buttonLabel: 'Register Now',
     apiUrl: 'https://api-keen.io',

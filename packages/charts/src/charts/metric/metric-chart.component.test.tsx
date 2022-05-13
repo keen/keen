@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import MetricChart from './metric-chart.component';
@@ -6,7 +6,9 @@ import { theme as defaultTheme } from '../../theme';
 
 import { chartData } from './metric-chart.fixtures';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof MetricChart>> = {}
+) => {
   const props = {
     data: chartData,
     labelSelector: 'day',

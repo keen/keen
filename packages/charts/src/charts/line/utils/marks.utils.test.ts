@@ -7,6 +7,7 @@ import {
 import { generateLines } from './chart.utils';
 
 import { lineChart } from '../line-chart.fixtures';
+import { Options } from '../types';
 
 const mark = {
   key: '@mark',
@@ -147,7 +148,7 @@ test('should generate marks correctly', () => {
     { label: '2020-01-01T00:00:00.000Z', sale: -3, buy: 11, revenue: 30 },
   ];
 
-  const lineChartSettings: any = {
+  const lineChartSettings: Options = {
     data,
     ...lineChart,
   };

@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
+import {
+  AppearanceTypes,
+  Placement,
+  TransitionState,
+} from 'react-toast-notifications';
 
 import Toast from './toast.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Toast>> = {}) => {
   const props = {
-    appearance: 'success',
+    appearance: 'success' as AppearanceTypes,
     onDismiss: jest.fn(),
+    onMouseEnter: jest.fn(),
+    onMouseLeave: jest.fn(),
     showDismissButton: false,
     transitionDuration: 1000,
     autoDismiss: true,
-    transitionState: 'entered',
+    transitionState: 'entered' as TransitionState,
     children: 'content',
     autoDismissTimeout: 1000,
+    isRunning: true,
+    placement: 'top-left' as Placement,
     ...overProps,
   };
 

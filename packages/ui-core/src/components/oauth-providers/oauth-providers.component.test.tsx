@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import OAuthProviders from './oauth-providers.component';
@@ -6,7 +6,9 @@ import { googleOAuth, gitHubOAuth } from './oauth-providers.fixtures';
 
 import { OAuthUserAction } from './types';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof OAuthProviders>> = {}
+) => {
   const props = {
     action: OAuthUserAction.LOGIN,
     requestInitiatorUrl: 'requestInitiatorUrl',

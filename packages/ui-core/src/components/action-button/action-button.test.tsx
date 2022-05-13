@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -7,8 +7,15 @@ import {
 import 'jest-styled-components';
 
 import ActionButton from './action-button.component';
+import { ButtonAction } from './types';
 
-const render = (props: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof ActionButton>> = {}
+) => {
+  const props = {
+    action: 'create' as ButtonAction,
+    ...overProps,
+  };
   const wrapper = rtlRender(<ActionButton {...props} />);
 
   return {
@@ -21,7 +28,7 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
   test('should render action button component', () => {
     const {
       wrapper: { getByTestId },
-    } = render({ action: 'create' });
+    } = render();
     const element = getByTestId('action-button');
 
     expect(element).toBeInTheDocument();
@@ -31,7 +38,7 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
     const mockFn = jest.fn();
     const {
       wrapper: { getByTestId },
-    } = render({ action: 'create', onClick: mockFn });
+    } = render({ onClick: mockFn });
     const element = getByTestId('action-button');
     fireEvent.click(element);
 
@@ -42,7 +49,7 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
     const mockFn = jest.fn();
     const {
       wrapper: { getByTestId },
-    } = render({ action: 'create', onClick: mockFn, isDisabled: true });
+    } = render({ onClick: mockFn, isDisabled: true });
     const element = getByTestId('action-button');
     fireEvent.click(element);
 
@@ -52,7 +59,7 @@ describe('@keen.io/ui-core - <ActionButton />', () => {
   test('should render create button icon', () => {
     const {
       wrapper: { getByTestId },
-    } = render({ action: 'create' });
+    } = render();
     const element = getByTestId('action-icon');
     const nodeText = getNodeText(element);
 

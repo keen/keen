@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TableFooter from './table-footer.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TableFooter>> = {}
+) => {
   const props = {
     rows: 15,
     totalPages: 150,
