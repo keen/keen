@@ -22,7 +22,7 @@ const render = (
   };
 
   const wrapper = rtlRender(
-    <Router history={history}>
+    <Router location={history.location} navigator={history}>
       <App {...props} />
     </Router>
   );

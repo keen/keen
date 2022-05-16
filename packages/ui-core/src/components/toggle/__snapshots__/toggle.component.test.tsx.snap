@@ -101,30 +101,98 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
+  "container": .c0 {
+  width: 60px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  outline: 1px solid #85B4C3;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: rgba(225,226,228,0.7);
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 22px;
+  border-radius: 22px;
+  box-sizing: border-box;
+  -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center;
+  background-color: #6C9A74;
+}
+
+.c3 {
+  position: relative;
+  width: 60px;
+  height: 22px;
+  padding: 4px 10px;
+  border-radius: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Lato Regular',sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.c4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border: 2px solid #487650;
+}
+
+<div>
     <div
       aria-checked="false"
-      class="sc-bdnylx gJGTq"
+      class="c0"
       data-testid="toggle"
       role="switch"
       tabindex="0"
     >
       <div
-        class="sc-gtssRu bonALI"
+        class="c1"
       >
         <div
-          class="sc-dlnjPT fpfOyQ"
+          class="c2"
           style="transform: scaleX(0) translateZ(0);"
         />
       </div>
       <div
-        class="sc-hKFyIo guIerd"
+        class="c3"
         style="justify-content: flex-end; color: rgb(79, 91, 95);"
       >
         off
       </div>
       <div
-        class="sc-eCApGN bSSBtn"
+        class="c4"
         style="transform: translateX(-1px) translateZ(0);"
       />
     </div>
