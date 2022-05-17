@@ -1,12 +1,13 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { ComponentProps } from 'react';
+import { render as rtlRender } from '@testing-library/react';
 
 import BarValues from './bar-values.component';
 
 import { theme } from '../../../../theme';
 import { ChartContext } from '../../../../contexts';
+import { Bar } from '../../types';
 
-const setup = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof BarValues>> = {}) => {
   const bars = [
     {
       x: 10,
@@ -17,7 +18,7 @@ const setup = (overProps: any = {}) => {
       key: 'marketing',
       value: 20,
     },
-  ];
+  ] as Bar[];
 
   const props = {
     autocolor: false,
@@ -27,7 +28,7 @@ const setup = (overProps: any = {}) => {
     ...overProps,
   };
 
-  const wrapper = mount(
+  const wrapper = rtlRender(
     <ChartContext.Provider value={{ theme }}>
       <svg>
         <BarValues {...props} />
@@ -41,18 +42,22 @@ const setup = (overProps: any = {}) => {
   };
 };
 
-describe('@keen.io/charts - <BarValues />', () => {
-  it('should set "fill" property for <text> element based on theme', () => {
-    const { wrapper } = setup();
-    const text = wrapper.find('text').first().props();
+test('should set "fill" property for <text> element based on theme', () => {
+  const {
+    wrapper: { container },
+  } = render();
+  const text = container.querySelector('text');
+  const textFill = text.getAttribute('fill');
 
-    expect(text.fill).toEqual(theme.bar.values.typography.fontColor);
-  });
+  expect(textFill).toEqual(theme.bar.values.typography.fontColor);
+});
 
-  it('should automatically set "fill" property for <text> element', () => {
-    const { wrapper } = setup({ autocolor: true });
-    const text = wrapper.find('text').first().props();
+test('should automatically set "fill" property for <text> element', () => {
+  const {
+    wrapper: { container },
+  } = render({ autocolor: true });
+  const text = container.querySelector('text');
+  const textFill = text.getAttribute('fill');
 
-    expect(text.fill).toMatchInlineSnapshot(`"hsl(0, 0%, 80%)"`);
-  });
+  expect(textFill).toMatchInlineSnapshot(`"hsl(0, 0%, 80%)"`);
 });

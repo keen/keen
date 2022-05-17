@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
-import { ChartEvents } from '@keen.io/charts';
+import { ChartEvents, TableChartSettings, theme } from '@keen.io/charts';
 import 'jest-styled-components';
 
 jest.mock('@keen.io/charts', () => ({
@@ -17,9 +17,15 @@ import { TableChartWidget } from './table-chart.widget';
 import { widgetSettings } from '../../widget-settings';
 import { chartData } from './table-chart.widget.fixtures';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TableChartWidget>> = {}
+) => {
   const props = {
     data: chartData,
+    theme,
+    pagination: false,
+    rowsPerPage: 15 as TableChartSettings['rowsPerPage'],
+    inEditMode: false,
     ...widgetSettings,
     ...overProps,
   };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent, screen } from '@testing-library/react';
 
 import Bars, { Props } from './bars.component';
@@ -7,7 +7,7 @@ import { bars } from '../../bar-chart.fixtures';
 import { theme } from '../../../../theme';
 import { ChartContext } from '../../../../contexts';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Bars>> = {}) => {
   const props = {
     bars,
     onBarMouseEnter: jest.fn(),

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import EmptySearch from './empty-search.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof EmptySearch>> = {}
+) => {
   const props = {
     message: 'Lorem ipsum...',
     ...overProps,

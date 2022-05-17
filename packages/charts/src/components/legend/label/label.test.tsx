@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 import { Typography } from '@keen.io/ui-core';
 
 import Label from './label.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Label>> = {}) => {
   const props = {
     typography: {
       fontSize: 12,

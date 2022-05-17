@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import MousePositionedTooltip from './mouse-positioned-tooltip';
 import { KEYBOARD_KEYS } from '../../constants';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof MousePositionedTooltip>> = {}
+) => {
   const props = {
+    children: 'text',
+    isActive: false,
+    renderContent: () => 'Tooltip content',
     ...overProps,
   };
 
@@ -18,25 +23,23 @@ const render = (overProps: any = {}) => {
 };
 
 test('renders provided children', () => {
-  const children = 'text';
   const {
     wrapper: { getByText },
-  } = render({ children });
+    props: { children },
+  } = render();
 
-  expect(getByText(children)).toBeInTheDocument();
+  expect(getByText(children.toString())).toBeInTheDocument();
 });
 
 test('shows tooltip when is active', async () => {
-  const children = 'text';
   const {
     wrapper: { getByText, queryByTestId },
+    props: { children },
   } = render({
-    children,
-    renderContent: () => 'Tooltip content',
     isActive: true,
   });
 
-  const renderedChildren = getByText(children);
+  const renderedChildren = getByText(children.toString());
   fireEvent.mouseOver(renderedChildren);
 
   const tooltip = await queryByTestId('dynamic-portal');
@@ -45,16 +48,14 @@ test('shows tooltip when is active', async () => {
 });
 
 test('does not show tooltip when is not active', async () => {
-  const children = 'text';
   const {
     wrapper: { getByText, queryByTestId },
+    props: { children },
   } = render({
-    children,
-    renderContent: () => 'Tooltip content',
     isActive: false,
   });
 
-  const renderedChildren = getByText(children);
+  const renderedChildren = getByText(children.toString());
   fireEvent.mouseOver(renderedChildren);
 
   const tooltip = await queryByTestId('dynamic-portal');
@@ -63,16 +64,14 @@ test('does not show tooltip when is not active', async () => {
 });
 
 test('does not show tooltip by key press when tooltip is not active', async () => {
-  const children = 'text';
   const {
     wrapper: { getByText, queryByTestId },
+    props: { children },
   } = render({
-    children,
-    renderContent: () => 'Tooltip content',
     isActive: false,
   });
 
-  const renderedChildren = getByText(children);
+  const renderedChildren = getByText(children.toString());
   fireEvent.keyDown(renderedChildren, { key: 'Enter', keyCode: 13 });
 
   const tooltip = await queryByTestId('dynamic-portal');
@@ -81,16 +80,14 @@ test('does not show tooltip by key press when tooltip is not active', async () =
 });
 
 test('shows tooltip by key press when tooltip is active', async () => {
-  const children = 'text';
   const {
     wrapper: { getByText, queryByTestId },
+    props: { children },
   } = render({
-    children,
-    renderContent: () => 'Tooltip content',
     isActive: true,
   });
 
-  const renderedChildren = getByText(children);
+  const renderedChildren = getByText(children.toString());
   fireEvent.keyDown(renderedChildren, { key: 'Enter', keyCode: 13 });
 
   const tooltip = await queryByTestId('dynamic-portal');
@@ -99,16 +96,14 @@ test('shows tooltip by key press when tooltip is active', async () => {
 });
 
 test('hides tooltip on ESC key press when tooltip is active', async () => {
-  const children = 'text';
   const {
     wrapper: { getByText, queryByTestId },
+    props: { children },
   } = render({
-    children,
-    renderContent: () => 'Tooltip content',
     isActive: true,
   });
 
-  const renderedChildren = getByText(children);
+  const renderedChildren = getByText(children.toString());
   fireEvent.keyDown(renderedChildren, {
     key: 'Enter',
     keyCode: KEYBOARD_KEYS.ENTER,
@@ -125,18 +120,15 @@ test('hides tooltip on ESC key press when tooltip is active', async () => {
 });
 
 test('calls "onHideTooltip" handler when tooltip visibility change', async () => {
-  const children = 'text';
   const {
-    props,
+    props: { children, onHideTooltip },
     wrapper: { getByText },
   } = render({
-    children,
-    renderContent: () => 'Tooltip content',
     onHideTooltip: jest.fn(),
     isActive: true,
   });
 
-  const renderedChildren = getByText(children);
+  const renderedChildren = getByText(children.toString());
   fireEvent.mouseOver(renderedChildren);
 
   fireEvent.keyDown(renderedChildren, {
@@ -144,5 +136,5 @@ test('calls "onHideTooltip" handler when tooltip visibility change', async () =>
     keyCode: KEYBOARD_KEYS.ESCAPE,
   });
 
-  expect(props.onHideTooltip).toHaveBeenCalled();
+  expect(onHideTooltip).toHaveBeenCalled();
 });

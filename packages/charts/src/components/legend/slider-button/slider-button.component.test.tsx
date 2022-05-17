@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
+import { Position } from '@keen.io/ui-core';
 
 import SliderButton from './slider-button.component';
+import { Variant } from './types';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof SliderButton>> = {}
+) => {
   const props = {
-    ...overProps,
     onClick: jest.fn(),
-    variant: 'horizontal',
+    variant: 'horizontal' as Variant,
+    children: 'children',
+    shadow: '',
+    gradienTransformation: '',
+    gradientTransmition: '',
+    position: 'top' as Position,
+    disabled: false,
+    ...overProps,
   };
 
   const wrapper = rtlRender(<SliderButton {...props} />);

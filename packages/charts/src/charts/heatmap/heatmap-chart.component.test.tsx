@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import {
   render as rtlRender,
   fireEvent,
@@ -11,7 +11,9 @@ import { chartData as data } from './heatmap-chart.fixtures';
 
 import HeatmapChart from './heatmap-chart.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof HeatmapChart>> = {}
+) => {
   const labelSelector = 'name';
   const keys = ['users', 'licenses', 'shops'];
   const svgDimensions = { width: 700, height: 500 };

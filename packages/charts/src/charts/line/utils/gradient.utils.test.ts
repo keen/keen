@@ -7,6 +7,7 @@ import { generateLines } from './chart.utils';
 import { GROUPED_GRADIENT, STACKED_GRADIENT } from '../constants';
 
 import { lineChart } from '../line-chart.fixtures';
+import { Options } from '../types';
 
 const data = [
   { label: '2020-01-01T00:00:00.000Z', sale: -5 },
@@ -14,7 +15,7 @@ const data = [
   { label: '2020-03-01T00:00:00.000Z', sale: 12 },
 ];
 
-const lineChartSettings: any = {
+const lineChartSettings: Options = {
   data,
   ...lineChart,
 };

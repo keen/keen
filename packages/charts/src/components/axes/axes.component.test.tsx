@@ -1,6 +1,7 @@
-import React, { createRef } from 'react';
+import React, { ComponentProps, createRef } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { scaleBand, scaleLinear } from 'd3-scale';
+import { ScaleSettings } from '@keen.io/charts-utils';
 
 import ChartBase from '../chart-base';
 import Axes from './axes.component';
@@ -9,7 +10,10 @@ import { theme } from '../../theme';
 
 import { Orientation } from '../../types';
 
-const render = (overProps: any = {}, overChartBaseProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof Axes>> = {},
+  overChartBaseProps: Partial<ComponentProps<typeof ChartBase>> = {}
+) => {
   const margins = {
     top: 0,
     left: 0,
@@ -32,8 +36,8 @@ const render = (overProps: any = {}, overChartBaseProps: any = {}) => {
     theme,
     margins,
     svgDimensions: { width: 100, height: 100 },
-    xScaleSettings: {},
-    yScaleSettings: {},
+    xScaleSettings: {} as ScaleSettings,
+    yScaleSettings: {} as ScaleSettings,
     ...overChartBaseProps,
   };
 
@@ -61,19 +65,20 @@ const mockedRect = {
   toJSON: () => '',
 };
 
-const getBBox = SVGElement.prototype.getBBox;
-const getComputedTextLength = SVGElement.prototype.getComputedTextLength;
+const getBBox = (SVGElement as any).prototype.getBBox;
+const getComputedTextLength = (SVGElement as any).prototype
+  .getComputedTextLength;
 
 beforeEach(() => {
-  SVGElement.prototype.getBBox = () => {
+  (SVGElement as any).prototype.getBBox = () => {
     return mockedRect;
   };
-  SVGElement.prototype.getComputedTextLength = () => 100;
+  (SVGElement as any).prototype.getComputedTextLength = () => 100;
 });
 
 afterAll(() => {
-  SVGElement.prototype.getBBox = getBBox;
-  SVGElement.prototype.getComputedTextLength = getComputedTextLength;
+  (SVGElement as any).prototype.getBBox = getBBox;
+  (SVGElement as any).prototype.getComputedTextLength = getComputedTextLength;
 });
 
 test('renders rulers for axes', () => {

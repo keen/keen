@@ -33,6 +33,7 @@ export const Control: FC<Props> = ({
 
   return (
     <motion.div
+      data-testid="slider-control"
       drag={dragDirection}
       dragConstraints={dragConstraints}
       onDrag={onDrag}

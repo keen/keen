@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import 'jest-styled-components';
 
 import Slider from './slider.component';
+import { Mode } from './types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Slider>> = {}) => {
   const props = {
-    dimension: [200, 200],
+    dimension: [200, 200] as [number, number],
+    mode: 'horizontal' as Mode,
+    direction: 0,
     onNextSlide: jest.fn(),
     onPreviousSlide: jest.fn(),
     animation: (itemIndex) => {

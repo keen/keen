@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import { SelectedRowsCopiedInfo } from './selected-rows-copied-info.component';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof SelectedRowsCopiedInfo>> = {}
+) => {
   const props = {
     ...overProps,
   };

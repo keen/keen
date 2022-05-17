@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { fireEvent, render as rtlRender } from '@testing-library/react';
 import MockDate from 'mockdate';
 import dayjs from 'dayjs';
@@ -19,12 +19,16 @@ afterEach(() => {
   MockDate.reset();
 });
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof AbsoluteTime>> = {}
+) => {
   const props = {
     id: 'date',
     start: '2020-07-29T12:00:00Z',
     end: '2020-07-30T00:00:00Z',
     timezone: 'UTC',
+    startDateLabel: 'from',
+    endDateLabel: 'to',
     onChange: jest.fn(),
     ...overProps,
   };

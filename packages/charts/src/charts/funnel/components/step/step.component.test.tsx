@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, waitFor } from '@testing-library/react';
 import { scaleLinear } from 'd3-scale';
 import { colors } from '@keen.io/colors';
+import { Layout } from '@keen.io/ui-core';
 
 import Step from './step.component';
 
@@ -12,11 +13,11 @@ jest.mock('../../../../components/responsive-wrapper.component', () => {
   return Component;
 });
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof Step>> = {}) => {
   const props = {
     theme,
     index: 0,
-    layout: 'vertical',
+    layout: 'vertical' as Layout,
     label: 'Logins',
     value: 50,
     nextPercentageValue: 30,

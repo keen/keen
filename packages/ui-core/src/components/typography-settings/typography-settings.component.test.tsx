@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import TypographySettings, { FontSettings } from '../typography-settings';
 
@@ -11,7 +11,9 @@ const initialSettings = {
   alignment: 'left',
 } as FontSettings;
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TypographySettings>> = {}
+) => {
   const props = {
     settings: initialSettings,
     onChange: jest.fn(),

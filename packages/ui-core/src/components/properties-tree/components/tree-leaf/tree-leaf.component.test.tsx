@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TreeLeaf from './tree-leaf.component';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof TreeLeaf>> = {}) => {
   const props = {
     onClick: jest.fn(),
     propertyType: 'datetime',
     deepnessLevel: 1,
     propertyName: 'clicks',
     propertyPath: 'users.cliks',
+    modalContainer: '',
     ...overProps,
   };
 

@@ -1,52 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AxisTitle /> should render AxisTitle 1`] = `
-<svg>
-  <AxisTitle
-    groupBox={
-      Object {
-        "height": 10,
-        "x": 10,
-        "y": 10,
-      }
-    }
-    line={
-      Object {
-        "x1": 0,
-        "x2": 100,
-        "y1": 100,
-        "y2": 0,
-      }
-    }
-    orientation="horizontal"
-    titleSettings={
-      Object {
-        "alignment": "center",
-        "padding": 20,
-        "typography": Object {
-          "fontColor": "#27566D",
-          "fontFamily": "Lato, sans-serif",
-          "fontSize": 14,
-          "fontStyle": "normal",
-          "fontWeight": "bold",
-        },
-      }
-    }
-  >
+exports[`should render AxisTitle 1`] = `
+<div>
+  <svg>
     <text
       data-elementid="horizontal-axis-title"
       fill="#27566D"
-      fontFamily="Lato, sans-serif"
-      fontSize={14}
-      fontStyle="normal"
-      fontWeight="bold"
-      style={Object {}}
-      textAnchor="middle"
-      x={50}
-      y={40}
+      font-family="Lato, sans-serif"
+      font-size="14"
+      font-style="normal"
+      font-weight="bold"
+      text-anchor="middle"
+      x="50"
+      y="40"
     >
       Axis Title
     </text>
-  </AxisTitle>
-</svg>
+  </svg>
+</div>
 `;

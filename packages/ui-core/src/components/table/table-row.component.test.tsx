@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender, fireEvent } from '@testing-library/react';
 
 import TableRow from './table-row.component';
+import { TableRowData } from './types';
+import { Typography } from '../../types';
 
-const render = (overProps: any = {}) => {
+const render = (overProps: Partial<ComponentProps<typeof TableRow>> = {}) => {
   const props = {
     ...overProps,
     onCellClick: jest.fn(),
@@ -16,7 +18,7 @@ const render = (overProps: any = {}) => {
       fontFamily: 'Lato Regular, sans-serif',
       fontColor: 'black',
       lineHeight: '17px',
-    } as any,
+    } as Typography,
     data: {
       price: {
         value: 'Price',
@@ -26,7 +28,7 @@ const render = (overProps: any = {}) => {
         value: 'Name',
         alignment: 'left',
       },
-    },
+    } as Record<string, TableRowData>,
   };
 
   const wrapper = rtlRender(

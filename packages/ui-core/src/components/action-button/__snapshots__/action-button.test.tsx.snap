@@ -5,13 +5,15 @@ exports[`@keen.io/ui-core - <ActionButton /> should not render background 1`] = 
   font-family: 'Lato Regular',sans-serif;
   font-size: 25px;
   line-height: 30px;
+  color: #487650;
 }
 
 <span
+  action="create"
   class="c0"
   data-testid="action-icon"
 >
-  ×
+  +
 </span>
 `;
 
@@ -57,6 +59,7 @@ exports[`@keen.io/ui-core - <ActionButton /> should render custom border radius 
   font-family: 'Lato Regular',sans-serif;
   font-size: 25px;
   line-height: 30px;
+  color: #487650;
 }
 
 <button
@@ -65,10 +68,11 @@ exports[`@keen.io/ui-core - <ActionButton /> should render custom border radius 
   type="button"
 >
   <span
+    action="create"
     class="c1"
     data-testid="action-icon"
   >
-    ×
+    +
   </span>
 </button>
 `;

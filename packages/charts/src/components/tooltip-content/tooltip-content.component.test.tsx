@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 
 import TooltipContent from './tooltip-content.component';
@@ -6,7 +6,9 @@ import TooltipContent from './tooltip-content.component';
 import { theme } from '../../theme';
 import { ChartContext } from '../../contexts';
 
-const render = (overProps: any = {}) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof TooltipContent>> = {}
+) => {
   const props = {
     items: [{ color: 'red', data: 'value' }],
     ...overProps,

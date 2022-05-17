@@ -1,3 +1,4 @@
+import { Query } from '@keen.io/query';
 import { getSuffix, setChartSettings } from './metric-chart-settings';
 
 test('getSuffix()', () => {
@@ -9,11 +10,12 @@ test('getSuffix()', () => {
 });
 
 test('Should set the correct tooltip value for the comparison type', () => {
-  const query: any = {
+  const query: Query = {
     analysis_type: 'sum',
     interval: 'every_46_hours',
     event_collection: 'purchases',
     target_property: 'books',
+    timeframe: '',
   };
   const componentSettings = {
     type: 'comparison',
@@ -24,11 +26,12 @@ test('Should set the correct tooltip value for the comparison type', () => {
 });
 
 test('Should set the correct tooltip value for the percentage difference metric', () => {
-  const query: any = {
+  const query: Query = {
     analysis_type: 'maximum',
     interval: 'weekly',
     event_collection: 'purchases',
     target_property: 'books',
+    timeframe: '',
   };
   const componentSettings = {
     type: 'difference',

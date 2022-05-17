@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory, History } from 'history';
 import { render as rtlRender } from '@testing-library/react';
@@ -6,13 +6,17 @@ import { render as rtlRender } from '@testing-library/react';
 import App from './app.component';
 import { oauthConfig } from './app.fixtures';
 
-const render = (overProps: any = {}, history: History) => {
+const render = (
+  overProps: Partial<ComponentProps<typeof App>> = {},
+  history: History
+) => {
   const props = {
     apiUrl: 'apiUrl',
     offerHandle: 'offerHandle',
     ctaLabel: 'ctaLabel',
     showOAuthProviders: false,
     oauthConfig: oauthConfig,
+    isOAuthCompleteFlow: false,
     onSuccessCallback: jest.fn(),
     ...overProps,
   };
