@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/keen/keen/compare/@keen.io/pubsub@1.2.0...@keen.io/pubsub@1.2.1) (2022-05-17)
+
+**Note:** Version bump only for package @keen.io/pubsub
+
+
+
+
+
 # [1.2.0](https://github.com/keen/keen/compare/@keen.io/pubsub@1.1.1...@keen.io/pubsub@1.2.0) (2021-09-03)
 
 
