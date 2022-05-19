@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.48](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.47...@keen.io/data-export@1.2.48) (2022-05-17)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.47](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.46...@keen.io/data-export@1.2.47) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.46](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.45...@keen.io/data-export@1.2.46) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.45](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.44...@keen.io/data-export@1.2.45) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.44](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.43...@keen.io/data-export@1.2.44) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
+## [1.2.43](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.42...@keen.io/data-export@1.2.43) (2022-04-29)
+
+**Note:** Version bump only for package @keen.io/data-export
+
+
+
+
+
 ## [1.2.42](https://github.com/keen/keen/compare/@keen.io/data-export@1.2.41...@keen.io/data-export@1.2.42) (2022-04-29)
 
 

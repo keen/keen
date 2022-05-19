@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/react-hooks",
-  "version": "1.4.4",
+  "version": "1.4.7",
   "description": "Keen custom hooks for React",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -31,7 +31,7 @@
     "react": ">=16"
   },
   "dependencies": {
-    "@keen.io/charts-utils": "^1.15.1",
+    "@keen.io/charts-utils": "^1.15.4",
     "@types/d3-array": "^2.0.0",
     "d3-array": "^2.7.1",
     "fuse.js": "^6.4.1"
@@ -40,10 +40,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@keen.io/dev-tools": "^0.1.0",
     "@babel/preset-env": "^7.13.8",
     "@babel/preset-typescript": "^7.13.0",
+    "@keen.io/dev-tools": "^0.1.0",
     "@testing-library/react-hooks": "^3.4.1"
-  },
-  "sideEffects": false
+  }
 }

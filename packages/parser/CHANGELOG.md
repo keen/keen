@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.143](https://github.com/keen/keen/compare/@keen.io/parser@2.8.142...@keen.io/parser@2.8.143) (2022-05-17)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.142](https://github.com/keen/keen/compare/@keen.io/parser@2.8.141...@keen.io/parser@2.8.142) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.141](https://github.com/keen/keen/compare/@keen.io/parser@2.8.140...@keen.io/parser@2.8.141) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.140](https://github.com/keen/keen/compare/@keen.io/parser@2.8.139...@keen.io/parser@2.8.140) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.139](https://github.com/keen/keen/compare/@keen.io/parser@2.8.138...@keen.io/parser@2.8.139) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
+## [2.8.138](https://github.com/keen/keen/compare/@keen.io/parser@2.8.137...@keen.io/parser@2.8.138) (2022-04-29)
+
+**Note:** Version bump only for package @keen.io/parser
+
+
+
+
+
 ## [2.8.137](https://github.com/keen/keen/compare/@keen.io/parser@2.8.136...@keen.io/parser@2.8.137) (2022-04-29)
 
 **Note:** Version bump only for package @keen.io/parser

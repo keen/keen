@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.10](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.9...@keen.io/widgets@2.18.10) (2022-05-17)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.18.9](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.8...@keen.io/widgets@2.18.9) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.18.8](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.7...@keen.io/widgets@2.18.8) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.18.7](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.6...@keen.io/widgets@2.18.7) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.18.6](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.5...@keen.io/widgets@2.18.6) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/widgets
+
+
+
+
+
+## [2.18.5](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.4...@keen.io/widgets@2.18.5) (2022-04-29)
+
+
+### Bug Fixes
+
+* 🐛 add missing deps to widgets package ([aca56a9](https://github.com/keen/keen/commit/aca56a9c8eecb490d70ece2a3652333af04f9ac3))
+
+
+
+
+
 ## [2.18.4](https://github.com/keen/keen/compare/@keen.io/widgets@2.18.3...@keen.io/widgets@2.18.4) (2022-04-29)
 
 

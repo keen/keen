@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.13](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.12...@keen.io/dataviz@2.18.13) (2022-05-17)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.12](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.11...@keen.io/dataviz@2.18.12) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.11](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.10...@keen.io/dataviz@2.18.11) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.10](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.9...@keen.io/dataviz@2.18.10) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.9](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.8...@keen.io/dataviz@2.18.9) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.8](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.7...@keen.io/dataviz@2.18.8) (2022-04-29)
+
+**Note:** Version bump only for package @keen.io/dataviz
+
+
+
+
+
+## [2.18.7](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.6...@keen.io/dataviz@2.18.7) (2022-04-29)
+
+
+### Bug Fixes
+
+* 🐛 remove @types/react-dom ([b4eaf7d](https://github.com/keen/keen/commit/b4eaf7d14f593cba79b8a4a5b2ac7074f4b9d75b))
+
+
+
+
+
 ## [2.18.6](https://github.com/keen/keen/compare/@keen.io/dataviz@2.18.5...@keen.io/dataviz@2.18.6) (2022-04-29)
 
 

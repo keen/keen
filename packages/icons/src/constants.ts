@@ -62,6 +62,7 @@ export const Icons = [
   'search',
   'actions',
   'settings',
+  'squares',
   'delete',
   'clone',
   'resize',

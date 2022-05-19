@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.9](https://github.com/keen/keen/compare/@keen.io/charts@2.40.8...@keen.io/charts@2.40.9) (2022-05-17)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.40.8](https://github.com/keen/keen/compare/@keen.io/charts@2.40.7...@keen.io/charts@2.40.8) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.40.7](https://github.com/keen/keen/compare/@keen.io/charts@2.40.6...@keen.io/charts@2.40.7) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.40.6](https://github.com/keen/keen/compare/@keen.io/charts@2.40.5...@keen.io/charts@2.40.6) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
+## [2.40.5](https://github.com/keen/keen/compare/@keen.io/charts@2.40.4...@keen.io/charts@2.40.5) (2022-05-12)
+
+**Note:** Version bump only for package @keen.io/charts
+
+
+
+
+
 ## [2.40.4](https://github.com/keen/keen/compare/@keen.io/charts@2.40.3...@keen.io/charts@2.40.4) (2022-04-29)
 
 

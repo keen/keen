@@ -1,6 +1,6 @@
 {
   "name": "@keen.io/icons",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Icons library",
   "author": "Keen.IO <team@keen.io> (https://keen.io/)",
   "homepage": "https://github.com/keen/keen#readme",
@@ -31,12 +31,12 @@
     "react": ">=16"
   },
   "dependencies": {
-    "@keen.io/colors": "^1.1.0"
+    "@keen.io/colors": "^1.1.1"
   },
   "devDependencies": {
-    "@keen.io/dev-tools": "^0.1.0",
     "@babel/preset-env": "^7.13.8",
-    "@babel/preset-typescript": "^7.13.0"
+    "@babel/preset-typescript": "^7.13.0",
+    "@keen.io/dev-tools": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"
