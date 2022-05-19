@@ -62,6 +62,7 @@ import Text from './text.component';
 import PieWidget from './pie-widget.component';
 import Plus from './plus.component';
 import Search from './search.component';
+import Squares from './squares.component';
 import Actions from './actions.component';
 import Settings from './settings.component';
 import Share from './share.component';
@@ -213,5 +214,7 @@ export const getIcon = (type: IconType) => {
       return Move;
     case 'zoom':
       return Zoom;
+    case 'squares':
+      return Squares;
   }
 };
