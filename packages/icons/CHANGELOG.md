@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/keen/keen/compare/@keen.io/icons@1.5.2...@keen.io/icons@1.6.0) (2022-05-19)
+
+
+### Features
+
+* 🎸 squares icon ([9f0c851](https://github.com/keen/keen/commit/9f0c851c1367263ee4797d89cd99d387bd8ee9bc))
+
+
+
+
+
 ## [1.5.2](https://github.com/keen/keen/compare/@keen.io/icons@1.5.1...@keen.io/icons@1.5.2) (2022-05-12)
 
 **Note:** Version bump only for package @keen.io/icons
