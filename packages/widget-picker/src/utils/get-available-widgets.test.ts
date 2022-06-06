@@ -82,8 +82,8 @@ test('returns widgets for groupBy', () => {
   const result = getAvailableWidgets(query);
   expect(result).toMatchInlineSnapshot(`
     Array [
-      "bar",
       "table",
+      "bar",
       "json",
       "pie",
       "donut",

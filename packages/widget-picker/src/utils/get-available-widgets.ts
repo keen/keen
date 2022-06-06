@@ -20,7 +20,7 @@ export const getAvailableWidgets = (
   }
 
   if (query.group_by && !query.interval) {
-    return ['bar', 'table', 'json', 'pie', 'donut', 'heatmap', 'choropleth'];
+    return ['table', 'bar', 'json', 'pie', 'donut', 'heatmap', 'choropleth'];
   }
 
   if (query.interval && !query.group_by) {
