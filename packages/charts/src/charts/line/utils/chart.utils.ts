@@ -205,25 +205,22 @@ export const generateGroupedLines = ({
       }
 
       if (areaMode) {
-        const {
-          min: minKeyNameValue,
-          max: maxKeyNameValue,
-        } = minMaxSeriesValues[keyName];
+        const { min: minKeyNameValue, max: maxKeyNameValue } =
+          minMaxSeriesValues[keyName];
 
         const isNegativeSeries = minimum < 0 && maximum <= 0;
 
-        const generateArea: (
-          data: Record<string, any>[]
-        ) => string = calculateArea(
-          curve,
-          xScale,
-          yScale,
-          labelSelector,
-          keyName,
-          minValue,
-          maxValue,
-          isNegativeSeries
-        );
+        const generateArea: (data: Record<string, any>[]) => string =
+          calculateArea(
+            curve,
+            xScale,
+            yScale,
+            labelSelector,
+            keyName,
+            minValue,
+            maxValue,
+            isNegativeSeries
+          );
 
         if (inOffsetRange) {
           offsetGradientBlocks.push({
@@ -467,10 +464,8 @@ export const generateStackLines = ({
       if (areaMode) {
         const isNegativeSeries = minimum < 0 && maximum <= 0;
 
-        const {
-          min: minKeyNameValue,
-          max: maxKeyNameValue,
-        } = minMaxSeriesValues[keyName];
+        const { min: minKeyNameValue, max: maxKeyNameValue } =
+          minMaxSeriesValues[keyName];
 
         gradientBlocks.push({
           x: margins.left,

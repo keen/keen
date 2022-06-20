@@ -54,13 +54,8 @@ const Axes = ({
   svgElement,
   useDynamicLayout = false,
 }: Props) => {
-  const {
-    theme,
-    margins,
-    svgDimensions,
-    xScaleSettings,
-    yScaleSettings,
-  } = useContext(ChartContext) as ChartContextType;
+  const { theme, margins, svgDimensions, xScaleSettings, yScaleSettings } =
+    useContext(ChartContext) as ChartContextType;
 
   const xLabelsDimension = theme.axisY.enabled
     ? setXLabelsDimension({

@@ -60,24 +60,23 @@ export const calculateStackAreaData = (
 ): any => {
   const stackedData = stack().keys(keys)(data);
 
-  const reduceStack = (id: number) => (
-    acc: Record<string, any>[],
-    value: Record<string, any>
-  ) => {
-    const stackValues = value.map((el: Record<string, any>, idx: number) => {
-      const base = {
-        ...acc[idx],
-        [labelSelector]: el.data[labelSelector],
-      };
-      const first = {
-        ...base,
-        [value.key]: el[id],
-      };
-      return first;
-    });
+  const reduceStack =
+    (id: number) =>
+    (acc: Record<string, any>[], value: Record<string, any>) => {
+      const stackValues = value.map((el: Record<string, any>, idx: number) => {
+        const base = {
+          ...acc[idx],
+          [labelSelector]: el.data[labelSelector],
+        };
+        const first = {
+          ...base,
+          [value.key]: el[id],
+        };
+        return first;
+      });
 
-    return [...stackValues];
-  };
+      return [...stackValues];
+    };
 
   const firstDataPart = stackedData.reduce(reduceStack(0), []);
   const secondDataPart = stackedData.reduce(reduceStack(1), []);

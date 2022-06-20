@@ -93,7 +93,7 @@ exports[`renders date picker for timeframe end 1`] = `
             >
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Monday"
@@ -104,7 +104,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Tuesday"
@@ -115,7 +115,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Wednesday"
@@ -126,7 +126,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Thursday"
@@ -137,7 +137,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Friday"
@@ -148,7 +148,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Saturday"
@@ -159,7 +159,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Sunday"
@@ -175,7 +175,7 @@ exports[`renders date picker for timeframe end 1`] = `
             >
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -186,7 +186,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -197,7 +197,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -208,7 +208,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -219,7 +219,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -230,7 +230,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -241,7 +241,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -252,7 +252,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -263,7 +263,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -274,7 +274,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -285,7 +285,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -296,7 +296,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -307,7 +307,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -318,7 +318,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -329,7 +329,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -340,7 +340,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -351,7 +351,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -362,7 +362,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -373,7 +373,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -384,7 +384,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -395,7 +395,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -406,7 +406,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -417,7 +417,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -428,7 +428,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -439,7 +439,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -450,7 +450,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -461,7 +461,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -472,7 +472,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -483,7 +483,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -494,7 +494,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -505,7 +505,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -516,7 +516,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__tile--active react-calendar__tile--range react-calendar__tile--rangeStart react-calendar__tile--rangeEnd react-calendar__tile--rangeBothEnds react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -527,7 +527,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -538,7 +538,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -549,7 +549,7 @@ exports[`renders date picker for timeframe end 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -660,7 +660,7 @@ exports[`renders date picker for timeframe start 1`] = `
             >
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Monday"
@@ -671,7 +671,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Tuesday"
@@ -682,7 +682,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Wednesday"
@@ -693,7 +693,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Thursday"
@@ -704,7 +704,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Friday"
@@ -715,7 +715,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Saturday"
@@ -726,7 +726,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </div>
               <div
                 class="react-calendar__month-view__weekdays__weekday"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
               >
                 <abbr
                   aria-label="Sunday"
@@ -742,7 +742,7 @@ exports[`renders date picker for timeframe start 1`] = `
             >
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -753,7 +753,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -764,7 +764,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -775,7 +775,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -786,7 +786,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -797,7 +797,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -808,7 +808,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -819,7 +819,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -830,7 +830,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -841,7 +841,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -852,7 +852,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -863,7 +863,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -874,7 +874,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -885,7 +885,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -896,7 +896,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -907,7 +907,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -918,7 +918,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -929,7 +929,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -940,7 +940,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -951,7 +951,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -962,7 +962,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -973,7 +973,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -984,7 +984,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -995,7 +995,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1006,7 +1006,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1017,7 +1017,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1028,7 +1028,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1039,7 +1039,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1050,7 +1050,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1061,7 +1061,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1072,7 +1072,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__tile--active react-calendar__tile--range react-calendar__tile--rangeStart react-calendar__tile--rangeEnd react-calendar__tile--rangeBothEnds react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1083,7 +1083,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1094,7 +1094,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1105,7 +1105,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr
@@ -1116,7 +1116,7 @@ exports[`renders date picker for timeframe start 1`] = `
               </button>
               <button
                 class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend react-calendar__month-view__days__day--neighboringMonth"
-                style="flex-basis: 14.285714285714286%; max-width: 14.285714285714286%; overflow: hidden;"
+                style="flex-basis: 14.285714285714286%; flex-shrink: 0; flex-grow: 0; overflow: hidden;"
                 type="button"
               >
                 <abbr

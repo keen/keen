@@ -9,8 +9,11 @@ export const useOnClickOutside = (
   onClickOutside: () => void
 ) => {
   const outsideClick = useCallback(
-    (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
+    (e: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
         onClickOutside();
       }
     },

@@ -6,7 +6,7 @@ import Sphere from './sphere.component';
 
 const render = (overProps: Partial<ComponentProps<typeof Sphere>> = {}) => {
   const props = {
-    draw: (jest.fn() as unknown) as GeoPath<any, GeoPermissibleObjects>,
+    draw: jest.fn() as unknown as GeoPath<any, GeoPermissibleObjects>,
     background: 'black',
     ...overProps,
   };

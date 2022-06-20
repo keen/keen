@@ -39,10 +39,12 @@ const createThemeKnobs = () => ({
   hoverBar: hoverBarKnobs('Hover bar'),
 });
 
-const createLabelFormatter = (dateFormat = '%D %b') => (date: Date) => {
-  const format = timeFormat(dateFormat);
-  return format(date);
-};
+const createLabelFormatter =
+  (dateFormat = '%D %b') =>
+  (date: Date) => {
+    const format = timeFormat(dateFormat);
+    return format(date);
+  };
 
 export const widget = () => {
   const formatKnob = text('Date label format', '%d %b', 'Chart');

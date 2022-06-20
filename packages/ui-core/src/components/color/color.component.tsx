@@ -38,9 +38,8 @@ const Color: FC<Props> = ({
 
   useOnClickOutside(pickerRef, onClickOutsideColorPicker);
   useOnParentScroll(scrollableContainerRef, () => setColorPickerVisible(false));
-  const { setPosition, contentPosition } = useDynamicContentPosition(
-    dropdownRef
-  );
+  const { setPosition, contentPosition } =
+    useDynamicContentPosition(dropdownRef);
 
   const changeColor = (color: string) => {
     setColor(color);

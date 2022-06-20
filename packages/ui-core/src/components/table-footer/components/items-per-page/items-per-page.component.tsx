@@ -42,9 +42,8 @@ const ItemsPerPage: FC<Props> = ({ value = Options[0], onChange }) => {
   const [selectionIndex, setIndex] = useState<number>(null);
 
   useOnClickOutside(containerRef, () => setOpen(false));
-  const { setPosition, contentPosition } = useDynamicContentPosition(
-    containerRef
-  );
+  const { setPosition, contentPosition } =
+    useDynamicContentPosition(containerRef);
 
   const { x, y, width } = contentPosition;
 

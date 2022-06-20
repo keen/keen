@@ -6,17 +6,17 @@ import Graticule from './graticule.component';
 
 const render = (overProps: Partial<ComponentProps<typeof Graticule>> = {}) => {
   const props = {
-    draw: (jest
+    draw: jest
       .fn()
-      .mockImplementation((coordinates) => coordinates) as unknown) as GeoPath<
+      .mockImplementation((coordinates) => coordinates) as unknown as GeoPath<
       any,
       GeoPermissibleObjects
     >,
-    graticule: (jest
+    graticule: jest
       .fn()
       .mockImplementation(
         () => '@graticule-value'
-      ) as unknown) as GeoGraticuleGenerator,
+      ) as unknown as GeoGraticuleGenerator,
     stroke: 'black',
     ...overProps,
   };

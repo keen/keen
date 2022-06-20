@@ -133,7 +133,8 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
               formattedValue = arr.join('');
             }
 
-            const regex = /(^\d{0,4}$)|(^\d{0,4}-$)|(^\d{0,4}-\d{1,2}$)|(^\d{0,4}-\d{1,2}-$)|(^\d{0,4}-\d{1,2}-\d{1,2}$)/g;
+            const regex =
+              /(^\d{0,4}$)|(^\d{0,4}-$)|(^\d{0,4}-\d{1,2}$)|(^\d{0,4}-\d{1,2}-$)|(^\d{0,4}-\d{1,2}-\d{1,2}$)/g;
             if (regex.test(formattedValue)) {
               setInputDate(formattedValue);
             }
@@ -226,7 +227,8 @@ const ReactCalendar: FC<Props> = ({ date, id, onChange }) => {
               formattedValue = arr.join('');
             }
 
-            const regex = /(^\d{0,2}$)|(^\d{0,2}:$)|(^\d{0,2}:\d{0,2}$)|(^\d{2}:\d{2}$)/g;
+            const regex =
+              /(^\d{0,2}$)|(^\d{0,2}:$)|(^\d{0,2}:\d{0,2}$)|(^\d{2}:\d{2}$)/g;
             if (regex.test(formattedValue)) {
               setInputTime(formattedValue);
             }

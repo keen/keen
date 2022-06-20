@@ -105,11 +105,8 @@ export const TableChart = ({
   const [columnsWidth, setColumnsWidth] = useState<(number | 'auto')[]>([]);
   const [selectedRowsCopied, setSelectedRowsCopied] = useState(false);
 
-  const {
-    setSelectionOffset,
-    selectionOffset,
-    getSelectionOffsetRange,
-  } = useRowsGroupSelection({ enabled: rowsSelection });
+  const { setSelectionOffset, selectionOffset, getSelectionOffsetRange } =
+    useRowsGroupSelection({ enabled: rowsSelection });
 
   const [tooltip, setTooltip] = useState<TooltipState>({
     selectors: null,
@@ -165,10 +162,10 @@ export const TableChart = ({
     [sort, formatValue]
   );
 
-  const columns = React.useMemo(() => generateHeader(formattedData[0]), [
-    columnsOrder,
-    tableData,
-  ]);
+  const columns = React.useMemo(
+    () => generateHeader(formattedData[0]),
+    [columnsOrder, tableData]
+  );
 
   const indexesOfSelectedColumns = selectedColumns.map(({ index }) => index);
   const activeColumns = new Set(
@@ -225,11 +222,8 @@ export const TableChart = ({
     }
   }, [sortBy]);
 
-  const {
-    overflowRight,
-    overflowLeft,
-    scrollHandler,
-  } = useScrollOverflowHandler(containerRef);
+  const { overflowRight, overflowLeft, scrollHandler } =
+    useScrollOverflowHandler(containerRef);
   const tooltipHide = useRef(null);
 
   const onRowSelect = (
@@ -309,7 +303,7 @@ export const TableChart = ({
     }
   }, [rowsSelection, columnsWidth]);
 
-  const selectedRowsIds = (Object.keys(selectedRowIds) as unknown) as number[];
+  const selectedRowsIds = Object.keys(selectedRowIds) as unknown as number[];
 
   const copySelectedRows = () => {
     const selectedRows = selectedRowsIds.map(

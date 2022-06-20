@@ -32,12 +32,8 @@ export const useRenderMode = (
   useEffect(() => {
     const contentOverflow = hasContentOverflow(layout, element.current);
 
-    const {
-      offsetHeight,
-      offsetWidth,
-      scrollHeight,
-      scrollWidth,
-    } = element.current;
+    const { offsetHeight, offsetWidth, scrollHeight, scrollWidth } =
+      element.current;
 
     if (contentOverflow && layout === 'horizontal') {
       switch (mode) {

@@ -90,12 +90,8 @@ export const HeatmapChart: FC<Props> = ({
   tooltipSettings = {},
   onBlockSizeChange,
 }) => {
-  const {
-    layoutMargins,
-    layoutReady,
-    setLayoutReady,
-    setLayoutMargins,
-  } = useDynamicChartLayout(useDynamicLayout, margins);
+  const { layoutMargins, layoutReady, setLayoutReady, setLayoutMargins } =
+    useDynamicChartLayout(useDynamicLayout, margins);
 
   const {
     blocks,

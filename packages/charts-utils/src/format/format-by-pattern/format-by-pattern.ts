@@ -17,11 +17,8 @@ const formatByPattern = (pattern: string, value: string | number | Date) => {
     const [variableType, ...additionalParameters] = variable[1].split(';');
     let parsedValue = value;
     if (variableType === 'number' && !(value instanceof Date)) {
-      const [
-        formatString,
-        operationType,
-        operationValue,
-      ] = additionalParameters;
+      const [formatString, operationType, operationValue] =
+        additionalParameters;
       const parsedOperationType =
         operationType &&
         (operationType.trim().toLocaleLowerCase() as MathOperations);

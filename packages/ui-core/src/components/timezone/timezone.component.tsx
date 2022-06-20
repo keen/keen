@@ -60,9 +60,8 @@ const Timezone: FC<Props> = ({
 }) => {
   const [isOpen, setOpen] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState('');
-  const [dropdownPosition, setDropdownPosition] = useState<DropdownPosition>(
-    'bottom'
-  );
+  const [dropdownPosition, setDropdownPosition] =
+    useState<DropdownPosition>('bottom');
 
   const listRef = useRef(null);
   const customDropdownRef = useRef(null);

@@ -6,10 +6,8 @@ export const setChartSettings = ({
   query,
   componentSettings,
 }: VisualizationOptions): Partial<MetricChartSettings> => {
-  const {
-    type,
-    usePercentDifference,
-  } = componentSettings as MetricChartSettings;
+  const { type, usePercentDifference } =
+    componentSettings as MetricChartSettings;
 
   const { interval } = query;
 

@@ -12,36 +12,10 @@ module.exports = {
   addons: [
     '@storybook/addon-knobs',
     '@storybook/addon-storysource',
-    '@storybook/addon-notes',
     '@storybook/addon-actions',
     'storybook-addon-performance',
     '@storybook/addon-docs',
   ],
-  typescript: {
-    /** Start type checking in separate process */
-    check: process.env.NODE_ENV === 'development',
-    checkOptions: {
-      eslint: false,
-      async: true,
-      checkSyntacticErrors: true,
-      tsconfig: path.resolve(__dirname, '../tsconfig.checker.json'),
-    },
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => {
-        if (prop.parent) {
-          return !/node_modules/.test(prop.parent.fileName);
-        }
-        if (prop.name) {
-          if (prop.name === 'ref' || prop.name === 'theme' || prop.name === 'as' || prop.name === 'forwardedAs') {
-            return false;
-          }
-        }
-        return true;
-      },
-    },
-  },
   webpackFinal: async (config) => {
     /** Omit HarmonyExportImportedSpecifierDependency errors */
     config.stats = {
@@ -56,7 +30,6 @@ module.exports = {
       /** Show type check notifications */
       config.plugins.push(new ForkTsCheckerNotifierWebpackPlugin());
     }
-
     config.resolve.plugins = [
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, 'tsconfig.json'),
@@ -64,5 +37,9 @@ module.exports = {
     ];
 
     return config;
-  }
+  },
+  babel: async (options) => ({
+    ...options,
+    plugins: [['@babel/plugin-proposal-class-properties', { loose: true }]],
+  }),
 };

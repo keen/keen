@@ -34,15 +34,12 @@ export const TableChartWidget: FC<Props> = ({
   inEditMode = false,
   ...props
 }) => {
-  const [chartEvents, setChartEvents] = useState<ChartEvents<TableEvents>>(
-    null
-  );
+  const [chartEvents, setChartEvents] =
+    useState<ChartEvents<TableEvents>>(null);
 
   useEffect(() => {
     if (inEditMode && eventBus && chartEvents === null) {
-      setChartEvents(
-        new ChartEvents<TableEvents>({ pubsub: eventBus })
-      );
+      setChartEvents(new ChartEvents<TableEvents>({ pubsub: eventBus }));
     } else {
       setChartEvents(null);
     }

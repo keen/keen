@@ -50,9 +50,10 @@ export const Body = ({
   onCellMouseEnter,
   onCellMouseLeave,
 }: Props) => {
-  const rgbaBackground = useMemo(() => rgba(backgroundColor, 0.3), [
-    backgroundColor,
-  ]);
+  const rgbaBackground = useMemo(
+    () => rgba(backgroundColor, 0.3),
+    [backgroundColor]
+  );
 
   return (
     <tbody {...getTableBodyProps()}>
